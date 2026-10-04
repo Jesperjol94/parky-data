@@ -44,6 +44,26 @@ for (const { coords, recs } of groups.values()) {
   segments.push(seg);
 }
 
+// Curbs without a street name in the city data: borrow the name (and district) of the nearest named curb within ~30 m.
+{
+  const named = segments.filter((s) => s.n);
+  const mid = (s) => s.g[Math.floor(s.g.length / 2)];
+  const cell = (p) => `${Math.floor(p[0] / 0.001)}:${Math.floor(p[1] / 0.0005)}`;
+  const grid = new Map();
+  for (const s of named) { const k = cell(mid(s)); if (!grid.has(k)) grid.set(k, []); grid.get(k).push(s); }
+  let filled = 0;
+  for (const s of segments) {
+    if (s.n) continue;
+    const m = mid(s); let best = null, bd = Infinity;
+    const [cx, cy] = cell(m).split(':').map(Number);
+    for (let dx = -1; dx <= 1; dx++) for (let dy = -1; dy <= 1; dy++) for (const o of grid.get(`${cx + dx}:${cy + dy}`) || []) {
+      for (const q of o.g) { const d = Math.hypot((q[0] - m[0]) * 56000, (q[1] - m[1]) * 111000); if (d < bd) { bd = d; best = o; } }
+    }
+    if (best && bd < 30) { s.n = best.n; if (!s.d && best.d) s.d = best.d; filled++; }
+  }
+  console.log('names filled from neighbours:', filled, 'still unnamed:', segments.filter((s) => !s.n).length);
+}
+
 fs.mkdirSync(outDir, { recursive: true });
 const junctions = osm ? osm.junctions.map((p) => p.map((v) => Math.round(v * 1e5) / 1e5)) : [];
 const crossings = osm ? osm.crossings.map((p) => p.map((v) => Math.round(v * 1e5) / 1e5)) : [];

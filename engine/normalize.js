@@ -68,7 +68,7 @@ export function isValidAt(p, t) {
 // records: properties of all valid records sharing one geometry
 export function normalizeSegment(records) {
   const first = records[0];
-  const seg = { n: first.STREET_NAME || null, d: first.CITY_DISTRICT || null, c: first.CITATION || null };
+  const seg = { n: records.find((p) => p.STREET_NAME)?.STREET_NAME || null, d: records.find((p) => p.CITY_DISTRICT)?.CITY_DISTRICT || null, c: first.CITATION || null };
   const others = records.filter((p) => !CAR.has(p.VEHICLE));
   const cars = records.filter((p) => CAR.has(p.VEHICLE));
   let uncertain = false;
@@ -131,7 +131,9 @@ export function normalizeSegment(records) {
         else uncertain = true; // e.g. "onsdag 600-1600": meaning not confirmed
       }
       const max = maxMinutes(p);
-      if (max) limits.push(clean({ dt, a: s ?? 0, b: e ?? 1440, max, m, p: par }));
+      // On a weekday (cleaning) record START/END are the ban's edges, not the limit's hours; those hours are not in the
+      // data, so the limit applies all day on that day type (stricter, never more permissive – QA: Abrahamsbergsvägen).
+      if (max) limits.push(w ? clean({ dt, a: 0, b: 1440, max, m, p: par }) : clean({ dt, a: s ?? 0, b: e ?? 1440, max, m, p: par }));
     }
     // Servicetid text as a safety net: if the records carry no cleaning window, or the segment is a
     // time-regulated ban (records and text sometimes disagree there), also apply the text's window.
