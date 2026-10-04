@@ -22,7 +22,7 @@ jobs:
         with:
           node-version: 22
       - name: Fetch regulation texts
-        run: node pipeline/fetch-rdt.mjs segments.json ${{ github.event.inputs.limit }} 2>&1 | tee rdt/log.txt
+        run: mkdir -p rdt && set -o pipefail && node pipeline/fetch-rdt.mjs segments.json ${{ github.event.inputs.limit }} 2>&1 | tee rdt/log.txt
       - name: Commit cache
         if: always()
         run: |
