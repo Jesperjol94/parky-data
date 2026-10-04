@@ -7,7 +7,8 @@ const d1 = n / 2 - 2 * n * n / 3 + 37 * n ** 3 / 96 - n ** 4 / 360;
 const d2 = n * n / 48 + n ** 3 / 15 - 437 * n ** 4 / 1440;
 const d3 = 17 * n ** 3 / 480 - 37 * n ** 4 / 840;
 const d4 = 4397 * n ** 4 / 161280;
-const As = e2, Bs = (5 * e2 * e2 - e2 ** 3) / 6, Cs = (104 * e2 ** 3 - 45 * e2 ** 4) / 120, Ds = 1237 * e2 ** 4 / 1260;
+// Inverse (conformal -> geodetic latitude) coefficients.
+const As = e2 + e2 ** 2 + e2 ** 3 + e2 ** 4, Bs = -(7 * e2 ** 2 + 17 * e2 ** 3 + 30 * e2 ** 4) / 6, Cs = (224 * e2 ** 3 + 889 * e2 ** 4) / 120, Ds = -(4279 * e2 ** 4) / 1260;
 const rad = Math.PI / 180;
 
 export function toWGS84(x /* easting */, y /* northing */) {
