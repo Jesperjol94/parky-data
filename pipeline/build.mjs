@@ -5,6 +5,7 @@
 import fs from 'node:fs';
 import zlib from 'node:zlib';
 import path from 'node:path';
+import crypto from 'node:crypto';
 import { normalizeSegment, isValidAt } from '../engine/normalize.js';
 import { toWGS84 } from './sweref.mjs';
 import { index, zonePieces, R_JUNCTION, R_CROSSING } from './zones.mjs';
@@ -42,7 +43,10 @@ for (const { coords, recs } of groups.values()) {
 fs.mkdirSync(outDir, { recursive: true });
 const junctions = osm ? osm.junctions.map((p) => p.map((v) => Math.round(v * 1e5) / 1e5)) : [];
 const crossings = osm ? osm.crossings.map((p) => p.map((v) => Math.round(v * 1e5) / 1e5)) : [];
-const body = JSON.stringify({ v: 1, built: new Date(now).toISOString(), attribution: osm ? 'Stockholms stad · © OpenStreetMap' : 'Stockholms stad', segments, junctions, crossings });
+const content = { attribution: osm ? 'Stockholms stad · © OpenStreetMap' : 'Stockholms stad', segments, junctions, crossings };
+// hash of the rules themselves (not the build time): the app downloads segments.json only when this changes
+const hash = crypto.createHash('sha1').update(JSON.stringify(content)).digest('hex').slice(0, 16);
+const body = JSON.stringify({ v: 1, built: new Date(now).toISOString(), hash, ...content });
 fs.writeFileSync(path.join(outDir, 'segments.json'), body);
 fs.writeFileSync(path.join(outDir, 'segments.json.gz'), zlib.gzipSync(body, { level: 9 }));
 const stats = {
@@ -54,6 +58,7 @@ const stats = {
   withTimeLimit: segments.filter((s) => s.l || (s.o || []).some((w) => w.max)).length,
   withZones: segments.filter((s) => s.x).length,
   junctions: junctions.length, crossings: crossings.length,
+  hash,
   bytes: body.length,
 };
 fs.writeFileSync(path.join(outDir, 'meta.json'), JSON.stringify(stats, null, 2));
