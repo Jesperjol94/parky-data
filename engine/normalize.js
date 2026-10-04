@@ -11,6 +11,7 @@
 //    is a public holiday does not happen if no record covers 'helgdag').
 //  * Records for other vehicles (rörelsehindrade, motorcykel, buss …) mean the spot is reserved.
 //    'fordon' records on the same curb are then the only times an ordinary car may park there.
+//  * Numeric VF_PLATS_TYP ('7' loading, …) are purpose spots: the record is when the purpose applies.
 //  * MAX_DAYS/HOURS/MINUTES on a 'fordon' record is a time limit during that record's day type and hours.
 // Anything we cannot interpret with confidence sets `u` (uncertain): the app shows it grey, never green.
 import { taxaOf } from './taxa.js';
@@ -81,6 +82,24 @@ export function normalizeSegment(records) {
   if (types.has('P Avgift, boende')) seg.r = 1;
   else if (types.has('P-avgift endast besök')) seg.r = 0;
   if (first.PARKING_DISTRICT) seg.z = first.PARKING_DISTRICT;
+
+  // Purpose spots (ändamålsplats, VF_PLATS_TYP is a number, '7' = loading). The records give the hours
+  // when the spot is reserved for its purpose; what applies at other times is only on the sign/regulation
+  // (often a fee, sometimes a ban). So: reserved during those hours, uncertain (grey) the rest of the time.
+  if (records.length && records.every((p) => /^\d+$/.test(p.VF_PLATS_TYP || ''))) {
+    seg.v = records.some((p) => p.VF_PLATS_TYP === '7') ? 'lastning' : 'särskilt ändamål';
+    const k = [];
+    let ok = true;
+    for (const p of records) {
+      const dt = dayTypes(p);
+      const a = hhmm(p.START_TIME), b = hhmm(p.END_TIME);
+      const w = p.START_WEEKDAY ? WEEKDAYS[p.START_WEEKDAY] : null;
+      if (dt === 'bad' || a == null || b == null || b <= a || (p.START_WEEKDAY && !w) || (p.END_WEEKDAY && p.END_WEEKDAY !== p.START_WEEKDAY)) { ok = false; break; }
+      k.push(clean({ w, dt, a, b, m: season(p), p: parity(p) }));
+    }
+    if (ok && k.length) seg.k = mergeDayTypes(k); // without k the spot counts as reserved at all times (safe)
+    return clean(seg);
+  }
 
   if (others.length) {
     // Reserved for another vehicle type. Cars only during 'fordon' records.
