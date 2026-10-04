@@ -66,7 +66,24 @@ export function zonePieces(line, grids) {
     if (last && iv[0] <= last[1] + 0.5) { last[1] = Math.max(last[1], iv[1]); if (iv[2] === 'j') last[2] = 'j'; }
     else merged.push([...iv]);
   }
-  return merged.filter(([s0, s1]) => s1 - s0 >= 1).map(([s0, s1, k]) => ({ g: cut(P, cum, s0, s1).map(ll).map(r5), k }));
+  return merged.filter(([s0, s1]) => s1 - s0 >= 1).map(([s0, s1, k]) => ({ g: cut(P, cum, s0, s1).map(ll).map(r5), k, s0, s1 }));
+}
+
+// The parts of a polyline outside every zone (what the map draws), given zonePieces' output for that line.
+// Parts shorter than 2 m are dropped.
+export function visibleParts(line, pieces) {
+  const P = line.map(xy);
+  const cum = [0];
+  for (let i = 1; i < P.length; i++) cum.push(cum[i - 1] + Math.hypot(P[i][0] - P[i - 1][0], P[i][1] - P[i - 1][1]));
+  const total = cum[cum.length - 1];
+  const out = [];
+  let from = 0;
+  for (const z of [...pieces].sort((a, b) => a.s0 - b.s0)) {
+    if (z.s0 - from >= 2) out.push(cut(P, cum, from, z.s0).map(ll).map(r5));
+    from = Math.max(from, z.s1);
+  }
+  if (total - from >= 2) out.push(cut(P, cum, from, total).map(ll).map(r5));
+  return out;
 }
 
 const r5 = ([a, b]) => [Math.round(a * 1e5) / 1e5, Math.round(b * 1e5) / 1e5];

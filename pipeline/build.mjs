@@ -8,7 +8,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { normalizeSegment, isValidAt } from '../engine/normalize.js';
 import { toWGS84 } from './sweref.mjs';
-import { index, zonePieces, R_JUNCTION, R_CROSSING } from './zones.mjs';
+import { index, zonePieces, visibleParts, R_JUNCTION, R_CROSSING } from './zones.mjs';
 
 const [src, outDir, osmSrc] = process.argv.slice(2);
 const osm = osmSrc && fs.existsSync(osmSrc) ? JSON.parse(zlib.gunzipSync(fs.readFileSync(osmSrc))) : null;
@@ -35,7 +35,11 @@ for (const { coords, recs } of groups.values()) {
   seg.g = coords.map(([x, y]) => toWGS84(x, y).map(r5)).filter((pt, j, arr) => j === 0 || pt[0] !== arr[j - 1][0] || pt[1] !== arr[j - 1][1]);
   if (grids.length && !seg.v) {
     const z = zonePieces(seg.g, grids);
-    if (z.length) seg.x = z;
+    if (z.length) {
+      // p: the drawn parts of the curb, trimmed 10 m from junctions and before pedestrian crossings.
+      seg.p = visibleParts(seg.g, z);
+      seg.x = z.map(({ g, k }) => ({ g, k }));
+    }
   }
   segments.push(seg);
 }
