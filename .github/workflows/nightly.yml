@@ -1,0 +1,51 @@
+# Every night: fetch Stockholm's parking rules, rebuild segments.json for the Parky app, publish if changed.
+# OSM junctions/crossings (for the 10-metre rule) are refreshed weekly (Mondays) or when missing.
+# If anything fails, the previous segments.json stays published; the app keeps working with it.
+name: Nightly data
+
+on:
+  schedule:
+    - cron: '17 1 * * *'   # 03:17 Stockholm summer time / 02:17 winter time
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: nightly
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch city rules
+        env:
+          STOCKHOLM_API_KEY: ${{ secrets.STOCKHOLM_API_KEY }}
+        run: node pipeline/fetch-city.mjs
+      - name: Refresh OSM junctions (weekly)
+        timeout-minutes: 15
+        run: |
+          if [ ! -f osm/osm.json.gz ] || [ "$(date -u +%u)" = "1" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            node pipeline/fetch-osm.mjs && mkdir -p osm && cp raw/osm.json.gz osm/osm.json.gz || echo "OSM refresh failed, keeping the previous file"
+          fi
+      - name: Build
+        run: node pipeline/build.mjs raw/ptillaten.json.gz out osm/osm.json.gz
+      - name: Publish if changed
+        run: |
+          node -e "
+            const fs=require('fs');
+            const strip=(p)=>{try{const j=JSON.parse(fs.readFileSync(p));delete j.built;return JSON.stringify(j)}catch{return ''}};
+            process.exit(strip('segments.json')===strip('out/segments.json')?1:0)" && changed=1 || changed=0
+          cp out/meta.json meta.json
+          if [ "$changed" = "1" ]; then cp out/segments.json segments.json; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add segments.json meta.json osm 2>/dev/null || true
+          git commit -m "Data $(date -u +%F)" || echo "nothing to commit"
+          git push
