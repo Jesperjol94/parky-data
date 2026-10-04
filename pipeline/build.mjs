@@ -7,6 +7,7 @@ import zlib from 'node:zlib';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import { normalizeSegment, isValidAt } from '../engine/normalize.js';
+import { applyRegulation } from '../engine/regulation.js';
 import { toWGS84 } from './sweref.mjs';
 import { index, zonePieces, visibleParts, R_JUNCTION, R_CROSSING } from './zones.mjs';
 
@@ -27,10 +28,23 @@ for (const f of raw.features) {
   groups.get(k).recs.push(f.properties);
 }
 
+// Official regulation texts (pipeline/fetch-rdt.mjs), when available: complete the data from the text.
+const rdt = new Map();
+if (fs.existsSync('rdt/rdt.jsonl.gz')) for (const l of zlib.gunzipSync(fs.readFileSync('rdt/rdt.jsonl.gz')).toString().split('\n')) if (l) { const r = JSON.parse(l); rdt.set(r.c, r); }
+const today = new Date(now).toISOString().slice(0, 10);
+const rq = { withText: 0, expired: 0, completed: 0, unread: 0 };
 const segments = [];
 let i = 0;
 for (const { coords, recs } of groups.values()) {
-  const seg = normalizeSegment(recs);
+  let seg = normalizeSegment(recs);
+  const rec = rdt.get(seg.c);
+  if (rec && !rec.err) {
+    rq.withText++;
+    seg = applyRegulation(seg, rec, today);
+    if (!seg) { rq.expired++; continue; }
+    if (seg.rx) rq.completed++;
+    if (seg.ru) rq.unread++;
+  }
   seg.i = i++;
   seg.g = coords.map(([x, y]) => toWGS84(x, y).map(r5)).filter((pt, j, arr) => j === 0 || pt[0] !== arr[j - 1][0] || pt[1] !== arr[j - 1][1]);
   if (grids.length && !seg.v) {
@@ -76,6 +90,7 @@ fs.writeFileSync(path.join(outDir, 'segments.json.gz'), zlib.gzipSync(body, { le
 const stats = {
   built: new Date(now).toISOString(), source: 'Stockholms stad, LTF-Tolken (öppna data)', records: raw.features.length, skipped,
   segments: segments.length,
+  regulationTexts: rq,
   uncertain: segments.filter((s) => s.u).length,
   reserved: segments.filter((s) => s.v).length,
   withCleaning: segments.filter((s) => s.s).length,
