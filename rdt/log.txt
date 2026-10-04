@@ -1,9 +1,32 @@
-citations 9649, cached 30, to fetch 30
-done 30, errors 0
+citations 9649, cached 60, to fetch 60
+done 60, errors 0
 [
  {
   "c": "0180 2025-01843",
+  "kind": "pdf",
   "rubrik": "Stockholms kommuns lokala trafikföreskrifter om parkering på Astrakangatan;",
   "from": "2025-05-16",
   "to": null,
-  "body": "%PDF-1.7\n%����\n1 0 obj\n >\nendobj\n2 0 obj\n >\nendobj\n3 0 obj\n >\nendobj\n4 0 obj\n >/Intent/Perceptual/Subtype/Image/Width 1591/ColorSpace[/CalRGB >]/Filter/FlateDecode/BitsPerComponent 8/Length 386851/Height 828>>\nstream\nx^��y�c�]ߏ�����\u0014!\u000f\u0006���1&E� .R [�@p\u0012\f� ��\u0012\u0017\u0014.(�\u0013( .\u0017)��\u0012\u0007\u0007l?��K������K��Hj�7������־�_���g2�̨%��ju�}ש��G�]>糼?�{����B���=\u001e������\u001b.�cݦ[�5ivo�6�)Ԗ\\�&ۂ��\u0014�Wf�v�v����������S\u0015/�ɓ'\u000b\u000b\u000b�����f� ��\u000e�@�b�������:��o�wvvvww�F~������i�q\u001e�9#�\u001194�9>>������������������������)�ɔu&lrz���3T�\u0005,\bm\u0019\u001c\u001cD�f�Y�*�������X,�J��\u0015�D\"��z����~���N��\u0007\n�S���^�\u0017\u001b�\u00019�B�p8�?\u0005]��������v��F����\u001d�V���\"�gIw*�|��;N�3w�\\������\u0018&�#>8\u000f��\u0001��1�H$�L&\u0012��`��7:��^9\u0001���\\�.[�}��~y��\\�f�FV�W�f��B�⩿Ӵ�`wY�w�#�����L}}=�0\u0004i\u0017\u001f\\kp�����ۯ|�+b[\u0001�I���:::jkk����\u001b\u0004t�L�\u001e�a\u0011�\u0018���9\u000e�aF*^\u0003�)�����u�V[[�V�u8\u001c9�\u0015��-X�V~���m�������}\u001c���&M����Ԡ\u0012�e��\u0000\f+�$�\u001d�\u0013����\u0010��\u0005�i�t:\u0018ouu���\u0004ZA\u0006$}�dP zH�$��7�M��\\\u000b�[��d\u0001����Ν@�\u0016>���6?��j|\u000fg�B��\u0014k\u000b�F�m��/XEK\u0003�!\u001egmm��\u0006o\"�PE\u0006\u0012����TV��u b��\u0011 D�_�WVV�!��`0��s��,��w�y'��$�O\\�F�\u0019\u001b\u001b\u001b\u001e\u001e\u001e\"�\u001e\u0018���'A#��D� \u0001����v{�砢 �\u001e���\"������uѫ x[�wS�Re5\u00042�{�䞲�7�^��^\u0006���DH\"u'�\u0015��\u001a7n����?�PIN�m0\r�www7\u0004\u0000�'{i\u00037�t: m\u0004\b�\u0004|�#J�Hū�h�\u0000I���ꚛ��\u0003�����\u001c�~�X��*����\u0005\u001b���+Ʒ�\b\u001b��p8\bL�'T\u000e�(�3,1\u0018Y�\u0003��h4\"\u0019�{�A��~��\u001d\u001d\u001d�%�yU\r�j\u0014���t:�\u0006��\u000f�@��\\q�[��##,\"�ݻw�z���\u001b�տ�YqNh\u001c��;�����&WӺ���\u0006\\\u0001�м�\u0003��7��� :�,$\u000bKKKxX(��d\u0012�z\u001d��x!�������>����������{\u000fW�v�\u000b�����ݿ����x3\u00188���۷����\u000f\u001fBq����;��B���\" \u0012AV\u0018���J�/z�������QqU*~rzz\n�������V�J�կ~����ĆbX[[C��V�\"\u0016��� �\u000f[[[GG��t�8aىj x\u00058\u0010�\u0004�������z��\u0002�R!\u0002b\u001e�\u001c�\u0000I\u0015jρ\u001dߪc~�Ѧپ�\u0015wզ6���o��d��}���7\"�����G�233U.�2�\u0006�ljjJ��C\u001a^K�\u0001\u001f!C��;\"헦2uwwWVVvuu���\u0014D����?�y��f0p�\u0019Z�����8���uNC�[��v-�V\u0010�\u0018�\n��P2�\u0016\f\u0006\u000f\u000f\u000f��h\u00115&~\u0012��і������D\"�\\�\n�������P\f���� 2\u0004� \u0012��� ��vc1Pk�\u000el:�:ݶ��|��\u0005\\.\u0017�������Hʦ��:�X�?��7o�\u0014�r�����9 \u000f\u0003$��\rt:\u001d\f�\\R���Ikk+�¯����%�+\u0004l��k4\u001a�\"8:(ֵ�g�u���8`&h���V�)����`)�D�\u0014�P\u0005� ]5\u0014V����Ƙ��k�]�~\u0015;;�6��蘙�y��S��R�2m����C�ct˹��#�l��\u0013���5�@+lQE\u0006\b\u0004� \u001c��\u0002�\u0016\"{\u0005�k\u0002\u0012�\u0011I�M���l�)K�o�&���ÿ�\u0017�\u0002\u000e*6�\f8���NLL�r�n\u0015Y��������\u0010�\u0019��գ�����K%\u0001}&���9��*;\u0005��|����P\f$\u0000\u0018���(\u001c(\u0014\n�� ���|�y�����0vB\u001b�j�����\bCCC\u001f��G\u000b�)U(\u0010&���@Nr�9+\u001a�ٰ\u0017�\f��JTW7�,\u0001����ճ���}A\u0011\u0019#�\u00051\u001a\f\u0006�Y{{;j\u000fI;�\u0007J�pVVV�rSS\u0013?$:C)\u0019�\u001c���| �\u000f�ÈwvvNNN�\u0015�`�8��+�\u001e�^__Ͽx\n\u001f��CN�*�\u0014�X��|�ªT�\u0004����8�Cd�7? _�ǽ�~��W\u001f�S�rM�}o�ѳ�x��S�o��v�=:�nzz�\u001cOآ�\f$\u0016��|\u001e�{�k㗡\u0017p�Ǐ\u001f����\u0007���˿��,6�\f�ǳ���IB%�%�*`d������� �7�D|�0����iP�\u0015�`�d��(����X��\rN�o���}rr\"��\u0001C\u0000\u0007\"K�\u0003����� ���&��\u0001�\u000ej!� \u0013]�a�H\u0005��L\u001b棖�r\u0000� \"\u0004��5\u001a�^�\u0017\u0001\nQf �\b���(=������d}�eH�\u000bu\u001c\u0019\u0019���lmm��� \u001c0ܲW$�\u0005G���;�\"\u000b�\u0005�L��:::\u0018A8��;�~��\u0002\u0019������dee��� W��\u0016��\r)�D\u0014�$D\u0018�\u0015��\u0017V��\u0007���\u0010S.�\bC���v�֗\u001c�\u001a��0�6���4�w\u0016\u001c��\u000em`��g�.\u00058V�\"��pH��LQ�\u0004�(�
+  "body": "Publicerat på webbplatsen Svensk trafikföreskriftssamling den 14 maj 2025\n\n\n\n\n                                                                  0180 2025:01843\n\n\nStockholms kommuns lokala trafikföreskrifter om parkering på\nAstrakangatan;\n\n\nbeslutade den 14 maj 2025.\n\n\nStockholms kommun föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och\n3 § första stycket trafikförordningen (1998:1276) följande.\n\n\nPå Astrakangatans östra sida mellan Enspännargatan och Kuskgränd på de 6 meter\nsom anges på kartan får endast sådant fordon parkeras som används för befordran av\nrörelsehindrad med parkeringstillstånd enligt 13 kap. 8 § trafikförordningen\n(1998:1276) eller utländskt parkeringstillstånd som ger samma rätt att parkera.\n\n\n\n\nDenna författning träder i kraft den 16 maj 2025.\n\n\nPå trafiknämndens vägnar.\nJonas Wennström\n                                                                 Tobias Willebrand",
+  "at": "2026-10-04"
+ },
+ {
+  "c": "0180 2022-04241",
+  "kind": "pdf",
+  "rubrik": "Stockholms kommuns lokala trafikföreskrifter om parkering på Atlasgatan;",
+  "from": "2022-10-28",
+  "to": null,
+  "body": "Publicerat på webbplatsen Svensk trafikföreskriftssamling den 26 oktober 2022\n\n\n\n\n                                                                  0180 2022:04241\n\n\nStockholms kommuns lokala trafikföreskrifter om parkering på\nAtlasgatan;\n\n\nbeslutade den 26 oktober 2022.\n\n\nStockholms kommun föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och\n3 § första stycket trafikförordningen (1998:1276) följande.\n\n\nPå Atlasgatans norra sida mellan Völundsgatan och Vulcanusgatan på de 4 meter som\nanges på kartan får endast cykel och moped klass II parkeras.\n\n\n\n\nDenna författning träder i kraft den 28 oktober 2022.\n\n\nPå trafiknämndens vägnar.\nDesireé Eklöf\n                                                                    Marie Carlsson",
+  "at": "2026-10-04"
+ },
+ {
+  "c": "0180 2022-03301",
+  "kind": "pdf",
+  "rubrik": "Stockholms kommuns lokala trafikföreskrifter om parkering på Atterbomsvägen;",
+  "from": "2022-11-04",
+  "to": null,
+  "body": "Publicerat på webbplatsen Svensk trafikföreskriftssamling den 2 november 2022\n\n\n\n\n                                                                  0180 2022:03301\n\n\nStockholms kommuns lokala trafikföreskrifter om parkering på\nAtterbomsvägen;\n\n\nbeslutade den 2 november 2022.\n\n\nStockholms kommun föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och\n3 § första stycket trafikförordningen (1998:1276) följande.\n\n\nPå Atterbomsvägens norra sida på de 5 meter som anges på kartan får endast cykel\noch moped klass II parkeras.\n\n\n\n\nDenna författning träder i kraft den 4 november 2022.\n\n\nPå trafiknämndens vägnar.\nDesireé Eklöf\n                                                                    Marie Carlsson",
+  "at": "2026-10-04"
+ }
+]
+kinds { pdf: 59, none: 1 }
