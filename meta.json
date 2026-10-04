@@ -1,5 +1,5 @@
 {
-  "built": "2026-10-04T02:30:47.620Z",
+  "built": "2026-10-04T04:38:14.549Z",
   "source": "Stockholms stad, LTF-Tolken (öppna data)",
   "records": 18939,
   "skipped": 132,
@@ -8,9 +8,9 @@
   "reserved": 2970,
   "withCleaning": 7615,
   "withTimeLimit": 276,
-  "withZones": 1596,
-  "junctions": 22223,
-  "crossings": 10727,
-  "hash": "9cadfff84c323a5d",
-  "bytes": 3388516
+  "withZones": 4085,
+  "junctions": 22222,
+  "crossings": 10726,
+  "hash": "09ff99f2ea60d6c0",
+  "bytes": 3616090
 }
