@@ -63,11 +63,11 @@ async function worker() {
     const c = todo[i++];
     try { cache.set(c, await one(c)); } catch (e) { errs++; cache.set(c, { c, err: String(e.message || e), at: new Date().toISOString().slice(0, 10) }); }
     if (++done % 200 === 0) { console.log(`${done}/${todo.length} (errors ${errs})`); save(); }
-    await new Promise((res) => setTimeout(res, 150));
+    await new Promise((res) => setTimeout(res, 300));
   }
 }
 function save() { fs.mkdirSync('rdt', { recursive: true }); fs.writeFileSync(CACHE, zlib.gzipSync([...cache.values()].map((r) => JSON.stringify(r)).join('\n') + '\n', { level: 9 })); }
-await Promise.all(Array.from({ length: 4 }, worker));
+await Promise.all(Array.from({ length: 3 }, worker));
 save();
 console.log(`done ${done}, errors ${errs}`);
 const sample = [...cache.values()].filter((r) => r.body).slice(0, 3);
