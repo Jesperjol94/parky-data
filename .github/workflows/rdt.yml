@@ -1,0 +1,33 @@
+# Fetches the official regulation texts (Transportstyrelsen RDT) for all citations, cached in rdt/rdt.jsonl.gz.
+# Used to verify and correct the city's structured data (QA). Manual; later chained after the nightly build.
+name: Regulation texts (RDT)
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Max citations to fetch this run (empty = all)'
+        required: false
+concurrency:
+  group: rdt
+  cancel-in-progress: false
+jobs:
+  fetch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch regulation texts
+        run: node pipeline/fetch-rdt.mjs segments.json ${{ github.event.inputs.limit }} 2>&1 | tee rdt/log.txt
+      - name: Commit cache
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add rdt
+          git commit -m "RDT regulation texts $(date -u +%F) [skip ci]" || exit 0
+          for n in 1 2 3; do git pull -q --rebase origin main && git push -q origin HEAD:main && break; sleep 5; done
