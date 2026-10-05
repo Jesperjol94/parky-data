@@ -39,6 +39,7 @@ function dayTypesOf(s) {
 
 // All "<day words> klockan A - B" pieces in a clause.
 function windows(clause) {
+  clause = clause.replace(/(\d{1,2}[.:]\d{2}\s*[-–—]\s*\d{1,2}[.:]\d{2})\s+och\s+(?=\d{1,2}[.:]\d{2}\s*[-–—])/g, '$1 och klockan '); // "07.00 - 10.00 och 15.00 - 18.00"
   const out = [];
   const re = new RegExp(String.raw`([^,;]*?)\b(?:klockan|kl\.?)\s*${TIME}`, 'gi');
   let m, lastDt;
@@ -77,7 +78,7 @@ export function parseRegulation(body) {
   const t = ruleText(body);
   const out = { taxa: null, reserved: false, reservedSeason: null, purpose: [], allowOnly: [], limits: [], bans: [], otherAllowed: null, unread: [] };
   if (!t) { out.unread.push('(no rule text)'); return out; }
-  let lastAllow = null, lastLimit = null;
+  let lastAllow = null, lastLimit = null; const tillWs = [];
   for (const s of sentences(t)) {
     const x = s.toLowerCase();
     const m = season(s), p = parity(s);
@@ -87,8 +88,8 @@ export function parseRegulation(body) {
     if (/^tillåtelsen ger inte rätt/.test(x)) continue;
     if (/ändamålsplats/.test(x)) { out.purpose.push(...windows(s).map(withSP)); continue; }
     if (/får endast\b/.test(x) && /parkeras|stannas/.test(x)) { out.reserved = true; if (m) out.reservedSeason = m; continue; }
-    if (/^övrig tid får (?:fordon inte|inte fordon) parkeras/.test(x)) { out.otherAllowed = false; if (lastAllow) out.allowOnly.push(...lastAllow); continue; }
-    if (/^övrig tid får fordon parkeras/.test(x)) { out.otherAllowed = true; continue; }
+    if (/^övrig tid får (?:fordon inte|inte fordon) parkeras/.test(x)) { out.otherAllowed = false; if (lastAllow) out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue; }
+    if (/^övrig tid får fordon parkeras/.test(x)) { out.otherAllowed = true; out.allowOnly = out.allowOnly.filter((w) => !tillWs.includes(w)); continue; } // "…other times vehicles may park": the permission hours are not the only hours
     if (/förbjud|får (?:dock )?(?:fordon )?inte (?:stannas eller )?parkeras|får fordon inte parkeras/.test(x)) {
       const ws = windows(s);
       if (ws.length) out.bans.push(...ws.map(withSP));
@@ -108,7 +109,7 @@ export function parseRegulation(body) {
         if (d) { const items = [clean({ a: 0, b: 1440, m, p, max: d })]; out.limits.push(...items); lastLimit = { max: d, items }; continue; }
         out.unread.push(s); continue;
       }
-      out.allowOnly.push(...ws);
+      out.allowOnly.push(...ws); tillWs.push(...ws); lastAllow = ws;
       if (d) { const items = ws.map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; }
       continue;
     }
