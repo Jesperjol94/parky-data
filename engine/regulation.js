@@ -12,7 +12,7 @@ const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete 
 // The rule paragraphs: between "… följande." and "Denna författning …" / signatures.
 export function ruleText(body) {
   if (!body) return null;
-  const t = body.replace(/­/g, '').replace(/-\n(?=[a-zåäö])/g, '').replace(/\s+/g, ' ');
+  const t = body.replace(/­/g, '').replace(/-\n(?=[a-zåäö])/g, '').replace(/\s+/g, ' ').replace(/sönoch/g, 'sön- och').replace(/sön och helgdag/g, 'sön- och helgdag');
   const m = t.match(/följande\.?\s*(.*?)(?:Denna författning|Dessa föreskrifter träder|På trafiknämndens vägnar|$)/i);
   return m ? m[1].trim() : null;
 }
@@ -69,24 +69,25 @@ function sentences(t) {
 const IGNORE = [
   /^Avgiftsplikten gäller/i, /^Avgift ska betalas/i, /Parkeringsskiva|parkeringsskiva/i, /^Med (boende|fordon|.*avses)/i,
   /^Stockholms kommun föreskriver/i, /trafikförordningen \(1998:1276\) följande/i, /^Publicerat/i, /^beslutade den/i,
-  /^Föreskrifterna gäller/i, /^Bestämmelsen gäller/i, /^Detta gäller/i, /^Undantag/i,
+  /^Uppställning av fordon sker/i, /^Tillåtelsen ger inte rätt/i, /^Föreskrifterna gäller/i, /^Bestämmelsen gäller/i, /^Detta gäller/i, /^Undantag/i,
 ];
 
 // → { taxa, reserved, purpose, allowOnly, limits, bans, otherAllowed, unread: [sentences we could not interpret] }
 export function parseRegulation(body) {
   const t = ruleText(body);
-  const out = { taxa: null, reserved: false, purpose: [], allowOnly: [], limits: [], bans: [], otherAllowed: null, unread: [] };
+  const out = { taxa: null, reserved: false, reservedSeason: null, purpose: [], allowOnly: [], limits: [], bans: [], otherAllowed: null, unread: [] };
   if (!t) { out.unread.push('(no rule text)'); return out; }
-  let lastAllow = null;
+  let lastAllow = null, lastLimit = null;
   for (const s of sentences(t)) {
     const x = s.toLowerCase();
     const m = season(s), p = parity(s);
     const withSP = (w) => clean({ ...w, m, p });
     const tx = x.match(/taxa\s+(\d+)/);
     if (tx && /avgift/.test(x)) { out.taxa = +tx[1]; }
+    if (/^tillåtelsen ger inte rätt/.test(x)) continue;
     if (/ändamålsplats/.test(x)) { out.purpose.push(...windows(s).map(withSP)); continue; }
-    if (/får endast\b/.test(x) && /parkeras|stannas/.test(x)) { out.reserved = true; continue; }
-    if (/^övrig tid får fordon inte parkeras/.test(x)) { out.otherAllowed = false; if (lastAllow) out.allowOnly.push(...lastAllow); continue; }
+    if (/får endast\b/.test(x) && /parkeras|stannas/.test(x)) { out.reserved = true; if (m) out.reservedSeason = m; continue; }
+    if (/^övrig tid får (?:fordon inte|inte fordon) parkeras/.test(x)) { out.otherAllowed = false; if (lastAllow) out.allowOnly.push(...lastAllow); continue; }
     if (/^övrig tid får fordon parkeras/.test(x)) { out.otherAllowed = true; continue; }
     if (/förbjud|får (?:dock )?(?:fordon )?inte (?:stannas eller )?parkeras|får fordon inte parkeras/.test(x)) {
       const ws = windows(s);
@@ -95,16 +96,25 @@ export function parseRegulation(body) {
       else out.unread.push(s);
       continue;
     }
+    if (/^tillåtelsen gäller endast/.test(x) && /rörelsehindrad|beskickning|motorcykel|moped|buss|cykel|utryckning|lastbil/.test(x)) { out.reserved = true; continue; }
+    if (/^villkoret gäller under tiden/.test(x) && lastLimit) { // "Villkoret gäller under tiden …": the hours of the limit just stated
+      const ws = windows(s).map(withSP);
+      if (ws.length) { out.limits = out.limits.filter((l) => !lastLimit.items.includes(l)); const items = ws.map((w) => ({ ...w, max: lastLimit.max })); out.limits.push(...items); lastLimit = { max: lastLimit.max, items }; continue; }
+    }
+    if (/^förbudet gäller/.test(x)) { const ws = windows(s); if (ws.length) { out.bans.push(...ws.map(withSP)); continue; } }
     if (/tillåtelsen (?:att parkera )?gäller/.test(x)) {
       const ws = windows(s).map(withSP); const d = duration(s);
-      if (!ws.length) { out.unread.push(s); continue; }
+      if (!ws.length) { // "Tillåtelsen att parkera gäller parkering under högst 3 tim i följd.": a limit at all hours
+        if (d) { const items = [clean({ a: 0, b: 1440, m, p, max: d })]; out.limits.push(...items); lastLimit = { max: d, items }; continue; }
+        out.unread.push(s); continue;
+      }
       out.allowOnly.push(...ws);
-      if (d) out.limits.push(...ws.map((w) => ({ ...w, max: d })));
+      if (d) { const items = ws.map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; }
       continue;
     }
-    if (/får fordon parkeras|får parkeras|parkering (?:är )?tillåten/.test(x)) {
+    if (/får fordon parkeras|får parkeras|parkering (?:är )?(?:dock )?tillåten/.test(x)) {
       const ws = windows(s).map(withSP); const d = duration(s);
-      if (d) out.limits.push(...(ws.length ? ws : [clean({ a: 0, b: 1440, m, p })]).map((w) => ({ ...w, max: d })));
+      if (d) { const items = (ws.length ? ws : [clean({ a: 0, b: 1440, m, p })]).map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; }
       lastAllow = ws.length ? ws : null;
       continue;
     }
@@ -114,6 +124,11 @@ export function parseRegulation(body) {
   }
   return out;
 }
+
+const DIM = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+const nextDay = ([m, d]) => (d >= DIM[m - 1] ? [m % 12 + 1, 1] : [m, d + 1]);
+const prevDay = ([m, d]) => (d <= 1 ? [m === 1 ? 12 : m - 1, DIM[(m + 10) % 12]] : [m, d - 1]);
+const complement = (m) => [nextDay(m[1]), prevDay(m[0])];
 
 export function expired(rec, today = new Date().toISOString().slice(0, 10)) {
   return !!(rec && rec.to && /^\d{4}-\d{2}-\d{2}$/.test(rec.to) && rec.to <= today);
@@ -132,6 +147,8 @@ export function applyRegulation(seg, rec, today) {
     seg.v = seg.v || 'lastning'; seg.k = r.purpose;
     if (r.otherAllowed) seg.ko = 1;
   } else if (r.reserved) {
+    // "Only motorcycles 1 April – 30 September. Other times vehicles may park": ordinary cars may park outside that season.
+    if (r.otherAllowed && r.reservedSeason) { seg.o = [{ m: complement(r.reservedSeason) }]; seg.rx = 1; }
     return Object.assign(seg, r.unread.length ? { ru: 1 } : {});
   }
   if (r.bans.length) { seg.f = r.bans; changed.push('bans'); }
