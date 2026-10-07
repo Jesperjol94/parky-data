@@ -74,20 +74,31 @@ const IGNORE = [
 ];
 
 // → { taxa, reserved, purpose, allowOnly, limits, bans, otherAllowed, unread: [sentences we could not interpret] }
+// Which special vehicle a "får endast …" / "gäller endast …" sentence reserves the curb for (null = ordinary cars).
+const RESERVED = [[/rörelsehindrad/, 'rörelsehindrade'], [/beskickning/, 'beskickningsfordon'], [/motorcykel/, 'motorcykel'], [/moped/, 'moped'],
+  [/buss/, 'buss'], [/utryckning/, 'utryckningsfordon'], [/lastbil/, 'lastbil'], [/taxi/, 'taxi'], [/elfordon|laddning/, 'laddning'], [/cykel/, 'cykel']];
+function reservedFor(x) { for (const [re, v] of RESERVED) if (re.test(x)) return v; return null; }
+
 export function parseRegulation(body) {
   const t = ruleText(body);
   const out = { taxa: null, reserved: false, reservedSeason: null, purpose: [], allowOnly: [], limits: [], bans: [], otherAllowed: null, unread: [] };
   if (!t) { out.unread.push('(no rule text)'); return out; }
   let lastAllow = null, lastLimit = null; const tillWs = [];
-  for (const s of sentences(t)) {
-    const x = s.toLowerCase();
+  for (let s of sentences(t)) {
+    let x = s.toLowerCase();
     const m = season(s), p = parity(s);
     const withSP = (w) => clean({ ...w, m, p });
     const tx = x.match(/taxa\s+(\d+)/);
     if (tx && /avgift/.test(x)) { out.taxa = +tx[1]; }
     if (/^tillåtelsen ger inte rätt/.test(x)) continue;
     if (/ändamålsplats/.test(x)) { out.purpose.push(...windows(s).map(withSP)); continue; }
-    if (/får endast\b/.test(x) && /parkeras|stannas/.test(x)) { out.reserved = true; if (m) out.reservedSeason = m; continue; }
+    if (/^övrig tid får endast/.test(x) && reservedFor(x) && lastAllow) { out.otherAllowed = false; out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue; } // "Övrig tid får endast tung lastbil parkeras"
+    if (/får endast\b/.test(x) && /parkeras|stannas/.test(x)) {
+      const who = reservedFor(x);
+      if (who) { out.reserved = true; out.reservedFor = who; if (m) out.reservedSeason = m; continue; }
+      // "får endast personbil parkeras …": ordinary cars may park; read the rest of the sentence as usual
+      x = x.replace(/får endast (?:personbilar?|fordon)\s*/, 'får fordon '); s = s.replace(/får endast (?:personbilar?|fordon)\s*/i, 'får fordon ');
+    }
     if (/^övrig tid får (?:fordon inte|inte fordon) parkeras/.test(x)) { out.otherAllowed = false; if (lastAllow) out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue; }
     if (/^övrig tid får fordon parkeras/.test(x)) { out.otherAllowed = true; out.allowOnly = out.allowOnly.filter((w) => !tillWs.includes(w)); continue; } // "…other times vehicles may park": the permission hours are not the only hours
     if (/förbjud|får (?:dock )?(?:fordon )?inte (?:stannas eller )?parkeras|får fordon inte parkeras/.test(x)) {
@@ -97,7 +108,7 @@ export function parseRegulation(body) {
       else out.unread.push(s);
       continue;
     }
-    if (/^tillåtelsen gäller endast/.test(x) && /rörelsehindrad|beskickning|motorcykel|moped|buss|cykel|utryckning|lastbil/.test(x)) { out.reserved = true; continue; }
+    if (/^tillåtelsen gäller endast/.test(x) && reservedFor(x)) { out.reserved = true; out.reservedFor = reservedFor(x); continue; }
     if (/^villkoret gäller under tiden/.test(x) && lastLimit) { // "Villkoret gäller under tiden …": the hours of the limit just stated
       const ws = windows(s).map(withSP);
       if (ws.length) { out.limits = out.limits.filter((l) => !lastLimit.items.includes(l)); const items = ws.map((w) => ({ ...w, max: lastLimit.max })); out.limits.push(...items); lastLimit = { max: lastLimit.max, items }; continue; }
@@ -148,6 +159,8 @@ export function applyRegulation(seg, rec, today) {
     seg.v = seg.v || 'lastning'; seg.k = r.purpose;
     if (r.otherAllowed) seg.ko = 1;
   } else if (r.reserved) {
+    // the city data sometimes lacks the vehicle ("får endast beskickningsfordon parkeras" with a plain record): reserve the curb
+    if (!seg.v) { seg.v = r.reservedFor || 'reserverad'; seg.rx = 1; }
     // "Only motorcycles 1 April – 30 September. Other times vehicles may park": ordinary cars may park outside that season.
     if (r.otherAllowed && r.reservedSeason) { seg.o = [{ m: complement(r.reservedSeason) }]; seg.rx = 1; }
     return Object.assign(seg, r.unread.length ? { ru: 1 } : {});

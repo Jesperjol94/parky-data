@@ -8,6 +8,7 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { normalizeSegment, isValidAt } from '../engine/normalize.js';
 import { applyRegulation } from '../engine/regulation.js';
+import { inheritFees } from '../engine/neighbours.js';
 import { toWGS84 } from './sweref.mjs';
 import { index, zonePieces, visibleParts, R_JUNCTION, R_CROSSING } from './zones.mjs';
 
@@ -77,6 +78,8 @@ for (const { coords, recs } of groups.values()) {
   }
   console.log('names filled from neighbours:', filled, 'still unnamed:', segments.filter((s) => !s.n).length);
 }
+
+console.log('purpose spots given the street fee:', inheritFees(segments));
 
 fs.mkdirSync(outDir, { recursive: true });
 const junctions = osm ? osm.junctions.map((p) => p.map((v) => Math.round(v * 1e5) / 1e5)) : [];
