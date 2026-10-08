@@ -46,8 +46,9 @@ for (const { coords, recs } of groups.values()) {
     if (seg.rx) rq.completed++;
     if (seg.ru) rq.unread++;
   }
-  seg.i = i++;
   seg.g = coords.map(([x, y]) => toWGS84(x, y).map(r5)).filter((pt, j, arr) => j === 0 || pt[0] !== arr[j - 1][0] || pt[1] !== arr[j - 1][1]);
+  if (seg.g.length < 2) { rq.tooShort = (rq.tooShort || 0) + 1; continue; } // under ~1 m long after rounding: the app rejects a file with single-point lines
+  seg.i = i++;
   if (grids.length && !seg.v) {
     const z = zonePieces(seg.g, grids);
     if (z.length) {
@@ -80,6 +81,9 @@ for (const { coords, recs } of groups.values()) {
 }
 
 console.log('purpose spots given the street fee:', inheritFees(segments));
+
+// Same check as the app (data/ParkyData.ts valid()): a file that fails it is ignored by every phone, so never publish one.
+if (segments.length <= 1000 || !segments.every((s) => Array.isArray(s.g) && s.g.length >= 2)) throw new Error('segments would be rejected by the app');
 
 fs.mkdirSync(outDir, { recursive: true });
 const junctions = osm ? osm.junctions.map((p) => p.map((v) => Math.round(v * 1e5) / 1e5)) : [];
