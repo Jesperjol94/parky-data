@@ -30,7 +30,7 @@ jobs:
         timeout-minutes: 12
         run: |
           for c in goteborg malmo; do
-            if [ ! -f "cities/raw/$c-osm.json.gz" ] || ${{ contains(github.event.head_commit.message, '[refresh]') }}; then node cities/osm.mjs $c || echo "OSM for $c failed, building without it"; fi
+            if [ ! -f "cities/raw/$c-osm.json.gz" ] || ${{ contains(github.event.head_commit.message, '[refresh]') }}; then mkdir -p cities/out; (node cities/osm.mjs $c || echo "OSM for $c failed, building without it") 2>&1 | tee -a cities/out/osm-log.txt; fi
           done
       - name: Build city files
         run: |
