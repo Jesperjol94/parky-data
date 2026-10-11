@@ -1,6 +1,6 @@
 # City probe report
 
-Run: 2026-10-11T00:57:15.627Z
+Run: 2026-10-11T01:07:06.821Z
 
 ## Göteborg (data.goteborg.se ParkingService v2.3)
 

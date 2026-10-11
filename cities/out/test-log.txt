@@ -1,40 +1,40 @@
   ...
 # Subtest: Göteborg cleaning zones: text and fields agree, text wins when it says more
-ok 6 - Göteborg cleaning zones: text and fields agree, text wins when it says more
+ok 7 - Göteborg cleaning zones: text and fields agree, text wins when it says more
   ---
-  duration_ms: 0.636018
+  duration_ms: 0.515222
   type: 'test'
   ...
 # Subtest: fees
-ok 7 - fees
+ok 8 - fees
   ---
-  duration_ms: 0.880565
+  duration_ms: 0.909288
   type: 'test'
   ...
 # Subtest: geometry
-ok 8 - geometry
+ok 9 - geometry
   ---
-  duration_ms: 0.607154
+  duration_ms: 0.608727
   type: 'test'
   ...
 # Subtest: raw cities/raw/malmo-miljoparkering.geojson.gz
-ok 9 - raw cities/raw/malmo-miljoparkering.geojson.gz
+ok 10 - raw cities/raw/malmo-miljoparkering.geojson.gz
   ---
-  duration_ms: 22.521625
+  duration_ms: 19.757837
   type: 'test'
   ...
 # Subtest: raw cities/raw/malmo-parkeringsavgifter.geojson.gz
-ok 10 - raw cities/raw/malmo-parkeringsavgifter.geojson.gz
+ok 11 - raw cities/raw/malmo-parkeringsavgifter.geojson.gz
   ---
-  duration_ms: 14.012468
+  duration_ms: 10.266478
   type: 'test'
   ...
-1..10
-# tests 10
+1..11
+# tests 11
 # suites 0
 # pass 9
 # fail 0
 # cancelled 0
-# skipped 1
+# skipped 2
 # todo 0
-# duration_ms 118.985682
+# duration_ms 121.784284
