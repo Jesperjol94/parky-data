@@ -50,6 +50,8 @@ async function text(c) {
 
 const norm = (t) => t.replace(/\s+/g, ' ').replace(/(\d)[.:](\d\d)/g, '$1.$2').toLowerCase();
 const hhmm = (m) => `${String(Math.floor(m / 60)).padStart(2, '0')}.${String(m % 60).padStart(2, '0')}`;
+// "02.00 - 07.00", "2.00–7.00", "kl 2-7"
+const timeRe = (a, b) => { const h = (m) => `0?${Math.floor(m / 60)}(?:[.:]${String(m % 60).padStart(2, '0')})${m % 60 ? '' : '?'}`; return new RegExp(`\\b${h(a)}\\s*[-–—]\\s*${h(b)}\\b`); };
 const maxWords = (m) => (m % 1440 === 0 ? [`${m / 1440} dygn`, `${m / 60} tim`] : m % 60 === 0 ? [`${m / 60} tim`, `${m / 60} timm`] : [`${m} min`]);
 
 const rows = [];
@@ -72,8 +74,8 @@ async function worker() {
       for (const w of s.s || []) {
         const day = WD[w.w].slice(0, 3);
         const t = tc;
-        r.snip ||= (t.match(/[^.]*(?:förbjud|ej parkeras|inte parkeras|städ)[^.]*\./g) || []).slice(0, 3).join(' … ').slice(0, 400) || t.slice(0, 300);
-        r.checks.push({ what: `cleaning ${WD[w.w]} ${hhmm(w.a)}-${hhmm(w.b)}${w.p ? ' ' + w.p : ''}`, ok: t.includes(day) && t.includes(hhmm(w.a)) && t.includes(hhmm(w.b)) && (!w.p || t.includes(w.p === 'even' ? 'jämn' : 'udda')) });
+        r.snip ||= ((i) => (i > 0 ? t.slice(i, i + 450) : t.slice(250, 700)))(t.indexOf('följande'));
+        r.checks.push({ what: `cleaning ${WD[w.w]} ${hhmm(w.a)}-${hhmm(w.b)}${w.p ? ' ' + w.p : ''}`, ok: t.includes(day) && timeRe(w.a, w.b).test(t) && (!w.p || t.includes(w.p === 'even' ? 'jämn' : 'udda')) });
       }
       if (s.v) r.checks.push({ what: `reserved ${s.v}`, ok: t.includes(s.v.slice(0, 6)) });
     } catch (e) { r.err = e.message; }
