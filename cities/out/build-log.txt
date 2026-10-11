@@ -277,3 +277,46 @@ malmo {
   residents: 2277,
   osm: { named: 3523, unnamed: 75, withZones: 1338 }
 }
+goteborg {
+  bytes: 1567776,
+  errors: [],
+  curbs: 2893,
+  segments: 4554,
+  uncertain: 20,
+  areasSkipped: 9,
+  cleaningFromZones: 1236,
+  cleaningFromText: 1,
+  cleaningTextMismatch: 0,
+  residentsOnly: 83,
+  cleaningOnly: 2,
+  feeSeason: 12,
+  reasons: { 'fee only part of the year': 12 },
+  withCleaning: 1984,
+  withTimeLimit: 4255,
+  paid: 1329,
+  free: 2926,
+  reserved: 299,
+  residents: 2030,
+  osm: { named: 0, unnamed: 0, withZones: 1711 }
+}
+malmo {
+  bytes: 1988926,
+  errors: [],
+  cleaningCurbs: 2286,
+  feeCurbs: 3401,
+  feeCoveredByCleaning: 2089,
+  segments: 3598,
+  reasons: {
+    'time limit not in the data': 37,
+    'cleaning text not understood': 5,
+    'fee text not understood': 5
+  },
+  uncertain: 44,
+  unknownPrice: 112,
+  withCleaning: 2281,
+  paid: 3412,
+  free: 30,
+  reserved: 12,
+  residents: 2277,
+  osm: { named: 3523, unnamed: 75, withZones: 1338 }
+}
