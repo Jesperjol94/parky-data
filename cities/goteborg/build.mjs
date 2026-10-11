@@ -65,6 +65,8 @@ export function build(layers, now = Date.now()) {
     const fromText = row.ExtraInfo ? parseBan(row.ExtraInfo) : null;
     if (zones) {
       used.add('c' + row.WKT);
+      const sc = [...new Set(zones.map((z) => z.Id).filter((x) => x && x !== row.Id))];
+      if (sc.length) seg.sc = sc.join(','); // the cleaning ban is often its own regulation
       seg.s = [];
       for (const z of zones) {
         const w = cleaningWindows(z);

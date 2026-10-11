@@ -67,8 +67,11 @@ async function worker() {
         if (w.max >= 1440 && w.dt?.length === 1) continue; // "24 tim vardag": often from the general rules, not this text
         r.checks.push({ what: `max ${w.max} min`, ok: maxWords(w.max).some((x) => t.includes(x)) });
       }
+      let tc = t;
+      if (s.s && s.sc) for (const c2 of s.sc.split(',')) { const x = await text(c2).catch(() => null); if (x) tc += ' ' + norm(x); }
       for (const w of s.s || []) {
         const day = WD[w.w].slice(0, 3);
+        const t = tc;
         r.checks.push({ what: `cleaning ${WD[w.w]} ${hhmm(w.a)}-${hhmm(w.b)}${w.p ? ' ' + w.p : ''}`, ok: t.includes(day) && t.includes(hhmm(w.a)) && t.includes(hhmm(w.b)) && (!w.p || t.includes(w.p === 'even' ? 'jämn' : 'udda')) });
       }
       if (s.v) r.checks.push({ what: `reserved ${s.v}`, ok: t.includes(s.v.slice(0, 6)) });
