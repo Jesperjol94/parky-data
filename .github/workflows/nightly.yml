@@ -104,4 +104,5 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add cities/goteborg.json cities/goteborg-meta.json cities/malmo.json cities/malmo-meta.json cities/raw/*-osm.json.gz 2>/dev/null || true
           git commit -m "Cities $(date -u +%F)" || echo "nothing to commit"
+          git checkout -q -- . && git clean -fdq cities # build leftovers (raw downloads, cities/out) are not published
           git pull --rebase -q origin main && git push
