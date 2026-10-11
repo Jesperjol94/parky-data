@@ -6,7 +6,10 @@
 export const R_JUNCTION = 14;
 export const R_CROSSING = 11;
 
-const LAT0 = 59.33, KX = Math.cos(LAT0 * Math.PI / 180) * 111320, KY = 110574;
+let KX = Math.cos(59.33 * Math.PI / 180) * 111320; // Stockholm by default
+const KY = 110574;
+// Other cities (cities/*): metres per degree of longitude depend on the latitude.
+export function setLatitude(lat) { KX = Math.cos(lat * Math.PI / 180) * 111320; }
 const xy = ([lon, lat]) => [lon * KX, lat * KY];
 const ll = ([x, y]) => [x / KX, y / KY];
 const CELL = 60;
