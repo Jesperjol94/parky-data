@@ -1,0 +1,40 @@
+# New cities (expansion work). Runs ONLY on pushes to expansion/** branches; never touches main or
+# Stockholm's segments.json. Each run: download raw city data (if missing, or "[refresh]" in the commit
+# message), build each city's file, run the tests, and commit the results back to the same branch.
+name: Cities (expansion)
+on:
+  push:
+    branches: ['expansion/**']
+permissions:
+  contents: write
+concurrency:
+  group: cities-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  cities:
+    if: "!contains(github.event.head_commit.message, '[cities-bot]')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Download raw city data
+        if: "contains(github.event.head_commit.message, '[refresh]') || hashFiles('cities/raw/malmo-miljoparkering.geojson.gz') == ''"
+        env:
+          GOTEBORG_APPID: ${{ secrets.GOTEBORG_API_KPI }}
+        run: node cities/probe.mjs
+      - name: Build city files
+        run: |
+          set -o pipefail
+          mkdir -p cities/out
+          for c in cities/*/build.mjs; do [ -f "$c" ] && node "$c" 2>&1 | tee -a cities/out/build-log.txt; done
+      - name: Tests (city importers + shared engine)
+        run: node --test cities/test 2>&1 | tail -40 | tee cities/out/test-log.txt
+      - name: Commit results to this branch
+        if: always()
+        run: |
+          git config user.name "parky-bot"; git config user.email "info@parky.se"
+          git add -A cities/raw cities/out cities/probe-report.md 2>/dev/null || true
+          git diff --cached --quiet || (git commit -m "City data and build results [cities-bot]" && git push)
