@@ -72,6 +72,7 @@ async function worker() {
       for (const w of s.s || []) {
         const day = WD[w.w].slice(0, 3);
         const t = tc;
+        r.snip ||= (t.match(/[^.]*(?:förbjud|ej parkeras|inte parkeras|städ)[^.]*\./g) || []).slice(0, 3).join(' … ').slice(0, 400) || t.slice(0, 300);
         r.checks.push({ what: `cleaning ${WD[w.w]} ${hhmm(w.a)}-${hhmm(w.b)}${w.p ? ' ' + w.p : ''}`, ok: t.includes(day) && t.includes(hhmm(w.a)) && t.includes(hhmm(w.b)) && (!w.p || t.includes(w.p === 'even' ? 'jämn' : 'udda')) });
       }
       if (s.v) r.checks.push({ what: `reserved ${s.v}`, ok: t.includes(s.v.slice(0, 6)) });
@@ -88,7 +89,7 @@ const out = [`# ${city}: built rules vs official regulation texts`, '', `Run ${n
   `**${okN} of ${checks.length} checked rules found in the official text (${checks.length ? Math.round(100 * okN / checks.length) : 0}%).**`, '',
   'A miss means the exact wording was not found (OCR, other phrasing) or the data disagrees with the text; each one needs a look.', '',
   '| Citation | Street | Rule | Found |', '|---|---|---|---|',
-  ...rows.flatMap((r) => r.err ? [`| ${r.c} | ${r.n} | (${r.err}) | – |`] : r.checks.filter((c) => !c.ok).map((c) => `| ${r.c} | ${r.n} | ${c.what} | no |`))];
+  ...rows.flatMap((r) => r.err ? [`| ${r.c} | ${r.n} | (${r.err}) | – |`] : r.checks.filter((c) => !c.ok).map((c) => `| ${r.c} | ${r.n} | ${c.what} | no: "${(r.snip || '').replace(/\|/g, '/')}" |`))];
 fs.mkdirSync('cities/out', { recursive: true });
 fs.writeFileSync(`cities/out/${city}-rdt-check.md`, out.join('\n') + '\n');
 console.log(out.slice(0, 6).join('\n'));
