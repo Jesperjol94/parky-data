@@ -1,0 +1,25 @@
+{
+  "built": "2026-10-11T01:02:02.442Z",
+  "hash": "06cea62589b56100",
+  "bytes": 906369,
+  "errors": [],
+  "curbs": 2893,
+  "segments": 4554,
+  "uncertain": 20,
+  "areasSkipped": 9,
+  "cleaningFromZones": 1236,
+  "cleaningFromText": 1,
+  "cleaningTextMismatch": 0,
+  "residentsOnly": 83,
+  "cleaningOnly": 2,
+  "feeSeason": 12,
+  "reasons": {
+    "fee only part of the year": 12
+  },
+  "withCleaning": 1984,
+  "withTimeLimit": 4255,
+  "paid": 1329,
+  "free": 2926,
+  "reserved": 299,
+  "residents": 2030
+}

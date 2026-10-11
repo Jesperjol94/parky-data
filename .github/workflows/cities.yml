@@ -31,7 +31,7 @@ jobs:
           mkdir -p cities/out
           for c in cities/*/build.mjs; do [ -f "$c" ] && node "$c" 2>&1 | tee -a cities/out/build-log.txt; done
       - name: Tests (city importers + shared engine)
-        run: node --test cities/test 2>&1 | tail -40 | tee cities/out/test-log.txt
+        run: set -o pipefail; node --test cities/test/*.test.mjs 2>&1 | tail -40 | tee cities/out/test-log.txt
       - name: Commit results to this branch
         if: always()
         run: |
