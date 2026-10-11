@@ -1,7 +1,7 @@
 {
-  "built": "2026-10-11T01:13:12.387Z",
-  "hash": "06cea62589b56100",
-  "bytes": 906369,
+  "built": "2026-10-11T01:17:12.920Z",
+  "hash": "343c32a901e81dcb",
+  "bytes": 1567776,
   "errors": [],
   "curbs": 2893,
   "segments": 4554,
@@ -22,5 +22,9 @@
   "free": 2926,
   "reserved": 299,
   "residents": 2030,
-  "osm": "no OSM data: no street names from OSM, no 10-metre zones"
+  "osm": {
+    "named": 0,
+    "unnamed": 0,
+    "withZones": 1711
+  }
 }

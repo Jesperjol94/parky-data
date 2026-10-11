@@ -1,0 +1,35 @@
+57.55000,11.69000,57.65667,11.85333 ok 348
+57.55000,11.85333,57.65667,12.01667 ok 3970
+57.55000,12.01667,57.65667,12.18000 ok 2811
+57.65667,11.69000,57.76333,11.85333 https://overpass-api.de/api/interpreter status 429
+57.65667,11.69000,57.76333,11.85333 https://overpass.kumi.systems/api/interpreter status 500
+57.65667,11.69000,57.76333,11.85333 https://maps.mail.ru/osm/tools/overpass/api/interpreter status 504
+57.65667,11.69000,57.76333,11.85333 ok 2564
+57.65667,11.85333,57.76333,12.01667 ok 17096
+57.65667,12.01667,57.76333,12.18000 ok 4910
+57.76333,11.69000,57.87000,11.85333 ok 485
+57.76333,11.85333,57.87000,12.01667 https://overpass-api.de/api/interpreter status 429
+57.76333,11.85333,57.87000,12.01667 ok 2612
+57.76333,12.01667,57.87000,12.18000 ok 1821
+goteborg junctions 14985 crossings 5107 named ways 26201
+55.52000,12.89000,55.55667,12.96333 ok 638
+55.52000,12.96333,55.55667,13.03667 https://overpass-api.de/api/interpreter status 429
+55.52000,12.96333,55.55667,13.03667 https://overpass.kumi.systems/api/interpreter status 500
+55.52000,12.96333,55.55667,13.03667 https://maps.mail.ru/osm/tools/overpass/api/interpreter status 504
+55.52000,12.96333,55.55667,13.03667 ok 533
+55.52000,13.03667,55.55667,13.11000 https://overpass-api.de/api/interpreter status 504
+55.52000,13.03667,55.55667,13.11000 https://overpass.kumi.systems/api/interpreter status 500
+55.52000,13.03667,55.55667,13.11000 https://maps.mail.ru/osm/tools/overpass/api/interpreter failed fetch failed
+55.52000,13.03667,55.55667,13.11000 https://overpass-api.de/api/interpreter status 504
+55.52000,13.03667,55.55667,13.11000 https://overpass.kumi.systems/api/interpreter status 500
+55.52000,13.03667,55.55667,13.11000 https://maps.mail.ru/osm/tools/overpass/api/interpreter status 504
+file:///home/runner/work/parky-data/parky-data/cities/osm.mjs:28
+  throw new Error('tile failed ' + bb);
+        ^
+
+Error: tile failed 55.52000,13.03667,55.55667,13.11000
+    at fetchTile (file:///home/runner/work/parky-data/parky-data/cities/osm.mjs:28:9)
+    at async file:///home/runner/work/parky-data/parky-data/cities/osm.mjs:31:42
+
+Node.js v22.23.3
+OSM for malmo failed, building without it
