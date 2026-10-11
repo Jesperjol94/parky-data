@@ -1,6 +1,6 @@
 # goteborg: built rules vs official regulation texts
 
-Run 2026-10-11T01:33:09.517Z. Sample: 200 of 2875 regulations. Read: 200, errors: 0.
+Run 2026-10-11T01:37:11.428Z. Sample: 200 of 2875 regulations. Read: 200, errors: 0.
 
 **229 of 245 checked rules found in the official text (93%).**
 
@@ -8,19 +8,19 @@ A miss means the exact wording was not found (OCR, other phrasing) or the data d
 
 | Citation | Street | Rule | Found |
 |---|---|---|---|
-| 1480 2006-03715 | Kungsladugårdsgatan | cleaning torsdag 02.00-07.00 even | no |
-| 1480 2006-03067 | Fredriksdalsgatan | cleaning torsdag 09.00-12.00 even | no |
-| 1480 2010-01396 | Fridkullagatan | cleaning torsdag 09.00-12.00 | no |
-| 1480 2020-01910 | Gustaf Dalénsgatan | cleaning tisdag 08.00-10.00 odd | no |
-| 1480 2021-00662 | Engelbrektsgatan | cleaning fredag 02.00-07.00 | no |
-| 1480 2022-00912 | Munkebäcksgatan | cleaning fredag 09.00-12.00 odd | no |
-| 1480 2022-01139 | Eklandagatan | cleaning tisdag 02.00-07.00 | no |
-| 1480 2022-01532 | Bangatan | cleaning onsdag 02.00-07.00 even | no |
-| 1480 2022-01802 | Kungsladugårdsgatan | cleaning torsdag 02.00-07.00 even | no |
-| 1480 2024-02365 | Första Långgatan | cleaning torsdag 02.00-07.00 | no |
-| 1480 2025-00649 | Första Långgatan | cleaning torsdag 02.00-07.00 | no |
-| 1480 2007-03115 | Danska Vägen | cleaning tisdag 02.00-07.00 even | no |
-| 1480 2009-01271 | Karl Johansgatan | cleaning onsdag 02.00-07.00 even | no |
-| 1480 2012-01291 | Sprängkullsgatan | cleaning onsdag 02.00-07.00 | no |
-| 1480 2012-01959 | Odinsgatan | cleaning fredag 02.00-07.00 | no |
-| 1480 2016-00506 | Stigbergsliden | cleaning torsdag 02.00-07.00 even | no |
+| 1480 2006-03715 | Kungsladugårdsgatan | cleaning torsdag 02.00-07.00 even | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 30 maj 2010 1480 2006-03715 göteborgs kommuns lokala trafikföreskrifter om parkering på kungsladugårdsgatan; beslutade den 27 december 2006. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 13 och 3 § första sty" |
+| 1480 2006-03067 | Fredriksdalsgatan | cleaning torsdag 09.00-12.00 even | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 20 maj 2010 1480 2006-03067 göteborgs kommuns lokala trafikföreskrifter om parkering på fredriksdalsgatan; beslutade den 17 november 2006. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 13 och 3 § första styck" |
+| 1480 2010-01396 | Fridkullagatan | cleaning torsdag 09.00-12.00 | no: "publicerat på webbplatsen svensk trafikföreskriftssamling den 20 september 2010 1480 2010-01396 göteborgs kommuns lokala trafikföreskrifter om parkering på fridkullagatan; beslutade den 20 september 2010. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § fö" |
+| 1480 2020-01910 | Gustaf Dalénsgatan | cleaning tisdag 08.00-10.00 odd | no: "publicerat på webbplatsen svensk trafikföreskriftssamling den 27 november 2020 1480 2020.01910 göteborgs kommuns lokala trafikföreskrifter om parkering på gustaf dalénsgatan; beslutade den 27 november 2020. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 17 och 3 § första " |
+| 1480 2021-00662 | Engelbrektsgatan | cleaning fredag 02.00-07.00 | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 23 april 2021 1480 2021.00662 göteborgs kommuns lokala trafikföreskrifter om parkering på engelbrektsgatan; beslutade den 23 april 2021. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första " |
+| 1480 2022-00912 | Munkebäcksgatan | cleaning fredag 09.00-12.00 odd | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 10 juni 2022 1480 2022.00912 göteborgs kommuns lokala trafikföreskrifter om parkering på munkebäcksgatan; beslutade den 10 juni 2022. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första sty" |
+| 1480 2022-01139 | Eklandagatan | cleaning tisdag 02.00-07.00 | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 10 juni 2022 1480 2022.01139 göteborgs kommuns lokala trafikföreskrifter om parkering på eklandagatan; beslutade den 10 juni 2022. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första stycke" |
+| 1480 2022-01532 | Bangatan | cleaning onsdag 02.00-07.00 even | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 20 juni 2022 1480 2022.01532 göteborgs kommuns lokala trafikföreskrifter om parkering på bangatan; beslutade den 20 juni 2022. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första stycket tr" |
+| 1480 2022-01802 | Kungsladugårdsgatan | cleaning torsdag 02.00-07.00 even | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 23 juni 2022 1480 2022.01802 göteborgs kommuns lokala trafikföreskrifter om parkering på kungsladugårdsgatan; beslutade den 23 juni 2022. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första" |
+| 1480 2024-02365 | Första Långgatan | cleaning torsdag 02.00-07.00 | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 3 oktober 2024 1480 2024.02365 göteborgs kommuns lokala trafikföreskrifter om parkering på första långgatan; beslutade den 3 oktober 2024. göteborgs kommun föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första stycke" |
+| 1480 2025-00649 | Första Långgatan | cleaning torsdag 02.00-07.00 | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 22 juli 2025 1480 2025.00649 göteborgs kommuns lokala trafikföreskrifter om parkering på första långgatan; beslutade den 22 juli 2025. göteborgs kommun föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första stycket tr" |
+| 1480 2007-03115 | Danska Vägen | cleaning tisdag 02.00-07.00 even | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 25 maj 2010 1480 2007-03115 göteborgs kommuns lokala trafikföreskrifter om parkering på danska vägen; beslutade den 23 oktober 2007. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första styc" |
+| 1480 2009-01271 | Karl Johansgatan | cleaning onsdag 02.00-07.00 even | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 24 maj 2010 1480 2009-01271 göteborgs kommuns lokala trafikföreskrifter om parkering på karl johansgatan; beslutade den 9 juli 2009. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första styc" |
+| 1480 2012-01291 | Sprängkullsgatan | cleaning onsdag 02.00-07.00 | no: "publicerat på webbplatsen svensk trafikföreskriftssamling den 18 september 2013 1480 2012-01291 göteborgs kommuns lokala trafikföreskrifter om parkering på sprängkullsgatan; beslutade den 17 september 2013. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § " |
+| 1480 2012-01959 | Odinsgatan | cleaning fredag 02.00-07.00 | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 5 februari 2013 1480 2012-01959 göteborgs kommuns lokala trafikföreskrifter om parkering på odinsgatan; beslutade den 5 februari 2013. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första st" |
+| 1480 2016-00506 | Stigbergsliden | cleaning torsdag 02.00-07.00 even | no: " publicerat på webbplatsen svensk trafikföreskriftssamling den 10 mars 2016 1480 2016.00506 göteborgs kommuns lokala trafikföreskrifter om parkering på stigbergsliden; beslutade den 10 mars 2016. trafiknämnden i göteborg föreskriver med stöd av 10 kap. 1 § andra stycket 16 och 17 och 3 § första styc" |
