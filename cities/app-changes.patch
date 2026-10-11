@@ -1,0 +1,138 @@
+diff --git a/engine/evaluate.js b/engine/evaluate.js
+index 24d6adb..6ce8f8b 100644
+--- a/engine/evaluate.js
++++ b/engine/evaluate.js
+@@ -8,6 +8,8 @@
+ //   k purpose-spot windows (loading zone hours, {w?, dt, a, b, m, p}): reserved then, unknown otherwise,
+ //   s forbidden windows (cleaning) {w weekday, a, b minutes, dt day types, m season, p parity},
+ //   l time limits {dt, a, b, max, m, p}, u uncertain.
++//   New cities (parky-data cities/*): f windows with cl: 1 are street cleaning on a date (Malmö "miljöparkering",
++//   the 7th of every month), written as one-day seasons m: [[k, d], [k, d]].
+ import { dayType } from './holidays.js';
+ import { pricePerHour } from './taxa.js';
+ import { local, isoWeek } from './time.js';
+@@ -39,7 +41,8 @@ export function stateIn(seg, c) {
+ 
+   // Bans read from the regulation text (any day type/weekday/season), and "allowed only then" windows.
+   const hit = (w) => (!w.w || w.w === L.wd) && conditionsHold(w, c) && inWindow(L.min, w.a, w.b);
+-  if (seg.f && seg.f.some(hit)) return { state: 'forbidden', reason: 'Parkering förbjuden (föreskrift)' };
++  const ban = seg.f && seg.f.find(hit);
++  if (ban) return { state: 'forbidden', reason: ban.cl ? 'Gatustädning (servicetid)' : 'Parkering förbjuden (föreskrift)' };
+   if (seg.aw && !seg.aw.some(hit)) return { state: 'forbidden', reason: 'Parkering inte tillåten då' };
+   if (seg.k) { // purpose spot (loading zone): reserved during its hours; other times per the regulation text (ko) or the sign
+     if (seg.k.some(hit)) return { state: 'reserved', reason: `Reserverad för ${seg.v}` };
+@@ -120,7 +123,7 @@ export function statusAll(segs, t = Date.now(), soonHours = 12) {
+   for (let i = 0; i < segs.length; i++) {
+     const s = stateIn(segs[i], now);
+     if (!ALLOWED.has(s.state)) out[i] = s.state === 'unknown' ? 'unknown' : 'no';
+-    else { out[i] = s.max ? 'limit' : s.state; if (segs[i].s || segs[i].v) pending.push(i); }
++    else { out[i] = s.max ? 'limit' : s.state; if (segs[i].s || segs[i].v || segs[i].f) pending.push(i); }
+   }
+   for (let x = Math.ceil(t / STEP) * STEP; x <= t + soonHours * 3600000 && pending.length; x += 15 * 60000) {
+     const c = context(x);
+diff --git a/engine/taxa.js b/engine/taxa.js
+index 48ff5e5..41a1ffc 100644
+--- a/engine/taxa.js
++++ b/engine/taxa.js
+@@ -20,6 +20,12 @@ export const TAXA = {
+   15: { periods: [{ days: ['vardag'], start: H(7), end: H(19), price: 2.5 }], residents: null },
+ };
+ 
++// Fee zones of other cities come with their data file (parky-data cities/<city>.json "taxa", codes 2000+ Göteborg,
++// 3000+ Malmö) and are added at load time. Stockholm's codes (1–15) can never be replaced.
++export function registerTaxa(table) {
++  for (const [code, zone] of Object.entries(table || {})) if (+code >= 1000 && zone && Array.isArray(zone.periods)) TAXA[code] = zone;
++}
++
+ // 'taxa 3: …' -> 3; 'avgiftsfri' -> 0; unknown -> null
+ export function taxaOf(rateText) {
+   if (!rateText) return null;
+diff --git a/tools/i18n.ts b/tools/i18n.ts
+index b5dd9d4..06ac241 100644
+--- a/tools/i18n.ts
++++ b/tools/i18n.ts
+@@ -21,7 +21,7 @@ const sv: Dict = {
+   'sheet.distance': '{area} · {m} m bort',
+   'verdict.allowed': 'Du kan stå här', 'verdict.limited': 'Du kan stå här i {h}', 'verdict.no': 'Inte just nu', 'verdict.unknown': 'Osäker regel',
+   'verdict.until': 'till {time}', 'verdict.allowedFrom': 'tillåtet från {time}', 'verdict.checkSign': 'Kolla skylten',
+-  'row.price.detail': 'Vardagar 07–19 · helger gratis', 'row.cleaning': 'Gatusopning {day} {from}–{to}', 'row.cleaning.next': 'Nästa: {date}',
++  'row.price.detail': 'Vardagar 07–19 · helger gratis', 'row.cleaning': 'Gatusopning {day} {from}–{to}', 'row.cleaning.monthly': 'Gatusopning den {day}:e varje månad {from}–{to}', 'row.cleaning.date': 'Gatusopning {date} {from}–{to}', 'row.cleaning.next': 'Nästa: {date}',
+   'cta.park': 'Parkera här', 'cta.remind': 'Påminn mig {time}',
+   'parked.badge': 'PARKERAD {time}', 'parked.walk': '{m} m bort · {min} min promenad', 'parked.timeLeft': 'Tid kvar', 'parked.expired': 'Tiden har gått ut',
+   'parked.reminder': 'Påminnelse {time}', 'parked.reminder.detail': '30 min innan tiden går ut', 'parked.cleaning.detail': 'Vi påminner {weekday} kväll',
+@@ -70,7 +70,7 @@ const en: Dict = {
+   'sheet.distance': '{area} · {m} m away',
+   'verdict.allowed': 'You can park here', 'verdict.limited': 'You can park here for {h}', 'verdict.no': 'Not right now', 'verdict.unknown': 'Rule uncertain',
+   'verdict.until': 'until {time}', 'verdict.allowedFrom': 'allowed from {time}', 'verdict.checkSign': 'Check the sign',
+-  'row.price.detail': 'Weekdays 07–19 · weekends free', 'row.cleaning': 'Street cleaning {day} {from}–{to}', 'row.cleaning.next': 'Next: {date}',
++  'row.price.detail': 'Weekdays 07–19 · weekends free', 'row.cleaning': 'Street cleaning {day} {from}–{to}', 'row.cleaning.monthly': 'Street cleaning on day {day} of every month {from}–{to}', 'row.cleaning.date': 'Street cleaning {date} {from}–{to}', 'row.cleaning.next': 'Next: {date}',
+   'cta.park': 'Park here', 'cta.remind': 'Remind me {time}',
+   'parked.badge': 'PARKED {time}', 'parked.walk': '{m} m away · {min} min walk', 'parked.timeLeft': 'Time left', 'parked.expired': "Time's up",
+   'parked.reminder': 'Reminder {time}', 'parked.reminder.detail': '30 min before time runs out', 'parked.cleaning.detail': "We'll remind you {weekday} evening",
+diff --git a/tools/verdict.ts b/tools/verdict.ts
+index d0a641b..70475f7 100644
+--- a/tools/verdict.ts
++++ b/tools/verdict.ts
+@@ -43,13 +43,16 @@ function periodsText(taxa: number): string {
+   const sameFH = f && h && f.start === h.start && f.end === h.end;
+   if (f && !sameFH && (!v || f.start !== v.start || f.end !== v.end)) parts.push(t('price.before', { a: hh(f.start), b: hh(f.end) }));
+   if (h) parts.push(t('price.holiday', { a: hh(h.start), b: hh(h.end) }));
+-  else parts.push(t('price.freeHolidays'));
++  else if (!z.otherTime) parts.push(t('price.freeHolidays')); // Malmö: Sundays pay the "other time" rate, not free
+   if (z.otherTime) parts.push(t('price.other', { p: fmt.price(z.otherTime) }));
+   return parts.join(' · ');
+ }
+ 
++// Cleaning on a date (Malmö "miljöparkering", parky-data cities/*): f windows marked cl
++const dateCleaning = (seg: any) => (seg.f || []).filter((w: any) => w.cl);
++
+ function nextCleaning(seg: Segment, a: any, now: number) {
+-  if (!(seg.s && seg.s.length)) return null;
++  if (!(seg.s && seg.s.length) && !dateCleaning(seg).length) return null;
+   const i = a.changes.findIndex((c: any) => c.state === 'forbidden');
+   if (i < 0) return null;
+   const at = a.changes[i].at, end = a.changes[i + 1]?.at;
+@@ -58,7 +61,12 @@ function nextCleaning(seg: Segment, a: any, now: number) {
+   return { at, end, wd: A.wd, from: A.min, to: B.min === 0 ? 1440 : B.min };
+ }
+ 
+-export function verdictFor(seg: Segment, now: number, permit: Permit, opts: { zone?: string | null; until?: number | null } = {}): Verdict {
++// General longest stay where no sign says otherwise. Stockholm (default): 7 days in a row (ALTF 2005:46).
++// Other cities (from their data file): the national rule, 24 h on weekdays that are not the day before a
++// Sunday/holiday (TrF 3 kap. 49 a §), given as { dt, max } and counted like a sign's time limit.
++export type General = { maxStay?: { dt?: string[]; max: number } } | null;
++
++export function verdictFor(seg: Segment, now: number, permit: Permit, opts: { zone?: string | null; until?: number | null; general?: General } = {}): Verdict {
+   const a: any = answer(seg as any, now);
+   const s = a.now;
+   const ok = ALLOWED.has(s.state);
+@@ -76,6 +84,11 @@ export function verdictFor(seg: Segment, now: number, permit: Permit, opts: { zo
+     // Stockholm's general rule (ALTF 2005:46): at most 7 days in a row on the same spot unless signed otherwise.
+     const WEEK = 7 * 86400000;
+     let weekRule = false;
++    const gm = opts.general?.maxStay;
++    if (gm && !(seg.l || []).some((w: any) => w.max && w.max <= gm.max)) { // another city's general rule, unless a sign is stricter
++      const g: any = answer({ ...(seg as any), l: [...((seg as any).l || []), { dt: gm.dt, a: 0, b: 1440, max: gm.max }] }, now);
++      if (g.byLimit && g.mustLeave && (!leaveBy || g.mustLeave < leaveBy)) { leaveBy = g.mustLeave; limitBased = true; } // shown as "until <time>"
++    }
+     if (!leaveBy || leaveBy > now + WEEK) { leaveBy = now + WEEK; limitBased = true; weekRule = true; }
+     kind = paid || s.max || a.byLimit ? 'limited' : 'allowed';
+     if (s.max && leaveBy) label = t('verdict.limited', { h: fmt.duration(Math.max(1, Math.round((leaveBy - now) / 60000))) });
+@@ -135,7 +148,16 @@ export function verdictFor(seg: Segment, now: number, permit: Permit, opts: { zo
+       const w = (seg.s || []).find((x: any) => x.w === L.wd && L.min >= x.a && L.min < x.b);
+       if (w) { wd = w.w; from = w.a; to = w.b; }
+     }
+-    if (wd != null && from != null && to != null) {
++    const dc = dateCleaning(seg);
++    if (dc.length) { // "Street cleaning the 7th 08–12" instead of a weekday
++      const days = [...new Set(dc.map((w: any) => w.m[0][1]))].sort((x: any, y: any) => x - y);
++      const monthly = dc.length >= 12;
++      rows.push({
++        key: 'cleaning', icon: 'cleaning',
++        title: t(monthly ? 'row.cleaning.monthly' : 'row.cleaning.date', { day: days.join(' & '), from: clockShort(dc[0].a), to: clockShort(dc[0].b), date: clean ? dateLong(clean.at) : '' }),
++        detail: s.state === 'forbidden' ? t('row.cleaning.now') : clean ? t('row.cleaning.next', { date: dateLong(clean.at) }) : undefined,
++      });
++    } else if (wd != null && from != null && to != null) {
+       rows.push({
+         key: 'cleaning', icon: 'cleaning',
+         title: t('row.cleaning', { day: weekdayShort(wd), from: clockShort(from), to: clockShort(to) }),

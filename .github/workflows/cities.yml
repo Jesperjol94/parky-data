@@ -39,6 +39,12 @@ jobs:
           for c in cities/*/build.mjs; do [ -f "$c" ] && node "$c" 2>&1 | tee -a cities/out/build-log.txt; done
       - name: Tests (city importers + shared engine)
         run: set -o pipefail; node --test cities/test/*.test.mjs 2>&1 | tail -40 | tee cities/out/test-log.txt
+      - name: Check a sample against the official regulation texts (on "[rdt-check]")
+        if: "contains(github.event.head_commit.message, '[rdt-check]')"
+        timeout-minutes: 30
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-swe >/dev/null
+          node cities/rdt-check.mjs goteborg 200
       - name: Commit results to this branch
         if: always()
         run: |
