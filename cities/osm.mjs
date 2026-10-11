@@ -16,7 +16,8 @@ const query = (bb) => `[out:json][timeout:180];(way["highway"~"${ROADS}"](${bb})
 const ENDPOINTS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter', 'https://maps.mail.ru/osm/tools/overpass/api/interpreter'];
 
 async function fetchTile(bb) {
-  for (let attempt = 0; attempt < 2; attempt++) for (const url of ENDPOINTS) {
+  for (let attempt = 0; attempt < 3; attempt++) for (const url of ENDPOINTS) {
+    if (attempt) await new Promise((res) => setTimeout(res, 15000 * attempt)); // Overpass is often busy: back off
     try {
       const r = await fetch(url, { method: 'POST', body: 'data=' + encodeURIComponent(query(bb)), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': 'Parky/2.0 (https://parky.se)' }, signal: AbortSignal.timeout(200000) });
       if (!r.ok) { console.log(bb, url, 'status', r.status); await new Promise((res) => setTimeout(res, 5000)); continue; }
@@ -28,7 +29,7 @@ async function fetchTile(bb) {
   throw new Error('tile failed ' + bb);
 }
 const elements = [];
-for (const bb of tiles) elements.push(...await fetchTile(bb));
+for (const bb of tiles) { elements.push(...await fetchTile(bb)); await new Promise((res) => setTimeout(res, 3000)); }
 
 const roadRe = new RegExp(ROADS);
 const nodes = new Map(), degree = new Map(), crossings = [], streets = [];

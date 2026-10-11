@@ -27,7 +27,7 @@ jobs:
         run: node cities/probe.mjs
       - name: OpenStreetMap (street names, 10-metre rule)
         if: "contains(github.event.head_commit.message, '[refresh]') || hashFiles('cities/raw/malmo-osm.json.gz') == '' || hashFiles('cities/raw/goteborg-osm.json.gz') == ''"
-        timeout-minutes: 12
+        timeout-minutes: 25
         run: |
           for c in goteborg malmo; do
             if [ ! -f "cities/raw/$c-osm.json.gz" ] || ${{ contains(github.event.head_commit.message, '[refresh]') }}; then mkdir -p cities/out; (node cities/osm.mjs $c || echo "OSM for $c failed, building without it") 2>&1 | tee -a cities/out/osm-log.txt; fi
