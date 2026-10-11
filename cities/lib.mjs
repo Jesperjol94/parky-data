@@ -162,3 +162,47 @@ export function validate(file, bounds) {
   if (outside) errs.push(`${outside} segments outside the city bounds`);
   return errs;
 }
+
+// ---- OpenStreetMap: street names for unnamed curbs, and the 10-metre rule (same as Stockholm's build.mjs)
+import { index, zonePieces, visibleParts, R_JUNCTION, R_CROSSING, setLatitude } from '../pipeline/zones.mjs';
+
+export function applyOsm(file, osm, lat) {
+  setLatitude(lat);
+  const KX = Math.cos(lat * Math.PI / 180) * 111320, KY = 110574;
+  const P = ([x, y]) => [x * KX, y * KY];
+  const out = { named: 0, unnamed: 0, withZones: 0 };
+  // Street names: nearest named OSM way to the curb's midpoint, within 25 m
+  const cell = 80, grid = new Map();
+  osm.streets.forEach((s, k) => { s.p = s.g.map(P); for (const [x, y] of s.p) { const key = `${Math.floor(x / cell)}:${Math.floor(y / cell)}`; if (!grid.has(key)) grid.set(key, new Set()); grid.get(key).add(k); } });
+  const dist = (p, line) => { let b = Infinity; for (let i = 1; i < line.length; i++) { const [ax, ay] = line[i - 1], [bx, by] = line[i], dx = bx - ax, dy = by - ay, L2 = dx * dx + dy * dy; const t = L2 ? Math.max(0, Math.min(1, ((p[0] - ax) * dx + (p[1] - ay) * dy) / L2)) : 0; b = Math.min(b, Math.hypot(p[0] - ax - t * dx, p[1] - ay - t * dy)); } return b; };
+  for (const s of file.segments) {
+    if (s.n) continue;
+    const m = P(s.g[Math.floor(s.g.length / 2)] ), q = P(s.g[0]), r = P(s.g[s.g.length - 1]);
+    const cand = new Set();
+    for (let i = -1; i <= 1; i++) for (let j = -1; j <= 1; j++) for (const k of grid.get(`${Math.floor(m[0] / cell) + i}:${Math.floor(m[1] / cell) + j}`) || []) cand.add(k);
+    let best = null, bd = Infinity;
+    for (const k of cand) { const d = (dist(m, osm.streets[k].p) * 2 + dist(q, osm.streets[k].p) + dist(r, osm.streets[k].p)) / 4; if (d < bd) { bd = d; best = osm.streets[k]; } }
+    if (best && bd < 25) { s.n = best.n; out.named++; } else out.unnamed++;
+  }
+  for (const s of osm.streets) delete s.p;
+  // 10-metre rule
+  const grids = [index(osm.junctions, R_JUNCTION, 'j'), index(osm.crossings, R_CROSSING, 'c')];
+  for (const s of file.segments) {
+    if (s.v) continue;
+    const z = zonePieces(s.g, grids);
+    if (z.length) { s.p = visibleParts(s.g, z); s.x = z.map(({ g, k }) => ({ g, k })); out.withZones++; }
+  }
+  const r5 = (v) => Math.round(v * 1e5) / 1e5;
+  file.junctions = osm.junctions.map((p) => p.map(r5));
+  file.crossings = osm.crossings.map((p) => p.map(r5));
+  file.attribution += ' · © OpenStreetMap';
+  return out;
+}
+
+// Hash of the rules themselves (not the build time), like Stockholm's: the app downloads only when it changes.
+import crypto from 'node:crypto';
+export function rehash(file) {
+  const { v, built, hash, ...content } = file;
+  file.hash = crypto.createHash('sha1').update(JSON.stringify(content)).digest('hex').slice(0, 16);
+  return file;
+}

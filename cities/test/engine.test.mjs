@@ -57,3 +57,22 @@ test('Göteborg through the app engine', { skip: (!have && 'no parky-beta engine
   const a = engine.answer(god, at(2026, 10, 13, 10));
   assert.equal(a.mustLeave, at(2026, 10, 13, 10, 30));
 });
+
+const mal = have ? city('malmo') : null;
+const byStart = (f, x, y) => { const s = f.segments.find((q) => q.g[0][0] === x && q.g[0][1] === y); assert.ok(s, `no curb starting at ${x},${y}`); return s; };
+test('Malmö through the app engine', { skip: (!have && 'no parky-beta engine') || (!mal && 'no build') }, () => {
+  // Curb in residents' area GK-Å: miljöparkering the 7th of every month 08–12, Taxa E (10 kr/h 8–20 (8–20), other time 2 kr/h)
+  const e = byStart(mal, 12.93216, 55.5828);
+  assert.equal(state(e, at(2026, 11, 7, 9)).state, 'forbidden'); // a Saturday: the ban applies every day
+  assert.equal(state(e, at(2026, 11, 7, 12, 30)).price, 10); // ban over at 12, Saturday is "(8–20)"
+  assert.equal(state(e, at(2026, 12, 7, 11, 59)).state, 'forbidden');
+  assert.equal(state(e, at(2026, 11, 9, 9)).price, 10); // Monday
+  assert.equal(state(e, at(2026, 11, 15, 9)).price, 2); // Sunday: other-time rate
+  assert.equal(state(e, at(2026, 11, 9, 21)).price, 2);
+  const a = engine.answer(e, at(2026, 11, 6, 20)); // Friday evening: must move by 08:00 the 7th
+  assert.equal(a.until, at(2026, 11, 7, 8));
+  // Once a year: 16 October 08–12 (Taxa D)
+  const y = byStart(mal, 12.97773, 55.5914);
+  assert.equal(state(y, at(2026, 10, 16, 9)).state, 'forbidden');
+  assert.equal(state(y, at(2026, 11, 16, 9)).price, 15);
+});

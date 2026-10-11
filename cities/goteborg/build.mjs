@@ -10,7 +10,7 @@
 import fs from 'node:fs';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
-import { parseLimitation, parseBan, parseCost, wktLines, cleanLine, validate, clean } from '../lib.mjs';
+import { applyOsm, rehash, parseLimitation, parseBan, parseCost, wktLines, cleanLine, validate, clean } from '../lib.mjs';
 
 const RAW = 'cities/raw/';
 const read = (n) => JSON.parse(zlib.gunzipSync(fs.readFileSync(`${RAW}gbg-${n}.json.gz`)));
@@ -149,6 +149,10 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     clean: read('CleaningZones'), hc: read('HandicapParkings'), mc: read('MCParkings'), truck: read('TruckParkings'),
   };
   const { file, stats } = build(layers);
+  const osmFile = `${RAW}goteborg-osm.json.gz`;
+  if (fs.existsSync(osmFile)) Object.assign(stats, { osm: applyOsm(file, JSON.parse(zlib.gunzipSync(fs.readFileSync(osmFile))), 57.7) });
+  else stats.osm = 'no OSM data: no street names from OSM, no 10-metre zones';
+  rehash(file);
   const errs = validate(file, BOUNDS);
   fs.mkdirSync('cities/out', { recursive: true });
   const body = JSON.stringify(file);

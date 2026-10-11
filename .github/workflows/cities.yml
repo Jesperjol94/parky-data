@@ -25,6 +25,13 @@ jobs:
         env:
           GOTEBORG_APPID: ${{ secrets.GOTEBORG_API_KPI }}
         run: node cities/probe.mjs
+      - name: OpenStreetMap (street names, 10-metre rule)
+        if: "contains(github.event.head_commit.message, '[refresh]') || hashFiles('cities/raw/malmo-osm.json.gz') == '' || hashFiles('cities/raw/goteborg-osm.json.gz') == ''"
+        timeout-minutes: 12
+        run: |
+          for c in goteborg malmo; do
+            if [ ! -f "cities/raw/$c-osm.json.gz" ] || ${{ contains(github.event.head_commit.message, '[refresh]') }}; then node cities/osm.mjs $c || echo "OSM for $c failed, building without it"; fi
+          done
       - name: Build city files
         run: |
           set -o pipefail

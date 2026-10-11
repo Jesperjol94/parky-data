@@ -1,0 +1,23 @@
+{
+  "built": "2026-10-11T01:05:51.723Z",
+  "hash": "70e3d8d93ae66a49",
+  "bytes": 1572791,
+  "errors": [],
+  "cleaningCurbs": 2286,
+  "feeCurbs": 3401,
+  "feeCoveredByCleaning": 2089,
+  "segments": 3598,
+  "reasons": {
+    "time limit not in the data": 37,
+    "cleaning text not understood": 5,
+    "fee text not understood": 5
+  },
+  "uncertain": 44,
+  "unknownPrice": 112,
+  "withCleaning": 2281,
+  "paid": 3412,
+  "free": 30,
+  "reserved": 12,
+  "residents": 2277,
+  "osm": "no OSM data: no street names from OSM, no 10-metre zones"
+}
