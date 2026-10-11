@@ -1,4 +1,4 @@
-# Every night: fetch Stockholm's parking rules, rebuild segments.json for the Parky app, publish if changed.
+# Every night: fetch Stockholm's parking rules, rebuild segments.json for the Parky app, publish if changed. Then (job "cities") build Göteborg and Malmö and publish cities/<id>.json when valid.
 # OSM junctions/crossings (for the 10-metre rule) are refreshed weekly (Mondays) or when missing.
 # If anything fails, the previous segments.json stays published; the app keeps working with it.
 name: Nightly data
@@ -49,3 +49,59 @@ jobs:
           git add segments.json meta.json osm 2>/dev/null || true
           git commit -m "Data $(date -u +%F)" || echo "nothing to commit"
           git push
+
+  # block it (separate job, its own failures only skip a city). Publishes cities/<id>.json + cities/<id>-meta.json,
+  # which the app (data/Cities.ts) downloads.
+  cities:
+    needs: build
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Download city data
+        env:
+          GOTEBORG_APPID: ${{ secrets.GOTEBORG_API_KPI }}
+        run: node cities/probe.mjs || echo "download failed, building from the previous raw files"
+      - name: OpenStreetMap (weekly)
+        timeout-minutes: 25
+        run: |
+          if [ "$(date -u +%u)" = "1" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            mkdir -p cities/out
+            for c in goteborg malmo; do node cities/osm.mjs $c || echo "OSM for $c failed, keeping the previous file"; done
+          fi
+      - name: Build and test
+        run: |
+          mkdir -p cities/out
+          for c in cities/*/build.mjs; do node "$c" || echo "build failed: $c"; done
+          node --test cities/test/*.test.mjs > cities/out/test-log.txt 2>&1 || echo "tests failed"
+      - name: Publish validated cities
+        run: |
+          TESTS_OK=$(grep -q "^# fail 0" cities/out/test-log.txt && echo 1 || echo 0)
+          for c in goteborg malmo; do
+            node -e '
+              const fs=require("fs"), [c, testsOk]=process.argv.slice(1);
+              const f=`cities/out/${c}.json`, m=`cities/out/${c}-meta.json`;
+              if (testsOk!=="1") { console.log(c, "skipped: tests failed"); process.exit(1); }
+              const d=JSON.parse(fs.readFileSync(f)), meta=JSON.parse(fs.readFileSync(m));
+              if (d.v!==1 || d.city!==c || !d.bounds || !Array.isArray(d.segments) || d.segments.length<=500 || (meta.errors||[]).length) { console.log(c, "skipped: invalid"); process.exit(1); }
+              let prev=0; try { prev=JSON.parse(fs.readFileSync(`cities/${c}-meta.json`)).segments||0 } catch {}
+              if (prev && d.segments.length < prev*0.8) { console.log(c, "skipped: shrank", prev, "->", d.segments.length); process.exit(1); }
+              console.log(c, "ok", d.segments.length);
+            ' "$c" "$TESTS_OK" || continue
+            OLD=$(node -e "try{console.log(require('./cities/$c-meta.json').hash||'')}catch{console.log('')}")
+            NEW=$(node -e "console.log(require('./cities/out/$c-meta.json').hash)")
+            if [ "$OLD" != "$NEW" ] || [ ! -f "cities/$c.json" ]; then cp "cities/out/$c.json" "cities/$c.json"; fi
+            node -e "const m=require('./cities/out/$c-meta.json'); m.segments=require('./cities/$c.json').segments.length; require('fs').writeFileSync('cities/$c-meta.json', JSON.stringify(m))"
+          done
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add cities/goteborg.json cities/goteborg-meta.json cities/malmo.json cities/malmo-meta.json cities/raw/*-osm.json.gz 2>/dev/null || true
+          git commit -m "Cities $(date -u +%F)" || echo "nothing to commit"
+          git pull --rebase -q origin main && git push
