@@ -33,3 +33,20 @@ Error: tile failed 55.52000,13.03667,55.55667,13.11000
 
 Node.js v22.23.3
 OSM for malmo failed, building without it
+55.52000,12.89000,55.55667,12.96333 ok 638
+55.52000,12.96333,55.55667,13.03667 ok 533
+55.52000,13.03667,55.55667,13.11000 https://overpass-api.de/api/interpreter status 429
+55.52000,13.03667,55.55667,13.11000 https://overpass.kumi.systems/api/interpreter status 500
+55.52000,13.03667,55.55667,13.11000 ok 536
+55.55667,12.89000,55.59333,12.96333 ok 1425
+55.55667,12.96333,55.59333,13.03667 ok 2550
+55.55667,13.03667,55.59333,13.11000 ok 1001
+55.59333,12.89000,55.63000,12.96333 ok 77
+55.59333,12.96333,55.63000,13.03667 ok 2741
+55.59333,13.03667,55.63000,13.11000 https://overpass-api.de/api/interpreter status 429
+55.59333,13.03667,55.63000,13.11000 https://overpass.kumi.systems/api/interpreter status 500
+55.59333,13.03667,55.63000,13.11000 https://maps.mail.ru/osm/tools/overpass/api/interpreter status 504
+55.59333,13.03667,55.63000,13.11000 https://overpass-api.de/api/interpreter status 504
+55.59333,13.03667,55.63000,13.11000 https://overpass.kumi.systems/api/interpreter status 500
+55.59333,13.03667,55.63000,13.11000 ok 1325
+malmo junctions 5478 crossings 2575 named ways 6717

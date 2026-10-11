@@ -1,7 +1,7 @@
 {
-  "built": "2026-10-11T01:17:13.581Z",
-  "hash": "70e3d8d93ae66a49",
-  "bytes": 1572791,
+  "built": "2026-10-11T01:21:47.630Z",
+  "hash": "a0caf771e0cd3adc",
+  "bytes": 1988926,
   "errors": [],
   "cleaningCurbs": 2286,
   "feeCurbs": 3401,
@@ -19,5 +19,9 @@
   "free": 30,
   "reserved": 12,
   "residents": 2277,
-  "osm": "no OSM data: no street names from OSM, no 10-metre zones"
+  "osm": {
+    "named": 3523,
+    "unnamed": 75,
+    "withZones": 1338
+  }
 }
