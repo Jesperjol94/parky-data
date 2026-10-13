@@ -1,0 +1,21 @@
+# Fetches the official texts of the regulations listed in tools/rdt-lookup.txt and commits them to this branch.
+name: RDT lookup
+on:
+  push:
+    branches: [rdt-lookup]
+permissions:
+  contents: write
+jobs:
+  lookup:
+    if: "!contains(github.event.head_commit.message, '[bot]')"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-swe >/dev/null
+      - run: xargs -d '\n' node tools/rdt-lookup.mjs < tools/rdt-lookup.txt > tools/rdt-lookup-out.md 2>&1 || true
+      - run: |
+          git config user.name "parky-bot"; git config user.email "info@parky.se"
+          git add tools/rdt-lookup-out.md && git commit -m "RDT lookup results [bot]" && git push
