@@ -9,8 +9,8 @@ export const TAXA = {
   2: { periods: [
         { days: ['vardag'], start: H(7), end: H(21), price: 31 },
         { days: ['fore', 'helgdag'], start: H(9), end: H(19), price: 31 },
-      ], otherTime: 20, residents: { month: 1100, day: 75 } },
-  3: { periods: [{ days: ['vardag'], start: H(7), end: H(19), price: 20 }, { days: ['fore'], start: H(11), end: H(17), price: 15 }], residents: { month: 1100, day: 75 } },
+      ], otherTime: 20, residents: { month: 1600, day: 90 } },
+  3: { periods: [{ days: ['vardag'], start: H(7), end: H(19), price: 20 }, { days: ['fore'], start: H(11), end: H(17), price: 15 }], residents: { month: 1600, day: 90 } },
   4: { periods: [{ days: ['vardag'], start: H(7), end: H(19), price: 10 }, { days: ['fore'], start: H(11), end: H(17), price: 10 }], residents: { month: 500, day: 35 } },
   5: { periods: [{ days: ['vardag'], start: H(7), end: H(19), price: 5 }], residents: { month: 300, day: 20 } },
   11: { periods: [{ days: all, start: 0, end: H(24), price: 13.75 }], residents: null },

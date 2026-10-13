@@ -107,7 +107,7 @@ export function build({ clean: cleanF, fees: feeF }, now = Date.now()) {
     const p = f.properties;
     const tx = malmoTaxa(p.taxa);
     if (tx) taxa[tx.code] ||= tx.zone;
-    fees.push({ g, pts: g.map(P), t: tx ? tx.code : null, z: /^Boende/i.test(p.boendeomradekod || '') ? p.boendeomradekod.replace(/^Boende[\s-]*/i, '') : null, prh: /^PRH/i.test(p.typ_av_parkering || ''), raw: p });
+    fees.push({ g, pts: g.map(P), t: tx ? tx.code : null, z: /^(?:taxa [A-F]\s+)?Boende/i.test(p.boendeomradekod || '') ? p.boendeomradekod.replace(/^(?:taxa [A-F]\s+)?Boende[\s-]*/i, '') : null, prh: /^PRH/i.test(p.typ_av_parkering || ''), raw: p });
   }
   const nearFees = grid(fees);
 
@@ -133,7 +133,7 @@ export function build({ clean: cleanF, fees: feeF }, now = Date.now()) {
     else if (/avgift/i.test(v)) {
       if (ts.length === 1 && ts[0] != null) seg.t = ts[0];
       else { seg.t = null; why(ts.length ? 'several or unknown fee zones' : 'paid curb without fee zone'); }
-    } else if (/^Parkering, service$/i.test(v)) seg.t = 0;
+    } else if (/^Parkering, service$/i.test(v)) seg.t = ts.length === 1 && ts[0] != null ? ts[0] : 0; // an overlapping fee curb wins over "service parking" (free) — QA 2026-10-13
     else seg.t = ts.length === 1 ? ts[0] : null; // "Förbud mot att parkera fordon" = the cleaning ban itself; the rest from the fee layer
     if (match.some((i) => fees[i].prh)) seg.v = 'rörelsehindrade';
     if (zs.length === 1) { seg.r = 1; seg.z = zs[0]; }
