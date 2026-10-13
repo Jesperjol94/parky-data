@@ -45,6 +45,9 @@ export function build(layers, now = Date.now()) {
         taxa[code] ||= { ...zone, label: row.ParkingCharge };
         seg.t = code;
       } else { seg.t = null; u = true; why('fee text not understood'); }
+      // The zone code people type into EasyPark/Parkster ("801"), shown next to the pay button in the app
+      const pz = String(row.PhoneParkingCode ?? '').trim();
+      if (/^\d{2,6}$/.test(pz)) seg.pz = pz;
     } else if (kind === 'time') seg.t = 0;
     else { seg.v = { hc: 'rörelsehindrade', mc: 'motorcykel', truck: 'lastbil' }[kind]; }
 
