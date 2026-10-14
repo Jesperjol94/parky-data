@@ -1,0 +1,59 @@
+# RDT city files: processing report
+
+Inputs: pelle-output/output-2.json. 139 municipalities, 60977 segments. Skipped (app has its own file): goteborg.
+Engine sweep: 83960 ban windows checked through parky-beta/engine, 0 failures.
+Changes: 52616 segments given t:0 (rule, no fee text), 2567 made uncertain (no readable rule or overlapping fee table), 361 duplicate windows removed, 0 zero limits turned into bans.
+
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
+danderyd no boundary found (kommunkod 0162)
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter 504
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter 504
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
+danderyd junctions failed overpass failed
+danderyd area none junctions missing crossings missing
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter 502
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
+botkyrka boundary failed overpass failed
+botkyrka no boundary found (kommunkod 0127)
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
+botkyrka junctions failed overpass failed
+botkyrka area none junctions missing crossings missing
+ekero no boundary found (kommunkod 0125)
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter 504
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter 504
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
+ekero junctions failed overpass failed
+ekero area none junctions missing crossings missing
+# danderyd: built rules vs official regulation texts
+
+Run 2026-10-14T15:45:33.236Z. Sample: 150 of 347 regulations. Read: 150, errors: 0.
+
+**157 of 160 checked rules found in the official text (98%).**
+# botkyrka: built rules vs official regulation texts
+
+Run 2026-10-14T15:50:12.685Z. Sample: 150 of 542 regulations. Read: 150, errors: 0.
+
+**153 of 153 checked rules found in the official text (100%).**
+# ekero: built rules vs official regulation texts
+
+Run 2026-10-14T15:50:59.368Z. Sample: 71 of 71 regulations. Read: 71, errors: 0.
+
+**71 of 72 checked rules found in the official text (99%).**
