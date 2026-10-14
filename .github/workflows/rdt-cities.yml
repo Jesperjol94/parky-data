@@ -2,15 +2,13 @@
 # Steps: process pelle-output/output*.json (cleanup + engine sweep) -> add boundary + OSM junctions for the chosen
 # municipalities -> compare a sample with the official regulation texts -> commit results to the same branch.
 name: RDT cities
+# Start it by pushing a commit to an expansion/** branch with "[rdt-run]" in the message. Municipalities for the
+# boundary/junction/official-text steps are listed in cities/rdt-run.txt (space separated ids; first line only).
 on:
-  workflow_dispatch:
-    inputs:
-      cities:
-        description: 'Municipality ids for boundary/junctions/official-text check (space separated)'
-        default: 'danderyd botkyrka ekero'
-      sample:
-        description: 'Regulations to check per municipality'
-        default: '150'
+  push:
+    branches: ['expansion/**']
+env:
+  SAMPLE: '150'
 permissions:
   contents: write
 concurrency:
@@ -18,7 +16,7 @@ concurrency:
   cancel-in-progress: true
 jobs:
   rdt:
-    if: startsWith(github.ref, 'refs/heads/expansion/')
+    if: contains(github.event.head_commit.message, '[rdt-run]') && !contains(github.event.head_commit.message, '[cities-bot]')
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -33,6 +31,9 @@ jobs:
           node-version: 22
       - name: PDF and OCR tools
         run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-swe >/dev/null
+      - name: Read the municipality list
+        id: list
+        run: echo "cities=$(head -1 cities/rdt-run.txt)" >> "$GITHUB_OUTPUT"
       - name: Process Pelle's files (cleanup + engine sweep)
         env:
           PARKY_ENGINE: ${{ github.workspace }}/parky-beta/engine
@@ -42,12 +43,12 @@ jobs:
           node cities/rdt-process.mjs $files --out cities/rdt-out 2>&1 | tee cities/rdt-out-log.txt
       - name: Boundary and junctions (OpenStreetMap)
         timeout-minutes: 60
-        run: node cities/rdt-geo.mjs cities/rdt-out ${{ github.event.inputs.cities }} 2>&1 | tee -a cities/rdt-out-log.txt
+        run: node cities/rdt-geo.mjs cities/rdt-out ${{ steps.list.outputs.cities }} 2>&1 | tee -a cities/rdt-out-log.txt
       - name: Official-text check
         timeout-minutes: 45
         run: |
           mkdir -p cities/out
-          for c in ${{ github.event.inputs.cities }}; do CITY_FILE=cities/rdt-out/$c.json node cities/rdt-check.mjs $c ${{ github.event.inputs.sample }} 2>&1 | head -5 | tee -a cities/rdt-out-log.txt; done
+          for c in ${{ steps.list.outputs.cities }}; do CITY_FILE=cities/rdt-out/$c.json node cities/rdt-check.mjs $c ${{ env.SAMPLE }} 2>&1 | head -5 | tee -a cities/rdt-out-log.txt; done
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -60,5 +61,5 @@ jobs:
           git config user.name "parky-bot"; git config user.email "info@parky.se"
           # Only the chosen municipalities and the reports are committed (all processed files would add ~40 MB per run); the full set is an artifact.
           git add cities/rdt-out/REPORT.md cities/rdt-out/spot-checks.json cities/rdt-out-log.txt cities/out 2>/dev/null || true
-          for c in ${{ github.event.inputs.cities }}; do git add cities/rdt-out/$c.json 2>/dev/null || true; done
+          for c in ${{ steps.list.outputs.cities }}; do git add cities/rdt-out/$c.json 2>/dev/null || true; done
           git diff --cached --quiet || (git commit -m "RDT city results [cities-bot] [skip ci]" && git pull -q --rebase origin ${{ github.ref_name }} && git push)
