@@ -9,7 +9,7 @@ import { execFileSync } from 'node:child_process';
 
 const [city, nArg] = process.argv.slice(2);
 const N = +nArg || 200;
-const file = JSON.parse(fs.readFileSync(`cities/out/${city}.json`));
+const file = JSON.parse(fs.readFileSync(process.env.CITY_FILE || `cities/out/${city}.json`)); // CITY_FILE: any processed city file (e.g. cities/rdt-out/danderyd.json)
 const BASE = 'https://rdt.transportstyrelsen.se/rdt/';
 const WD = ['', 'måndag', 'tisdag', 'onsdag', 'torsdag', 'fredag', 'lördag', 'söndag'];
 
@@ -76,6 +76,10 @@ async function worker() {
         const t = tc;
         r.snip ||= ((i) => (i > 0 ? t.slice(i, i + 450) : t.slice(250, 700)))(t.indexOf('följande'));
         r.checks.push({ what: `cleaning ${WD[w.w]} ${hhmm(w.a)}-${hhmm(w.b)}${w.p ? ' ' + w.p : ''}`, ok: t.includes(day) && timeRe(w.a, w.b).test(t) && (!w.p || t.includes(w.p === 'even' ? 'jämn' : 'udda')) });
+      }
+      for (const w of s.f || []) { // bans: the text must speak of a prohibition, and name the hours unless it is all day
+        if (w.cl) continue;
+        r.checks.push({ what: `ban ${w.w ? WD[w.w] + ' ' : ''}${w.dt ? w.dt.join('/') + ' ' : ''}${hhmm(w.a)}-${hhmm(w.b)}`, ok: /inte|förbjud|förbud|får ej|endast/.test(t) && (w.b - w.a >= 1440 || timeRe(w.a, w.b === 1440 ? 0 : w.b).test(t) || timeRe(w.a, w.b).test(t)) });
       }
       if (s.v) r.checks.push({ what: `reserved ${s.v}`, ok: t.includes(s.v.slice(0, 6)) });
     } catch (e) { r.err = e.message; }
