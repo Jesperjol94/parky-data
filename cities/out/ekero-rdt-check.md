@@ -1,6 +1,6 @@
 # ekero: built rules vs official regulation texts
 
-Run 2026-10-14T15:50:59.368Z. Sample: 71 of 71 regulations. Read: 71, errors: 0.
+Run 2026-10-15T03:04:46.089Z. Sample: 71 of 71 regulations. Read: 71, errors: 0.
 
 **71 of 72 checked rules found in the official text (99%).**
 

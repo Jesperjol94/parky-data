@@ -1,6 +1,6 @@
 # danderyd: built rules vs official regulation texts
 
-Run 2026-10-14T15:45:33.236Z. Sample: 150 of 347 regulations. Read: 150, errors: 0.
+Run 2026-10-15T02:59:32.556Z. Sample: 150 of 347 regulations. Read: 150, errors: 0.
 
 **157 of 160 checked rules found in the official text (98%).**
 
