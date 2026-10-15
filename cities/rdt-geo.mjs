@@ -115,7 +115,7 @@ for (const city of cities) {
   const c = JSON.parse(fs.readFileSync(file, 'utf8'));
   const area = await boundary(c.kommunkod, c.name).catch((e) => { console.log(city, 'boundary failed', e.message); return null; });
   if (area) c.area = area; else console.log(city, 'no boundary found (kommunkod', c.kommunkod + ')');
-  const jc = await junctionsCrossings(c.segments).catch((e) => { console.log(city, 'junctions failed', e.message); return null; });
+  const jc = process.env.NO_JUNCTIONS ? null : await junctionsCrossings(c.segments).catch((e) => { console.log(city, 'junctions failed', e.message); return null; });
   if (jc) { c.junctions = jc.junctions; c.crossings = jc.crossings; delete c.junctionsMissing; } else c.junctionsMissing = true;
   c.attribution = (c.attribution || '').replace(/ ?· ?© OpenStreetMap contributors \(ODbL\)/, '') + ' · © OpenStreetMap contributors (ODbL)';
   fs.writeFileSync(file, JSON.stringify(c));

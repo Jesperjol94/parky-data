@@ -5,7 +5,8 @@ on:
   push:
     branches: ['expansion/**']
 env:
-  SAMPLE: '60'
+  SAMPLE: '25'
+  NO_JUNCTIONS: '1'  # boundaries first (fast); the 10-metre junction pass is a separate, slower run
 permissions:
   contents: write
 concurrency:
@@ -54,7 +55,7 @@ jobs:
     timeout-minutes: 170
     strategy:
       fail-fast: false
-      max-parallel: 2
+      max-parallel: 5
       matrix:
         ids: ${{ fromJson(needs.process.outputs.chunks) }}
     steps:
