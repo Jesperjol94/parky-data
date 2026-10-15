@@ -39,7 +39,8 @@ jobs:
           PARKY_ENGINE: ${{ github.workspace }}/parky-beta/engine
         run: |
           set -o pipefail
-          files=$(ls pelle-output/output-*.json | sort -V)
+          mkdir -p /tmp/pelle && for z in pelle-output/*.zip; do [ -e "$z" ] && unzip -oq "$z" -d /tmp/pelle; done; true
+          files=$(ls pelle-output/output-*.json /tmp/pelle/output-*.json 2>/dev/null | awk -F/ '{print $NF" "$0}' | sort -V | cut -d' ' -f2)
           node cities/rdt-process.mjs $files --out cities/rdt-out 2>&1 | tee cities/rdt-out-log.txt
       - name: Boundary and junctions (OpenStreetMap)
         timeout-minutes: 60
