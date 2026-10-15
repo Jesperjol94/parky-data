@@ -33,7 +33,7 @@ jobs:
           PARKY_ENGINE: ${{ github.workspace }}/parky-beta/engine
         run: |
           set -o pipefail
-          mkdir -p /tmp/pelle && for z in pelle-output/*.zip; do [ -e "$z" ] && unzip -oq "$z" -d /tmp/pelle; done; true
+          mkdir -p processed /tmp/pelle && for z in pelle-output/*.zip; do [ -e "$z" ] && unzip -oq "$z" -d /tmp/pelle; done; true
           files=$(ls pelle-output/output-*.json /tmp/pelle/output-*.json 2>/dev/null | awk -F/ '{print $NF" "$0}' | sort -V | cut -d' ' -f2)
           node --max-old-space-size=6000 cities/rdt-process.mjs $files --out processed 2>&1 | tee processed/log.txt
       - name: Split into chunks
