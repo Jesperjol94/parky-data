@@ -1,0 +1,122 @@
+# All RDT municipalities (Pelle's files, incl. zips) -> boundary + junctions + official-text check -> cities/rdt/ (what the app loads).
+# Manual, on expansion/** branches only; never touches main. Start by pushing a commit with "[rdt-all]" in the message.
+name: RDT all municipalities
+on:
+  push:
+    branches: ['expansion/**']
+env:
+  SAMPLE: '60'
+permissions:
+  contents: write
+concurrency:
+  group: rdt-all-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  process:
+    if: contains(github.event.head_commit.message, '[rdt-all]') && !contains(github.event.head_commit.message, '[cities-bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      chunks: ${{ steps.chunks.outputs.chunks }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
+        with:
+          repository: Jesperjol94/parky-beta
+          path: parky-beta
+          token: ${{ secrets.BETA_READ_TOKEN || github.token }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Process Pelle's files
+        env:
+          PARKY_ENGINE: ${{ github.workspace }}/parky-beta/engine
+        run: |
+          set -o pipefail
+          mkdir -p /tmp/pelle && for z in pelle-output/*.zip; do [ -e "$z" ] && unzip -oq "$z" -d /tmp/pelle; done; true
+          files=$(ls pelle-output/output-*.json /tmp/pelle/output-*.json 2>/dev/null | awk -F/ '{print $NF" "$0}' | sort -V | cut -d' ' -f2)
+          node --max-old-space-size=6000 cities/rdt-process.mjs $files --out processed 2>&1 | tee processed/log.txt
+      - name: Split into chunks
+        id: chunks
+        run: |
+          node -e "
+          const fs=require('fs');const ids=fs.readdirSync('processed').filter(f=>f.endsWith('.json')&&f!=='spot-checks.json').map(f=>f.slice(0,-5)).sort();
+          const per=14,ch=[];for(let i=0;i<ids.length;i+=per)ch.push(ids.slice(i,i+per).join(' '));
+          fs.appendFileSync(process.env.GITHUB_OUTPUT,'chunks='+JSON.stringify(ch)+'\n');console.log(ids.length,'municipalities,',ch.length,'chunks')"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: processed
+          path: processed
+          retention-days: 7
+  geo:
+    needs: process
+    runs-on: ubuntu-latest
+    timeout-minutes: 170
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        ids: ${{ fromJson(needs.process.outputs.chunks) }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: PDF and OCR tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-swe >/dev/null
+      - uses: actions/download-artifact@v4
+        with:
+          name: processed
+          path: processed
+      - name: Boundary and junctions (OpenStreetMap)
+        timeout-minutes: 100
+        continue-on-error: true
+        run: node cities/rdt-geo.mjs processed ${{ matrix.ids }} 2>&1 | tail -60
+      - name: Official-text check (sample)
+        timeout-minutes: 50
+        continue-on-error: true
+        run: |
+          mkdir -p cities/out
+          for c in ${{ matrix.ids }}; do CITY_FILE=processed/$c.json node cities/rdt-check.mjs $c ${{ env.SAMPLE }} 2>&1 | head -3 || true; done
+      - name: Keep only this chunk
+        if: always()
+        run: |
+          mkdir -p chunk && for c in ${{ matrix.ids }}; do cp processed/$c.json chunk/ 2>/dev/null || true; cp cities/out/$c-rdt-check.md chunk/ 2>/dev/null || true; done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chunk-${{ strategy.job-index }}
+          path: chunk
+          retention-days: 7
+  publish:
+    needs: [process, geo]
+    if: always() && needs.process.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - uses: actions/download-artifact@v4
+        with:
+          name: processed
+          path: processed
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chunk-*
+          path: chunks
+          merge-multiple: true
+      - name: Publish (unique fee numbers, index)
+        run: |
+          cp chunks/*.json processed/ 2>/dev/null || true
+          rm -rf cities/rdt && node cities/rdt-publish.mjs processed cities/rdt
+          mkdir -p cities/rdt/check && cp chunks/*-rdt-check.md cities/rdt/check/ 2>/dev/null || true
+          cp processed/REPORT.md cities/rdt/REPORT.md
+          # one summary of the official-text check
+          grep -h "checked rules found" cities/rdt/check/*.md 2>/dev/null | sed 's/\*\*//g' > cities/rdt/check-summary.txt || true
+      - name: Commit
+        run: |
+          git config user.name "parky-bot"; git config user.email "info@parky.se"
+          git add cities/rdt
+          git diff --cached --quiet || (git commit -m "RDT municipalities published to cities/rdt [cities-bot]" && git pull -q --rebase origin ${{ github.ref_name }} && git push)
