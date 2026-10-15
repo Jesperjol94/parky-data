@@ -1,47 +1,20 @@
 # RDT city files: processing report
 
-Inputs: pelle-output/output-2.json. 139 municipalities, 60977 segments. Skipped (app has its own file): goteborg.
-Engine sweep: 83960 ban windows checked through parky-beta/engine, 0 failures.
-Changes: 52616 segments given t:0 (rule, no fee text), 2567 made uncertain (no readable rule or overlapping fee table), 361 duplicate windows removed, 0 zero limits turned into bans.
+Inputs: pelle-output/output-2.json, /tmp/pelle/output-3.json. 274 municipalities, 118506 segments. Skipped (app has its own file): goteborg, malmo, stockholm.
+Engine sweep: 179575 ban windows checked through parky-beta/engine, 4 failures.
+Changes: 100929 segments given t:0 (rule, no fee text), 7553 made uncertain (no readable rule or overlapping fee table), 597 duplicate windows removed, 0 zero limits turned into bans.
 
-overpass https://overpass-api.de/api/interpreter 504
-overpass https://overpass.kumi.systems/api/interpreter 504
-overpass https://overpass.private.coffee/api/interpreter 504
-overpass https://overpass-api.de/api/interpreter 504
-overpass https://overpass.kumi.systems/api/interpreter failed The operation was aborted due to timeout
-overpass https://overpass.private.coffee/api/interpreter 504
-overpass https://overpass-api.de/api/interpreter 504
-overpass https://overpass-api.de/api/interpreter 504
-danderyd area Polygon 1324 bytes junctions 2430 crossings 836
-overpass https://overpass-api.de/api/interpreter 429
-overpass https://overpass-api.de/api/interpreter 504
-overpass https://overpass.kumi.systems/api/interpreter 504
-overpass https://overpass-api.de/api/interpreter 504
-overpass https://overpass.kumi.systems/api/interpreter 504
-overpass https://overpass.private.coffee/api/interpreter 504
-botkyrka area Polygon 3347 bytes junctions 1735 crossings 642
-overpass https://overpass-api.de/api/interpreter 429
-overpass https://overpass.kumi.systems/api/interpreter 504
-overpass https://overpass.private.coffee/api/interpreter 504
-overpass https://overpass-api.de/api/interpreter 504
-overpass https://overpass.kumi.systems/api/interpreter 504
-overpass https://overpass.private.coffee/api/interpreter failed The operation was aborted due to timeout
-overpass https://overpass-api.de/api/interpreter 504
-overpass https://overpass-api.de/api/interpreter 429
-overpass https://overpass.kumi.systems/api/interpreter 504
-ekero area Polygon 2654 bytes junctions 3589 crossings 851
-# danderyd: built rules vs official regulation texts
-
-Run 2026-10-15T02:59:32.556Z. Sample: 150 of 347 regulations. Read: 150, errors: 0.
-
-**157 of 160 checked rules found in the official text (98%).**
-# botkyrka: built rules vs official regulation texts
-
-Run 2026-10-15T03:04:01.404Z. Sample: 150 of 542 regulations. Read: 150, errors: 0.
-
-**153 of 153 checked rules found in the official text (100%).**
-# ekero: built rules vs official regulation texts
-
-Run 2026-10-15T03:04:46.089Z. Sample: 71 of 71 regulations. Read: 71, errors: 0.
-
-**71 of 72 checked rules found in the official text (99%).**
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500

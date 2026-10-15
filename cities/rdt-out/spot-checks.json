@@ -33,8 +33,8 @@
    "kind": "ban"
   },
   {
-   "n": "Annelundsvägen",
-   "c": "1489 2008-0444",
+   "n": "Furuvägen",
+   "c": "1489 2008-0446",
    "kind": "ban"
   },
   {
@@ -103,6 +103,11 @@
   }
  ],
  "alvkarleby": [
+  {
+   "n": "idrottsvägen",
+   "c": "0319 2000-380",
+   "kind": "ban"
+  },
   {
    "n": "Rotskärsvägen",
    "c": "0319 2001-114",
@@ -187,8 +192,8 @@
    "kind": "ban"
   },
   {
-   "n": "Lantmannagatan och Pollengatan",
-   "c": "1292 2017-00050",
+   "n": "Strågatan",
+   "c": "1292 2017-00049",
    "kind": "ban"
   },
   {
@@ -219,8 +224,8 @@
    "kind": "ban"
   },
   {
-   "n": "del av Ahllöfsgatan",
-   "c": "1984 2010-00389",
+   "n": "Burskapsvägen",
+   "c": "1984 2011-00105",
    "kind": "ban"
   },
   {
@@ -351,8 +356,8 @@
    "kind": "ban"
   },
   {
-   "n": "TINGSHUSGATAN",
-   "c": "2463 2003-0006",
+   "n": "VASAGATAN",
+   "c": "2463 2003-0008",
    "kind": "ban"
   },
   {
@@ -369,7 +374,7 @@
   },
   {
    "n": "Sundsbrogatan",
-   "c": "1882 2010-00203",
+   "c": "1882 2011-00002",
    "kind": "ban"
   },
   {
@@ -410,8 +415,8 @@
    "kind": "limit"
   },
   {
-   "n": "Esplanaden",
-   "c": "1277 2008-00204",
+   "n": "Opalvägen",
+   "c": "1277 2008-00243",
    "kind": "reserved"
   }
  ],
@@ -477,7 +482,7 @@
   },
   {
    "n": "Pershögsgatan",
-   "c": "1278 2014-00235",
+   "c": "1278 2014-00237",
    "kind": "ban"
   },
   {
@@ -714,8 +719,8 @@
    "kind": "ban"
   },
   {
-   "n": "Västra Järnvägsgatan",
-   "c": "0885 2018-147",
+   "n": "Ängsgatan",
+   "c": "0885 2018-150",
    "kind": "ban"
   },
   {
@@ -751,8 +756,8 @@
    "kind": "ban"
   },
   {
-   "n": "Ovanbroparkeringen",
-   "c": "2081 2011-00034",
+   "n": "Honefsplan",
+   "c": "2081 2016-00005",
    "kind": "limit"
   },
   {
@@ -766,8 +771,8 @@
    "kind": "fee"
   },
   {
-   "n": "Ovanbroparkeringen",
-   "c": "2081 2011-00034",
+   "n": "Skolgatan",
+   "c": "2081 2016-00002",
    "kind": "reserved"
   }
  ],
@@ -834,8 +839,8 @@
    "kind": "ban"
   },
   {
-   "n": "Kvarnstigen",
-   "c": "1272 2017-126",
+   "n": "Löparegatan",
+   "c": "1272 2017-128",
    "kind": "ban"
   },
   {
@@ -971,8 +976,8 @@
    "kind": "ban"
   },
   {
-   "n": "Pråmvägen",
-   "c": "0125 2012-4",
+   "n": "Jungfrusundsvägen",
+   "c": "0125 2012-3",
    "kind": "ban"
   },
   {
@@ -1037,8 +1042,8 @@
    "kind": "ban"
   },
   {
-   "n": "Tullgatan",
-   "c": "0381 2008-193",
+   "n": "Verkmästaregatan",
+   "c": "0381 2008-197",
    "kind": "ban"
   },
   {
@@ -1047,8 +1052,8 @@
    "kind": "limit"
   },
   {
-   "n": "Torgbacken",
-   "c": "0381 2025-0139",
+   "n": "Blåvingegatan",
+   "c": "0381 2008-13",
    "kind": "limit"
   },
   {
@@ -1069,8 +1074,8 @@
    "kind": "ban"
   },
   {
-   "n": "Brunskogsgatan",
-   "c": "0484 2020-017",
+   "n": "Västra Storgatan",
+   "c": "0484 2020-124",
    "kind": "ban"
   },
   {
@@ -1096,8 +1101,8 @@
    "kind": "ban"
   },
   {
-   "n": "del av Bruksgatan",
-   "c": "1285 2016-26",
+   "n": "Järnvägsgatan",
+   "c": "1285 2016-126",
    "kind": "ban"
   },
   {
@@ -1241,8 +1246,8 @@
    "kind": "ban"
   },
   {
-   "n": "Löparvägen",
-   "c": "2080 2010-00803",
+   "n": "Lustigknoppsvägen",
+   "c": "2080 2013-00208",
    "kind": "ban"
   },
   {
@@ -1392,7 +1397,7 @@
   },
   {
    "n": "Storgatan",
-   "c": "1763 2006-65",
+   "c": "1763 2006-66",
    "kind": "limit"
   }
  ],
@@ -1447,8 +1452,8 @@
    "kind": "ban"
   },
   {
-   "n": "Frideborgsvägen",
-   "c": "2180 2023-116",
+   "n": "Stålbogatan",
+   "c": "2180 2023-256",
    "kind": "ban"
   },
   {
@@ -1793,8 +1798,8 @@
    "kind": "ban"
   },
   {
-   "n": "Parkgatan",
-   "c": "1861 2013-00011",
+   "n": "Idrottsvägen",
+   "c": "1861 2022-0032",
    "kind": "ban"
   },
   {
@@ -1847,8 +1852,8 @@
    "kind": "ban"
   },
   {
-   "n": "Ryttarevägen",
-   "c": "1380 2013-00196",
+   "n": "Laxvägen/Ljungåsvägen",
+   "c": "1380 2018-00091",
    "kind": "ban"
   },
   {
@@ -1882,7 +1887,7 @@
   },
   {
    "n": "Lorensbergsvägen",
-   "c": "0136 2021-291",
+   "c": "0136 2021-285",
    "kind": "ban"
   },
   {
@@ -1891,8 +1896,8 @@
    "kind": "limit"
   },
   {
-   "n": "Allévägen",
-   "c": "0136 2025-24",
+   "n": "Nävervägen",
+   "c": "0136 2024-132",
    "kind": "limit"
   },
   {
@@ -1913,8 +1918,8 @@
    "kind": "ban"
   },
   {
-   "n": "parkeringsföreskrifter för Torggatan",
-   "c": "2583 2010-31",
+   "n": "Lomvägen",
+   "c": "2583 2010-45",
    "kind": "ban"
   },
   {
@@ -1930,8 +1935,8 @@
    "kind": "ban"
   },
   {
-   "n": "Skogsstigen",
-   "c": "2280 2010-073",
+   "n": "Skördevägen",
+   "c": "2280 2010-074",
    "kind": "ban"
   },
   {
@@ -1984,8 +1989,8 @@
    "kind": "ban"
   },
   {
-   "n": "Hammarvägen",
-   "c": "1293 2010-01050",
+   "n": "A Bergmans väg",
+   "c": "1293 2010-01070",
    "kind": "ban"
   },
   {
@@ -2065,8 +2070,8 @@
    "kind": "ban"
   },
   {
-   "n": "Hjalmar Forsbergs gata",
-   "c": "1283 2010-02681",
+   "n": "Döbeliusvägen",
+   "c": "1283 2010-03027",
    "kind": "ban"
   },
   {
@@ -2075,8 +2080,8 @@
    "kind": "limit"
   },
   {
-   "n": "Hebsackersgatan",
-   "c": "1283 2018-208",
+   "n": "Senderödsvägen",
+   "c": "1283 2019-26",
    "kind": "limit"
   },
   {
@@ -2146,7 +2151,7 @@
    "kind": "ban"
   },
   {
-   "n": "förbud att parkera fordon mellan Läxvägen och Petreskolans norra parkering",
+   "n": "Skiftesgatan",
    "c": "",
    "kind": "ban"
   }
@@ -2158,8 +2163,8 @@
    "kind": "ban"
   },
   {
-   "n": "Svinbådevägen",
-   "c": "1284 2020-7",
+   "n": "Stallgatan",
+   "c": "1284 2020-6",
    "kind": "ban"
   },
   {
@@ -2212,8 +2217,8 @@
    "kind": "ban"
   },
   {
-   "n": "Bangårdsgatan",
-   "c": "1267 2010-00410",
+   "n": "Norra Nygatan",
+   "c": "1267 2010-00424",
    "kind": "ban"
   },
   {
@@ -2266,8 +2271,8 @@
    "kind": "ban"
   },
   {
-   "n": "Gärdesvägen",
-   "c": "0126 2012-00058",
+   "n": "Visirvägen",
+   "c": "0126 2013-00275",
    "kind": "ban"
   },
   {
@@ -2293,8 +2298,8 @@
    "kind": "ban"
   },
   {
-   "n": "Kabelvägen",
-   "c": "2184 2010-0161",
+   "n": "Fiskaregatan",
+   "c": "2184 2010-0169",
    "kind": "ban"
   },
   {
@@ -2313,8 +2318,8 @@
    "kind": "fee"
   },
   {
-   "n": "Drottninggatan",
-   "c": "2184 2010-0061",
+   "n": "Brunnsgatan",
+   "c": "2184 2010-0062",
    "kind": "reserved"
   }
  ],
@@ -2423,8 +2428,8 @@
    "kind": "ban"
   },
   {
-   "n": "Ekgatan",
-   "c": "0680 2017-1027",
+   "n": "Grymängsgatan",
+   "c": "0680 2017-1242",
    "kind": "ban"
   },
   {
@@ -2433,8 +2438,8 @@
    "kind": "limit"
   },
   {
-   "n": "Cementgatan",
-   "c": "0680 2022-66",
+   "n": "Klostergatan",
+   "c": "0680 2021-443",
    "kind": "limit"
   },
   {
@@ -2483,7 +2488,7 @@
   },
   {
    "n": "Väpnaregatan",
-   "c": "0880 2010-903",
+   "c": "0880 2010-904",
    "kind": "ban"
   },
   {
@@ -2504,6 +2509,33 @@
   {
    "n": "Kungsgatan",
    "c": "0880 2010-83",
+   "kind": "reserved"
+  }
+ ],
+ "karlsborg": [
+  {
+   "n": "Kungsgatan",
+   "c": "",
+   "kind": "ban"
+  },
+  {
+   "n": "Köpmannagatan",
+   "c": "",
+   "kind": "ban"
+  },
+  {
+   "n": "Västra Kanalholmen",
+   "c": "",
+   "kind": "limit"
+  },
+  {
+   "n": "Västra Kanalholmen",
+   "c": "",
+   "kind": "limit"
+  },
+  {
+   "n": "Kungsgatan",
+   "c": "",
    "kind": "reserved"
   }
  ],
@@ -2546,8 +2578,8 @@
    "kind": "ban"
   },
   {
-   "n": "Kapellgatan",
-   "c": "1883 2010-00238",
+   "n": "Mekanikergatan",
+   "c": "1883 2010-00240",
    "kind": "ban"
   },
   {
@@ -2574,7 +2606,7 @@
   },
   {
    "n": "Norra Kungsgatan",
-   "c": "1080 2012-0504",
+   "c": "1080 2013-0164",
    "kind": "ban"
   },
   {
@@ -2583,8 +2615,8 @@
    "kind": "limit"
   },
   {
-   "n": "Stenbergsgränd",
-   "c": "1080 2025-126",
+   "n": "Ölandsgatan",
+   "c": "1080 2025-118",
    "kind": "limit"
   },
   {
@@ -2605,8 +2637,8 @@
    "kind": "ban"
   },
   {
-   "n": "Ventilgatan",
-   "c": "1780 2015-00088",
+   "n": "del av Viken",
+   "c": "1780 2020-00159",
    "kind": "ban"
   },
   {
@@ -2718,8 +2750,8 @@
    "kind": "ban"
   },
   {
-   "n": "Karhuniemivägen",
-   "c": "2584 2016-28",
+   "n": "Föraregatan",
+   "c": "2584 2016-124",
    "kind": "ban"
   },
   {
@@ -2746,7 +2778,7 @@
   },
   {
    "n": "Kristoffers väg",
-   "c": "1276 2025-55",
+   "c": "1276 2025-53",
    "kind": "ban"
   },
   {
@@ -2760,8 +2792,8 @@
    "kind": "limit"
   },
   {
-   "n": "Klostergatan",
-   "c": "1276 2009-36",
+   "n": "Järnvägsgatan",
+   "c": "1276 2020-27",
    "kind": "reserved"
   }
  ],
@@ -2772,8 +2804,8 @@
    "kind": "ban"
   },
   {
-   "n": "Vråtorpsgatan",
-   "c": "0330 2022-1",
+   "n": "Päronvägen",
+   "c": "0330 2021-7",
    "kind": "ban"
   },
   {
@@ -2799,8 +2831,8 @@
    "kind": "ban"
   },
   {
-   "n": "Erlandsvägen",
-   "c": "1983 2012-00148",
+   "n": "Fågelvägen",
+   "c": "1983 2012-00211",
    "kind": "ban"
   },
   {
@@ -2919,8 +2951,8 @@
    "kind": "ban"
   },
   {
-   "n": "Köpmangatan",
-   "c": "1881 2010-00050",
+   "n": "Ringvägen",
+   "c": "1881 2010-00060",
    "kind": "ban"
   },
   {
@@ -2946,8 +2978,8 @@
    "kind": "ban"
   },
   {
-   "n": "Ingegatan",
-   "c": "1482 2010-0056",
+   "n": "Zon Smedmästaregatan",
+   "c": "1482 2010-0072",
    "kind": "ban"
   },
   {
@@ -2978,8 +3010,8 @@
    "kind": "ban"
   },
   {
-   "n": "Idrottsvägen",
-   "c": "1384 2019-00035",
+   "n": "Inlags industriområde",
+   "c": "1384 2019-00075",
    "kind": "ban"
   },
   {
@@ -2988,8 +3020,8 @@
    "kind": "limit"
   },
   {
-   "n": "Onsala Kyrka-Rydets vägförenings väghållningområde",
-   "c": "1384 2015-00007",
+   "n": "Lavavägen",
+   "c": "1384 2020-00209",
    "kind": "limit"
   },
   {
@@ -3037,8 +3069,8 @@
    "kind": "ban"
   },
   {
-   "n": "Tjärbyvägen och Lagavägen",
-   "c": "1381 2022-290",
+   "n": "Norra Strandvägen",
+   "c": "1381 2022-350",
    "kind": "ban"
   },
   {
@@ -3226,8 +3258,8 @@
    "kind": "ban"
   },
   {
-   "n": "Lerbovägen",
-   "c": "0186 2009-302",
+   "n": "Lojovägen",
+   "c": "0186 2009-311",
    "kind": "ban"
   },
   {
@@ -3280,8 +3312,8 @@
    "kind": "ban"
   },
   {
-   "n": "Pilbackevägen",
-   "c": "1462 2010-25",
+   "n": "St Marias väg",
+   "c": "1462 2010-26",
    "kind": "ban"
   },
   {
@@ -3344,13 +3376,13 @@
    "kind": "limit"
   },
   {
-   "n": "Domkyrkogatan",
-   "c": "0580 2023-81",
+   "n": "Skvattramvägen",
+   "c": "0580 2024-6",
    "kind": "limit"
   },
   {
-   "n": "Tränggatan",
-   "c": "0580 2024-47",
+   "n": "Elsa Brändströms gata",
+   "c": "0580 2024-19",
    "kind": "fee"
   },
   {
@@ -3442,8 +3474,8 @@
    "kind": "ban"
   },
   {
-   "n": "Industrigatan",
-   "c": "1262 2008-0027",
+   "n": "Kajgatan",
+   "c": "1262 2008-0002",
    "kind": "limit"
   },
   {
@@ -3516,6 +3548,38 @@
    "kind": "reserved"
   }
  ],
+ "lund": [
+  {
+   "n": "Ulrikedalsvägen",
+   "c": "1281 2009-843",
+   "kind": "ban"
+  },
+  {
+   "n": "Södra Esplanaden",
+   "c": "1281 2009-1200",
+   "kind": "ban"
+  },
+  {
+   "n": "Östra Torn",
+   "c": "1281 2009-849",
+   "kind": "limit"
+  },
+  {
+   "n": "Sofielundsvägen",
+   "c": "1281 2009-1686",
+   "kind": "limit"
+  },
+  {
+   "n": "Gyllenkroks allé",
+   "c": "1281 2011-020",
+   "kind": "fee"
+  },
+  {
+   "n": "Vallkärra",
+   "c": "1281 2009-1694",
+   "kind": "reserved"
+  }
+ ],
  "lycksele": [
   {
    "n": "Bångvägen",
@@ -3540,8 +3604,8 @@
    "kind": "ban"
   },
   {
-   "n": "Stengränd",
-   "c": "1484 2009-0039",
+   "n": "Svarvaregatan",
+   "c": "1484 2009-0048",
    "kind": "ban"
   },
   {
@@ -3580,6 +3644,3440 @@
    "n": "Storgatan",
    "c": "2418 2002-04",
    "kind": "limit"
+  }
+ ],
+ "malung-salen": [
+  {
+   "n": "Östra Bangatan",
+   "c": "2023 2009-014",
+   "kind": "ban"
+  },
+  {
+   "n": "Postgatan",
+   "c": "2023 2009-053",
+   "kind": "ban"
+  },
+  {
+   "n": "Lisagatan",
+   "c": "2023 2009-035",
+   "kind": "limit"
+  },
+  {
+   "n": "Sälens Centrum: Parkeringarna A-B",
+   "c": "2023 2010-027",
+   "kind": "limit"
+  },
+  {
+   "n": "Gästgivaren 5",
+   "c": "2023 2009-021",
+   "kind": "reserved"
+  }
+ ],
+ "mariestad": [
+  {
+   "n": "Borgmästaregatan",
+   "c": "1493 2010-00029",
+   "kind": "ban"
+  },
+  {
+   "n": "Drottning Kristinas väg",
+   "c": "1493 2017-00138",
+   "kind": "ban"
+  },
+  {
+   "n": "Bergsgatan",
+   "c": "1493 2010-00026",
+   "kind": "limit"
+  },
+  {
+   "n": "Solhemsvägen",
+   "c": "1493 2018-00144",
+   "kind": "limit"
+  },
+  {
+   "n": "Magasinsgatan",
+   "c": "1493 2012-00048",
+   "kind": "fee"
+  },
+  {
+   "n": "Hamngatan",
+   "c": "1493 2010-00062",
+   "kind": "reserved"
+  }
+ ],
+ "mark": [
+  {
+   "n": "Olof Markusgatan",
+   "c": "1463 2009-0001",
+   "kind": "ban"
+  },
+  {
+   "n": "Strömbacken",
+   "c": "1463 2010-0199",
+   "kind": "ban"
+  },
+  {
+   "n": "Kinna",
+   "c": "1463 2010-0021",
+   "kind": "limit"
+  },
+  {
+   "n": "parkering tillåten 2 timmar Kyrkogatan",
+   "c": "1463 2014-49",
+   "kind": "limit"
+  },
+  {
+   "n": "Boråsvägen",
+   "c": "1463 2010-0023",
+   "kind": "reserved"
+  }
+ ],
+ "markaryd": [
+  {
+   "n": "Hannabadsvägen sträckan från Verkstadsgatan till Kronobergsgatan",
+   "c": "0767 2007-0002",
+   "kind": "ban"
+  },
+  {
+   "n": "Strandvägen",
+   "c": "0767 2010-0041",
+   "kind": "ban"
+  },
+  {
+   "n": "Lagastigsgatan (väg 520)",
+   "c": "0767 2000-0002",
+   "kind": "limit"
+  },
+  {
+   "n": "Skolgatan",
+   "c": "0767 2010-0034",
+   "kind": "limit"
+  },
+  {
+   "n": "Torget",
+   "c": "0767 2006-0002",
+   "kind": "reserved"
+  }
+ ],
+ "mellerud": [
+  {
+   "n": "Kärragatan enligt kartbild",
+   "c": "1461 2022-00002",
+   "kind": "ban"
+  }
+ ],
+ "mjolby": [
+  {
+   "n": "Parisvägen",
+   "c": "0586 2010-23",
+   "kind": "ban"
+  },
+  {
+   "n": "Vifolkavägen",
+   "c": "0586 2010-295",
+   "kind": "ban"
+  },
+  {
+   "n": "Smålandstorget",
+   "c": "0586 2010-51",
+   "kind": "limit"
+  },
+  {
+   "n": "Prästgårdsliden",
+   "c": "0586 2020-82",
+   "kind": "limit"
+  },
+  {
+   "n": "Smålandstorget",
+   "c": "0586 2010-50",
+   "kind": "reserved"
+  }
+ ],
+ "molndal": [
+  {
+   "n": "Drabergsvägen",
+   "c": "1481 2008-00120",
+   "kind": "ban"
+  },
+  {
+   "n": "Alfhöjdsgatan",
+   "c": "1481 2015-00044",
+   "kind": "ban"
+  },
+  {
+   "n": "Sågdalsgatan",
+   "c": "1481 2010-00275",
+   "kind": "limit"
+  },
+  {
+   "n": "Prytzgatan",
+   "c": "1481 2022-44",
+   "kind": "limit"
+  },
+  {
+   "n": "Baldersgatan",
+   "c": "1481 2010-00615",
+   "kind": "fee"
+  },
+  {
+   "n": "Kråketorpsgatan",
+   "c": "1481 2010-00451",
+   "kind": "reserved"
+  }
+ ],
+ "monstera": [
+  {
+   "n": "Kvarngatan",
+   "c": "0861 2011-0017",
+   "kind": "ban"
+  },
+  {
+   "n": "norra och västra sida av Torggatan",
+   "c": "0861 2018-137",
+   "kind": "ban"
+  },
+  {
+   "n": "Storgatan",
+   "c": "0861 2011-0030",
+   "kind": "limit"
+  },
+  {
+   "n": "Häradshövdingegatan",
+   "c": "0861 2019-61",
+   "kind": "limit"
+  },
+  {
+   "n": "Åsevadsgatan",
+   "c": "0861 2005-0009",
+   "kind": "reserved"
+  }
+ ],
+ "mora": [
+  {
+   "n": "Domherrevägen",
+   "c": "2062 2009-00006",
+   "kind": "ban"
+  },
+  {
+   "n": "centrala Mora",
+   "c": "2062 2009-00126",
+   "kind": "ban"
+  },
+  {
+   "n": "Finnsnäsvägen",
+   "c": "2062 2009-00035",
+   "kind": "limit"
+  },
+  {
+   "n": "Dalagatan",
+   "c": "2062 2018-00075",
+   "kind": "limit"
+  },
+  {
+   "n": "Fredsgatan",
+   "c": "2062 2009-00133",
+   "kind": "reserved"
+  }
+ ],
+ "morbylanga": [
+  {
+   "n": "Granuddevägen",
+   "c": "0840 2003-2007",
+   "kind": "ban"
+  },
+  {
+   "n": "Turistvägen",
+   "c": "",
+   "kind": "ban"
+  },
+  {
+   "n": "Skansgatan",
+   "c": "0840 2000-2007",
+   "kind": "limit"
+  },
+  {
+   "n": "Storgatan (väg 951)i Färjestaden",
+   "c": "",
+   "kind": "limit"
+  }
+ ],
+ "motala": [
+  {
+   "n": "Akasialiden",
+   "c": "0583 2010-00008",
+   "kind": "ban"
+  },
+  {
+   "n": "Varamovägen",
+   "c": "0583 2021-58",
+   "kind": "ban"
+  },
+  {
+   "n": "Sjögatan",
+   "c": "0583 2010-00042",
+   "kind": "limit"
+  },
+  {
+   "n": "Bispmotalagatan",
+   "c": "0583 2025-203",
+   "kind": "limit"
+  },
+  {
+   "n": "markparkeringen Akasian",
+   "c": "0583 2025-181",
+   "kind": "fee"
+  },
+  {
+   "n": "Hällsättersleden",
+   "c": "0583 2010-00061",
+   "kind": "reserved"
+  }
+ ],
+ "mullsjo": [
+  {
+   "n": "Gunnarsbovägen",
+   "c": "0642 2010-3",
+   "kind": "ban"
+  },
+  {
+   "n": "Stråkenvägen",
+   "c": "0642 2010-22",
+   "kind": "ban"
+  },
+  {
+   "n": "Kyrkvägen",
+   "c": "0642 2010-97",
+   "kind": "limit"
+  },
+  {
+   "n": "Kyrkvägen",
+   "c": "0642 2010-07",
+   "kind": "limit"
+  },
+  {
+   "n": "Järnvägsgatan 29 (väg 1819)",
+   "c": "0642 2010-7",
+   "kind": "reserved"
+  }
+ ],
+ "munkfors": [
+  {
+   "n": "stannande och parkering, Gustav Janssons väg",
+   "c": "1762 2005-06",
+   "kind": "ban"
+  },
+  {
+   "n": "stannade och parkering, Tallbacksvägen",
+   "c": "1762 2005-38",
+   "kind": "ban"
+  },
+  {
+   "n": "villkor för parkering, Smedsgatan parkeringsgata",
+   "c": "1762 2005-32",
+   "kind": "limit"
+  },
+  {
+   "n": "stannande och parkering, Smedsgatan parkeringsgata",
+   "c": "1762 2005-31",
+   "kind": "reserved"
+  }
+ ],
+ "nacka": [
+  {
+   "n": "Movägen",
+   "c": "0182 2007-00099",
+   "kind": "ban"
+  },
+  {
+   "n": "Ältabergsvägen",
+   "c": "0182 2022-00252",
+   "kind": "ban"
+  },
+  {
+   "n": "Norrholmsvägen",
+   "c": "0182 2008-00111",
+   "kind": "limit"
+  },
+  {
+   "n": "Sandövägen",
+   "c": "0182 2024-00043",
+   "kind": "limit"
+  },
+  {
+   "n": "Värmdövägen",
+   "c": "0182 2008-00119",
+   "kind": "reserved"
+  }
+ ],
+ "nassjo": [
+  {
+   "n": "Granviksgatan",
+   "c": "0682 2008-00172",
+   "kind": "ban"
+  },
+  {
+   "n": "datumparkering inom Nässjö tätort",
+   "c": "0682 2026-00011",
+   "kind": "ban"
+  },
+  {
+   "n": "Esplanaden",
+   "c": "0682 2008-00146",
+   "kind": "limit"
+  },
+  {
+   "n": "Rådhusgatan",
+   "c": "0682 2009-00146",
+   "kind": "limit"
+  },
+  {
+   "n": "Runedalsgatan",
+   "c": "0682 2008-00145",
+   "kind": "reserved"
+  }
+ ],
+ "nora": [
+  {
+   "n": "Christinelundsvägen",
+   "c": "1884 2008-00017",
+   "kind": "ban"
+  },
+  {
+   "n": "Nora",
+   "c": "1884 2013-00003",
+   "kind": "ban"
+  },
+  {
+   "n": "Vargtorpsvägen",
+   "c": "1884 2009-00025",
+   "kind": "limit"
+  },
+  {
+   "n": "Centrala Nora",
+   "c": "1884 2022-00005",
+   "kind": "limit"
+  },
+  {
+   "n": "Rådstugugatan",
+   "c": "1884 2008-00061",
+   "kind": "reserved"
+  }
+ ],
+ "norberg": [
+  {
+   "n": "Engelbrektsgatan",
+   "c": "1962 2010-026",
+   "kind": "ban"
+  },
+  {
+   "n": "Järnvägsgatan (väg 256)",
+   "c": "1962 2010-055",
+   "kind": "ban"
+  },
+  {
+   "n": "Engelbrektsgatan",
+   "c": "1962 2010-031",
+   "kind": "limit"
+  },
+  {
+   "n": "Engelbrektsgatan",
+   "c": "1962 2010-036",
+   "kind": "limit"
+  },
+  {
+   "n": "Engelbrektsgatan",
+   "c": "1962 2010-032",
+   "kind": "reserved"
+  }
+ ],
+ "nordanstig": [],
+ "nordmaling": [
+  {
+   "n": "Hamngatan",
+   "c": "2401 2010-0022",
+   "kind": "ban"
+  },
+  {
+   "n": "Kyrkogatan",
+   "c": "2401 2010-0025",
+   "kind": "ban"
+  }
+ ],
+ "norrkoping": [
+  {
+   "n": "förbud mot parkering inom Klockaretorpet",
+   "c": "0581 2010-1237",
+   "kind": "ban"
+  },
+  {
+   "n": "Norrköpings innerstad",
+   "c": "0581 2023-00813",
+   "kind": "ban"
+  },
+  {
+   "n": "Hagagatan 65",
+   "c": "0581 2012-00315",
+   "kind": "limit"
+  },
+  {
+   "n": "S:t Persgatan",
+   "c": "0581 2025-217",
+   "kind": "limit"
+  },
+  {
+   "n": "pendlarparkeringarna Ankan",
+   "c": "0581 2024-00033",
+   "kind": "fee"
+  },
+  {
+   "n": "Kneippgatan",
+   "c": "0581 2012-00455",
+   "kind": "reserved"
+  }
+ ],
+ "norrtalje": [
+  {
+   "n": "Kvisthamragatans södra sida",
+   "c": "",
+   "kind": "ban"
+  },
+  {
+   "n": "Norrtälje",
+   "c": "0188 2020-00111",
+   "kind": "ban"
+  },
+  {
+   "n": "Götgatan",
+   "c": "0188 2013-00201",
+   "kind": "limit"
+  },
+  {
+   "n": "Skolvägen",
+   "c": "0188 2019-00624",
+   "kind": "limit"
+  },
+  {
+   "n": "Drottninggatan",
+   "c": "0188 2018-00208",
+   "kind": "fee"
+  },
+  {
+   "n": "Badstugatan",
+   "c": "0188 2013-00140",
+   "kind": "reserved"
+  }
+ ],
+ "norsjo": [
+  {
+   "n": "Skolgatan",
+   "c": "2417 2011-624",
+   "kind": "ban"
+  }
+ ],
+ "nybro": [
+  {
+   "n": "Dahlborgsgatan",
+   "c": "0881 2008-00061",
+   "kind": "ban"
+  },
+  {
+   "n": "Åvägen",
+   "c": "0881 2008-00119",
+   "kind": "ban"
+  },
+  {
+   "n": "Sveavägen",
+   "c": "0881 2008-00055",
+   "kind": "limit"
+  },
+  {
+   "n": "Engshyttegatan",
+   "c": "0881 2012-00006",
+   "kind": "limit"
+  },
+  {
+   "n": "Hanemålavägen",
+   "c": "0881 2008-00057",
+   "kind": "reserved"
+  }
+ ],
+ "nykoping": [
+  {
+   "n": "Lasarettsvägen",
+   "c": "0480 2011-00024",
+   "kind": "ban"
+  },
+  {
+   "n": "område centrala Nyköping",
+   "c": "0480 2019-00077",
+   "kind": "ban"
+  },
+  {
+   "n": "Slottsgatan",
+   "c": "0480 2000-101",
+   "kind": "limit"
+  },
+  {
+   "n": "Oppeby torg",
+   "c": "0480 2024-00298",
+   "kind": "limit"
+  },
+  {
+   "n": "Bagaregatan",
+   "c": "0480 2013-00223",
+   "kind": "reserved"
+  }
+ ],
+ "nykvarn": [
+  {
+   "n": "Allévägen",
+   "c": "0140 2010-00026",
+   "kind": "ban"
+  },
+  {
+   "n": "Mikael Wincklers väg",
+   "c": "0140 2010-00086",
+   "kind": "ban"
+  },
+  {
+   "n": "Mikael Wincklers väg",
+   "c": "0140 2010-00085",
+   "kind": "limit"
+  },
+  {
+   "n": "Gammeltorpsvägen",
+   "c": "0140 2011-00025",
+   "kind": "limit"
+  },
+  {
+   "n": "Trädgårdsvägen",
+   "c": "0140 2023-10",
+   "kind": "reserved"
+  }
+ ],
+ "nynashamn": [
+  {
+   "n": "Ösmo pendeltågsstation",
+   "c": "0192 2001-023",
+   "kind": "ban"
+  },
+  {
+   "n": "Skolgatan",
+   "c": "0192 2002-145",
+   "kind": "ban"
+  },
+  {
+   "n": "Floravägen",
+   "c": "0192 2002-042",
+   "kind": "limit"
+  },
+  {
+   "n": "Lokes väg",
+   "c": "0192 2012-044",
+   "kind": "limit"
+  },
+  {
+   "n": "Fredsgatan (19-21)",
+   "c": "0192 2012-001",
+   "kind": "reserved"
+  }
+ ],
+ "ockelbo": [
+  {
+   "n": "Byvägen",
+   "c": "2101 2009-5",
+   "kind": "ban"
+  },
+  {
+   "n": "Sjöängsvägen",
+   "c": "2101 2009-22",
+   "kind": "ban"
+  },
+  {
+   "n": "Torggatan",
+   "c": "2101 2009-34",
+   "kind": "limit"
+  },
+  {
+   "n": "Norra Åsgatan",
+   "c": "2101 2009-52",
+   "kind": "limit"
+  },
+  {
+   "n": "Kaplansvägen",
+   "c": "2101 2009-14",
+   "kind": "reserved"
+  }
+ ],
+ "ockero": [
+  {
+   "n": "Kaptensvägen",
+   "c": "1407 2010-00023",
+   "kind": "ban"
+  },
+  {
+   "n": "Norgårdsvägen",
+   "c": "1407 2010-00070",
+   "kind": "ban"
+  },
+  {
+   "n": "Norgårdsvägen",
+   "c": "1407 2010-00066",
+   "kind": "limit"
+  },
+  {
+   "n": "Sockenvägen",
+   "c": "1407 2016-00034",
+   "kind": "limit"
+  },
+  {
+   "n": "Lappesandsvägen",
+   "c": "1407 2010-00116",
+   "kind": "reserved"
+  }
+ ],
+ "odeshog": [
+  {
+   "n": "Bryggarevägen",
+   "c": "0509 2010-3",
+   "kind": "ban"
+  },
+  {
+   "n": "Skolgatan",
+   "c": "0509 2010-37",
+   "kind": "ban"
+  },
+  {
+   "n": "Lievägen",
+   "c": "0509 2010-19",
+   "kind": "limit"
+  },
+  {
+   "n": "Storgatan",
+   "c": "0509 2010-49",
+   "kind": "limit"
+  },
+  {
+   "n": "Nygatan",
+   "c": "0509 2010-24",
+   "kind": "reserved"
+  }
+ ],
+ "olofstrom": [
+  {
+   "n": "förbud att parkera fordon",
+   "c": "1060 2009-0059",
+   "kind": "ban"
+  },
+  {
+   "n": "förbud att parkera fordon, Nordenbergsvägen, Olofström",
+   "c": "1060 2011-0004",
+   "kind": "ban"
+  },
+  {
+   "n": "Olsgatan",
+   "c": "1060 2014-1",
+   "kind": "limit"
+  },
+  {
+   "n": "Östra Storgatan",
+   "c": "1060 2019-24",
+   "kind": "limit"
+  },
+  {
+   "n": "parkeringsområde väster om Idrottsvägen",
+   "c": "1060 2019-19",
+   "kind": "reserved"
+  }
+ ],
+ "orebro": [
+  {
+   "n": "Agreliusvägen",
+   "c": "1880 2009-00077",
+   "kind": "ban"
+  },
+  {
+   "n": "Nastagatan",
+   "c": "1880 2019-00523",
+   "kind": "ban"
+  },
+  {
+   "n": "Krönikegatan",
+   "c": "1880 2009-00589",
+   "kind": "limit"
+  },
+  {
+   "n": "Slottsgatan",
+   "c": "1880 2025-00267",
+   "kind": "limit"
+  },
+  {
+   "n": "Drottninggatan",
+   "c": "1880 2009-00985",
+   "kind": "fee"
+  },
+  {
+   "n": "Karlslundsgatan",
+   "c": "1880 2009-00542",
+   "kind": "reserved"
+  }
+ ],
+ "orkelljunga": [
+  {
+   "n": "Biblioteksgatan",
+   "c": "1257 2010-00004",
+   "kind": "ban"
+  },
+  {
+   "n": "Turabyggevägen",
+   "c": "1257 2017-90",
+   "kind": "ban"
+  },
+  {
+   "n": "Stockholmsvägen",
+   "c": "1257 2010-00056",
+   "kind": "limit"
+  },
+  {
+   "n": "Kungsvägen",
+   "c": "1257 2020-15",
+   "kind": "limit"
+  },
+  {
+   "n": "Stockholmsvägen",
+   "c": "1257 2010-00059",
+   "kind": "reserved"
+  }
+ ],
+ "ornskoldsvik": [
+  {
+   "n": "Centrumvägen",
+   "c": "2284 2009-00045",
+   "kind": "ban"
+  },
+  {
+   "n": "Skolvägen",
+   "c": "2284 2023-00296",
+   "kind": "ban"
+  },
+  {
+   "n": "Bruksvägen",
+   "c": "2284 2022-00019",
+   "kind": "limit"
+  },
+  {
+   "n": "Nygatan",
+   "c": "2284 2023-00253",
+   "kind": "limit"
+  },
+  {
+   "n": "Apoteksgränd",
+   "c": "2284 2023-00079",
+   "kind": "fee"
+  },
+  {
+   "n": "Örnsköldsgatan",
+   "c": "2284 2012-00043",
+   "kind": "reserved"
+  }
+ ],
+ "orsa": [
+  {
+   "n": "Nygatan",
+   "c": "2034 2020-00037",
+   "kind": "ban"
+  },
+  {
+   "n": "Moravägen",
+   "c": "2034 2020-00039",
+   "kind": "ban"
+  },
+  {
+   "n": "Tallåsvägen",
+   "c": "2034 2021-00063",
+   "kind": "limit"
+  }
+ ],
+ "orust": [
+  {
+   "n": "Ellösvägen",
+   "c": "1421 2012-10",
+   "kind": "ban"
+  },
+  {
+   "n": "Platån",
+   "c": "1421 2012-166",
+   "kind": "ban"
+  },
+  {
+   "n": "Hamntorget",
+   "c": "1421 2012-27",
+   "kind": "limit"
+  },
+  {
+   "n": "Varvsvägen och Snäckevägen",
+   "c": "1421 2021-1",
+   "kind": "limit"
+  },
+  {
+   "n": "Tuvesvik",
+   "c": "1421 2012-148",
+   "kind": "fee"
+  },
+  {
+   "n": "Södra Strandvägen",
+   "c": "1421 2012-36",
+   "kind": "reserved"
+  }
+ ],
+ "osby": [
+  {
+   "n": "Västra Järnvägsgatan",
+   "c": "1273 1999-00341",
+   "kind": "ban"
+  },
+  {
+   "n": "Skogsgatan",
+   "c": "1273 2010-0073",
+   "kind": "ban"
+  },
+  {
+   "n": "Västra Järnvägsgatan",
+   "c": "1273 2001-00377",
+   "kind": "limit"
+  },
+  {
+   "n": "Briogatan",
+   "c": "1273 2013-00076",
+   "kind": "limit"
+  },
+  {
+   "n": "Tranebodavägen",
+   "c": "1273 2010-0126",
+   "kind": "reserved"
+  }
+ ],
+ "oskarshamn": [
+  {
+   "n": "Furuvägen förlängning",
+   "c": "0882 2010-00104",
+   "kind": "ban"
+  },
+  {
+   "n": "Oskarshamns centrum",
+   "c": "0882 2014-00011",
+   "kind": "ban"
+  },
+  {
+   "n": "Döderhultsvägen",
+   "c": "0882 2010-00026",
+   "kind": "limit"
+  },
+  {
+   "n": "Kungsgatan",
+   "c": "0882 2026-00023",
+   "kind": "limit"
+  },
+  {
+   "n": "Kv Brädholmen",
+   "c": "0882 2021-00038",
+   "kind": "fee"
+  },
+  {
+   "n": "Slottsgatan",
+   "c": "0882 2010-00190",
+   "kind": "reserved"
+  }
+ ],
+ "osteraker": [
+  {
+   "n": "Apoteksvägen",
+   "c": "0117 2010-003",
+   "kind": "ban"
+  },
+  {
+   "n": "Österskärsvägen",
+   "c": "0117 2010-281",
+   "kind": "ban"
+  },
+  {
+   "n": "Centralvägen",
+   "c": "0117 2010-036",
+   "kind": "limit"
+  },
+  {
+   "n": "Storängsvägen",
+   "c": "0117 2010-042",
+   "kind": "limit"
+  },
+  {
+   "n": "Sågvägen",
+   "c": "0117 2010-379",
+   "kind": "reserved"
+  }
+ ],
+ "ostersund": [
+  {
+   "n": "Storgatan",
+   "c": "2380 2010-00166",
+   "kind": "ban"
+  },
+  {
+   "n": "Odenskogsvägen",
+   "c": "2380 2017-00046",
+   "kind": "ban"
+  },
+  {
+   "n": "Kyrkgatan",
+   "c": "2380 2011-00040",
+   "kind": "limit"
+  },
+  {
+   "n": "Storsjö strand",
+   "c": "2380 2023-00060",
+   "kind": "limit"
+  },
+  {
+   "n": "Tegelbruksvägen",
+   "c": "2380 2010-00497",
+   "kind": "reserved"
+  }
+ ],
+ "osthammar": [
+  {
+   "n": "Industrivägen",
+   "c": "0382 2008-21",
+   "kind": "ban"
+  },
+  {
+   "n": "Telegrafgatan",
+   "c": "0382 2009-64",
+   "kind": "ban"
+  },
+  {
+   "n": "Rådhusgatan",
+   "c": "0382 2008-4",
+   "kind": "limit"
+  },
+  {
+   "n": "Hamngatan",
+   "c": "0382 2012-160",
+   "kind": "limit"
+  }
+ ],
+ "ostra-goinge": [
+  {
+   "n": "Backgatan",
+   "c": "1256 2010-00008",
+   "kind": "ban"
+  },
+  {
+   "n": "Per Johnssons väg",
+   "c": "1256 2012-00109",
+   "kind": "ban"
+  },
+  {
+   "n": "Smedjegatan",
+   "c": "1256 2010-00037",
+   "kind": "limit"
+  },
+  {
+   "n": "Storgatan",
+   "c": "1256 2016-00035",
+   "kind": "limit"
+  },
+  {
+   "n": "Mickels torg",
+   "c": "1256 2012-00076",
+   "kind": "reserved"
+  }
+ ],
+ "ovanaker": [
+  {
+   "n": "Långgatan",
+   "c": "2121 2010-11",
+   "kind": "ban"
+  },
+  {
+   "n": "Gyllenvägen",
+   "c": "2121 2010-43",
+   "kind": "ban"
+  },
+  {
+   "n": "Långgatan",
+   "c": "2121 2010-58",
+   "kind": "limit"
+  },
+  {
+   "n": "Hembygdsgatan",
+   "c": "2121 2010-94",
+   "kind": "limit"
+  },
+  {
+   "n": "Långgatan",
+   "c": "2121 2010-64",
+   "kind": "reserved"
+  }
+ ],
+ "overkalix": [
+  {
+   "n": "Tingshusgatan",
+   "c": "2513 2010-6",
+   "kind": "ban"
+  },
+  {
+   "n": "Älvgatan",
+   "c": "2513 2010-10",
+   "kind": "ban"
+  }
+ ],
+ "overtornea": [
+  {
+   "n": "Dalgatans östra sida",
+   "c": "2518 2010-004",
+   "kind": "ban"
+  },
+  {
+   "n": "Lärargatan",
+   "c": "2518 2010-010",
+   "kind": "ban"
+  }
+ ],
+ "oxelosund": [
+  {
+   "n": "Kaptensgatan",
+   "c": "0481 2008-0018",
+   "kind": "ban"
+  },
+  {
+   "n": "den del som anges",
+   "c": "0481 2022-19",
+   "kind": "ban"
+  },
+  {
+   "n": "Nätgatan",
+   "c": "0481 2008-0079",
+   "kind": "limit"
+  },
+  {
+   "n": "Jogersövägen",
+   "c": "0481 2024-7",
+   "kind": "limit"
+  },
+  {
+   "n": "Södra Malmgatan",
+   "c": "0481 2010-0070",
+   "kind": "reserved"
+  }
+ ],
+ "pajala": [],
+ "partille": [
+  {
+   "n": "Byvägen",
+   "c": "1402 2009-00048",
+   "kind": "ban"
+  },
+  {
+   "n": "Tage Madsens väg",
+   "c": "1402 2010-00643",
+   "kind": "ban"
+  },
+  {
+   "n": "Göteborgsvägen",
+   "c": "1402 2009-00074",
+   "kind": "limit"
+  },
+  {
+   "n": "Göteborgsvägen",
+   "c": "1402 2010-00729",
+   "kind": "limit"
+  },
+  {
+   "n": "Yllegatan",
+   "c": "1402 2010-00062",
+   "kind": "reserved"
+  }
+ ],
+ "perstorp": [
+  {
+   "n": "Allégatan",
+   "c": "1275 2004-0002",
+   "kind": "ban"
+  },
+  {
+   "n": "Bärnstensvägen",
+   "c": "1275 2018-26",
+   "kind": "ban"
+  },
+  {
+   "n": "Järnvägsgatan",
+   "c": "1275 2008-0168",
+   "kind": "limit"
+  },
+  {
+   "n": "Hantverkaregatan",
+   "c": "1275 2016-11",
+   "kind": "limit"
+  },
+  {
+   "n": "parkeringsområde väster om Allégatan",
+   "c": "1275 2016-7",
+   "kind": "reserved"
+  }
+ ],
+ "pitea": [
+  {
+   "n": "förbud att stanna eller parkera svartuddsvägen",
+   "c": "2581 2000-24",
+   "kind": "ban"
+  },
+  {
+   "n": "Lillbrogatan",
+   "c": "2581 2010-100",
+   "kind": "ban"
+  },
+  {
+   "n": "tidsbegränsad parkering hamngatan",
+   "c": "2581 2005-25",
+   "kind": "limit"
+  },
+  {
+   "n": "Sundsgatan",
+   "c": "2581 2010-113",
+   "kind": "limit"
+  },
+  {
+   "n": "Aronsgatan",
+   "c": "2581 2010-85",
+   "kind": "reserved"
+  }
+ ],
+ "ragunda": [
+  {
+   "n": "Riksväg 87 Stadsberget",
+   "c": "2303 2010-2",
+   "kind": "ban"
+  },
+  {
+   "n": "Hammarstrands samhälle",
+   "c": "2303 2010-12",
+   "kind": "ban"
+  }
+ ],
+ "rattvik": [
+  {
+   "n": "Nordahls väg",
+   "c": "2031 2009-00002",
+   "kind": "ban"
+  },
+  {
+   "n": "Nordahls väg",
+   "c": "2031 2011-00012",
+   "kind": "ban"
+  },
+  {
+   "n": "parkeringen öster om kommunhuset",
+   "c": "2031 2009-00006",
+   "kind": "limit"
+  },
+  {
+   "n": "Enådals parkering",
+   "c": "2031 2022-0005",
+   "kind": "limit"
+  },
+  {
+   "n": "Torget",
+   "c": "2031 2010-00126",
+   "kind": "reserved"
+  }
+ ],
+ "robertsfors": [
+  {
+   "n": "Tundalsskolan",
+   "c": "2409 2010-0023",
+   "kind": "ban"
+  },
+  {
+   "n": "Skolgatan",
+   "c": "2409 2010-0072",
+   "kind": "ban"
+  },
+  {
+   "n": "Centrumhuset",
+   "c": "2409 2010-0034",
+   "kind": "reserved"
+  }
+ ],
+ "ronneby": [
+  {
+   "n": "Skogsgårdsgatan",
+   "c": "1081 2008-00016",
+   "kind": "ban"
+  },
+  {
+   "n": "Långgatan",
+   "c": "1081 2009-00127",
+   "kind": "ban"
+  },
+  {
+   "n": "anslutning till norra delen av Nygatan",
+   "c": "1081 2009-00144",
+   "kind": "limit"
+  },
+  {
+   "n": "Hemmansvägen",
+   "c": "1081 2013-00049",
+   "kind": "limit"
+  },
+  {
+   "n": "anslutning till norra delen av Nygatan",
+   "c": "1081 2009-00144",
+   "kind": "reserved"
+  }
+ ],
+ "saffle": [
+  {
+   "n": "Bryggerigatan",
+   "c": "1785 2010-30",
+   "kind": "ban"
+  },
+  {
+   "n": "Norrlandsvägen",
+   "c": "1785 2010-81",
+   "kind": "ban"
+  },
+  {
+   "n": "parkeringsplatsen inom kv. Kvarnen 9",
+   "c": "1785 2010-26",
+   "kind": "limit"
+  },
+  {
+   "n": "Stortorgets parkeringsplats",
+   "c": "1785 2010-214",
+   "kind": "limit"
+  }
+ ],
+ "sala": [
+  {
+   "n": "Marsgatan",
+   "c": "1981 2005-0143",
+   "kind": "ban"
+  },
+  {
+   "n": "Tellusgatan",
+   "c": "1981 2010-0221",
+   "kind": "ban"
+  },
+  {
+   "n": "Ringgatans södra lokalkörbana",
+   "c": "1981 2008-0022",
+   "kind": "limit"
+  },
+  {
+   "n": "Ringgatans södra lokalgata",
+   "c": "1981 2010-0339",
+   "kind": "limit"
+  },
+  {
+   "n": "Kålgårdsgatan",
+   "c": "1981 2010-0290",
+   "kind": "reserved"
+  }
+ ],
+ "salem": [
+  {
+   "n": "Bergsvägen",
+   "c": "0128 2010-00001",
+   "kind": "ban"
+  },
+  {
+   "n": "Skyttorpsvägen",
+   "c": "0128 2010-00099",
+   "kind": "ban"
+  },
+  {
+   "n": "Dånviksvägen",
+   "c": "0128 2010-00016",
+   "kind": "limit"
+  },
+  {
+   "n": "Säbyhallsvägen",
+   "c": "0128 2019-1",
+   "kind": "limit"
+  },
+  {
+   "n": "Garnuddsvägen",
+   "c": "0128 2010-00033",
+   "kind": "reserved"
+  }
+ ],
+ "sandviken": [
+  {
+   "n": "Jansasgatan",
+   "c": "2181 2010-13",
+   "kind": "ban"
+  },
+  {
+   "n": "Odengatan",
+   "c": "2181 2010-72",
+   "kind": "ban"
+  },
+  {
+   "n": "Baldersplan",
+   "c": "2181 2010-98",
+   "kind": "limit"
+  },
+  {
+   "n": "Smedsgatan",
+   "c": "2181 2010-111",
+   "kind": "limit"
+  },
+  {
+   "n": "Baldersplan",
+   "c": "2181 2010-84",
+   "kind": "reserved"
+  }
+ ],
+ "sater": [
+  {
+   "n": "Vasagatan",
+   "c": "2082 2009-024",
+   "kind": "ban"
+  },
+  {
+   "n": "Storgatan",
+   "c": "2082 2009-0007",
+   "kind": "ban"
+  },
+  {
+   "n": "Storgatan",
+   "c": "2082 2009-021",
+   "kind": "limit"
+  },
+  {
+   "n": "Östra Långgatan",
+   "c": "2082 2009-028",
+   "kind": "limit"
+  },
+  {
+   "n": "Västra Långgatan (Basarplan)",
+   "c": "2082 2009-030",
+   "kind": "reserved"
+  }
+ ],
+ "savsjo": [
+  {
+   "n": "Banérgatan",
+   "c": "0684 2005-0005",
+   "kind": "ban"
+  },
+  {
+   "n": "Vrigstadvägen",
+   "c": "0684 2006-0101",
+   "kind": "ban"
+  },
+  {
+   "n": "Kopparslagaregatan",
+   "c": "0684 2006-0043",
+   "kind": "limit"
+  },
+  {
+   "n": "Stora Torget",
+   "c": "0684 2006-0155",
+   "kind": "limit"
+  },
+  {
+   "n": "Vrigstad sporthall",
+   "c": "0684 2025-00117",
+   "kind": "reserved"
+  }
+ ],
+ "sigtuna": [
+  {
+   "n": "Rosersbergsvägen",
+   "c": "0191 2004-31",
+   "kind": "ban"
+  },
+  {
+   "n": "Sätunavägen och Smedsgränd",
+   "c": "0191 2016-00164",
+   "kind": "ban"
+  },
+  {
+   "n": "Tvärvägen",
+   "c": "0191 2004-432",
+   "kind": "limit"
+  },
+  {
+   "n": "Skeppsholmsvägen",
+   "c": "0191 2022-00043",
+   "kind": "limit"
+  },
+  {
+   "n": "Manfred Björkquists Allé",
+   "c": "0191 2016-00065",
+   "kind": "reserved"
+  }
+ ],
+ "simrishamn": [
+  {
+   "n": "Tullgatan inom Skillinge",
+   "c": "1291 2008-5",
+   "kind": "ban"
+  },
+  {
+   "n": "väg 1600 (Eliselundsvägen)",
+   "c": "1291 2012-51",
+   "kind": "ban"
+  },
+  {
+   "n": "Storgatan",
+   "c": "1291 2010-212",
+   "kind": "limit"
+  },
+  {
+   "n": "Storgatan",
+   "c": "1291 2022-00062",
+   "kind": "limit"
+  },
+  {
+   "n": "Kristianstadsvägen",
+   "c": "1291 2010-38",
+   "kind": "reserved"
+  }
+ ],
+ "sjobo": [
+  {
+   "n": "Norregatan",
+   "c": "1265 2010-0000007",
+   "kind": "ban"
+  },
+  {
+   "n": "Hotellgatan",
+   "c": "1265 2010-0000202",
+   "kind": "ban"
+  },
+  {
+   "n": "Gamla Torg",
+   "c": "1265 2010-0000093",
+   "kind": "limit"
+  },
+  {
+   "n": "Norregatan",
+   "c": "1265 2023-70",
+   "kind": "limit"
+  },
+  {
+   "n": "Västergatan",
+   "c": "1265 2010-0000166",
+   "kind": "reserved"
+  }
+ ],
+ "skelleftea": [
+  {
+   "n": "Stationsgatan",
+   "c": "2482 2007-00348",
+   "kind": "ban"
+  },
+  {
+   "n": "Getbergsvägen",
+   "c": "2482 2025-46",
+   "kind": "ban"
+  },
+  {
+   "n": "Skiftesgatan",
+   "c": "2482 2010-00002",
+   "kind": "limit"
+  },
+  {
+   "n": "Tjärhovsgatan mellan Nygatan och Storgatan",
+   "c": "2482 2025-114",
+   "kind": "limit"
+  },
+  {
+   "n": "Norrvallagatan",
+   "c": "2482 2024-23",
+   "kind": "fee"
+  },
+  {
+   "n": "Stackgatan",
+   "c": "2482 2008-00068",
+   "kind": "reserved"
+  }
+ ],
+ "skovde": [
+  {
+   "n": "Kanikegränd",
+   "c": "1496 2010-00067",
+   "kind": "ban"
+  },
+  {
+   "n": "Helenius gata",
+   "c": "1496 2020-00408",
+   "kind": "ban"
+  },
+  {
+   "n": "Kyrkogatan",
+   "c": "1496 2010-00348",
+   "kind": "limit"
+  },
+  {
+   "n": "Boulognergränd",
+   "c": "1496 2021-00231",
+   "kind": "limit"
+  },
+  {
+   "n": "Norrmalm Syd (NS)",
+   "c": "1496 2019-00301",
+   "kind": "fee"
+  },
+  {
+   "n": "Kyrkogatan",
+   "c": "1496 2010-00348",
+   "kind": "reserved"
+  }
+ ],
+ "skurup": [
+  {
+   "n": "Östra Hornsgatan",
+   "c": "1264 2013-00225",
+   "kind": "ban"
+  },
+  {
+   "n": "Tegelgatan",
+   "c": "1264 2013-00429",
+   "kind": "ban"
+  },
+  {
+   "n": "Fabriksgatan",
+   "c": "1264 2013-00369",
+   "kind": "limit"
+  },
+  {
+   "n": "Trädgårdsgatan",
+   "c": "1264 2021-00099",
+   "kind": "limit"
+  },
+  {
+   "n": "Kyrkogatan",
+   "c": "1264 2013-00273",
+   "kind": "reserved"
+  }
+ ],
+ "smedjebacken": [
+  {
+   "n": "Kyrkogatan",
+   "c": "2061 2010-045",
+   "kind": "ban"
+  },
+  {
+   "n": "gata framför kommunhuset",
+   "c": "2061 2012-055",
+   "kind": "ban"
+  },
+  {
+   "n": "Resecentrum",
+   "c": "2061 2012-011",
+   "kind": "limit"
+  },
+  {
+   "n": "Prästavägen",
+   "c": "2061 2023-7",
+   "kind": "limit"
+  },
+  {
+   "n": "Resecentrum",
+   "c": "2061 2012-012",
+   "kind": "reserved"
+  }
+ ],
+ "soderhamn": [
+  {
+   "n": "Hällåsen",
+   "c": "2182 2015-5",
+   "kind": "ban"
+  },
+  {
+   "n": "förbud att stanna eller parkera",
+   "c": "2182 2024-14",
+   "kind": "ban"
+  },
+  {
+   "n": "Södra Hamngatan",
+   "c": "2182 2017-19",
+   "kind": "limit"
+  },
+  {
+   "n": "Kungsgatan",
+   "c": "2182 2024-25",
+   "kind": "limit"
+  },
+  {
+   "n": "Östra Parkgatan",
+   "c": "2182 2026-1",
+   "kind": "fee"
+  },
+  {
+   "n": "Apoteksgatan",
+   "c": "2182 2018-76",
+   "kind": "reserved"
+  }
+ ],
+ "soderkoping": [
+  {
+   "n": "Borggatan",
+   "c": "0582 2008-00012",
+   "kind": "ban"
+  },
+  {
+   "n": "Trännögatan",
+   "c": "0582 2010-00252",
+   "kind": "ban"
+  },
+  {
+   "n": "Linköpingsgatan",
+   "c": "0582 2010-00033",
+   "kind": "limit"
+  },
+  {
+   "n": "Drothemsgatan",
+   "c": "0582 2014-2",
+   "kind": "limit"
+  },
+  {
+   "n": "Ågatan",
+   "c": "0582 2010-00184",
+   "kind": "reserved"
+  }
+ ],
+ "sodertalje": [
+  {
+   "n": "Sydhamnsvägen",
+   "c": "0181 2008-00051",
+   "kind": "ban"
+  },
+  {
+   "n": "Grusåsen",
+   "c": "0181 2012-00281",
+   "kind": "ban"
+  },
+  {
+   "n": "Blåklocksstigen",
+   "c": "0181 2008-00165",
+   "kind": "limit"
+  },
+  {
+   "n": "Uthamnsvägen",
+   "c": "0181 2025-109",
+   "kind": "limit"
+  },
+  {
+   "n": "Vegagatan",
+   "c": "0181 2008-00431",
+   "kind": "fee"
+  },
+  {
+   "n": "Västra Kanalgatan",
+   "c": "0181 2009-00149",
+   "kind": "reserved"
+  }
+ ],
+ "solleftea": [
+  {
+   "n": "Klockargatan Långsele",
+   "c": "2283 2009-11",
+   "kind": "ban"
+  },
+  {
+   "n": "Järnvägsgatan Sollefteå",
+   "c": "2283 2010-137",
+   "kind": "ban"
+  },
+  {
+   "n": "Storgatan Sollefteå",
+   "c": "2283 2009-001",
+   "kind": "limit"
+  },
+  {
+   "n": "Nipvallen",
+   "c": "2283 2010-096",
+   "kind": "limit"
+  },
+  {
+   "n": "Järnvägsgatan",
+   "c": "2283 2010-136",
+   "kind": "reserved"
+  }
+ ],
+ "sollentuna": [
+  {
+   "n": "Drabantstigen inom Rotebro",
+   "c": "0163 2004-007",
+   "kind": "ban"
+  },
+  {
+   "n": "Bygdevägen",
+   "c": "0163 2021-54",
+   "kind": "ban"
+  },
+  {
+   "n": "Häggviksvägen inom Häggvik",
+   "c": "0163 2003-207",
+   "kind": "limit"
+  },
+  {
+   "n": "Kanalvägen",
+   "c": "0163 2022-62",
+   "kind": "limit"
+  },
+  {
+   "n": "Blåklockevägen inom Tureberg",
+   "c": "0163 2016-84",
+   "kind": "fee"
+  },
+  {
+   "n": "Bygatan inom Tureberg",
+   "c": "0163 2014-32",
+   "kind": "reserved"
+  }
+ ],
+ "solna": [
+  {
+   "n": "Alnäsvägen",
+   "c": "0184 2008-00159",
+   "kind": "ban"
+  },
+  {
+   "n": "förbud mot att parkera fordon inom zon Råsunda",
+   "c": "0184 2015-00021",
+   "kind": "ban"
+  },
+  {
+   "n": "Centralvägen",
+   "c": "0184 2008-00288",
+   "kind": "limit"
+  },
+  {
+   "n": "Ankdammsgatan",
+   "c": "0184 2018-00041",
+   "kind": "limit"
+  },
+  {
+   "n": "Banvaktsvägen",
+   "c": "0184 2008-00226",
+   "kind": "reserved"
+  }
+ ],
+ "solvesborg": [
+  {
+   "n": "Nicolaigatan",
+   "c": "1083 2010-031",
+   "kind": "ban"
+  },
+  {
+   "n": "Nygatan",
+   "c": "1083 2024-3",
+   "kind": "ban"
+  },
+  {
+   "n": "Bilgatan",
+   "c": "1083 2010-116",
+   "kind": "limit"
+  },
+  {
+   "n": "Östra Storgatan",
+   "c": "1083 2019-40",
+   "kind": "limit"
+  },
+  {
+   "n": "Strandvallen",
+   "c": "1083 2010-127",
+   "kind": "reserved"
+  }
+ ],
+ "sorsele": [
+  {
+   "n": "del av Storgatan",
+   "c": "2422 2005-1",
+   "kind": "ban"
+  },
+  {
+   "n": "Södra Esplanadesn norra sida",
+   "c": "2422 2005-10",
+   "kind": "ban"
+  }
+ ],
+ "sotenas": [
+  {
+   "n": "Kungsgatan",
+   "c": "1427 2009-00050",
+   "kind": "ban"
+  },
+  {
+   "n": "Klevenvägen",
+   "c": "1427 2010-00331",
+   "kind": "ban"
+  },
+  {
+   "n": "Dinglevägen Torget",
+   "c": "1427 2009-00093",
+   "kind": "limit"
+  },
+  {
+   "n": "Granvägen",
+   "c": "1427 2020-16",
+   "kind": "limit"
+  },
+  {
+   "n": "Hamngatan",
+   "c": "1427 2010-00388",
+   "kind": "fee"
+  },
+  {
+   "n": "Badholmsvägen",
+   "c": "1427 2009-00080",
+   "kind": "reserved"
+  }
+ ],
+ "staffanstorp": [
+  {
+   "n": "Storgatan",
+   "c": "1230 2008-0002",
+   "kind": "ban"
+  },
+  {
+   "n": "Tågvägen",
+   "c": "1230 2010-0080",
+   "kind": "ban"
+  },
+  {
+   "n": "Rådhusgången",
+   "c": "1230 2021-26",
+   "kind": "limit"
+  },
+  {
+   "n": "parkering öster om Järnvägsgatan, Staffanstorp",
+   "c": "1230 2021-58",
+   "kind": "limit"
+  },
+  {
+   "n": "Torget",
+   "c": "1230 2021-46",
+   "kind": "reserved"
+  }
+ ],
+ "stenungsund": [
+  {
+   "n": "Bokgatan",
+   "c": "1415 2022-37",
+   "kind": "ban"
+  },
+  {
+   "n": "Nytorpshöjdsvägen",
+   "c": "1415 2025-32",
+   "kind": "ban"
+  },
+  {
+   "n": "Lilla Doterödsvägen",
+   "c": "1415 2023-46",
+   "kind": "limit"
+  },
+  {
+   "n": "Stora vägen 2",
+   "c": "1415 2024-42",
+   "kind": "limit"
+  },
+  {
+   "n": "Göteborgsvägen",
+   "c": "1415 2022-38",
+   "kind": "reserved"
+  }
+ ],
+ "storfors": [
+  {
+   "n": "parkeringsförbud längs Björkåsgatan",
+   "c": "1760 2010-0011",
+   "kind": "ban"
+  },
+  {
+   "n": "förbud mot att stanna längs Rörverksgatan",
+   "c": "1760 2010-0014",
+   "kind": "ban"
+  }
+ ],
+ "strangnas": [
+  {
+   "n": "Tegelugnsvägen",
+   "c": "0486 2008-00103",
+   "kind": "ban"
+  },
+  {
+   "n": "Stavlundsvägen",
+   "c": "0486 2021-187",
+   "kind": "ban"
+  },
+  {
+   "n": "Hertig Karls allé",
+   "c": "0486 2008-00167",
+   "kind": "limit"
+  },
+  {
+   "n": "Källgatan",
+   "c": "0486 2022-193",
+   "kind": "limit"
+  },
+  {
+   "n": "Resecentrum",
+   "c": "0486 2008-00220",
+   "kind": "reserved"
+  }
+ ],
+ "stromstad": [
+  {
+   "n": "Norra Bergsgatan",
+   "c": "1486 2012-52",
+   "kind": "ban"
+  },
+  {
+   "n": "Karlsgatan",
+   "c": "1486 2022-8",
+   "kind": "ban"
+  },
+  {
+   "n": "Skeppsbroplatsen",
+   "c": "1486 2008-00184",
+   "kind": "limit"
+  },
+  {
+   "n": "Tångenvägen",
+   "c": "1486 2024-4",
+   "kind": "limit"
+  },
+  {
+   "n": "Skeppsbroplatsen",
+   "c": "1486 2008-00184",
+   "kind": "fee"
+  },
+  {
+   "n": "Skeppsbroplatsen",
+   "c": "1486 2008-00184",
+   "kind": "reserved"
+  }
+ ],
+ "stromsund": [
+  {
+   "n": "Järnvägsgatan",
+   "c": "2313 2005-001",
+   "kind": "ban"
+  },
+  {
+   "n": "Lagmansgatan (väg 817)",
+   "c": "2313 2010-020",
+   "kind": "ban"
+  },
+  {
+   "n": "Bredgårdsgatan",
+   "c": "2313 2010-017",
+   "kind": "limit"
+  },
+  {
+   "n": "Folkets Hus och Hotell Nordica",
+   "c": "2313 2009-001",
+   "kind": "reserved"
+  }
+ ],
+ "sundbyberg": [
+  {
+   "n": "Söder E18 utom Duvbo Hallonbergen",
+   "c": "0183 2010-00145",
+   "kind": "ban"
+  },
+  {
+   "n": "Järnvägsgatan",
+   "c": "0183 2025-00037",
+   "kind": "ban"
+  },
+  {
+   "n": "Löfströms Allé",
+   "c": "0183 2010-00271",
+   "kind": "limit"
+  },
+  {
+   "n": "Kyrkogårdsvägen",
+   "c": "0183 2025-00026",
+   "kind": "limit"
+  },
+  {
+   "n": "Trädgårdsgatan",
+   "c": "0183 2010-00153",
+   "kind": "reserved"
+  }
+ ],
+ "sundsvall": [
+  {
+   "n": "Skolhusallén",
+   "c": "2281 2009-00057",
+   "kind": "ban"
+  },
+  {
+   "n": "Pilgränd",
+   "c": "2281 2020-98",
+   "kind": "ban"
+  },
+  {
+   "n": "Esplanaden",
+   "c": "2281 2010-00562",
+   "kind": "limit"
+  },
+  {
+   "n": "Kyrkogatan",
+   "c": "2281 2022-440",
+   "kind": "limit"
+  },
+  {
+   "n": "Rådhusgatan mellan Floragatan och Rektorsgatan",
+   "c": "2281 2012-00118",
+   "kind": "fee"
+  },
+  {
+   "n": "Esplanaden",
+   "c": "2281 2010-00562",
+   "kind": "reserved"
+  }
+ ],
+ "sunne": [
+  {
+   "n": "Allégatan",
+   "c": "1766 2007-02",
+   "kind": "ban"
+  },
+  {
+   "n": "Långgatan",
+   "c": "1766 2007-46",
+   "kind": "ban"
+  },
+  {
+   "n": "Ekebyvägen",
+   "c": "1766 2007-25",
+   "kind": "limit"
+  },
+  {
+   "n": "Norrgårdsgatan",
+   "c": "1766 2007-59",
+   "kind": "limit"
+  },
+  {
+   "n": "Allégatan",
+   "c": "1766 2007-01",
+   "kind": "reserved"
+  }
+ ],
+ "surahammar": [
+  {
+   "n": "Banjovägen",
+   "c": "1907 2009-001",
+   "kind": "ban"
+  },
+  {
+   "n": "Annehillsvägen",
+   "c": "1907 2009-040",
+   "kind": "ban"
+  },
+  {
+   "n": "Skyttegatan",
+   "c": "1907 2009-109",
+   "kind": "limit"
+  }
+ ],
+ "svalov": [
+  {
+   "n": "Svalövs centrum",
+   "c": "1214 2010-0070",
+   "kind": "ban"
+  },
+  {
+   "n": "Stenhuggaregatan",
+   "c": "1214 2022-13",
+   "kind": "ban"
+  },
+  {
+   "n": "Östra Torggatan",
+   "c": "1214 2022-20",
+   "kind": "limit"
+  },
+  {
+   "n": "Bantorget",
+   "c": "1214 2023-4",
+   "kind": "limit"
+  },
+  {
+   "n": "Spårgatan",
+   "c": "1214 2022-9",
+   "kind": "reserved"
+  }
+ ],
+ "svedala": [
+  {
+   "n": "båda sidor av Ekspinnaregatan",
+   "c": "1263 2008-1068",
+   "kind": "ban"
+  },
+  {
+   "n": "Annedalsgatan",
+   "c": "1263 2016-92",
+   "kind": "ban"
+  },
+  {
+   "n": "Bökebergsgatans östra sida mellan Mellangatan och Malmövägen",
+   "c": "1263 2008-1347",
+   "kind": "limit"
+  },
+  {
+   "n": "Torggatan",
+   "c": "1263 2018-9",
+   "kind": "limit"
+  },
+  {
+   "n": "särskilt anordnad parkeringsplats",
+   "c": "1263 2008-1245",
+   "kind": "reserved"
+  }
+ ],
+ "svenljunga": [
+  {
+   "n": "Rosvägen",
+   "c": "1465 2010-0008",
+   "kind": "ban"
+  },
+  {
+   "n": "Klockaregatan",
+   "c": "1465 2013-10",
+   "kind": "ban"
+  },
+  {
+   "n": "det torg som ligger mellan dessa gator",
+   "c": "1465 2016-18",
+   "kind": "limit"
+  },
+  {
+   "n": "det torg som ligger mellan dessa gator",
+   "c": "1465 2016-18",
+   "kind": "limit"
+  },
+  {
+   "n": "torget mellan Torggatan och Kindsvägen",
+   "c": "1465 2016-19",
+   "kind": "reserved"
+  }
+ ],
+ "taby": [
+  {
+   "n": "Ullnavägen",
+   "c": "0160 2009-00166",
+   "kind": "ban"
+  },
+  {
+   "n": "Byängsvägens vändplats",
+   "c": "0160 2018-00155",
+   "kind": "ban"
+  },
+  {
+   "n": "Marknadsvägen",
+   "c": "0160 2009-00209",
+   "kind": "limit"
+  },
+  {
+   "n": "Åkerbyvägen",
+   "c": "0160 2019-00192",
+   "kind": "limit"
+  },
+  {
+   "n": "Esplanaden",
+   "c": "0160 2013-00180",
+   "kind": "reserved"
+  }
+ ],
+ "tanum": [
+  {
+   "n": "Granitvägens norra ände",
+   "c": "1435 2008-00104",
+   "kind": "ban"
+  },
+  {
+   "n": "Gunnebovägen",
+   "c": "1435 2024-8",
+   "kind": "ban"
+  },
+  {
+   "n": "Ringvägen",
+   "c": "1435 2008-00046",
+   "kind": "limit"
+  },
+  {
+   "n": "Coop parkeringen",
+   "c": "1435 2023-54",
+   "kind": "limit"
+  },
+  {
+   "n": "Nedre Långgatan",
+   "c": "1435 2021-17",
+   "kind": "fee"
+  },
+  {
+   "n": "en markerad plats",
+   "c": "1435 2009-00005",
+   "kind": "reserved"
+  }
+ ],
+ "tidaholm": [
+  {
+   "n": "förbud att parkera",
+   "c": "1498 2009-00052",
+   "kind": "ban"
+  },
+  {
+   "n": "Lindströmsgatan",
+   "c": "1498 2018-34",
+   "kind": "ban"
+  },
+  {
+   "n": "Egnahemsvägen",
+   "c": "1498 2014-16",
+   "kind": "limit"
+  },
+  {
+   "n": "Stallängsvägen",
+   "c": "1498 2018-38",
+   "kind": "limit"
+  },
+  {
+   "n": "Nya torget",
+   "c": "1498 2016-34",
+   "kind": "reserved"
+  }
+ ],
+ "tierp": [
+  {
+   "n": "Sveavägen",
+   "c": "0360 2010-32",
+   "kind": "ban"
+  },
+  {
+   "n": "Rådhusallén",
+   "c": "0360 2024-00067",
+   "kind": "ban"
+  },
+  {
+   "n": "Vendelvägen",
+   "c": "",
+   "kind": "limit"
+  },
+  {
+   "n": "Grevegatan",
+   "c": "0360 2024-00056",
+   "kind": "limit"
+  },
+  {
+   "n": "Trollsjön",
+   "c": "0360 2024-00021",
+   "kind": "fee"
+  },
+  {
+   "n": "Grevegatan",
+   "c": "0360 2013-46",
+   "kind": "reserved"
+  }
+ ],
+ "timra": [
+  {
+   "n": "Bergvägen",
+   "c": "2262 2008-2",
+   "kind": "ban"
+  },
+  {
+   "n": "Norra Fagerviksvägen",
+   "c": "2262 2008-137",
+   "kind": "ban"
+  },
+  {
+   "n": "Köpmangatan",
+   "c": "2262 2008-50",
+   "kind": "limit"
+  },
+  {
+   "n": "Köpmangatan",
+   "c": "2262 2026-74",
+   "kind": "limit"
+  },
+  {
+   "n": "Källvägen",
+   "c": "2262 2020-4",
+   "kind": "reserved"
+  }
+ ],
+ "tingsryd": [
+  {
+   "n": "planen framför brandstationen",
+   "c": "0763 2008-11",
+   "kind": "ban"
+  },
+  {
+   "n": "Storgatan",
+   "c": "0763 2009-174",
+   "kind": "ban"
+  },
+  {
+   "n": "Storgatan",
+   "c": "0763 2008-26",
+   "kind": "limit"
+  },
+  {
+   "n": "del av Storgatan",
+   "c": "0763 2009-82",
+   "kind": "limit"
+  },
+  {
+   "n": "Bussterminalsområdet",
+   "c": "0763 2008-12",
+   "kind": "reserved"
+  }
+ ],
+ "tomelilla": [
+  {
+   "n": "Anders Perssons väg",
+   "c": "1270 2009-00028",
+   "kind": "ban"
+  },
+  {
+   "n": "Hedvägen",
+   "c": "1270 2010-00075",
+   "kind": "ban"
+  },
+  {
+   "n": "Bangatan",
+   "c": "1270 2009-00061",
+   "kind": "limit"
+  },
+  {
+   "n": "Carl Millesgatan",
+   "c": "1270 2010-00109",
+   "kind": "limit"
+  },
+  {
+   "n": "Centralgatan",
+   "c": "1270 2009-00085",
+   "kind": "reserved"
+  }
+ ],
+ "toreboda": [
+  {
+   "n": "Bergsprängarevägen",
+   "c": "1473 2010-00025",
+   "kind": "ban"
+  },
+  {
+   "n": "Börstorpsgatan",
+   "c": "1473 2013-00024",
+   "kind": "ban"
+  },
+  {
+   "n": "Drottninggatan",
+   "c": "1473 2010-00032",
+   "kind": "limit"
+  },
+  {
+   "n": "Norra Torggatan",
+   "c": "1473 2018-00043",
+   "kind": "limit"
+  },
+  {
+   "n": "Norra Torggatan",
+   "c": "1473 2018-00044",
+   "kind": "reserved"
+  }
+ ],
+ "torsas": [
+  {
+   "n": "Applerumsgatan",
+   "c": "0834 2010-1",
+   "kind": "ban"
+  },
+  {
+   "n": "Dalskärsvägen",
+   "c": "0834 2010-13",
+   "kind": "ban"
+  },
+  {
+   "n": "parkeringsplatsen norr om Badhusgatan",
+   "c": "0834 2010-3",
+   "kind": "limit"
+  },
+  {
+   "n": "Nygatan",
+   "c": "0834 2010-52",
+   "kind": "limit"
+  },
+  {
+   "n": "parkeringsplatsen norr om Badhusgatan",
+   "c": "0834 2010-4",
+   "kind": "reserved"
+  }
+ ],
+ "torsby": [
+  {
+   "n": "Alstigen",
+   "c": "1737 2005-01",
+   "kind": "ban"
+  },
+  {
+   "n": "Läroverksgatan",
+   "c": "1737 2005-58",
+   "kind": "ban"
+  },
+  {
+   "n": "Kyrkogatan",
+   "c": "1737 2005-50",
+   "kind": "limit"
+  },
+  {
+   "n": "Nya Torget",
+   "c": "1737 2005-68",
+   "kind": "limit"
+  },
+  {
+   "n": "Biografgatan",
+   "c": "1737 2005-12",
+   "kind": "reserved"
+  }
+ ],
+ "tranas": [
+  {
+   "n": "Brinkgatan",
+   "c": "0687 2020-3",
+   "kind": "ban"
+  },
+  {
+   "n": "Höggatan",
+   "c": "0687 2022-49",
+   "kind": "ban"
+  },
+  {
+   "n": "Östra Bergsgatan",
+   "c": "0687 2020-9",
+   "kind": "limit"
+  },
+  {
+   "n": "Vallgatan",
+   "c": "0687 2022-76",
+   "kind": "limit"
+  },
+  {
+   "n": "Stoerydsvägen",
+   "c": "0687 2021-14",
+   "kind": "reserved"
+  }
+ ],
+ "tranemo": [
+  {
+   "n": "Backgatan",
+   "c": "1452 2010-0020",
+   "kind": "ban"
+  },
+  {
+   "n": "Lövstagatan",
+   "c": "1452 2017-20",
+   "kind": "ban"
+  },
+  {
+   "n": "Storgatan",
+   "c": "1452 2017-34",
+   "kind": "limit"
+  },
+  {
+   "n": "Storgatan",
+   "c": "1452 2017-39",
+   "kind": "limit"
+  },
+  {
+   "n": "Storgatan",
+   "c": "1452 2017-34",
+   "kind": "reserved"
+  }
+ ],
+ "trelleborg": [
+  {
+   "n": "Alsingegatan",
+   "c": "1287 2005-0033",
+   "kind": "ban"
+  },
+  {
+   "n": "Västra småbåtshamnen, Trelleborg",
+   "c": "1287 2015-241",
+   "kind": "ban"
+  },
+  {
+   "n": "Kraftgatan",
+   "c": "1287 2009-0116",
+   "kind": "limit"
+  },
+  {
+   "n": "Algatan",
+   "c": "1287 2019-102",
+   "kind": "limit"
+  },
+  {
+   "n": "Kraftgatan",
+   "c": "1287 2009-0116",
+   "kind": "reserved"
+  }
+ ],
+ "trollhattan": [
+  {
+   "n": "Spikön",
+   "c": "1488 2009-00012",
+   "kind": "ban"
+  },
+  {
+   "n": "Gärdhemsvägen",
+   "c": "1488 2010-00369",
+   "kind": "ban"
+  },
+  {
+   "n": "Hovslagaregatan",
+   "c": "1488 2009-00102",
+   "kind": "limit"
+  },
+  {
+   "n": "Järnvägsgatan",
+   "c": "1488 2023-00234",
+   "kind": "limit"
+  },
+  {
+   "n": "Folkets Park",
+   "c": "1488 2024-00012",
+   "kind": "fee"
+  },
+  {
+   "n": "Spannmålsgatan",
+   "c": "1488 2010-00168",
+   "kind": "reserved"
+  }
+ ],
+ "trosa": [
+  {
+   "n": "Högbergsgatan",
+   "c": "0488 2004-3",
+   "kind": "ban"
+  },
+  {
+   "n": "Skolvägen",
+   "c": "0488 2008-9",
+   "kind": "ban"
+  },
+  {
+   "n": "Västra Långgatan",
+   "c": "0488 2006-125",
+   "kind": "limit"
+  },
+  {
+   "n": "Skolvägen",
+   "c": "0488 2009-2",
+   "kind": "limit"
+  },
+  {
+   "n": "Västra Långgatan",
+   "c": "0488 2006-125",
+   "kind": "reserved"
+  }
+ ],
+ "tyreso": [
+  {
+   "n": "Siklöjevägen",
+   "c": "0138 2009-00213",
+   "kind": "ban"
+  },
+  {
+   "n": "Videvägen",
+   "c": "0138 2019-38",
+   "kind": "ban"
+  },
+  {
+   "n": "Lagergrens väg",
+   "c": "0138 2011-00049",
+   "kind": "limit"
+  },
+  {
+   "n": "Kryddvägen",
+   "c": "0138 2021-109",
+   "kind": "limit"
+  },
+  {
+   "n": "Bollmora gårdsväg",
+   "c": "0138 2017-12",
+   "kind": "reserved"
+  }
+ ],
+ "uddevalla": [
+  {
+   "n": "Femöringsgränd (parkeringsförbudszon)",
+   "c": "1485 2008-0665",
+   "kind": "ban"
+  },
+  {
+   "n": "förbud att parkera inom Lillesjö industriområde",
+   "c": "1485 2023-5",
+   "kind": "ban"
+  },
+  {
+   "n": "Östanvindsvägen",
+   "c": "1485 2013-26",
+   "kind": "limit"
+  },
+  {
+   "n": "Barkvägen",
+   "c": "1485 2024-29",
+   "kind": "limit"
+  },
+  {
+   "n": "Kungstorget",
+   "c": "1485 2014-12",
+   "kind": "fee"
+  },
+  {
+   "n": "Idunavägen",
+   "c": "1485 2013-79",
+   "kind": "reserved"
+  }
+ ],
+ "ulricehamn": [
+  {
+   "n": "Järnvägsgatan",
+   "c": "1491 2010-00007",
+   "kind": "ban"
+  },
+  {
+   "n": "Fiskaregatan",
+   "c": "1491 2020-16",
+   "kind": "ban"
+  },
+  {
+   "n": "Järnvägssgatan",
+   "c": "1491 2010-00009",
+   "kind": "limit"
+  },
+  {
+   "n": "Jägaregatan",
+   "c": "1491 2021-160",
+   "kind": "limit"
+  },
+  {
+   "n": "Södra Kullagatan",
+   "c": "1491 2010-00079",
+   "kind": "reserved"
+  }
+ ],
+ "umea": [
+  {
+   "n": "Svedbergsgatan",
+   "c": "2480 2008-00090",
+   "kind": "ban"
+  },
+  {
+   "n": "Tallhedsvägen",
+   "c": "2480 2013-00278",
+   "kind": "ban"
+  },
+  {
+   "n": "Hagaplan",
+   "c": "2480 2008-00060",
+   "kind": "limit"
+  },
+  {
+   "n": "Järnvägstorget",
+   "c": "2480 2022-37",
+   "kind": "limit"
+  },
+  {
+   "n": "Pilgatan",
+   "c": "2480 2008-00116",
+   "kind": "fee"
+  },
+  {
+   "n": "Hagaplan",
+   "c": "2480 2008-00060",
+   "kind": "reserved"
+  }
+ ],
+ "upplands-bro": [
+  {
+   "n": "förbud att parkera fordon inom området Sylta",
+   "c": "0139 2010-00089",
+   "kind": "ban"
+  },
+  {
+   "n": "Östervägen",
+   "c": "0139 2019-17",
+   "kind": "ban"
+  },
+  {
+   "n": "Stationsvägen",
+   "c": "0139 2011-00313",
+   "kind": "limit"
+  },
+  {
+   "n": "Norrgrindsvägen",
+   "c": "0139 2023-19",
+   "kind": "limit"
+  },
+  {
+   "n": "Torget",
+   "c": "0139 2016-35",
+   "kind": "fee"
+  },
+  {
+   "n": "Furuhällsplan",
+   "c": "0139 2015-14",
+   "kind": "reserved"
+  }
+ ],
+ "upplands-vasby": [
+  {
+   "n": "Cedernäsvägen",
+   "c": "0114 2007-00057",
+   "kind": "ban"
+  },
+  {
+   "n": "Älvsundavägen",
+   "c": "0114 2021-10",
+   "kind": "ban"
+  },
+  {
+   "n": "Optimusvägen",
+   "c": "0114 2007-00266",
+   "kind": "limit"
+  },
+  {
+   "n": "Älvsundavägen",
+   "c": "0114 2021-10",
+   "kind": "limit"
+  },
+  {
+   "n": "Ladbrovägen",
+   "c": "0114 2018-12",
+   "kind": "fee"
+  },
+  {
+   "n": "Bergsyravägen",
+   "c": "0114 2008-00153",
+   "kind": "reserved"
+  }
+ ],
+ "uppsala": [
+  {
+   "n": "Kullerstensvägen",
+   "c": "0380 2009-00066",
+   "kind": "ban"
+  },
+  {
+   "n": "förbud mot att parkera fordon, område Gottsunda 2",
+   "c": "0380 2011-01015",
+   "kind": "ban"
+  },
+  {
+   "n": "Wallingatan",
+   "c": "0380 2009-00201",
+   "kind": "limit"
+  },
+  {
+   "n": "Rosendalsvägen",
+   "c": "0380 2019-812",
+   "kind": "limit"
+  },
+  {
+   "n": "Sernanders väg",
+   "c": "0380 2009-00355",
+   "kind": "fee"
+  },
+  {
+   "n": "Olof Palmes plats",
+   "c": "0380 2012-00101",
+   "kind": "reserved"
+  }
+ ],
+ "uppvidinge": [
+  {
+   "n": "Järnvägsgatan/allmän väg 969",
+   "c": "0760 2011-018",
+   "kind": "ban"
+  },
+  {
+   "n": "Olofsgatan/allmän väg 969",
+   "c": "0760 2011-021",
+   "kind": "ban"
+  },
+  {
+   "n": "Järnvägsgatan/allmän väg 969",
+   "c": "0760 2011-017",
+   "kind": "limit"
+  },
+  {
+   "n": "Järnvägsgatan/allmän väg 969",
+   "c": "0760 2011-019",
+   "kind": "reserved"
+  }
+ ],
+ "vadstena": [
+  {
+   "n": "Hovsgatan",
+   "c": "0584 2009-009",
+   "kind": "ban"
+  },
+  {
+   "n": "Hertig Johans gata",
+   "c": "0584 2010-090",
+   "kind": "ban"
+  },
+  {
+   "n": "Nådendalsvägen",
+   "c": "0584 2009-004",
+   "kind": "limit"
+  },
+  {
+   "n": "Parkgatan",
+   "c": "0584 2010-025",
+   "kind": "limit"
+  },
+  {
+   "n": "Rödtornet",
+   "c": "0584 2009-041",
+   "kind": "reserved"
+  }
+ ],
+ "vaggeryd": [
+  {
+   "n": "Artillerigatan",
+   "c": "0665 2004-16",
+   "kind": "ban"
+  },
+  {
+   "n": "Ekgatan",
+   "c": "0665 2006-159",
+   "kind": "ban"
+  },
+  {
+   "n": "Bangårdsgatan",
+   "c": "0665 2004-55",
+   "kind": "limit"
+  },
+  {
+   "n": "Centralplan",
+   "c": "0665 2018-12",
+   "kind": "limit"
+  },
+  {
+   "n": "Skillingehus",
+   "c": "0665 2004-44",
+   "kind": "reserved"
+  }
+ ],
+ "valdemarsvik": [
+  {
+   "n": "Skolvägen",
+   "c": "0563 2009-1203",
+   "kind": "ban"
+  },
+  {
+   "n": "Kummelvägen",
+   "c": "0563 2019-94",
+   "kind": "ban"
+  },
+  {
+   "n": "parkeringsplats Bussterminalen",
+   "c": "0563 2009-1210",
+   "kind": "limit"
+  },
+  {
+   "n": "Solgårdsvägen",
+   "c": "0563 2019-76",
+   "kind": "limit"
+  },
+  {
+   "n": "parkeringsplats Bussterminalen",
+   "c": "0563 2009-1210",
+   "kind": "reserved"
+  }
+ ],
+ "vallentuna": [
+  {
+   "n": "Centrumpassagen",
+   "c": "0115 2010-00053",
+   "kind": "ban"
+  },
+  {
+   "n": "Fågelsångsvägen",
+   "c": "0115 2016-00182",
+   "kind": "ban"
+  },
+  {
+   "n": "Mörbyvägen",
+   "c": "0115 2010-00351",
+   "kind": "limit"
+  },
+  {
+   "n": "Åby allé",
+   "c": "0115 2022-00050",
+   "kind": "limit"
+  },
+  {
+   "n": "Lovisedalsvägen",
+   "c": "0115 2010-00114",
+   "kind": "reserved"
+  }
+ ],
+ "vanersborg": [
+  {
+   "n": "Hamngatan",
+   "c": "1487 2008-00050",
+   "kind": "ban"
+  },
+  {
+   "n": "Galoppgatan",
+   "c": "1487 2010-00154",
+   "kind": "ban"
+  },
+  {
+   "n": "Edsgatan",
+   "c": "1487 2008-00230",
+   "kind": "limit"
+  },
+  {
+   "n": "Residensgatan",
+   "c": "1487 2016-00202",
+   "kind": "limit"
+  },
+  {
+   "n": "Hamngatan",
+   "c": "1487 2008-00061",
+   "kind": "reserved"
+  }
+ ],
+ "vannas": [
+  {
+   "n": "Fritidsvägen",
+   "c": "2460 2010-0003",
+   "kind": "ban"
+  },
+  {
+   "n": "Östra Järnvägsgatan",
+   "c": "2460 2010-0015",
+   "kind": "ban"
+  }
+ ],
+ "vansbro": [
+  {
+   "n": "Tallvägen",
+   "c": "2021 2010-520",
+   "kind": "ban"
+  },
+  {
+   "n": "Fågelvägen",
+   "c": "2021 2011-1054",
+   "kind": "ban"
+  }
+ ],
+ "varberg": [
+  {
+   "n": "Södergatan",
+   "c": "1383 2010-00059",
+   "kind": "ban"
+  },
+  {
+   "n": "Almebergsgatan",
+   "c": "1383 2013-00148",
+   "kind": "ban"
+  },
+  {
+   "n": "Östra Vallgatan",
+   "c": "1383 2010-00043",
+   "kind": "limit"
+  },
+  {
+   "n": "Västra Vallgatan",
+   "c": "1383 2015-00337",
+   "kind": "limit"
+  },
+  {
+   "n": "Hattviksvägen",
+   "c": "1383 2010-00695",
+   "kind": "reserved"
+  }
+ ],
+ "varmdo": [
+  {
+   "n": "Mariagatan inom Gustavsberg",
+   "c": "0120 2010-00157",
+   "kind": "ban"
+  },
+  {
+   "n": "förbud mot att parkera fordon, inom området Hästhagen",
+   "c": "0120 2012-00015",
+   "kind": "ban"
+  },
+  {
+   "n": "infartsparkeringen bakom Ingarö IF inom Ingarö",
+   "c": "0120 2010-00261",
+   "kind": "limit"
+  },
+  {
+   "n": "Stig Lindbergs gata",
+   "c": "0120 2019-00015",
+   "kind": "limit"
+  },
+  {
+   "n": "infartsparkeringen bakom Ingarö IF inom Ingarö",
+   "c": "0120 2010-00261",
+   "kind": "reserved"
+  }
+ ],
+ "varnamo": [
+  {
+   "n": "parkeringsförbud Tryggarpsbacken",
+   "c": "0683 2010-00087",
+   "kind": "ban"
+  },
+  {
+   "n": "Bangårdsgatan",
+   "c": "0683 2011-00205",
+   "kind": "ban"
+  },
+  {
+   "n": "Bangårdsgatan",
+   "c": "0683 2011-00136",
+   "kind": "limit"
+  },
+  {
+   "n": "Prostsjövägen",
+   "c": "0683 2018-59",
+   "kind": "limit"
+  },
+  {
+   "n": "Värnamo",
+   "c": "0683 2025-59",
+   "kind": "fee"
+  },
+  {
+   "n": "Myntgatan",
+   "c": "0683 2012-2",
+   "kind": "reserved"
+  }
+ ],
+ "vasteras": [
+  {
+   "n": "Munkgatan",
+   "c": "1980 2008-00417",
+   "kind": "ban"
+  },
+  {
+   "n": "Armégatan",
+   "c": "1980 2021-00202",
+   "kind": "ban"
+  },
+  {
+   "n": "Domkyrkoesplanaden",
+   "c": "1980 2008-01319",
+   "kind": "limit"
+  },
+  {
+   "n": "Sjöjungfrugatan",
+   "c": "1980 2024-00152",
+   "kind": "limit"
+  },
+  {
+   "n": "Sturegatan",
+   "c": "1980 2010-00393",
+   "kind": "fee"
+  },
+  {
+   "n": "Domkyrkoesplanaden",
+   "c": "1980 2008-01319",
+   "kind": "reserved"
+  }
+ ],
+ "vastervik": [
+  {
+   "n": "Augustenburgsgatan",
+   "c": "0883 2006-00015",
+   "kind": "ban"
+  },
+  {
+   "n": "del av Kristinebergsgatan",
+   "c": "0883 2019-356",
+   "kind": "ban"
+  },
+  {
+   "n": "Södermalmsgatan",
+   "c": "0883 2006-00021",
+   "kind": "limit"
+  },
+  {
+   "n": "Stationsgatan",
+   "c": "0883 2020-241",
+   "kind": "limit"
+  },
+  {
+   "n": "Båtsmansgatan",
+   "c": "0883 2013-156",
+   "kind": "fee"
+  },
+  {
+   "n": "Storgatan",
+   "c": "0883 2008-00028",
+   "kind": "reserved"
+  }
+ ],
+ "vaxholm": [
+  {
+   "n": "Vaxön",
+   "c": "0187 2010-0003",
+   "kind": "ban"
+  },
+  {
+   "n": "Vaxön",
+   "c": "0187 2010-0100",
+   "kind": "ban"
+  },
+  {
+   "n": "Vaxön",
+   "c": "0187 2010-0001",
+   "kind": "limit"
+  },
+  {
+   "n": "Vaxön",
+   "c": "0187 2010-0115",
+   "kind": "limit"
+  },
+  {
+   "n": "Vaxön",
+   "c": "0187 2010-0021",
+   "kind": "reserved"
+  }
+ ],
+ "vaxjo": [
+  {
+   "n": "Anna Trolles väg",
+   "c": "0780 2009-00002",
+   "kind": "ban"
+  },
+  {
+   "n": "Biblioteksgatan",
+   "c": "0780 2020-190",
+   "kind": "ban"
+  },
+  {
+   "n": "Alpgatan",
+   "c": "0780 2009-00582",
+   "kind": "limit"
+  },
+  {
+   "n": "Ekelundsgatan",
+   "c": "0780 2021-244",
+   "kind": "limit"
+  },
+  {
+   "n": "Västra Esplanaden",
+   "c": "0780 2015-319",
+   "kind": "fee"
+  },
+  {
+   "n": "Kungsgatan",
+   "c": "0780 2009-00436",
+   "kind": "reserved"
+  }
+ ],
+ "vellinge": [
+  {
+   "n": "förbud att parkera som gäller för Bokdalsvägen",
+   "c": "1233 1999-1057",
+   "kind": "ban"
+  },
+  {
+   "n": "Stationsvägen",
+   "c": "1233 2018-105",
+   "kind": "ban"
+  },
+  {
+   "n": "parkering som gäller för Elbetorpsvägen",
+   "c": "1233 2004-1972",
+   "kind": "limit"
+  },
+  {
+   "n": "Ängavägen",
+   "c": "1233 2019-55",
+   "kind": "limit"
+  },
+  {
+   "n": "Hamnvägen Skanör",
+   "c": "1233 2016-16",
+   "kind": "fee"
+  },
+  {
+   "n": "parkering tillåten som gäller för Kommunhuset/Simhallen",
+   "c": "1233 2004-2035",
+   "kind": "reserved"
+  }
+ ],
+ "vetlanda": [
+  {
+   "n": "Borgmästaregatan",
+   "c": "0685 2010-00007",
+   "kind": "ban"
+  },
+  {
+   "n": "Stadshusgränd",
+   "c": "0685 2010-00228",
+   "kind": "ban"
+  },
+  {
+   "n": "Kyrkogatan",
+   "c": "0685 2010-00044",
+   "kind": "limit"
+  },
+  {
+   "n": "Lasarettsgatan",
+   "c": "0685 2010-00284",
+   "kind": "limit"
+  },
+  {
+   "n": "Kyrkogatan",
+   "c": "0685 2010-00046",
+   "kind": "reserved"
+  }
+ ],
+ "vilhelmina": [
+  {
+   "n": "Postgatan",
+   "c": "2462 2003-007",
+   "kind": "ban"
+  },
+  {
+   "n": "Storgatan",
+   "c": "2462 2003-022",
+   "kind": "ban"
+  },
+  {
+   "n": "Prästgatan",
+   "c": "2462 2003-050",
+   "kind": "limit"
+  }
+ ],
+ "vimmerby": [
+  {
+   "n": "Sevedegatan",
+   "c": "0884 2007-0028",
+   "kind": "ban"
+  },
+  {
+   "n": "Vimmerbyvägen",
+   "c": "0884 2021-143",
+   "kind": "ban"
+  },
+  {
+   "n": "Stora Torget",
+   "c": "0884 2007-0021",
+   "kind": "limit"
+  },
+  {
+   "n": "Jägaregatan",
+   "c": "0884 2021-254",
+   "kind": "limit"
+  },
+  {
+   "n": "Kyrkogårdsgatan",
+   "c": "0884 2019-26",
+   "kind": "reserved"
+  }
+ ],
+ "vindeln": [
+  {
+   "n": "Bondevägen",
+   "c": "2404 1999-3",
+   "kind": "ban"
+  },
+  {
+   "n": "väg 1225",
+   "c": "2404 2011-2",
+   "kind": "ban"
+  }
+ ],
+ "vingaker": [
+  {
+   "n": "Ekvägen",
+   "c": "0428 2010-9",
+   "kind": "ban"
+  },
+  {
+   "n": "Odins väg",
+   "c": "0428 2010-63",
+   "kind": "ban"
+  },
+  {
+   "n": "Bondegatan",
+   "c": "0428 2010-30",
+   "kind": "limit"
+  },
+  {
+   "n": "Järnvägsgatan",
+   "c": "0428 2010-53",
+   "kind": "limit"
+  },
+  {
+   "n": "Bondegatan",
+   "c": "0428 2010-127",
+   "kind": "reserved"
+  }
+ ],
+ "ydre": [
+  {
+   "n": "Österbymo",
+   "c": "0512 2012-09",
+   "kind": "ban"
+  },
+  {
+   "n": "Järnvägsgatan",
+   "c": "0512 2012-16",
+   "kind": "ban"
+  }
+ ],
+ "ystad": [
+  {
+   "n": "Dragaregatan",
+   "c": "1286 2007-0002",
+   "kind": "ban"
+  },
+  {
+   "n": "Flintlåsgatan",
+   "c": "1286 2014-0040",
+   "kind": "ban"
+  },
+  {
+   "n": "Hagagatans östra sida",
+   "c": "1286 2007-0235",
+   "kind": "limit"
+  },
+  {
+   "n": "Surbrunnsvägen",
+   "c": "1286 2022-32",
+   "kind": "limit"
+  },
+  {
+   "n": "Stora Västergatan",
+   "c": "1286 2015-0102",
+   "kind": "fee"
+  },
+  {
+   "n": "Bollhusgatans parkeringsplats",
+   "c": "1286 2007-0295",
+   "kind": "reserved"
   }
  ]
 }
