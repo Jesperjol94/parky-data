@@ -9,13 +9,13 @@ import path from 'node:path';
 
 const [dir, ...cities] = process.argv.slice(2);
 if (!dir || !cities.length) { console.error('usage: node cities/rdt-geo.mjs <dir> <city> [<city> ...]'); process.exit(1); }
-const ENDPOINTS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter'];
+const ENDPOINTS = ['https://overpass-api.de/api/interpreter', 'https://overpass.kumi.systems/api/interpreter', 'https://overpass.private.coffee/api/interpreter'];
 const UA = 'Parky/2.0 (https://parky.se; info@parky.se) municipality boundaries';
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 const r6 = (v) => Math.round(v * 1e6) / 1e6;
 
 async function overpass(q) {
-  for (let attempt = 0; attempt < 3; attempt++) for (const url of ENDPOINTS) {
+  for (let attempt = 0; attempt < 4; attempt++) for (const url of ENDPOINTS) {
     if (attempt) await sleep(15000 * attempt);
     try {
       const r = await fetch(url, { method: 'POST', body: 'data=' + encodeURIComponent(q), headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'User-Agent': UA }, signal: AbortSignal.timeout(200000) });
@@ -63,9 +63,16 @@ function simplify(pts, tol) {
   return pts.filter((_, i) => keep[i]);
 }
 
-async function boundary(code) {
-  const els = await overpass(`[out:json][timeout:180];rel["boundary"="administrative"]["admin_level"="7"]["ref:se:scb"="${code}"];out geom;`);
-  const rel = els.find((e) => e.type === 'relation');
+async function boundary(code, name) {
+  // By SCB code first; many municipalities lack the tag, so fall back to the name ("Danderyds kommun").
+  let els = await overpass(`[out:json][timeout:180];rel["boundary"="administrative"]["admin_level"="7"]["ref:se:scb"="${code}"];out geom;`);
+  let rel = els.find((e) => e.type === 'relation');
+  if (!rel) {
+    await sleep(3000);
+    els = await overpass(`[out:json][timeout:180];rel["boundary"="administrative"]["admin_level"="7"]["name"~"^${name}s? (kommun|Municipality)"];out geom;`);
+    const all = els.filter((e) => e.type === 'relation');
+    rel = all.length === 1 ? all[0] : null; // ambiguous or none: no area rather than a wrong one
+  }
   if (!rel) return null;
   const polys = rings(rel).map((r) => simplify(r, 0.0002).map(([x, y]) => [r6(x), r6(y)]));
   if (!polys.length) return null;
@@ -78,7 +85,7 @@ async function junctionsCrossings(segments) {
   for (const seg of segments) for (const [x, y] of seg.g) { w = Math.min(w, x); e = Math.max(e, x); s = Math.min(s, y); n = Math.max(n, y); }
   const pad = 0.003; w -= pad; s -= pad / 2; e += pad; n += pad / 2;
   if ((e - w) * (n - s) > 0.3) return null;
-  const tiles = [], N = Math.max(1, Math.ceil(Math.sqrt(((e - w) * (n - s)) / 0.02)));
+  const tiles = [], N = Math.max(1, Math.ceil(Math.sqrt(((e - w) * (n - s)) / 0.008)));
   for (let i = 0; i < N; i++) for (let j = 0; j < N; j++) tiles.push([s + (n - s) * i / N, w + (e - w) * j / N, s + (n - s) * (i + 1) / N, w + (e - w) * (j + 1) / N].map((v) => v.toFixed(5)).join(','));
   const nodes = new Map(), degree = new Map(), crossings = [], seenC = new Set(), seenW = new Set();
   for (const bb of tiles) {
@@ -96,7 +103,7 @@ async function junctionsCrossings(segments) {
         });
       }
     }
-    await sleep(3000);
+    await sleep(5000);
   }
   const junctions = [];
   for (const [id, d] of degree) if (d >= 3 && nodes.has(id)) junctions.push(nodes.get(id));
@@ -106,7 +113,7 @@ async function junctionsCrossings(segments) {
 for (const city of cities) {
   const file = path.join(dir, `${city}.json`);
   const c = JSON.parse(fs.readFileSync(file, 'utf8'));
-  const area = await boundary(c.kommunkod).catch((e) => { console.log(city, 'boundary failed', e.message); return null; });
+  const area = await boundary(c.kommunkod, c.name).catch((e) => { console.log(city, 'boundary failed', e.message); return null; });
   if (area) c.area = area; else console.log(city, 'no boundary found (kommunkod', c.kommunkod + ')');
   const jc = await junctionsCrossings(c.segments).catch((e) => { console.log(city, 'junctions failed', e.message); return null; });
   if (jc) { c.junctions = jc.junctions; c.crossings = jc.crossings; delete c.junctionsMissing; } else c.junctionsMissing = true;
