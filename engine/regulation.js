@@ -82,7 +82,7 @@ function reservedFor(x) { for (const [re, v] of RESERVED) if (re.test(x)) return
 
 export function parseRegulation(body) {
   const t = ruleText(body);
-  const out = { taxa: null, reserved: false, reservedSeason: null, purpose: [], allowOnly: [], limits: [], bans: [], otherAllowed: null, unread: [] };
+  const out = { taxa: null, reserved: false, reservedSeason: null, reservedWindows: [], purpose: [], allowOnly: [], limits: [], bans: [], otherAllowed: null, unread: [] };
   if (!t) { out.unread.push('(no rule text)'); return out; }
   let lastAllow = null, lastLimit = null; const tillWs = [];
   for (let s of sentences(t)) {
@@ -96,7 +96,7 @@ export function parseRegulation(body) {
     if (/^övrig tid får endast/.test(x) && reservedFor(x) && lastAllow) { out.otherAllowed = false; out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue; } // "Övrig tid får endast tung lastbil parkeras"
     if (/får endast\b/.test(x) && /parkeras|stannas/.test(x)) {
       const who = reservedFor(x);
-      if (who) { out.reserved = true; out.reservedFor = who; if (m) out.reservedSeason = m; continue; }
+      if (who) { out.reserved = true; out.reservedFor = who; if (m) out.reservedSeason = m; out.reservedWindows.push(...windows(s).map(withSP)); continue; } // the hours stated here are the hours it is reserved ("…parkeras mot avgift vardagar 07.00 - 19.00")
       // "får endast personbil parkeras …": ordinary cars may park; read the rest of the sentence as usual
       x = x.replace(/får endast (?:personbil(?:ar)?|fordon)\s*/, 'får fordon '); s = s.replace(/får endast (?:personbil(?:ar)?|fordon)\s*/i, 'får fordon ');
     }
@@ -156,6 +156,18 @@ export function parseRegulation(body) {
 const DIM = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const nextDay = ([m, d]) => (d >= DIM[m - 1] ? [m % 12 + 1, 1] : [m, d + 1]);
 const prevDay = ([m, d]) => (d <= 1 ? [m === 1 ? 12 : m - 1, DIM[(m + 10) % 12]] : [m, d - 1]);
+// The hours outside a reserved spot's reserved hours, as car-allowed windows { dt, a, b } (null when the hours can't be read safely).
+function outsideHours(ws) {
+  if (!ws.length || ws.some((w) => w.w || w.m || w.p || w.a == null || w.b == null)) return null;
+  const gaps = new Map();
+  for (const D of ['vardag', 'fore', 'helgdag']) {
+    const iv = ws.filter((w) => !w.dt || w.dt.includes(D)).map((w) => [w.a, w.b]).sort((x, y) => x[0] - y[0]);
+    let at = 0;
+    for (const [a, b] of iv) { if (a > at) gaps.set(`${at}-${a}`, [...(gaps.get(`${at}-${a}`) || []), D]); at = Math.max(at, b); }
+    if (at < 1440) gaps.set(`${at}-1440`, [...(gaps.get(`${at}-1440`) || []), D]);
+  }
+  return [...gaps].map(([k, dt]) => { const [a, b] = k.split('-').map(Number); return { dt, a, b }; });
+}
 const complement = (m) => [nextDay(m[1]), prevDay(m[0])];
 
 export function expired(rec, today = new Date().toISOString().slice(0, 10)) {
@@ -179,6 +191,10 @@ export function applyRegulation(seg, rec, today) {
     if (!seg.v) { seg.v = r.reservedFor || 'reserverad'; seg.rx = 1; }
     // "Only motorcycles 1 April – 30 September. Other times vehicles may park": ordinary cars may park outside that season.
     if (r.otherAllowed && r.reservedSeason) { seg.o = [{ m: complement(r.reservedSeason) }]; seg.rx = 1; }
+    // "Only motorcycles weekdays 07–19 … Other times vehicles may park" (Alströmergatan, owner mail 15 Oct): cars may park outside the reserved hours.
+    else if (r.otherAllowed && !seg.o) { const o = outsideHours(r.reservedWindows); if (o) { seg.o = o; seg.rx = 1; } }
+    // A ban in the same text (e.g. "Parkering är dock förbjuden fredag klockan 00.00 - 06.00") applies to everyone, reserved spot or not.
+    if (r.bans.length && !seg.f) { seg.f = r.bans; seg.rx = 1; }
     return Object.assign(seg, r.unread.length ? { ru: 1 } : {});
   }
   if (r.bans.length) { seg.f = r.bans; changed.push('bans'); }
