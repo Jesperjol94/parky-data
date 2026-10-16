@@ -1,0 +1,35 @@
+# Adds municipality boundaries to the published RDT files (cities/rdt/). Manual, on expansion/** branches only; never touches main.
+# Start by pushing a commit with "[rdt-bounds]" in the message. Sequential and resumable (skips municipalities that have an area).
+name: RDT boundaries
+on:
+  push:
+    branches: ['expansion/**']
+permissions:
+  contents: write
+concurrency:
+  group: rdt-bounds
+  cancel-in-progress: false
+jobs:
+  bounds:
+    if: contains(github.event.head_commit.message, '[rdt-bounds]') && !contains(github.event.head_commit.message, '[cities-bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch boundaries
+        run: set -o pipefail && node cities/rdt-bounds.mjs cities/rdt 2>&1 | tee /tmp/bounds.log
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name parky-bot && git config user.email bot@parky.se
+          git add cities/rdt
+          git commit -qm "RDT boundaries added to cities/rdt [cities-bot]" || exit 0
+          for n in 1 2 3; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; done
+      - name: Save the log (ci-logs branch)
+        if: always()
+        run: |
+          mkdir -p /tmp/logs/rdt && tail -n 120 /tmp/bounds.log > /tmp/logs/rdt/bounds.txt || true
+          cd /tmp/logs && git init -q && git remote add origin "https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/${GITHUB_REPOSITORY}.git" && git fetch -q origin ci-logs && git checkout -q -b ci-logs FETCH_HEAD 2>/dev/null; mkdir -p rdt && cp /tmp/logs/rdt/bounds.txt rdt/bounds.txt && git add -A && git -c user.name=parky-bot -c user.email=bot@parky.se commit -qm "rdt bounds log [skip ci]" && git push -q origin ci-logs || true
