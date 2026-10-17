@@ -1,4 +1,80 @@
-asele area Polygon 2883 bytes
-falun no boundary
-nacka area Polygon 2737 bytes
-boundaries added 2, missing 1, with area now 154/274
+sjobo area Polygon 13807 bytes
+skelleftea area MultiPolygon 7202 bytes
+skovde area MultiPolygon 18364 bytes
+skurup area Polygon 7995 bytes
+smedjebacken area MultiPolygon 8790 bytes
+soderhamn area MultiPolygon 4943 bytes
+soderkoping area Polygon 9875 bytes
+sodertalje area MultiPolygon 9257 bytes
+solleftea area Polygon 5706 bytes
+sollentuna area Polygon 2923 bytes
+solna area Polygon 2284 bytes
+solvesborg area Polygon 2953 bytes
+sorsele area MultiPolygon 4348 bytes
+sotenas area Polygon 2193 bytes
+staffanstorp area Polygon 5348 bytes
+stenungsund area MultiPolygon 4514 bytes
+storfors area MultiPolygon 7545 bytes
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+strangnas area MultiPolygon 5894 bytes
+stromstad area Polygon 4218 bytes
+stromsund area MultiPolygon 15820 bytes
+sundbyberg area Polygon 1583 bytes
+sundsvall area MultiPolygon 5942 bytes
+sunne area Polygon 10912 bytes
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+surahammar area MultiPolygon 3478 bytes
+svalov area MultiPolygon 9630 bytes
+svedala area Polygon 8231 bytes
+svenljunga area MultiPolygon 14902 bytes
+taby area Polygon 2105 bytes
+tanum area Polygon 13420 bytes
+tidaholm area MultiPolygon 8741 bytes
+tierp area MultiPolygon 9409 bytes
+timra area Polygon 4237 bytes
+tingsryd area Polygon 17208 bytes
+tomelilla area MultiPolygon 15534 bytes
+toreboda area Polygon 9066 bytes
+torsas area Polygon 7485 bytes
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+torsby area Polygon 8314 bytes
+tranas area Polygon 11342 bytes
+tranemo area MultiPolygon 12278 bytes
+trelleborg area MultiPolygon 5556 bytes
+trollhattan area MultiPolygon 14535 bytes
+overpass https://overpass-api.de/api/interpreter 502
+trosa area MultiPolygon 3944 bytes
+overpass https://overpass-api.de/api/interpreter 502
+tyreso area Polygon 1732 bytes
+uddevalla area Polygon 10488 bytes
+ulricehamn area MultiPolygon 11007 bytes
+umea area MultiPolygon 7456 bytes
+upplands-bro area Polygon 2718 bytes
+upplands-vasby area MultiPolygon 3898 bytes
+uppsala area MultiPolygon 16794 bytes
+uppvidinge area Polygon 17058 bytes
+vadstena area Polygon 3260 bytes
+vaggeryd area MultiPolygon 18459 bytes
+valdemarsvik area Polygon 9048 bytes
+vallentuna area Polygon 5834 bytes
+vanersborg area MultiPolygon 12665 bytes
+vannas area Polygon 3387 bytes
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+vansbro area MultiPolygon 5451 bytes
+varberg area MultiPolygon 11947 bytes
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+varmdo area Polygon 3282 bytes
+varnamo area MultiPolygon 18082 bytes
