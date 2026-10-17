@@ -20,7 +20,7 @@ jobs:
         with:
           node-version: 22
       - name: Fetch boundaries
-        run: set -o pipefail && node cities/rdt-bounds.mjs cities/rdt 2>&1 | tee /tmp/bounds.log
+        run: set -o pipefail && timeout 100m node cities/rdt-bounds.mjs cities/rdt 80 2>&1 | tee /tmp/bounds.log
       - name: Commit
         if: always()
         run: |
