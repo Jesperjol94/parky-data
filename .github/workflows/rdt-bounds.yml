@@ -20,14 +20,15 @@ jobs:
         with:
           node-version: 22
       - name: Fetch boundaries
-        run: set -o pipefail && timeout 100m node cities/rdt-bounds.mjs cities/rdt 80 2>&1 | tee /tmp/bounds.log
+        run: set -o pipefail && timeout 12m node cities/rdt-bounds.mjs cities/rdt 3 2>&1 | tee /tmp/bounds.log
       - name: Commit
         if: always()
         run: |
           git config user.name parky-bot && git config user.email bot@parky.se
-          git add cities/rdt
+          tail -n 80 /tmp/bounds.log > cities/rdt-bounds.log || true
+          git add cities/rdt cities/rdt-bounds.log
           git commit -qm "RDT boundaries added to cities/rdt [cities-bot]" || exit 0
-          for n in 1 2 3; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; done
+          for n in 1 2 3; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; done; git log --oneline -2
       - name: Save the log (ci-logs branch)
         if: always()
         run: |
