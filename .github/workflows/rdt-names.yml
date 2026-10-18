@@ -1,0 +1,42 @@
+# Street names from OpenStreetMap for RDT segments named after an area or the municipality (cities/rdt-names.mjs).
+# Writes cities/rdt/check/names.json; the names are applied to the files afterwards (--apply). expansion/** only.
+# Start by pushing a commit with "[rdt-names]" in the message. Resumable. Three runners on interleaved thirds.
+name: RDT names
+on:
+  push:
+    branches: ['expansion/**']
+permissions:
+  contents: write
+concurrency:
+  group: rdt-names
+  cancel-in-progress: false
+jobs:
+  names:
+    if: contains(github.event.head_commit.message, '[rdt-names]') && !contains(github.event.head_commit.message, '[cities-bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [0, 1, 2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Names
+        run: node cities/rdt-names.mjs cities/rdt --fetch ${{ matrix.group }} 3 2>&1 | tail -n 400
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name parky-bot && git config user.email bot@parky.se
+          cp cities/rdt/check/names.json /tmp/names.json
+          for n in 1 2 3 4 5 6; do
+            git fetch -q origin "${GITHUB_REF_NAME}" && git reset -q --hard FETCH_HEAD
+            mkdir -p cities/rdt/check
+            node -e 'const fs=require("fs");const f="cities/rdt/check/names.json";const a=fs.existsSync(f)?JSON.parse(fs.readFileSync(f)):{};const b=JSON.parse(fs.readFileSync("/tmp/names.json"));fs.writeFileSync(f,JSON.stringify({...a,...b}))'
+            git add cities/rdt/check/names.json
+            git commit -qm "RDT: OSM street names for area-named segments (group ${{ matrix.group }}) [cities-bot]" || exit 0
+            git push -q origin "HEAD:${GITHUB_REF_NAME}" && break
+            sleep $((n * 7))
+          done
