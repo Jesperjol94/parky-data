@@ -39,24 +39,35 @@ function multiPart(body) {
 // Rules the text gives, in segment form
 function fromText(r) {
   const o = {};
-  if (r.bans.length) o.f = r.bans;
-  if (r.limits.length) o.l = r.limits;
-  if (r.allowOnly.length) o.aw = r.allowOnly;
+  if (r.bans.length) o.f = dedupe(r.bans);
+  if (r.limits.length) o.l = dedupe(r.limits);
+  if (r.allowOnly.length) o.aw = dedupe(r.allowOnly);
   if (r.reserved) o.v = r.reservedFor || 'reserverad';
   if (r.purpose.length) { o.v = o.v || 'lastning'; o.k = r.purpose; if (r.otherAllowed) o.ko = 1; }
   return o;
 }
 const hasRules = (o) => !!(o.f || o.l || o.aw || o.v || o.k);
 
-// Is the text's rule set at least as strict as the segment's? (more banned minutes, shorter or equal max stay, reserved stays reserved)
-function stricterOrEqual(t, s) {
-  if (s.v && !t.v) return false;
-  if (minutesBanned(t.f) < minutesBanned(s.f)) return false;
-  if ((s.aw || []).length && !(t.aw || []).length && !(t.f || []).length) return false;
-  const smax = Math.min(...(s.l || []).map((w) => w.max), Infinity), tmax = Math.min(...(t.l || []).map((w) => w.max), Infinity);
-  if (tmax > smax) return false;
-  return true;
+// Compare two rule sets on a sampled week (weekday × day type × 15 min): at every instant the stricter set bans at least
+// as much and allows at most as long. Seasons and week parity are ignored (a window with them counts as active).
+const CTX = [[1, 'vardag'], [2, 'vardag'], [3, 'vardag'], [4, 'vardag'], [5, 'vardag'], [5, 'fore'], [6, 'fore'], [7, 'helgdag'], [1, 'helgdag']];
+const active = (w, wd, dt, min) => (w.w ? w.w === wd : w.dt ? w.dt.includes(dt) : true) && (w.a <= w.b ? min >= w.a && min < w.b : min >= w.a || min < w.b);
+function stateAt(r, wd, dt, min) {
+  const banned = (r.f || []).some((w) => active(w, wd, dt, min)) || ((r.aw || []).length > 0 && !(r.aw || []).some((w) => active(w, wd, dt, min)));
+  const max = Math.min(Infinity, ...(r.l || []).filter((w) => active(w, wd, dt, min)).map((w) => w.max));
+  return { banned, max };
 }
+// 'equal' | 'stricter' (text at least as strict everywhere) | 'looser' | 'mixed'
+function compare(t, s) {
+  let ge = true, le = true;
+  for (const [wd, dt] of CTX) for (let min = 0; min < 1440; min += 15) {
+    const a = stateAt(t, wd, dt, min), b = stateAt(s, wd, dt, min);
+    if (!a.banned && b.banned) ge = false; if (a.banned && !b.banned) le = false;
+    if (!a.banned && !b.banned) { if (a.max > b.max) ge = false; if (a.max < b.max) le = false; }
+  }
+  return ge && le ? 'equal' : ge ? 'stricter' : le ? 'looser' : 'mixed';
+}
+const dedupe = (ws) => { const seen = new Set(); return ws.filter((w) => { const k = JSON.stringify(w); if (seen.has(k)) return false; seen.add(k); return true; }); };
 
 const unread = new Map();
 const dtTally = new Map();
@@ -103,20 +114,28 @@ for (const row of idx.cities) {
     for (const k of ['f', 'l']) if ((cur[k] || []).length === 1 && (t[k] || []).length === 1 && !cur[k][0].w && !t[k][0].w) {
       const key = `${k} ${JSON.stringify(cur[k][0].dt || 'all')} → ${JSON.stringify(t[k][0].dt || 'all')}`; dtTally.set(key, (dtTally.get(key) || 0) + 1);
     }
-    const equal = same(t.f, cur.f) && same(t.l, cur.l) && same(t.aw, cur.aw) && (t.v || null) === (cur.v || null);
+    const put = () => { for (const k of ['f', 'l', 'aw', 'v', 'k', 'ko']) { if (t[k] !== undefined) s[k] = t[k]; else delete s[k]; } delete s.rd; s.rx = 1; changed++; };
+    // Pelle's v: "personbil" is not a reservation (ordinary cars, or motorhomes "klass II"): the text decides
+    const pelleV = cur.v === 'personbil' ? null : cur.v || null, textV = t.v || null;
+    let verdict;
+    if (pelleV && textV) verdict = pelleV === textV ? 'equal' : 'mixed'; // reserved either way; a different vehicle is a dispute
+    else if (textV) verdict = 'stricter'; // the text reserves the curb; cars cannot park
+    else if (pelleV) verdict = 'looser'; // the text does not reserve it; never relaxed automatically
+    else verdict = compare(t, { ...cur, v: undefined });
     if (s.u) {
       st.uFilled++;
       lines.push(`| ${s.c} | ${s.n} | uncertain → ${JSON.stringify(t)} | filled from text |`);
-      if (APPLY) { for (const k of ['f', 'l', 'aw', 'v', 'k', 'ko']) { if (t[k] !== undefined) s[k] = t[k]; else delete s[k]; } delete s.u; s.rx = 1; if (!('t' in s) || s.t === null) { if (!/avgift/i.test(rec.body)) s.t = 0; } changed++; }
-    } else if (equal) {
+      if (APPLY) { put(); delete s.u; if (!('t' in s) || s.t === null) { if (!/avgift/i.test(rec.body)) s.t = 0; } }
+    } else if (verdict === 'equal') {
       st.verified++;
-    } else if (stricterOrEqual(t, cur)) {
+      if (cur.v === 'personbil' && APPLY) { delete s.v; s.rx = 1; changed++; }
+    } else if (verdict === 'stricter' || (cur.v === 'personbil' && !textV && verdict !== 'mixed')) {
       st.strictened++;
-      lines.push(`| ${s.c} | ${s.n} | ${JSON.stringify(cur)} → ${JSON.stringify(t)} | text stricter: applied |`);
-      if (APPLY) { for (const k of ['f', 'l', 'aw', 'v', 'k', 'ko']) { if (t[k] !== undefined) s[k] = t[k]; else delete s[k]; } s.rx = 1; changed++; }
+      lines.push(`| ${s.c} | ${s.n} | ${JSON.stringify(cur)} → ${JSON.stringify(t)} | ${cur.v === 'personbil' && !textV ? '"personbil" was not a reservation' : 'text stricter'}: applied |`);
+      if (APPLY) put();
     } else {
       st.disputed++;
-      lines.push(`| ${s.c} | ${s.n} | ${JSON.stringify(cur)} vs text ${JSON.stringify(t)} | text more permissive: kept, flagged |`);
+      lines.push(`| ${s.c} | ${s.n} | ${JSON.stringify(cur)} vs text ${JSON.stringify(t)} | text ${verdict === 'looser' ? 'more permissive' : 'differs'}: kept, flagged |`);
       if (APPLY) { s.rd = 1; changed++; }
     }
   }
