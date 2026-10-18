@@ -1,111 +1,129 @@
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+simrishamn: 25 tiles, 1051 junctions, 54 crossings, 116 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+  10/22 tiles
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+  20/22 tiles
+skovde: 22 tiles, 1818 junctions, 960 crossings, 136 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+soderhamn: 6 tiles, 1129 junctions, 123 crossings, 142 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+solleftea: 7 tiles, 488 junctions, 59 crossings, 146 min
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
   10/13 tiles
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
-ale: 13 tiles, 1076 junctions, 111 crossings, 9 min
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-alvesta: 6 tiles, 505 junctions, 90 crossings, 11 min
-aneby: 2 tiles, 187 junctions, 49 crossings, 12 min
-arboga: 6 tiles, 462 junctions, 107 crossings, 15 min
-arjeplog: 1 tiles, 65 junctions, 16 crossings, 16 min
-asele: 4 tiles, 154 junctions, 14 crossings, 17 min
-atvidaberg: 7 tiles, 538 junctions, 73 crossings, 20 min
-  10/13 tiles
-bengtsfors: 13 tiles, 396 junctions, 21 crossings, 27 min
-  10/10 tiles
-bjuv: 10 tiles, 640 junctions, 20 crossings, 32 min
-  10/16 tiles
-bollnas: 16 tiles, 852 junctions, 50 crossings, 39 min
-  10/17 tiles
-overpass https://overpass-api.de/api/interpreter 429
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-borlange: 17 tiles, 1921 junctions, 250 crossings, 45 min
-bracke: 2 tiles, 122 junctions, 2 crossings, 45 min
-dals-ed: 2 tiles, 148 junctions, 27 crossings, 46 min
-dorotea: 1 tiles, 80 junctions, 8 crossings, 46 min
-emmaboda: 1 tiles, 169 junctions, 8 crossings, 46 min
-  10/23 tiles
-overpass https://overpass-api.de/api/interpreter 429
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 429
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-  20/23 tiles
-eslov: 23 tiles, 1060 junctions, 208 crossings, 53 min
-  10/20 tiles
-  20/20 tiles
-falkenberg: 20 tiles, 1620 junctions, 226 crossings, 61 min
-fargelanda: 3 tiles, 148 junctions, 27 crossings, 62 min
-  10/90 tiles
-  20/90 tiles
-  30/90 tiles
-overpass https://overpass-api.de/api/interpreter 429
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-  40/90 tiles
-  50/90 tiles
-  60/90 tiles
-  70/90 tiles
-  80/90 tiles
-  90/90 tiles
-flen: 90 tiles, 1115 junctions, 26 crossings, 85 min
-gallivare: 6 tiles, 487 junctions, 112 crossings, 86 min
-overpass https://overpass-api.de/api/interpreter 429
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-gnesta: 8 tiles, 398 junctions, 59 crossings, 88 min
-overpass https://overpass-api.de/api/interpreter 429
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-  10/20 tiles
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
+solvesborg: 13 tiles, 981 junctions, 75 crossings, 155 min
 overpass https://overpass.private.coffee/api/interpreter 500
-  20/20 tiles
-gotland: 20 tiles, 1619 junctions, 176 crossings, 97 min
-gullspang: 4 tiles, 251 junctions, 9 crossings, 99 min
-hagfors: 7 tiles, 358 junctions, 81 crossings, 101 min
-hallstahammar: 8 tiles, 603 junctions, 110 crossings, 104 min
-  10/23 tiles
-  20/23 tiles
-haninge: 23 tiles, 2105 junctions, 406 crossings, 113 min
-  10/10 tiles
-harryda: 10 tiles, 983 junctions, 200 crossings, 119 min
-hedemora: 2 tiles, 326 junctions, 27 crossings, 119 min
-hjo: 3 tiles, 266 junctions, 82 crossings, 121 min
-hogsby: 5 tiles, 257 junctions, 0 crossings, 123 min
-  10/34 tiles
-  20/34 tiles
+staffanstorp: 6 tiles, 919 junctions, 161 crossings, 159 min
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-  30/34 tiles
+  10/18 tiles
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-huddinge: 34 tiles, 4307 junctions, 1102 crossings, 142 min
-hylte: 5 tiles, 255 junctions, 24 crossings, 144 min
+strangnas: 18 tiles, 1294 junctions, 92 crossings, 171 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+sundbyberg: 5 tiles, 1456 junctions, 903 crossings, 174 min
+overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-  10/58 tiles
-  20/58 tiles
-  30/58 tiles
-  40/58 tiles
-  50/58 tiles
-jonkoping: 58 tiles, 4533 junctions, 811 crossings, 167 min
-karlsborg: 4 tiles, 285 junctions, 27 crossings, 167 min
-overpass https://overpass-api.de/api/interpreter 429
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+surahammar: 8 tiles, 475 junctions, 22 crossings, 180 min
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+svenljunga: 5 tiles, 247 junctions, 26 crossings, 184 min
+tidaholm: 4 tiles, 357 junctions, 120 crossings, 186 min
+overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 504
@@ -114,15 +132,17 @@ overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-  10/20 tiles
-  20/20 tiles
-karlskrona: 20 tiles, 1796 junctions, 294 crossings, 179 min
-  10/12 tiles
-kavlinge: 12 tiles, 1323 junctions, 215 crossings, 186 min
-  10/15 tiles
-klippan: 15 tiles, 662 junctions, 120 crossings, 194 min
-kramfor: 9 tiles, 755 junctions, 66 crossings, 199 min
-krokom: 2 tiles, 192 junctions, 5 crossings, 200 min
+  10/11 tiles
+tingsryd: 11 tiles, 456 junctions, 16 crossings, 195 min
+torsas: 6 tiles, 306 junctions, 18 crossings, 199 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+tranemo: 6 tiles, 252 junctions, 21 crossings, 202 min
+trosa: 6 tiles, 456 junctions, 50 crossings, 206 min
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
@@ -135,12 +155,16 @@ overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-  10/41 tiles
-  20/41 tiles
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 504
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-  30/41 tiles
+  10/20 tiles
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
@@ -153,35 +177,49 @@ overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+  20/20 tiles
+ulricehamn: 20 tiles, 906 junctions, 142 crossings, 230 min
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+upplands-vasby: 9 tiles, 936 junctions, 501 crossings, 237 min
+vadstena: 2 tiles, 238 junctions, 34 crossings, 239 min
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 504
 overpass https://overpass.private.coffee/api/interpreter 500
-  40/41 tiles
-kungsbacka: 41 tiles, 3226 junctions, 369 crossings, 229 min
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-  10/19 tiles
-landskrona: 19 tiles, 1214 junctions, 416 crossings, 245 min
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-leksand: 3 tiles, 245 junctions, 29 crossings, 247 min
+  10/10 tiles
+vallentuna: 10 tiles, 1215 junctions, 190 crossings, 247 min
+vansbro: 1 tiles, 136 junctions, 0 crossings, 247 min
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
@@ -203,8 +241,6 @@ overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-  10/11 tiles
-lidingo: 11 tiles, 1474 junctions, 851 crossings, 258 min
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
@@ -214,21 +250,8 @@ overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 504
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-  10/11 tiles
-lindesberg: 11 tiles, 752 junctions, 112 crossings, 267 min
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-ljusdal: 9 tiles, 620 junctions, 96 crossings, 273 min
+  10/17 tiles
+varnamo: 17 tiles, 1126 junctions, 203 crossings, 266 min
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
@@ -236,12 +259,7 @@ overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
+vaxholm: 5 tiles, 336 junctions, 49 crossings, 270 min
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
@@ -254,10 +272,21 @@ overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
   10/18 tiles
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 504
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-ludvika: 18 tiles, 909 junctions, 63 crossings, 290 min
+vetlanda: 18 tiles, 1071 junctions, 111 crossings, 287 min
+vindeln: 1 tiles, 57 junctions, 8 crossings, 288 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+  10/18 tiles
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
@@ -267,16 +296,5 @@ overpass https://overpass.private.coffee/api/interpreter 500
 overpass https://overpass-api.de/api/interpreter 502
 overpass https://overpass.kumi.systems/api/interpreter 500
 overpass https://overpass.private.coffee/api/interpreter 500
-lycksele: 5 tiles, 349 junctions, 54 crossings, 294 min
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-malung-salen: 3 tiles, 220 junctions, 1 crossings, 297 min
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-overpass https://overpass-api.de/api/interpreter 502
-overpass https://overpass.kumi.systems/api/interpreter 500
-overpass https://overpass.private.coffee/api/interpreter 500
-markaryd: 4 tiles, 466 junctions, 27 crossings, 300 min
-junctions added for 49 municipalities; without: 225
+ystad: 18 tiles, 1150 junctions, 216 crossings, 303 min
+junctions added for 43 municipalities; without: 87
