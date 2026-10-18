@@ -5,7 +5,7 @@
 // line turns sharply (over 50°) at both of its ends; a real road can look the same (a straight 130 m jog of Kyrkvägen),
 // so a candidate is only cut when no OpenStreetMap road runs along it (cities/rdt-roads.mjs fetches the roads around
 // every candidate into cities/rdt/check/roads.json; without that file nothing is cut). Pieces shorter than 15 m are dropped.
-// New pieces get fresh ids after the file's highest. Idempotent (a split line has no hop left).
+// A line is also cut where it turns sharply at an OSM junction (splitAtJunctions). New pieces get fresh ids after the file's highest. Idempotent (a split line has no hop left).
 //   node cities/rdt-split.mjs cities/rdt            → prints what would split
 //   node cities/rdt-split.mjs cities/rdt --apply    → writes the files (hash/built recomputed; run rdt-index.mjs after)
 import fs from 'node:fs';
@@ -60,6 +60,25 @@ export function splitHops(g, roads) {
   return pieces.filter((p) => p.length >= 2 && p.reduce((s, q, i) => s + (i ? metres(p[i - 1], q) : 0), 0) >= 15);
 }
 
+// Second cut: a line that turns sharply (over 60°) at a junction has turned into another street (an area regulation
+// drawn as one route through Stocksund Norra: tapping one street highlighted the whole loop). Cuts there, when the
+// municipality has OSM junctions; a bend in the same street with no junction stays.
+export function splitAtJunctions(g, junctions) {
+  if (g.length < 3 || !junctions || !junctions.length) return [g];
+  const cuts = new Set();
+  for (let i = 1; i < g.length - 1; i++) {
+    let b = i - 1; while (b > 0 && metres(g[b], g[i]) < 10) b--;
+    let a = i + 1; while (a < g.length - 1 && metres(g[a], g[i]) < 10) a++;
+    if (turn(g[b], g[i], g[a]) <= 60) continue;
+    if (junctions.some((j) => metres(j, g[i]) < 20)) cuts.add(i);
+  }
+  if (!cuts.size) return [g];
+  const pieces = []; let cur = [g[0]];
+  for (let i = 1; i < g.length; i++) { cur.push(g[i]); if (cuts.has(i) && i < g.length - 1) { pieces.push(cur); cur = [g[i]]; } }
+  pieces.push(cur);
+  return pieces.filter((p) => p.length >= 2 && p.reduce((s, q, i) => s + (i ? metres(p[i - 1], q) : 0), 0) >= 15);
+}
+
 const asScript = process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url).pathname;
 if (asScript) main();
 function main() {
@@ -76,7 +95,7 @@ function main() {
     const out = []; let changed = false;
     for (const s of c.segments) {
       candidates += candidateHops(s.g).length;
-      const parts = splitHops(s.g, roads);
+      const parts = splitHops(s.g, roads).flatMap((g) => splitAtJunctions(g, c.junctions));
       if (parts.length === 1 && parts[0].length === s.g.length) { out.push(s); continue; }
       changed = true; split++; pieces += parts.length;
       if (!APPLY && shown++ < 25) console.log(`${row.id}: ${s.n} ${s.c} ${s.g.length} pts → ${parts.map((p) => p.length).join('+')}`);
