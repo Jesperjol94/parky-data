@@ -1,8 +1,7 @@
 # Hässleholm: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-18. 653 segments: 653 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 571, partly read 82. Verified equal 551, filled from text 0, text stricter 0, disputed 1, expired 0, text without rules 19, multi-part texts (not compared) 0.
+Fully read 571, partly read 82. Verified equal 552, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 19, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1293 2011-00061 | Värgapsgatan | {"f":[{"a":0,"b":1440}]} → {"f":[{"w":2,"a":0,"b":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |

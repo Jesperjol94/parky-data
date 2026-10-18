@@ -1,13 +1,12 @@
 # Motala: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-18. 1176 segments: 1176 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1110, partly read 56. Verified equal 749, filled from text 0, text stricter 1, disputed 8, expired 10, text without rules 0, multi-part texts (not compared) 352.
+Fully read 1110, partly read 56. Verified equal 758, filled from text 0, text stricter 0, disputed 0, expired 10, text without rules 0, multi-part texts (not compared) 352.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0583 2010-00042 | Sjögatan | expired 2010-09-30 | already uncertain |
 | 0583 2010-00043 | Platensgatan | expired 2010-09-30 | already uncertain |
-| 0583 2016-00202 | Sjögatan | {"l":[{"a":0,"b":1440,"max":1440}]} → {"v":"buss"} | text stricter: applied |
 | 0583 2018-233 | del av Repslagaregatan | expired 2018-12-31 | already uncertain |
 | 0583 2019-9 | Platensgatan | expired 2019-06-10 | already uncertain |
 | 0583 2019-9 | Platensgatan | expired 2019-06-10 | already uncertain |
@@ -16,11 +15,3 @@ Fully read 1110, partly read 56. Verified equal 749, filled from text 0, text st
 | 0583 2019-28 | Skepparegatan och Solviksgatan | expired 2019-06-07 | already uncertain |
 | 0583 2019-32 | Källgatan | expired 2019-06-17 | already uncertain |
 | 0583 2019-33 | södra Allén | expired 2019-06-17 | already uncertain |
-| 0583 2020-50 | förskolan Marieberg | {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"a":360,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"dt":["fore"],"a":360,"b":1080,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0583 2020-50 | förskolan Marieberg | {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"a":360,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"dt":["fore"],"a":360,"b":1080,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0583 2020-50 | förskolan Marieberg | {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"a":360,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"dt":["fore"],"a":360,"b":1080,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0583 2020-50 | förskolan Marieberg | {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"a":360,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"dt":["fore"],"a":360,"b":1080,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0583 2020-50 | förskolan Marieberg | {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"a":360,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":30},{"dt":["fore"],"a":360,"b":1080,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0583 2020-65 | Järnvägsparken | {"v":"taxi"} → {"f":[{"a":0,"b":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0583 2020-65 | Järnvägsparken | {"v":"taxi"} → {"f":[{"a":0,"b":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0583 2020-65 | Järnvägsparken | {"v":"taxi"} → {"f":[{"a":0,"b":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |

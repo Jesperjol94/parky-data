@@ -1,7 +1,7 @@
 # Trollhättan: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-18. 983 segments: 983 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 865, partly read 87. Verified equal 793, filled from text 0, text stricter 1, disputed 0, expired 31, text without rules 71, multi-part texts (not compared) 0.
+Fully read 865, partly read 87. Verified equal 794, filled from text 0, text stricter 0, disputed 0, expired 31, text without rules 71, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -14,7 +14,6 @@ Fully read 865, partly read 87. Verified equal 793, filled from text 0, text str
 | 1488 2018-00371 | Österlånggatan | expired 2018-10-28 | already uncertain |
 | 1488 2018-00371 | Österlånggatan | expired 2018-10-28 | already uncertain |
 | 1488 2019-00249 | Österlånggatan | expired 2019-10-27 | already uncertain |
-| 1488 2021-00004 | Åkerssjövägen | {"l":[{"a":0,"b":1440,"max":240}]} → {"v":"buss"} | text stricter: applied |
 | 1488 2023-00205 | Österlånggatan | expired 2023-10-02 | already uncertain |
 | 1488 2023-00260 | Strandgatan | expired 2023-10-06 | already uncertain |
 | 1488 2023-00260 | Strandgatan | expired 2023-10-06 | already uncertain |

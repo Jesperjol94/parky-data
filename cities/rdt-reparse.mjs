@@ -87,6 +87,11 @@ for (const row of idx.cities) {
   const st = { segs: c.segments.length, withText: 0, noText: 0, err: 0, expired: 0, fullyRead: 0, partlyRead: 0, uFilled: 0, verified: 0, strictened: 0, disputed: 0, uStill: 0, textNoRule: 0, multi: 0 };
   const lines = [];
   let changed = 0;
+  { // exact duplicates (same citation, geometry and rules): Pelle's converter repeats some (Ljungby: 7,419 copies of 50 disabled bays)
+    const seen = new Set(); const keep = [];
+    for (const s of c.segments) { const k = s.c + JSON.stringify(s.g) + JSON.stringify([s.f, s.l, s.v, s.aw, s.t, s.k]); if (seen.has(k)) { changed++; continue; } seen.add(k); keep.push(s); }
+    st.dupes = c.segments.length - keep.length; if (APPLY) c.segments = keep;
+  }
   const parsed = new Map();
   const ruleSets = new Map(); // citation -> number of distinct rule sets among its segments (Pelle split one text into parts)
   { const m = new Map(); for (const s of c.segments) { if (!m.has(s.c)) m.set(s.c, new Set()); m.get(s.c).add(JSON.stringify([canon(s.f), canon(s.l), canon(s.aw), s.v || null])); } for (const [k, v] of m) ruleSets.set(k, v.size); }
@@ -106,6 +111,11 @@ for (const row of idx.cities) {
     const full = r.unread.length === 0 && ruleText(rec.body);
     if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; continue; }
     st.fullyRead++;
+    if (r.heavyOnly && !hasRules(fromText(r))) { // the whole text only restricts heavy vehicles: no rule for cars, even when it names several places
+      st.heavyOnly = (st.heavyOnly || 0) + 1;
+      if (APPLY) { for (const k of ['f', 'l', 'aw', 'v', 'k', 'ko', 'u']) delete s[k]; s.hv = 1; s.rx = 1; changed++; }
+      continue;
+    }
     if (multi) { st.multi++; if (s.u) st.uStill++; continue; }
     const t = fromText(r);
     if (!hasRules(t)) { st.textNoRule++; if (s.u) st.uStill++; continue; } // e.g. a pure fee regulation: nothing to compare
@@ -150,7 +160,7 @@ for (const row of idx.cities) {
     fs.writeFileSync(file, JSON.stringify(c));
   }
   tot.cities++; for (const k of Object.keys(st)) tot[k] = (tot[k] || 0) + st[k];
-  console.log(`${row.id}: text ${st.withText}/${st.segs}, read ${st.fullyRead}+${st.partlyRead}, verified ${st.verified}, filled ${st.uFilled}, stricter ${st.strictened}, disputed ${st.disputed}, multi ${st.multi}, expired ${st.expired}${APPLY ? `, changed ${changed}` : ''}`);
+  console.log(`${row.id}: text ${st.withText}/${st.segs}, read ${st.fullyRead}+${st.partlyRead}, verified ${st.verified}, filled ${st.uFilled}, stricter ${st.strictened}, disputed ${st.disputed}, multi ${st.multi}, expired ${st.expired}, heavyOnly ${st.heavyOnly || 0}, dupes ${st.dupes}${APPLY ? `, changed ${changed}` : ''}`);
 }
 console.log(JSON.stringify(tot));
 console.log('Day-type convention (Pelle → text), single-window cases:');

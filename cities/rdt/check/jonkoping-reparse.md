@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-18. 2160 segments: 2160 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1680, partly read 294. Verified equal 663, filled from text 0, text stricter 6, disputed 0, expired 186, text without rules 69, multi-part texts (not compared) 942.
+Fully read 1680, partly read 294. Verified equal 669, filled from text 0, text stricter 0, disputed 0, expired 186, text without rules 69, multi-part texts (not compared) 942.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -190,10 +190,4 @@ Fully read 1680, partly read 294. Verified equal 663, filled from text 0, text s
 | 0680 2013-141 | Norra Bogesundsgatan | expired 2013-05-24 | already uncertain |
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
-| 0680 2017-223 | Hakarpsvägen | {"l":[{"a":0,"b":1440,"max":240}]} → {"v":"buss"} | text stricter: applied |
-| 0680 2017-224 | Hakarpsvägen | {"l":[{"a":0,"b":1440,"max":240}]} → {"v":"buss"} | text stricter: applied |
-| 0680 2017-602 | Brahegatan | {"l":[{"a":0,"b":1440,"max":5}]} → {"v":"buss"} | text stricter: applied |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
-| 0680 2022-145 | Resecentrum | {"l":[{"a":0,"b":1440,"max":60}]} → {"v":"buss"} | text stricter: applied |
-| 0680 2022-145 | Resecentrum | {"l":[{"a":0,"b":1440,"max":60}]} → {"v":"buss"} | text stricter: applied |
-| 0680 2022-145 | Resecentrum | {"l":[{"a":0,"b":1440,"max":60}]} → {"v":"buss"} | text stricter: applied |

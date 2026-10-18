@@ -55,6 +55,7 @@ function weekdaysOf(pre) {
 
 // All "<day words> klockan A - B" pieces in a clause.
 function windows(clause) {
+  clause = clause.replace(/(klockan\s*\d{1,2}(?:[.:]\d{2})?\s*[-–—]\s*\d{1,2}(?:[.:]\d{2})?)\s*\(gäller ([^)]+)\)/gi, '$2 $1'); // "… 09.00 - 12.00 (gäller vardag utom …)"
   clause = clause.replace(/mellan (klockan|kl\.?)\s*(\d{1,2}(?:[.:]\d{2})?)\s*och\s*(\d{1,2}(?:[.:]\d{2})?)/gi, '$1 $2 - $3'); // "mellan klockan 8 och 18"
   clause = clause.replace(/(\d{1,2}[.:]\d{2}\s*[-–—]\s*\d{1,2}[.:]\d{2})\s+och\s+(?=\d{1,2}[.:]\d{2}\s*[-–—])/g, '$1 och klockan '); // "07.00 - 10.00 och 15.00 - 18.00"
   const out = [];
@@ -65,11 +66,12 @@ function windows(clause) {
     let a = toMin(m[2], m[3]), b = toMin(m[4], m[5]);
     if (b === 0) b = 1440;
     const wds = weekdaysOf(pre);
+    const dm = (pre.match(/\bden (\d{1,2}) dagen i (?:varje )?månaden/i) || [])[1];
     if (wds) { lastDt = undefined; if (!wds.length) out.push({ a, b }); else for (const w of wds) out.push({ w, a, b }); continue; }
     let dt = dayTypesOf(pre);
     if (dt === undefined) dt = lastDt; // "… 07.00 - 19.00 och 11.00 - 17.00" keeps the previous day type
     lastDt = dt;
-    out.push(clean({ dt: dt ?? null, a, b }));
+    out.push(clean({ dm: dm ? +dm : null, dt: dt ?? null, a, b }));
   }
   return out;
 }
@@ -102,7 +104,7 @@ function duration(s) {
 
 // Split into sentences, keeping "kl. 7" and "8 §" intact; paragraph numbers ("1 §") and "med avvikelse från …" asides are dropped.
 function sentences(t) {
-  t = t.replace(/,?\s*med avvikelse från [^,]*?,/gi, ' ').replace(/\s{2,}/g, ' ');
+  t = t.replace(/,?\s*med avvikelse från [^,]*?,/gi, ' ').replace(/\bTrots tillåtelsen i \d+ § får /g, 'Får ').replace(/\s{2,}/g, ' ');
   t = t.replace(/([^.;\s])\s+(?=Tillåtelsen ger inte rätt)/g, '$1. '); // the city text sometimes lacks the full stop before this sentence
   t = t.replace(/([a-zåäö)])\.(?=[A-ZÅÄÖ])/g, '$1. '); // "… i följd.Tillåtelsen": glued sentences
   t = t.replace(/(^|[.;]\s+)\d{1,2}\s*§\s+(?=[A-ZÅÄÖ])/g, '$1'); // paragraph numbers "2 § Tidsbegränsningen …" (not "13 kap. 8 § trafikförordningen")
@@ -178,6 +180,9 @@ export function parseRegulation(body) {
       }
       unread(s); continue;
     }
+    // "får motorredskap, traktor, tung lastbil, personbil klass II och tung buss inte parkeras": heavy vehicles only, no rule for cars
+    if (/får (?:(?:motorredskap|traktor|tung lastbil|lastbil|tung buss|buss|personbil klass (?:ii|2)|släpfordon|släpvagn|fordonståg)[^.]*?)(?:inte|ej) (?:heller )?(?:stannas eller )?parkeras/.test(x) && !/\bfordon (?:inte|ej)|får (?:inte|ej) fordon|personbil(?! klass (?:ii|2))|bruttovikt över/.test(x)) { out.heavyOnly = true; continue; }
+    if (/fordon(?:ståg)? med (?:en )?bruttovikt över [\d,.]+ ton (?:inte|ej) parkeras|frikopplat släpfordon/.test(x)) { out.heavyOnly = true; continue; }
     if (/förbjud|får (?:dock )?(?:fordon |motorfordon |bil(?:ar)? |personbil(?:ar)? )?(?:inte|ej) (?:stannas eller )?parkeras|får (?:inte|ej) (?:fordon|motorfordon) (?:stannas eller )?parkeras/.test(x)) {
       // "Parkering är förbjuden onsdag klockan 09.00 - 14.00 utom under tiden jämna veckor 1 maj - 31 oktober": the ban applies
       // everywhere EXCEPT in the stated weeks/season, so it is the complement of that, not the stated period itself.
@@ -203,6 +208,7 @@ export function parseRegulation(body) {
       continue;
     }
     if (/^tillåtelsen gäller endast/.test(x) && reservedFor(x)) { out.reserved = true; out.reservedFor = reservedFor(x); continue; }
+    if (/^(?:villkoret|tidsbegränsningen|begränsningen|förbudet) gäller/.test(x) && out.heavyOnly && !lastLimit && !lastBan) continue; // the hours of a heavy-vehicle rule
     if (/^(?:villkoret|tidsbegränsningen|begränsningen) gäller/.test(x) && lastLimit) { // "Villkoret gäller under tiden …": the hours of the limit just stated
       if (/gäller (?:inte|ej)\b/.test(x)) { unread(s); continue; }
       let ws = windows(s); if (!ws.length) ws = dayOnlyWindows(s);
