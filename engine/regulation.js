@@ -34,6 +34,16 @@ const parity = (s) => (/udda veckor/i.test(s) ? 'odd' : /jämna veckor/i.test(s)
 // Day-type phrase right before a "klockan" → day types (null = every day).
 function dayTypesOf(s) {
   const x = s.toLowerCase();
+  // several day types in one phrase: "vardag samt sön- och helgdag", "vardag utom dag före … och sön- och helgdag"
+  const parts = x.split(/\s+(?:samt|och|,)\s+(?=(?:vardag|dag(?:ar)? före|sön- och helgdag|lördag))/);
+  if (parts.length > 1) {
+    const all = new Set(); let ok = true;
+    for (const part of parts) { const d = dayTypesOf1(part); if (d === undefined) { ok = false; break; } if (d === null) return null; d.forEach((k) => all.add(k)); }
+    if (ok && all.size) return ['vardag', 'fore', 'helgdag'].filter((k) => all.has(k));
+  }
+  return dayTypesOf1(x);
+}
+function dayTypesOf1(x) {
   if (/vardag(?:ar)? utom (?:vardag(?:ar)? )?(?:dag(?:ar)? )?före sön- och helgdag/.test(x)) return ['vardag'];
   if (/vardag(ar)? före sön- och helgdag/.test(x)) return ['fore'];
   if (/\bdag(ar)? före sön- och helgdag/.test(x)) return ['fore'];
@@ -109,7 +119,7 @@ function duration(s) {
 function sentences(t) {
   t = t.replace(/,?\s*med avvikelse från [^,]*?,/gi, ' ').replace(/\bTrots tillåtelsen i \d+ § får /g, 'Får ').replace(/\s{2,}/g, ' ');
   t = t.replace(/([^.;\s])\s+(?=Tillåtelsen ger inte rätt)/g, '$1. '); // the city text sometimes lacks the full stop before this sentence
-  t = t.replace(/([a-zåäö)])\.(?=[A-ZÅÄÖ])/g, '$1. '); // "… i följd.Tillåtelsen": glued sentences
+  t = t.replace(/([a-zåäö)0-9])\.(?=[A-ZÅÄÖ][a-zåäö])/g, '$1. '); // "… i följd.Tillåtelsen", "… 14.00.Tillåtelsen": glued sentences
   t = t.replace(/(^|[.;]\s+)\d{1,2}\s*§\s+(?=[A-ZÅÄÖ])/g, '$1'); // paragraph numbers "2 § Tidsbegränsningen …" (not "13 kap. 8 § trafikförordningen")
   return t.replace(/(\d)\.(\d)/g, '$1§DOT§$2').split(/(?<=[.;])\s+(?=[A-ZÅÄÖ])/).map((s) => s.replace(/§DOT§/g, '.').trim()).filter(Boolean);
 }
@@ -135,9 +145,12 @@ function reservedFor(x) { for (const [re, v] of RESERVED) if (re.test(x)) return
 
 export function parseRegulation(body) {
   const t = ruleText(body);
-  const out = { taxa: null, reserved: false, reservedSeason: null, reservedWindows: [], purpose: [], allowOnly: [], limits: [], bans: [], otherAllowed: null, unread: [] };
+  const out = { taxa: null, reserved: false, reservedSeason: null, reservedWindows: [], purpose: [], allowOnly: [], limits: [], bans: [], dp: [], otherAllowed: null, unread: [] };
   if (!t) { out.unread.push('(no rule text)'); return out; }
-  let lastAllow = null, lastLimit = null, lastBan = null; const tillWs = [];
+  // A permission with hours ("Tillåtelsen gäller vardagar 09–18") only bans parking outside those hours when something else
+  // bans it there (an area ban the text deviates from, or a ban in the text). Otherwise the general rules apply then.
+  const banContext = /avvikelse från|trots förbudet|förbud att parkera|parkeringsförbud|(?:inte|ej) (?:stannas eller )?parkeras|parkering(?:en)? (?:är |råder )?förbjuden|övrig tid/i.test(body.replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, ''));
+  let lastAllow = null, lastLimit = null, lastBan = null, lastDp = false; const tillWs = [];
   const unread = (s) => out.unread.push(s);
   for (let s of sentences(t)) {
     let x = s.toLowerCase();
@@ -145,7 +158,13 @@ export function parseRegulation(body) {
     const withSP = (w) => clean({ ...w, m, p });
     const tx = x.match(/taxa\s+(\d+)/);
     if (tx && /avgift/.test(x)) { out.taxa = +tx[1]; }
-    if (/^(?:tillåtelsen|förbudet) ger inte rätt/.test(x)) continue;
+    if (/^(?:tillåtelsen|förbudet)(?: i (?:§\s*\d+|\d+\s*§))? (?:ger|ge) (?:inte|ej) rätt/.test(x)) continue;
+    x = x.replace(/,?\s*(?:tillåtelsen |förbudet )?(?:ger|ge) (?:inte|ej) rätt att (?:stanna|parkera)[^.]*/g, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna eller parkera[^.]*/g, ''); // "… får parkeras där det är förbjudet …" is not a ban
+    // Date parking ("udda datum … udda adressnummer"): one side is always allowed — dp windows, not a ban
+    if (/udda datum|jämn(?:a|t) datum/.test(x)) { let ws = windows(s); if (!ws.length) ws = [{ a: 0, b: 1440 }]; out.dp.push(...ws.map(withSP)); lastDp = true; continue; }
+    if (/^förbudet (?:att (?:parkera|stanna)[^ ]* )?(?:i första stycket )?gäller/.test(x) && lastDp && !lastBan) { const ws = windows(s); if (ws.length && !halfRead(s, ws)) { out.dp = ws.map(withSP); continue; } }
+    // "Parkering är dock förbjuden enligt … lokala trafikföreskrifter om datumparkering": a reference to another regulation
+    if (/förbjud[^.]*enligt (?:bestämmelserna i )?[^.]*trafikföreskrifter/.test(x)) { if (/datumparkering/.test(x) && !out.dp.length) out.dp.push({ a: 0, b: 1440, ref: 1 }); continue; }
     if (/^tillåtelsen gäller även|boendeparkeringskort|boendeparkeringstillstånd/.test(x)) continue; // resident permits are out of scope outside the big three
     if (/ändamålsplats/.test(x)) { out.purpose.push(...windows(s).map(withSP)); continue; }
     if (/^övrig tid får endast/.test(x) && reservedFor(x) && lastAllow) { out.otherAllowed = false; out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue; } // "Övrig tid får endast tung lastbil parkeras"
@@ -255,6 +274,7 @@ export function parseRegulation(body) {
     if (tx) continue;
     unread(s);
   }
+  if (!banContext && out.otherAllowed !== false) out.allowOnly = []; // outside the stated hours the general rules apply, not a ban
   return out;
 }
 

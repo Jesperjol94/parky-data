@@ -33,7 +33,8 @@ function multiPart(body) {
   const paras = (t.match(/\b\d{1,2}\s*§/g) || []).length;
   const places = (t.match(/(?:^|[.;]\s*)På\s/g) || []).length + (t.match(/(?:^|[.;]\s*)Inom\s/g) || []).length;
   const sides = new Set((t.match(/\b(östra|västra|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size;
-  return paras > 1 || places > 1 || sides > 1;
+  void paras; // "1 § place, 2 § hours, 3 § fee" is one place in several paragraphs: only several places or sides make a text multi-part (18 Oct review)
+  return places > 1 || sides > 1;
 }
 
 // Rules the text gives, in segment form
@@ -42,6 +43,7 @@ function fromText(r) {
   if (r.bans.length) o.f = dedupe(r.bans);
   if (r.limits.length) o.l = dedupe(r.limits);
   if (r.allowOnly.length) o.aw = dedupe(r.allowOnly);
+  if (r.dp && r.dp.length) o.dp = dedupe(r.dp);
   if (r.reserved) o.v = r.reservedFor || 'reserverad';
   if (r.purpose.length) { o.v = o.v || 'lastning'; o.k = r.purpose; if (r.otherAllowed) o.ko = 1; }
   return o;
@@ -106,6 +108,25 @@ for (const row of idx.cities) {
       if (APPLY && !s.u) { s.u = 1; s.ex = 1; changed++; }
       continue;
     }
+    // Facts read straight from the text, independent of how much of it the parser understands (18 Oct review):
+    if (APPLY) {
+      const body = rec.body.replace(/\s+/g, ' ').replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna (?:eller|och) parkera[^.]*/gi, ''); // boilerplate about other bans
+      // validity: a regulation not yet in force, or one that ends later, is dated on the segment (the app honours fr/to)
+      const fr = rec.from && /^\d{4}-\d{2}-\d{2}$/.test(rec.from) && rec.from > today ? rec.from : null;
+      const to = rec.to && /^\d{4}-\d{2}-\d{2}$/.test(rec.to) ? rec.to : null;
+      if ((s.fr || null) !== fr) { if (fr) s.fr = fr; else delete s.fr; changed++; }
+      if ((s.to || null) !== to) { if (to) s.to = to; else delete s.to; changed++; }
+      // fee: "mot avgift" in the text and no fee table known → unknown fee (orange "see sign"), never free
+      if (!s.t && /avgift/i.test(body) && !/utan avgift|avgiftsfri|ingen avgift|avgift (?:ska|skall|behöver) (?:inte|ej)/i.test(body)) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; }
+      // parking disc
+      if (/parkeringsskiva|p-skiva/i.test(body) && !s.ps) { s.ps = 1; changed++; }
+      // "personbil" is a vehicle class, not a reservation
+      if (s.v === 'personbil') { delete s.v; changed++; }
+      // "avgiften behöver inte erläggas av rörelsehindrad" is a fee exemption, not a reservation for disabled permit holders
+      if (s.v === 'rörelsehindrade' && !/endast|enbart|reserverad/i.test(body) && /(?:behöver inte|ej|inte) (?:erläggas|betalas)[^.]{0,80}rörelsehindr|rörelsehindr[^.]{0,80}(?:behöver inte|utan avgift|avgiftsfri|inte betala)/i.test(body)) { delete s.v; changed++; st.notReserved = (st.notReserved || 0) + 1; }
+      // a stopping ban ("får fordon inte stannas", "förbud att stanna") is stricter than a parking ban: the card says so
+      if (/(?:inte|ej) stannas|förbud att stanna|stanna(?:s)? eller parkera/i.test(body) && s.f && s.f.length && !s.sb) { s.sb = 1; changed++; }
+    }
     if (!parsed.has(s.c)) parsed.set(s.c, { r: parseRegulation(rec.body), multi: multiPart(rec.body) || ruleSets.get(s.c) > 1 });
     const { r, multi } = parsed.get(s.c);
     const full = r.unread.length === 0 && ruleText(rec.body);
@@ -124,7 +145,7 @@ for (const row of idx.cities) {
     for (const k of ['f', 'l']) if ((cur[k] || []).length === 1 && (t[k] || []).length === 1 && !cur[k][0].w && !t[k][0].w) {
       const key = `${k} ${JSON.stringify(cur[k][0].dt || 'all')} → ${JSON.stringify(t[k][0].dt || 'all')}`; dtTally.set(key, (dtTally.get(key) || 0) + 1);
     }
-    const put = () => { for (const k of ['f', 'l', 'aw', 'v', 'k', 'ko']) { if (t[k] !== undefined) s[k] = t[k]; else delete s[k]; } delete s.rd; s.rx = 1; changed++; };
+    const put = () => { for (const k of ['f', 'l', 'aw', 'dp', 'v', 'k', 'ko']) { if (t[k] !== undefined) s[k] = t[k]; else delete s[k]; } delete s.rd; s.rx = 1; changed++; };
     // Pelle's v: "personbil" is not a reservation (ordinary cars, or motorhomes "klass II"): the text decides
     const pelleV = cur.v === 'personbil' ? null : cur.v || null, textV = t.v || null;
     let verdict;
