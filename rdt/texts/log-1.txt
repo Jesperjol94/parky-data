@@ -1,171 +1,32 @@
-halmstad (rest): 695 citations, cached 670, to fetch 25
-halmstad (rest): done, 695 texts, 0 errors, 1 min
-harnosand (rest): 75 citations, cached 2, to fetch 73
-harnosand (rest): done, 75 texts, 0 errors, 2 min
-hedemora (rest): 32 citations, cached 5, to fetch 27
-Syntax Error (34663): Bad block header in flate stream
-Syntax Error (35142): Bad block header in flate stream
-Syntax Error (34893): Bad block header in flate stream
-Syntax Error (34868): Bad block header in flate stream
-Syntax Error (34990): Bad block header in flate stream
-Syntax Error (34916): Bad block header in flate stream
-Syntax Error (34942): Bad block header in flate stream
-Syntax Error (34800): Bad block header in flate stream
-Syntax Error (34849): Bad block header in flate stream
-Syntax Error (34599): Bad block header in flate stream
-Syntax Error (35059): Bad block header in flate stream
-Syntax Error (34731): Bad block header in flate stream
-Syntax Error (34693): Bad block header in flate stream
-Syntax Error (34665): Bad block header in flate stream
-Syntax Error (34917): Bad block header in flate stream
-Syntax Error (34973): Bad block header in flate stream
-Syntax Error (34720): Bad block header in flate stream
-Syntax Error (34844): Bad block header in flate stream
-Syntax Error (34739): Bad block header in flate stream
-Syntax Error (34839): Bad block header in flate stream
-Syntax Error (34768): Bad block header in flate stream
-Syntax Error (35090): Bad block header in flate stream
-Syntax Error (35442): Bad block header in flate stream
-Syntax Error (35136): Bad block header in flate stream
-Syntax Error (35366): Bad block header in flate stream
-Syntax Error (35321): Bad block header in flate stream
-hedemora (rest): done, 32 texts, 0 errors, 3 min
-hofors (rest): 7 citations, cached 0, to fetch 7
-hofors (rest): done, 7 texts, 0 errors, 3 min
-horby (rest): 100 citations, cached 0, to fetch 100
-Syntax Error (29132): Bad block header in flate stream
-Syntax Error (28429): Bad block header in flate stream
-Syntax Error (28628): Bad block header in flate stream
-Syntax Error (1136777): Bad block header in flate stream
-Syntax Error (28626): Bad block header in flate stream
-Syntax Error (28803): Bad block header in flate stream
-Syntax Error (180522): Bad block header in flate stream
-Syntax Error (28843): Bad block header in flate stream
-Syntax Error (28925): Bad block header in flate stream
-Syntax Error (29158): Bad block header in flate stream
-Syntax Error (29277): Bad block header in flate stream
-horby (rest): done, 100 texts, 0 errors, 4 min
-hylte (rest): 20 citations, cached 1, to fetch 19
-hylte (rest): done, 20 texts, 0 errors, 5 min
-kalix (rest): 56 citations, cached 0, to fetch 56
-Syntax Error (30743): Bad block header in flate stream
-Syntax Error (30313): Bad block header in flate stream
-Syntax Error (29844): Bad block header in flate stream
-Syntax Error (30019): Bad block header in flate stream
-Syntax Error (30683): Bad block header in flate stream
-kalix (rest): done, 56 texts, 0 errors, 6 min
-karlskoga (rest): 299 citations, cached 8, to fetch 291
-karlskoga (rest): done, 299 texts, 0 errors, 11 min
-kavlinge (rest): 16 citations, cached 0, to fetch 16
-kavlinge (rest): done, 16 texts, 0 errors, 11 min
-knivsta (rest): 168 citations, cached 7, to fetch 161
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Warning: Invalid Font Weight
-Syntax Error (39906): Bad block header in flate stream
-Syntax Error (39811): Bad block header in flate stream
-Syntax Error (40076): Bad block header in flate stream
-Syntax Error (40433): Bad block header in flate stream
-Syntax Error (39957): Bad block header in flate stream
-Syntax Error (40794): Bad block header in flate stream
-Syntax Error (39991): Bad block header in flate stream
-Syntax Error (40048): Bad block header in flate stream
-Syntax Error (40123): Bad block header in flate stream
-Syntax Error (40048): Bad block header in flate stream
-Syntax Error (39963): Bad block header in flate stream
-Syntax Error (40198): Bad block header in flate stream
-Syntax Error (40184): Bad block header in flate stream
-Syntax Error (40061): Bad block header in flate stream
-Syntax Error (40109): Bad block header in flate stream
-Syntax Error (40562): Bad block header in flate stream
-Syntax Error (40246): Bad block header in flate stream
-Syntax Error (40134): Bad block header in flate stream
-Syntax Error (40515): Bad block header in flate stream
-Syntax Error (40116): Bad block header in flate stream
-Syntax Error (40486): Bad block header in flate stream
-Syntax Error (40435): Bad block header in flate stream
-Syntax Error (40760): Bad block header in flate stream
-Syntax Error (40151): Bad block header in flate stream
-Syntax Error (40270): Bad block header in flate stream
-Syntax Error (40236): Bad block header in flate stream
-Syntax Error (40680): Bad block header in flate stream
-Syntax Error (40327): Bad block header in flate stream
-Syntax Error (40542): Bad block header in flate stream
-Syntax Error (40515): Bad block header in flate stream
-Syntax Error (40299): Bad block header in flate stream
-Syntax Error (40371): Bad block header in flate stream
-Syntax Error (41025): Bad block header in flate stream
-Syntax Error (41127): Bad block header in flate stream
-Syntax Error (40897): Bad block header in flate stream
-Syntax Error (40864): Bad block header in flate stream
-Syntax Error (40620): Bad block header in flate stream
-Syntax Error (40789): Bad block header in flate stream
-Syntax Error (40150): Bad block header in flate stream
-Syntax Error (40226): Bad block header in flate stream
-Syntax Error (40147): Bad block header in flate stream
-Syntax Error (40201): Bad block header in flate stream
-Syntax Error (40284): Bad block header in flate stream
-Syntax Error (40264): Bad block header in flate stream
-Syntax Error (40065): Bad block header in flate stream
-Syntax Error (40179): Bad block header in flate stream
-Syntax Error (40365): Bad block header in flate stream
-Syntax Error (40180): Bad block header in flate stream
-Syntax Error (40247): Bad block header in flate stream
-Syntax Error (40387): Bad block header in flate stream
-Syntax Error (40630): Bad block header in flate stream
-Syntax Error (40364): Bad block header in flate stream
-knivsta (rest): done, 168 texts, 0 errors, 14 min
-kristinehamn (rest): 261 citations, cached 1, to fetch 260
-Syntax Error (2265792): Bad block header in flate stream
-Syntax Error (2036013): Bad block header in flate stream
-Syntax Error (658071): Bad block header in flate stream
-Syntax Error (665726): Bad block header in flate stream
-Syntax Error (63398): Bad block header in flate stream
-Syntax Error (114101): Bad block header in flate stream
-Syntax Error (184620): Bad block header in flate stream
-Syntax Error (218229): Bad block header in flate stream
-Syntax Error (32110): Bad block header in flate stream
-Syntax Error (209002): Bad block header in flate stream
-Syntax Error (218360): Bad block header in flate stream
-Syntax Error (707073): Bad block header in flate stream
-Syntax Error (204966): Bad block header in flate stream
-Syntax Error (86002): Bad block header in flate stream
-Syntax Error (859018): Bad block header in flate stream
-Syntax Error (225600): Bad block header in flate stream
-Syntax Error (791026): Bad block header in flate stream
-Syntax Error (109783): Bad block header in flate stream
-Syntax Error (784706): Bad block header in flate stream
-Syntax Error (146803): Bad block header in flate stream
-Syntax Error (863866): Bad block header in flate stream
-Syntax Error (686526): Bad block header in flate stream
-Syntax Error (227696): Bad block header in flate stream
-Syntax Error (139857): Bad block header in flate stream
-Syntax Error (755224): Bad block header in flate stream
-Syntax Error (727990): Bad block header in flate stream
-Syntax Error (748372): Bad block header in flate stream
-Syntax Error (85199): Bad block header in flate stream
-Syntax Error (108707): Bad block header in flate stream
-kristinehamn (rest): done, 261 texts, 0 errors, 19 min
-kungsbacka (rest): 528 citations, cached 24, to fetch 504
-kungsbacka (rest): done, 472 texts, 0 errors, 30 min
+kungsbacka (rest): 528 citations, cached 472, to fetch 56
+kungsbacka (rest): done, 528 texts, 0 errors, 2 min
+laxa (rest): 22 citations, cached 6, to fetch 16
+laxa (rest): done, 22 texts, 0 errors, 3 min
+lessebo (rest): 23 citations, cached 0, to fetch 23
+lessebo (rest): done, 23 texts, 0 errors, 3 min
+lindesberg (rest): 139 citations, cached 3, to fetch 136
+lindesberg (rest): done, 139 texts, 0 errors, 6 min
+ljusnarsberg (rest): 28 citations, cached 1, to fetch 27
+ljusnarsberg (rest): done, 28 texts, 0 errors, 6 min
+lund (rest): 489 citations, cached 15, to fetch 474
+lund (rest): done, 489 texts, 0 errors, 13 min
+malung-salen (rest): 42 citations, cached 0, to fetch 42
+malung-salen (rest): done, 42 texts, 0 errors, 14 min
+mellerud (rest): 1 citations, cached 0, to fetch 1
+mellerud (rest): done, 1 texts, 0 errors, 14 min
+mora (rest): 93 citations, cached 13, to fetch 80
+mora (rest): done, 93 texts, 0 errors, 15 min
+munkfors (rest): 16 citations, cached 0, to fetch 16
+munkfors (rest): done, 16 texts, 0 errors, 16 min
+norberg (rest): 28 citations, cached 0, to fetch 28
+norberg (rest): done, 28 texts, 0 errors, 16 min
+norrtalje (rest): 301 citations, cached 2, to fetch 299
+norrtalje (rest): done, 301 texts, 0 errors, 22 min
+nykvarn (rest): 55 citations, cached 1, to fetch 54
+nykvarn (rest): done, 55 texts, 0 errors, 23 min
+odeshog (rest): 20 citations, cached 0, to fetch 20
+odeshog (rest): done, 20 texts, 0 errors, 23 min
+ornskoldsvik (rest): 342 citations, cached 3, to fetch 339
+ornskoldsvik (rest): done, 180 texts, 0 errors, 30 min
 time budget reached
-fetched 1483, errors 0
+fetched 1449, errors 0
