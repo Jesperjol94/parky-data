@@ -29,7 +29,7 @@ const parity = (s) => (/udda veckor/i.test(s) ? 'odd' : /jämna veckor/i.test(s)
 // Day-type phrase right before a "klockan" → day types (null = every day).
 function dayTypesOf(s) {
   const x = s.toLowerCase();
-  if (/vardag(ar)? utom vardag(ar)? före sön- och helgdag/.test(x)) return ['vardag'];
+  if (/vardag(?:ar)? utom (?:vardag(?:ar)? |dag(?:ar)? )?före sön- och helgdag/.test(x)) return ['vardag'];
   if (/vardag(ar)? före sön- och helgdag/.test(x)) return ['fore'];
   if (/sön- och helgdag/.test(x)) return ['helgdag'];
   if (/\bvardag(ar)?\b/.test(x)) return ['vardag', 'fore'];
@@ -64,6 +64,7 @@ function duration(s) {
 
 // Split into sentences, keeping "kl. 7" and "8 §" intact.
 function sentences(t) {
+  t = t.replace(/([^.;\s])\s+(?=Tillåtelsen ger inte rätt)/g, '$1. '); // the city text sometimes lacks the full stop before this sentence
   return t.replace(/(\d)\.(\d)/g, '$1§DOT§$2').split(/(?<=[.;])\s+(?=[A-ZÅÄÖ])/).map((s) => s.replace(/§DOT§/g, '.').trim()).filter(Boolean);
 }
 
@@ -97,11 +98,26 @@ export function parseRegulation(body) {
       const who = reservedFor(x);
       if (who) { out.reserved = true; out.reservedFor = who; if (m) out.reservedSeason = m; out.reservedWindows.push(...windows(s).map(withSP)); continue; } // the hours stated here are the hours it is reserved ("…parkeras mot avgift vardagar 07.00 - 19.00")
       // "får endast personbil parkeras …": ordinary cars may park; read the rest of the sentence as usual
-      x = x.replace(/får endast (?:personbilar?|fordon)\s*/, 'får fordon '); s = s.replace(/får endast (?:personbilar?|fordon)\s*/i, 'får fordon ');
+      x = x.replace(/får endast (?:personbil(?:ar)?|fordon)\s*/, 'får fordon '); s = s.replace(/får endast (?:personbil(?:ar)?|fordon)\s*/i, 'får fordon ');
     }
     if (/^övrig tid får (?:fordon inte|inte fordon) parkeras/.test(x)) { out.otherAllowed = false; if (lastAllow) out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue; }
     if (/^övrig tid får fordon parkeras/.test(x)) { out.otherAllowed = true; out.allowOnly = out.allowOnly.filter((w) => !tillWs.includes(w)); continue; } // "…other times vehicles may park": the permission hours are not the only hours
     if (/förbjud|får (?:dock )?(?:fordon )?inte (?:stannas eller )?parkeras|får fordon inte parkeras/.test(x)) {
+      // "Parkering är förbjuden onsdag klockan 09.00 - 14.00 utom under tiden jämna veckor 1 maj - 31 oktober": the ban applies
+      // everywhere EXCEPT in the stated weeks/season, so it is the complement of that, not the stated period itself.
+      const ix = s.search(/\butom (?:under )?tiden\b|\butom (?:jämna|udda) veckor/i);
+      if (ix > 0) {
+        const head = s.slice(0, ix), tail = s.slice(ix), hw = windows(head), em = season(tail), ep = parity(tail);
+        if (hw.length && !season(head) && !parity(head) && (em || ep) && !/\boch\b/i.test(tail.replace(/sön- och/g, ''))) {
+          const opp = ep === 'odd' ? 'even' : 'odd';
+          for (const w of hw) {
+            if (em && ep) { out.bans.push(clean({ ...w, m: em, p: opp })); out.bans.push(clean({ ...w, m: complement(em) })); }
+            else if (em) out.bans.push(clean({ ...w, m: complement(em) }));
+            else out.bans.push(clean({ ...w, p: opp }));
+          }
+        } else out.unread.push(s);
+        continue;
+      }
       const ws = windows(s);
       if (ws.length) out.bans.push(...ws.map(withSP));
       else if (m) out.bans.push(clean({ a: 0, b: 1440, m, p })); // "Parkering är förbjuden under tiden 1 november – 15 maj"
