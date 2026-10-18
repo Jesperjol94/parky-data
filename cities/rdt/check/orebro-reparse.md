@@ -1,7 +1,7 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-18. 2546 segments: 2546 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2016, partly read 516. Verified equal 1242, filled from text 0, text stricter 0, disputed 0, expired 14, text without rules 1, multi-part texts (not compared) 773.
+Fully read 2122, partly read 410. Verified equal 1242, filled from text 0, text stricter 0, disputed 0, expired 14, text without rules 1, multi-part texts (not compared) 879.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

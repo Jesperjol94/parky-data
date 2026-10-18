@@ -47,7 +47,7 @@ async function one(c) {
       fs.writeFileSync(f, buf);
       try {
         body = execFileSync('pdftotext', ['-layout', f, '-'], { maxBuffer: 1 << 24 }).toString().trim(); kind = 'pdf';
-        if (body.replace(/\s/g, '').length < 80) { // a scan: OCR the first two pages in Swedish
+        if (body.replace(/\s/g, '').length < 80 || !/följande|föreskriv|parker/i.test(body)) { // a scan (sometimes with a text header): OCR the first two pages in Swedish
           execFileSync('pdftoppm', ['-r', '200', '-png', '-f', '1', '-l', '2', f, f]);
           body = fs.readdirSync(os.tmpdir()).filter((x) => x.startsWith(path.basename(f)) && x.endsWith('.png')).sort()
             .map((x) => { const p = path.join(os.tmpdir(), x); const o = execFileSync('tesseract', [p, '-', '-l', 'swe'], { stdio: ['ignore', 'pipe', 'ignore'] }).toString(); fs.unlinkSync(p); return o; }).join('\n').trim();
