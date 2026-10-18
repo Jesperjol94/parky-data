@@ -1,49 +1,189 @@
-ale: 208 citations, cached 0, to fetch 208
-Syntax Error (38652): Bad block header in flate stream
-Syntax Error (750585): Bad block header in flate stream
-Syntax Error (602595): Bad block header in flate stream
-Syntax Error (581424): Bad block header in flate stream
-Syntax Error (706266): Bad block header in flate stream
-Syntax Error (719665): Bad block header in flate stream
-Syntax Error (587584): Bad block header in flate stream
-Syntax Error (734455): Bad block header in flate stream
-Syntax Error (706554): Bad block header in flate stream
-Syntax Error (743844): Bad block header in flate stream
-Syntax Error (595538): Bad block header in flate stream
-Syntax Error (768537): Bad block header in flate stream
-Syntax Error (642561): Bad block header in flate stream
-Syntax Error (561823): Bad block header in flate stream
-Syntax Error (612991): Bad block header in flate stream
-Syntax Error (682926): Bad block header in flate stream
-Syntax Error (38463): Bad block header in flate stream
-Syntax Error (38879): Bad block header in flate stream
-Syntax Error (38378): Bad block header in flate stream
-Syntax Error (285113): Bad block header in flate stream
-Syntax Error (38917): Bad block header in flate stream
-Syntax Error (38882): Bad block header in flate stream
-Syntax Error (1742244): Bad block header in flate stream
-Syntax Error (796280): Bad block header in flate stream
-Syntax Error (763610): Bad block header in flate stream
-Syntax Error (806414): Bad block header in flate stream
-Syntax Error (728164): Bad block header in flate stream
-Syntax Error (782793): Bad block header in flate stream
-Syntax Error (798567): Bad block header in flate stream
-Syntax Error (740813): Bad block header in flate stream
-Syntax Error (785384): Bad block header in flate stream
-Syntax Error (732367): Bad block header in flate stream
-Syntax Error (747365): Bad block header in flate stream
-Syntax Error (774869): Bad block header in flate stream
-Syntax Error (705379): Bad block header in flate stream
-Syntax Error (804889): Bad block header in flate stream
-Syntax Error (743211): Bad block header in flate stream
-ale: done, 208 texts, 0 errors, 5 min
-alvkarleby: 2 citations, cached 0, to fetch 2
-alvkarleby: done, 2 texts, 0 errors, 5 min
-angelholm: 532 citations, cached 0, to fetch 532
-angelholm: done, 532 texts, 0 errors, 29 min
-arjeplog: 7 citations, cached 0, to fetch 7
-arjeplog: done, 7 texts, 0 errors, 29 min
-askersund: 85 citations, cached 0, to fetch 85
-askersund: done, 52 texts, 0 errors, 30 min
+ale: 208 citations, cached 208, to fetch 0
+ale: done, 208 texts, 0 errors, 0 min
+alvkarleby: 2 citations, cached 2, to fetch 0
+alvkarleby: done, 2 texts, 0 errors, 0 min
+angelholm: 532 citations, cached 532, to fetch 0
+angelholm: done, 532 texts, 0 errors, 0 min
+arjeplog: 7 citations, cached 7, to fetch 0
+arjeplog: done, 7 texts, 0 errors, 0 min
+askersund: 85 citations, cached 52, to fetch 33
+askersund: done, 85 texts, 0 errors, 1 min
+bastad: 183 citations, cached 0, to fetch 183
+bastad: done, 183 texts, 0 errors, 9 min
+bjuv: 86 citations, cached 0, to fetch 86
+Syntax Error (47513): Bad block header in flate stream
+Syntax Error (47433): Bad block header in flate stream
+Syntax Error (47338): Bad block header in flate stream
+Syntax Error (47283): Bad block header in flate stream
+Syntax Error (47446): Bad block header in flate stream
+Syntax Error (47292): Bad block header in flate stream
+Syntax Error (47535): Bad block header in flate stream
+Syntax Error (47393): Bad block header in flate stream
+Syntax Error (47694): Bad block header in flate stream
+Syntax Error (47038): Bad block header in flate stream
+Syntax Error (47419): Bad block header in flate stream
+Syntax Error (47315): Bad block header in flate stream
+Syntax Error (47313): Bad block header in flate stream
+Syntax Error (47149): Bad block header in flate stream
+Syntax Error (47559): Bad block header in flate stream
+Syntax Error (47579): Bad block header in flate stream
+Syntax Error (47535): Bad block header in flate stream
+Syntax Error (47412): Bad block header in flate stream
+Syntax Error (47429): Bad block header in flate stream
+Syntax Error (47436): Bad block header in flate stream
+Syntax Error (47352): Bad block header in flate stream
+Syntax Error (47420): Bad block header in flate stream
+Syntax Error (47379): Bad block header in flate stream
+Syntax Error (47303): Bad block header in flate stream
+Syntax Error (47170): Bad block header in flate stream
+Syntax Error (47662): Bad block header in flate stream
+Syntax Error (47438): Bad block header in flate stream
+Syntax Error (47931): Bad block header in flate stream
+Syntax Error (47334): Bad block header in flate stream
+Syntax Error (47851): Bad block header in flate stream
+Syntax Error (47683): Bad block header in flate stream
+Syntax Error (47169): Bad block header in flate stream
+Syntax Error (47438): Bad block header in flate stream
+Syntax Error (47660): Bad block header in flate stream
+Syntax Error (47308): Bad block header in flate stream
+Syntax Error (47468): Bad block header in flate stream
+Syntax Error (47534): Bad block header in flate stream
+Syntax Error (47638): Bad block header in flate stream
+Syntax Error (47615): Bad block header in flate stream
+Syntax Error (47442): Bad block header in flate stream
+Syntax Error (47928): Bad block header in flate stream
+Syntax Error (47682): Bad block header in flate stream
+Syntax Error (47177): Bad block header in flate stream
+Syntax Error (47517): Bad block header in flate stream
+Syntax Error (47471): Bad block header in flate stream
+Syntax Error (47771): Bad block header in flate stream
+Syntax Error (47375): Bad block header in flate stream
+Syntax Error (47378): Bad block header in flate stream
+Syntax Error (47511): Bad block header in flate stream
+Syntax Error (47603): Bad block header in flate stream
+bjuv: done, 86 texts, 0 errors, 10 min
+boras: 610 citations, cached 0, to fetch 610
+boras: done, 610 texts, 0 errors, 18 min
+boxholm: 1 citations, cached 0, to fetch 1
+boxholm: done, 1 texts, 0 errors, 18 min
+dals-ed: 5 citations, cached 0, to fetch 5
+dals-ed: done, 5 texts, 0 errors, 18 min
+ekero: 73 citations, cached 0, to fetch 73
+ekero: done, 73 texts, 0 errors, 19 min
+eskilstuna: 1034 citations, cached 0, to fetch 1034
+Syntax Error (49944): Bad block header in flate stream
+Syntax Error (50770): Bad block header in flate stream
+Syntax Error (50807): Bad block header in flate stream
+Syntax Error (51109): Bad block header in flate stream
+Syntax Error (51983): Bad block header in flate stream
+Syntax Error (51272): Bad block header in flate stream
+Syntax Error (51166): Bad block header in flate stream
+Syntax Error (51038): Bad block header in flate stream
+Syntax Error (50268): Bad block header in flate stream
+Syntax Error (49961): Bad block header in flate stream
+Syntax Error (50151): Bad block header in flate stream
+Syntax Error (51154): Bad block header in flate stream
+Syntax Error (50119): Bad block header in flate stream
+Syntax Error (50476): Bad block header in flate stream
+Syntax Error (51727): Bad block header in flate stream
+Syntax Error (51387): Bad block header in flate stream
+Syntax Error (51380): Bad block header in flate stream
+Syntax Error (50180): Bad block header in flate stream
+Syntax Error (50430): Bad block header in flate stream
+Syntax Error (50846): Bad block header in flate stream
+Syntax Error (50910): Bad block header in flate stream
+Syntax Error (51074): Bad block header in flate stream
+Syntax Error (50638): Bad block header in flate stream
+Syntax Error (50818): Bad block header in flate stream
+Syntax Error (51358): Bad block header in flate stream
+Syntax Error (51205): Bad block header in flate stream
+Syntax Error (50647): Bad block header in flate stream
+Syntax Error (50300): Bad block header in flate stream
+Syntax Error (50375): Bad block header in flate stream
+Syntax Error (50129): Bad block header in flate stream
+Syntax Error (50159): Bad block header in flate stream
+Syntax Error (49957): Bad block header in flate stream
+Syntax Error (50185): Bad block header in flate stream
+Syntax Error (50006): Bad block header in flate stream
+Syntax Error (50081): Bad block header in flate stream
+Syntax Error (51103): Bad block header in flate stream
+Syntax Error (50412): Bad block header in flate stream
+Syntax Error (51049): Bad block header in flate stream
+Syntax Error (50877): Bad block header in flate stream
+Syntax Error (51677): Bad block header in flate stream
+Syntax Error (50672): Bad block header in flate stream
+Syntax Error (50327): Bad block header in flate stream
+Syntax Error (51816): Bad block header in flate stream
+Syntax Error (51615): Bad block header in flate stream
+Syntax Error (51495): Bad block header in flate stream
+Syntax Error (51043): Bad block header in flate stream
+Syntax Error (51697): Bad block header in flate stream
+Syntax Error (50951): Bad block header in flate stream
+Syntax Error (50137): Bad block header in flate stream
+Syntax Error (49996): Bad block header in flate stream
+Syntax Error (50017): Bad block header in flate stream
+Syntax Error (51262): Bad block header in flate stream
+Syntax Error (51337): Bad block header in flate stream
+Syntax Error (51323): Bad block header in flate stream
+Syntax Error (50404): Bad block header in flate stream
+Syntax Error (51365): Bad block header in flate stream
+Syntax Error (51401): Bad block header in flate stream
+Syntax Error (51632): Bad block header in flate stream
+Syntax Error (51742): Bad block header in flate stream
+Syntax Error (51628): Bad block header in flate stream
+Syntax Error (50176): Bad block header in flate stream
+Syntax Error (50673): Bad block header in flate stream
+Syntax Error (50659): Bad block header in flate stream
+Syntax Error (50051): Bad block header in flate stream
+Syntax Error (50749): Bad block header in flate stream
+Syntax Error (50429): Bad block header in flate stream
+Syntax Error (50091): Bad block header in flate stream
+Syntax Error (50600): Bad block header in flate stream
+Syntax Error (50435): Bad block header in flate stream
+Syntax Error (51556): Bad block header in flate stream
+Syntax Error (50231): Bad block header in flate stream
+Syntax Error (50048): Bad block header in flate stream
+Syntax Error (49787): Bad block header in flate stream
+Syntax Error (50751): Bad block header in flate stream
+Syntax Error (50153): Bad block header in flate stream
+Syntax Error (49912): Bad block header in flate stream
+Syntax Error (50068): Bad block header in flate stream
+Syntax Error (49941): Bad block header in flate stream
+Syntax Error (49921): Bad block header in flate stream
+Syntax Error (49878): Bad block header in flate stream
+Syntax Error (50020): Bad block header in flate stream
+Syntax Error (50263): Bad block header in flate stream
+Syntax Error (49958): Bad block header in flate stream
+Syntax Error (50088): Bad block header in flate stream
+Syntax Error (51213): Bad block header in flate stream
+Syntax Error (51383): Bad block header in flate stream
+Syntax Error (51493): Bad block header in flate stream
+Syntax Error (51525): Bad block header in flate stream
+Syntax Error (51505): Bad block header in flate stream
+Syntax Error (50377): Bad block header in flate stream
+Syntax Error (50288): Bad block header in flate stream
+Syntax Error (50461): Bad block header in flate stream
+Syntax Error (50018): Bad block header in flate stream
+Syntax Error (50547): Bad block header in flate stream
+Syntax Error (49642): Bad block header in flate stream
+Syntax Error (50326): Bad block header in flate stream
+Syntax Error (50470): Bad block header in flate stream
+Syntax Error (50041): Bad block header in flate stream
+Syntax Error (50334): Bad block header in flate stream
+Syntax Error (50286): Bad block header in flate stream
+Syntax Error (50227): Bad block header in flate stream
+Syntax Error (51467): Bad block header in flate stream
+Syntax Error (51602): Bad block header in flate stream
+Syntax Error (51724): Bad block header in flate stream
+Syntax Error (50145): Bad block header in flate stream
+Syntax Error (50035): Bad block header in flate stream
+Syntax Error (51070): Bad block header in flate stream
+Syntax Error (50653): Bad block header in flate stream
+Syntax Error (50467): Bad block header in flate stream
+Syntax Error (50300): Bad block header in flate stream
+Syntax Error (50601): Bad block header in flate stream
+Syntax Error (50291): Bad block header in flate stream
+Syntax Error (50799): Bad block header in flate stream
+eskilstuna: done, 666 texts, 0 errors, 30 min
 time budget reached
-fetched 801, errors 0
+fetched 1657, errors 0
