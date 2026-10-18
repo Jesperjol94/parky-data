@@ -1,0 +1,40 @@
+# Fetches the official regulation texts (RDT) for the published RDT municipalities into rdt/texts/<kommunkod>.jsonl.gz,
+# so rules can be re-read and checked offline. Manual, on expansion/** branches only; never touches main.
+# Start by pushing a commit with "[rdt-texts]" in the message. Resumable: cached citations are skipped.
+name: RDT texts
+on:
+  push:
+    branches: ['expansion/**']
+permissions:
+  contents: write
+concurrency:
+  group: rdt-texts
+  cancel-in-progress: false
+jobs:
+  texts:
+    if: contains(github.event.head_commit.message, '[rdt-texts]') && !contains(github.event.head_commit.message, '[cities-bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: PDF and OCR tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils tesseract-ocr tesseract-ocr-swe >/dev/null
+      - name: Fetch texts (30-minute rounds, committed after each round)
+        run: |
+          git config user.name parky-bot && git config user.email bot@parky.se
+          for round in 1 2 3 4 5 6 7 8 9 10; do
+            node cities/rdt-texts.mjs ${{ matrix.group }} 4 30 2>&1 | tee /tmp/texts.log | tail -n 40
+            mkdir -p rdt/texts && tail -n 400 /tmp/texts.log > rdt/texts/log-${{ matrix.group }}.txt || true
+            git add rdt/texts
+            git commit -qm "RDT texts fetched (group ${{ matrix.group }}, round $round) [cities-bot]" || true
+            for n in 1 2 3 4 5 6; do git pull -q --rebase origin "${GITHUB_REF_NAME}" && git push -q origin "HEAD:${GITHUB_REF_NAME}" && break; sleep $((n * 7)); done
+            grep -q "fetched 0, errors 0" /tmp/texts.log && break
+          done
+          git log --oneline -2

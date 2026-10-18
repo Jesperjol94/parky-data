@@ -1,0 +1,47 @@
+# Adds OpenStreetMap junctions and crossings (10-metre rule) to the published RDT files (cities/rdt/). Manual, on
+# expansion/** branches only; never touches main. Start by pushing a commit with "[rdt-junctions]" in the message.
+# Resumable: municipalities with `junctionsBuilt` are skipped. Three runners work on interleaved thirds of the list.
+name: RDT junctions
+on:
+  push:
+    branches: ['expansion/**']
+permissions:
+  contents: write
+concurrency:
+  group: rdt-junctions
+  cancel-in-progress: false
+jobs:
+  junctions:
+    if: contains(github.event.head_commit.message, '[rdt-junctions]') && !contains(github.event.head_commit.message, '[cities-bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      matrix:
+        group: [0, 1, 2]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Junctions and crossings
+        run: set -o pipefail && node cities/rdt-junctions.mjs cities/rdt ${{ matrix.group }} 3 300 2>&1 | tee /tmp/junctions.log
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name parky-bot && git config user.email bot@parky.se
+          # keep only this job's part (junction fields) and land it on whatever the branch has now
+          mkdir -p /tmp/mine && for f in $(git diff --name-only -- 'cities/rdt/*.json' | grep -v index.json); do cp "$f" /tmp/mine/; done
+          tail -n 300 /tmp/junctions.log > /tmp/junctions-${{ matrix.group }}.log || true
+          [ -n "$(ls /tmp/mine)" ] || exit 0
+          for n in 1 2 3 4 5 6; do
+            git fetch -q origin "${GITHUB_REF_NAME}" && git reset -q --hard FETCH_HEAD
+            node cities/rdt-merge.mjs /tmp/mine cities/rdt junctions,crossings,junctionsBuilt,junctionsMissing
+            node cities/rdt-index.mjs cities/rdt
+            cp /tmp/junctions-${{ matrix.group }}.log cities/rdt-junctions-${{ matrix.group }}.log
+            git add cities/rdt cities/rdt-junctions-${{ matrix.group }}.log
+            git commit -qm "RDT junctions added to cities/rdt (group ${{ matrix.group }}) [cities-bot]" || exit 0
+            git push -q origin "HEAD:${GITHUB_REF_NAME}" && break
+            sleep $((n * 7))
+          done
+          git log --oneline -2

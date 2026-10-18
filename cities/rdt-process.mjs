@@ -7,13 +7,15 @@
 // What it does, per municipality:
 //  - skips cities the app already has from its own build (goteborg, malmo) and Stockholm (0180)
 //  - removes duplicate windows, turns any limit with max <= 0 into a ban (a 0 limit would read as "no limit")
-//  - fee periods without `days` get every day type; zones whose periods overlap make their segments uncertain (u: 1)
+//  - fee periods without `days` get every day type; a zone listing several prices for the same hours is flattened to the
+//    highest price and marked priceVaries (the rules stay; only the price is unsure) — see rdt-lib.mjs
 //  - segments with a rule and no fee mention get t: 0 (free); segments with no readable rule at all become u: 1
 //  - a window whose start equals its end (empty to the engine) makes the segment uncertain
 //  - engine sweep: every ban window must give state 'forbidden' at an instant inside it; nothing may throw
 //  - writes <out>/<city>.json, <out>/REPORT.md and <out>/spot-checks.json (streets to hand-check against the official text)
 import fs from 'node:fs';
 import path from 'node:path';
+import { fixTaxa, ALL_DAYS } from './rdt-lib.mjs';
 
 const args = process.argv.slice(2);
 const oi = args.indexOf('--out');
@@ -26,7 +28,6 @@ const time = await import(path.join(engDir, 'time.js'));
 
 const SKIP_IDS = new Set(['goteborg', 'malmo']);
 const SKIP_CODES = new Set(['0180']);
-const ALL_DAYS = ['vardag', 'fore', 'helgdag'];
 
 // Instants for each day type: Tue 13 Oct (vardag), Sat 17 Oct (fore), Sun 18 Oct (helgdag), 2026; week parity is irrelevant here.
 const DAY_AT = { vardag: { y: 2026, m: 10, d: 14 }, fore: { y: 2026, m: 10, d: 17 }, helgdag: { y: 2026, m: 10, d: 18 } };
@@ -44,22 +45,6 @@ const uniq = (arr) => {
   const seen = new Set();
   return arr.filter((w) => { const k = JSON.stringify(w); return seen.has(k) ? false : (seen.add(k), true); });
 };
-
-function fixTaxa(taxa) {
-  const bad = new Set();
-  const out = {};
-  for (const [k, z] of Object.entries(taxa || {})) {
-    const periods = (z.periods || []).map((p) => ({ ...p, days: p.days && p.days.length ? p.days : ALL_DAYS }));
-    let overlap = false;
-    for (let i = 0; i < periods.length; i++) for (let j = i + 1; j < periods.length; j++) {
-      const p = periods[i], q = periods[j];
-      if (p.days.some((d) => q.days.includes(d)) && p.start < q.end && q.start < p.end && p.price !== q.price) overlap = true;
-    }
-    if (overlap) bad.add(k);
-    out[k] = { ...z, periods };
-  }
-  return { taxa: out, bad };
-}
 
 const report = [];
 const spot = {};
@@ -82,7 +67,7 @@ for (const [code, c] of [...byCode].sort((a, b) => a[1].city.localeCompare(b[1].
     // A window with a == b is empty to the engine (a ban would read as "allowed"): the text was not read properly.
     if (!s.u && ['f', 'aw', 'l', 's'].some((k) => (s[k] || []).some((w) => w.a === w.b))) { s.u = 1; st.uncertainNew++; st.emptyWin = (st.emptyWin || 0) + 1; }
     const hasRule = !!((s.f && s.f.length) || (s.l && s.l.length) || (s.aw && s.aw.length) || (s.s && s.s.length) || s.v || s.k);
-    if (s.t && bad.has(String(s.t)) && !s.u) { s.u = 1; st.uncertainNew++; }
+    if (s.t && bad.has(String(s.t))) st.priceVaries = (st.priceVaries || 0) + 1;
     if (!('t' in s)) {
       if (hasRule) { s.t = 0; st.freeFilled++; }
       else if (!s.u) { s.u = 1; st.uncertainNew++; }
@@ -129,7 +114,7 @@ const md = [
   ``,
   `Inputs: ${inputs.join(', ')}. ${total.cities} municipalities, ${total.segments} segments. Skipped (app has its own file): ${report.filter((r) => r.skipped).map((r) => r.city).join(', ') || 'none'}.`,
   `Engine sweep: ${total.sweepChecked} ban windows checked through parky-beta/engine, ${total.sweepFail} failures.`,
-  `Changes: ${total.freeFilled} segments given t:0 (rule, no fee text), ${total.uncertainNew} made uncertain (no readable rule or overlapping fee table), ${total.dupWindows} duplicate windows removed, ${total.zeroLimits} zero limits turned into bans.`,
+  `Changes: ${total.freeFilled} segments given t:0 (rule, no fee text), ${total.uncertainNew} made uncertain (no readable rule or an empty time window), ${total.dupWindows} duplicate windows removed, ${total.zeroLimits} zero limits turned into bans.`,
   ``,
   `| city | code | segs | ban | limit | paid | fee? | reserved | grey | sweep fail |`,
   `|---|---|---|---|---|---|---|---|---|---|`,
