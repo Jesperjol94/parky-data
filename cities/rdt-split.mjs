@@ -63,14 +63,17 @@ export function splitHops(g, roads) {
 // Second cut: a line that turns sharply (over 60°) at a junction has turned into another street (an area regulation
 // drawn as one route through Stocksund Norra: tapping one street highlighted the whole loop). Cuts there, when the
 // municipality has OSM junctions; a bend in the same street with no junction stays.
+// Without junctions (the junction job has not reached the municipality yet) only a near right angle (over 75°) cuts:
+// in a street grid that is a corner onto another street; a bend in one street is gentler at any single vertex.
 export function splitAtJunctions(g, junctions) {
-  if (g.length < 3 || !junctions || !junctions.length) return [g];
+  if (g.length < 3) return [g];
+  const withJ = junctions && junctions.length;
   const cuts = new Set();
   for (let i = 1; i < g.length - 1; i++) {
     let b = i - 1; while (b > 0 && metres(g[b], g[i]) < 10) b--;
     let a = i + 1; while (a < g.length - 1 && metres(g[a], g[i]) < 10) a++;
-    if (turn(g[b], g[i], g[a]) <= 60) continue;
-    if (junctions.some((j) => metres(j, g[i]) < 20)) cuts.add(i);
+    const t = turn(g[b], g[i], g[a]);
+    if (withJ ? t > 60 && junctions.some((j) => metres(j, g[i]) < 20) : t > 75) cuts.add(i);
   }
   if (!cuts.size) return [g];
   const pieces = []; let cur = [g[0]];
