@@ -15,7 +15,7 @@
 //  - writes <out>/<city>.json, <out>/REPORT.md and <out>/spot-checks.json (streets to hand-check against the official text)
 import fs from 'node:fs';
 import path from 'node:path';
-import { fixTaxa, ALL_DAYS } from './rdt-lib.mjs';
+import { fixTaxa, ALL_DAYS, DROP_CITATIONS } from './rdt-lib.mjs';
 
 const args = process.argv.slice(2);
 const oi = args.indexOf('--out');
@@ -30,6 +30,7 @@ const SKIP_IDS = new Set(['goteborg', 'malmo']);
 // Pelle's converter stripped a final s that is part of the name, not a genitive.
 const NAME_FIX = { 1863: 'Hällefors', 2282: 'Kramfors', '0861': 'Mönsterås' };
 const SKIP_CODES = new Set(['0180']);
+
 
 // Instants for each day type: Tue 13 Oct (vardag), Sat 17 Oct (fore), Sun 18 Oct (helgdag), 2026; week parity is irrelevant here.
 const DAY_AT = { vardag: { y: 2026, m: 10, d: 14 }, fore: { y: 2026, m: 10, d: 17 }, helgdag: { y: 2026, m: 10, d: 18 } };
@@ -60,6 +61,7 @@ for (const [code, c] of [...byCode].sort((a, b) => a[1].city.localeCompare(b[1].
   const st = { city: c.city, code, segs: c.segments.length, uncertainNew: 0, freeFilled: 0, dup: 0, zero: 0, ban: 0, lim: 0, paid: 0, unknownFee: 0, reserved: 0, uncertain: 0, fail: 0, checked: 0, failures: [] };
   const segments = [];
   for (const s0 of c.segments) {
+    if (DROP_CITATIONS[s0.c]) continue;
     const s = { ...s0 };
     for (const k of ['f', 'l', 'aw', 's']) if (s[k]) { const n = uniq(s[k]); st.dup += s[k].length - n.length; s[k] = n; }
     if (s.l) { // a limit of 0 is a ban

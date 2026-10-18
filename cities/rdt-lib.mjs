@@ -42,3 +42,9 @@ export function fixTaxa(taxa) {
   }
   return { taxa: out, bad };
 }
+
+// Regulations whose geometry in the export is wrong and cannot be repaired: dropped entirely (rdt-process.mjs at build,
+// rdt-drop.mjs on the published files).
+export const DROP_CITATIONS = {
+  '0162 2016-00023': 'no parking at all turning areas (vändplaner) "enligt kartbild": the export maps it to 687 whole streets of Danderyd, 373 m on average',
+};
