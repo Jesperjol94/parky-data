@@ -1,0 +1,37 @@
+# Fetches the OpenStreetMap roads around every candidate "hop" in the published RDT files (stitched regulation lines,
+# see cities/rdt-split.mjs) into cities/rdt/check/roads.json, so the split can be decided offline. expansion/** only.
+# Start by pushing a commit with "[rdt-roads]" in the message. Resumable (municipalities already in the file are skipped).
+name: RDT roads
+on:
+  push:
+    branches: ['expansion/**']
+permissions:
+  contents: write
+concurrency:
+  group: rdt-roads
+  cancel-in-progress: false
+jobs:
+  roads:
+    if: contains(github.event.head_commit.message, '[rdt-roads]') && !contains(github.event.head_commit.message, '[cities-bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Roads around candidate hops
+        run: node cities/rdt-roads.mjs cities/rdt 2>&1 | tail -n 400
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name parky-bot && git config user.email bot@parky.se
+          cp cities/rdt/check/roads.json /tmp/roads.json
+          for n in 1 2 3 4 5 6; do
+            git fetch -q origin "${GITHUB_REF_NAME}" && git reset -q --hard FETCH_HEAD
+            mkdir -p cities/rdt/check && cp /tmp/roads.json cities/rdt/check/roads.json
+            git add cities/rdt/check/roads.json
+            git commit -qm "RDT: OSM roads around candidate hops (cities/rdt/check/roads.json) [cities-bot]" || exit 0
+            git push -q origin "HEAD:${GITHUB_REF_NAME}" && break
+            sleep $((n * 7))
+          done
