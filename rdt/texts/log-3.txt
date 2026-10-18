@@ -1,38 +1,74 @@
-alvesta: 130 citations, cached 0, to fetch 130
-Syntax Error (59763): Bad block header in flate stream
-Syntax Error (59575): Bad block header in flate stream
-Syntax Error (60081): Bad block header in flate stream
-alvesta: done, 130 texts, 0 errors, 2 min
-ange: 20 citations, cached 0, to fetch 20
-ange: done, 20 texts, 0 errors, 3 min
-arjang: 40 citations, cached 0, to fetch 40
-arjang: done, 40 texts, 0 errors, 3 min
-asele: 29 citations, cached 0, to fetch 29
-asele: done, 29 texts, 0 errors, 4 min
-avesta: 94 citations, cached 0, to fetch 94
-avesta: done, 94 texts, 0 errors, 5 min
-bjurholm: 4 citations, cached 0, to fetch 4
-bjurholm: done, 4 texts, 0 errors, 5 min
-bollnas: 121 citations, cached 0, to fetch 121
-Syntax Error (35169): Bad block header in flate stream
-Syntax Error (35025): Bad block header in flate stream
-Syntax Error (35693): Bad block header in flate stream
-Syntax Error (35328): Bad block header in flate stream
-Syntax Error (35636): Bad block header in flate stream
-Syntax Error (35158): Bad block header in flate stream
-Syntax Error (35695): Bad block header in flate stream
-Syntax Error (35042): Bad block header in flate stream
-Syntax Error (34946): Bad block header in flate stream
-Syntax Error (35025): Bad block header in flate stream
-Syntax Error (35628): Bad block header in flate stream
-Syntax Error (35414): Bad block header in flate stream
-Syntax Error (35263): Bad block header in flate stream
-Syntax Error (34881): Bad block header in flate stream
-Syntax Error (35333): Bad block header in flate stream
-Syntax Error (35208): Bad block header in flate stream
-Syntax Error (35350): Bad block header in flate stream
-bollnas: done, 121 texts, 0 errors, 7 min
-botkyrka: 557 citations, cached 0, to fetch 557
-botkyrka: done, 492 texts, 0 errors, 30 min
+alvesta: 130 citations, cached 130, to fetch 0
+alvesta: done, 130 texts, 0 errors, 0 min
+ange: 20 citations, cached 20, to fetch 0
+ange: done, 20 texts, 0 errors, 0 min
+arjang: 40 citations, cached 40, to fetch 0
+arjang: done, 40 texts, 0 errors, 0 min
+asele: 29 citations, cached 29, to fetch 0
+asele: done, 29 texts, 0 errors, 0 min
+avesta: 94 citations, cached 94, to fetch 0
+avesta: done, 94 texts, 0 errors, 0 min
+bjurholm: 4 citations, cached 4, to fetch 0
+bjurholm: done, 4 texts, 0 errors, 0 min
+bollnas: 121 citations, cached 121, to fetch 0
+bollnas: done, 121 texts, 0 errors, 0 min
+botkyrka: 557 citations, cached 492, to fetch 65
+botkyrka: done, 557 texts, 0 errors, 4 min
+burlov: 237 citations, cached 0, to fetch 237
+Syntax Error (42348): Bad block header in flate stream
+Syntax Error (42194): Bad block header in flate stream
+Syntax Error (41376): Bad block header in flate stream
+Syntax Error (41224): Bad block header in flate stream
+Syntax Error (42095): Bad block header in flate stream
+Syntax Error (42070): Bad block header in flate stream
+Syntax Error (495665): Bad block header in flate stream
+Syntax Error (255003): Bad block header in flate stream
+Syntax Error (204628): Bad block header in flate stream
+Syntax Error (189633): Bad block header in flate stream
+Syntax Error (216660): Bad block header in flate stream
+Syntax Error (41884): Bad block header in flate stream
+Syntax Error (166927): Bad block header in flate stream
+Syntax Error (41499): Bad block header in flate stream
+Syntax Error (41599): Bad block header in flate stream
+Syntax Error (41608): Bad block header in flate stream
+Syntax Error (42246): Bad block header in flate stream
+Syntax Error (41824): Bad block header in flate stream
+Syntax Error (41782): Bad block header in flate stream
+Syntax Error (41525): Bad block header in flate stream
+Syntax Error (42445): Bad block header in flate stream
+Syntax Error (42152): Bad block header in flate stream
+Syntax Error (41599): Bad block header in flate stream
+Syntax Error (41469): Bad block header in flate stream
+Syntax Error (41832): Bad block header in flate stream
+Syntax Error (41933): Bad block header in flate stream
+Syntax Error (41498): Bad block header in flate stream
+Syntax Error (41529): Bad block header in flate stream
+Syntax Error (41422): Bad block header in flate stream
+Syntax Error (41336): Bad block header in flate stream
+Syntax Error (41416): Bad block header in flate stream
+Syntax Error (41967): Bad block header in flate stream
+burlov: done, 237 texts, 0 errors, 13 min
+dorotea: 2 citations, cached 0, to fetch 2
+dorotea: done, 2 texts, 0 errors, 13 min
+enkoping: 213 citations, cached 0, to fetch 213
+enkoping: done, 213 texts, 0 errors, 19 min
+fagersta: 72 citations, cached 0, to fetch 72
+fagersta: done, 72 texts, 0 errors, 20 min
+fargelanda: 8 citations, cached 0, to fetch 8
+fargelanda: done, 8 texts, 0 errors, 20 min
+forshaga: 43 citations, cached 0, to fetch 43
+forshaga: done, 43 texts, 0 errors, 21 min
+gislaved: 145 citations, cached 0, to fetch 145
+Syntax Error (310302): Bad block header in flate stream
+Syntax Error (253477): Bad block header in flate stream
+Syntax Error (34420): Bad block header in flate stream
+Syntax Error (33671): Bad block header in flate stream
+Syntax Error (34129): Bad block header in flate stream
+Syntax Error (34115): Bad block header in flate stream
+Syntax Error (34454): Bad block header in flate stream
+gislaved: done, 145 texts, 0 errors, 26 min
+gotland: 350 citations, cached 0, to fetch 350
+Syntax Error (73175): Bad block header in flate stream
+gotland: done, 138 texts, 0 errors, 30 min
 time budget reached
-fetched 930, errors 0
+fetched 923, errors 0
