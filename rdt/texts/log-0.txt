@@ -1,15 +1,5 @@
-upplands-bro (rest): 130 citations, cached 21, to fetch 109
-upplands-bro (rest): done, 130 texts, 0 errors, 4 min
-vadstena (rest): 63 citations, cached 0, to fetch 63
-vadstena (rest): done, 63 texts, 0 errors, 5 min
-vanersborg (rest): 592 citations, cached 21, to fetch 571
-vanersborg (rest): done, 592 texts, 0 errors, 22 min
-varmdo (rest): 148 citations, cached 5, to fetch 143
-varmdo (rest): done, 148 texts, 0 errors, 25 min
-vaxholm (rest): 87 citations, cached 6, to fetch 81
-vaxholm (rest): done, 87 texts, 0 errors, 26 min
-vilhelmina (rest): 16 citations, cached 1, to fetch 15
-vilhelmina (rest): done, 16 texts, 0 errors, 26 min
-ydre (rest): 5 citations, cached 0, to fetch 5
-ydre (rest): done, 5 texts, 0 errors, 26 min
-fetched 987, errors 0
+nykoping (rest): 401 citations, cached 401, to fetch 1
+nykoping (rest): done, 401 texts, 0 errors, 0 min
+overtornea (rest): 10 citations, cached 10, to fetch 2
+overtornea (rest): done, 10 texts, 0 errors, 0 min
+fetched 3, errors 0
