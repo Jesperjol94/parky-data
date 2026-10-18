@@ -2,13 +2,16 @@
 // Takes a fixed sample of citations, reads each regulation (PDF → text, OCR for scans, like pipeline/fetch-rdt.mjs),
 // and checks that the time limit and cleaning ban we built appear in the text.
 //   node cities/rdt-check.mjs goteborg [sampleSize]  →  cities/out/<city>-rdt-check.md
+// With a text cache from rdt-texts.mjs (rdt/texts/<kommunkod>.jsonl.gz) the texts are read from it instead of fetched,
+// so the check runs offline over every regulation (sampleSize 0 = all). OUT_DIR overrides cities/out.
 import fs from 'node:fs';
+import zlib from 'node:zlib';
 import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 
 const [city, nArg] = process.argv.slice(2);
-const N = +nArg || 200;
+const N = nArg === '0' ? Infinity : (+nArg || 200);
 const file = JSON.parse(fs.readFileSync(process.env.CITY_FILE || `cities/out/${city}.json`)); // CITY_FILE: any processed city file (e.g. cities/rdt-out/danderyd.json)
 const BASE = 'https://rdt.transportstyrelsen.se/rdt/';
 const WD = ['', 'måndag', 'tisdag', 'onsdag', 'torsdag', 'fredag', 'lördag', 'söndag'];
@@ -17,7 +20,9 @@ const WD = ['', 'måndag', 'tisdag', 'onsdag', 'torsdag', 'fredag', 'lördag', '
 const byC = new Map();
 for (const s of file.segments) if (s.c && !s.u && !byC.has(s.c)) byC.set(s.c, s);
 const all = [...byC.values()];
-const sample = all.filter((_, i) => i % Math.max(1, Math.floor(all.length / N)) === 0).slice(0, N);
+const sample = N === Infinity ? all : all.filter((_, i) => i % Math.max(1, Math.floor(all.length / N)) === 0).slice(0, N);
+const cache = new Map();
+{ const f = `rdt/texts/${file.kommunkod}.jsonl.gz`; if (fs.existsSync(f)) for (const l of zlib.gunzipSync(fs.readFileSync(f)).toString().split('\n')) if (l) { const r = JSON.parse(l); cache.set(r.c, r); } }
 
 async function get(url, binary) {
   for (let i = 0; i < 3; i++) {
@@ -28,6 +33,8 @@ async function get(url, binary) {
   throw new Error('fetch failed');
 }
 async function text(c) {
+  if (cache.has(c)) { const r = cache.get(c); if (r.err) throw new Error(r.err); return r.body; }
+  if (cache.size) return null; // a cache exists but lacks this citation: do not go online in an offline run
   const [code, rest] = c.split(' ');
   const [y, n] = rest.split('-');
   const html = await get(`${BASE}AF06_View.aspx?BeslutsMyndighetKod=${code}&BeslutadAr=${y}&LopNr=${n}`);
@@ -84,7 +91,7 @@ async function worker() {
       if (s.v) r.checks.push({ what: `reserved ${s.v}`, ok: t.includes(s.v.slice(0, 6)) });
     } catch (e) { r.err = e.message; }
     rows.push(r);
-    await new Promise((res) => setTimeout(res, 300));
+    if (!cache.size) await new Promise((res) => setTimeout(res, 300));
   }
 }
 await Promise.all([worker(), worker(), worker()]);
@@ -96,6 +103,7 @@ const out = [`# ${city}: built rules vs official regulation texts`, '', `Run ${n
   'A miss means the exact wording was not found (OCR, other phrasing) or the data disagrees with the text; each one needs a look.', '',
   '| Citation | Street | Rule | Found |', '|---|---|---|---|',
   ...rows.flatMap((r) => r.err ? [`| ${r.c} | ${r.n} | (${r.err}) | – |`] : r.checks.filter((c) => !c.ok).map((c) => `| ${r.c} | ${r.n} | ${c.what} | no: "${(r.snip || '').replace(/\|/g, '/')}" |`))];
-fs.mkdirSync('cities/out', { recursive: true });
-fs.writeFileSync(`cities/out/${city}-rdt-check.md`, out.join('\n') + '\n');
+const outDir = process.env.OUT_DIR || 'cities/out';
+fs.mkdirSync(outDir, { recursive: true });
+fs.writeFileSync(`${outDir}/${city}-rdt-check.md`, out.join('\n') + '\n');
 console.log(out.slice(0, 6).join('\n'));

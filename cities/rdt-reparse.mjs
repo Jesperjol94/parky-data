@@ -59,6 +59,7 @@ function stricterOrEqual(t, s) {
 }
 
 const unread = new Map();
+const dtTally = new Map();
 const pattern = (s) => s.toLowerCase().replace(/\d{1,2}[.:]\d{2}/g, 'HH.MM').replace(/\b\d+\b/g, 'N').replace(/\b[A-ZÅÄÖ][a-zåäö]+(?:gatan|vägen|gränd|plan|torget|stigen|gången|leden|backen)\b/gi, 'GATAN').slice(0, 140);
 
 const idx = JSON.parse(fs.readFileSync(path.join(dir, 'index.json'), 'utf8'));
@@ -98,6 +99,10 @@ for (const row of idx.cities) {
     const t = fromText(r);
     if (!hasRules(t)) { st.textNoRule++; if (s.u) st.uStill++; continue; } // e.g. a pure fee regulation: nothing to compare
     const cur = { f: s.f, l: s.l, aw: s.aw, v: s.v, k: s.k };
+    // day-type convention check: when both sides have exactly one window of the same kind, tally (Pelle dt → text dt)
+    for (const k of ['f', 'l']) if ((cur[k] || []).length === 1 && (t[k] || []).length === 1 && !cur[k][0].w && !t[k][0].w) {
+      const key = `${k} ${JSON.stringify(cur[k][0].dt || 'all')} → ${JSON.stringify(t[k][0].dt || 'all')}`; dtTally.set(key, (dtTally.get(key) || 0) + 1);
+    }
     const equal = same(t.f, cur.f) && same(t.l, cur.l) && same(t.aw, cur.aw) && (t.v || null) === (cur.v || null);
     if (s.u) {
       st.uFilled++;
@@ -129,6 +134,8 @@ for (const row of idx.cities) {
   console.log(`${row.id}: text ${st.withText}/${st.segs}, read ${st.fullyRead}+${st.partlyRead}, verified ${st.verified}, filled ${st.uFilled}, stricter ${st.strictened}, disputed ${st.disputed}, multi ${st.multi}, expired ${st.expired}${APPLY ? `, changed ${changed}` : ''}`);
 }
 console.log(JSON.stringify(tot));
+console.log('Day-type convention (Pelle → text), single-window cases:');
+for (const [k, n] of [...dtTally].sort((a, b) => b[1] - a[1]).slice(0, 15)) console.log(`${String(n).padStart(6)}  ${k}`);
 if (UNREAD) {
   const top = [...unread.entries()].sort((a, b) => b[1].n - a[1].n).slice(0, UNREAD);
   console.log(`\nTop unread sentence patterns (${unread.size} distinct):`);
