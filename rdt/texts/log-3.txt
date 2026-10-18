@@ -1,19 +1,4 @@
-motala (rest): 523 citations, cached 407, to fetch 116
-motala (rest): done, 523 texts, 0 errors, 2 min
-nassjo (rest): 275 citations, cached 26, to fetch 249
-nassjo (rest): done, 275 texts, 0 errors, 6 min
-nordmaling (rest): 6 citations, cached 1, to fetch 5
-nordmaling (rest): done, 6 texts, 0 errors, 6 min
-nybro (rest): 84 citations, cached 0, to fetch 84
-Syntax Error (102825): Bad block header in flate stream
-Syntax Error (102321): Bad block header in flate stream
-Syntax Error (102631): Bad block header in flate stream
-Syntax Error (103647): Bad block header in flate stream
-Syntax Error (102276): Bad block header in flate stream
-nybro (rest): done, 84 texts, 0 errors, 8 min
-ockelbo (rest): 35 citations, cached 2, to fetch 33
-ockelbo (rest): done, 35 texts, 0 errors, 8 min
-orebro (rest): 1768 citations, cached 9, to fetch 1759
-orebro (rest): done, 938 texts, 0 errors, 30 min
+orebro (rest): 1768 citations, cached 938, to fetch 830
+orebro (rest): done, 1680 texts, 0 errors, 30 min
 time budget reached
-fetched 1416, errors 0
+fetched 742, errors 0
