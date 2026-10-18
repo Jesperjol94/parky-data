@@ -27,6 +27,8 @@ const taxaMod = await import(path.join(engDir, 'taxa.js'));
 const time = await import(path.join(engDir, 'time.js'));
 
 const SKIP_IDS = new Set(['goteborg', 'malmo']);
+// Pelle's converter stripped a final s that is part of the name, not a genitive.
+const NAME_FIX = { 1863: 'Hällefors', 2282: 'Kramfors', '0861': 'Mönsterås' };
 const SKIP_CODES = new Set(['0180']);
 
 // Instants for each day type: Tue 13 Oct (vardag), Sat 17 Oct (fore), Sun 18 Oct (helgdag), 2026; week parity is irrelevant here.
@@ -53,6 +55,7 @@ fs.mkdirSync(OUT, { recursive: true });
 
 for (const [code, c] of [...byCode].sort((a, b) => a[1].city.localeCompare(b[1].city))) {
   if (SKIP_IDS.has(c.city) || SKIP_CODES.has(code)) { report.push({ city: c.city, code, skipped: true }); continue; }
+  if (NAME_FIX[code]) c.name = NAME_FIX[code];
   const { taxa, bad } = fixTaxa(c.taxa);
   const st = { city: c.city, code, segs: c.segments.length, uncertainNew: 0, freeFilled: 0, dup: 0, zero: 0, ban: 0, lim: 0, paid: 0, unknownFee: 0, reserved: 0, uncertain: 0, fail: 0, checked: 0, failures: [] };
   const segments = [];
