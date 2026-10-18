@@ -5,4 +5,4 @@ Fully read 109, partly read 36. Verified equal 104, filled from text 0, text str
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1862 2008-543 | Medborgargatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":30},{"dt":["fore"],"a":540,"b":900,"max":30}]} vs text {"l":[{"dt":["vardag"],"a":540,"b":900,"max":30}]} | text more permissive: kept, flagged |
+| 1862 2008-543 | Medborgargatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":30},{"dt":["fore"],"a":540,"b":900,"max":30}]} → {"l":[{"dt":["vardag"],"a":540,"b":900,"max":30}]} | text more permissive: text wins (owner's decision 18 Oct) |

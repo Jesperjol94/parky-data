@@ -5,7 +5,7 @@
 // With --apply, safe changes are written (hash/built recomputed; run rdt-index.mjs after):
 //   - uncertain segment + text fully read + the text gives rules        → rules from the text, u cleared, rx: 1
 //   - confident segment + text fully read + text stricter or equal      → rules from the text where they differ, rx: 1
-//   - confident segment + text fully read + text more permissive        → left as is, flagged rd: 1 (disputed) and reported
+//   - confident segment + text fully read + text more permissive        → the text wins too (owner's decision 18 Oct), counted as disputed
 //   - regulation expired ("Upphör att gälla" in the past)              → u: 1, ex: 1 (the sign applies), reported
 // Anything the parser could not read stays as it was; the unread sentences are counted (--unread N prints the top N
 // patterns) so the parser can be taught the municipality's phrasing.
@@ -135,8 +135,8 @@ for (const row of idx.cities) {
       if (APPLY) put();
     } else {
       st.disputed++;
-      lines.push(`| ${s.c} | ${s.n} | ${JSON.stringify(cur)} vs text ${JSON.stringify(t)} | text ${verdict === 'looser' ? 'more permissive' : 'differs'}: kept, flagged |`);
-      if (APPLY) { s.rd = 1; changed++; }
+      lines.push(`| ${s.c} | ${s.n} | ${JSON.stringify(cur)} → ${JSON.stringify(t)} | text ${verdict === 'looser' ? 'more permissive' : 'differs'}: text wins (owner's decision 18 Oct) |`);
+      if (APPLY) put();
     }
   }
   const md = [`# ${row.name}: published rules vs official regulation texts (re-read with the app's parser)`, '',

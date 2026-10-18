@@ -7,6 +7,6 @@ Fully read 630, partly read 32. Verified equal 591, filled from text 0, text str
 |---|---|---|---|
 | 2081 2016-00211 | Grådavägen | expired 2016-12-02 | already uncertain |
 | 2081 2016-00212 | Grådavägen | expired 2016-12-02 | already uncertain |
-| 2081 2019-00016 | Hagbacksgatan | {"f":[{"a":360,"b":900}]} vs text {"f":[{"w":2,"a":360,"b":900}]} | text more permissive: kept, flagged |
-| 2081 2024-00130 | Västanvägen | {"v":"taxi"} vs text {"f":[{"a":0,"b":1440}]} | text more permissive: kept, flagged |
-| 2081 2024-00130 | Västanvägen | {"v":"taxi"} vs text {"f":[{"a":0,"b":1440}]} | text more permissive: kept, flagged |
+| 2081 2019-00016 | Hagbacksgatan | {"f":[{"a":360,"b":900}]} → {"f":[{"w":2,"a":360,"b":900}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2081 2024-00130 | Västanvägen | {"v":"taxi"} → {"f":[{"a":0,"b":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2081 2024-00130 | Västanvägen | {"v":"taxi"} → {"f":[{"a":0,"b":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |

@@ -115,13 +115,13 @@ const IGNORE = [
   /gäller inte (?:lastbil|buss|taxi|utryckning|moped|cykel|motorcykel|fordon som används i (?:väg|gatu)arbete)/i,
   /^Stockholms kommun föreskriver/i, /trafikförordningen \(1998:1276\) följande/i, /^Publicerat/i, /^beslutade den/i,
   /^Uppställning av fordon sker/i, /^Tillåtelsen ger inte rätt/i, /^Föreskrifterna gäller/i, /^Bestämmelsen gäller/i, /^Detta gäller/i, /^Undantag/i,
-  /^Förbudet ger inte rätt/i, /gäller inte enskild väg/i, /^Avgift(?:en)?\b/i, /behöver inte erläggas/i, /^Fordonet ska vara försett/i, /^Tillstånd(?:et)? /i,
+  /^Förbudet ger inte rätt/i, /gäller inte enskild väg/i, /^Tillåtelsen gäller även/i, /boendeparkeringskort|boendeparkeringstillstånd/i, /^Avgift(?:en)?\b/i, /behöver inte erläggas/i, /^Fordonet ska vara försett/i, /^Tillstånd(?:et)? /i,
   /^(?:Parkering|Uppställning) får (?:endast )?ske (?:i|på) (?:markerade|anvisade)/i, /ska ha (?:ett )?giltigt parkeringstillstånd/i,
 ];
 
 // → { taxa, reserved, purpose, allowOnly, limits, bans, otherAllowed, unread: [sentences we could not interpret] }
 // Which special vehicle a "får endast …" / "gäller endast …" sentence reserves the curb for (null = ordinary cars).
-const RESERVED = [[/rörelsehindrad/, 'rörelsehindrade'], [/beskickning/, 'beskickningsfordon'], [/motorcykel/, 'motorcykel'], [/moped/, 'moped'],
+const RESERVED = [[/rörelsehindrad|handikappad/, 'rörelsehindrade'], [/beskickning/, 'beskickningsfordon'], [/motorcykel/, 'motorcykel'], [/moped/, 'moped'],
   [/buss/, 'buss'], [/utryckning/, 'utryckningsfordon'], [/lastbil/, 'lastbil'], [/taxi/, 'taxi'], [/elfordon|laddning/, 'laddning'], [/cykel/, 'cykel'],
   [/personbil klass (?:ii|2)\b|husbil/, 'husbil'], [/med (?:tillkopplad )?släp/, 'fordon med släp'], [/tjänstefordon/, 'tjänstefordon']]; // personbil klass II = motorhomes
 function reservedFor(x) { for (const [re, v] of RESERVED) if (re.test(x)) return v; return null; }
@@ -139,8 +139,11 @@ export function parseRegulation(body) {
     const tx = x.match(/taxa\s+(\d+)/);
     if (tx && /avgift/.test(x)) { out.taxa = +tx[1]; }
     if (/^(?:tillåtelsen|förbudet) ger inte rätt/.test(x)) continue;
+    if (/^tillåtelsen gäller även|boendeparkeringskort|boendeparkeringstillstånd/.test(x)) continue; // resident permits are out of scope outside the big three
     if (/ändamålsplats/.test(x)) { out.purpose.push(...windows(s).map(withSP)); continue; }
     if (/^övrig tid får endast/.test(x) && reservedFor(x) && lastAllow) { out.otherAllowed = false; out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue; } // "Övrig tid får endast tung lastbil parkeras"
+    if (/vändplats med förbud att (?:stanna och |stanna eller )?parkera/.test(x)) { const items = [{ a: 0, b: 1440 }]; out.bans.push(...items); lastBan = { items, provisional: true }; continue; }
+    if (/^(?:på|inom|i) [^.]*? får (?:taxi|buss(?:ar)?|lastbil(?:ar)?|motorcykl(?:ar|el)|moped(?:er)?) parkeras/.test(x) && !/(?:inte|ej) parkeras|får (?:inte|ej)/.test(x)) { out.reserved = true; out.reservedFor = reservedFor(x); if (m) out.reservedSeason = m; out.reservedWindows.push(...windows(s).map(withSP)); continue; }
     // "får personbil klass II parkeras …": a motorhome spot, whether or not it says "endast"
     if (/personbil klass (?:ii|2)\b/.test(x) && /parkeras/.test(x) && !/får (?:inte|ej)\b|inte parkeras/.test(x)) { out.reserved = true; out.reservedFor = 'husbil'; if (m) out.reservedSeason = m; out.reservedWindows.push(...windows(s).map(withSP)); continue; }
     if (/får endast\b/.test(x) && /parkeras|stannas/.test(x)) {

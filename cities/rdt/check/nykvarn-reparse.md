@@ -5,5 +5,5 @@ Fully read 59, partly read 1. Verified equal 53, filled from text 0, text strict
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0140 2010-00162 | Stenkullevägen | {"f":[{"a":0,"b":1440}]} vs text {"f":[{"w":3,"a":480,"b":900}]} | text more permissive: kept, flagged |
-| 0140 2010-00164 | Tjusarstigen | {"f":[{"a":0,"b":1440}]} vs text {"f":[{"w":3,"a":480,"b":900,"m":[[11,1],[4,30]]}]} | text more permissive: kept, flagged |
+| 0140 2010-00162 | Stenkullevägen | {"f":[{"a":0,"b":1440}]} → {"f":[{"w":3,"a":480,"b":900}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0140 2010-00164 | Tjusarstigen | {"f":[{"a":0,"b":1440}]} → {"f":[{"w":3,"a":480,"b":900,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |

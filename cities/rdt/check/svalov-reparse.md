@@ -5,4 +5,4 @@ Fully read 35, partly read 5. Verified equal 31, filled from text 0, text strict
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1214 2023-11 | Torggatan | {"l":[{"a":0,"b":1440,"max":60},{"a":0,"b":1440,"max":10}]} vs text {"l":[{"a":0,"b":1440,"max":60}]} | text more permissive: kept, flagged |
+| 1214 2023-11 | Torggatan | {"l":[{"a":0,"b":1440,"max":60},{"a":0,"b":1440,"max":10}]} → {"l":[{"a":0,"b":1440,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |

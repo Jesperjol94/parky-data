@@ -5,4 +5,4 @@ Fully read 46, partly read 1. Verified equal 45, filled from text 0, text strict
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0604 2009-20 | Furulidsgatan | {"v":"motorcykel"} vs text {"v":"moped"} | text differs: kept, flagged |
+| 0604 2009-20 | Furulidsgatan | {"v":"motorcykel"} → {"v":"moped"} | text differs: text wins (owner's decision 18 Oct) |

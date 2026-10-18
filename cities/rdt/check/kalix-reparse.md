@@ -5,5 +5,5 @@ Fully read 57, partly read 17. Verified equal 48, filled from text 0, text stric
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 2514 2012-0010 | Vintervägen | expired 2012-04-23 | now uncertain |
-| 2514 2012-0010 | Vintervägen | expired 2012-04-23 | now uncertain |
+| 2514 2012-0010 | Vintervägen | expired 2012-04-23 | already uncertain |
+| 2514 2012-0010 | Vintervägen | expired 2012-04-23 | already uncertain |
