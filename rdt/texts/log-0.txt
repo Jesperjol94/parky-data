@@ -1,24 +1,4 @@
-skovde (rest): 597 citations, cached 263, to fetch 334
-skovde (rest): done, 597 texts, 0 errors, 26 min
-soderkoping (rest): 194 citations, cached 56, to fetch 138
-Syntax Error (118031): Bad block header in flate stream
-Syntax Error (117797): Bad block header in flate stream
-Syntax Error (118027): Bad block header in flate stream
-Syntax Error (117573): Bad block header in flate stream
-Syntax Error (117421): Bad block header in flate stream
-Syntax Error (117654): Bad block header in flate stream
-Syntax Error (118410): Bad block header in flate stream
-Syntax Error (119030): Bad block header in flate stream
-Syntax Error (261337): Bad block header in flate stream
-Syntax Error (118355): Bad block header in flate stream
-Syntax Error (118355): Bad block header in flate stream
-Syntax Error (118521): Bad block header in flate stream
-Syntax Error (117548): Bad block header in flate stream
-Syntax Error (118576): Bad block header in flate stream
-Syntax Error (118453): Bad block header in flate stream
-Syntax Error (118813): Bad block header in flate stream
-soderkoping (rest): done, 194 texts, 0 errors, 28 min
-solna (rest): 1119 citations, cached 13, to fetch 1106
-solna (rest): done, 136 texts, 0 errors, 30 min
+solna (rest): 1119 citations, cached 136, to fetch 983
+solna (rest): done, 841 texts, 0 errors, 30 min
 time budget reached
-fetched 595, errors 0
+fetched 705, errors 0
