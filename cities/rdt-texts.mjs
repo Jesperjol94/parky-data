@@ -68,29 +68,35 @@ const saveCache = (file, m) => fs.writeFileSync(file, zlib.gzipSync([...m.values
 
 const index = JSON.parse(fs.readFileSync(path.join(DIR, 'index.json'), 'utf8')).cities.sort((a, b) => a.id.localeCompare(b.id));
 const mine = index.filter((_, i) => i % GROUPS === GROUP);
+// Two passes over this group's municipalities: first the citations of uncertain segments everywhere (the texts that can
+// change what the app shows), then everything else (verification). Caches are saved per municipality as we go.
+const caches = new Map();
+const cacheOf = (row) => { const file = path.join(CACHE_DIR, `${row.kommunkod}.jsonl.gz`); if (!caches.has(file)) caches.set(file, loadCache(file)); return [file, caches.get(file)]; };
 let fetched = 0, errs = 0;
-for (const row of mine) {
+for (const pass of ['uncertain', 'rest']) {
+  for (const row of mine) {
+    if (Date.now() - t0 > BUDGET) break;
+    const city = JSON.parse(fs.readFileSync(path.join(DIR, `${row.id}.json`), 'utf8'));
+    const [file, cache] = cacheOf(row);
+    const want = new Set();
+    for (const s of city.segments) if (s.c && (pass === 'uncertain' ? s.u : true)) want.add(s.c);
+    const todo = [...want].filter((c) => !cache.has(c) || cache.get(c).err);
+    if (!todo.length) continue;
+    console.log(`${row.id} (${pass}): ${want.size} citations, cached ${cache.size}, to fetch ${todo.length}`);
+    let i = 0, dirty = 0;
+    const worker = async () => {
+      while (i < todo.length && Date.now() - t0 < BUDGET) {
+        const c = todo[i++];
+        try { cache.set(c, await one(c)); fetched++; }
+        catch (e) { cache.set(c, { c, err: e.message, at: new Date().toISOString().slice(0, 10) }); errs++; }
+        if (++dirty % 100 === 0) saveCache(file, cache);
+        await sleep(300);
+      }
+    };
+    await Promise.all(Array.from({ length: WORKERS }, worker));
+    saveCache(file, cache);
+    console.log(`${row.id} (${pass}): done, ${[...cache.values()].filter((r) => !r.err).length} texts, ${[...cache.values()].filter((r) => r.err).length} errors, ${Math.round((Date.now() - t0) / 60000)} min`);
+  }
   if (Date.now() - t0 > BUDGET) { console.log('time budget reached'); break; }
-  const city = JSON.parse(fs.readFileSync(path.join(DIR, `${row.id}.json`), 'utf8'));
-  const file = path.join(CACHE_DIR, `${row.kommunkod}.jsonl.gz`);
-  const cache = loadCache(file);
-  const first = new Set(), rest = new Set();
-  for (const s of city.segments) if (s.c) (s.u ? first : rest).add(s.c);
-  for (const c of first) rest.delete(c);
-  const todo = [...first, ...rest].filter((c) => !cache.has(c) || cache.get(c).err);
-  console.log(`${row.id}: ${first.size + rest.size} citations, cached ${cache.size}, to fetch ${todo.length}`);
-  let i = 0, dirty = 0;
-  const worker = async () => {
-    while (i < todo.length && Date.now() - t0 < BUDGET) {
-      const c = todo[i++];
-      try { cache.set(c, await one(c)); fetched++; }
-      catch (e) { cache.set(c, { c, err: e.message, at: new Date().toISOString().slice(0, 10) }); errs++; }
-      if (++dirty % 100 === 0) saveCache(file, cache);
-      await sleep(300);
-    }
-  };
-  await Promise.all(Array.from({ length: WORKERS }, worker));
-  saveCache(file, cache);
-  console.log(`${row.id}: done, ${[...cache.values()].filter((r) => !r.err).length} texts, ${[...cache.values()].filter((r) => r.err).length} errors, ${Math.round((Date.now() - t0) / 60000)} min`);
 }
 console.log(`fetched ${fetched}, errors ${errs}`);
