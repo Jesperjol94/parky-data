@@ -20,7 +20,20 @@ const r6 = (v) => Math.round(v * 1e6) / 1e6;
 const TW = 0.04, TH = 0.02, PAD = 0.0006;
 const metres = (a, b) => Math.hypot((a[0] - b[0]) * 111320 * Math.cos(a[1] * Math.PI / 180), (a[1] - b[1]) * 110574);
 const STREET = /(väg|vägen|gata|gatan|gränd|gränden|stig|stigen|led|leden|backe|backen|plan|torg|torget|allé|allén|slingan|bryggan|kajen|promenaden|esplanaden|boulevarden|tået|gången|liden|brinken|hamnen|kroken|svängen|ringen|hagen|lunden|parken)$/i;
-export const needsName = (s) => !!s.an || !STREET.test(s.n.trim()) || /kommun|område|zon|centrum|tätort/i.test(s.n);
+export const needsName = (s, multi) => !!s.an || !STREET.test(s.n.trim()) || /kommun|område|zon|centrum|tätort/i.test(s.n) || !!(multi && multi.has(s.c));
+// Citations whose regulation names several streets ("… på Plogvägen, Silvergransvägen och Trehörningsvägen"): the export gives
+// every piece the first street's name, so each piece takes the name of the OSM road it runs along.
+import zlib from 'node:zlib';
+const STREET_WORD = /\b[A-ZÅÄÖ][\wåäöéü-]*(?:vägen|gatan|gränd|gränden|stigen|leden|backen|allén|slingan|torget|plan|väg|gata)\b/g;
+export function multiStreet(kommunkod) {
+  const out = new Set(); const f = `rdt/texts/${kommunkod}.jsonl.gz`;
+  if (!fs.existsSync(f)) return out;
+  for (const l of zlib.gunzipSync(fs.readFileSync(f)).toString().split('\n')) {
+    if (!l) continue; const r = JSON.parse(l); const t = r.rubrik || '';
+    if (new Set(t.match(STREET_WORD) || []).size >= 2) out.add(r.c);
+  }
+  return out;
+}
 export const keyOf = (s) => `${s.c}|${s.g[0][0]},${s.g[0][1]}|${s.g.length}`;
 
 let ep = 0;
@@ -69,10 +82,12 @@ const names = fs.existsSync(outFile) ? JSON.parse(fs.readFileSync(outFile, 'utf8
 
 if (mode === '--fetch') {
   for (const [k, row] of idx.cities.entries()) {
-    if (k % GROUPS !== GROUP || names[row.id]) continue;
+    if (k % GROUPS !== GROUP || (names[row.id] && names[row.id].__v === 2)) continue;
     const c = JSON.parse(fs.readFileSync(path.join(dir, `${row.id}.json`), 'utf8'));
-    const need = c.segments.filter(needsName);
-    if (!need.length) { names[row.id] = {}; continue; }
+    const multi = multiStreet(row.kommunkod);
+    const done = names[row.id] || {};
+    const need = c.segments.filter((s) => needsName(s, multi) && !done[keyOf(s)]); // v1 runs named area segments already
+    if (!need.length) { names[row.id] = { ...done, __v: 2 }; continue; }
     const tiles = new Set();
     for (const s of need) for (const [x, y] of s.g) tiles.add(`${Math.floor(x / TW)},${Math.floor(y / TH)}`);
     const roads = [];
@@ -86,8 +101,9 @@ if (mode === '--fetch') {
       }
       await sleep(1500);
     }
-    const out = {}; let found = 0;
+    const out = { ...done }; let found = 0;
     for (const s of need) { const n = nameFor(s.g, roads); if (n) { out[keyOf(s)] = n; found++; } }
+    out.__v = 2;
     names[row.id] = out;
     console.log(`${row.id}: ${need.length} segments without a street name, ${tiles.size} tiles, ${roads.length} named roads, ${found} named`);
     fs.writeFileSync(outFile, JSON.stringify(names));
@@ -100,8 +116,9 @@ if (mode === '--fetch') {
     const file = path.join(dir, `${row.id}.json`);
     const c = JSON.parse(fs.readFileSync(file, 'utf8'));
     let changed = false;
+    const multi = multiStreet(row.kommunkod);
     for (const s of c.segments) {
-      if (!needsName(s)) continue;
+      if (!needsName(s, multi)) continue;
       const n = m[keyOf(s)]; if (!n || n === s.n) continue;
       s.an = s.an || s.n; s.n = n; set++; changed = true;
     }
