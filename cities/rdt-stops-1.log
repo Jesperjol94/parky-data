@@ -1,0 +1,300 @@
+arvidsjaur: 4 tiles, 1 bus stops, 9 level crossings, 5 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+asele: 4 tiles, 1 bus stops, 0 level crossings, 6 min
+astorp: 6 tiles, 47 bus stops, 11 level crossings, 6 min
+avesta: 7 tiles, 45 bus stops, 49 level crossings, 7 min
+bengtsfors: 13 tiles, 42 bus stops, 19 level crossings, 8 min
+bjurholm: 1 tiles, 1 bus stops, 0 level crossings, 8 min
+boden: 13 tiles, 101 bus stops, 10 level crossings, 9 min
+bollnas: 8 tiles, 71 bus stops, 17 level crossings, 10 min
+borgholm: 12 tiles, 47 bus stops, 0 level crossings, 10 min
+botkyrka: 20 tiles, 365 bus stops, 3 level crossings, 11 min
+bracke: 2 tiles, 0 bus stops, 0 level crossings, 12 min
+burlov: 7 tiles, 142 bus stops, 31 level crossings, 12 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+danderyd: 9 tiles, 245 bus stops, 9 level crossings, 13 min
+dorotea: 1 tiles, 0 bus stops, 0 level crossings, 14 min
+eksjo: 12 tiles, 67 bus stops, 16 level crossings, 15 min
+enkoping: 17 tiles, 188 bus stops, 0 level crossings, 16 min
+eslov: 23 tiles, 116 bus stops, 24 level crossings, 18 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+fagersta: 4 tiles, 71 bus stops, 1 level crossings, 19 min
+overpass https://overpass-api.de/api/interpreter 502
+falkoping: 11 tiles, 82 bus stops, 19 level crossings, 19 min
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+fargelanda: 3 tiles, 22 bus stops, 0 level crossings, 20 min
+finspang: 8 tiles, 61 bus stops, 10 level crossings, 21 min
+forshaga: 6 tiles, 18 bus stops, 1 level crossings, 21 min
+gallivare: 6 tiles, 47 bus stops, 11 level crossings, 22 min
+gislaved: 20 tiles, 68 bus stops, 23 level crossings, 22 min
+gnosjo: 5 tiles, 9 bus stops, 5 level crossings, 23 min
+gotland: 20 tiles, 127 bus stops, 4 level crossings, 24 min
+grums: 4 tiles, 14 bus stops, 13 level crossings, 24 min
+overpass https://overpass-api.de/api/interpreter 502
+haabo: 10 tiles, 85 bus stops, 3 level crossings, 25 min
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+hagfors: 7 tiles, 35 bus stops, 1 level crossings, 26 min
+hallsberg: 12 tiles, 30 bus stops, 43 level crossings, 26 min
+halmstad: 40 tiles, 400 bus stops, 53 level crossings, 28 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+haninge: 23 tiles, 332 bus stops, 21 level crossings, 29 min
+harnosand: 9 tiles, 139 bus stops, 8 level crossings, 30 min
+hassleholm: 38 tiles, 163 bus stops, 58 level crossings, 31 min
+hedemora: 2 tiles, 25 bus stops, 1 level crossings, 32 min
+herrljunga: 6 tiles, 18 bus stops, 7 level crossings, 32 min
+hofors: 4 tiles, 64 bus stops, 10 level crossings, 33 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+hogsby: 5 tiles, 6 bus stops, 5 level crossings, 33 min
+overpass https://overpass.private.coffee/api/interpreter 500
+horby: 6 tiles, 17 bus stops, 0 level crossings, 34 min
+hudiksvall: 15 tiles, 165 bus stops, 30 level crossings, 35 min
+hylte: 5 tiles, 17 bus stops, 5 level crossings, 35 min
+jokkmokk: 9 tiles, 5 bus stops, 5 level crossings, 36 min
+kalix: 7 tiles, 5 bus stops, 8 level crossings, 36 min
+karlsborg: 4 tiles, 20 bus stops, 0 level crossings, 37 min
+karlskoga: 12 tiles, 107 bus stops, 73 level crossings, 38 min
+karlstad: 30 tiles, 544 bus stops, 56 level crossings, 39 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+kavlinge: 10 tiles, 76 bus stops, 0 level crossings, 43 min
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+kiruna: 25 tiles, 87 bus stops, 17 level crossings, 45 min
+knivsta: 7 tiles, 68 bus stops, 3 level crossings, 46 min
+kramfor: 9 tiles, 27 bus stops, 9 level crossings, 46 min
+kristinehamn: 9 tiles, 41 bus stops, 19 level crossings, 47 min
+kumla: 6 tiles, 49 bus stops, 15 level crossings, 48 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+kungsbacka: 40 tiles, 318 bus stops, 2 level crossings, 48 min
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+laholm: 19 tiles, 76 bus stops, 2 level crossings, 51 min
+laxa: 5 tiles, 19 bus stops, 3 level crossings, 52 min
+leksand: 2 tiles, 20 bus stops, 3 level crossings, 53 min
+lessebo: 4 tiles, 18 bus stops, 7 level crossings, 53 min
+overpass https://overpass-api.de/api/interpreter 502
+lidkoping: 24 tiles, 106 bus stops, 20 level crossings, 54 min
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+lindesberg: 11 tiles, 95 bus stops, 19 level crossings, 55 min
+ljungby: 11 tiles, 60 bus stops, 0 level crossings, 55 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+ljusnarsberg: 5 tiles, 23 bus stops, 2 level crossings, 59 min
+ludvika: 18 tiles, 101 bus stops, 10 level crossings, 60 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+lund: 27 tiles, 466 bus stops, 58 level crossings, 61 min
+overpass https://overpass.private.coffee/api/interpreter 500
+lysekil: 12 tiles, 74 bus stops, 10 level crossings, 61 min
+malung-salen: 3 tiles, 14 bus stops, 8 level crossings, 62 min
+mark: 15 tiles, 137 bus stops, 27 level crossings, 63 min
+mellerud: 1 tiles, 11 bus stops, 1 level crossings, 63 min
+molndal: 19 tiles, 400 bus stops, 34 level crossings, 64 min
+mora: 11 tiles, 76 bus stops, 30 level crossings, 65 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+motala: 22 tiles, 174 bus stops, 3 level crossings, 67 min
+munkfors: 2 tiles, 13 bus stops, 0 level crossings, 67 min
+overpass https://overpass-api.de/api/interpreter 504
+overpass https://overpass.kumi.systems/api/interpreter 500
+nassjo: 17 tiles, 115 bus stops, 21 level crossings, 68 min
+overpass https://overpass.private.coffee/api/interpreter 500
+norberg: 4 tiles, 56 bus stops, 20 level crossings, 69 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+nordmaling: 2 tiles, 3 bus stops, 0 level crossings, 70 min
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+norrtalje: 20 tiles, 262 bus stops, 6 level crossings, 72 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+nybro: 6 tiles, 61 bus stops, 8 level crossings, 73 min
+nykvarn: 4 tiles, 40 bus stops, 1 level crossings, 74 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+ockelbo: 4 tiles, 18 bus stops, 6 level crossings, 75 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+odeshog: 1 tiles, 10 bus stops, 0 level crossings, 77 min
+orebro: 31 tiles, 346 bus stops, 90 level crossings, 79 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+ornskoldsvik: 33 tiles, 30 bus stops, 19 level crossings, 81 min
+overpass https://overpass.private.coffee/api/interpreter 500
+orust: 21 tiles, 152 bus stops, 0 level crossings, 83 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+oskarshamn: 13 tiles, 37 bus stops, 8 level crossings, 84 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+ostersund: 21 tiles, 420 bus stops, 25 level crossings, 87 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+ostra-goinge: 7 tiles, 36 bus stops, 1 level crossings, 89 min
+overkalix: 2 tiles, 1 bus stops, 0 level crossings, 89 min
+oxelosund: 5 tiles, 35 bus stops, 26 level crossings, 90 min
+partille: 12 tiles, 224 bus stops, 24 level crossings, 90 min
+pitea: 9 tiles, 50 bus stops, 21 level crossings, 91 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+rattvik: 5 tiles, 27 bus stops, 7 level crossings, 92 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+ronneby: 18 tiles, 115 bus stops, 8 level crossings, 93 min
+overpass https://overpass.private.coffee/api/interpreter 500
+sala: 9 tiles, 138 bus stops, 10 level crossings, 93 min
+sandviken: 13 tiles, 159 bus stops, 16 level crossings, 94 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+savsjo: 11 tiles, 25 bus stops, 2 level crossings, 96 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+simrishamn: 25 tiles, 161 bus stops, 15 level crossings, 97 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+skelleftea: 32 tiles, 23 bus stops, 23 level crossings, 99 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+skurup: 6 tiles, 31 bus stops, 6 level crossings, 100 min
+soderhamn: 6 tiles, 36 bus stops, 14 level crossings, 101 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 504
+overpass https://overpass.private.coffee/api/interpreter 500
+sodertalje: 29 tiles, 378 bus stops, 24 level crossings, 103 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+sollentuna: 16 tiles, 382 bus stops, 5 level crossings, 105 min
+solvesborg: 13 tiles, 79 bus stops, 10 level crossings, 105 min
+sotenas: 11 tiles, 67 bus stops, 0 level crossings, 106 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+stenungsund: 10 tiles, 92 bus stops, 10 level crossings, 107 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+strangnas: 18 tiles, 184 bus stops, 20 level crossings, 108 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+stromsund: 6 tiles, 5 bus stops, 10 level crossings, 110 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+sundsvall: 47 tiles, 481 bus stops, 62 level crossings, 113 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+surahammar: 8 tiles, 46 bus stops, 18 level crossings, 114 min
+svedala: 8 tiles, 71 bus stops, 2 level crossings, 115 min
+taby: 15 tiles, 298 bus stops, 10 level crossings, 115 min
+overpass https://overpass-api.de/api/interpreter 502
+tidaholm: 4 tiles, 28 bus stops, 0 level crossings, 116 min
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+timra: 11 tiles, 62 bus stops, 12 level crossings, 117 min
+tomelilla: 6 tiles, 19 bus stops, 14 level crossings, 117 min
+torsas: 6 tiles, 31 bus stops, 0 level crossings, 118 min
+tranas: 9 tiles, 4 bus stops, 0 level crossings, 119 min
+trelleborg: 24 tiles, 213 bus stops, 38 level crossings, 120 min
+trosa: 6 tiles, 49 bus stops, 2 level crossings, 121 min
+uddevalla: 18 tiles, 247 bus stops, 43 level crossings, 122 min
+umea: 27 tiles, 317 bus stops, 9 level crossings, 123 min
+upplands-vasby: 9 tiles, 221 bus stops, 0 level crossings, 124 min
+uppvidinge: 1 tiles, 2 bus stops, 4 level crossings, 124 min
+vaggeryd: 8 tiles, 18 bus stops, 9 level crossings, 125 min
+vallentuna: 10 tiles, 147 bus stops, 9 level crossings, 126 min
+vannas: 2 tiles, 3 bus stops, 4 level crossings, 126 min
+varberg: 28 tiles, 162 bus stops, 24 level crossings, 128 min
+varnamo: 17 tiles, 99 bus stops, 18 level crossings, 128 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+vastervik: 23 tiles, 56 bus stops, 36 level crossings, 130 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+vaxjo: 30 tiles, 146 bus stops, 19 level crossings, 132 min
+vetlanda: 18 tiles, 11 bus stops, 48 level crossings, 133 min
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+overpass https://overpass-api.de/api/interpreter 502
+overpass https://overpass.kumi.systems/api/interpreter 500
+overpass https://overpass.private.coffee/api/interpreter 500
+vimmerby: 17 tiles, 33 bus stops, 21 level crossings, 135 min
+vingaker: 5 tiles, 58 bus stops, 4 level crossings, 135 min
+ystad: 18 tiles, 151 bus stops, 30 level crossings, 136 min
+stops added for 137 municipalities
