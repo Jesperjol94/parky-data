@@ -13,7 +13,8 @@ let n = 0;
 for (const f of fs.readdirSync(src).filter((x) => x.endsWith('.json') && x !== 'index.json')) {
   const mine = JSON.parse(fs.readFileSync(path.join(src, f), 'utf8'));
   const target = path.join(dir, f);
-  const c = fs.existsSync(target) ? JSON.parse(fs.readFileSync(target, 'utf8')) : mine;
+  if (!fs.existsSync(target)) continue; // a municipality the target no longer has stays gone
+  const c = JSON.parse(fs.readFileSync(target, 'utf8'));
   for (const k of keys) { if (k in mine) c[k] = mine[k]; else delete c[k]; }
   if (mine.attribution) c.attribution = mine.attribution;
   c.built = new Date().toISOString();

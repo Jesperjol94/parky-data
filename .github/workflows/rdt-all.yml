@@ -111,7 +111,20 @@ jobs:
       - name: Publish (unique fee numbers, index)
         run: |
           cp chunks/*.json processed/ 2>/dev/null || true
+          # keep what the network jobs gathered (OSM junctions, bus stops, roads, names) across the rebuild
+          rm -rf /tmp/prev && cp -r cities/rdt /tmp/prev
           rm -rf cities/rdt && node cities/rdt-publish.mjs processed cities/rdt
+          mkdir -p cities/rdt/check && cp /tmp/prev/check/roads.json /tmp/prev/check/names.json cities/rdt/check/ 2>/dev/null || true
+          node cities/rdt-merge.mjs /tmp/prev cities/rdt junctions,crossings,junctionsBuilt,junctionsMissing,busStops,levelCrossings,stopsBuilt
+          # the same fixes as on the branch, so a rebuild from the register does not undo them
+          node cities/rdt-drop.mjs cities/rdt --apply
+          node cities/rdt-split.mjs cities/rdt --apply
+          node cities/rdt-zones.mjs cities/rdt --apply
+          node cities/rdt-datum.mjs cities/rdt --apply
+          node cities/rdt-names.mjs cities/rdt --apply
+          node cities/rdt-reparse.mjs cities/rdt --apply
+          node cities/rdt-trim.mjs cities/rdt --apply
+          node cities/rdt-index.mjs cities/rdt
           mkdir -p cities/rdt/check && cp chunks/*-rdt-check.md cities/rdt/check/ 2>/dev/null || true
           cp processed/REPORT.md cities/rdt/REPORT.md
           # one summary of the official-text check

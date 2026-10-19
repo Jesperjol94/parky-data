@@ -1,0 +1,52 @@
+# Adds OpenStreetMap bus stops and level crossings to the published RDT files (cities/rdt/), fills in junctions for
+# municipalities the junction job has not reached, and redraws the trimmed lines (cities/rdt-trim.mjs): no parking
+# 20 m before / 5 m after a bus stop, nothing 30 m before a level crossing, 10 m from junctions and crossings.
+# Manual, on expansion/** branches only. Start by pushing a commit with "[rdt-stops]" in the message. Resumable.
+name: RDT stops
+on:
+  push:
+    branches: ['expansion/**']
+permissions:
+  contents: write
+concurrency:
+  group: rdt-stops
+  cancel-in-progress: false
+jobs:
+  stops:
+    if: contains(github.event.head_commit.message, '[rdt-stops]') && !contains(github.event.head_commit.message, '[cities-bot]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 340
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        group: [0, 1]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Junctions (missing ones) and stops
+        run: |
+          set -o pipefail
+          node cities/rdt-junctions.mjs cities/rdt ${{ matrix.group }} 2 120 2>&1 | tee /tmp/stops.log
+          node cities/rdt-stops.mjs cities/rdt ${{ matrix.group }} 2 180 2>&1 | tee -a /tmp/stops.log
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name parky-bot && git config user.email bot@parky.se
+          mkdir -p /tmp/mine && for f in $(git diff --name-only -- 'cities/rdt/*.json' | grep -v index.json); do cp "$f" /tmp/mine/; done
+          tail -n 300 /tmp/stops.log > /tmp/stops-${{ matrix.group }}.log || true
+          [ -n "$(ls /tmp/mine)" ] || exit 0
+          for n in 1 2 3 4 5 6; do
+            git fetch -q origin "${GITHUB_REF_NAME}" && git reset -q --hard FETCH_HEAD
+            node cities/rdt-merge.mjs /tmp/mine cities/rdt junctions,crossings,junctionsBuilt,junctionsMissing,busStops,levelCrossings,stopsBuilt
+            node cities/rdt-trim.mjs cities/rdt --apply
+            node cities/rdt-index.mjs cities/rdt
+            cp /tmp/stops-${{ matrix.group }}.log cities/rdt-stops-${{ matrix.group }}.log
+            git add cities/rdt cities/rdt-stops-${{ matrix.group }}.log
+            git commit -qm "RDT bus stops and level crossings added, lines trimmed (group ${{ matrix.group }}) [cities-bot]" || exit 0
+            git push -q origin "HEAD:${GITHUB_REF_NAME}" && break
+            sleep $((n * 7))
+          done
+          git log --oneline -2

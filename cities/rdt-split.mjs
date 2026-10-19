@@ -102,7 +102,8 @@ function main() {
       if (parts.length === 1 && parts[0].length === s.g.length) { out.push(s); continue; }
       changed = true; split++; pieces += parts.length;
       if (!APPLY && shown++ < 25) console.log(`${row.id}: ${s.n} ${s.c} ${s.g.length} pts → ${parts.map((p) => p.length).join('+')}`);
-      parts.forEach((g, k) => out.push({ ...s, g, i: k === 0 ? s.i : next++ }));
+      const { p: _p, x: _x, ...base } = s; // trimmed parts belong to the old line: cities/rdt-trim.mjs redraws them
+      parts.forEach((g, k) => out.push({ ...base, g, i: k === 0 ? s.i : next++ }));
     }
     if (!changed) continue;
     files++;
