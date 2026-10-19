@@ -26,11 +26,12 @@ export const needsName = (s, multi) => !!s.an || !STREET.test(s.n.trim()) || /ko
 import zlib from 'node:zlib';
 const STREET_WORD = /\b[A-ZÅÄÖ][\wåäöéü-]*(?:vägen|gatan|gränd|gränden|stigen|leden|backen|allén|slingan|torget|plan|väg|gata)\b/g;
 export function multiStreet(kommunkod) {
-  const out = new Set(); const f = `rdt/texts/${kommunkod}.jsonl.gz`;
+  const out = new Map(); const f = `rdt/texts/${kommunkod}.jsonl.gz`; // citation → its text (lower case), for the check below
   if (!fs.existsSync(f)) return out;
-  for (const l of zlib.gunzipSync(fs.readFileSync(f)).toString().split('\n')) {
+  let raw; try { raw = zlib.gunzipSync(fs.readFileSync(f)).toString(); } catch { return out; }
+  for (const l of raw.split('\n')) {
     if (!l) continue; const r = JSON.parse(l); const t = r.rubrik || '';
-    if (new Set(t.match(STREET_WORD) || []).size >= 2) out.add(r.c);
+    if (new Set(t.match(STREET_WORD) || []).size >= 2) out.set(r.c, (t + ' ' + (r.body || '')).toLowerCase());
   }
   return out;
 }
@@ -120,6 +121,9 @@ if (mode === '--fetch') {
     for (const s of c.segments) {
       if (!needsName(s, multi)) continue;
       const n = m[keyOf(s)]; if (!n || n === s.n) continue;
+      // A regulation naming several streets: the piece takes an OSM name only if the text names that street too
+      // (a nearby main road within 25 m is not the street the regulation is about; 175 such cases on 19 Oct)
+      if (!s.an && STREET.test(s.n.trim()) && !/kommun|område|zon|centrum|tätort|mellan|\/| och /i.test(s.n) && multi.has(s.c) && !multi.get(s.c).includes(n.toLowerCase())) continue;
       s.an = s.an || s.n; s.n = n; set++; changed = true;
     }
     if (!changed) continue;
