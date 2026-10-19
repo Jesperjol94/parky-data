@@ -1,7 +1,7 @@
 # Gislaved: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-19. 242 segments: 242 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 200, partly read 14. Verified equal 198, filled from text 0, text stricter 0, disputed 0, expired 28, text without rules 2, multi-part texts (not compared) 0.
+Fully read 200, partly read 14. Verified equal 197, filled from text 0, text stricter 1, disputed 0, expired 28, text without rules 2, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -33,3 +33,4 @@ Fully read 200, partly read 14. Verified equal 198, filled from text 0, text str
 | 0662 2012-0066 | Järnvägsgatan | expired 2012-08-11 | already uncertain |
 | 0662 2012-0067 | Terrassvägen | expired 2012-08-11 | already uncertain |
 | 0662 2012-0068 | Ringvägen | expired 2012-08-11 | already uncertain |
+| 0662 2022-5 | Stortorget | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120}]} | text stricter: applied |

@@ -76,6 +76,8 @@ function windows(clause) {
     const ws = windows(clause.replace(NTH, ' ').replace(/\s+året runt\b/i, ''));
     return ws.map(({ a, b, m, p }) => clean({ w: WEEKDAYS[nth[2].toLowerCase()], nw: NTH_N[nth[1].toLowerCase()], a, b, m, p }));
   }
+  clause = clause.replace(/\b(vardag(?:ar)?),\s+(?=utom\b)/gi, '$1 '); // "vardagar, utom vardag före …": one day type, not a list (QA: Borås)
+  clause = clause.replace(/\b(helgdag(?:ar)?|vardag(?:ar)?|lördag(?:ar)?|söndag(?:ar)?)\s+(?=\d{1,2}[.:]\d{2}\s*[-–—]\s*\d{1,2}[.:]\d{2})/gi, '$1 klockan '); // "… och vardag före sön- och helgdag 09.00 - 15.00" (no "klockan"; QA: Jönköping, Kalmar)
   clause = clause.replace(/([a-zåäö]),\s+(?=(?:vardag|dag(?:ar)? före|sön- och helgdag))/gi, '$1 och '); // "vardag utom …, vardag före … och sön- och helgdag klockan 8-22": one list of day types
   clause = clause.replace(/(klockan\s*\d{1,2}(?:[.:]\d{2})?\s*[-–—]\s*\d{1,2}(?:[.:]\d{2})?)\s*\(gäller ([^)]+)\)/gi, '$2 $1'); // "… 09.00 - 12.00 (gäller vardag utom …)"
   clause = clause.replace(/mellan (klockan|kl\.?)\s*(\d{1,2}(?:[.:]\d{2})?)\s*och\s*(\d{1,2}(?:[.:]\d{2})?)/gi, '$1 $2 - $3'); // "mellan klockan 8 och 18"
@@ -88,7 +90,7 @@ function windows(clause) {
     let a = toMin(m[2], m[3]), b = toMin(m[4], m[5]);
     if (b === 0) b = 1440;
     const wds = weekdaysOf(pre);
-    const dm = (pre.match(/\bden (\d{1,2}) dagen i (?:varje )?månaden/i) || [])[1];
+    const dm = (pre.match(/\b(?:den )?(\d{1,2}) dagen i (?:varje )?månaden/i) || [])[1]; // "den 7 dagen", "19:e dagen i månaden"
     if (wds) { lastDt = undefined; if (!wds.length) out.push({ a, b }); else for (const w of wds) out.push({ w, a, b }); continue; }
     let dt = dayTypesOf(pre);
     if (dt === undefined) dt = lastDt; // "… 07.00 - 19.00 och 11.00 - 17.00" keeps the previous day type
@@ -155,7 +157,7 @@ function reservedFor(x) { for (const [re, v] of RESERVED) if (re.test(x)) return
 
 export function parseRegulation(body) {
   const t = ruleText(body);
-  const out = { taxa: null, reserved: false, reservedSeason: null, reservedWindows: [], purpose: [], allowOnly: [], limits: [], bans: [], dp: [], otherAllowed: null, unread: [] };
+  const out = { taxa: null, feeWindows: null, reserved: false, reservedSeason: null, reservedWindows: [], purpose: [], allowOnly: [], limits: [], bans: [], dp: [], otherAllowed: null, unread: [] };
   if (!t) { out.unread.push('(no rule text)'); return out; }
   // A permission with hours ("Tillåtelsen gäller vardagar 09–18") only bans parking outside those hours when something else
   // bans it there (an area ban the text deviates from, or a ban in the text). Otherwise the general rules apply then.
@@ -168,6 +170,9 @@ export function parseRegulation(body) {
     const withSP = (w) => clean({ ...w, m, p });
     const tx = x.match(/taxa\s+(\d+)/);
     if (tx && /avgift/.test(x)) { out.taxa = +tx[1]; }
+    // "Avgift enligt Taxa Zon 2 under vardagar utom vardag före sön- och helgdag mellan klockan 09.00 - 18.00": the hours the fee is
+    // charged, when the text gives them (the register's fee table may say all day; QA: Växjö)
+    if (/^avgift\b/.test(x) && /(?:klockan|kl\.?)\s*\d/.test(x)) { const ws = windows(s); if (ws.length && !halfRead(s, ws)) out.feeWindows = ws.map(withSP); continue; }
     if (/^(?:tillåtelsen|förbudet)(?: i (?:§\s*\d+|\d+\s*§))? (?:ger|ge) (?:inte|ej) rätt/.test(x)) continue;
     x = x.replace(/,?\s*(?:tillåtelsen |förbudet )?(?:ger|ge) (?:inte|ej) rätt att (?:stanna|parkera)[^.]*/g, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna eller parkera[^.]*/g, ''); // "… får parkeras där det är förbjudet …" is not a ban
     // Date parking ("udda datum … udda adressnummer"): one side is always allowed — dp windows, not a ban
@@ -268,6 +273,11 @@ export function parseRegulation(body) {
       if (!ws.length) { // "Tillåtelsen att parkera gäller parkering under högst 3 tim i följd.": a limit at all hours
         if (d) { const items = [clean({ a: 0, b: 1440, m, p, max: d })]; out.limits.push(...items); lastLimit = { max: d, items }; continue; }
         unread(s); continue;
+      }
+      // "… under högst 2 tim i följd. Tillåtelsen gäller under tiden vardag … 08.00 - 18.00 …": the limit just stated holds in those hours (QA: Lidköping)
+      if (!d && lastLimit && lastLimit.items.every((w) => w.a === 0 && w.b === 1440 && !w.dt && !w.w)) {
+        out.limits = out.limits.filter((w) => !lastLimit.items.includes(w));
+        const items = ws.map((w) => ({ ...w, max: lastLimit.max })); out.limits.push(...items); lastLimit = { max: lastLimit.max, items };
       }
       out.allowOnly.push(...ws); tillWs.push(...ws); lastAllow = ws;
       if (d) { const items = ws.map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; }

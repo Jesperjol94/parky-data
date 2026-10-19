@@ -132,6 +132,20 @@ for (const row of idx.cities) {
     const full = r.unread.length === 0 && ruleText(rec.body);
     if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; continue; }
     st.fullyRead++;
+    // Fee hours from the text ("Avgift enligt Taxa Zon 2 … vardagar … 09.00 - 18.00") narrow a fee table that charges all day:
+    // a derived fee entry <taxa>*100+n (8 digits, never a register code) with the same price in those hours only
+    // (QA 19 Oct: Växjö showed fees at night and on Sundays)
+    if (r.feeWindows && s.t && APPLY) {
+      const b0 = s.t >= 1e7 ? Math.floor(s.t / 100) : s.t, base = c.taxa?.[b0];
+      const allDay = base && base.periods.length && base.periods.every((p) => p.start === 0 && p.end === 1440);
+      const periods = r.feeWindows.filter((w) => !w.w && !w.m && !w.p && !w.dm && w.a < w.b).map((w) => ({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: base ? Math.max(...base.periods.map((p) => p.price)) : 0 }));
+      if (allDay && periods.length === r.feeWindows.length) {
+        const sig = JSON.stringify(periods);
+        let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
+        if (!id) { let n = 1; while (c.taxa[b0 * 100 + n]) n++; id = b0 * 100 + n; c.taxa[id] = { periods, label: base.label }; }
+        if (s.t !== id) { s.t = id; changed++; st.feeHours = (st.feeHours || 0) + 1; }
+      }
+    }
     if (r.heavyOnly && !hasRules(fromText(r))) { // the whole text only restricts heavy vehicles: no rule for cars, even when it names several places
       st.heavyOnly = (st.heavyOnly || 0) + 1;
       if (APPLY) { for (const k of ['f', 'l', 'aw', 'v', 'k', 'ko', 'u']) delete s[k]; s.hv = 1; s.rx = 1; changed++; }

@@ -1,7 +1,7 @@
 # Motala: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-19. 1473 segments: 1473 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1412, partly read 47. Verified equal 1405, filled from text 0, text stricter 0, disputed 0, expired 14, text without rules 5, multi-part texts (not compared) 2.
+Fully read 1412, partly read 47. Verified equal 1393, filled from text 0, text stricter 12, disputed 0, expired 14, text without rules 5, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -19,3 +19,15 @@ Fully read 1412, partly read 47. Verified equal 1405, filled from text 0, text s
 | 0583 2019-28 | Skepparegatan och Solviksgatan | expired 2019-06-07 | already uncertain |
 | 0583 2019-32 | Källgatan | expired 2019-06-17 | already uncertain |
 | 0583 2019-33 | södra Allén | expired 2019-06-17 | already uncertain |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0583 2026-224 | Drottninggatans södra sida | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
