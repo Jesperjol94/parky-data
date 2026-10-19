@@ -2,8 +2,8 @@
 // (Trafikförordningen 3 kap. 53–55 §§; Transportstyrelsen "Stanna och parkera", 2024):
 //   j  10 m from a junction, measured from the edge of the crossing road   → 14 m from the OSM node (centre line + ½ road)
 //   c  10 m before a marked pedestrian or cycle crossing                     → 11 m both sides (direction not in the data)
-//   b  20 m before and 5 m after a bus-stop sign (parking)                    → 20 m both sides
-//   r  30 m before a level crossing                                           → 30 m both sides
+//   b  20 m before and 5 m after a bus-stop sign, unless signed otherwise     → 20 m both sides
+//   r  within 30 m of a level crossing (either side, as the brochure says)     → 30 m
 // The curb side and direction of travel are not in the data, so each zone is a circle: a little stricter than the law,
 // never looser. Same geometry code as Stockholm (pipeline/zones.mjs). Reservations (s.v) are left whole, as in
 // cities/lib.mjs applyOsm. Idempotent: s.p is recomputed from s.g every run; run it after split/names, before rdt-index.

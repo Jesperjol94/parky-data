@@ -1,7 +1,7 @@
 // Adds OpenStreetMap bus stops and level crossings to the published RDT municipality files in cities/rdt/, for the
 // national rules the map draws without signs (Trafikförordningen 3 kap. 53–55 §§, Transportstyrelsen "Stanna och parkera"):
 //   - no parking within 20 m before and 5 m after a bus-stop sign (highway=bus_stop)            → c.busStops
-//   - no stopping or parking within 30 m before a level crossing (railway=level_crossing)       → c.levelCrossings
+//   - no parking within 30 m of a level crossing, either side (railway=level_crossing)          → c.levelCrossings
 // Same tiles as cities/rdt-junctions.mjs (~2 km around the segments only). cities/rdt-trim.mjs turns them into the
 // trimmed lines the app draws.
 //   node cities/rdt-stops.mjs cities/rdt [group] [groups] [minutes]
