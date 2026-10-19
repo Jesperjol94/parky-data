@@ -16,9 +16,9 @@ Fully read 2242, partly read 57. Verified equal 2205, filled from text 0, text s
 | 0184 2016-00115 | Evenemangsgatan | expired 2016-07-04 | already uncertain |
 | 0184 2016-00116 | Evenemangsgatan | expired 2016-07-10 | already uncertain |
 | 0184 2016-00117 | Evenemangsgatan | expired 2016-07-27 | already uncertain |
-| 0184 2026-237 | Armégatan | expired 2026-10-19 | now uncertain |
-| 0184 2026-237 | Armégatan | expired 2026-10-19 | now uncertain |
-| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | now uncertain |
-| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | now uncertain |
-| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | now uncertain |
-| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | now uncertain |
+| 0184 2026-237 | Armégatan | expired 2026-10-19 | already uncertain |
+| 0184 2026-237 | Armégatan | expired 2026-10-19 | already uncertain |
+| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | already uncertain |
+| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | already uncertain |
+| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | already uncertain |
+| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | already uncertain |

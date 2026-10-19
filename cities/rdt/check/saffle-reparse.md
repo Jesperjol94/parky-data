@@ -1,10 +1,14 @@
 # Säffle: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-19. 69 segments: 69 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 56, partly read 5. Verified equal 51, filled from text 0, text stricter 0, disputed 0, expired 8, text without rules 5, multi-part texts (not compared) 0.
+Fully read 60, partly read 1. Verified equal 51, filled from text 0, text stricter 4, disputed 0, expired 8, text without rules 5, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 1785 2010-26 | parkeringsplatsen inom kv. Kvarnen 9 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag","fore"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
+| 1785 2010-26 | parkeringsplatsen inom kv. Kvarnen 9 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag","fore"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
+| 1785 2010-26 | parkeringsplatsen inom kv. Kvarnen 9 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag","fore"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
+| 1785 2010-26 | parkeringsplatsen inom kv. Kvarnen 9 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag","fore"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
 | 1785 2010-187 | Annelundstorget | expired 2010-08-15 | already uncertain |
 | 1785 2010-187 | Annelundstorget | expired 2010-08-15 | already uncertain |
 | 1785 2010-187 | Annelundstorget | expired 2010-08-15 | already uncertain |

@@ -9,4 +9,4 @@ Fully read 493, partly read 34. Verified equal 475, filled from text 0, text str
 | 1082 2026-00080 | Sternövägen | expired 2026-10-16 | already uncertain |
 | 1082 2026-00080 | Sternövägen | expired 2026-10-16 | already uncertain |
 | 1082 2026-00080 | Sternövägen | expired 2026-10-16 | already uncertain |
-| 1082 2026-00081 | Norra Fogdelyckegatan | expired 2026-10-19 | now uncertain |
+| 1082 2026-00081 | Norra Fogdelyckegatan | expired 2026-10-19 | already uncertain |

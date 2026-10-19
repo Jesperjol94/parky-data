@@ -5,10 +5,10 @@ Fully read 580, partly read 131. Verified equal 557, filled from text 0, text st
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1489 2026-38 | Stationsgatan | expired 2026-10-19 | now uncertain |
-| 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | now uncertain |
-| 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | now uncertain |
-| 1489 2026-225 | Stationsgatan | expired 2026-10-19 | now uncertain |
+| 1489 2026-38 | Stationsgatan | expired 2026-10-19 | already uncertain |
+| 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |
+| 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |
+| 1489 2026-225 | Stationsgatan | expired 2026-10-19 | already uncertain |
 | 1489 2026-227 | Jungmansgatan | expired 2026-10-17 | already uncertain |
 | 1489 2026-227 | Jungmansgatan | expired 2026-10-17 | already uncertain |
 | 1489 2026-246 | Järnvägsgatan | expired 2026-10-16 | already uncertain |

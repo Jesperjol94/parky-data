@@ -36,6 +36,6 @@ Fully read 1080, partly read 92. Verified equal 997, filled from text 0, text st
 | 1488 2026-00234 | Kanaltorget | expired 2026-10-16 | already uncertain |
 | 1488 2026-00234 | Kanaltorget | expired 2026-10-16 | already uncertain |
 | 1488 2026-00234 | Kanaltorget | expired 2026-10-16 | already uncertain |
-| 1488 2026-00235 | Kanaltorget | expired 2026-10-19 | now uncertain |
-| 1488 2026-00235 | Kanaltorget | expired 2026-10-19 | now uncertain |
-| 1488 2026-00235 | Kanaltorget | expired 2026-10-19 | now uncertain |
+| 1488 2026-00235 | Kanaltorget | expired 2026-10-19 | already uncertain |
+| 1488 2026-00235 | Kanaltorget | expired 2026-10-19 | already uncertain |
+| 1488 2026-00235 | Kanaltorget | expired 2026-10-19 | already uncertain |

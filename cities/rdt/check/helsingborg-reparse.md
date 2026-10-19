@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-19. 3840 segments: 3840 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2975, partly read 800. Verified equal 2679, filled from text 0, text stricter 0, disputed 0, expired 65, text without rules 288, multi-part texts (not compared) 1.
+Fully read 2977, partly read 798. Verified equal 2681, filled from text 0, text stricter 0, disputed 0, expired 65, text without rules 288, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

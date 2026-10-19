@@ -6,7 +6,7 @@ Fully read 2378, partly read 407. Verified equal 2330, filled from text 0, text 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
-| 1880 2026-01079 | Nygatan | expired 2026-10-19 | now uncertain |
+| 1880 2026-01079 | Nygatan | expired 2026-10-19 | already uncertain |
 | 1880 2026-01221 | Kristinagatan | expired 2026-10-16 | already uncertain |
 | 1880 2026-01221 | Kristinagatan | expired 2026-10-16 | already uncertain |
 | 1880 2026-01224 | Sancta Birgittagatan | expired 2026-10-16 | already uncertain |
