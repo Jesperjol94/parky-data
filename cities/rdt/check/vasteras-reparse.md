@@ -1,7 +1,7 @@
 # Västerås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 1309 segments: 735 with a text, 574 without a cached text, 0 fetch errors.
-Fully read 585, partly read 148. Verified equal 198, filled from text 0, text stricter 0, disputed 0, expired 2, text without rules 387, multi-part texts (not compared) 0.
+Run 2026-10-19. 1550 segments: 1550 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1365, partly read 183. Verified equal 946, filled from text 0, text stricter 0, disputed 0, expired 2, text without rules 419, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

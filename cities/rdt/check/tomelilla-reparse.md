@@ -1,7 +1,7 @@
 # Tomelilla: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 112 segments: 32 with a text, 80 without a cached text, 0 fetch errors.
-Fully read 32, partly read 0. Verified equal 32, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-10-19. 123 segments: 66 with a text, 0 without a cached text, 57 fetch errors.
+Fully read 65, partly read 1. Verified equal 65, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

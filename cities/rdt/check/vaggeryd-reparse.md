@@ -1,7 +1,7 @@
 # Vaggeryd: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 106 segments: 106 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 97, partly read 9. Verified equal 92, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 2, multi-part texts (not compared) 3.
+Run 2026-10-19. 97 segments: 97 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 89, partly read 8. Verified equal 83, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 2, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

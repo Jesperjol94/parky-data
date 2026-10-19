@@ -1,7 +1,7 @@
 # Värmdö: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 597 segments: 6 with a text, 591 without a cached text, 0 fetch errors.
-Fully read 6, partly read 0. Verified equal 6, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-10-19. 884 segments: 884 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 664, partly read 220. Verified equal 664, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

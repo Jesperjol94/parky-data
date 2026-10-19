@@ -1,7 +1,7 @@
 # Solna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 1913 segments: 1441 with a text, 472 without a cached text, 0 fetch errors.
-Fully read 1381, partly read 49. Verified equal 1280, filled from text 0, text stricter 0, disputed 0, expired 11, text without rules 2, multi-part texts (not compared) 99.
+Run 2026-10-19. 2316 segments: 2316 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2242, partly read 57. Verified equal 2205, filled from text 0, text stricter 0, disputed 0, expired 17, text without rules 37, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -12,7 +12,13 @@ Fully read 1381, partly read 49. Verified equal 1280, filled from text 0, text s
 | 0184 2014-00026 | Vintervägen | expired 2014-04-01 | already uncertain |
 | 0184 2014-00026 | Vintervägen | expired 2014-04-01 | already uncertain |
 | 0184 2016-00017 | Evenemangsgatan | expired 2016-03-14 | already uncertain |
-| 0184 2016-00071 | Karlbergs strand | expired 2016-04-16 | already uncertain |
+| 0184 2016-00071 | Karlbergs Strand | expired 2016-04-16 | already uncertain |
 | 0184 2016-00115 | Evenemangsgatan | expired 2016-07-04 | already uncertain |
 | 0184 2016-00116 | Evenemangsgatan | expired 2016-07-10 | already uncertain |
 | 0184 2016-00117 | Evenemangsgatan | expired 2016-07-27 | already uncertain |
+| 0184 2026-237 | Armégatan | expired 2026-10-19 | now uncertain |
+| 0184 2026-237 | Armégatan | expired 2026-10-19 | now uncertain |
+| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | now uncertain |
+| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | now uncertain |
+| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | now uncertain |
+| 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | now uncertain |

@@ -1,7 +1,7 @@
 # Tyresö: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 830 segments: 46 with a text, 784 without a cached text, 0 fetch errors.
-Fully read 40, partly read 6. Verified equal 0, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 8, multi-part texts (not compared) 32.
+Run 2026-10-19. 1155 segments: 1155 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1105, partly read 50. Verified equal 1080, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 25, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

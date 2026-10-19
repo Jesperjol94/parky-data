@@ -1,7 +1,7 @@
 # Falköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 328 segments: 328 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 320, partly read 7. Verified equal 293, filled from text 0, text stricter 0, disputed 0, expired 1, text without rules 2, multi-part texts (not compared) 25.
+Run 2026-10-19. 336 segments: 336 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 328, partly read 7. Verified equal 326, filled from text 0, text stricter 0, disputed 0, expired 1, text without rules 2, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

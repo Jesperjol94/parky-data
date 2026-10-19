@@ -1,11 +1,11 @@
 # Ängelholm: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 710 segments: 710 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 590, partly read 112. Verified equal 566, filled from text 0, text stricter 0, disputed 0, expired 8, text without rules 23, multi-part texts (not compared) 1.
+Run 2026-10-19. 737 segments: 737 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 602, partly read 127. Verified equal 581, filled from text 0, text stricter 0, disputed 0, expired 8, text without rules 20, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1292 2015-00215 | Mejeritomten | expired 2015-08-09 | already uncertain |
+| 1292 2015-00215 | Östergatan | expired 2015-08-09 | already uncertain |
 | 1292 2026-00181 | Björkvägen | expired 2026-10-17 | already uncertain |
 | 1292 2026-00182 | Vårvägen | expired 2026-10-17 | already uncertain |
 | 1292 2026-00183 | Jägarestigen | expired 2026-10-17 | already uncertain |

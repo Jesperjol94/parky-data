@@ -1,11 +1,27 @@
 # Kalmar: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 759 segments: 759 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 398, partly read 359. Verified equal 275, filled from text 0, text stricter 2, disputed 0, expired 2, text without rules 4, multi-part texts (not compared) 117.
+Run 2026-10-19. 800 segments: 800 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 417, partly read 379. Verified equal 392, filled from text 0, text stricter 16, disputed 0, expired 4, text without rules 6, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0880 2010-329 | Fornandergatan | {"l":[{"dt":["vardag"],"a":540,"b":960,"max":120}]} → {"l":[{"dt":["vardag","fore"],"a":540,"b":960,"max":120}]} | text stricter: applied |
-| 0880 2010-329 | Fornandergatan | {"l":[{"dt":["vardag"],"a":540,"b":960,"max":120}]} → {"l":[{"dt":["vardag","fore"],"a":540,"b":960,"max":120}]} | text stricter: applied |
 | 0880 2011-63 | den tillfälliga gatan mellan Södra vägen och Gasverksgatan | expired 2011-11-30 | already uncertain |
+| 0880 2012-48 | Smålandsgatan | {"l":[{"dt":["fore","helgdag"],"a":360,"b":1320,"max":180}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":360,"b":1320,"max":180}]} | text stricter: applied |
+| 0880 2012-52 | Smålandsgatan | {"l":[{"dt":["fore","helgdag"],"a":360,"b":1320,"max":180}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":360,"b":1320,"max":180}]} | text stricter: applied |
+| 0880 2025-59 | Kastrullvägen | {"l":[{"dt":["fore","helgdag"],"a":480,"b":1200,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":480,"b":1200,"max":240}]} | text stricter: applied |
+| 0880 2025-59 | Kastrullvägen | {"l":[{"dt":["fore","helgdag"],"a":480,"b":1200,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":480,"b":1200,"max":240}]} | text stricter: applied |
+| 0880 2025-60 | Lassevägen | {"l":[{"dt":["fore","helgdag"],"a":480,"b":1200,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":480,"b":1200,"max":240}]} | text stricter: applied |
+| 0880 2025-81 | personbilsparkering norr om Galggatan | {"l":[{"dt":["fore","helgdag"],"a":0,"b":1440,"max":180}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":180}]} | text stricter: applied |
+| 0880 2025-82 | parkeringsplatsen väster om Norra vägen | {"l":[{"dt":["fore","helgdag"],"a":0,"b":1440,"max":180}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":180}]} | text stricter: applied |
+| 0880 2025-264 | Kastrullvägen | {"l":[{"dt":["vardag","helgdag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":240}]} | text stricter: applied |
+| 0880 2025-264 | Kastrullvägen | {"l":[{"dt":["vardag","helgdag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":240}]} | text stricter: applied |
+| 0880 2025-264 | Kastrullvägen | {"l":[{"dt":["vardag","helgdag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":240}]} | text stricter: applied |
+| 0880 2025-264 | Kastrullvägen | {"l":[{"dt":["vardag","helgdag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":240}]} | text stricter: applied |
+| 0880 2025-266 | Tre vänners väg | {"l":[{"dt":["vardag","helgdag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":240}]} | text stricter: applied |
+| 0880 2025-266 | Tre vänners väg | {"l":[{"dt":["vardag","helgdag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":240}]} | text stricter: applied |
+| 0880 2025-266 | Tre vänners väg | {"l":[{"dt":["vardag","helgdag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":240}]} | text stricter: applied |
+| 0880 2025-266 | Tre vänners väg | {"l":[{"dt":["vardag","helgdag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":240}]} | text stricter: applied |
+| 0880 2025-266 | Tre vänners väg | {"l":[{"dt":["vardag","helgdag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":0,"b":1440,"max":240}]} | text stricter: applied |
 | 0880 2026-231 | Lybecksvägen | expired 2026-10-16 | already uncertain |
+| 0880 2026-240 | förbud att parkera öster om Västra Sjögatan | expired 2026-10-19 | now uncertain |
+| 0880 2026-240 | förbud att parkera öster om Västra Sjögatan | expired 2026-10-19 | now uncertain |

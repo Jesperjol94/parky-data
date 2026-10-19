@@ -1,12 +1,15 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 1111 segments: 1111 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 945, partly read 139. Verified equal 585, filled from text 0, text stricter 0, disputed 0, expired 27, text without rules 0, multi-part texts (not compared) 360.
+Run 2026-10-19. 1216 segments: 1216 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1031, partly read 155. Verified equal 1003, filled from text 0, text stricter 0, disputed 0, expired 30, text without rules 25, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0484 2011-0003 | Ridhusgatan | expired 2017-01-20 | already uncertain |
+| 0484 2011-0003 | Ridhusgatan | expired 2017-01-20 | already uncertain |
 | 0484 2011-0135 | Ridhusgatan | expired 2017-01-20 | already uncertain |
+| 0484 2011-0135 | Ridhusgatan | expired 2017-01-20 | already uncertain |
+| 0484 2011-0141 | Ridhusplan | expired 2017-01-20 | already uncertain |
 | 0484 2011-0141 | Ridhusplan | expired 2017-01-20 | already uncertain |
 | 0484 2011-0271 | Rademachergatan | expired 2011-10-31 | already uncertain |
 | 0484 2011-0273 | Rademachergatan | expired 2011-10-31 | already uncertain |
@@ -19,7 +22,7 @@ Fully read 945, partly read 139. Verified equal 585, filled from text 0, text st
 | 0484 2012-150 | Erlandsgatan | expired 2016-02-08 | already uncertain |
 | 0484 2013-127 | Bryggaregatan | expired 2019-02-08 | already uncertain |
 | 0484 2014-034 | Ridhusplan | expired 2017-01-20 | already uncertain |
-| 0484 2014-037 | Södra Brpgatam | expired 2017-01-20 | already uncertain |
+| 0484 2014-037 | Björktorpsgatan | expired 2017-01-20 | already uncertain |
 | 0484 2014-093 | Rademachergatan | expired 2016-11-11 | already uncertain |
 | 0484 2014-093 | Rademachergatan | expired 2016-11-11 | already uncertain |
 | 0484 2016-240 | Junivägen | expired 2016-10-06 | already uncertain |

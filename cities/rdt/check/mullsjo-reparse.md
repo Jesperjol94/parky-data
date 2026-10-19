@@ -1,7 +1,7 @@
 # Mullsjö: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 61 segments: 32 with a text, 8 without a cached text, 21 fetch errors.
-Fully read 30, partly read 2. Verified equal 0, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 30.
+Run 2026-10-19. 62 segments: 34 with a text, 8 without a cached text, 20 fetch errors.
+Fully read 32, partly read 2. Verified equal 5, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 9, multi-part texts (not compared) 18.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 2160 segments: 2160 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1680, partly read 294. Verified equal 669, filled from text 0, text stricter 0, disputed 0, expired 186, text without rules 69, multi-part texts (not compared) 942.
+Run 2026-10-19. 2305 segments: 2305 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1808, partly read 308. Verified equal 1234, filled from text 0, text stricter 0, disputed 0, expired 189, text without rules 571, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -15,12 +15,15 @@ Fully read 1680, partly read 294. Verified equal 669, filled from text 0, text s
 | 0680 2010-1118 | Stjärngränd | expired 2010-11-03 | already uncertain |
 | 0680 2010-1139 | Vättergatan | expired 2010-11-17 | already uncertain |
 | 0680 2010-1144 | Mickels Plan | expired 2011-09-03 | already uncertain |
+| 0680 2010-1144 | Mickels Plan | expired 2011-09-03 | already uncertain |
+| 0680 2010-1144 | Mickels Plan | expired 2011-09-03 | already uncertain |
 | 0680 2010-1150 | Nygatan | expired 2010-12-15 | already uncertain |
 | 0680 2010-1188 | Alfred Dalinvägen | expired 2010-12-31 | already uncertain |
 | 0680 2010-1238 | Jönköpingsvägen | expired 2011-01-01 | already uncertain |
 | 0680 2010-1260 | Brahegatan | expired 2010-12-04 | already uncertain |
 | 0680 2011-15 | Västra Storgatan | expired 2011-01-14 | already uncertain |
 | 0680 2011-16 | Västra Storgatan | expired 2011-02-11 | already uncertain |
+| 0680 2011-65 | Jönköping | expired 2011-01-17 | already uncertain |
 | 0680 2011-65 | Jönköping | expired 2011-01-17 | already uncertain |
 | 0680 2011-65 | Jönköping | expired 2011-01-17 | already uncertain |
 | 0680 2011-68 | Skolgatan | expired 2011-01-21 | already uncertain |
@@ -34,10 +37,11 @@ Fully read 1680, partly read 294. Verified equal 669, filled from text 0, text s
 | 0680 2011-428 | Nygatan | expired 2011-05-03 | already uncertain |
 | 0680 2011-480 | Jönköpingsvägen | expired 2011-05-20 | already uncertain |
 | 0680 2011-481 | Drottninggatan | expired 2011-05-20 | already uncertain |
-| 0680 2011-492 | Jönköpings kommun | expired 2011-08-27 | already uncertain |
-| 0680 2011-493 | Jönköpings kommun | expired 2011-09-03 | already uncertain |
-| 0680 2011-493 | Jönköpings kommun | expired 2011-09-03 | already uncertain |
 | 0680 2011-494 | Masugnsplan | expired 2011-09-03 | already uncertain |
+| 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
+| 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
+| 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
+| 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
 | 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
 | 0680 2011-553 | Vättergatan | expired 2011-05-27 | already uncertain |
 | 0680 2011-597 | Hotellplan | expired 2011-05-26 | already uncertain |
@@ -166,7 +170,6 @@ Fully read 1680, partly read 294. Verified equal 669, filled from text 0, text s
 | 0680 2013-29 | Borgmästargränd | expired 2013-02-08 | already uncertain |
 | 0680 2013-38 | Barnarpsgatan | expired 2013-03-01 | already uncertain |
 | 0680 2013-47 | Brahegatan | expired 2013-04-30 | already uncertain |
-| 0680 2013-52 | Nygatan | expired 2013-03-22 | already uncertain |
 | 0680 2013-53 | Trädgårdsgatan | expired 2013-04-12 | already uncertain |
 | 0680 2013-54 | Brunnsgatan | expired 2013-04-12 | already uncertain |
 | 0680 2013-59 | Munkplan | expired 2013-07-05 | already uncertain |

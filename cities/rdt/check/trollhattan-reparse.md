@@ -1,7 +1,7 @@
 # Trollhättan: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-18. 983 segments: 983 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 865, partly read 87. Verified equal 794, filled from text 0, text stricter 0, disputed 0, expired 31, text without rules 71, multi-part texts (not compared) 0.
+Run 2026-10-19. 1206 segments: 1206 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1080, partly read 92. Verified equal 997, filled from text 0, text stricter 0, disputed 0, expired 34, text without rules 83, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -36,3 +36,6 @@ Fully read 865, partly read 87. Verified equal 794, filled from text 0, text str
 | 1488 2026-00234 | Kanaltorget | expired 2026-10-16 | already uncertain |
 | 1488 2026-00234 | Kanaltorget | expired 2026-10-16 | already uncertain |
 | 1488 2026-00234 | Kanaltorget | expired 2026-10-16 | already uncertain |
+| 1488 2026-00235 | Kanaltorget | expired 2026-10-19 | now uncertain |
+| 1488 2026-00235 | Kanaltorget | expired 2026-10-19 | now uncertain |
+| 1488 2026-00235 | Kanaltorget | expired 2026-10-19 | now uncertain |
