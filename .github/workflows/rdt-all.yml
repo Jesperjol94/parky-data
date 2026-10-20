@@ -123,6 +123,7 @@ jobs:
           node cities/rdt-datum.mjs cities/rdt --apply
           node cities/rdt-names.mjs cities/rdt --apply
           node cities/rdt-reparse.mjs cities/rdt --apply
+          node cities/rdt-overlay.mjs cities/rdt --apply
           node cities/rdt-trim.mjs cities/rdt --apply
           node cities/rdt-index.mjs cities/rdt
           mkdir -p cities/rdt/check && cp chunks/*-rdt-check.md cities/rdt/check/ 2>/dev/null || true
