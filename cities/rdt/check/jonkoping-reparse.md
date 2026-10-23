@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 2305 segments: 2305 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1838, partly read 276. Verified equal 1264, filled from text 0, text stricter 0, disputed 0, expired 191, text without rules 571, multi-part texts (not compared) 3.
+Fully read 1838, partly read 276. Verified equal 1263, filled from text 0, text stricter 0, disputed 1, expired 191, text without rules 571, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -194,5 +194,6 @@ Fully read 1838, partly read 276. Verified equal 1264, filled from text 0, text 
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
+| 0680 2025-306 | Kungsängsvägen | {"l":[{"a":0,"b":1440,"max":180}]} → {"l":[{"dt":["vardag"],"a":540,"b":1260,"max":180},{"dt":["fore"],"a":540,"b":1260,"max":180}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0680 2026-504 | Blåklintstigen | expired 2026-10-21 | already uncertain |
 | 0680 2026-504 | Vildvinsbacken | expired 2026-10-21 | already uncertain |

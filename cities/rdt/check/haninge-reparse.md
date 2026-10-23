@@ -1,7 +1,7 @@
 # Haninge: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 2020 segments: 2020 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1662, partly read 354. Verified equal 1573, filled from text 0, text stricter 0, disputed 0, expired 4, text without rules 88, multi-part texts (not compared) 0.
+Fully read 1663, partly read 353. Verified equal 1573, filled from text 0, text stricter 0, disputed 0, expired 4, text without rules 88, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

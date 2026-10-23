@@ -1,7 +1,7 @@
 # Solna: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 2316 segments: 2316 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2256, partly read 42. Verified equal 2219, filled from text 0, text stricter 2, disputed 0, expired 18, text without rules 35, multi-part texts (not compared) 0.
+Fully read 2215, partly read 83. Verified equal 2184, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 31, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -16,8 +16,6 @@ Fully read 2256, partly read 42. Verified equal 2219, filled from text 0, text s
 | 0184 2016-00115 | Evenemangsgatan | expired 2016-07-04 | already uncertain |
 | 0184 2016-00116 | Evenemangsgatan | expired 2016-07-10 | already uncertain |
 | 0184 2016-00117 | Evenemangsgatan | expired 2016-07-27 | already uncertain |
-| 0184 2021-45 | Källvägen | {} → {"f":[{"w":1,"a":1080,"b":1320,"p":"even"}]} | text stricter: applied |
-| 0184 2021-45 | Källvägen | {} → {"f":[{"w":1,"a":1080,"b":1320,"p":"even"}]} | text stricter: applied |
 | 0184 2026-237 | Armégatan | expired 2026-10-19 | already uncertain |
 | 0184 2026-237 | Armégatan | expired 2026-10-19 | already uncertain |
 | 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | already uncertain |

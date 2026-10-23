@@ -285,3 +285,13 @@ test('"Tillåtelsen gäller inte den 1 måndagen i månaden 07–10" is a ban th
   const r = parseRegulation('följande. 1 § På Västra Vallgatan får fordon parkeras. 2 § Tillåtelsen gäller inte den 1 måndagen i månaden mellan klockan 07.00 - 10.00.');
   assert.deepEqual(r.bans, [{ w: 1, nw: 1, a: 420, b: 600 }]); assert.deepEqual(r.allowOnly, []);
 });
+test('QA 22 Oct: hours before the day type (Kungsbacka) and seasons covering the year (Tyresö)', () => {
+  const r = parseRegulation('följande. 1 § På Diabasvägen får fordon parkeras. 2 § Mellan klockan 8 och 22 vardagar utom vardag före sön- och helgdag och mellan klockan 8 och 22 vardag före sön- och helgdag gäller dock tillåtelsen att parkera i 1 § mot att avgift betalas.');
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1320 }, { dt: ['fore'], a: 480, b: 1320 }]);
+  const y = parseRegulation('följande. 1 § På Beryllvägen får fordon parkeras. 2 § Parkering är dock förbjuden onsdag mellan klockan 07.00 - 16.00 under tiden 1 april - 31 oktober samt under tiden 1 november - 31 mars.');
+  assert.deepEqual(y.bans, [{ w: 3, a: 420, b: 960 }]);
+});
+test('QA 22 Oct: a paragraph without a full stop before it, and "parkeras där stannande och parkering är förbjuden" is a permission', () => {
+  const r = parseRegulation('följande. 1 § På Östra Storgatan får fordon parkeras där stannande och parkering är förbjuden enligt 3 kap. 52§ andra stycket trafikförordningen (1998:1278) 2 § Avgift enligt taxa B1 skall erläggas under vardag utom vardag före sön- och helgdag mellan klockan 08.00 – 20.00.');
+  assert.deepEqual(r.bans, []); assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1200 }]);
+});

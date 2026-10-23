@@ -1,7 +1,7 @@
 # Linköping: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 7087 segments: 7087 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 6914, partly read 171. Verified equal 6876, filled from text 0, text stricter 0, disputed 7, expired 2, text without rules 30, multi-part texts (not compared) 1.
+Fully read 6912, partly read 173. Verified equal 6874, filled from text 0, text stricter 0, disputed 7, expired 2, text without rules 30, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
