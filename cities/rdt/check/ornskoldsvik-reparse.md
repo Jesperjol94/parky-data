@@ -1,10 +1,7 @@
 # Örnsköldsvik: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 445 segments: 445 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 361, partly read 84. Verified equal 356, filled from text 0, text stricter 3, disputed 0, expired 0, text without rules 2, multi-part texts (not compared) 0.
+Fully read 361, partly read 84. Verified equal 359, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 2, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 2284 2023-00510 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120},{"dt":["vardag"],"a":120,"b":480,"max":120,"m":[[10,1],[4,30]]},{"dt":["fore"],"a":120,"b":480,"max":120},{"dt":["helgdag"],"a":120,"b":480,"max":120}]} → {"f":[{"dt":["vardag"],"a":120,"b":480,"dd":"even"},{"dt":["fore"],"a":120,"b":480,"dd":"even"},{"dt":["helgdag"],"a":120,"b":480,"dd":"even"}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120,"m":[[10,1],[4,30]]},{"dt":["fore"],"a":540,"b":900,"max":120,"m":[[10,1],[4,30]]}]} | text stricter: applied |
-| 2284 2023-00510 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120},{"dt":["vardag"],"a":120,"b":480,"max":120,"m":[[10,1],[4,30]]},{"dt":["fore"],"a":120,"b":480,"max":120},{"dt":["helgdag"],"a":120,"b":480,"max":120}]} → {"f":[{"dt":["vardag"],"a":120,"b":480,"dd":"even"},{"dt":["fore"],"a":120,"b":480,"dd":"even"},{"dt":["helgdag"],"a":120,"b":480,"dd":"even"}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120,"m":[[10,1],[4,30]]},{"dt":["fore"],"a":540,"b":900,"max":120,"m":[[10,1],[4,30]]}]} | text stricter: applied |
-| 2284 2023-00513 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120},{"dt":["vardag"],"a":120,"b":480,"max":120,"m":[[5,1],[9,30]]},{"dt":["fore"],"a":120,"b":480,"max":120},{"dt":["helgdag"],"a":120,"b":480,"max":120}]} → {"f":[{"dt":["vardag"],"a":120,"b":480,"dd":"even"},{"dt":["fore"],"a":120,"b":480,"dd":"even"},{"dt":["helgdag"],"a":120,"b":480,"dd":"even"}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120,"m":[[5,1],[9,30]]},{"dt":["fore"],"a":540,"b":900,"max":120,"m":[[5,1],[9,30]]}]} | text stricter: applied |

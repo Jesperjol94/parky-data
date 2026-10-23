@@ -49,7 +49,7 @@ function fromText(r) {
   if (r.purpose.length) { o.v = o.v || 'lastning'; o.k = r.purpose; if (r.otherAllowed) o.ko = 1; }
   return o;
 }
-const hasRules = (o) => !!(o.f || o.l || o.aw || o.v || o.k);
+const hasRules = (o) => !!(o.f || o.l || o.aw || o.v || o.k || o.dp);
 
 // Compare two rule sets on a sampled week (weekday × day type × 15 min): at every instant the stricter set bans at least
 // as much and allows at most as long. Seasons and week parity are ignored (a window with them counts as active).
@@ -155,6 +155,9 @@ for (const row of idx.cities) {
     }
     if (multi) { st.multi++; if (s.u) st.uStill++; continue; }
     const t = fromText(r);
+    // a text that permits parking with no further conditions, where the register has a ban or allowed hours: the text wins (QA 22 Oct:
+    // Halmstad Brogatan, Huddinge Månvägen and Uppsala Granitvägen showed the fee hours or a whole day as a ban)
+    if (!hasRules(t) && r.permitted && !r.heavyOnly && (s.f || s.aw) && !s.v) { st.permitOnly = (st.permitOnly || 0) + 1; if (APPLY) { for (const k of ['f', 'l', 'aw', 'dp', 'k', 'ko']) delete s[k]; delete s.u; s.rx = 1; changed++; } continue; }
     if (!hasRules(t)) { st.textNoRule++; if (s.u) st.uStill++; continue; } // e.g. a pure fee regulation: nothing to compare
     const cur = { f: s.f, l: s.l, aw: s.aw, v: s.v, k: s.k };
     // day-type convention check: when both sides have exactly one window of the same kind, tally (Pelle dt → text dt)

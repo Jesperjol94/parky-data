@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 3840 segments: 3840 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3630, partly read 131. Verified equal 3332, filled from text 0, text stricter 0, disputed 0, expired 79, text without rules 290, multi-part texts (not compared) 1.
+Fully read 3633, partly read 128. Verified equal 3332, filled from text 0, text stricter 0, disputed 3, expired 79, text without rules 278, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -69,6 +69,9 @@ Fully read 3630, partly read 131. Verified equal 3332, filled from text 0, text 
 | 1283 2010-00663 | Tornfalksgatan | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
+| 1283 2016-361 | Edwin Berlings gata | {"f":[{"a":0,"b":1440}]} → {"f":[{"a":0,"b":1440,"w":3,"nw":1}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1283 2016-361 | Edwin Berlings gata | {"f":[{"a":0,"b":1440}]} → {"f":[{"a":0,"b":1440,"w":3,"nw":1}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1283 2016-361 | Edwin Berlings gata | {"f":[{"a":0,"b":1440}]} → {"f":[{"a":0,"b":1440,"w":3,"nw":1}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-596 | Föreningsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-618 | Konduktörsgatan | expired 2026-10-23 | already uncertain |

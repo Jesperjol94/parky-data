@@ -308,3 +308,8 @@ test('QA 22 Oct: limit seasons, inverted permission hours with a limit, permissi
   assert.deepEqual(r.limits, [{ a: 540, b: 1080, max: 300, m: [[6, 15], [8, 15]] }]); assert.deepEqual(r.feeWindows, [{ a: 540, b: 1080, m: [[6, 15], [8, 15]] }]);
   assert.equal(parseRegulation('följande. 1 § På Hamnvägen får fordon parkeras högst 2 timmar. 2 § Tillåtelsen gäller inte personbil klass I.').reserved, true);
 });
+test('QA 22 Oct round 4: "första helgfria måndagen varje månad", motorhome-only exceptions, permissions flagged', () => {
+  assert.deepEqual(parseRegulation('följande. 1 § På Kanalgatan får fordon inte parkeras mellan klockan 05.00 – 08.00. 2 § Förbudet gäller endast under den första helgfria måndagen varje månad.').bans, [{ a: 300, b: 480, w: 1, nw: 1 }]);
+  assert.deepEqual(parseRegulation('följande. 1 § På Yttre Hamnen får fordon parkeras under högst 24 tim i följd. 2 § Tillåtelsen gäller inte personbil klass II under tiden vardagar mellan klockan 23.00 - 07.00.').bans, []);
+  assert.equal(parseRegulation('följande. På Brogatan får fordon, med avvikelse från X om förbud att parkera inom ett område, parkeras. Avgift ska betalas.').permitted, true);
+});

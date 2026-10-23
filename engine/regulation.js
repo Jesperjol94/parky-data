@@ -78,7 +78,7 @@ function weekdaysOf(pre) {
 
 // All "<day words> klockan A - B" pieces in a clause.
 // "första tisdagen i månaden", "sista fredagen i varje månad": one weekday a month (nw 1–4, or -1 for the last).
-const NTH = /\b(?:under\s+)?(?:den\s+)?(första|andra|tredje|fjärde|sista|[1-4])\s+(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:en)?\s+i\s+(?:varje\s+)?månad(?:en)?/i;
+const NTH = /\b(?:under\s+)?(?:den\s+)?(första|andra|tredje|fjärde|sista|[1-4])\s+(?:helgfria\s+)?(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:en)?\s+(?:i\s+)?(?:varje\s+)?månad(?:en)?/i;
 const NTH_N = { första: 1, andra: 2, tredje: 3, fjärde: 4, sista: -1, 1: 1, 2: 2, 3: 3, 4: 4 }; // "1:a tisdagen" arrives as "1 tisdagen" (ruleText)
 export function windows(clause) {
   const nth = NTH.exec(clause);
@@ -237,7 +237,11 @@ export function parseRegulation(body) {
     }
     // "Villkoret gäller under tiden 1 september - 30 december" after a ban (and no limit): the ban's season (QA: Ängelholm)
     if (/^villkoret gäller/.test(x) && m && lastBan && !lastLimit && !windows(s).length) { for (const b of lastBan.items) b.m = m; continue; }
-    if (/^förbudet (?:att (?:parkera|stanna)[^ ]* )?(?:i första stycket )?gäller/.test(x) && out.heavyOnly && !lastBan) continue; // the hours of a heavy-vehicle ban (Norrtälje 0188 2020-00111)
+    if (/^förbudet (?:att (?:parkera|stanna)[^ ]* )?(?:i första stycket )?gäller/.test(x) && out.heavyOnly && !lastBan) continue;
+    // "Förbudet gäller endast under den första helgfria måndagen varje månad" (Eslöv): the weekday of the ban just stated
+    if (/^förbudet gäller/.test(x) && lastBan && NTH.test(s) && !/(?:klockan|kl\.?)\s*\d/.test(x)) { const n = NTH.exec(s); for (const b of lastBan.items) { b.w = WEEKDAYS[n[2].toLowerCase()]; b.nw = NTH_N[n[1].toLowerCase()]; delete b.dt; } continue; }
+    // "Tillåtelsen gäller inte personbil klass II …": a rule for motorhomes only; ordinary cars are not affected (Visby)
+    if (/^tillåtelsen gäller (?:inte|ej) (?:för )?personbil klass (?:ii|2)\b/.test(x)) continue; // the hours of a heavy-vehicle ban (Norrtälje 0188 2020-00111)
     if (/^förbudet (?:att (?:parkera|stanna)[^ ]* )?(?:i första stycket )?gäller/.test(x)) { // the hours of the ban just stated
       if (IGNORE.some((r) => r.test(s))) continue;
       if (/gäller (?:inte|ej)\b/.test(x)) {
@@ -322,6 +326,7 @@ export function parseRegulation(body) {
       continue;
     }
     if (/får fordon parkeras|får parkeras|parkering (?:är )?(?:dock )?tillåten|får personbil(?:ar)? (?:klass (?:i|1) )?parkeras/.test(x)) {
+      out.permitted = true; // the text permits parking (with or without conditions): a register ban on it is wrong
       let ws = windows(s); if (!ws.length) ws = dayOnlyWindows(s); ws = ws.map(withSP); const d = duration(s);
       if (halfRead(s, ws)) { unread(s); continue; }
       if (d) { const items = (ws.length ? ws : [clean({ a: 0, b: 1440, m, p })]).map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; }

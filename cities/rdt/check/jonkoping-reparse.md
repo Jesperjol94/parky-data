@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 2305 segments: 2305 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1838, partly read 276. Verified equal 1264, filled from text 0, text stricter 0, disputed 0, expired 191, text without rules 571, multi-part texts (not compared) 3.
+Fully read 2018, partly read 96. Verified equal 1430, filled from text 0, text stricter 2, disputed 12, expired 191, text without rules 571, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -193,6 +193,20 @@ Fully read 1838, partly read 276. Verified equal 1264, filled from text 0, text 
 | 0680 2013-141 | Norra Bogesundsgatan | expired 2013-05-24 | already uncertain |
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
+| 0680 2017-113 | Mellangatan | {"f":[{"w":1,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":30}]} → {"f":[{"w":1,"nw":1,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":900,"max":30}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2017-1212 | Erik Dahlbergsgatan | {"f":[{"w":3,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"f":[{"w":3,"nw":1,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2017-1216 | Erik Dahlbergsgatan | {"f":[{"w":4,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"f":[{"w":4,"nw":1,"a":540,"b":780}],"l":[{"a":0,"b":1440,"max":60}]} | text stricter: applied |
+| 0680 2018-933 | Dalviksringen | {"f":[{"w":3,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":180}]} → {"f":[{"w":3,"nw":1,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":540,"b":1260,"max":180},{"dt":["fore"],"a":540,"b":1260,"max":180},{"dt":["helgdag"],"a":540,"b":1260,"max":180}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2018-940 | Dalviksringen | {"f":[{"w":3,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":180}]} → {"f":[{"w":3,"nw":1,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":540,"b":1260,"max":180},{"dt":["fore"],"a":540,"b":1260,"max":180},{"dt":["helgdag"],"a":540,"b":1260,"max":180}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2018-943 | Dalviksringen | {"f":[{"w":3,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":180}]} → {"f":[{"w":3,"nw":1,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":540,"b":1260,"max":180},{"dt":["fore"],"a":540,"b":1260,"max":180},{"dt":["helgdag"],"a":540,"b":1260,"max":180}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2018-946 | Dalviksringen | {"f":[{"w":3,"a":780,"b":900},{"w":5,"a":360,"b":1080}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":30}]} → {"f":[{"w":3,"nw":1,"a":780,"b":900}],"l":[{"w":1,"a":360,"b":1080,"max":30},{"w":2,"a":360,"b":1080,"max":30},{"w":3,"a":360,"b":1080,"max":30},{"w":4,"a":360,"b":1080,"max":30},{"w":5,"a":360,"b":1080,"max":30}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2018-949 | Dalviksringen | {"f":[{"w":3,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":180}]} → {"f":[{"w":3,"nw":1,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":540,"b":1260,"max":180},{"dt":["fore"],"a":540,"b":1260,"max":180},{"dt":["helgdag"],"a":540,"b":1260,"max":180}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2018-953 | Grymängsgatan | {"f":[{"w":3,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":180}]} → {"f":[{"w":3,"nw":1,"a":780,"b":900}],"l":[{"dt":["vardag"],"a":540,"b":1260,"max":180},{"dt":["fore"],"a":540,"b":1260,"max":180},{"dt":["helgdag"],"a":540,"b":1260,"max":180}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
+| 0680 2026-155 | Erik Dahlbergsgatan | {"f":[{"w":3,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"f":[{"w":3,"nw":1,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
+| 0680 2026-361 | Gröna Gatan | {"f":[{"w":3,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":120}]} → {"f":[{"w":3,"nw":1,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2026-465 | Myntgatan | {"f":[{"w":3,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"f":[{"w":3,"nw":1,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2026-474 | Myntgatan | {"f":[{"w":4,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"f":[{"w":4,"nw":1,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0680 2026-486 | Bellmansgatan | {"f":[{"w":3,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"f":[{"w":3,"nw":1,"a":540,"b":780}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0680 2026-504 | Blåklintstigen | expired 2026-10-21 | already uncertain |
 | 0680 2026-504 | Vildvinsbacken | expired 2026-10-21 | already uncertain |
