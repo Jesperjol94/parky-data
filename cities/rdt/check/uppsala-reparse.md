@@ -1,7 +1,7 @@
 # Uppsala: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 3835 segments: 3835 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3452, partly read 371. Verified equal 2203, filled from text 0, text stricter 0, disputed 0, expired 12, text without rules 1230, multi-part texts (not compared) 19.
+Fully read 3452, partly read 371. Verified equal 2203, filled from text 0, text stricter 0, disputed 0, expired 12, text without rules 1243, multi-part texts (not compared) 6.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -11,9 +11,9 @@ Fully read 3452, partly read 371. Verified equal 2203, filled from text 0, text 
 | 0380 2026-489 | Birkagatan | expired 2026-10-16 | already uncertain |
 | 0380 2026-552 | Tartugatan | expired 2026-10-16 | already uncertain |
 | 0380 2026-552 | Tartugatan | expired 2026-10-16 | already uncertain |
-| 0380 2026-555 | Strandbodgatan | expired 2026-10-23 | now uncertain |
-| 0380 2026-555 | Strandbodgatan | expired 2026-10-23 | now uncertain |
+| 0380 2026-555 | Strandbodgatan | expired 2026-10-23 | already uncertain |
+| 0380 2026-555 | Strandbodgatan | expired 2026-10-23 | already uncertain |
 | 0380 2026-560 | Byggmästargatan | expired 2026-10-16 | already uncertain |
 | 0380 2026-560 | Byggmästargatan | expired 2026-10-16 | already uncertain |
-| 0380 2026-597 | Geijersgatan | expired 2026-10-23 | now uncertain |
-| 0380 2026-597 | Geijersgatan | expired 2026-10-23 | now uncertain |
+| 0380 2026-597 | Geijersgatan | expired 2026-10-23 | already uncertain |
+| 0380 2026-597 | Geijersgatan | expired 2026-10-23 | already uncertain |

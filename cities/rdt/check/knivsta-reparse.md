@@ -5,5 +5,5 @@ Fully read 216, partly read 60. Verified equal 204, filled from text 0, text str
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0330 2026-23 | Apoteksvägen | expired 2026-10-23 | now uncertain |
-| 0330 2026-23 | Apoteksvägen | expired 2026-10-23 | now uncertain |
+| 0330 2026-23 | Apoteksvägen | expired 2026-10-23 | already uncertain |
+| 0330 2026-23 | Apoteksvägen | expired 2026-10-23 | already uncertain |

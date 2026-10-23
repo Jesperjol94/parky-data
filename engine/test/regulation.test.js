@@ -277,3 +277,11 @@ test('QA 19 Oct: fee hours from an "Avgift …" sentence', () => {
   const r = parseRegulation('följande. 1 § På X får fordon parkeras under högst 48 tim i följd. 2 § Avgift enligt Taxa Zon 2 under vardagar utom vardag före sön- och helgdag mellan klockan 09.00 - 18.00.');
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }]);
 });
+test('QA 22 Oct: "1:a tisdagen i månaden" and a d/m season in "Villkoret gäller under tiden 1/9- 30/12"', () => {
+  const r = parseRegulation('följande. På Idrottsgatan får fordon inte stannas eller parkeras. Förbudet gäller under tiden 1:a tisdagen i månaden klockan 08.00 -12.00. Villkoret gäller under tiden 1/9- 30/12.');
+  assert.deepEqual(r.bans, [{ w: 2, nw: 1, a: 480, b: 720, m: [[9, 1], [12, 30]] }]);
+});
+test('"Tillåtelsen gäller inte den 1 måndagen i månaden 07–10" is a ban then (Ystad)', () => {
+  const r = parseRegulation('följande. 1 § På Västra Vallgatan får fordon parkeras. 2 § Tillåtelsen gäller inte den 1 måndagen i månaden mellan klockan 07.00 - 10.00.');
+  assert.deepEqual(r.bans, [{ w: 1, nw: 1, a: 420, b: 600 }]); assert.deepEqual(r.allowOnly, []);
+});

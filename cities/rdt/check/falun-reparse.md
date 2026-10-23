@@ -1,7 +1,7 @@
 # Falun: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 582 segments: 582 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 493, partly read 85. Verified equal 415, filled from text 0, text stricter 0, disputed 1, expired 4, text without rules 77, multi-part texts (not compared) 0.
+Fully read 500, partly read 78. Verified equal 422, filled from text 0, text stricter 0, disputed 1, expired 4, text without rules 77, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,4 +9,4 @@ Fully read 493, partly read 85. Verified equal 415, filled from text 0, text str
 | 2080 2026-00080 | Slaggatan | expired 2026-10-16 | already uncertain |
 | 2080 2026-00101 | Slaggatan | expired 2026-10-16 | already uncertain |
 | 2080 2026-00101 | Slaggatan | expired 2026-10-16 | already uncertain |
-| 2080 2026-00163 | Blindgatan | expired 2026-10-23 | now uncertain |
+| 2080 2026-00163 | Blindgatan | expired 2026-10-23 | already uncertain |

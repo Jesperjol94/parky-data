@@ -22,7 +22,7 @@ for (const row of idx.cities) {
   const tf = `rdt/texts/${row.kommunkod}.jsonl.gz`; if (!fs.existsSync(tf)) continue;
   let raw; try { raw = zlib.gunzipSync(fs.readFileSync(tf)).toString(); } catch { continue; }
   const area = new Set(), named = new Set(); // named: street names the municipality's regulation titles mention
-  for (const l of raw.split('\n')) { if (!l) continue; const r = JSON.parse(l); for (const w of (r.rubrik || '').match(/[A-ZÅÄÖ][\wåäöéü-]+(?:vägen|gatan|stigen|gränd|gränden|backen|leden|allén|torget|plan|väg|gata)\b/g) || []) named.add(w.toLowerCase()); const t = (r.body || '').replace(/\s+/g, ' '); const i = t.indexOf('följande'); const head = t.slice(i, i + 400); if (AREA.test(head) && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(head)) area.add(r.c); }
+  for (const l of raw.split('\n')) { if (!l) continue; const r = JSON.parse(l); for (const w of (r.rubrik || '').match(/[A-ZÅÄÖ][\wåäöéü-]+(?:vägen|gatan|stigen|gränd|gränden|backen|leden|allén|torget|plan|väg|gata)\b/g) || []) named.add(w.toLowerCase()); const t = (r.body || '').replace(/\s+/g, ' '); const i = t.indexOf('följande'); const head = t.slice(i, i + 400); if (AREA.test(head) && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(head) && !/gäller (?:ej|inte) (?:på |för )?markerade|med undantag|undantaget|utom (?:på|där)/i.test(t)) area.add(r.c); }
   // drop earlier overlay windows (idempotent)
   for (const s of c.segments) if (s.f) { s.f = s.f.filter((w) => !w.ov); if (!s.f.length) delete s.f; }
   const src = c.segments.filter((s) => area.has(s.c) && s.f && s.f.length && !s.v);
@@ -34,6 +34,10 @@ for (const row of idx.cities) {
   let changed = false;
   for (const s of c.segments) {
     if (s.v || area.has(s.c)) continue;
+    // Only on top of other BANS on the same road (Klingsta: "förbud 9–17" under "förbud på samtliga vägar"). A curb whose own
+    // regulation permits parking (a limit, a fee, allowed hours, date parking) is the exception the area ban leaves room for
+    // ("Gäller ej markerade platser", Norrköping/Linköping innerstad): QA 22 Oct found 4,100 such curbs wrongly banned.
+    if (!(s.f || []).some((w) => !w.ov) || s.l || s.aw || s.t > 0 || s.fu || s.dp || s.o) continue;
     const hits = new Map();
     src.forEach((a, k) => { const b = box[k]; let n = 0; for (const p of s.g) if (p[0] >= b.w && p[0] <= b.e && p[1] >= b.s && p[1] <= b.n && dl(p, a.g) < 15) n++; if (n) hits.set(k, n); });
     for (const [k, n] of hits) {

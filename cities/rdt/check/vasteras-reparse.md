@@ -7,4 +7,4 @@ Fully read 1365, partly read 182. Verified equal 946, filled from text 0, text s
 |---|---|---|---|
 | 1980 2010-00033 | Sjöhagsvägen | expired 2010-08-30 | already uncertain |
 | 1980 2010-00033 | Sjöhagsvägen | expired 2010-08-30 | already uncertain |
-| 1980 2026-00434 | Diskusgatan | expired 2026-10-23 | now uncertain |
+| 1980 2026-00434 | Diskusgatan | expired 2026-10-23 | already uncertain |

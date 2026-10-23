@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 3840 segments: 3840 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2963, partly read 798. Verified equal 2667, filled from text 0, text stricter 0, disputed 0, expired 79, text without rules 288, multi-part texts (not compared) 1.
+Fully read 3632, partly read 129. Verified equal 3334, filled from text 0, text stricter 0, disputed 0, expired 79, text without rules 290, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -69,18 +69,18 @@ Fully read 2963, partly read 798. Verified equal 2667, filled from text 0, text 
 | 1283 2010-00663 | Tornfalksgatan | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | now uncertain |
-| 1283 2026-596 | Föreningsgatan | expired 2026-10-23 | now uncertain |
-| 1283 2026-618 | Konduktörsgatan | expired 2026-10-23 | now uncertain |
+| 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
+| 1283 2026-596 | Föreningsgatan | expired 2026-10-23 | already uncertain |
+| 1283 2026-618 | Konduktörsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-661 | Lilla Bergaliden | expired 2026-10-16 | already uncertain |
-| 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | now uncertain |
-| 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | now uncertain |
-| 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | now uncertain |
-| 1283 2026-678 | Ängesögatan | expired 2026-10-22 | now uncertain |
-| 1283 2026-679 | Furutorpsgatan | expired 2026-10-23 | now uncertain |
-| 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | now uncertain |
-| 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | now uncertain |
-| 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | now uncertain |
-| 1283 2026-690 | Byalagsgatan | expired 2026-10-23 | now uncertain |
-| 1283 2026-690 | D | expired 2026-10-23 | now uncertain |
-| 1283 2026-690 | Byalagsgatan | expired 2026-10-23 | now uncertain |
+| 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
+| 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
+| 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
+| 1283 2026-678 | Ängesögatan | expired 2026-10-22 | already uncertain |
+| 1283 2026-679 | Furutorpsgatan | expired 2026-10-23 | already uncertain |
+| 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | already uncertain |
+| 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | already uncertain |
+| 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | already uncertain |
+| 1283 2026-690 | Byalagsgatan | expired 2026-10-23 | already uncertain |
+| 1283 2026-690 | D | expired 2026-10-23 | already uncertain |
+| 1283 2026-690 | Byalagsgatan | expired 2026-10-23 | already uncertain |

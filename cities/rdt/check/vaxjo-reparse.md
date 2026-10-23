@@ -5,11 +5,11 @@ Fully read 2946, partly read 125. Verified equal 2789, filled from text 0, text 
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0780 2026-183 | Åkervägen | expired 2026-10-23 | now uncertain |
-| 0780 2026-183 | Åkervägen | expired 2026-10-23 | now uncertain |
-| 0780 2026-183 | Åkervägen | expired 2026-10-23 | now uncertain |
-| 0780 2026-183 | Åkervägen | expired 2026-10-23 | now uncertain |
-| 0780 2026-183 | Åkervägen | expired 2026-10-23 | now uncertain |
+| 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
+| 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
+| 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
+| 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
+| 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
 | 0780 2026-277 | Stortorget | expired 2026-10-17 | already uncertain |
 | 0780 2026-277 | Stortorget | expired 2026-10-17 | already uncertain |
 | 0780 2026-277 | Stortorget | expired 2026-10-17 | already uncertain |
