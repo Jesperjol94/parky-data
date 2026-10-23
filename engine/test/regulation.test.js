@@ -257,3 +257,23 @@ test('date parking hours from the following "Förbudet gäller"', () => {
   assert.deepEqual(r.bans, []);
   assert.deepEqual(r.dp, [{ a: 0, b: 960 }]);
 });
+test('QA 19 Oct: a day-type window without "klockan" after "och" is kept (Saturday hours)', () => {
+  const r = parseRegulation('följande. 1 § På Gjuterigatan får fordon parkeras under högst 1 tim i följd mot avgift under vardag utom vardag före sön- och helgdag mellan klockan 09.00 - 18.00 och vardag före sön- och helgdag 09.00 - 15.00.');
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 60 }, { dt: ['fore'], a: 540, b: 900, max: 60 }]);
+});
+test('QA 19 Oct: "vardagar, utom vardag före …" with a comma is one day type', () => {
+  const r = parseRegulation('följande. 1 § På Arlagatan får fordon inte stannas eller parkeras. 2 § Förbudet gäller vardagar, utom vardag före sön- och helgdag mellan klockan 16 och 18 och vardag före sön- och helgdag mellan klockan 10 och 13.');
+  assert.deepEqual(r.bans.map((b) => [b.dt, b.a, b.b]), [[['vardag'], 960, 1080], [['fore'], 600, 780]]);
+});
+test('QA 19 Oct: "19:e dagen i månaden" is a day-of-month ban', () => {
+  const r = parseRegulation('följande. På Älvgatan får fordon parkeras. Parkering är dock förbjuden 19:e dagen i månaden klockan 09.00 - 12.00.');
+  assert.equal(r.bans[0].dm, 19);
+});
+test('QA 19 Oct: a limit followed by "Tillåtelsen gäller <hours>" holds in those hours only', () => {
+  const r = parseRegulation('följande. På Älvgatan får fordon parkeras under högst 2 tim i följd. Tillåtelsen gäller under tiden vardag utom dag före sön- och helgdag klockan 08.00 - 18.00 och vardag före sön- och helgdag klockan 08.00 - 14.00. Övrig tid får fordon parkeras.');
+  assert.deepEqual(r.limits.map((l) => [l.dt, l.a, l.b, l.max]), [[['vardag'], 480, 1080, 120], [['fore'], 480, 840, 120]]);
+});
+test('QA 19 Oct: fee hours from an "Avgift …" sentence', () => {
+  const r = parseRegulation('följande. 1 § På X får fordon parkeras under högst 48 tim i följd. 2 § Avgift enligt Taxa Zon 2 under vardagar utom vardag före sön- och helgdag mellan klockan 09.00 - 18.00.');
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }]);
+});
