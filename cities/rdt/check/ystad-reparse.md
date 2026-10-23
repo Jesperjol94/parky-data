@@ -1,7 +1,7 @@
 # Ystad: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 1145 segments: 1145 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1020, partly read 116. Verified equal 836, filled from text 0, text stricter 0, disputed 0, expired 9, text without rules 112, multi-part texts (not compared) 2.
+Fully read 1020, partly read 116. Verified equal 836, filled from text 0, text stricter 0, disputed 0, expired 9, text without rules 125, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

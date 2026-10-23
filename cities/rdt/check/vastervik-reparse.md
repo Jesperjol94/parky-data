@@ -1,7 +1,7 @@
 # Västervik: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 985 segments: 985 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 756, partly read 217. Verified equal 742, filled from text 0, text stricter 0, disputed 3, expired 12, text without rules 8, multi-part texts (not compared) 2.
+Fully read 756, partly read 217. Verified equal 745, filled from text 0, text stricter 0, disputed 0, expired 12, text without rules 8, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -11,9 +11,6 @@ Fully read 756, partly read 217. Verified equal 742, filled from text 0, text st
 | 0883 2012-00039 | parkeringsytan Järnvägsparken | expired 2012-08-18 | already uncertain |
 | 0883 2012-00039 | parkeringsytan Järnvägsparken | expired 2012-08-18 | already uncertain |
 | 0883 2012-00039 | parkeringsytan Järnvägsparken | expired 2012-08-18 | already uncertain |
-| 0883 2019-207 | Lillövägen | {"f":[{"a":1260,"b":420}],"l":[{"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0883 2019-207 | Lillövägen | {"f":[{"a":1260,"b":420}],"l":[{"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0883 2019-207 | Lillövägen | {"f":[{"a":1260,"b":420}],"l":[{"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0883 2026-44 | Strandvägen | expired 2026-10-22 | already uncertain |
 | 0883 2026-44 | Strandvägen | expired 2026-10-22 | already uncertain |
 | 0883 2026-44 | Strandvägen | expired 2026-10-22 | already uncertain |
