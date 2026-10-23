@@ -1,7 +1,16 @@
 # Luleå: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-19. 344 segments: 344 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 315, partly read 29. Verified equal 251, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 64, multi-part texts (not compared) 0.
+Run 2026-10-23. 344 segments: 344 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 315, partly read 29. Verified equal 242, filled from text 0, text stricter 0, disputed 9, expired 0, text without rules 64, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 2580 2024-00102 | Lottagatan | {"f":[{"a":0,"b":1440,"ov":1}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2580 2025-00173 | Krondalsvägen | {"f":[{"a":0,"b":1440,"ov":1}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2580 2025-00173 | Krondalsvägen | {"f":[{"a":0,"b":1440,"ov":1}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2580 2025-00173 | Krondalsvägen | {"f":[{"a":0,"b":1440,"ov":1}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2580 2025-00173 | Krondalsvägen | {"f":[{"a":0,"b":1440,"ov":1}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2580 2025-00173 | Krondalsvägen | {"f":[{"a":0,"b":1440,"ov":1}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2580 2025-00173 | Krondalsvägen | {"f":[{"a":0,"b":1440,"ov":1}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2580 2026-00147 | Regementsvägen | {"f":[{"a":0,"b":1440,"ov":1}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2580 2026-00165 | Regementsvägen | {"f":[{"a":0,"b":1440,"ov":1}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":900,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":900,"max":240}]} | text more permissive: text wins (owner's decision 18 Oct) |

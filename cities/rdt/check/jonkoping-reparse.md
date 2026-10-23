@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-19. 2305 segments: 2305 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1808, partly read 308. Verified equal 1127, filled from text 0, text stricter 106, disputed 1, expired 189, text without rules 571, multi-part texts (not compared) 3.
+Run 2026-10-23. 2305 segments: 2305 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1806, partly read 308. Verified equal 1232, filled from text 0, text stricter 0, disputed 0, expired 191, text without rules 571, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -23,9 +23,9 @@ Fully read 1808, partly read 308. Verified equal 1127, filled from text 0, text 
 | 0680 2010-1260 | Brahegatan | expired 2010-12-04 | already uncertain |
 | 0680 2011-15 | Västra Storgatan | expired 2011-01-14 | already uncertain |
 | 0680 2011-16 | Västra Storgatan | expired 2011-02-11 | already uncertain |
-| 0680 2011-65 | Jönköping | expired 2011-01-17 | already uncertain |
-| 0680 2011-65 | Jönköping | expired 2011-01-17 | already uncertain |
-| 0680 2011-65 | Jönköping | expired 2011-01-17 | already uncertain |
+| 0680 2011-65 | Strågatan | expired 2011-01-17 | already uncertain |
+| 0680 2011-65 | Merkuriusvägen | expired 2011-01-17 | already uncertain |
+| 0680 2011-65 | Merkuriusvägen | expired 2011-01-17 | already uncertain |
 | 0680 2011-68 | Skolgatan | expired 2011-01-21 | already uncertain |
 | 0680 2011-271 | Rosenlundsgatan | expired 2011-04-04 | already uncertain |
 | 0680 2011-283 | Klostergatan | expired 2011-10-31 | already uncertain |
@@ -38,11 +38,11 @@ Fully read 1808, partly read 308. Verified equal 1127, filled from text 0, text 
 | 0680 2011-480 | Jönköpingsvägen | expired 2011-05-20 | already uncertain |
 | 0680 2011-481 | Drottninggatan | expired 2011-05-20 | already uncertain |
 | 0680 2011-494 | Masugnsplan | expired 2011-09-03 | already uncertain |
-| 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
-| 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
-| 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
-| 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
-| 0680 2011-495 | Jönköping | expired 2011-09-11 | already uncertain |
+| 0680 2011-495 | B | expired 2011-09-11 | already uncertain |
+| 0680 2011-495 | Slottsgatan | expired 2011-09-11 | already uncertain |
+| 0680 2011-495 | Kanalgatan | expired 2011-09-11 | already uncertain |
+| 0680 2011-495 | Kanalgatan | expired 2011-09-11 | already uncertain |
+| 0680 2011-495 | Östra Storgatan | expired 2011-09-11 | already uncertain |
 | 0680 2011-553 | Vättergatan | expired 2011-05-27 | already uncertain |
 | 0680 2011-597 | Hotellplan | expired 2011-05-26 | already uncertain |
 | 0680 2011-598 | Hotellplan | expired 2011-06-01 | already uncertain |
@@ -193,111 +193,6 @@ Fully read 1808, partly read 308. Verified equal 1127, filled from text 0, text 
 | 0680 2013-141 | Norra Bogesundsgatan | expired 2013-05-24 | already uncertain |
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
-| 0680 2017-257 | Kungsgatan | {"l":[{"a":0,"b":1440,"max":5}]} → {"l":[{"dt":["vardag"],"a":420,"b":840,"max":5}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
-| 0680 2021-443 | Klostergatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2023-419 | Fabriksgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2023-500 | Gjuterigatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2023-500 | Gjuterigatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-339 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-339 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-358 | Drottninggatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-358 | Drottninggatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-366 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-366 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-366 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-366 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-366 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-366 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-366 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-366 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-392 | Kungsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-396 | Lejongatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-396 | Lejongatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-396 | Lejongatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-396 | Lejongatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-396 | Lejongatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-396 | Lejongatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-407 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-407 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-407 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-407 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-407 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-407 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-407 | Skolgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2025-411 | Ulfsparregatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":900,"max":30}]} | text stricter: applied |
-| 0680 2025-411 | Ulfsparregatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":900,"max":30}]} | text stricter: applied |
-| 0680 2025-411 | Ulfsparregatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":900,"max":30}]} | text stricter: applied |
-| 0680 2025-411 | Ulfsparregatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":900,"max":30}]} | text stricter: applied |
-| 0680 2025-411 | Ulfsparregatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":900,"max":30}]} | text stricter: applied |
-| 0680 2025-411 | Ulfsparregatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":900,"max":30}]} | text stricter: applied |
-| 0680 2025-417 | Järnvägsgatan 4 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080},{"dt":["fore"],"a":540,"b":900,"max":10080}]} | text stricter: applied |
-| 0680 2025-417 | Järnvägsgatan 4 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080},{"dt":["fore"],"a":540,"b":900,"max":10080}]} | text stricter: applied |
-| 0680 2025-417 | Järnvägsgatan 4 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080},{"dt":["fore"],"a":540,"b":900,"max":10080}]} | text stricter: applied |
-| 0680 2025-417 | Järnvägsgatan 4 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080},{"dt":["fore"],"a":540,"b":900,"max":10080}]} | text stricter: applied |
-| 0680 2025-417 | Järnvägsgatan 4 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080},{"dt":["fore"],"a":540,"b":900,"max":10080}]} | text stricter: applied |
-| 0680 2025-417 | Järnvägsgatan 4 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080},{"dt":["fore"],"a":540,"b":900,"max":10080}]} | text stricter: applied |
-| 0680 2025-417 | Järnvägsgatan 4 | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":10080},{"dt":["fore"],"a":540,"b":900,"max":10080}]} | text stricter: applied |
-| 0680 2025-422 | Björngatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-422 | Björngatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-422 | Björngatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-422 | Björngatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-422 | Björngatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-422 | Björngatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-436 | Vättergatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-460 | Banarpsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-460 | Banarpsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-460 | Banarpsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-460 | Banarpsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-460 | Banarpsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-460 | Banarpsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-475 | Ränterigränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-475 | Ränterigränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-475 | Ränterigränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-475 | Ränterigränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-475 | Ränterigränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-475 | Ränterigränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-475 | Ränterigränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-507 | Båtmansbacken | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-507 | Båtmansbacken | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-507 | Båtmansbacken | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-507 | Båtmansbacken | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-507 | Båtmansbacken | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-507 | Båtmansbacken | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-507 | Båtmansbacken | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-509 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-509 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-509 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-509 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-509 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-509 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-509 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-509 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-509 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-511 | Björngränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-511 | Björngränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-511 | Björngränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-511 | Björngränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-511 | Björngränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-511 | Björngränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-511 | Björngränd | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-517 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-517 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-517 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-517 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-517 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-517 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-517 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-519 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-519 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-519 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-519 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-519 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-519 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-519 | Östra Storgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-560 | Västgötagatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2025-560 | Västgötagatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2026-18 | Verkstadsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":900,"max":240}]} | text stricter: applied |
-| 0680 2026-153 | Björngatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}]} | text stricter: applied |
-| 0680 2026-206 | Nygatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
-| 0680 2026-261 | Centrumvägen | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | text stricter: applied |
+| 0680 2026-504 | Blåklintstigen | expired 2026-10-21 | now uncertain |
+| 0680 2026-504 | Vildvinsbacken | expired 2026-10-21 | now uncertain |

@@ -1,51 +1,7 @@
 # Lidköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-19. 814 segments: 814 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 786, partly read 28. Verified equal 736, filled from text 0, text stricter 0, disputed 44, expired 0, text without rules 6, multi-part texts (not compared) 0.
+Run 2026-10-23. 814 segments: 814 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 786, partly read 28. Verified equal 780, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1494 2009-00034 | Floragatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag","fore"],"a":420,"b":1020,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00053 | Grevhusgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00199 | Källaregatan | {"l":[{"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":240},{"dt":["fore"],"a":480,"b":840,"max":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00207 | Lidbecksgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00209 | Lidbecksgatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00309 | Hamngatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00312 | Götgatan | {"l":[{"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":240},{"dt":["fore"],"a":480,"b":840,"max":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00312 | Götgatan | {"l":[{"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":240},{"dt":["fore"],"a":480,"b":840,"max":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00316 | Grevhusgatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00316 | Grevhusgatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00352 | Hamngatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00352 | Hamngatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00353 | Lidbecksgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00353 | Lidbecksgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00354 | Lidbecksgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00354 | Lidbecksgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00380 | Mellbygatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00380 | Mellbygatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00445 | Norra Torngatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00445 | Norra Torngatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00572 | Skaragatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00572 | Skaragatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00572 | Skaragatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00572 | Skaragatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00572 | Skaragatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00572 | Skaragatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00572 | Skaragatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00572 | Skaragatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00572 | Skaragatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00651 | Sveagatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00653 | Sveagatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00741 | Vinbergsgatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2009-00778 | Älvgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2018-00007 | Vallgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2018-00011 | Norra Torngatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2018-00011 | Norra Torngatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2018-00021 | Mellbygatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2018-00026 | Götgatan | {"l":[{"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":840,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2020-00013 | Järnvägsgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2020-00013 | Järnvägsgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2020-00013 | Järnvägsgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2020-00013 | Järnvägsgatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2020-00014 | Nicolaigatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1494 2020-00014 | Nicolaigatan | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |

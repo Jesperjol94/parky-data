@@ -1,6 +1,6 @@
 # Sundsvall: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-19. 1747 segments: 1747 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-10-23. 1747 segments: 1747 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1532, partly read 208. Verified equal 1283, filled from text 0, text stricter 0, disputed 0, expired 7, text without rules 249, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

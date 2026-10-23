@@ -1,7 +1,7 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-19. 1216 segments: 1216 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1031, partly read 155. Verified equal 1000, filled from text 0, text stricter 3, disputed 0, expired 30, text without rules 25, multi-part texts (not compared) 3.
+Run 2026-10-23. 1216 segments: 1216 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1031, partly read 155. Verified equal 1003, filled from text 0, text stricter 0, disputed 0, expired 30, text without rules 25, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -30,11 +30,8 @@ Fully read 1031, partly read 155. Verified equal 1000, filled from text 0, text 
 | 0484 2018-050 | Tegnérgatan | expired 2018-07-06 | already uncertain |
 | 0484 2018-059 | Galléengatan | expired 2019-03-01 | already uncertain |
 | 0484 2018-080 | Rademachergatan | expired 2019-03-31 | already uncertain |
-| 0484 2025-1 | Vattugatan mellan fastighet med adressnummer Vattugatan 5 och Svengrensgatan | expired 2025-01-31 | already uncertain |
-| 0484 2025-215 | Nyforsgatan | {"f":[{"w":2,"a":360,"b":540}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":240}]} → {"f":[{"w":2,"a":360,"b":540,"m":[[10,15],[4,15]]}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":240},{"dt":["fore"],"a":480,"b":900,"max":240}]} | text stricter: applied |
-| 0484 2025-217 | Nyforsgatan | {"f":[{"w":2,"a":360,"b":540}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":240}]} → {"f":[{"w":2,"a":360,"b":540,"m":[[10,15],[4,15]]}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":240},{"dt":["fore"],"a":480,"b":900,"max":240}]} | text stricter: applied |
+| 0484 2025-1 | Vattugatan | expired 2025-01-31 | already uncertain |
 | 0484 2026-47 | Eleonoragatan | expired 2026-10-16 | already uncertain |
-| 0484 2026-63 | Strandgatan | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} → {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":900,"max":180}]} | text stricter: applied |
 | 0484 2026-165 | Skjulstagatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-183 | Kyrkogatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-186 | Sturegatan | expired 2026-10-18 | already uncertain |

@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
+const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
 import { parseRegulation, expired, ruleText } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
@@ -137,8 +138,9 @@ for (const row of idx.cities) {
     // (QA 19 Oct: Växjö showed fees at night and on Sundays)
     if (r.feeWindows && s.t && APPLY) {
       const b0 = s.t >= 1e7 ? Math.floor(s.t / 100) : s.t, base = c.taxa?.[b0];
-      const allDay = base && base.periods.length && base.periods.every((p) => p.start === 0 && p.end === 1440);
-      const periods = r.feeWindows.filter((w) => !w.w && !w.m && !w.p && !w.dm && w.a < w.b).map((w) => ({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: base ? Math.max(...base.periods.map((p) => p.price)) : 0 }));
+      // the text's hours replace the table's when the table has one price (all day, or hours the text narrows / gives a season to)
+      const allDay = base && base.periods.length && new Set(base.periods.map((p) => p.price)).size === 1;
+      const periods = r.feeWindows.filter((w) => !w.w && !w.p && !w.dm && w.a < w.b).map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: base ? Math.max(...base.periods.map((p) => p.price)) : 0, m: w.m }));
       if (allDay && periods.length === r.feeWindows.length) {
         const sig = JSON.stringify(periods);
         let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
