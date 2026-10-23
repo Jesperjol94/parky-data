@@ -302,3 +302,9 @@ test('QA 22 Oct: month seasons, Mon–Sun without a dash, one-sided date bans, w
   assert.deepEqual(parseRegulation('följande. 1 § På X får fordon parkeras. 2 § Trots tillåtelsen i 1 § får fordon inte parkeras på måndagar klockan 08.00 - 11.00 (gäller vardag utom vardag före sön- och helgdag).').bans, [{ w: 1, a: 480, b: 660, dt: ['vardag'] }]);
   assert.deepEqual(parseRegulation('följande. 1 § På Jaktvägen får fordon parkeras högst 2 timmar i följd. 2 § Tidsbegränsningen gäller vardag klockan 08.00 - 18.00 samt vardag före sön- och helgdag klockan 08.00 - 15.00.').limits.map((l) => l.dt), [['vardag'], ['fore']]);
 });
+test('QA 22 Oct: limit seasons, inverted permission hours with a limit, permission seasons, "gäller inte personbil klass I"', () => {
+  assert.deepEqual(parseRegulation('följande. På Parkgatan får fordon parkeras. Tillåtelsen att parkera gäller under högst 3 tim i följd. Villkoret gäller vardagar utom vardag före sön- och helgdag klockan 10.00 - 20.00. Tidsbegränsningen gäller under tiden 1 maj - 30 september.').limits, [{ dt: ['vardag'], a: 600, b: 1200, max: 180, m: [[5, 1], [9, 30]] }]);
+  const r = parseRegulation('följande. 1 § På Idrottsvägen får fordon parkeras. 2 § Mellan klockan 09.00 och 18.00 gäller dock tillåtelsen i 1 § högst 5 timmar i följd mot avgift eller högst en timma i följd mot användande av parkeringsskiva. 5 § Tillåtelsen i paragraf 1 och villkoren i 2 § gäller mellan 15 juni och 15 augusti.');
+  assert.deepEqual(r.limits, [{ a: 540, b: 1080, max: 300, m: [[6, 15], [8, 15]] }]); assert.deepEqual(r.feeWindows, [{ a: 540, b: 1080, m: [[6, 15], [8, 15]] }]);
+  assert.equal(parseRegulation('följande. 1 § På Hamnvägen får fordon parkeras högst 2 timmar. 2 § Tillåtelsen gäller inte personbil klass I.').reserved, true);
+});

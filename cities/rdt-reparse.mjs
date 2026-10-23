@@ -124,7 +124,7 @@ for (const row of idx.cities) {
       // "personbil" is a vehicle class, not a reservation
       if (s.v === 'personbil') { delete s.v; changed++; }
       // "avgiften behöver inte erläggas av rörelsehindrad" is a fee exemption, not a reservation for disabled permit holders
-      if (s.v === 'rörelsehindrade' && !/endast|enbart|reserverad/i.test(body) && /(?:behöver inte|ej|inte) (?:erläggas|betalas)[^.]{0,80}rörelsehindr|rörelsehindr[^.]{0,80}(?:behöver inte|utan avgift|avgiftsfri|inte betala)/i.test(body)) { delete s.v; changed++; st.notReserved = (st.notReserved || 0) + 1; }
+      if (s.v === 'rörelsehindrade' && !/(?:endast|enbart)[^.]{0,60}rörelsehindr|reserverad/i.test(body) && /(?:behöver inte|ej|inte) (?:erläggas|betalas)[^.]{0,80}rörelsehindr|rörelsehindr[^.]{0,80}(?:behöver inte|utan avgift|avgiftsfri|inte betala)/i.test(body)) { delete s.v; changed++; st.notReserved = (st.notReserved || 0) + 1; }
       // a stopping ban ("får fordon inte stannas", "förbud att stanna") is stricter than a parking ban: the card says so
       if (/(?:inte|ej) stannas|förbud att stanna|stanna(?:s)? eller parkera/i.test(body) && s.f && s.f.length && !s.sb) { s.sb = 1; changed++; }
     }
@@ -175,6 +175,10 @@ for (const row of idx.cities) {
       if (APPLY) { put(); delete s.u; if (!('t' in s) || s.t === null) { if (!/avgift/i.test(rec.body)) s.t = 0; } }
     } else if (verdict === 'equal') {
       st.verified++;
+      // equal at every time of a week the comparison samples, but the text says more (even weeks, a season, odd dates, the
+      // nth weekday): the text's windows are more precise (QA 22 Oct: Karlstad, Solna "jämna veckor" bans every week)
+      const cond = (ws) => JSON.stringify((ws || []).map((w) => [w.p, w.m, w.dd, w.nw, w.dm]));
+      if (APPLY && (cond(t.f) !== cond(cur.f) || cond(t.l) !== cond(cur.l)) && JSON.stringify([t.f, t.l]).match(/"(?:p|m|dd|nw|dm)":/)) { put(); st.precise = (st.precise || 0) + 1; }
       if (cur.v === 'personbil' && APPLY) { delete s.v; s.rx = 1; changed++; }
     } else if (verdict === 'stricter' || (cur.v === 'personbil' && !textV && verdict !== 'mixed')) {
       st.strictened++;
