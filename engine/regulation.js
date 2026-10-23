@@ -10,13 +10,14 @@ const WEEKDAYS = { måndag: 1, tisdag: 2, onsdag: 3, torsdag: 4, fredag: 5, lör
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
 
 // The rule paragraphs: between "… följande." and "Denna författning …" / signatures.
+const MONTH_NAMES = ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december'];
 export function ruleText(body) {
   if (!body) return null;
   const t = body.replace(/­/g, '').replace(/-\n(?=[a-zåäö])/g, '').replace(/\s+/g, ' ').replace(/sönoch/g, 'sön- och').replace(/sön och helgdag/g, 'sön- och helgdag')
     .replace(/sön ?- ?och/g, 'sön- och').replace(/sön ?- ?helgdag/g, 'sön- och helgdag').replace(/(\d{1,2}):[ae]\b/g, '$1') // "sön - och helgdag", "sön - helgdag", "1:a december"
     .replace(/\bMed avvikelse från bestämmelserna i \d+ § får/g, 'Får').replace(/\b(fordon) på (?:sträckan|platsen|sträckorna|platserna)\b/gi, '$1') // "Med avvikelse från bestämmelserna i 1 § får fordon på sträckan inte parkeras …"
     .replace(/\bTillåtelsen (?:att parkera )?i \d+ § gäller/g, 'Tillåtelsen gäller').replace(/\bFörbudet i \d+ § gäller/g, 'Förbudet gäller')
-    .replace(/\bden (\d{1,2}) i (varje )?månaden/gi, 'den $1 dagen i $2månaden').replace(/(\d{1,2} (?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)) till(?: och med)? (\d{1,2} )/gi, '$1 - $2');
+    .replace(/\bden (\d{1,2}) i (varje )?månaden/gi, 'den $1 dagen i $2månaden').replace(/\b(\d{1,2})\/(\d{1,2})\s*[-–]\s*(\d{1,2})\/(\d{1,2})\b/g, (z, d1, m1, d2, m2) => (+m1 >= 1 && +m1 <= 12 && +m2 >= 1 && +m2 <= 12 ? `${+d1} ${MONTH_NAMES[+m1 - 1]} - ${+d2} ${MONTH_NAMES[+m2 - 1]}` : z)) /* "1/9- 30/12" */.replace(/(\d{1,2} (?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)) till(?: och med)? (\d{1,2} )/gi, '$1 - $2');
 
   const m = t.match(/följande\.?\s*(.*?)(?:Denna författning|Dessa föreskrifter träder|Denna föreskrift träder|Dessa föreskrifter gäller|På [^.]{0,60}?vägnar|$)/i);
   return m ? m[1].trim() : null;
@@ -68,8 +69,8 @@ function weekdaysOf(pre) {
 
 // All "<day words> klockan A - B" pieces in a clause.
 // "första tisdagen i månaden", "sista fredagen i varje månad": one weekday a month (nw 1–4, or -1 for the last).
-const NTH = /\b(?:under\s+)?(?:den\s+)?(första|andra|tredje|fjärde|sista)\s+(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:en)?\s+i\s+(?:varje\s+)?månad(?:en)?/i;
-const NTH_N = { första: 1, andra: 2, tredje: 3, fjärde: 4, sista: -1 };
+const NTH = /\b(?:under\s+)?(?:den\s+)?(första|andra|tredje|fjärde|sista|[1-4])\s+(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:en)?\s+i\s+(?:varje\s+)?månad(?:en)?/i;
+const NTH_N = { första: 1, andra: 2, tredje: 3, fjärde: 4, sista: -1, 1: 1, 2: 2, 3: 3, 4: 4 }; // "1:a tisdagen" arrives as "1 tisdagen" (ruleText)
 function windows(clause) {
   const nth = NTH.exec(clause);
   if (nth) {
@@ -208,6 +209,8 @@ export function parseRegulation(body) {
       }
       continue;
     }
+    // "Villkoret gäller under tiden 1 september - 30 december" after a ban (and no limit): the ban's season (QA: Ängelholm)
+    if (/^villkoret gäller/.test(x) && m && lastBan && !lastLimit && !windows(s).length) { for (const b of lastBan.items) b.m = m; continue; }
     if (/^förbudet (?:att (?:parkera|stanna)[^ ]* )?(?:i första stycket )?gäller/.test(x)) { // the hours of the ban just stated
       if (IGNORE.some((r) => r.test(s))) continue;
       if (/gäller (?:inte|ej)\b/.test(x)) {
@@ -266,6 +269,11 @@ export function parseRegulation(body) {
       if (/gäller (?:inte|ej)\b/.test(x)) { unread(s); continue; }
       let ws = windows(s); if (!ws.length) ws = dayOnlyWindows(s);
       if (ws.length && !halfRead(s, ws)) { out.limits = out.limits.filter((l) => !lastLimit.items.includes(l)); const items = ws.map(withSP).map((w) => ({ ...w, max: lastLimit.max })); out.limits.push(...items); lastLimit = { max: lastLimit.max, items }; continue; }
+      unread(s); continue;
+    }
+    // "Tillåtelsen gäller inte den 1 måndagen i månaden mellan klockan 07.00 - 10.00": a ban in those hours (Ystad)
+    if (/^tillåtelsen (?:att parkera )?gäller (?:inte|ej)\b/.test(x) && !/rätt att/.test(x)) {
+      const ws = windows(s).map(withSP); if (ws.length && !halfRead(s, ws)) { out.bans.push(...ws); lastBan = { items: ws, provisional: false }; continue; }
       unread(s); continue;
     }
     if (/tillåtelsen (?:att parkera )?gäller/.test(x)) {
