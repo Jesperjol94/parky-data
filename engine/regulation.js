@@ -173,6 +173,8 @@ export function parseRegulation(body) {
     // "Avgift enligt Taxa Zon 2 under vardagar utom vardag före sön- och helgdag mellan klockan 09.00 - 18.00": the hours the fee is
     // charged, when the text gives them (the register's fee table may say all day; QA: Växjö)
     if (/^avgift\b/.test(x) && /(?:klockan|kl\.?)\s*\d/.test(x)) { const ws = windows(s); if (ws.length && !halfRead(s, ws)) out.feeWindows = ws.map(withSP); continue; }
+    // "Parkering är dock tillåten endast mot avgift 15 juni - 15 augusti mellan klockan 08.00 - 21.00": the fee's hours and season (QA: Motala)
+    if (/endast mot avgift|mot avgift (?:under|mellan|klockan|\d)/.test(x) && /(?:klockan|kl\.?)\s*\d/.test(x) && !out.feeWindows) { const ws = windows(s); if (ws.length && !halfRead(s, ws)) out.feeWindows = ws.map(withSP); }
     if (/^(?:tillåtelsen|förbudet)(?: i (?:§\s*\d+|\d+\s*§))? (?:ger|ge) (?:inte|ej) rätt/.test(x)) continue;
     x = x.replace(/,?\s*(?:tillåtelsen |förbudet )?(?:ger|ge) (?:inte|ej) rätt att (?:stanna|parkera)[^.]*/g, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna eller parkera[^.]*/g, ''); // "… får parkeras där det är förbjudet …" is not a ban
     // Date parking ("udda datum … udda adressnummer"): one side is always allowed — dp windows, not a ban
