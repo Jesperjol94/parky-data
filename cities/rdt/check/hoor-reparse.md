@@ -5,5 +5,5 @@ Fully read 497, partly read 37. Verified equal 487, filled from text 0, text str
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1267 2018-24 | Kungsgatan | {"f":[{"dt":["vardag"],"a":480,"b":1080}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1267 2018-24 | Kungsgatan | {"f":[{"dt":["vardag"],"a":480,"b":1080}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1267 2023-6 | Handelsgatan | {"l":[{"dt":["vardag","fore"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":780,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1267 2023-6 | Handelsgatan | {"l":[{"dt":["vardag","fore"],"a":540,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":780,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |

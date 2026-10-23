@@ -295,3 +295,10 @@ test('QA 22 Oct: a paragraph without a full stop before it, and "parkeras där s
   const r = parseRegulation('följande. 1 § På Östra Storgatan får fordon parkeras där stannande och parkering är förbjuden enligt 3 kap. 52§ andra stycket trafikförordningen (1998:1278) 2 § Avgift enligt taxa B1 skall erläggas under vardag utom vardag före sön- och helgdag mellan klockan 08.00 – 20.00.');
   assert.deepEqual(r.bans, []); assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1200 }]);
 });
+test('QA 22 Oct: month seasons, Mon–Sun without a dash, one-sided date bans, weekday with a day type, Saturday listed apart', () => {
+  assert.deepEqual(parseRegulation('följande. På Vintervägen får fordon parkeras. Parkering är dock förbjuden torsdag mellan klockan 10.00 - 14.00 jämna veckor under augusti - juni.').bans, [{ w: 4, a: 600, b: 840, p: 'even', m: [[8, 1], [6, 30]] }]);
+  assert.deepEqual(parseRegulation('följande. På X får fordon inte parkeras på dagar med udda datum på den sida av vägen som har udda adressnummer och på dagar med jämnt datum på den sida av vägen som har jämna adressnummer under tiden måndag söndag klockan 00.00 - 08.00.').dp, [{ a: 0, b: 480 }]);
+  assert.deepEqual(parseRegulation('följande. På X får fordon parkeras. Parkering är dock förbjuden klockan 00.00 - 08.00 jämna datum.').bans, [{ a: 0, b: 480, dd: 'even' }]);
+  assert.deepEqual(parseRegulation('följande. 1 § På X får fordon parkeras. 2 § Trots tillåtelsen i 1 § får fordon inte parkeras på måndagar klockan 08.00 - 11.00 (gäller vardag utom vardag före sön- och helgdag).').bans, [{ w: 1, a: 480, b: 660, dt: ['vardag'] }]);
+  assert.deepEqual(parseRegulation('följande. 1 § På Jaktvägen får fordon parkeras högst 2 timmar i följd. 2 § Tidsbegränsningen gäller vardag klockan 08.00 - 18.00 samt vardag före sön- och helgdag klockan 08.00 - 15.00.').limits.map((l) => l.dt), [['vardag'], ['fore']]);
+});

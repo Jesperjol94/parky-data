@@ -1,7 +1,19 @@
 # Vaggeryd: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 97 segments: 97 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 89, partly read 8. Verified equal 83, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 2, multi-part texts (not compared) 4.
+Fully read 89, partly read 8. Verified equal 71, filled from text 0, text stricter 0, disputed 12, expired 0, text without rules 2, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 0665 2007-5 | Linnégatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1080,"max":20},{"dt":["fore"],"a":480,"b":900,"max":20}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":20},{"dt":["fore"],"a":480,"b":900,"max":20}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-2 | Östergatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-2 | Östergatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-9 | Järnvägsgatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-9 | Järnvägsgatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-9 | Järnvägsgatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-10 | Artillerigatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-10 | Artillerigatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-11 | Stationsgatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-11 | Stationsgatan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-12 | Centralplan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0665 2018-12 | Centralplan | {"l":[{"dt":["vardag","fore"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"l":[{"dt":["vardag"],"a":480,"b":1140,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text more permissive: text wins (owner's decision 18 Oct) |
