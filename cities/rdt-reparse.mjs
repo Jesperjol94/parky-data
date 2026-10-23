@@ -35,7 +35,8 @@ function multiPart(body) {
   const places = (t.match(/(?:^|[.;]\s*)På\s/g) || []).length + (t.match(/(?:^|[.;]\s*)Inom\s/g) || []).length;
   const sides = new Set((t.match(/\b(östra|västra|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size;
   void paras; // "1 § place, 2 § hours, 3 § fee" is one place in several paragraphs: only several places or sides make a text multi-part (18 Oct review)
-  return places > 1 || sides > 1;
+  // several sides in one sentence with one rule ("västra sida …, norra sida … samt östra sida … får fordon parkeras") are one rule set (QA 22 Oct)
+  return places > 1 || (sides > 1 && (t.match(/får (?:fordon|endast|personbil)/g) || []).length > 1);
 }
 
 // Rules the text gives, in segment form

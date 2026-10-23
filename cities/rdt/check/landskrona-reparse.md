@@ -1,7 +1,7 @@
 # Landskrona: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-23. 2875 segments: 2875 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2842, partly read 23. Verified equal 1649, filled from text 0, text stricter 0, disputed 0, expired 10, text without rules 1192, multi-part texts (not compared) 1.
+Fully read 2842, partly read 23. Verified equal 1650, filled from text 0, text stricter 0, disputed 0, expired 10, text without rules 1192, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
