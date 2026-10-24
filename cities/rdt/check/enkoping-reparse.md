@@ -1,12 +1,10 @@
 # Enköping: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 310 segments: 279 with a text, 0 without a cached text, 31 fetch errors.
-Fully read 252, partly read 19. Verified equal 246, filled from text 0, text stricter 2, disputed 0, expired 8, text without rules 4, multi-part texts (not compared) 0.
+Fully read 252, partly read 19. Verified equal 248, filled from text 0, text stricter 0, disputed 0, expired 8, text without rules 4, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0381 2026-0084 | Munksundsgatan | {"f":[{"w":3,"a":0,"b":1440,"m":[[4,1],[10,31]]}]} → {"f":[{"w":3,"a":0,"b":1440,"m":[[4,1],[10,31]]}],"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |
-| 0381 2026-0084 | Munksundsgatan | {"f":[{"w":3,"a":0,"b":1440,"m":[[4,1],[10,31]]}]} → {"f":[{"w":3,"a":0,"b":1440,"m":[[4,1],[10,31]]}],"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |
 | 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |
 | 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |
 | 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |

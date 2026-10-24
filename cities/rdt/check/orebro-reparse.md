@@ -1,11 +1,10 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2607, partly read 166. Verified equal 2603, filled from text 0, text stricter 1, disputed 2, expired 28, text without rules 1, multi-part texts (not compared) 0.
+Fully read 2607, partly read 166. Verified equal 2604, filled from text 0, text stricter 0, disputed 2, expired 28, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1880 2009-00897 | Oskarstorget | {"l":[{"a":0,"b":1440,"max":30}]} → {"f":[{"w":1,"a":0,"b":360}],"l":[{"a":0,"b":1440,"max":30}]} | text stricter: applied |
 | 1880 2014-00233 | Berghultsvägen | {"f":[{"w":4,"a":0,"b":480},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":4,"a":0,"b":480}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
 | 1880 2021-01026 | Överstegatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |

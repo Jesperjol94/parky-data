@@ -1,7 +1,7 @@
 # Solna: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 2316 segments: 2316 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2222, partly read 76. Verified equal 2197, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 25, multi-part texts (not compared) 0.
+Fully read 2253, partly read 45. Verified equal 2228, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 25, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

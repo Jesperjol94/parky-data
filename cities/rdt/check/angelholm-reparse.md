@@ -1,12 +1,11 @@
 # Ängelholm: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 737 segments: 737 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 688, partly read 32. Verified equal 590, filled from text 0, text stricter 0, disputed 1, expired 17, text without rules 97, multi-part texts (not compared) 0.
+Fully read 688, partly read 32. Verified equal 591, filled from text 0, text stricter 0, disputed 0, expired 17, text without rules 97, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1292 2015-00215 | Östergatan | expired 2015-08-09 | already uncertain |
-| 1292 2021-00354 | Sandvångsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":1440},{"dt":["helgdag"],"a":540,"b":1080,"max":60}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text differs: text wins (owner's decision 18 Oct) |
 | 1292 2026-00175 | Sofierogatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00176 | Alnarpsgatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00177 | Flyingegatan | expired 2026-10-24 | already uncertain |

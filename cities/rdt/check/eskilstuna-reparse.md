@@ -1,7 +1,7 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 1216 segments: 1216 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1036, partly read 150. Verified equal 938, filled from text 0, text stricter 3, disputed 0, expired 30, text without rules 67, multi-part texts (not compared) 0.
+Fully read 1036, partly read 150. Verified equal 941, filled from text 0, text stricter 0, disputed 0, expired 30, text without rules 95, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -31,9 +31,6 @@ Fully read 1036, partly read 150. Verified equal 938, filled from text 0, text s
 | 0484 2018-059 | Galléengatan | expired 2019-03-01 | already uncertain |
 | 0484 2018-080 | Rademachergatan | expired 2019-03-31 | already uncertain |
 | 0484 2025-1 | Vattugatan | expired 2025-01-31 | already uncertain |
-| 0484 2025-88 | Rothoffsvägen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
-| 0484 2025-220 | Järntorget | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":240}]} → {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":240},{"dt":["fore"],"a":480,"b":900,"max":240}]} | text stricter: applied |
-| 0484 2025-220 | Järntorget | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":240}]} → {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":240},{"dt":["fore"],"a":480,"b":900,"max":240}]} | text stricter: applied |
 | 0484 2026-47 | Eleonoragatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-165 | Skjulstagatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-183 | Kyrkogatan | expired 2026-10-16 | already uncertain |

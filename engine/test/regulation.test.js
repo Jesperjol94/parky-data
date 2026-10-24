@@ -335,3 +335,10 @@ test('QA 500 parts 1–2: bare time ranges, "vardagar, utom …, mellan", both c
   assert.deepEqual(l.bans, [{ w: 2, a: 480, b: 720 }]); assert.equal(l.limits[0].max, 1440);
   assert.deepEqual(parseRegulation('följande. På X får fordon parkeras. Tillåtelsen gäller dock mot avgift. Villkoret gäller -vardagar utom vardag före sön- och helgdag klockan 09.00 - 18.00 och -vardag före sön- och helgdag klockan 09.00 - 15.00.').feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }, { dt: ['fore'], a: 540, b: 900 }]);
 });
+test('QA-500b: "taxa 35 kronor" is a price, combined limit+fee season, heavy-only wordings, "2:a i månaden", colour notes', () => {
+  const r = parseRegulation('följande. På Strandpromenaden får fordon parkeras under högst 4 tim i följd. Avgift enligt taxa 35 kronor per timme under tiden klockan 10.00 - 06.00. Tidsbegränsningen och avgiftsplikten gäller under tiden 1 juni - 31 augusti.');
+  assert.equal(r.taxa, null); assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 240, m: [[6, 1], [8, 31]] }]); assert.deepEqual(r.feeWindows, [{ a: 600, b: 360, m: [[6, 1], [8, 31]] }]);
+  assert.equal(parseRegulation('följande. 1 § På Malmgatan får inte lastbil och motordrivet fordon med tillkopplad släpvagn parkeras.').heavyOnly, true);
+  assert.equal(parseRegulation('följande. På X får fordon med totalvikt över 3,5 ton inte parkeras klockan 22.00 - 08.00.').heavyOnly, true);
+  assert.deepEqual(parseRegulation('följande. På X får fordon parkeras. Parkering är dock förbjuden 2:a i månaden klockan 09.00 - 12.00. Förbudet gäller inte vardag före sön – helgdag samt sön – helgdag.').bans, [{ dm: 2, a: 540, b: 720, dt: ['vardag'] }]);
+});

@@ -36,7 +36,8 @@ function multiPart(body) {
   const sides = new Set((t.match(/\b(östra|västra|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size;
   void paras; // "1 § place, 2 § hours, 3 § fee" is one place in several paragraphs: only several places or sides make a text multi-part (18 Oct review)
   // several sides in one sentence with one rule ("västra sida …, norra sida … samt östra sida … får fordon parkeras") are one rule set (QA 22 Oct)
-  return places > 1 || (sides > 1 && (t.match(/får (?:fordon|endast|personbil)/g) || []).length > 1);
+  const colours = new Set((t.match(/markerats? (?:med )?(blå|grön|röd|gul|lila|orange|svart)/gi) || []).map((x) => x.toLowerCase().split(/\s/).pop())).size;
+  return places > 1 || colours > 1 || (sides > 1 && (t.match(/får (?:fordon|endast|personbil)/g) || []).length > 1); // places marked in several colours with different rules (Norrtälje Campus Roslagen)
 }
 
 // Rules the text gives, in segment form
@@ -119,7 +120,7 @@ for (const row of idx.cities) {
       if ((s.fr || null) !== fr) { if (fr) s.fr = fr; else delete s.fr; changed++; }
       if ((s.to || null) !== to) { if (to) s.to = to; else delete s.to; changed++; }
       // fee: "mot avgift" in the text and no fee table known → unknown fee (orange "see sign"), never free
-      if (!s.t && /avgift/i.test(body) && !/utan avgift|avgiftsfri|ingen avgift|avgift (?:ska|skall|behöver) (?:inte|ej)/i.test(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, ''))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; }
+      if (!s.t && /avgift/i.test(body) && !/utan avgift|avgiftsfri|ingen avgift|avgift(?:en)? (?:ska|skall|behöver) (?:inte|ej)(?! (?:erläggas|betalas) av (?:rörelsehindrad|boende))/i.test(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, ''))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; }
       // parking disc
       if (/parkeringsskiva|p-skiva/i.test(body) && !s.ps) { s.ps = 1; changed++; }
       // "personbil" is a vehicle class, not a reservation
