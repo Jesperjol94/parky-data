@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-23. 3840 segments: 3840 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3638, partly read 123. Verified equal 3336, filled from text 0, text stricter 5, disputed 0, expired 79, text without rules 290, multi-part texts (not compared) 0.
+Run 2026-10-24. 3840 segments: 3840 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3638, partly read 123. Verified equal 3339, filled from text 0, text stricter 0, disputed 2, expired 79, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -69,11 +69,8 @@ Fully read 3638, partly read 123. Verified equal 3336, filled from text 0, text 
 | 1283 2010-00663 | Tornfalksgatan | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"w":1,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":2,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":3,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":4,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":5,"a":0,"b":1440,"m":[[6,15],[9,15]]}]} → {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} | text stricter: applied |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"w":1,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":2,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":3,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":4,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":5,"a":0,"b":1440,"m":[[6,15],[9,15]]}]} → {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} | text stricter: applied |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"w":1,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":2,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":3,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":4,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":5,"a":0,"b":1440,"m":[[6,15],[9,15]]}]} → {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} | text stricter: applied |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"w":1,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":2,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":3,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":4,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":5,"a":0,"b":1440,"m":[[6,15],[9,15]]}]} → {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} | text stricter: applied |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"w":1,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":2,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":3,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":4,"a":0,"b":1440,"m":[[6,15],[9,15]]},{"w":5,"a":0,"b":1440,"m":[[6,15],[9,15]]}]} → {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} | text stricter: applied |
+| 1283 2016-195 | Industrigatan | {"f":[{"w":1,"a":420,"b":1080},{"w":2,"a":420,"b":1080},{"w":3,"a":420,"b":1080},{"w":4,"a":420,"b":1080},{"w":5,"a":420,"b":1080},{"w":5,"a":840,"b":900}]} → {"f":[{"w":5,"a":840,"b":900}],"l":[{"w":1,"a":420,"b":1080,"max":15},{"w":2,"a":420,"b":1080,"max":15},{"w":3,"a":420,"b":1080,"max":15},{"w":4,"a":420,"b":1080,"max":15},{"w":5,"a":420,"b":1080,"max":15}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1283 2016-195 | Industrigatan | {"f":[{"w":1,"a":420,"b":1080},{"w":2,"a":420,"b":1080},{"w":3,"a":420,"b":1080},{"w":4,"a":420,"b":1080},{"w":5,"a":420,"b":1080},{"w":5,"a":840,"b":900}]} → {"f":[{"w":5,"a":840,"b":900}],"l":[{"w":1,"a":420,"b":1080,"max":15},{"w":2,"a":420,"b":1080,"max":15},{"w":3,"a":420,"b":1080,"max":15},{"w":4,"a":420,"b":1080,"max":15},{"w":5,"a":420,"b":1080,"max":15}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-596 | Föreningsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-618 | Konduktörsgatan | expired 2026-10-23 | already uncertain |

@@ -1,7 +1,7 @@
 # Nacka: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-23. 2869 segments: 2869 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2825, partly read 44. Verified equal 2641, filled from text 0, text stricter 0, disputed 7, expired 0, text without rules 167, multi-part texts (not compared) 10.
+Run 2026-10-24. 2869 segments: 2869 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2825, partly read 44. Verified equal 2637, filled from text 3, text stricter 2, disputed 9, expired 0, text without rules 164, multi-part texts (not compared) 10.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,6 +9,13 @@ Fully read 2825, partly read 44. Verified equal 2641, filled from text 0, text s
 | 0182 2015-00029 | Kadettvägen | {"f":[{"dt":["vardag"],"a":420,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":420,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2019-00066 | Skuru Skolväg | {"f":[{"dt":["vardag"],"a":60,"b":240},{"dt":["vardag"],"a":480,"b":1020,"ov":1}]} → {"f":[{"dt":["vardag"],"a":60,"b":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2023-00251 | Örnvägen | {"f":[{"w":1,"a":480,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0182 2025-00435 | Moränvägen | uncertain → {"l":[{"a":0,"b":1440,"max":720}]} | filled from text |
+| 0182 2025-00435 | Moränvägen | uncertain → {"l":[{"a":0,"b":1440,"max":720}]} | filled from text |
+| 0182 2025-00443 | Lillängsvägen | uncertain → {"f":[{"w":1,"a":480,"b":960}]} | filled from text |
+| 0182 2025-00494 | Ugglevägen | {"f":[{"dt":["vardag"],"a":420,"b":1140},{"w":4,"a":420,"b":1140},{"dt":["fore"],"a":660,"b":1020}]} → {"f":[{"dt":["vardag"],"a":420,"b":1140}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0182 2026-00047 | Värmdövägen | {"f":[{"w":5,"a":720,"b":1020}]} → {"f":[{"w":5,"a":720,"b":1020}],"l":[{"a":0,"b":1440,"max":120}]} | text stricter: applied |
+| 0182 2026-00047 | Värmdövägen | {"f":[{"w":5,"a":720,"b":1020}]} → {"f":[{"w":5,"a":720,"b":1020}],"l":[{"a":0,"b":1440,"max":120}]} | text stricter: applied |
+| 0182 2026-00086 | Fasanvägen | {"f":[{"dt":["vardag"],"a":420,"b":1140},{"w":2,"a":420,"b":1140},{"dt":["fore"],"a":660,"b":1020}]} → {"f":[{"dt":["vardag"],"a":420,"b":1140}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2026-00174 | Trädgårdsvägen | {"f":[{"w":5,"a":480,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":5,"a":480,"b":720}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2026-00174 | Skymningsvägen | {"f":[{"w":5,"a":480,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":5,"a":480,"b":720}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2026-00175 | Trädgårdsvägen | {"f":[{"w":3,"a":480,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":720}]} | text more permissive: text wins (owner's decision 18 Oct) |

@@ -1,7 +1,7 @@
 # Vänersborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-23. 973 segments: 973 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 932, partly read 37. Verified equal 923, filled from text 0, text stricter 0, disputed 0, expired 4, text without rules 9, multi-part texts (not compared) 0.
+Run 2026-10-24. 973 segments: 973 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 918, partly read 37. Verified equal 909, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 9, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,3 +9,17 @@ Fully read 932, partly read 37. Verified equal 923, filled from text 0, text str
 | 1487 2010-00395 | Sommarhemsvägen | expired 2010-07-02 | already uncertain |
 | 1487 2010-00395 | Sommarhemsvägen | expired 2010-07-02 | already uncertain |
 | 1487 2010-00395 | Sommarhemsvägen | expired 2010-07-02 | already uncertain |
+| 1487 2026-00286 | Drottninggatan | expired 2026-10-24 | now uncertain |
+| 1487 2026-00286 | Drottninggatan | expired 2026-10-24 | now uncertain |
+| 1487 2026-00287 | Kungsgatan | expired 2026-10-24 | now uncertain |
+| 1487 2026-00287 | Kungsgatan | expired 2026-10-24 | now uncertain |
+| 1487 2026-00287 | Kungsgatan | expired 2026-10-24 | now uncertain |
+| 1487 2026-00288 | Torget | expired 2026-10-24 | now uncertain |
+| 1487 2026-00288 | Torget | expired 2026-10-24 | now uncertain |
+| 1487 2026-00288 | Torget | expired 2026-10-24 | now uncertain |
+| 1487 2026-00288 | Torget | expired 2026-10-24 | now uncertain |
+| 1487 2026-00288 | Torget | expired 2026-10-24 | now uncertain |
+| 1487 2026-00288 | Torget | expired 2026-10-24 | now uncertain |
+| 1487 2026-00290 | Torstenssonsgatan | expired 2026-10-24 | now uncertain |
+| 1487 2026-00291 | Residensgatan | expired 2026-10-24 | now uncertain |
+| 1487 2026-00291 | Vallgatan | expired 2026-10-24 | now uncertain |

@@ -313,3 +313,10 @@ test('QA 22 Oct round 4: "första helgfria måndagen varje månad", motorhome-on
   assert.deepEqual(parseRegulation('följande. 1 § På Yttre Hamnen får fordon parkeras under högst 24 tim i följd. 2 § Tillåtelsen gäller inte personbil klass II under tiden vardagar mellan klockan 23.00 - 07.00.').bans, []);
   assert.equal(parseRegulation('följande. På Brogatan får fordon, med avvikelse från X om förbud att parkera inom ett område, parkeras. Avgift ska betalas.').permitted, true);
 });
+test('QA round 5 leftovers: seasons per window, week ranges, resident-permit sentences, "med avvikelse" lists', () => {
+  const r = parseRegulation('följande. Inom X får fordon parkeras under högst 3 tim i följd. Parkering är dock förbjuden under tiden 1 november - 30 april måndag klockan 00:00 - 06:00 och 1 maj - 31 oktober jämna veckor måndag klockan 09.00 - 13.00.');
+  assert.deepEqual(r.bans, [{ w: 1, a: 0, b: 360, m: [[11, 1], [4, 30]] }, { w: 1, a: 540, b: 780, m: [[5, 1], [10, 31]], p: 'even' }]);
+  assert.deepEqual(parseRegulation('följande. Inom X får fordon inte parkeras på dagar med udda datum på den sida av vägen som har udda adressnummer och på dagar med jämnt datum på den sida av vägen som har jämna adressnummer under tiden klockan 00.00 - 17.00 vecka 42 - 18.').dp, [{ a: 0, b: 1020, wk: [42, 18] }]);
+  assert.deepEqual(parseRegulation('följande. På X får fordon parkeras under högst 24 tim i följd. Tidsbegränsningen gäller inte boende i område SM som innehar särskilt tillstånd. Boende med särskilt tillstånd får parkeras under högst 7 dygn i följd.').limits, [{ a: 0, b: 1440, max: 1440 }]);
+  assert.equal(parseRegulation('följande. 1 § På X får fordon, med avvikelse från Y om område med förbud att parkera fordon på A, B och C , parkeras. 2 § Parkering är dock tillåten under högst 24 tim i följd.').unread.length, 0);
+});
