@@ -119,7 +119,7 @@ for (const row of idx.cities) {
       if ((s.fr || null) !== fr) { if (fr) s.fr = fr; else delete s.fr; changed++; }
       if ((s.to || null) !== to) { if (to) s.to = to; else delete s.to; changed++; }
       // fee: "mot avgift" in the text and no fee table known → unknown fee (orange "see sign"), never free
-      if (!s.t && /avgift/i.test(body) && !/utan avgift|avgiftsfri|ingen avgift|avgift (?:ska|skall|behöver) (?:inte|ej)/i.test(body)) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; }
+      if (!s.t && /avgift/i.test(body) && !/utan avgift|avgiftsfri|ingen avgift|avgift (?:ska|skall|behöver) (?:inte|ej)/i.test(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, ''))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; }
       // parking disc
       if (/parkeringsskiva|p-skiva/i.test(body) && !s.ps) { s.ps = 1; changed++; }
       // "personbil" is a vehicle class, not a reservation

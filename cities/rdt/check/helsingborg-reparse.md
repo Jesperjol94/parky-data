@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 3840 segments: 3840 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3638, partly read 123. Verified equal 3341, filled from text 0, text stricter 0, disputed 0, expired 79, text without rules 290, multi-part texts (not compared) 0.
+Fully read 3640, partly read 121. Verified equal 3341, filled from text 0, text stricter 2, disputed 0, expired 79, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -69,6 +69,8 @@ Fully read 3638, partly read 123. Verified equal 3341, filled from text 0, text 
 | 1283 2010-00663 | Tornfalksgatan | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
+| 1283 2010-02284 | Järnvägsgatan | {"l":[{"a":0,"b":1440,"max":15}]} → {"f":[{"dt":["vardag","fore"],"a":1320,"b":300},{"dt":["helgdag"],"a":1320,"b":300}],"l":[{"a":0,"b":1440,"max":15}]} | text stricter: applied |
+| 1283 2010-02284 | Järnvägsgatan | {"l":[{"a":0,"b":1440,"max":15}]} → {"f":[{"dt":["vardag","fore"],"a":1320,"b":300},{"dt":["helgdag"],"a":1320,"b":300}],"l":[{"a":0,"b":1440,"max":15}]} | text stricter: applied |
 | 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-596 | Föreningsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-618 | Konduktörsgatan | expired 2026-10-23 | already uncertain |

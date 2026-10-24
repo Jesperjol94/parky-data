@@ -175,7 +175,7 @@ test('RDT: "mellan klockan 8 och 18", "sön - och helgdag", "1:a december - 31:a
 
 test('RDT: a sentence that mentions a parking disc but carries a rule is not silently ignored', () => {
   const r = parseRegulation(wrapK('På markerad sträcka på östra sidan av Sandvångsgatan enligt kartbild får fordon parkeras under högst 24 tim i följd. Vardagar utom vardag före sön- och helgdag klockan 09.00 – 18.00 gäller dock tillåtelsen att parkera mot att avgift erläggs eller högst 1 timme i följd mot användande av parkeringsskiva eller motsvarande. Avgift enligt taxa zon 2.', 'Ängelholms kommun'));
-  assert.equal(r.unread.length, 1);
+  assert.deepEqual(r.unread, []); assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }]); assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 1440 }]); // pay, or 1 h with a disc: the fee hours; no 1 h limit for payers
   const q = parseRegulation(wrapK('På Storgatan får fordon parkeras under högst 1 tim i följd. Parkeringsskiva eller motsvarande ska användas.'));
   assert.deepEqual(q.limits, [{ a: 0, b: 1440, max: 60 }]); assert.deepEqual(q.unread, []);
 });
@@ -319,4 +319,19 @@ test('QA round 5 leftovers: seasons per window, week ranges, resident-permit sen
   assert.deepEqual(parseRegulation('följande. Inom X får fordon inte parkeras på dagar med udda datum på den sida av vägen som har udda adressnummer och på dagar med jämnt datum på den sida av vägen som har jämna adressnummer under tiden klockan 00.00 - 17.00 vecka 42 - 18.').dp, [{ a: 0, b: 1020, wk: [42, 18] }]);
   assert.deepEqual(parseRegulation('följande. På X får fordon parkeras under högst 24 tim i följd. Tidsbegränsningen gäller inte boende i område SM som innehar särskilt tillstånd. Boende med särskilt tillstånd får parkeras under högst 7 dygn i följd.').limits, [{ a: 0, b: 1440, max: 1440 }]);
   assert.equal(parseRegulation('följande. 1 § På X får fordon, med avvikelse från Y om område med förbud att parkera fordon på A, B och C , parkeras. 2 § Parkering är dock tillåten under högst 24 tim i följd.').unread.length, 0);
+});
+test('QA 500 part 3: trailing whole-day day types, "kl. … och kl. …", "får dock fordon", paragraph seasons', () => {
+  assert.deepEqual(parseRegulation('följande. 1 § På X får fordon parkeras. 2 § Parkering är dock förbjuden vardag mellan klockan 18.00 - 06.00, vardag före sön- och helgdag samt sön- och helgdag.').bans, [{ dt: ['vardag'], a: 1080, b: 360 }, { dt: ['fore', 'helgdag'], a: 0, b: 1440 }]);
+  assert.deepEqual(parseRegulation('följande. På X får fordon parkeras högst 3 timmar vardagar mellan kl. 08.00 och kl. 17.00.').limits, [{ dt: ['vardag', 'fore'], a: 480, b: 1020, max: 180 }]);
+  const r = parseRegulation('följande. 1 § På X får fordon parkeras. 2 § Trots tillåtelsen i 1 § får dock fordon parkeras högst 24 timmar i följd vardagar utom vardagar före sön- och helgdag. 3 § Mellan klockan 8 och 20 gäller tillåtelsen i 1 § högst 3 timmar i följd mot avgift. 4 § Tillåtelsen i 1 § och villkoren i 3 § gäller mellan 1 juni och 31 augusti.');
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 0, b: 1440, max: 1440 }, { a: 480, b: 1200, max: 180, m: [[6, 1], [8, 31]] }]);
+});
+test('QA 500 parts 1–2: bare time ranges, "vardagar, utom …, mellan", both car classes, marked-bay wording, Övrig tid after a ban, villkoret fee hours', () => {
+  assert.deepEqual(parseRegulation('följande. På Långgatan får fordon inte stannas eller parkeras 21.00 - 03.00.').bans, [{ a: 1260, b: 180 }]);
+  assert.deepEqual(parseRegulation('följande. På X får fordon inte parkeras. Förbudet gäller vardagar, utom vardag före sön- och helgdag, mellan klockan 07:00 och 17:00.').bans, [{ dt: ['vardag'], a: 420, b: 1020 }]);
+  assert.equal(parseRegulation('följande. På X får endast personbil klass 1 och personbil klass 2 parkeras, högst 8 dygn i följd.').reserved, false);
+  assert.deepEqual(parseRegulation('följande. Vid parkering inom avgränsat parkeringsområde, får fordon inte parkeras annat än på särskilt markerad uppställningsplats.').bans, []);
+  const l = parseRegulation('följande. På Vändgatan får fordon inte parkeras. Förbudet gäller tisdag klockan 08.00 - 12.00. Övrig tid får fordon parkeras under högst 24 tim i följd vardag.');
+  assert.deepEqual(l.bans, [{ w: 2, a: 480, b: 720 }]); assert.equal(l.limits[0].max, 1440);
+  assert.deepEqual(parseRegulation('följande. På X får fordon parkeras. Tillåtelsen gäller dock mot avgift. Villkoret gäller -vardagar utom vardag före sön- och helgdag klockan 09.00 - 18.00 och -vardag före sön- och helgdag klockan 09.00 - 15.00.').feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }, { dt: ['fore'], a: 540, b: 900 }]);
 });
