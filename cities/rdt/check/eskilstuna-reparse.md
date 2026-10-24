@@ -1,7 +1,7 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 1216 segments: 1216 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1036, partly read 150. Verified equal 941, filled from text 0, text stricter 0, disputed 0, expired 30, text without rules 95, multi-part texts (not compared) 0.
+Fully read 1055, partly read 131. Verified equal 946, filled from text 0, text stricter 5, disputed 1, expired 30, text without rules 95, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -30,7 +30,13 @@ Fully read 1036, partly read 150. Verified equal 941, filled from text 0, text s
 | 0484 2018-050 | Tegnérgatan | expired 2018-07-06 | already uncertain |
 | 0484 2018-059 | Galléengatan | expired 2019-03-01 | already uncertain |
 | 0484 2018-080 | Rademachergatan | expired 2019-03-31 | already uncertain |
+| 0484 2024-120 | Vilstastigen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0484 2024-121 | Vilstavägen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0484 2024-123 | Vilstavägen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0484 2024-124 | Vilstavägen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0484 2024-125 | Vilstavägen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
 | 0484 2025-1 | Vattugatan | expired 2025-01-31 | already uncertain |
+| 0484 2025-67 | Campingvägen | {"f":[{"dt":["vardag"],"a":360,"b":120,"m":[[6,1],[9,30]]}]} → {"aw":[{"dt":["vardag","fore"],"a":360,"b":120,"m":[[6,1],[9,30]]},{"dt":["helgdag"],"a":360,"b":120,"m":[[6,1],[9,30]]}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0484 2026-47 | Eleonoragatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-165 | Skjulstagatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-183 | Kyrkogatan | expired 2026-10-16 | already uncertain |

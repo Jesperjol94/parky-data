@@ -1,10 +1,11 @@
 # Solna: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 2316 segments: 2316 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2253, partly read 45. Verified equal 2228, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 25, multi-part texts (not compared) 0.
+Fully read 2267, partly read 31. Verified equal 2241, filled from text 0, text stricter 1, disputed 0, expired 18, text without rules 25, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 0184 2009-00074 | Erik Sandbergs gata | {} → {"f":[{"dt":["vardag"],"a":480,"b":960}]} | text stricter: applied |
 | 0184 2011-00047 | Frösundaleden | expired 2011-03-29 | already uncertain |
 | 0184 2011-00047 | Frösundaleden | expired 2011-03-29 | already uncertain |
 | 0184 2012-00605 | Gustav III:s boulevard | expired 2013-09-30 | already uncertain |

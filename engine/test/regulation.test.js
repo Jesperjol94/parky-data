@@ -342,3 +342,9 @@ test('QA-500b: "taxa 35 kronor" is a price, combined limit+fee season, heavy-onl
   assert.equal(parseRegulation('följande. På X får fordon med totalvikt över 3,5 ton inte parkeras klockan 22.00 - 08.00.').heavyOnly, true);
   assert.deepEqual(parseRegulation('följande. På X får fordon parkeras. Parkering är dock förbjuden 2:a i månaden klockan 09.00 - 12.00. Förbudet gäller inte vardag före sön – helgdag samt sön – helgdag.').bans, [{ dm: 2, a: 540, b: 720, dt: ['vardag'] }]);
 });
+test('lone unread sentences that blocked whole regulations (24 Oct)', () => {
+  assert.deepEqual(parseRegulation('följande. På samtliga vägar inom ett område får fordon inte stannas eller parkeras under tiden vardag utom vardag före sön- och helgdag klockan 11.00 - 09.00, vardag före sön- och helgdag klockan 00.00 - 24.00 och sön- och helgdag klockan 00.00 - 24.00. Förbudet gäller inte ambulans och utryckningsfordon.').unread, []);
+  assert.equal(parseRegulation('följande. 1 § På X får fordon parkeras. 2 § Tillåtelsen gäller 4 tim i följd.').limits[0].max, 240);
+  assert.equal(parseRegulation('följande. 1 § På X får fordon inte parkeras under vardagar utom vardag före sön- och helgdag mellan klockan 00.00 – 09.00. 2 § Tidsbegränsningen gäller 15 november – 15 april.').bans[0].m.length, 2);
+  assert.equal(parseRegulation('följande. På X får fordon parkeras högst 3 timmar i följd. Tidsbegränsningen gäller vardagar mellan kl. 06.00-18.00. Övrig tid fri parkering.').unread.length, 0);
+});

@@ -1,7 +1,7 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2607, partly read 166. Verified equal 2604, filled from text 0, text stricter 0, disputed 2, expired 28, text without rules 1, multi-part texts (not compared) 0.
+Fully read 2631, partly read 142. Verified equal 2627, filled from text 0, text stricter 1, disputed 2, expired 28, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,6 +9,7 @@ Fully read 2607, partly read 166. Verified equal 2604, filled from text 0, text 
 | 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
 | 1880 2021-01026 | Överstegatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1880 2026-01079 | Nygatan | expired 2026-10-19 | already uncertain |
+| 1880 2026-01126 | Olaigatan | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":1200,"max":180},{"dt":["helgdag"],"a":480,"b":840,"max":180}]} → {"f":[{"a":0,"b":360,"dd":"even"}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":1200,"max":180},{"dt":["helgdag"],"a":480,"b":840,"max":180}],"aw":[{"dt":["vardag"],"a":480,"b":1200},{"dt":["fore"],"a":480,"b":1200},{"dt":["helgdag"],"a":480,"b":840}],"v":"buss"} | text stricter: applied |
 | 1880 2026-01221 | Kristinagatan | expired 2026-10-16 | already uncertain |
 | 1880 2026-01221 | Kristinagatan | expired 2026-10-16 | already uncertain |
 | 1880 2026-01224 | Sancta Birgittagatan | expired 2026-10-16 | already uncertain |

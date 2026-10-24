@@ -1,13 +1,14 @@
 # Mölndal: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 2309 segments: 2309 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2261, partly read 35. Verified equal 1865, filled from text 0, text stricter 0, disputed 0, expired 13, text without rules 392, multi-part texts (not compared) 4.
+Fully read 2263, partly read 33. Verified equal 1866, filled from text 0, text stricter 1, disputed 0, expired 13, text without rules 392, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1481 2008-00222 | Trädgårdsgatan | expired 2013-10-29 | already uncertain |
 | 1481 2010-00124 | Holmåkravägen | expired 2014-09-07 | already uncertain |
 | 1481 2010-00141 | Kornvägen | expired 2014-09-08 | already uncertain |
+| 1481 2019-00159 | Almåsgången | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"v":"husbil"} | text stricter: applied |
 | 1481 2026-141 | Hulelycksgatan | expired 2026-10-16 | already uncertain |
 | 1481 2026-148 | Kämpegatan | expired 2026-10-20 | already uncertain |
 | 1481 2026-148 | Kämpegatan | expired 2026-10-20 | already uncertain |
