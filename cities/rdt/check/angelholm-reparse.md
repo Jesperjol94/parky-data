@@ -6,12 +6,12 @@ Fully read 610, partly read 110. Verified equal 590, filled from text 0, text st
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1292 2015-00215 | Östergatan | expired 2015-08-09 | already uncertain |
-| 1292 2026-00175 | Sofierogatan | expired 2026-10-24 | now uncertain |
-| 1292 2026-00176 | Alnarpsgatan | expired 2026-10-24 | now uncertain |
-| 1292 2026-00177 | Flyingegatan | expired 2026-10-24 | now uncertain |
-| 1292 2026-00178 | Borgebygatan | expired 2026-10-24 | now uncertain |
-| 1292 2026-00179 | Häckebergagatan | expired 2026-10-24 | now uncertain |
-| 1292 2026-00179 | Häckebergagatan | expired 2026-10-24 | now uncertain |
+| 1292 2026-00175 | Sofierogatan | expired 2026-10-24 | already uncertain |
+| 1292 2026-00176 | Alnarpsgatan | expired 2026-10-24 | already uncertain |
+| 1292 2026-00177 | Flyingegatan | expired 2026-10-24 | already uncertain |
+| 1292 2026-00178 | Borgebygatan | expired 2026-10-24 | already uncertain |
+| 1292 2026-00179 | Häckebergagatan | expired 2026-10-24 | already uncertain |
+| 1292 2026-00179 | Häckebergagatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00181 | Björkvägen | expired 2026-10-17 | already uncertain |
 | 1292 2026-00182 | Vårvägen | expired 2026-10-17 | already uncertain |
 | 1292 2026-00183 | Jägarestigen | expired 2026-10-17 | already uncertain |
@@ -19,6 +19,6 @@ Fully read 610, partly read 110. Verified equal 590, filled from text 0, text st
 | 1292 2026-00185 | Dalslandsgatan | expired 2026-10-17 | already uncertain |
 | 1292 2026-00186 | Västgötagatan | expired 2026-10-17 | already uncertain |
 | 1292 2026-00187 | Östgötagatan | expired 2026-10-17 | already uncertain |
-| 1292 2026-00216 | Järnvägsgatan | expired 2026-10-24 | now uncertain |
+| 1292 2026-00216 | Järnvägsgatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00217 | Järnvägsgatan | expired 2026-10-23 | already uncertain |
-| 1292 2026-00218 | Västra Kyrkogatan | expired 2026-10-24 | now uncertain |
+| 1292 2026-00218 | Västra Kyrkogatan | expired 2026-10-24 | already uncertain |

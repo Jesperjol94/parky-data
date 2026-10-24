@@ -5,11 +5,11 @@ Fully read 250, partly read 21. Verified equal 246, filled from text 0, text str
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | now uncertain |
-| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | now uncertain |
-| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | now uncertain |
-| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | now uncertain |
-| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | now uncertain |
-| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | now uncertain |
-| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | now uncertain |
+| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |
+| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |
+| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |
+| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |
+| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |
+| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |
+| 0381 2026-0127 | Stora torget och Kyrkogatan | expired 2026-10-24 | already uncertain |
 | 0381 2026-0130 | Västra Ringgatan | expired 2026-10-23 | already uncertain |

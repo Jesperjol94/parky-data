@@ -5,7 +5,7 @@ Fully read 218, partly read 51. Verified equal 203, filled from text 0, text str
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0586 2026-167 | Stora Torget | expired 2026-10-24 | now uncertain |
-| 0586 2026-167 | Stora Torget | expired 2026-10-24 | now uncertain |
-| 0586 2026-167 | Stora Torget | expired 2026-10-24 | now uncertain |
-| 0586 2026-167 | Stora Torget | expired 2026-10-24 | now uncertain |
+| 0586 2026-167 | Stora Torget | expired 2026-10-24 | already uncertain |
+| 0586 2026-167 | Stora Torget | expired 2026-10-24 | already uncertain |
+| 0586 2026-167 | Stora Torget | expired 2026-10-24 | already uncertain |
+| 0586 2026-167 | Stora Torget | expired 2026-10-24 | already uncertain |

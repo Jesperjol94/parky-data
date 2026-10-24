@@ -154,7 +154,17 @@ for (const row of idx.cities) {
       if (APPLY) { for (const k of ['f', 'l', 'aw', 'v', 'k', 'ko', 'u']) delete s[k]; s.hv = 1; s.rx = 1; changed++; }
       continue;
     }
-    if (multi) { st.multi++; if (s.u) st.uStill++; continue; }
+    if (multi) {
+      st.multi++;
+      // A text with several stretches (different rules per part): the register's rules for this piece must at least appear
+      // somewhere in the text. A ban hour or a time limit the text never mentions means the piece's rules can't be trusted:
+      // grey "check the sign" (u, marked ux so a later run can lift it) rather than possibly wrong colours (owner, 24 Oct).
+      const tt = fromText(r), win = (w) => `${w.a}-${w.b}`;
+      const textBans = new Set((tt.f || []).map(win)), textMax = new Set((tt.l || []).map((l) => l.max)), anyText = hasRules(tt);
+      const odd = anyText && (((s.f || []).filter((w) => !w.ov).some((w) => !textBans.has(win(w)) && !(w.a === 0 && w.b === 1440 && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(rec.body)))) || (s.l || []).some((l) => !textMax.has(l.max)));
+      if (APPLY) { if (odd && !s.u) { s.u = 1; s.ux = 1; changed++; st.multiGrey = (st.multiGrey || 0) + 1; } else if (!odd && s.ux) { delete s.u; delete s.ux; changed++; } }
+      if (s.u) st.uStill++; continue;
+    }
     const t = fromText(r);
     // a text that permits parking with no further conditions, where the register has a ban or allowed hours: the text wins (QA 22 Oct:
     // Halmstad Brogatan, Huddinge Månvägen and Uppsala Granitvägen showed the fee hours or a whole day as a ban)

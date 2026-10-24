@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 2305 segments: 2305 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2080, partly read 34. Verified equal 1445, filled from text 0, text stricter 62, disputed 0, expired 191, text without rules 573, multi-part texts (not compared) 0.
+Fully read 2080, partly read 34. Verified equal 1507, filled from text 0, text stricter 0, disputed 0, expired 191, text without rules 573, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -194,67 +194,5 @@ Fully read 2080, partly read 34. Verified equal 1445, filled from text 0, text s
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
-| 0680 2025-426 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-426 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-426 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-426 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-426 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-426 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-426 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-427 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-427 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-427 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-427 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-427 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-427 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-427 | Starrgatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-439 | Liljeholmsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-439 | Liljeholmsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-439 | Liljeholmsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-439 | Liljeholmsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-439 | Liljeholmsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-439 | Liljeholmsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-439 | Liljeholmsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-440 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-440 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-440 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-440 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-440 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-440 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-440 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-441 | Mellangatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-441 | Mellangatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-441 | Mellangatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-441 | Mellangatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-441 | Mellangatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-441 | Mellangatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-441 | Mellangatan | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-442 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-442 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-442 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-442 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-442 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-442 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-442 | Mellangatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-443 | Rosenbergsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-443 | Rosenbergsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-443 | Rosenbergsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-443 | Rosenbergsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-443 | Rosenbergsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-443 | Rosenbergsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-443 | Rosenbergsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-443 | Rosenbergsgatan | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-458 | Saturnusvägen | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-458 | Saturnusvägen | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-458 | Saturnusvägen | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-458 | Saturnusvägen | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-458 | Saturnusvägen | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-458 | Saturnusvägen | {} → {"f":[{"w":5,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-459 | Saturnusvägen | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-459 | Saturnusvägen | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-459 | Saturnusvägen | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-459 | Saturnusvägen | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-459 | Saturnusvägen | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
-| 0680 2025-459 | Saturnusvägen | {} → {"f":[{"w":1,"nw":1,"a":540,"b":780}]} | text stricter: applied |
 | 0680 2026-504 | Blåklintstigen | expired 2026-10-21 | already uncertain |
 | 0680 2026-504 | Vildvinsbacken | expired 2026-10-21 | already uncertain |

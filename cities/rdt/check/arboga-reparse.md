@@ -5,4 +5,4 @@ Fully read 186, partly read 5. Verified equal 178, filled from text 0, text stri
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1984 2026-00072 | Kapellgatan | expired 2026-10-24 | now uncertain |
+| 1984 2026-00072 | Kapellgatan | expired 2026-10-24 | already uncertain |
