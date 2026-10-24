@@ -118,10 +118,12 @@ jobs:
           node cities/rdt-merge.mjs /tmp/prev cities/rdt junctions,crossings,junctionsBuilt,junctionsMissing,busStops,levelCrossings,stopsBuilt
           # the same fixes as on the branch, so a rebuild from the register does not undo them
           node cities/rdt-drop.mjs cities/rdt --apply
+          node cities/rdt-repealed.mjs cities/rdt --apply
           node cities/rdt-split.mjs cities/rdt --apply
           node cities/rdt-zones.mjs cities/rdt --apply
           node cities/rdt-datum.mjs cities/rdt --apply
           node cities/rdt-names.mjs cities/rdt --apply
+          node cities/rdt-namefix.mjs cities/rdt --apply
           node cities/rdt-reparse.mjs cities/rdt --apply
           node cities/rdt-overlay.mjs cities/rdt --apply
           node cities/rdt-trim.mjs cities/rdt --apply
