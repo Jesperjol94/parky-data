@@ -348,3 +348,10 @@ test('lone unread sentences that blocked whole regulations (24 Oct)', () => {
   assert.equal(parseRegulation('följande. 1 § På X får fordon inte parkeras under vardagar utom vardag före sön- och helgdag mellan klockan 00.00 – 09.00. 2 § Tidsbegränsningen gäller 15 november – 15 april.').bans[0].m.length, 2);
   assert.equal(parseRegulation('följande. På X får fordon parkeras högst 3 timmar i följd. Tidsbegränsningen gäller vardagar mellan kl. 06.00-18.00. Övrig tid fri parkering.').unread.length, 0);
 });
+test('fee hours when the rate is in another regulation; an explicit fee sentence beats "Villkoret gäller" (24 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På Torggatans östra sida enligt kartbild får fordon parkeras. 2 § Avgift ska betalas för parkering enligt 1 §. Avgiftsplikten gäller vardag utom vardag före sön- och helgdag klockan 08.00 - 20.00 samt vardag före sön- och helgdag klockan 08.00 - 15.00. 3 § Avgiften i 2 § är enligt taxa City-P 4 § Röd taxa. 4 § Trots tillåtelsen i 1 § får fordon inte parkeras på onsdagar klockan 08.00 - 11.00 (gäller vardagar utom vardag före sön- och helgdag).');
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1200 }, { dt: ['fore'], a: 480, b: 900 }]);
+  assert.deepEqual(r.bans, [{ w: 3, a: 480, b: 660, dt: ['vardag'] }]);
+  const s = parseRegulation('följande. 1 § På Sjögatan får fordon parkeras mot avgift. 2 § Tillåtelsen gäller under högst 2 timmar i följd. Villkoret gäller vardag utom vardag före sön- och helgdag klockan 08.00 - 19.00. 3 § Avgift ska betalas för parkering enligt 1 §. Avgiftsplikten gäller klockan 00.00 - 24.00.');
+  assert.deepEqual(s.feeWindows, [{ a: 0, b: 1440 }]);
+});

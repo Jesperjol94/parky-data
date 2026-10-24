@@ -150,6 +150,19 @@ for (const row of idx.cities) {
         if (s.t !== id) { s.t = id; changed++; st.feeHours = (st.feeHours || 0) + 1; }
       }
     }
+    // "Avgift – se skylten" (fu: a fee, but the rate is in another regulation) charged around the clock in the app, although
+    // the text gives the fee hours (owner 24 Oct: Norrköping Torggatan/Fleminggatan said "fee" on a Saturday night).
+    // The hours become a fee entry with an unknown price (null = "see the sign"), free outside them: <kommun>999*100+n.
+    if (r.feeWindows && s.t == null && s.fu && APPLY && rec.body.split(/\.\s+/).filter((x) => /^\s*(?:\d+ §\s*)?avgift/i.test(x) && /(?:klockan|kl\.?)\s*\d/i.test(x)).length <= 1) { // one fee rule in the text, even for several stretches
+      const periods = r.feeWindows.filter((w) => !w.w && !w.p && !w.dm && !w.nw && !w.dd && !w.wk && w.a < w.b).map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: 0, m: w.m })).map((p) => ({ ...p, price: null }));
+      if (periods.length && periods.length === r.feeWindows.length) {
+        c.taxa ||= {};
+        const b0 = +c.kommunkod * 1000 + 999, sig = JSON.stringify(periods);
+        let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
+        if (!id) { let n = 1; while (c.taxa[b0 * 100 + n]) n++; id = b0 * 100 + n; c.taxa[id] = { periods, label: 'Taxa enligt skylten', otherTime: 0 }; }
+        s.t = id; changed++; st.feeHoursSign = (st.feeHoursSign || 0) + 1;
+      }
+    }
     if (r.heavyOnly && !hasRules(fromText(r))) { // the whole text only restricts heavy vehicles: no rule for cars, even when it names several places
       st.heavyOnly = (st.heavyOnly || 0) + 1;
       if (APPLY) { for (const k of ['f', 'l', 'aw', 'v', 'k', 'ko', 'u']) delete s[k]; s.hv = 1; s.rx = 1; changed++; }
