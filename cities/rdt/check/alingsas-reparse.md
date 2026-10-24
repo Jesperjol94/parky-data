@@ -1,11 +1,10 @@
 # Alingsås: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 722 segments: 722 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 589, partly read 121. Verified equal 585, filled from text 0, text stricter 1, disputed 0, expired 12, text without rules 0, multi-part texts (not compared) 0.
+Fully read 591, partly read 119. Verified equal 588, filled from text 0, text stricter 0, disputed 0, expired 12, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1489 2022-57 | Gamla Vänersborgsvägen | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"v":"husbil"} | text stricter: applied |
 | 1489 2026-38 | Stationsgatan | expired 2026-10-19 | already uncertain |
 | 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |
 | 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |

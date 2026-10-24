@@ -1,27 +1,24 @@
 # Norrköping: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 3957 segments: 3957 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3774, partly read 171. Verified equal 3006, filled from text 0, text stricter 12, disputed 4, expired 12, text without rules 65, multi-part texts (not compared) 687.
+Fully read 3827, partly read 118. Verified equal 3051, filled from text 1, text stricter 2, disputed 10, expired 12, text without rules 68, multi-part texts (not compared) 695.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0581 2012-01330 | De Geersgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |
-| 0581 2012-01330 | De Geersgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |
-| 0581 2012-01501 | Rågången | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |
-| 0581 2012-01502 | Rågången | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |
-| 0581 2012-01512 | De Geersgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |
-| 0581 2012-01512 | De Geersgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |
-| 0581 2012-01512 | De Geersgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |
 | 0581 2016-00151 | Bråbogatan | {"f":[{"dm":5,"a":540,"b":720,"dt":["vardag"]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dm":5,"a":540,"b":720,"dt":["vardag"]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0581 2016-00151 | Bråbogatan | {"f":[{"dm":5,"a":540,"b":720,"dt":["vardag"]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dm":5,"a":540,"b":720,"dt":["vardag"]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0581 2017-00030 | Sandgatan | {"f":[{"dt":["vardag"],"a":1200,"b":360},{"dt":["fore"],"a":900,"b":360},{"dt":["helgdag"],"a":0,"b":1440},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":1200,"b":360},{"dt":["fore"],"a":900,"b":360},{"dt":["helgdag"],"a":0,"b":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0581 2021-00409 | Olai Kyrkogata | {"f":[{"dt":["vardag"],"a":660,"b":540}]} → {"f":[{"dt":["vardag"],"a":660,"b":540},{"dt":["fore"],"a":0,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}]} | text stricter: applied |
-| 0581 2021-00409 | Olai Kyrkogata | {"f":[{"dt":["vardag"],"a":660,"b":540}]} → {"f":[{"dt":["vardag"],"a":660,"b":540},{"dt":["fore"],"a":0,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}]} | text stricter: applied |
-| 0581 2021-00409 | Olai Kyrkogata | {"f":[{"dt":["vardag"],"a":660,"b":540}]} → {"f":[{"dt":["vardag"],"a":660,"b":540},{"dt":["fore"],"a":0,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}]} | text stricter: applied |
-| 0581 2021-00409 | Olai Kyrkogata | {"f":[{"dt":["vardag"],"a":660,"b":540}]} → {"f":[{"dt":["vardag"],"a":660,"b":540},{"dt":["fore"],"a":0,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}]} | text stricter: applied |
-| 0581 2021-00409 | Olai Kyrkogata | {"f":[{"dt":["vardag"],"a":660,"b":540}]} → {"f":[{"dt":["vardag"],"a":660,"b":540},{"dt":["fore"],"a":0,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}]} | text stricter: applied |
 | 0581 2021-00506 | Kungsgatan | {"f":[{"dt":["vardag"],"a":420,"b":540},{"dt":["vardag"],"a":660,"b":1080},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":420,"b":540},{"dt":["vardag"],"a":660,"b":1080}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0581 2024-707 | Kvarnholmsplan | {"f":[{"dt":["vardag"],"a":480,"b":660}]} → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0581 2024-707 | Kvarnholmsplan | {"f":[{"dt":["vardag"],"a":480,"b":660}]} → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0581 2024-715 | Prästgatan | expired 2024-09-29 | already uncertain |
+| 0581 2024-862 | Repslagaregatan | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text stricter: applied |
+| 0581 2024-862 | Repslagaregatan | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text stricter: applied |
+| 0581 2024-863 | Repslagaregatan | {"f":[{"dt":["vardag"],"a":480,"b":660}]} → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0581 2024-863 | Repslagaregatan | {"f":[{"dt":["vardag"],"a":480,"b":660}]} → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0581 2024-879 | Garvaregatan | {"f":[{"dt":["vardag"],"a":480,"b":660}]} → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0581 2024-879 | Garvaregatan | {"f":[{"dt":["vardag"],"a":480,"b":660}]} → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0581 2024-00053 | Stuvaregränd | uncertain → {"f":[{"dm":21,"a":540,"b":720,"dt":["vardag"]}]} | filled from text |
 | 0581 2026-544 | Rågången | expired 2026-10-17 | already uncertain |
 | 0581 2026-549 | Wadströmsgatan | expired 2026-10-23 | already uncertain |
 | 0581 2026-549 | Wadströmsgatan | expired 2026-10-23 | already uncertain |

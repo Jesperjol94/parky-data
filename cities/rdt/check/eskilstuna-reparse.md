@@ -1,7 +1,7 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-10-24. 1216 segments: 1216 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1055, partly read 131. Verified equal 946, filled from text 0, text stricter 5, disputed 1, expired 30, text without rules 95, multi-part texts (not compared) 0.
+Fully read 1064, partly read 122. Verified equal 954, filled from text 0, text stricter 1, disputed 1, expired 30, text without rules 103, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -20,6 +20,7 @@ Fully read 1055, partly read 131. Verified equal 946, filled from text 0, text s
 | 0484 2011-0332 | Hökgatan | expired 2015-01-02 | already uncertain |
 | 0484 2012-044 | Östra Storgatan | expired 2012-11-07 | already uncertain |
 | 0484 2012-150 | Erlandsgatan | expired 2016-02-08 | already uncertain |
+| 0484 2013-036 | Andbäcksvägen | {"f":[{"a":0,"b":1440}]} → {"l":[{"a":0,"b":1440,"max":720}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0484 2013-127 | Bryggaregatan | expired 2019-02-08 | already uncertain |
 | 0484 2014-034 | Ridhusplan | expired 2017-01-20 | already uncertain |
 | 0484 2014-037 | Björktorpsgatan | expired 2017-01-20 | already uncertain |
@@ -30,13 +31,8 @@ Fully read 1055, partly read 131. Verified equal 946, filled from text 0, text s
 | 0484 2018-050 | Tegnérgatan | expired 2018-07-06 | already uncertain |
 | 0484 2018-059 | Galléengatan | expired 2019-03-01 | already uncertain |
 | 0484 2018-080 | Rademachergatan | expired 2019-03-31 | already uncertain |
-| 0484 2024-120 | Vilstastigen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
-| 0484 2024-121 | Vilstavägen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
-| 0484 2024-123 | Vilstavägen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
-| 0484 2024-124 | Vilstavägen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
-| 0484 2024-125 | Vilstavägen | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0484 2022-14 | Strömsholmen | {"l":[{"a":0,"b":1440,"max":4320}]} → {"v":"husbil"} | text stricter: applied |
 | 0484 2025-1 | Vattugatan | expired 2025-01-31 | already uncertain |
-| 0484 2025-67 | Campingvägen | {"f":[{"dt":["vardag"],"a":360,"b":120,"m":[[6,1],[9,30]]}]} → {"aw":[{"dt":["vardag","fore"],"a":360,"b":120,"m":[[6,1],[9,30]]},{"dt":["helgdag"],"a":360,"b":120,"m":[[6,1],[9,30]]}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0484 2026-47 | Eleonoragatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-165 | Skjulstagatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-183 | Kyrkogatan | expired 2026-10-16 | already uncertain |
