@@ -1,7 +1,12 @@
 # Tanum: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-24. 856 segments: 856 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 756, partly read 100. Verified equal 715, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 41, multi-part texts (not compared) 0.
+Run 2026-10-25. 845 segments: 845 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 756, partly read 89. Verified equal 704, filled from text 0, text stricter 0, disputed 5, expired 0, text without rules 47, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 1435 2017-83 | Björnbärsvägen | {"f":[{"a":420,"b":960}]} → {"l":[{"a":420,"b":960,"max":15}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1435 2017-83 | Björnbärsvägen | {"f":[{"a":420,"b":960}]} → {"l":[{"a":420,"b":960,"max":15}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1435 2017-83 | Björnbärsvägen | {"f":[{"a":420,"b":960}]} → {"l":[{"a":420,"b":960,"max":15}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1435 2017-83 | Björnbärsvägen | {"f":[{"a":420,"b":960}]} → {"l":[{"a":420,"b":960,"max":15}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1435 2017-83 | Björnbärsvägen | {"f":[{"a":420,"b":960}]} → {"l":[{"a":420,"b":960,"max":15}]} | text more permissive: text wins (owner's decision 18 Oct) |

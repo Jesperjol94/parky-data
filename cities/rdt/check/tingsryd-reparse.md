@@ -1,7 +1,7 @@
 # Tingsryd: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-24. 109 segments: 109 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 68, partly read 7. Verified equal 67, filled from text 0, text stricter 0, disputed 0, expired 34, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-10-25. 109 segments: 109 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 70, partly read 5. Verified equal 69, filled from text 0, text stricter 0, disputed 0, expired 34, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

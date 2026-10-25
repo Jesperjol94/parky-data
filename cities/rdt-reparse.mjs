@@ -33,10 +33,14 @@ function multiPart(body) {
   const t = ruleText(body) || '';
   const paras = (t.match(/\b\d{1,2}\s*§/g) || []).length;
   const places = (t.match(/(?:^|[.;]\s*)På\s/g) || []).length + (t.match(/(?:^|[.;]\s*)Inom\s/g) || []).length;
-  const sides = new Set((t.match(/\b(östra|västra|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size;
+  const sides = new Set((t.match(/(?<![a-zåäö])((?:syd|nord)?(?:östra|västra)|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size; // not \b: it is ASCII-only, so "\böstra" never matched after a space (and matched inside "sydöstra")
   void paras; // "1 § place, 2 § hours, 3 § fee" is one place in several paragraphs: only several places or sides make a text multi-part (18 Oct review)
   // several sides in one sentence with one rule ("västra sida …, norra sida … samt östra sida … får fordon parkeras") are one rule set (QA 22 Oct)
   const colours = new Set((t.match(/markerats? (?:med )?(blå|grön|röd|gul|lila|orange|svart)/gi) || []).map((x) => x.toLowerCase().split(/\s/).pop())).size;
+  // a ban on the street and a permission on part of it ("Trots förbudet får fordon parkeras på … sida mellan …", "Med avvikelse från
+  // bestämmelserna i 1 § får fordon parkeras på anordnade platser"): two rule sets (QA 25 Oct: Täby Värtavägen, Danderyd Källvägen)
+  const exceptionPart = /(?:inte|ej) (?:stannas eller )?parkeras/i.test(t) && /(?:trots förbudet|med avvikelse från (?:bestämmelserna|förbudet) i (?:\d+\s*§|paragraf \d+|första stycket))[^.]*får (?:fordon|personbil)[^.]*parkeras/i.test(t);
+  if (exceptionPart) return true;
   return places > 1 || colours > 1 || (sides > 1 && (t.match(/får (?:fordon|endast|personbil)/g) || []).length > 1); // places marked in several colours with different rules (Norrtälje Campus Roslagen)
 }
 
@@ -175,7 +179,7 @@ for (const row of idx.cities) {
       // grey "check the sign" (u, marked ux so a later run can lift it) rather than possibly wrong colours (owner, 24 Oct).
       const tt = fromText(r), win = (w) => `${w.a}-${w.b}`;
       const textBans = new Set((tt.f || []).map(win)), textMax = new Set((tt.l || []).map((l) => l.max)), anyText = hasRules(tt);
-      const odd = anyText && (((s.f || []).filter((w) => !w.ov).some((w) => !textBans.has(win(w)) && !(w.a === 0 && w.b === 1440 && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(rec.body)))) || (s.l || []).some((l) => !textMax.has(l.max)));
+      const odd = anyText && (((s.f || []).filter((w) => !w.ov).some((w) => !textBans.has(win(w)) && !(w.a === 0 && w.b === 1440 && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(rec.body)))) || (s.l || []).some((l) => !textMax.has(l.max)) || (s.v && r.permitted)); // a reservation on a piece of a text that also lets ordinary cars park elsewhere: which piece is reserved can't be told (Bollebygd)
       if (APPLY) { if (odd && !s.u) { s.u = 1; s.ux = 1; changed++; st.multiGrey = (st.multiGrey || 0) + 1; } else if (!odd && s.ux) { delete s.u; delete s.ux; changed++; } }
       if (s.u) st.uStill++; continue;
     }

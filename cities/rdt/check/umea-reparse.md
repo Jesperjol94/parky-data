@@ -1,7 +1,7 @@
 # Umeå: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-24. 1374 segments: 1192 with a text, 0 without a cached text, 182 fetch errors.
-Fully read 1186, partly read 5. Verified equal 1176, filled from text 0, text stricter 0, disputed 0, expired 1, text without rules 8, multi-part texts (not compared) 2.
+Run 2026-10-25. 1367 segments: 1190 with a text, 0 without a cached text, 177 fetch errors.
+Fully read 1184, partly read 5. Verified equal 1174, filled from text 0, text stricter 0, disputed 0, expired 1, text without rules 8, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

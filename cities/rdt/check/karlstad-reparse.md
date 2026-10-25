@@ -1,11 +1,10 @@
 # Karlstad: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-24. 1988 segments: 1988 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1925, partly read 55. Verified equal 1459, filled from text 0, text stricter 0, disputed 32, expired 8, text without rules 434, multi-part texts (not compared) 0.
+Run 2026-10-25. 1844 segments: 1844 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1781, partly read 55. Verified equal 1322, filled from text 0, text stricter 0, disputed 31, expired 8, text without rules 428, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1780 2018-00101 | Trädgårdsgatan | {"f":[{"w":1,"a":480,"b":600,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":600,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1780 2024-00369 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1780 2024-00369 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1780 2024-00370 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |

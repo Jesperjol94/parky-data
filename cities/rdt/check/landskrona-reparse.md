@@ -1,10 +1,13 @@
 # Landskrona: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-24. 2875 segments: 2875 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2852, partly read 13. Verified equal 1662, filled from text 0, text stricter 0, disputed 0, expired 10, text without rules 1190, multi-part texts (not compared) 0.
+Run 2026-10-25. 2866 segments: 2866 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2844, partly read 12. Verified equal 1651, filled from text 0, text stricter 3, disputed 0, expired 10, text without rules 1190, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 1282 2021-00408 | Lill-Olas väg | {"f":[{"w":7,"a":1320,"b":480,"dt":["vardag","fore"]},{"w":7,"a":1320,"b":480}]} → {"f":[{"dt":["vardag"],"a":1320,"b":480},{"dt":["fore"],"a":1320,"b":480},{"w":7,"a":1320,"b":480}]} | text stricter: applied |
+| 1282 2021-00408 | Lill-Olas väg | {"f":[{"w":7,"a":1320,"b":480,"dt":["vardag","fore"]},{"w":7,"a":1320,"b":480}]} → {"f":[{"dt":["vardag"],"a":1320,"b":480},{"dt":["fore"],"a":1320,"b":480},{"w":7,"a":1320,"b":480}]} | text stricter: applied |
+| 1282 2026-00190 | Skolallén | {"f":[{"w":5,"a":300,"b":480}]} → {"f":[{"w":5,"a":300,"b":480}],"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":840,"max":120}]} | text stricter: applied |
 | 1282 2026-00205 | Midhemsvägen | expired 2026-10-16 | already uncertain |
 | 1282 2026-00205 | Midhemsvägen | expired 2026-10-16 | already uncertain |
 | 1282 2026-00206 | Pilåkersgatan | expired 2026-10-16 | already uncertain |
