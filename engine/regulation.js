@@ -143,20 +143,25 @@ function halfRead(s, ws) {
   if (hasDt && !hasW && new RegExp(String.raw`\b${WD}\b`, 'i').test(x)) return true;
   return false;
 }
+const NUM_WORDS = { en: 1, ett: 1, två: 2, tre: 3, fyra: 4, fem: 5, sex: 6, sju: 7, åtta: 8, nio: 9, tio: 10, tolv: 12, femton: 15, tjugo: 20, trettio: 30 };
 function duration(s) {
-  const m = s.match(/högst\s+(\d+)\s*(tim(?:me|mar)?|min(?:uter)?|dygn)/i);
+  // "högst två timmar", "högst en timma", "högst sju (7) dygn": the number written as a word (QA 25 Oct: the limit was dropped)
+  s = s.replace(/\b(högs?t|under)\s+(en|ett|två|tre|fyra|fem|sex|sju|åtta|nio|tio|tolv|femton|tjugo|trettio)\s+(?:\((\d+)\)\s*)?(?=tim|min|dygn|dag)/gi, (_, h, w, d) => `${h.toLowerCase() === 'högt' ? 'högst' : h} ${d || NUM_WORDS[w.toLowerCase()]} `).replace(/\bhögst\s+(\d+)\s*\(\d+\)\s*(?=tim|min|dygn|dag)/gi, 'högst $1 ').replace(/\bhögt\s+(?=\d)/gi, 'högst ');
+  const m = s.match(/högst\s+(\d+)\s*(tim(?:me|mar|ma|mar)?|timmar|min(?:uter)?|dygn|dag(?:ar)?)\b/i) || s.match(/gäller (?:under )?(\d+)\s*(tim(?:me|mar)?|min(?:uter)?|dygn) i följd/i); // also "Tillåtelsen gäller 4 tim i följd" (Uppsala)
   if (!m) return null;
   const n = +m[1], u = m[2].toLowerCase();
-  return u.startsWith('dygn') ? n * 1440 : u.startsWith('tim') ? n * 60 : n;
+  return u.startsWith('dygn') || u.startsWith('dag') ? n * 1440 : u.startsWith('tim') ? n * 60 : n;
 }
 
 // Split into sentences, keeping "kl. 7" and "8 §" intact; paragraph numbers ("1 §") and "med avvikelse från …" asides are dropped.
 function sentences(t) {
-  t = t.replace(/,?\s*med avvikelse från [^.]*?,\s*(parkeras|stannas)\b/gi, ' $1') /* the clause names a list of areas with commas (Kalmar) */.replace(/,?\s*med avvikelse från [^,]*?,/gi, ' ').replace(/\b(får fordon) [^.,]{1,40}, (parkeras)/g, '$1 $2').replace(/\bTrots tillåtelsen i \d+ § får /g, 'Får ').replace(/\b(vardag(?:ar)?), utom ([^,.]*?helgdag(?:ar)?),\s+/g, '$1 utom $2 ') /* "vardagar, utom vardag före sön- och helgdag, mellan …" (Vellinge) */.replace(/personbil klass (?:I|1) (?:och|samt|eller) personbil klass (?:II|2)/gi, 'personbil') /* both classes = any car (Lysekil) */.replace(/(\s)-(?=(?:vardag|sön|lördag|dag|fredag|måndag|tisdag|onsdag|torsdag)\w*)/g, '$1') /* "-vardagar … och -vardag före …" list bullets */.replace(/\b([Ff]år) dock fordon\b/g, '$1 fordon').replace(/\s{2,}/g, ' ');
+  t = t.replace(/,?\s*med avvikelse från [^.]*?,\s*(parkeras|stannas)\b/gi, ' $1') /* the clause names a list of areas with commas (Kalmar) */.replace(/,?\s*med avvikelse från [^,]*?,/gi, ' ').replace(/\b(får fordon) [^.,]{1,40}, (parkeras)/g, '$1 $2').replace(/\bTrots tillåtelsen i \d+ § får /g, 'Får ').replace(/\bTilllåtelsen\b/g, 'Tillåtelsen').replace(/\binnom\b/g, 'inom').replace(/\b((?:klockan|kl\.?|och)\s*)([01]\d|2[0-4])([0-5]\d)\b(?![.:,]\d)/g, '$1$2.$3') /* "klockan 0800 och 1800" (Värmdö) */.replace(/\b(dag(?:ar)? före) söndag och helgdag/g, '$1 sön- och helgdag').replace(/\bTillåtelsen (?:att parkera )?i paragraf ?\d*\s*§? ?(?=gäller)/g, 'Tillåtelsen ').replace(/\bTillåtelsen att parkera (?:i|enligt) \d+\s*§?\s*(?=gäller)/g, 'Tillåtelsen ').replace(/\b(vardag(?:ar)?), utom ([^,.]*?helgdag(?:ar)?),\s+/g, '$1 utom $2 ') /* "vardagar, utom vardag före sön- och helgdag, mellan …" (Vellinge) */.replace(/personbil klass (?:I|1) (?:och|samt|eller) personbil klass (?:II|2)/gi, 'personbil') /* both classes = any car (Lysekil) */.replace(/(\s)-(?=(?:vardag|sön|lördag|dag|fredag|måndag|tisdag|onsdag|torsdag)\w*)/g, '$1') /* "-vardagar … och -vardag före …" list bullets */.replace(/\b([Ff]år) dock fordon\b/g, '$1 fordon').replace(/\s{2,}/g, ' ');
+  t = t.replace(/\bmellan ([01]?\d|2[0-4])((?:[.:][0-5]\d)?) och ([01]?\d|2[0-4])((?:[.:][0-5]\d)?)(?=\s*(?:[.,;]|$))/g, 'mellan klockan $1$2 och $3$4'); // "vardag … mellan 08 och 18." without "klockan" (Lund): hours, not metres
+  t = t.replace(/\b(dag|vardag(?:ar)?) (?:före|för) söndag(?:ar)? och helgdag(?:ar)?/gi, '$1 före sön- och helgdag').replace(/\b(vardag(?:ar)?) för (sön- och helgdag)/gi, '$1 före $2'); // "dag före söndag och helgdag" (Hallstahammar), "vardagar för sön- och helgdag" (Mullsjö): the usual day type, not a Sunday
   t = t.replace(/([^.;\s])\s+(?=Tillåtelsen ger inte rätt)/g, '$1. '); // the city text sometimes lacks the full stop before this sentence
   t = t.replace(/([a-zåäö)0-9])\.(?=[A-ZÅÄÖ][a-zåäö])/g, '$1. '); // "… i följd.Tillåtelsen", "… 14.00.Tillåtelsen": glued sentences
   t = t.replace(/([^.;\s])\s+(\d{1,2}\s*§\s+)(?=[A-ZÅÄÖ][a-zåäö])/g, '$1. $2');
-  t = t.replace(/([^.;\s])\s+(?=(?:Parkering (?:är|får)|Förbudet (?:gäller|ger)|Tillåtelsen (?:gäller|ger)|Tidsbegränsningen gäller|Avgiftsplikten gäller|Avgift ska betalas)\b)/g, '$1. '); // a rule sentence with no full stop before it ("… KF § 119/18 Parkering är dock förbjuden …", Skövde) // "… (1998:1276) 2 § Mellan klockan …": a new paragraph without a full stop before it (Kungsbacka)
+  t = t.replace(/([^.;\s])\s+(?=(?:Parkering (?:är|får)|Förbudet (?:gäller|ger)|Tillåtelsen (?:att parkera )?(?:gäller|ger)|Tidsbegränsningen gäller|Avgiftsplikten gäller|Avgift ska betalas)\b)/g, '$1. '); // a rule sentence with no full stop before it ("… KF § 119/18 Parkering är dock förbjuden …", Skövde) // "… (1998:1276) 2 § Mellan klockan …": a new paragraph without a full stop before it (Kungsbacka)
   t = t.replace(/(^|[.;]\s+)\d{1,2}\s*§\s+(?=[A-ZÅÄÖ])/g, '$1'); // paragraph numbers "2 § Tidsbegränsningen …" (not "13 kap. 8 § trafikförordningen")
   t = t.replace(/\b(kv|ca|nr|resp|fast)\.(?=\s)/gi, '$1§DOT§'); // "parkeringsplats kv. Pilen": an abbreviation, not the end of a sentence
   return t.replace(/(\d)\.(\d)/g, '$1§DOT§$2').split(/(?<=[.;])\s+(?=[A-ZÅÄÖ])/).map((s) => s.replace(/§DOT§/g, '.').trim()).filter(Boolean);
@@ -165,11 +170,11 @@ function sentences(t) {
 const IGNORE = [
   /^Avgiftsplikten gäller/i, /^Avgift ska betalas/i, /^(?:Parkeringsskiva|P-skiva)/i, /^Med (boende|fordon|.*avses)/i, /^med stöd av/i,
   /^Koordinatsystem/i, /^Föreskriften (?:skall|ska) utmärkas/i, /^Vägmärkesförordningen/i, /^Denna föreskrift ersätter/i, /^Föreskriften ersätter/i,
-  /gäller inte (?:lastbil|buss|taxi|utryckning|moped|cykel|motorcykel|fordon som används i (?:väg|gatu)arbete)/i,
+  /gäller inte (?:ambulans|lastbil|buss|taxi|utryckning|moped|cykel|motorcykel|fordon som används i (?:väg|gatu)arbete)/i,
   /^Stockholms kommun föreskriver/i, /trafikförordningen \(1998:1276\) följande/i, /^Publicerat/i, /^beslutade den/i,
   /^Uppställning av fordon sker/i, /^Tillåtelsen ger inte rätt/i, /^Föreskrifterna gäller/i, /^Bestämmelsen gäller/i, /^Detta gäller/i, /^Undantag/i,
   /^Förbudet ger inte rätt/i, /gäller (?:inte|ej) (?:på )?enskild väg/i, /^Tiden, avrundad/i, /anges med parkeringsskiva/i, /^Förbudet gäller alla fordon/i, /^Förbudet gäller om inte annat/i, /gäller inte fordon i linjetrafik/i,
-  /^Förbudet gäller inte där parkering är tillåten enligt/i, /^Se /i, /^allmänna lokala trafikföreskrifter\b/i, /^(?:röd|blå|grön|gul|vit|lila) taxa\.?$/i, /^förbudet gäller (?:endast )?(?:under )?skoldagar\.?$/i, /^boende(?:parkering)? zon \S+\.?$/i, /(?:inte|ej) parkeras annat än (?:på|inom) (?:särskilt )?(?:markerad|anordnad)/i, /^vid parkering ska fordon uppställas/i, /^förbudet gäller (?:inte|ej) (?:inom|på) särskilt (?:anordnad|markerad)/i, /nämnden\b(?![^.]*(?:får|parkeras|gäller|förbjud))/i, /\btaxa\b[^.]*boendeparkering[^.]*gäller/i, /^Instruktioner på parkeringsmätare/i, /^Digital registrering/i, /^Den första timmen/i, /^För parkering inom .* tas avgift/i,
+  /^Förbudet gäller inte där parkering är tillåten enligt/i, /^Se /i, /\bboendeparkering\b[^.]*(?:tillåte?n?|villkor|bestämmelser)/i, /^särskilda (?:villkor|bestämmelser)/i, /^förbudet gäller (?:inte|ej) fordon med (?:särskilt )?tillstånd/i, /^första (?:timmen|halvtimmen) är avgiftsfri/i, /^förbuden i [^.]*ger (?:inte|ej) rätt/i, /^följande (?:gator|vägar) ingår/i, /^om inte annat föreskrivits/i, /^övrig tid får parkering ske utan/i, /^föreskriften träder i kraft/i, /^i området ingår även/i, /^förbudet gäller endast på allmänna platser/i, /^förbudet gäller (?:inte|ej) (?:på )?markerade platser/i, /^förbudet gäller (?:inte|ej) om annat/i, /^\S+ taxa\b[^.]*biljett/i, /^taxa\s*[-–]/i, /^vid parkering enligt \d+\s*§/i, /^\S+ kommuns lokala trafikföreskrifter om\b/i, /^tillåtelsen gäller endast personbil(?:ar)?\.?$/i, /^på parkeringsskiva/i, /^samtliga koordinater/i, /^zon\.?$/i, /^förbudet gäller på (?:gatans|vägens) båda sidor/i, /^förbudet gäller (?:inte|ej) (?:för )?(?:skolskjuts|vid på- eller avlastning|vid av- och pålastning)/i, /^avvikelsen avser även/i, /^trf \(/i, /^allmänna lokala trafikföreskrifter\b/i, /^(?:röd|blå|grön|gul|vit|lila) taxa\.?$/i, /^förbudet gäller (?:endast )?(?:under )?skoldagar\.?$/i, /^boende(?:parkering)? zon \S+\.?$/i, /(?:inte|ej) parkeras annat än (?:på|inom) (?:särskilt )?(?:markerad|anordnad)/i, /^vid parkering ska(?:ll)? fordon uppställas/i, /^förbudet gäller (?:inte|ej) (?:inom|på) särskilt (?:anordnad|markerad)/i, /nämnden\b(?![^.]*(?:får|parkeras|gäller|förbjud))/i, /\btaxa\b[^.]*boendeparkering[^.]*gäller/i, /^Instruktioner på parkeringsmätare/i, /^Digital registrering/i, /^Den första timmen/i, /^För parkering inom .* tas avgift/i,
   /årligen återkommande/i, /^(?:Författningen|Föreskriften|Denna författning) (?:ersätter|upphäver)/i, /^Denna föreskrift gäller ej där annat/i, /^Tillåtelsen (?:att parkera )?gäller dock mot avgift/i, /^Parkeringsregler för boendeparkering/i, /^Om förbud att parkera fordon är föreskriven viss tid på plats för boendeparkering/i, /^Tillåtelsen gäller även/i, /boendeparkeringskort|boendeparkeringstillstånd/i, /^Avgift(?:en)?\b/i, /behöver inte erläggas/i, /^Fordonet ska vara försett/i, /^Tillstånd(?:et)? /i,
   /^(?:Parkering|Uppställning) får (?:endast )?ske (?:i|på) (?:markerade|anvisade)/i, /ska ha (?:ett )?giltigt parkeringstillstånd/i,
 ];
@@ -183,6 +188,7 @@ function reservedFor(x) { for (const [re, v] of RESERVED) if (re.test(x)) return
 
 export function parseRegulation(body) {
   const t = ruleText(body);
+  let feeFromConditions = false; // fee hours taken from "Villkoret gäller": a later explicit fee sentence replaces them
   const out = { taxa: null, feeWindows: null, reserved: false, reservedSeason: null, reservedWindows: [], purpose: [], allowOnly: [], limits: [], bans: [], dp: [], otherAllowed: null, unread: [] };
   if (!t) { out.unread.push('(no rule text)'); return out; }
   // A permission with hours ("Tillåtelsen gäller vardagar 09–18") only bans parking outside those hours when something else
@@ -201,6 +207,7 @@ export function parseRegulation(body) {
   });
   for (let s of list) {
     let x = s.toLowerCase();
+    if (!/\b(?:får|gäller|förbjud\w*|tillåt\w*|parker\w*|stann\w*|avgift\w*|högst|klockan|kl|reserver\w*|datum\w*)\b|\d{1,2}[.:]\d{2}/i.test(s)) continue; // a sentence with no rule word and no hours describes a place ("… Dalviksvägen 750m norr om Tackjärnsgränd, …", Nora)
     if (!/[a-zåäö]{3}/i.test(s)) continue; // stray punctuation (":.", ";") left by the PDF text
     if (/(?:inte|ej) (?:stannas eller )?parkeras annat än (?:på|inom)/.test(x)) continue; // "får fordon inte parkeras annat än på särskilt markerad uppställningsplats": where to park, not a ban (Östersund)
     const m = season(s), p = parity(s), wk = weeks(s);
@@ -210,20 +217,22 @@ export function parseRegulation(body) {
     if (/mot avgift/.test(x)) feeNext = true;
     // "Avgift enligt Taxa Zon 2 under vardagar utom vardag före sön- och helgdag mellan klockan 09.00 - 18.00": the hours the fee is
     // charged, when the text gives them (the register's fee table may say all day; QA: Växjö)
-    if (/^avgift(?:splikten|en)?\b/.test(x) && /(?:klockan|kl\.?)\s*\d/.test(x)) { if (out.feeWindows || /taxa \S+ [^.]*och (?:enligt )?taxa/.test(x)) continue; const ws = windows(s); if (ws.length && !halfRead(s, ws)) out.feeWindows = ws.map(withSP); continue; } // the first sentence giving the fee's days and hours; "taxa C 08-18 och taxa E 18-24" splits the price, not the days
+    if (/^avgift(?:splikten|en)?\b/.test(x) && /(?:klockan|kl\.?)\s*\d/.test(x)) { if ((out.feeWindows && !feeFromConditions) || /taxa \S+ [^.]*och (?:enligt )?taxa/.test(x)) continue; const ws = windows(s); if (ws.length && !halfRead(s, ws)) { out.feeWindows = ws.map(withSP); feeFromConditions = false; } continue; } // the first sentence giving the fee's days and hours (it overrides hours taken from "Villkoret gäller", Sundsvall Sjögatan); "taxa C 08-18 och taxa E 18-24" splits the price, not the days
     // "Mellan klockan 09.00 och 18.00 gäller dock tillåtelsen i 1 § högst 5 timmar i följd mot avgift eller högst en timma … parkeringsskiva" (Tanum):
     // a limit in those hours (the longer one: paying), and the fee then
     if (/^(?:(?:vardag|vardagar|sön- och helgdag(?:ar)?)[^.]*?)?(?:mellan )?(?:klockan|kl\.?)\s*\d.*?gäller (?:dock )?tillåtelsen/.test(x) && (duration(s) || /mot (?:att )?avgift/.test(x))) {
       const ws = windows(s).map(withSP); if (ws.length && !halfRead(s, ws)) { const d = duration(s.split(/\beller\b/)[0]); if (d) { const items = ws.map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; } if (/mot (?:att )?avgift/.test(x)) out.feeWindows = ws; continue; } // "mot att avgift erläggs eller högst 1 timme … parkeringsskiva": paying has no limit; only a limit stated for the paid option counts
     }
     // "Tillåtelsen i paragraf 1 och villkoren i 2 § gäller 1 maj - 30 september": the season of the permission, its limits and fee
-    if (/^tillåtelsen (?:i (?:paragraf )?\d+ ?§? ?)?(?:och villkoren (?:i \d+ § )?)?gäller/.test(x) && m && !windows(s).length && (out.limits.length || out.feeWindows)) { for (const l of (/villkoren/.test(x) && lastLimit ? lastLimit.items : out.limits)) l.m = m; for (const w of out.feeWindows || []) w.m = m; continue; } // "villkoren i 3 §": the season of that paragraph's limit, not the 24 h rule in 2 § (Sotenäs)
+    if (/^tillåtelsen (?:i (?:paragraf )?\d+ ?§? ?)?(?:och villkoren (?:i [\d\s–-]+§§? )?)?gäller/.test(x) && m && !windows(s).length && (out.limits.length || out.feeWindows)) { for (const l of (/villkoren/.test(x) && lastLimit ? lastLimit.items : out.limits)) l.m = m; for (const w of out.feeWindows || []) w.m = m; continue; } // "villkoren i 3 §": the season of that paragraph's limit, not the 24 h rule in 2 § (Sotenäs)
     // "Tillåtelsen gäller inte personbil klass I": ordinary cars may not park there (Vellinge)
     if (/^tillåtelsen gäller (?:inte|ej) personbil(?: klass (?:i|1))?\.?$/.test(x)) { out.reserved = true; out.reservedFor = 'husbil'; continue; }
     // "Parkering är dock tillåten endast mot avgift 15 juni - 15 augusti mellan klockan 08.00 - 21.00": the fee's hours and season (QA: Motala)
     if (/endast mot avgift|mot avgift (?:under|mellan|klockan|\d)|mot (?:att )?avgift (?:betalas|erläggs)/.test(x) && /(?:klockan|kl\.?)\s*\d/.test(x) && !out.feeWindows) { const ws = windows(s); if (ws.length && !halfRead(s, ws)) { out.feeWindows = ws.map(withSP); if (/^(?:mellan )?(?:klockan|kl\.?)\s*\d.*?gäller (?:dock )?tillåtelsen/.test(x)) continue; } } // "Mellan klockan 8 och 22 … gäller dock tillåtelsen … mot att avgift betalas eller högst 1 timme … parkeringsskiva": the fee hours (pay, or 1 h with a disc)
     if (/^(?:tillåtelsen|förbudet)(?: i (?:§\s*\d+|\d+\s*§))? (?:ger|ge) (?:inte|ej) rätt/.test(x)) continue;
     x = x.replace(/,?\s*(?:tillåtelsen |förbudet )?(?:ger|ge) (?:inte|ej) rätt att (?:stanna|parkera)[^.]*/g, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna eller parkera[^.]*/g, '').replace(/där (?:stannande och |stannande eller )?parkering är förbjuden (?:enligt [^.]*)?/g, ''); // "… får fordon parkeras där stannande och parkering är förbjuden enligt 3 kap. 52 §" (Eskilstuna): a permission, not a ban // "… får parkeras där det är förbjudet …" is not a ban
+    // "får fordon stannas eller parkeras under högst 3 tim i följd": a permission to stop or park, read like "får fordon parkeras" (Linköping, Söderköping)
+    if (/får (?:fordon )?stannas (?:eller|och) parkeras/.test(x) && !/(?:inte|ej) stannas/.test(x)) { x = x.replace(/får (fordon )?stannas (?:eller|och) parkeras/g, 'får $1parkeras').replace(/  +/g, ' '); s = s.replace(/får (fordon )?stannas (?:eller|och) parkeras/gi, 'får $1parkeras'); }
     // Date parking ("udda datum … udda adressnummer"): one side is always allowed — dp windows, not a ban
     // "får fordon inte parkeras 00.00 - 08.00 jämna datum" on one stretch (no address sides): a ban on those dates (QA: Umeå, Gävle)
     if (/udda datum|jämn(?:a|t) datum/.test(x) && !/adressnummer|sida av (?:vägen|gatan)|udda[^.]*jämn|jämn[^.]*udda/.test(x)) { let ws = windows(s); if (halfRead(s, ws) && !ws.length) { unread(s); continue; } if (!ws.length) ws = [{ a: 0, b: 1440 }]; const dd = /udda datum/.test(x) ? 'odd' : 'even'; const items = ws.map((w) => ({ ...withSP(w), dd })); out.bans.push(...items); lastBan = { items, provisional: false }; continue; }
@@ -246,10 +255,11 @@ export function parseRegulation(body) {
       x = x.replace(/får endast (?:personbil(?:ar)?(?: klass (?:i|1)\b)?|fordon)\s*/, 'får fordon '); s = s.replace(/får endast (?:personbil(?:ar)?(?: klass (?:I|1)\b)?|fordon)\s*/i, 'får fordon ');
     }
     if (/^övrig tid (?:får (?:fordon inte|inte fordon) parkeras|(?:är |råder )?parkering(?:en)? förbjuden|råder parkeringsförbud|får fordon (?:inte|ej) stannas)/.test(x)) { // outside the stated hours: not allowed
+      if (!lastAllow && lastBan && !lastBan.items.some((b) => b.w || b.m || b.p || b.dm || b.nw || b.dd)) { const o = outsideHours(lastBan.items); if (o && o.length) { out.bans.push(...o); continue; } } // a stopping ban at set hours, "Övrig tid får fordon inte parkeras" (Huddinge): no parking at other times either
       if (!lastAllow) { unread(s); continue; }
       out.otherAllowed = false; out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue;
     }
-    if (/^övrig tid får fordon parkeras/.test(x)) { // "…other times vehicles may park": the permission hours are not the only hours
+    if (/^övrig tid (?:fri parkering|får fordon (?:stannas eller )?parkeras)/.test(x)) { // "…other times vehicles may park": the permission hours are not the only hours
       out.otherAllowed = true; out.allowOnly = out.allowOnly.filter((w) => !tillWs.includes(w));
       const d = duration(s);
       if (d) { // "Övrig tid får fordon parkeras under högst 4 tim i följd": a limit in the hours outside the limit just stated
@@ -262,6 +272,7 @@ export function parseRegulation(body) {
     // "Villkoret gäller under tiden 1 september - 30 december" after a ban (and no limit): the ban's season (QA: Ängelholm)
     if (/^villkoret gäller/.test(x) && m && lastBan && !lastLimit && !windows(s).length) { for (const b of lastBan.items) b.m = m; continue; }
     if (/^förbudet (?:att (?:parkera|stanna)[^ ]* )?(?:i (?:första stycket|paragraf \d+|\d+\s*§) )?gäller/.test(x) && out.heavyOnly && !lastBan) continue;
+    if (/^förbudet gäller (?:inte|ej) (?:vardag|dag|sön)/.test(x) && !lastBan && out.permitted) continue; // about the area ban this permission departs from (Norrköping)
     // "Förbudet gäller endast under den första helgfria måndagen varje månad" (Eslöv): the weekday of the ban just stated
     if (/^förbudet (?:att parkera )?(?:i (?:paragraf \d+|\d+ §) )?gäller/.test(x) && lastBan && NTH.test(s) && !/(?:klockan|kl\.?)\s*\d/.test(x)) { const n = NTH.exec(s); for (const b of lastBan.items) { b.w = WEEKDAYS[n[2].toLowerCase()]; b.nw = NTH_N[n[1].toLowerCase()]; delete b.dt; } continue; }
     // "Tillåtelsen gäller inte personbil klass II …": a rule for motorhomes only; ordinary cars are not affected (Visby)
@@ -272,7 +283,7 @@ export function parseRegulation(body) {
         if (IGNORE.some((r) => r.test(s))) continue;
         if (out.heavyOnly && /gäller (?:inte|ej) på:/.test(x)) continue; // streets exempt from a heavy-vehicle rule
         const ex = x.replace(/^förbudet gäller (?:inte|ej)\s*/, '');
-        if (lastBan && !lastBan.items.some((b) => b.w) && /^(?:vardag|dag före|sön- och helgdag)/.test(ex) && !/\b(?:klockan|kl\.?)\s*\d/.test(ex)) { // "Förbudet gäller inte vardag före sön- och helgdag samt sön- och helgdag"
+        if (lastBan && /^(?:vardag|dag före|sön- och helgdag)/.test(ex) && !/\b(?:klockan|kl\.?)\s*\d/.test(ex)) { // "Förbudet gäller inte vardag före sön- och helgdag samt sön- och helgdag" (also after a weekday ban: "onsdag 08-11 … gäller inte vardag före …", Norrköping; the app reads w and dt together)
           const off = new Set(); if (/vardag(?:ar)? utom/.test(ex)) off.add('vardag'); else if (/\bvardag(?:ar)?(?! före)/.test(ex)) { off.add('vardag'); off.add('fore'); }
           if (/(?:vardag|dag)(?:ar)? före sön- och helgdag/.test(ex)) off.add('fore'); if (/(?:samt |och )?sön- och helgdag(?:ar)?\.?$/.test(ex) || /\bsön- och helgdag/.test(ex.replace(/(?:vardag|dag)(?:ar)? före sön- och helgdag/g, ''))) off.add('helgdag');
           for (const b of lastBan.items) { const dt = (b.dt || ['vardag', 'fore', 'helgdag']).filter((d) => !off.has(d)); if (!dt.length) { out.bans = out.bans.filter((q) => q !== b); } else b.dt = dt; }
@@ -311,7 +322,7 @@ export function parseRegulation(body) {
         } else unread(s);
         continue;
       }
-      if (/\butom\b/.test(x.replace(/sön- och/g, '').replace(/vardag(?:ar)? utom (?:vardag(?:ar)? |dag(?:ar)? )?före/g, ''))) { unread(s); continue; } // other exceptions are not guessed
+      if (/\butom\b/.test(s.replace(/\butom (?=[A-ZÅÄÖ])[^,.]*?(?=\s+(?:enligt|får)\b|,)/g, ' ').toLowerCase().replace(/sön- och/g, '').replace(/vardag(?:ar)? utom (?:vardag(?:ar)? |dag(?:ar)? )?före/g, ''))) { unread(s); continue; } // other exceptions are not guessed
       let ws = windows(s); if (!ws.length) ws = dayOnlyWindows(s);
       if (halfRead(s, ws)) { unread(s); continue; }
       if (ws.length) { const items = ws.map(withSP); out.bans.push(...items); lastBan = { items, provisional: false }; }
@@ -322,14 +333,17 @@ export function parseRegulation(body) {
     if (/^tillåtelsen gäller endast/.test(x) && reservedFor(x)) { out.reserved = true; out.reservedFor = reservedFor(x); continue; }
     if (/^(?:villkoret|tidsbegränsningen|begränsningen|förbudet) gäller/.test(x) && out.heavyOnly && !lastLimit && !lastBan) continue; // the hours of a heavy-vehicle rule
     // "Tillåtelsen gäller dock mot avgift. Villkoret gäller vardagar … 09.00 - 18.00 …" (Örnsköldsvik): the fee's hours
-    if (/^villkoret gäller/.test(x) && !lastLimit && feeNext && !out.feeWindows) { const ws = windows(s); if (ws.length && !halfRead(s, ws)) { out.feeWindows = ws.map(withSP); continue; } }
+    if (/^villkoret gäller/.test(x) && !lastLimit && feeNext && !out.feeWindows) { const ws = windows(s); if (ws.length && !halfRead(s, ws)) { out.feeWindows = ws.map(withSP); feeFromConditions = true; continue; } }
     // "Tidsbegränsningen och avgiftsplikten gäller under tiden 1 juni - 31 augusti" (Båstad): the season of the limits and the fee
+    if (/^tidsbegränsningen och avgiftsplikten gäller/.test(x) && lastLimit && windows(s).length) { const ws = windows(s); if (!halfRead(s, ws)) { out.limits = out.limits.filter((l) => !lastLimit.items.includes(l)); const items = ws.map(withSP).map((w) => ({ ...w, max: lastLimit.max })); out.limits.push(...items); lastLimit = { max: lastLimit.max, items }; out.feeWindows = ws.map(withSP); continue; } }
     if (/^tidsbegränsningen och avgiftsplikten gäller/.test(x) && m && !windows(s).length) { for (const l of out.limits) l.m = m; if (out.feeWindows) for (const w of out.feeWindows) w.m = m; else out.feeWindows = [{ a: 0, b: 1440, m }]; continue; }
+    if (/^tidsbegränsningen gäller/.test(x) && out.reserved && !lastLimit) continue; // a limit for the reserved vehicles (disabled bays), not for other cars
+    if (/^tidsbegränsningen gäller/.test(x) && !lastLimit && lastBan && m && !windows(s).length) { for (const b of lastBan.items) b.m = m; continue; } // "Tidsbegränsningen gäller 15 november – 15 april" after a ban (Hörby)
     if (/^(?:villkoret|tidsbegränsningen|begränsningen) gäller/.test(x) && lastLimit) { // "Villkoret gäller under tiden …": the hours of the limit just stated
       if (/gäller (?:inte|ej)\b/.test(x)) { unread(s); continue; }
       let ws = windows(s); if (!ws.length) ws = dayOnlyWindows(s);
       if (!ws.length && m) { for (const l of lastLimit.items) l.m = m; continue; } // "Tidsbegränsningen gäller under tiden 1 maj - 30 september": the limit's season (QA: Vänersborg, Tanum)
-      if (ws.length && !halfRead(s, ws)) { out.limits = out.limits.filter((l) => !lastLimit.items.includes(l)); const items = ws.map(withSP).map((w) => ({ ...w, max: lastLimit.max })); out.limits.push(...items); lastLimit = { max: lastLimit.max, items }; if (feeNext && !out.feeWindows && /^villkoret/.test(x)) out.feeWindows = ws.map(withSP); continue; } // "… parkeras mot avgift. Tillåtelsen gäller under högst 2 timmar. Villkoret gäller <hours>": the conditions, fee included, hold in those hours (Uddevalla)
+      if (ws.length && !halfRead(s, ws)) { out.limits = out.limits.filter((l) => !lastLimit.items.includes(l)); const items = ws.map(withSP).map((w) => ({ ...w, max: lastLimit.max })); out.limits.push(...items); lastLimit = { max: lastLimit.max, items }; if (feeNext && !out.feeWindows && /^villkoret/.test(x)) { out.feeWindows = ws.map(withSP); feeFromConditions = true; } continue; } // "… parkeras mot avgift. Tillåtelsen gäller under högst 2 timmar. Villkoret gäller <hours>": the conditions, fee included, hold in those hours (Uddevalla)
       unread(s); continue;
     }
     // "Tillåtelsen gäller inte den 1 måndagen i månaden mellan klockan 07.00 - 10.00": a ban in those hours (Ystad)

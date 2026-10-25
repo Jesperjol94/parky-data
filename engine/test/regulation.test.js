@@ -342,3 +342,43 @@ test('QA-500b: "taxa 35 kronor" is a price, combined limit+fee season, heavy-onl
   assert.equal(parseRegulation('följande. På X får fordon med totalvikt över 3,5 ton inte parkeras klockan 22.00 - 08.00.').heavyOnly, true);
   assert.deepEqual(parseRegulation('följande. På X får fordon parkeras. Parkering är dock förbjuden 2:a i månaden klockan 09.00 - 12.00. Förbudet gäller inte vardag före sön – helgdag samt sön – helgdag.').bans, [{ dm: 2, a: 540, b: 720, dt: ['vardag'] }]);
 });
+test('lone unread sentences that blocked whole regulations (24 Oct)', () => {
+  assert.deepEqual(parseRegulation('följande. På samtliga vägar inom ett område får fordon inte stannas eller parkeras under tiden vardag utom vardag före sön- och helgdag klockan 11.00 - 09.00, vardag före sön- och helgdag klockan 00.00 - 24.00 och sön- och helgdag klockan 00.00 - 24.00. Förbudet gäller inte ambulans och utryckningsfordon.').unread, []);
+  assert.equal(parseRegulation('följande. 1 § På X får fordon parkeras. 2 § Tillåtelsen gäller 4 tim i följd.').limits[0].max, 240);
+  assert.equal(parseRegulation('följande. 1 § På X får fordon inte parkeras under vardagar utom vardag före sön- och helgdag mellan klockan 00.00 – 09.00. 2 § Tidsbegränsningen gäller 15 november – 15 april.').bans[0].m.length, 2);
+  assert.equal(parseRegulation('följande. På X får fordon parkeras högst 3 timmar i följd. Tidsbegränsningen gäller vardagar mellan kl. 06.00-18.00. Övrig tid fri parkering.').unread.length, 0);
+});
+test('fee hours when the rate is in another regulation; an explicit fee sentence beats "Villkoret gäller" (24 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På Torggatans östra sida enligt kartbild får fordon parkeras. 2 § Avgift ska betalas för parkering enligt 1 §. Avgiftsplikten gäller vardag utom vardag före sön- och helgdag klockan 08.00 - 20.00 samt vardag före sön- och helgdag klockan 08.00 - 15.00. 3 § Avgiften i 2 § är enligt taxa City-P 4 § Röd taxa. 4 § Trots tillåtelsen i 1 § får fordon inte parkeras på onsdagar klockan 08.00 - 11.00 (gäller vardagar utom vardag före sön- och helgdag).');
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1200 }, { dt: ['fore'], a: 480, b: 900 }]);
+  assert.deepEqual(r.bans, [{ w: 3, a: 480, b: 660, dt: ['vardag'] }]);
+  const s = parseRegulation('följande. 1 § På Sjögatan får fordon parkeras mot avgift. 2 § Tillåtelsen gäller under högst 2 timmar i följd. Villkoret gäller vardag utom vardag före sön- och helgdag klockan 08.00 - 19.00. 3 § Avgift ska betalas för parkering enligt 1 §. Avgiftsplikten gäller klockan 00.00 - 24.00.');
+  assert.deepEqual(s.feeWindows, [{ a: 0, b: 1440 }]);
+});
+test('limits written in words, permissions to "stannas eller parkeras", glued "Tillåtelsen att parkera gäller" (25 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På parkeringsplatsen inom Kv X får fordon parkeras under högst två timmar i följd. 2 § Tidsbegränsningen gäller vardagar utom dag före sön- och helgdag mellan klockan 9 och 18 och dag före sön- och helgdag mellan klockan 9 och 15.');
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 120 }, { dt: ['fore'], a: 540, b: 900, max: 120 }]);
+  assert.equal(parseRegulation('följande. På X får fordon parkeras under högst en timma.').limits[0].max, 60);
+  assert.equal(parseRegulation('följande. På X får fordon parkeras högst sju (7) dygn i följd.').limits[0].max, 10080);
+  assert.equal(parseRegulation('följande. På X får fordon parkeras under högt 3 timmar i följd.').limits[0].max, 180);
+  const s = parseRegulation('följande. 1 § På den del av Vintervadsplan som anges i kartan får fordon stannas eller parkeras under högst 4 tim i följd under vardagar utom vardag före sön- och helgdag mellan klockan 06.00 - 18.00 och vardagar före sön- och helgdag 08.00 - 14.00.');
+  assert.deepEqual(s.limits, [{ dt: ['vardag'], a: 360, b: 1080, max: 240 }, { dt: ['fore'], a: 480, b: 840, max: 240 }]); assert.equal(s.unread.length, 0);
+  assert.equal(parseRegulation('följande. På X får fordon inte stannas eller parkeras.').bans.length, 1);
+  const g = parseRegulation('följande. På Ekillavägen får fordon parkeras Tillåtelsen ger inte rätt att stanna eller parkera där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276). Under tiden klockan 00.00 - 06.00 får dock fordon inte parkeras Tillåtelsen att parkera gäller under högst 4 tim i följd. Villkoret gäller vardagar utom vardag före sön- och helgdag klockan 06.00 - 24.00.');
+  assert.deepEqual(g.limits, [{ dt: ['vardag'], a: 360, b: 1440, max: 240 }]); assert.deepEqual(g.bans, [{ a: 0, b: 360 }]); assert.equal(g.unread.length, 0);
+});
+test('a weekday ban that does not apply on the day before a holiday or on holidays (25 Oct)', () => {
+  const r = parseRegulation('följande. På Skepparegatan får fordon parkeras mot avgift. Parkering är dock förbjuden onsdag klockan 08.00 - 11.00. Förbudet gäller inte vardag före sön- och helgdag samt sön- och helgdag.');
+  assert.deepEqual(r.bans, [{ w: 3, a: 480, b: 660, dt: ['vardag'] }]); assert.equal(r.unread.length, 0);
+});
+test('"dag före söndag och helgdag" and "vardagar för sön- och helgdag" are the usual day types (25 Oct)', () => {
+  const r = parseRegulation('följande. På Skolgatan får fordon parkeras högst två timmar i följd, vardagar utom dag före söndag och helgdag mellan klockan 08.00-18.00 samt vardag före söndag och helgdag mellan klockan 08.00- 15.00.');
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1080, max: 120 }, { dt: ['fore'], a: 480, b: 900, max: 120 }]);
+  const s = parseRegulation('följande. På parkeringsplatsen får fordon parkeras under högst en timma. Tidsbegränsningen gäller vardagar utom vardagar för sön- och helgdag mellan klockan 08.00 – 18.00 och vardag före sön- och helgdag mellan klockan 08.00 – 13.00.');
+  assert.deepEqual(s.limits, [{ dt: ['vardag'], a: 480, b: 1080, max: 60 }, { dt: ['fore'], a: 480, b: 780, max: 60 }]);
+});
+test('hours written "mellan 08 och 18" without "klockan" (25 Oct)', () => {
+  const r = parseRegulation('följande. På Klangvägen, på markerade platser, får fordon parkeras under högst 2 timmar. Tidsbegränsningen gäller vardag, utom vardag före söndag och helgdag, mellan 08 och 18.');
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1080, max: 120 }]);
+  assert.equal(parseRegulation('följande. Trots förbudet får fordon parkeras på Värtavägens nordöstra sida mellan 28 och 52 meter nordväst om Järnvägsallén.').limits.length, 0);
+});
