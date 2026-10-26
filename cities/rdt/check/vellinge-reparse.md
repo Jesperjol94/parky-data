@@ -1,6 +1,6 @@
 # Vellinge: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-25. 688 segments: 688 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-10-26. 688 segments: 688 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 604, partly read 80. Verified equal 448, filled from text 0, text stricter 0, disputed 0, expired 4, text without rules 153, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

@@ -1,6 +1,6 @@
 # Växjö: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-25. 3011 segments: 3011 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-10-26. 3011 segments: 3011 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 2881, partly read 117. Verified equal 2724, filled from text 0, text stricter 0, disputed 0, expired 13, text without rules 157, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

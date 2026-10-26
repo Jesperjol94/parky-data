@@ -1,39 +1,7 @@
 # Hudiksvall: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-25. 558 segments: 558 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 511, partly read 47. Verified equal 450, filled from text 0, text stricter 21, disputed 11, expired 0, text without rules 29, multi-part texts (not compared) 0.
+Run 2026-10-26. 558 segments: 558 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 511, partly read 47. Verified equal 482, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 29, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-151 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-152 | Kotorget | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":180}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":180}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2024-152 | Kotorget | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":180}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":180}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2024-152 | Kotorget | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":180}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":180}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2024-154 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-154 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-154 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-154 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-154 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-154 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2024-154 | Kotorget | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}]} | text stricter: applied |
-| 2184 2025-85 | Magasinsgatan | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":15}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":15}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2025-85 | Magasinsgatan | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":15}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":15}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2025-86 | Magasinsgatan | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":60}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":60}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2025-86 | Magasinsgatan | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":60}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":60}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2025-87 | Magasinsgatan | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":60}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":60}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2025-87 | Magasinsgatan | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":60}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":60}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2025-88 | Magasinsgatan | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":60}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":60}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |
-| 2184 2025-88 | Magasinsgatan | {"l":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"],"max":60}],"aw":[{"w":7,"a":540,"b":960,"dt":["vardag","fore"]}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":60}],"aw":[{"dt":["vardag"],"a":540,"b":960}]} | text differs: text wins (owner's decision 18 Oct) |

@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-25. 3818 segments: 3818 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3649, partly read 90. Verified equal 3347, filled from text 0, text stricter 1, disputed 3, expired 79, text without rules 290, multi-part texts (not compared) 0.
+Run 2026-10-26. 3818 segments: 3818 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3646, partly read 90. Verified equal 3348, filled from text 0, text stricter 0, disputed 0, expired 82, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -69,14 +69,13 @@ Fully read 3649, partly read 90. Verified equal 3347, filled from text 0, text s
 | 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2017-189 | Stenkretsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1320,"max":240},{"dt":["fore"],"a":540,"b":1320,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":1320,"max":240},{"dt":["fore"],"a":540,"b":1320,"max":240},{"dt":["helgdag"],"a":540,"b":1320,"max":240}]} | text stricter: applied |
-| 1283 2017-190 | Stenkretsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":30}]} → {"l":[{"dt":["vardag"],"a":660,"b":1320,"max":30}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1283 2017-592 | Linbastagatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":1320,"max":240},{"dt":["fore"],"a":540,"b":1320,"max":240},{"dt":["helgdag"],"a":540,"b":1320,"max":240}]} | text differs: text wins (owner's decision 18 Oct) |
-| 1283 2017-592 | Linbastagatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":1320,"max":240},{"dt":["fore"],"a":540,"b":1320,"max":240},{"dt":["helgdag"],"a":540,"b":1320,"max":240}]} | text differs: text wins (owner's decision 18 Oct) |
 | 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-596 | Föreningsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-618 | Konduktörsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-661 | Lilla Bergaliden | expired 2026-10-16 | already uncertain |
+| 1283 2026-666 | Gasverksgatan | expired 2026-10-26 | already uncertain |
+| 1283 2026-667 | Norra Vallgatan | expired 2026-10-26 | already uncertain |
+| 1283 2026-667 | Norra Vallgatan | expired 2026-10-26 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |

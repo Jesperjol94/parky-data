@@ -1,13 +1,14 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-25. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2635, partly read 138. Verified equal 2632, filled from text 0, text stricter 0, disputed 2, expired 28, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-10-26. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2634, partly read 138. Verified equal 2631, filled from text 0, text stricter 0, disputed 2, expired 29, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1880 2014-00233 | Berghultsvägen | {"f":[{"w":4,"a":0,"b":480},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":4,"a":0,"b":480}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
 | 1880 2021-01026 | Överstegatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2026-00954 | Höglundagatan | expired 2026-10-26 | already uncertain |
 | 1880 2026-01079 | Nygatan | expired 2026-10-19 | already uncertain |
 | 1880 2026-01221 | Kristinagatan | expired 2026-10-16 | already uncertain |
 | 1880 2026-01221 | Kristinagatan | expired 2026-10-16 | already uncertain |

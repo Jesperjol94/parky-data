@@ -44,7 +44,8 @@ const parity = (s) => (/udda veckor/i.test(s) ? 'odd' : /jämna veckor/i.test(s)
 
 // Day-type phrase right before a "klockan" → day types (null = every day).
 function dayTypesOf(s) {
-  const x = s.toLowerCase();
+  let x = s.toLowerCase().replace(/\b(vardag(?:ar)?),\s+(?=utom\b)/g, '$1 '); // "vardagar, utom vardag före …" in a days-only sentence (QA 26 Oct: Norrköping, Sollentuna read as Saturdays)
+  x = x.replace(/^\s*(?:och|samt)\s+/, ''); // "…, och vardag före sön- och helgdag och sön- och helgdag kl 00-24": a leading "och" hid the list (QA 26 Oct: Vellinge dropped the Sunday ban)
   // several day types in one phrase: "vardag samt sön- och helgdag", "vardag utom dag före … och sön- och helgdag"
   const parts = x.split(/(?:\s*,|\s+samt|\s+och)\s+(?=(?:vardag|dag(?:ar)? före|sön- och helgdag|lördag))/);
   if (parts.length > 1) {
@@ -89,6 +90,7 @@ export function windows(clause) {
     return ws.map(({ a, b, m, p }) => clean({ w: WEEKDAYS[nth[2].toLowerCase()], nw: NTH_N[nth[1].toLowerCase()], a, b, m, p }));
   }
   clause = clause.replace(/\b(vardag(?:ar)?),\s+(?=utom\b)/gi, '$1 '); // "vardagar, utom vardag före …": one day type, not a list (QA: Borås)
+  clause = clause.replace(/\b(helgdag(?:ar)?),\s+(?=(?:mellan\s+)?(?:klockan|kl\b))/gi, '$1 '); // "vardagar, utom dag före sön- och helgdag, mellan klockan 07 och 16": the comma cut the day type off its hours
   clause = clause.replace(/\b(helgdag(?:ar)?|vardag(?:ar)?|lördag(?:ar)?|söndag(?:ar)?)\s+(?=\d{1,2}[.:]\d{2}\s*[-–—]\s*\d{1,2}[.:]\d{2})/gi, '$1 klockan '); // "… och vardag före sön- och helgdag 09.00 - 15.00" (no "klockan"; QA: Jönköping, Kalmar)
   clause = clause.replace(/([a-zåäö]),\s+(?=(?:vardag|dag(?:ar)? före|sön- och helgdag))/gi, '$1 och '); // "vardag utom …, vardag före … och sön- och helgdag klockan 8-22": one list of day types
   clause = clause.replace(/(klockan\s*\d{1,2}(?:[.:]\d{2})?\s*[-–—]\s*\d{1,2}(?:[.:]\d{2})?)\s*\(gäller ([^)]+)\)/gi, '$2 $1'); // "… 09.00 - 12.00 (gäller vardag utom …)"
@@ -158,6 +160,8 @@ function sentences(t) {
   t = t.replace(/,?\s*med avvikelse från [^.]*?,\s*(parkeras|stannas)\b/gi, ' $1') /* the clause names a list of areas with commas (Kalmar) */.replace(/,?\s*med avvikelse från [^,]*?,/gi, ' ').replace(/\b(får fordon) [^.,]{1,40}, (parkeras)/g, '$1 $2').replace(/\bTrots tillåtelsen i \d+ § får /g, 'Får ').replace(/\bTilllåtelsen\b/g, 'Tillåtelsen').replace(/\binnom\b/g, 'inom').replace(/\b((?:klockan|kl\.?|och)\s*)([01]\d|2[0-4])([0-5]\d)\b(?![.:,]\d)/g, '$1$2.$3') /* "klockan 0800 och 1800" (Värmdö) */.replace(/\b(dag(?:ar)? före) söndag och helgdag/g, '$1 sön- och helgdag').replace(/\bTillåtelsen (?:att parkera )?i paragraf ?\d*\s*§? ?(?=gäller)/g, 'Tillåtelsen ').replace(/\bTillåtelsen att parkera (?:i|enligt) \d+\s*§?\s*(?=gäller)/g, 'Tillåtelsen ').replace(/\b(vardag(?:ar)?), utom ([^,.]*?helgdag(?:ar)?),\s+/g, '$1 utom $2 ') /* "vardagar, utom vardag före sön- och helgdag, mellan …" (Vellinge) */.replace(/personbil klass (?:I|1) (?:och|samt|eller) personbil klass (?:II|2)/gi, 'personbil') /* both classes = any car (Lysekil) */.replace(/(\s)-(?=(?:vardag|sön|lördag|dag|fredag|måndag|tisdag|onsdag|torsdag)\w*)/g, '$1') /* "-vardagar … och -vardag före …" list bullets */.replace(/\b([Ff]år) dock fordon\b/g, '$1 fordon').replace(/\s{2,}/g, ' ');
   t = t.replace(/\bmellan ([01]?\d|2[0-4])((?:[.:][0-5]\d)?) och ([01]?\d|2[0-4])((?:[.:][0-5]\d)?)(?=\s*(?:[.,;]|$))/g, 'mellan klockan $1$2 och $3$4'); // "vardag … mellan 08 och 18." without "klockan" (Lund): hours, not metres
   t = t.replace(/\b(dag|vardag(?:ar)?) (?:före|för) söndag(?:ar)? och helgdag(?:ar)?/gi, '$1 före sön- och helgdag').replace(/\b(vardag(?:ar)?) för (sön- och helgdag)/gi, '$1 före $2'); // "dag före söndag och helgdag" (Hallstahammar), "vardagar för sön- och helgdag" (Mullsjö): the usual day type, not a Sunday
+  t = t.replace(/\b(Förbudet|Tidsbegränsningen|Tillåtelsen|Villkoret) gäller ((?:mellan )?klockan [^.]+?)\.\s*(?:\d+ §\s*)?\1 gäller ((?:under tiden )?(?:vardag|sön- och helgdag|dag före)[^.]*?)\./g, '$1 gäller $3 $2.'); // hours in one sentence, their days in the next ("Förbudet gäller mellan klockan 8 och 12. 3 § Förbudet gäller vardagar, utom …", QA 26 Oct: Katrineholm)
+  t = t.replace(/\b(vardag(?:ar)?),?\s+dock (?:ej|inte)\s+(?=(?:vardag(?:ar)? |dag(?:ar)? )?före sön- och helgdag)/gi, '$1 utom '); // "vardagar, dock ej dag före sön- och helgdag" = "utom" (QA 26 Oct: Hagfors read as Saturdays)
   t = t.replace(/([^.;\s])\s+(?=Tillåtelsen ger inte rätt)/g, '$1. '); // the city text sometimes lacks the full stop before this sentence
   t = t.replace(/([a-zåäö)0-9])\.(?=[A-ZÅÄÖ][a-zåäö])/g, '$1. '); // "… i följd.Tillåtelsen", "… 14.00.Tillåtelsen": glued sentences
   t = t.replace(/([^.;\s])\s+(\d{1,2}\s*§\s+)(?=[A-ZÅÄÖ][a-zåäö])/g, '$1. $2');
@@ -230,6 +234,7 @@ export function parseRegulation(body) {
     // "Parkering är dock tillåten endast mot avgift 15 juni - 15 augusti mellan klockan 08.00 - 21.00": the fee's hours and season (QA: Motala)
     if (/endast mot avgift|mot avgift (?:under|mellan|klockan|\d)|mot (?:att )?avgift (?:betalas|erläggs)/.test(x) && /(?:klockan|kl\.?)\s*\d/.test(x) && !out.feeWindows) { const ws = windows(s); if (ws.length && !halfRead(s, ws)) { out.feeWindows = ws.map(withSP); if (/^(?:mellan )?(?:klockan|kl\.?)\s*\d.*?gäller (?:dock )?tillåtelsen/.test(x)) continue; } } // "Mellan klockan 8 och 22 … gäller dock tillåtelsen … mot att avgift betalas eller högst 1 timme … parkeringsskiva": the fee hours (pay, or 1 h with a disc)
     if (/^(?:tillåtelsen|förbudet)(?: i (?:§\s*\d+|\d+\s*§))? (?:ger|ge) (?:inte|ej) rätt/.test(x)) continue;
+    if (/^tillåtelsen (?:ger|ge) rätt att parkera (?:på ett sådant sätt|där det)/.test(x)) continue; // a permission that overrides a national ban, not a ban (QA 26 Oct: Hallsberg)
     x = x.replace(/,?\s*(?:tillåtelsen |förbudet )?(?:ger|ge) (?:inte|ej) rätt att (?:stanna|parkera)[^.]*/g, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna eller parkera[^.]*/g, '').replace(/där (?:stannande och |stannande eller )?parkering är förbjuden (?:enligt [^.]*)?/g, ''); // "… får fordon parkeras där stannande och parkering är förbjuden enligt 3 kap. 52 §" (Eskilstuna): a permission, not a ban // "… får parkeras där det är förbjudet …" is not a ban
     // "får fordon stannas eller parkeras under högst 3 tim i följd": a permission to stop or park, read like "får fordon parkeras" (Linköping, Söderköping)
     if (/får (?:fordon )?stannas (?:eller|och) parkeras/.test(x) && !/(?:inte|ej) stannas/.test(x)) { x = x.replace(/får (fordon )?stannas (?:eller|och) parkeras/g, 'får $1parkeras').replace(/  +/g, ' '); s = s.replace(/får (fordon )?stannas (?:eller|och) parkeras/gi, 'får $1parkeras'); }

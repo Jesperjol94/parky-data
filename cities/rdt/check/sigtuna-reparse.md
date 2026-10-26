@@ -1,15 +1,8 @@
 # Sigtuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-25. 1029 segments: 1029 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 986, partly read 43. Verified equal 967, filled from text 0, text stricter 7, disputed 1, expired 0, text without rules 3, multi-part texts (not compared) 7.
+Run 2026-10-26. 1029 segments: 1029 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 986, partly read 43. Verified equal 974, filled from text 0, text stricter 0, disputed 1, expired 0, text without rules 3, multi-part texts (not compared) 7.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0191 2020-00111 | Lupinvägen | {"f":[{"dt":["vardag"],"a":0,"b":360},{"dt":["fore"],"a":0,"b":360},{"dt":["helgdag"],"a":0,"b":360},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":0,"b":360},{"dt":["fore"],"a":0,"b":360},{"dt":["helgdag"],"a":0,"b":360}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0191 2021-00105 | Monumentvägen | {"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} → {"f":[{"a":0,"b":360}],"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} | text stricter: applied |
-| 0191 2021-00105 | Ekillavägen | {"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} → {"f":[{"a":0,"b":360}],"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} | text stricter: applied |
-| 0191 2021-00105 | Ekillavägen | {"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} → {"f":[{"a":0,"b":360}],"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} | text stricter: applied |
-| 0191 2021-00105 | Spjutvägen | {"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} → {"f":[{"a":0,"b":360}],"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} | text stricter: applied |
-| 0191 2021-00105 | Spjutvägen | {"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} → {"f":[{"a":0,"b":360}],"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} | text stricter: applied |
-| 0191 2021-00105 | Ekillavägen | {"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} → {"f":[{"a":0,"b":360}],"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} | text stricter: applied |
-| 0191 2021-00105 | Ekillavägen | {"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} → {"f":[{"a":0,"b":360}],"l":[{"dt":["vardag"],"a":360,"b":1440,"max":240}]} | text stricter: applied |

@@ -382,3 +382,23 @@ test('hours written "mellan 08 och 18" without "klockan" (25 Oct)', () => {
   assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1080, max: 120 }]);
   assert.equal(parseRegulation('följande. Trots förbudet får fordon parkeras på Värtavägens nordöstra sida mellan 28 och 52 meter nordväst om Järnvägsallén.').limits.length, 0);
 });
+test('"vardagar, utom vardag före …" in a days-only sentence is Mon–Fri, not Saturday (26 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På Propellergatans östra sida enligt kartbild får fordon parkeras. 2 § Tillåtelsen i 1 § anger inte rätt att parkera fordon i strid mot 3 kap. 49 a § trafikförordningen (1998:1276): På allmän plats inom tättbebyggt område får fordon parkeras högst 24 timmar i följd på vardagar, utom vardag före sön- och helgdag.');
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 0, b: 1440, max: 1440 }]);
+});
+test('a comma before the hours and a leading "och" keep their day types (26 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På Dragongatan södra sidan, får fordon inte parkeras. 2 § Förbudet gäller vardagar, utom dag före sön- och helgdag, mellan klockan 07 och 16, och vardag före sön- och helgdag och sön- och helgdag mellan kl 00 och 24.');
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 420, b: 960 }, { dt: ['fore', 'helgdag'], a: 0, b: 1440 }]);
+});
+test('"Tillåtelsen ger rätt att parkera på ett sådant sätt som är förbjudet …" is not a ban (26 Oct)', () => {
+  const r = parseRegulation('följande. På markerad sträcka på Idrottsvägens norra sida enligt kartbild får fordon, med avvikelse från Hallsbergs kommuns lokala trafikföreskrifter 1861 2022:0022 om förbud att parkera på Idrottsvägen, parkeras. Tillåtelsen ger rätt att parkera på ett sådant sätt som är förbjudet enligt trafikförordning (1998:1276) 3 kap. 52 § stycke 2.');
+  assert.deepEqual(r.bans, []); assert.deepEqual(r.unread, []);
+});
+test('hours in one sentence and their days in the next form one ban (26 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På Storgatan får fordon inte parkeras. 2 § Förbudet gäller mellan klockan 8 och 12. 3 § Förbudet gäller vardagar, utom vardag före sön- och helgdag.');
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 480, b: 720 }]);
+});
+test('"vardagar, dock ej dag före sön- och helgdag" means Mon–Fri (26 Oct)', () => {
+  const r = parseRegulation('följande. På Skolgatan får fordon parkeras under högst 1 timme i följd vardagar, dock ej dag före sön- och helgdag, mellan kl 08.00 och kl 18.00 samt dag före sön- och helgdag och sön- och helgdag mellan kl 08.00 och 14.00.');
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1080, max: 60 }, { dt: ['fore', 'helgdag'], a: 480, b: 840, max: 60 }]);
+});

@@ -1,9 +1,7 @@
 # Hallstahammar: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-25. 168 segments: 168 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 143, partly read 25. Verified equal 140, filled from text 0, text stricter 0, disputed 2, expired 0, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-10-26. 168 segments: 168 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 143, partly read 25. Verified equal 142, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1961 2013-331 | Stationsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"w":7,"a":540,"b":840,"dt":["vardag","fore"],"max":30}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":840,"max":30}]} | text differs: text wins (owner's decision 18 Oct) |
-| 1961 2013-332 | Stationsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"w":7,"a":540,"b":840,"dt":["vardag","fore"],"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120}]} | text differs: text wins (owner's decision 18 Oct) |
