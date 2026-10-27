@@ -44,6 +44,23 @@ function multiPart(body) {
   return places > 1 || colours > 1 || (sides > 1 && (t.match(/får (?:fordon|endast|personbil)/g) || []).length > 1); // places marked in several colours with different rules (Norrtälje Campus Roslagen)
 }
 
+// A text that only says "får fordon parkeras" (optionally "mot avgift …" with the fee's hours) and nothing else with hours, days or
+// a duration: safe to read as "park freely / pay the fee". Anything more (hours on the permission, "24 tim i följd" without
+// "högst", "endast …") keeps a grey segment grey (QA 27 Oct).
+const TIMEWORD = /\d{1,2}[.:]\d{2}|\b(?:tim(?:me|mar|ma)?|dygn|minut\w*|klockan|kl|vardag\w*|helgdag\w*|högst|endast|enbart|måndag\w*|tisdag\w*|onsdag\w*|torsdag\w*|fredag\w*|lördag\w*|söndag\w*|udda|jämna|datum\w*|januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december|förbjud\w*|inte|ej|reserver\w*|tillstånd|klass)\b/i;
+function plainPermit(body) {
+  const t = ruleText(body); if (!t) return false;
+  const ss = t.replace(/\(\d{4}:\d+\)/g, '').split(/(?<=[.;])\s*/).map((x) => x.replace(/^\s*\d+\s*§\s*/, '').trim()).filter((x) => /[a-zåäö]{3}/i.test(x));
+  let permit = false;
+  for (const x of ss) {
+    if (/^(?:tillåtelsen|förbudet) (?:ger|ge) (?:inte|ej) rätt/i.test(x)) continue;
+    if (/får (?:fordon|parkeras)[^.]*parkeras|får fordon[^.]*parkeras|får parkeras/i.test(x)) { const head = x.replace(/\bmot (?:att )?avgift\b.*$/i, '').replace(/med avvikelse från [^,]*,/i, ''); if (TIMEWORD.test(head)) return false; permit = true; continue; }
+    if (/^(?:avgift\w*|parkeringsavgift\w*)\b/i.test(x)) continue; // fee sentences: their hours are the fee's
+    if (TIMEWORD.test(x)) return false;
+  }
+  return permit;
+}
+
 // Rules the text gives, in segment form
 function fromText(r) {
   const o = {};
@@ -150,7 +167,7 @@ for (const row of idx.cities) {
       if (allDay && periods.length === r.feeWindows.length) {
         const sig = JSON.stringify(periods);
         let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
-        if (!id) { let n = 1; while (c.taxa[b0 * 100 + n]) n++; id = b0 * 100 + n; c.taxa[id] = { periods, label: base.label }; }
+        if (!id) { let n = 1; while (c.taxa[b0 * 100 + n]) n++; id = b0 * 100 + n; c.taxa[id] = clean({ periods, label: base.label, dayCap: base.dayCap }); } // keep the day cap (QA 27 Oct: Orust)
         if (s.t !== id) { s.t = id; changed++; st.feeHours = (st.feeHours || 0) + 1; }
       }
     }
@@ -187,6 +204,9 @@ for (const row of idx.cities) {
     // a text that permits parking with no further conditions, where the register has a ban or allowed hours: the text wins (QA 22 Oct:
     // Halmstad Brogatan, Huddinge Månvägen and Uppsala Granitvägen showed the fee hours or a whole day as a ban)
     if (!hasRules(t) && r.permitted && !r.heavyOnly && (s.f || s.aw) && !s.v) { st.permitOnly = (st.permitOnly || 0) + 1; if (APPLY) { for (const k of ['f', 'l', 'aw', 'dp', 'k', 'ko']) delete s[k]; delete s.u; s.rx = 1; changed++; } continue; }
+    // an uncertain segment whose fully read text only permits parking (with or without a fee) and gives no other rule: the
+    // text answers it (QA 27 Oct: Uppsala Valhallagatan, Sundbyberg Bergsgatan "får fordon parkeras och mot avgift" were grey)
+    if (!hasRules(t) && r.permitted && !r.heavyOnly && s.u && !s.ux && !s.ex && !s.v && !s.f && !s.l && !s.aw && plainPermit(rec.body)) { st.permitFilled = (st.permitFilled || 0) + 1; lines.push(`| ${s.c} | ${s.n} | uncertain → permitted${s.fu || s.t ? ' (fee)' : ''} | filled from text |`); if (APPLY) { delete s.u; s.rx = 1; if (!('t' in s) || s.t === null) { if (!/avgift/i.test(rec.body)) s.t = 0; } changed++; } continue; }
     if (!hasRules(t)) { st.textNoRule++; if (s.u) st.uStill++; continue; } // e.g. a pure fee regulation: nothing to compare
     const cur = { f: s.f, l: s.l, aw: s.aw, v: s.v, k: s.k };
     // day-type convention check: when both sides have exactly one window of the same kind, tally (Pelle dt → text dt)

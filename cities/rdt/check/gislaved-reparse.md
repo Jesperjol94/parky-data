@@ -1,6 +1,6 @@
 # Gislaved: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-26. 241 segments: 241 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-10-27. 241 segments: 241 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 197, partly read 16. Verified equal 196, filled from text 0, text stricter 0, disputed 0, expired 28, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

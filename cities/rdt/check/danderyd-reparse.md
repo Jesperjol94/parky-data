@@ -1,7 +1,7 @@
 # Danderyd: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-26. 750 segments: 750 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 692, partly read 58. Verified equal 594, filled from text 0, text stricter 0, disputed 5, expired 0, text without rules 22, multi-part texts (not compared) 71.
+Run 2026-10-27. 750 segments: 750 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 692, partly read 58. Verified equal 594, filled from text 0, text stricter 0, disputed 5, expired 0, text without rules 8, multi-part texts (not compared) 71.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,3 +10,17 @@ Fully read 692, partly read 58. Verified equal 594, filled from text 0, text str
 | 0162 2007-73 | Långbackavägen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0162 2007-73 | Långbackavägen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0162 2007-73 | Backstigen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0162 2014-00102 | Rinkebyvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2014-00102 | Rinkebyvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2014-00157 | Bergstigen | uncertain → permitted | filled from text |
+| 0162 2018-00010 | Sätraängsvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2018-00010 | Sätraängsvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2018-00010 | Sätraängsvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2018-00010 | Sätraängsvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2018-00010 | Sätraängsvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2018-00011 | Ugglebacken | uncertain → permitted (fee) | filled from text |
+| 0162 2026-00025 | Invernessvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2026-00025 | Invernessvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2026-00025 | Invernessvägen | uncertain → permitted (fee) | filled from text |
+| 0162 2026-00026 | Klostervägen | uncertain → permitted (fee) | filled from text |
+| 0162 2026-00026 | Klostervägen | uncertain → permitted (fee) | filled from text |

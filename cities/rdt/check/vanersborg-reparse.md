@@ -1,7 +1,7 @@
 # Vänersborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-26. 972 segments: 972 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 940, partly read 14. Verified equal 913, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 11, multi-part texts (not compared) 15.
+Run 2026-10-27. 972 segments: 972 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 940, partly read 14. Verified equal 913, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 7, multi-part texts (not compared) 15.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,6 +9,10 @@ Fully read 940, partly read 14. Verified equal 913, filled from text 0, text str
 | 1487 2010-00395 | Sommarhemsvägen | expired 2010-07-02 | already uncertain |
 | 1487 2010-00395 | Sommarhemsvägen | expired 2010-07-02 | already uncertain |
 | 1487 2010-00395 | Sommarhemsvägen | expired 2010-07-02 | already uncertain |
+| 1487 2016-00178 | Kastanjevägen | uncertain → permitted | filled from text |
+| 1487 2016-00181 | Poppelvägen | uncertain → permitted | filled from text |
+| 1487 2016-00181 | Poppelvägen | uncertain → permitted | filled from text |
+| 1487 2023-00138 | Nabbensbergsvägen | uncertain → permitted | filled from text |
 | 1487 2026-00286 | Drottninggatan | expired 2026-10-24 | already uncertain |
 | 1487 2026-00286 | Drottninggatan | expired 2026-10-24 | already uncertain |
 | 1487 2026-00287 | Kungsgatan | expired 2026-10-24 | already uncertain |

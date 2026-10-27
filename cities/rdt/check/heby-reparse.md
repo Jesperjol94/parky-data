@@ -1,7 +1,8 @@
 # Heby: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-26. 78 segments: 78 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 76, partly read 2. Verified equal 49, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 27, multi-part texts (not compared) 0.
+Run 2026-10-27. 78 segments: 78 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 76, partly read 2. Verified equal 49, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 26, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 0331 2023-2 | Kyrkogatan | uncertain → permitted | filled from text |

@@ -402,3 +402,24 @@ test('"vardagar, dock ej dag före sön- och helgdag" means Mon–Fri (26 Oct)',
   const r = parseRegulation('följande. På Skolgatan får fordon parkeras under högst 1 timme i följd vardagar, dock ej dag före sön- och helgdag, mellan kl 08.00 och kl 18.00 samt dag före sön- och helgdag och sön- och helgdag mellan kl 08.00 och 14.00.');
   assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1080, max: 60 }, { dt: ['fore', 'helgdag'], a: 480, b: 840, max: 60 }]);
 });
+test('"Förbudet gäller inte (fordon) 1 juni - 30 september" puts the ban in the rest of the year; "gäller endast vardag" narrows its days (27 Oct)', () => {
+  const r = parseRegulation('följande. På Löftesgränds södra sida får fordon inte parkeras. Förbudet gäller under tiden tisdag klockan 07.00 - 12.00. Förbudet gäller endast fordon vardag. Förbudet gäller inte fordon 1:a juni - 30:e september Denna författning träder i kraft den 1 juni 2011.');
+  assert.deepEqual(r.bans, [{ w: 2, a: 420, b: 720, dt: ['vardag', 'fore'], m: [[10, 1], [5, 31]] }]); assert.deepEqual(r.unread, []);
+  const v = parseRegulation('följande. På Vellingevägen får fordon inte parkeras. Förbudet gäller vardagar utom vardag före sön- och helgdag mellan klockan 7 och 17. Förbudet gäller inte 15 juni - 15 augusti.');
+  assert.deepEqual(v.bans, [{ dt: ['vardag'], a: 420, b: 1020, m: [[8, 16], [6, 14]] }]);
+});
+test('"Avgiftsplikten gäller (endast under perioden) 1 juni - 15 augusti" is the fee season, before or after the fee hours (27 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På Smyge strandväg får endast personbil klass I parkeras mot avgift. 2 § Avgift ska betalas för parkering enligt vit taxa. Avgiftsplikten gäller vardagar utom vardag före sön- och helgdag mellan klockan 08.00 - 20.00 och sön- och helgdagar 08.00 - 20.00. 3 § Avgiftsplikten gäller endast under perioden 1 juni-15 augusti. Dessa föreskrifter träder i kraft den 8 juli 2025.');
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1200, m: [[6, 1], [8, 15]] }, { dt: ['helgdag'], a: 480, b: 1200, m: [[6, 1], [8, 15]] }]);
+  const h = parseRegulation('följande. 1 § På Odinsvägen får fordon parkeras mot avgift. 2 § Avgift ska betalas för parkering enligt 1 §. Avgiftsplikten gäller 1 juni - 31 augusti. 3 § Avgiften enligt taxa E.');
+  assert.deepEqual(h.feeWindows, [{ a: 0, b: 1440, m: [[6, 1], [8, 31]] }]);
+});
+test('"parkeras mot avgift vardagar utom … klockan 08.00 - 21.00" gives the fee hours (27 Oct)', () => {
+  const r = parseRegulation('följande. På markerad sträcka på Löfströms allés sydvästra sida enligt kartbild får fordon parkeras mot avgift vardagar utom vardag före sön- och helgdag klockan 08.00 - 21.00.');
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1260 }]);
+});
+test('"får fordon parkeras och mot avgift" is a permission with fee hours and no other rule (reparse lifts grey, 27 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På Valhallagatan enligt markering på bifogad kartbild, får fordon parkeras och mot avgift.Tillåtelsen ger inte rätt att stanna eller parkera där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276). 2 § Avgift ska betalas för parkering enligt Uppsala kommuns lokala trafikföreskrifter om parkering. Avgiftsplikten gäller under tiden vardagar utom vardag före sön- och helgdag mellan klockan 08.00 – 24.00 och vardag före sön- och helgdag mellan klockan 08.00 – 24.00.');
+  assert.equal(r.permitted, true); assert.deepEqual([r.bans, r.limits, r.allowOnly, r.unread], [[], [], [], []]);
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1440 }, { dt: ['fore'], a: 480, b: 1440 }]);
+});

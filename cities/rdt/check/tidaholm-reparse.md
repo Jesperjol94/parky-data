@@ -1,9 +1,13 @@
 # Tidaholm: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-26. 57 segments: 57 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 54, partly read 1. Verified equal 50, filled from text 0, text stricter 0, disputed 0, expired 2, text without rules 4, multi-part texts (not compared) 0.
+Run 2026-10-27. 57 segments: 57 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 54, partly read 1. Verified equal 50, filled from text 0, text stricter 0, disputed 0, expired 2, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1498 2012-00014 | Forsens utbildningsområde | expired 2013-06-12 | already uncertain |
 | 1498 2012-00014 | Forsens utbildningsområde | expired 2013-06-12 | already uncertain |
+| 1498 2014-2 | Norra Kungsvägen | uncertain → permitted | filled from text |
+| 1498 2014-2 | Norra Kungsvägen | uncertain → permitted | filled from text |
+| 1498 2014-2 | Norra Kungsvägen | uncertain → permitted | filled from text |
+| 1498 2014-2 | Norra Kungsvägen | uncertain → permitted | filled from text |
