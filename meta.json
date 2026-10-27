@@ -1,23 +1,23 @@
 {
-  "built": "2026-10-26T06:26:04.659Z",
+  "built": "2026-10-27T06:15:29.429Z",
   "source": "Stockholms stad, LTF-Tolken (öppna data)",
-  "records": 20177,
-  "skipped": 72,
-  "segments": 12201,
+  "records": 20185,
+  "skipped": 64,
+  "segments": 12214,
   "regulationTexts": {
-    "withText": 11955,
+    "withText": 11951,
     "expired": 0,
-    "completed": 9156,
+    "completed": 9155,
     "unread": 44,
     "tooShort": 11
   },
   "uncertain": 3,
-  "reserved": 4398,
-  "withCleaning": 7560,
+  "reserved": 4406,
+  "withCleaning": 7565,
   "withTimeLimit": 833,
-  "withZones": 3845,
+  "withZones": 3847,
   "junctions": 22227,
   "crossings": 10772,
-  "hash": "d8ba0910b80103ad",
-  "bytes": 4632744
+  "hash": "ee571a8490def325",
+  "bytes": 4635232
 }
