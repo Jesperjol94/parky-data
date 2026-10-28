@@ -1,8 +1,7 @@
 # Töreboda: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-27. 77 segments: 77 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 76, partly read 1. Verified equal 75, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-10-28. 77 segments: 77 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 76, partly read 1. Verified equal 75, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1473 2025-00005 | Järnvägsgatan | uncertain → permitted | filled from text |

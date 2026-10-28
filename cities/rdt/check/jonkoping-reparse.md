@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-27. 2273 segments: 2273 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2060, partly read 21. Verified equal 1494, filled from text 0, text stricter 0, disputed 0, expired 192, text without rules 506, multi-part texts (not compared) 0.
+Run 2026-10-28. 2273 segments: 2273 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2060, partly read 21. Verified equal 1494, filled from text 0, text stricter 0, disputed 0, expired 192, text without rules 566, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -193,67 +193,7 @@ Fully read 2060, partly read 21. Verified equal 1494, filled from text 0, text s
 | 0680 2013-141 | Norra Bogesundsgatan | expired 2013-05-24 | already uncertain |
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
-| 0680 2017-208 | Stationsgatan | uncertain → permitted | filled from text |
-| 0680 2017-212 | Wilhelm Thams väg | uncertain → permitted | filled from text |
-| 0680 2017-217 | Tormenåsgatan | uncertain → permitted | filled from text |
-| 0680 2017-218 | Tormenåsgatan | uncertain → permitted | filled from text |
-| 0680 2017-309 | Smedstorpsgatan | uncertain → permitted | filled from text |
-| 0680 2017-615 | Brahegatan | uncertain → permitted | filled from text |
-| 0680 2017-616 | Brahegatan | uncertain → permitted | filled from text |
-| 0680 2017-1114 | Björnebergsvägen | uncertain → permitted | filled from text |
-| 0680 2017-1261 | Hagtornsgatan | uncertain → permitted | filled from text |
-| 0680 2017-1304 | Huskvarnavägen | uncertain → permitted | filled from text |
-| 0680 2017-1390 | Brahegatan | uncertain → permitted | filled from text |
-| 0680 2017-1393 | Murgrönsgatan | uncertain → permitted | filled from text |
-| 0680 2017-1403 | Norrahammarsvägen | uncertain → permitted | filled from text |
-| 0680 2017-1421 | Rönngatan | uncertain → permitted | filled from text |
-| 0680 2017-1472 | Stockrosgatan | uncertain → permitted | filled from text |
-| 0680 2017-1480 | Sälggatan | uncertain → permitted | filled from text |
-| 0680 2017-1486 | Södra Apollovägen | uncertain → permitted | filled from text |
-| 0680 2017-1486 | Södra Apollovägen | uncertain → permitted | filled from text |
-| 0680 2017-1496 | Törnrosgatan | uncertain → permitted | filled from text |
-| 0680 2017-1526 | Centrumvägen | uncertain → permitted | filled from text |
-| 0680 2017-1527 | Centrumvägen | uncertain → permitted | filled from text |
-| 0680 2017-1528 | Centrumvägen | uncertain → permitted | filled from text |
-| 0680 2018-958 | Harrvägen | uncertain → permitted | filled from text |
-| 0680 2018-960 | Harrvägen | uncertain → permitted | filled from text |
-| 0680 2020-244 | Hallmansvägen | uncertain → permitted | filled from text |
-| 0680 2020-247 | Hallmansvägen | uncertain → permitted | filled from text |
-| 0680 2020-248 | Hallmansvägen | uncertain → permitted | filled from text |
-| 0680 2020-249 | Hallmansvägen | uncertain → permitted | filled from text |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
-| 0680 2020-314 | Hallmansvägen | uncertain → permitted | filled from text |
-| 0680 2021-116 | Sagogatan | uncertain → permitted | filled from text |
-| 0680 2021-116 | Sagogatan | uncertain → permitted | filled from text |
-| 0680 2021-120 | Sagogatan | uncertain → permitted | filled from text |
-| 0680 2021-120 | Sagogatan | uncertain → permitted | filled from text |
-| 0680 2021-121 | Sagogatan | uncertain → permitted | filled from text |
-| 0680 2021-121 | Sagogatan | uncertain → permitted | filled from text |
-| 0680 2021-319 | Tuvullsvägen | uncertain → permitted | filled from text |
-| 0680 2021-415 | Björnebergsvägen | uncertain → permitted | filled from text |
-| 0680 2021-416 | Björnebergsvägen | uncertain → permitted | filled from text |
-| 0680 2021-417 | Björnebergsvägen | uncertain → permitted | filled from text |
-| 0680 2021-418 | Björnebergsvägen | uncertain → permitted | filled from text |
-| 0680 2021-419 | Björnebergsvägen | uncertain → permitted | filled from text |
-| 0680 2021-420 | Björnebergsvägen | uncertain → permitted | filled from text |
-| 0680 2021-421 | Björnebergsvägen | uncertain → permitted | filled from text |
-| 0680 2021-422 | Björnebergsvägen | uncertain → permitted | filled from text |
-| 0680 2024-102 | Kalkstensgatan | uncertain → permitted | filled from text |
-| 0680 2024-105 | Roddargatan | uncertain → permitted | filled from text |
-| 0680 2024-108 | Klubbhusgatan | uncertain → permitted | filled from text |
-| 0680 2024-115 | Porfyrvägen | uncertain → permitted | filled from text |
-| 0680 2024-116 | Skiffervägen | uncertain → permitted | filled from text |
-| 0680 2024-117 | Kabelvägen | uncertain → permitted | filled from text |
-| 0680 2024-118 | Kabelvägen | uncertain → permitted | filled from text |
-| 0680 2024-119 | Bultvägen | uncertain → permitted | filled from text |
-| 0680 2024-127 | Industrigatan | uncertain → permitted | filled from text |
-| 0680 2024-128 | Industrigatan | uncertain → permitted | filled from text |
-| 0680 2024-129 | Industrigatan | uncertain → permitted | filled from text |
-| 0680 2024-130 | Industrigatan | uncertain → permitted | filled from text |
-| 0680 2024-131 | Industrigatan | uncertain → permitted | filled from text |
-| 0680 2024-227 | vägen till Grännaberget | uncertain → permitted | filled from text |
-| 0680 2024-227 | vägen till Grännaberget | uncertain → permitted | filled from text |
-| 0680 2025-381 | Gamla Vägen | uncertain → permitted | filled from text |
 | 0680 2026-504 | Blåklintstigen | expired 2026-10-21 | already uncertain |
 | 0680 2026-504 | Vildvinsbacken | expired 2026-10-21 | already uncertain |
-| 0680 2026-506 | Trädgårdsgatan | expired 2026-10-27 | now uncertain |
+| 0680 2026-506 | Trädgårdsgatan | expired 2026-10-27 | already uncertain |

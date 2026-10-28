@@ -1,8 +1,7 @@
 # Lidingö: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-27. 528 segments: 528 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 490, partly read 38. Verified equal 489, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-10-28. 528 segments: 528 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 490, partly read 38. Verified equal 489, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0186 2016-14 | Illerbacken | uncertain → permitted | filled from text |

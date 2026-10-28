@@ -423,3 +423,15 @@ test('"får fordon parkeras och mot avgift" is a permission with fee hours and n
   assert.equal(r.permitted, true); assert.deepEqual([r.bans, r.limits, r.allowOnly, r.unread], [[], [], [], []]);
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1440 }, { dt: ['fore'], a: 480, b: 1440 }]);
 });
+test('"… parkeras … mot avgift. Tillåtelsen gäller under vardagar … 09.00 – 18.00" gives the fee hours (28 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På södra sidan av Södra Esplanaden i Växjö får fordon parkeras under högst 3 tim i följd mot avgift.Tillåtelsen ger inte rätt att stanna eller parkera där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276). 2 § Tillåtelsen gäller under vardagar utom vardag före sön- och helgdag mellan klockan 09.00 – 18.00. 3 § Avgift enligt taxa zon 2.');
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }]);
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 180 }]); assert.deepEqual(r.unread, []);
+  const n = parseRegulation('följande. 1 § På Storgatan får fordon parkeras under högst 3 tim i följd. 2 § Tillåtelsen gäller under vardagar mellan klockan 09.00 – 18.00.');
+  assert.equal(n.feeWindows, null); // no fee in the text: no fee hours
+});
+test('"Mellan klockan 0 och 24 gäller dock tillåtelsen … högst 24 timmar i följd vardag, utom …" and a paragraph opening with a date (28 Oct)', () => {
+  const r = parseRegulation('följande. 1 § På det område vid Lökholmsvägen får endast personbil klass I parkeras. 2 § Mellan klockan 0 och 24 gäller dock tillåtelsen i 1 § högst 24 timmar i följd vardag, utom vardag före sön- och helgdag. 3 § Tillåtelsen i 1 § och villkoren i 2 § gäller 31 juli - 1 maj. 4 § 1 maj - 31 juli gäller dock parkering tillåten endast för personbil klass I högst 28 dagar i följd.');
+  assert.deepEqual(r.limits, [{ a: 0, b: 1440, dt: ['vardag'], max: 1440, m: [[7, 31], [5, 1]] }, { a: 0, b: 1440, m: [[5, 1], [7, 31]], max: 40320 }]);
+  assert.deepEqual(r.unread, []);
+});
