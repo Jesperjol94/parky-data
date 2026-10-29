@@ -435,3 +435,21 @@ test('"Mellan klockan 0 och 24 gäller dock tillåtelsen … högst 24 timmar i 
   assert.deepEqual(r.limits, [{ a: 0, b: 1440, dt: ['vardag'], max: 1440, m: [[7, 31], [5, 1]] }, { a: 0, b: 1440, m: [[5, 1], [7, 31]], max: 40320 }]);
   assert.deepEqual(r.unread, []);
 });
+test('placement-only sentences do not leave a text unread (29 Oct)', () => {
+  const a = parseRegulation('följande. 1 § På östra sidan av Lingsgatan får fordon parkeras under högst 4 tim i följd vardag utom vardag före sön- och helgdag mellan klockan 09.00 – 18.00. Tillåtelsen gäller endast särskilt markerade platser.');
+  assert.deepEqual(a.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 240 }]); assert.deepEqual(a.unread, []);
+  const b = parseRegulation('följande. 1 § På Kvarngatan får fordon parkeras endast mot avgift. 4 § Parkering är dock förbjuden under 1:a helgfria tisdagen i månaden mellan klockan 08.00 - 12.00. 5 § Parkeringen är endast tillåten på markerade platser.');
+  assert.deepEqual(b.unread, []);
+  const c = parseRegulation('följande. På Schéelegatan får fordon inte parkeras. Förbudet gäller båda sidor.');
+  assert.deepEqual([c.bans, c.unread], [[{ a: 0, b: 1440 }], []]);
+  for (const s of ['Parkeringsplatsernas läge framgår av till beslutet hörande karta.', 'Vid parkering av motorcykel eller moped klass 1 krävs inte parkeringsskiva.']) assert.deepEqual(parseRegulation(`följande. På Torget får fordon parkeras under högst 2 tim i följd. ${s}`).unread, []);
+  // a sentence about both sides that also carries a time is not placement-only
+  assert.notDeepEqual(parseRegulation('följande. På Gatan får fordon inte parkeras. Förbudet gäller båda sidor vardagar klockan 08.00 - 12.00.').bans, [{ a: 0, b: 1440 }]);
+});
+test('"Övrig tid får fordon parkeras högst …" after a seasonal limit: rest of the season and the rest of the year (29 Oct)', () => {
+  const r = parseRegulation('följande. På parkeringsplats vid Strandvägen får fordon parkeras under högst 20 min i följd. Tidsbegränsningen gäller under tiden 15 augusti - 15 juni. Övrig tid får fordon parkeras under högst 2 timmar i följd.');
+  assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 20, m: [[8, 15], [6, 15]] }, { a: 0, b: 1440, m: [[6, 16], [8, 14]], max: 120 }]); assert.deepEqual(r.unread, []);
+  const h = parseRegulation('följande. På Torget får fordon parkeras under högst 3 tim i följd klockan 08.00 - 18.00 under tiden 1 juli - 31 augusti. Övrig tid får fordon parkeras högst 3 dygn i följd.');
+  assert.deepEqual(h.limits.slice(-1), [{ a: 0, b: 1440, m: [[9, 1], [6, 30]], max: 4320 }]);
+  assert.ok(h.limits.some((l) => l.a === 1080 && l.b === 1440 && l.max === 4320 && l.m)); assert.deepEqual(h.unread, []);
+});

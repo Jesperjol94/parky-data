@@ -182,6 +182,12 @@ const IGNORE = [
   /^Förbudet gäller inte där parkering är tillåten enligt/i, /^Se /i, /\bboendeparkering\b[^.]*(?:tillåte?n?|villkor|bestämmelser)/i, /^särskilda (?:villkor|bestämmelser)/i, /^förbudet gäller (?:inte|ej) fordon med (?:särskilt )?tillstånd/i, /^första (?:timmen|halvtimmen) är avgiftsfri/i, /^förbuden i [^.]*ger (?:inte|ej) rätt/i, /^följande (?:gator|vägar) ingår/i, /^om inte annat föreskrivits/i, /^övrig tid får parkering ske utan/i, /^föreskriften träder i kraft/i, /^i området ingår även/i, /^förbudet gäller endast på allmänna platser/i, /^förbudet gäller (?:inte|ej) (?:på )?markerade platser/i, /^förbudet gäller (?:inte|ej) om annat/i, /^\S+ taxa\b[^.]*biljett/i, /^taxa\s*[-–]/i, /^vid parkering enligt \d+\s*§/i, /^\S+ kommuns lokala trafikföreskrifter om\b/i, /^tillåtelsen gäller endast personbil(?:ar)?\.?$/i, /^på parkeringsskiva/i, /^samtliga koordinater/i, /^zon\.?$/i, /^förbudet gäller på (?:gatans|vägens) båda sidor/i, /^förbudet gäller (?:inte|ej) (?:för )?(?:skolskjuts|vid på- eller avlastning|vid av- och pålastning)/i, /^avvikelsen avser även/i, /^trf \(/i, /^allmänna lokala trafikföreskrifter\b/i, /^(?:röd|blå|grön|gul|vit|lila) taxa\.?$/i, /^förbudet gäller (?:endast )?(?:under )?skoldagar\.?$/i, /^boende(?:parkering)? zon \S+\.?$/i, /(?:inte|ej) parkeras annat än (?:på|inom) (?:särskilt )?(?:markerad|anordnad)/i, /^vid parkering ska(?:ll)? fordon uppställas/i, /^förbudet gäller (?:inte|ej) (?:inom|på) särskilt (?:anordnad|markerad)/i, /nämnden\b(?![^.]*(?:får|parkeras|gäller|förbjud))/i, /\btaxa\b[^.]*boendeparkering[^.]*gäller/i, /^Instruktioner på parkeringsmätare/i, /^Digital registrering/i, /^Den första timmen/i, /^För parkering inom .* tas avgift/i,
   /årligen återkommande/i, /^(?:Författningen|Föreskriften|Denna författning) (?:ersätter|upphäver)/i, /^Denna föreskrift gäller ej där annat/i, /^Tillåtelsen (?:att parkera )?gäller dock mot avgift/i, /^Parkeringsregler för boendeparkering/i, /^Om förbud att parkera fordon är föreskriven viss tid på plats för boendeparkering/i, /^Tillåtelsen gäller även/i, /boendeparkeringskort|boendeparkeringstillstånd/i, /^Avgift(?:en)?\b/i, /behöver inte erläggas/i, /^Fordonet ska vara försett/i, /^Tillstånd(?:et)? /i,
   /^(?:Parkering|Uppställning) får (?:endast )?ske (?:i|på) (?:markerade|anvisade)/i, /ska ha (?:ett )?giltigt parkeringstillstånd/i,
+  // where on the street a rule applies, not when (QA 29 Oct: Ystad, Eslöv, Strömstad, Visby texts stayed unread for these alone)
+  /^Tillåtelsen (?:att parkera )?gäller (?:endast|enbart|bara) (?:på |inom )?(?:de )?(?:särskilt )?(?:markerade|anvisade|uppmärkta|anordnade) (?:parkerings)?(?:platser|platserna|rutor)\.?$/i,
+  /^Parkering(?:en)? är (?:endast|enbart|bara) tillåten (?:på|inom) (?:de )?(?:särskilt )?(?:markerade|anvisade|uppmärkta|anordnade) (?:parkerings)?(?:platser|platserna|rutor)\.?$/i,
+  /^Förbudet (?:att (?:parkera|stanna)\S* )?gäller (?:på )?båda sid(?:or|orna|an)\b(?![^.]*(?:klockan|kl\b|\d[.:]\d|vardag|helgdag|dag\b|tim|datum|januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december|inte|ej|endast))/i,
+  /^(?:Parkeringsplats(?:ernas|ens)|Plats(?:ernas|ens)) läge framgår av\b/i,
+  /^Vid parkering av (?:motorcykel|moped)[^.]*krävs (?:inte|ej) parkeringsskiva\.?$/i,
 ];
 
 // → { taxa, reserved, purpose, allowOnly, limits, bans, otherAllowed, unread: [sentences we could not interpret] }
@@ -275,7 +281,14 @@ export function parseRegulation(body) {
       out.otherAllowed = true; out.allowOnly = out.allowOnly.filter((w) => !tillWs.includes(w));
       const d = duration(s);
       if (d) { // "Övrig tid får fordon parkeras under högst 4 tim i följd": a limit in the hours outside the limit just stated
-        const o = lastLimit ? outsideHours(lastLimit.items) : null;
+        let o = lastLimit ? outsideHours(lastLimit.items) : null;
+        // a limit in a season ("… högst 20 min i följd. Tidsbegränsningen gäller under tiden 15 augusti - 15 juni. Övrig tid får fordon parkeras
+        // under högst 2 timmar i följd."): other hours of that season, and the whole rest of the year (QA 29 Oct: Kil, Hjo, Ljusdal, Tranemo)
+        const sm = lastLimit && lastLimit.items[0].m;
+        if (!o && sm && lastLimit.items.every((w) => JSON.stringify(w.m) === JSON.stringify(sm) && !w.w && !w.p && !w.wk && !w.dm && !w.nw && !w.dd) && !windows(s).length && !/vardag|helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag/.test(x)) {
+          const inSeason = outsideHours(lastLimit.items.map(({ m: _m, ...w }) => w)) || [];
+          o = [...inSeason.map((w) => ({ ...w, m: sm })), { a: 0, b: 1440, m: complement(sm) }];
+        }
         if (o) { const items = o.map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; }
         else { let ws = windows(s); if (!ws.length) ws = dayOnlyWindows(s); if (lastBan && ws.length && !halfRead(s, ws)) { const items = ws.map(withSP).map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; } else if (lastBan && !/(?:klockan|kl\.?)\s*\d|vardag|helgdag/.test(x)) { const items = [{ a: 0, b: 1440, max: d }]; out.limits.push(...items); lastLimit = { max: d, items }; } else unread(s); } // after a ban: "Övrig tid … högst 24 tim i följd vardag …" (Lidköping)
       }

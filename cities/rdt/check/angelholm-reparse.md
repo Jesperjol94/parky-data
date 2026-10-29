@@ -1,6 +1,6 @@
 # Ängelholm: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-28. 737 segments: 737 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-10-29. 737 segments: 737 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 693, partly read 26. Verified equal 593, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 100, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -22,4 +22,4 @@ Fully read 693, partly read 26. Verified equal 593, filled from text 0, text str
 | 1292 2026-00216 | Järnvägsgatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00217 | Järnvägsgatan | expired 2026-10-23 | already uncertain |
 | 1292 2026-00218 | Västra Kyrkogatan | expired 2026-10-24 | already uncertain |
-| 1292 2026-00269 | Vaktgatan | expired 2026-10-28 | now uncertain |
+| 1292 2026-00269 | Vaktgatan | expired 2026-10-28 | already uncertain |

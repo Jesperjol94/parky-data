@@ -1,7 +1,7 @@
 # Nacka: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-28. 2752 segments: 2752 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2728, partly read 24. Verified equal 2547, filled from text 0, text stricter 0, disputed 7, expired 0, text without rules 164, multi-part texts (not compared) 10.
+Run 2026-10-29. 2752 segments: 2752 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2732, partly read 20. Verified equal 2551, filled from text 0, text stricter 0, disputed 7, expired 0, text without rules 164, multi-part texts (not compared) 10.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

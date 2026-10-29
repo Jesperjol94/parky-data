@@ -1,6 +1,6 @@
 # Norrköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-28. 3724 segments: 3724 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-10-29. 3724 segments: 3724 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 3700, partly read 12. Verified equal 2637, filled from text 0, text stricter 0, disputed 2, expired 12, text without rules 67, multi-part texts (not compared) 994.
 
 | Citation | Street | Change | Note |
