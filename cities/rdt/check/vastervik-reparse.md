@@ -1,7 +1,7 @@
 # Västervik: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-29. 980 segments: 980 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 908, partly read 60. Verified equal 899, filled from text 0, text stricter 0, disputed 0, expired 12, text without rules 8, multi-part texts (not compared) 0.
+Run 2026-10-30. 980 segments: 980 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 920, partly read 48. Verified equal 911, filled from text 0, text stricter 0, disputed 0, expired 12, text without rules 8, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

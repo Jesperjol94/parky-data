@@ -50,7 +50,7 @@ function multiPart(body) {
 const TIMEWORD = /\d{1,2}[.:]\d{2}|\b(?:tim(?:me|mar|ma)?|dygn|minut\w*|klockan|kl|vardag\w*|helgdag\w*|högst|endast|enbart|måndag\w*|tisdag\w*|onsdag\w*|torsdag\w*|fredag\w*|lördag\w*|söndag\w*|udda|jämna|datum\w*|januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december|förbjud\w*|inte|ej|reserver\w*|tillstånd|klass)\b/i;
 function plainPermit(body) {
   const t = ruleText(body); if (!t) return false;
-  const ss = t.replace(/\(\d{4}:\d+\)/g, '').split(/(?<=[.;])\s*/).map((x) => x.replace(/^\s*\d+\s*§\s*/, '').trim()).filter((x) => /[a-zåäö]{3}/i.test(x));
+  const ss = t.replace(/\(\d{4}:\d+\)/g, '').split(/(?<=[.;])(?!\d)\s*/).map((x) => x.replace(/^\s*\d+\s*§\s*/, '').trim()) /* not inside "08.00": a fee sentence's hours were split off and read as permission hours (QA 30 Oct: Uppsala Marknadsgatan stayed grey) */.filter((x) => /[a-zåäö]{3}/i.test(x));
   let permit = false;
   for (const x of ss) {
     if (/^(?:tillåtelsen|förbudet) (?:ger|ge) (?:inte|ej) rätt/i.test(x)) continue;

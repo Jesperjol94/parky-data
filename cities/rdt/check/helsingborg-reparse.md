@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-29. 3818 segments: 3818 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3641, partly read 90. Verified equal 3343, filled from text 0, text stricter 0, disputed 0, expired 87, text without rules 290, multi-part texts (not compared) 0.
+Run 2026-10-30. 3818 segments: 3818 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3633, partly read 90. Verified equal 3335, filled from text 0, text stricter 0, disputed 0, expired 95, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -69,23 +69,31 @@ Fully read 3641, partly read 90. Verified equal 3343, filled from text 0, text s
 | 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
 | 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
+| 1283 2025-753 | Drottninggatan | expired 2026-10-30 | now uncertain |
+| 1283 2026-487 | Södra Strandgatan | expired 2026-10-30 | now uncertain |
 | 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-596 | Föreningsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-618 | Konduktörsgatan | expired 2026-10-23 | already uncertain |
-| 1283 2026-622 | Gränsgatan | expired 2026-10-29 | now uncertain |
+| 1283 2026-622 | Gränsgatan | expired 2026-10-29 | already uncertain |
+| 1283 2026-625 | Östergatan och Timmermansgatan | expired 2026-10-30 | now uncertain |
+| 1283 2026-625 | Östergatan och Timmermansgatan | expired 2026-10-30 | now uncertain |
+| 1283 2026-642 | Rosenvägen | expired 2026-10-30 | now uncertain |
 | 1283 2026-661 | Lilla Bergaliden | expired 2026-10-16 | already uncertain |
 | 1283 2026-666 | Gasverksgatan | expired 2026-10-26 | already uncertain |
 | 1283 2026-667 | Norra Vallgatan | expired 2026-10-26 | already uncertain |
 | 1283 2026-667 | Norra Vallgatan | expired 2026-10-26 | already uncertain |
-| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | now uncertain |
-| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | now uncertain |
-| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | now uncertain |
-| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | now uncertain |
+| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
+| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
+| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
+| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
 | 1283 2026-678 | Ängesögatan | expired 2026-10-22 | already uncertain |
 | 1283 2026-679 | Furutorpsgatan | expired 2026-10-23 | already uncertain |
+| 1283 2026-680 | Vintapparegatan | expired 2026-10-30 | now uncertain |
+| 1283 2026-680 | Vintapparegatan | expired 2026-10-30 | now uncertain |
+| 1283 2026-680 | Vintapparegatan | expired 2026-10-30 | now uncertain |
 | 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | already uncertain |
 | 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | already uncertain |
 | 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | already uncertain |

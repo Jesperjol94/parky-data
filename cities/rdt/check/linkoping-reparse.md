@@ -1,6 +1,6 @@
 # Linköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-29. 7076 segments: 7076 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-10-30. 7076 segments: 7076 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 7013, partly read 60. Verified equal 6976, filled from text 0, text stricter 0, disputed 7, expired 3, text without rules 30, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -14,4 +14,4 @@ Fully read 7013, partly read 60. Verified equal 6976, filled from text 0, text s
 | 0580 2011-00227 | Klostergatan | {"f":[{"a":1200,"b":240},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":1200,"b":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0580 2026-162 | Kettilsgatan | expired 2026-10-23 | already uncertain |
 | 0580 2026-166 | Bielkegatan | expired 2026-10-17 | already uncertain |
-| 0580 2026-174 | Storgatan | expired 2026-10-29 | now uncertain |
+| 0580 2026-174 | Storgatan | expired 2026-10-29 | already uncertain |

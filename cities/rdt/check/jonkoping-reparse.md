@@ -1,10 +1,12 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-29. 2273 segments: 2273 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2060, partly read 21. Verified equal 1494, filled from text 0, text stricter 0, disputed 0, expired 192, text without rules 566, multi-part texts (not compared) 0.
+Run 2026-10-30. 2273 segments: 2273 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2050, partly read 21. Verified equal 1484, filled from text 0, text stricter 0, disputed 0, expired 202, text without rules 562, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 0680 2009-521 | Kanalgatan | uncertain → permitted (fee) | filled from text |
+| 0680 2009-522 | Kanalgatan | uncertain → permitted (fee) | filled from text |
 | 0680 2010-1090 | Vättergatan | expired 2010-11-15 | already uncertain |
 | 0680 2010-1091 | Norra Strandgatan | expired 2010-10-27 | already uncertain |
 | 0680 2010-1092 | Norra Strandgatan | expired 2010-10-15 | already uncertain |
@@ -67,6 +69,7 @@ Fully read 2060, partly read 21. Verified equal 1494, filled from text 0, text s
 | 0680 2011-837 | Trädgårdsgatan | expired 2011-11-04 | already uncertain |
 | 0680 2011-839 | Drottninggatan | expired 2011-09-23 | already uncertain |
 | 0680 2011-847 | Lasarettsgatan | expired 2011-09-30 | already uncertain |
+| 0680 2011-869 | Oxtorgsgatan | uncertain → permitted (fee) | filled from text |
 | 0680 2011-873 | Östra Storgatan | expired 2011-10-28 | already uncertain |
 | 0680 2011-875 | Barnarpsgatan | expired 2011-12-30 | already uncertain |
 | 0680 2011-879 | Barnarpsgatan | expired 2011-10-23 | already uncertain |
@@ -193,7 +196,18 @@ Fully read 2060, partly read 21. Verified equal 1494, filled from text 0, text s
 | 0680 2013-141 | Norra Bogesundsgatan | expired 2013-05-24 | already uncertain |
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
+| 0680 2014-170 | Norra Strandgatan | uncertain → permitted (fee) | filled from text |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
+| 0680 2026-262 | Östra Storgatan | expired 2026-10-30 | now uncertain |
+| 0680 2026-262 | Östra Storgatan | expired 2026-10-30 | now uncertain |
+| 0680 2026-262 | Starrgatan | expired 2026-10-30 | now uncertain |
+| 0680 2026-329 | Jönköpings kommuns föreskrifter om förbud att stanna eller parkera enligt Kartbilaga, Huskvarna | expired 2026-10-30 | now uncertain |
+| 0680 2026-345 | Vårstagatan | expired 2026-10-30 | now uncertain |
+| 0680 2026-354 | Fackelgatan | expired 2026-10-30 | now uncertain |
+| 0680 2026-392 | Tallvägen | expired 2026-10-30 | now uncertain |
+| 0680 2026-440 | Linnégatan | expired 2026-10-30 | now uncertain |
+| 0680 2026-441 | Sandgatan | expired 2026-10-30 | now uncertain |
+| 0680 2026-457 | Klostergatan | expired 2026-10-30 | now uncertain |
 | 0680 2026-504 | Blåklintstigen | expired 2026-10-21 | already uncertain |
 | 0680 2026-504 | Vildvinsbacken | expired 2026-10-21 | already uncertain |
 | 0680 2026-506 | Trädgårdsgatan | expired 2026-10-27 | already uncertain |

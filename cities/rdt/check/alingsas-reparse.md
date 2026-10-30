@@ -1,11 +1,13 @@
 # Alingsås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-29. 722 segments: 722 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 591, partly read 119. Verified equal 588, filled from text 0, text stricter 0, disputed 0, expired 12, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-10-30. 722 segments: 722 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 594, partly read 114. Verified equal 591, filled from text 0, text stricter 0, disputed 0, expired 14, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1489 2026-38 | Stationsgatan | expired 2026-10-19 | already uncertain |
+| 1489 2026-174 | Dalagatan | expired 2026-10-30 | now uncertain |
+| 1489 2026-174 | Dalagatan | expired 2026-10-30 | now uncertain |
 | 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |
 | 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |
 | 1489 2026-225 | Stationsgatan | expired 2026-10-19 | already uncertain |

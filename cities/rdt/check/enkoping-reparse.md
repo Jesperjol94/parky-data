@@ -1,6 +1,6 @@
 # Enköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-29. 310 segments: 279 with a text, 0 without a cached text, 31 fetch errors.
+Run 2026-10-30. 310 segments: 279 with a text, 0 without a cached text, 31 fetch errors.
 Fully read 259, partly read 10. Verified equal 255, filled from text 0, text stricter 0, disputed 0, expired 10, text without rules 4, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

@@ -1,7 +1,7 @@
 # Borås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-29. 740 segments: 740 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 735, partly read 5. Verified equal 735, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-10-30. 740 segments: 740 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 736, partly read 4. Verified equal 736, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
