@@ -423,3 +423,17 @@ test('"får fordon parkeras och mot avgift" is a permission with fee hours and n
   assert.equal(r.permitted, true); assert.deepEqual([r.bans, r.limits, r.allowOnly, r.unread], [[], [], [], []]);
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1440 }, { dt: ['fore'], a: 480, b: 1440 }]);
 });
+test('"Övrig tid får fordon inte parkeras" after a time limit with set hours: banned outside them (30 Oct)', () => {
+  const r = parseRegulation('följande. På Vendevägens nordvästra sida enligt kartbild får fordon parkeras under högst 1 tim i följd. Tidsbegränsningen gäller under tiden vardag utom vardag före sön- och helgdag klockan 10.00 - 14.00. Övrig tid får fordon inte parkeras. Parkeringsskiva eller motsvarande ska användas.');
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 600, b: 840, max: 60 }]);
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 0, b: 600 }, { dt: ['vardag'], a: 840, b: 1440 }, { dt: ['fore', 'helgdag'], a: 0, b: 1440 }]); assert.deepEqual(r.unread, []);
+  const h = parseRegulation('följande. 1 § På Rådjursvägens parkeringsplats enligt kartbild får endast personbil klass II parkeras mellan klockan 09.00 - 20.00. 2§ Övrig tid får fordon inte parkeras.');
+  assert.equal(h.reserved, true); assert.deepEqual(h.bans, [{ dt: ['vardag', 'fore', 'helgdag'], a: 0, b: 540 }, { dt: ['vardag', 'fore', 'helgdag'], a: 1200, b: 1440 }]);
+  // a limit with no hours: nothing to take the complement of, still unread
+  assert.equal(parseRegulation('följande. På Torget får fordon parkeras under högst 1 tim i följd. Övrig tid får fordon inte parkeras.').unread.length, 1);
+});
+test('Stockholm: a disabled bay with set hours, "Övrig tid får fordon inte stannas eller parkeras" (30 Oct)', () => {
+  const r = parseRegulation(wrap('På Norrlandsgatans östra sida på de 5 meter som anges på kartan får endast sådant fordon parkeras som används för befordran av rörelsehindrad med parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276). Tillåtelsen att parkera gäller parkering under dock högst 2 tim i följd. Villkoret gäller under tiden vardagar utom vardag före sön- och helgdag klockan 09.00 - 17.00, vardag före sön- och helgdag klockan 10.00 - 15.00 och sön- och helgdag klockan 10.00 - 15.00. Övrig tid får fordon inte stannas eller parkeras.'));
+  assert.equal(r.reserved, true); assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 0, b: 540 }, { dt: ['vardag'], a: 1020, b: 1440 }, { dt: ['fore', 'helgdag'], a: 0, b: 600 }, { dt: ['fore', 'helgdag'], a: 900, b: 1440 }]);
+});

@@ -263,6 +263,11 @@ export function parseRegulation(body) {
     }
     if (/^övrig tid (?:får (?:fordon inte|inte fordon) parkeras|(?:är |råder )?parkering(?:en)? förbjuden|råder parkeringsförbud|får fordon (?:inte|ej) stannas)/.test(x)) { // outside the stated hours: not allowed
       if (!lastAllow && lastBan && !lastBan.items.some((b) => b.w || b.m || b.p || b.dm || b.nw || b.dd)) { const o = outsideHours(lastBan.items); if (o && o.length) { out.bans.push(...o); continue; } } // a stopping ban at set hours, "Övrig tid får fordon inte parkeras" (Huddinge): no parking at other times either
+      // after a time-limited permission with set hours and no "Tillåtelsen gäller …" ("… högst 1 tim i följd. Tidsbegränsningen gäller vardag …
+      // 10.00 - 14.00. Övrig tid får fordon inte parkeras."): no parking outside the limit's hours (QA 30 Oct: Danderyd, Täby showed free parking)
+      if (!lastAllow && lastLimit && !lastLimit.items.some((w) => w.w || w.m || w.p || w.wk || w.dm || w.nw || w.dd || !(w.a < w.b))) { const o = outsideHours(lastLimit.items); if (o && o.length) { out.bans.push(...o); lastBan = { items: o, provisional: false }; continue; } }
+      // "… får endast personbil klass II parkeras mellan klockan 09.00 - 20.00. Övrig tid får fordon inte parkeras." (Halmstad): banned outside the reserved hours
+      if (!lastAllow && !lastLimit && out.reserved && out.reservedWindows.length && !out.reservedWindows.some((w) => w.w || w.m || w.p || w.wk || w.dm || w.nw || w.dd || !(w.a < w.b))) { const o = outsideHours(out.reservedWindows); if (o && o.length) { out.bans.push(...o); lastBan = { items: o, provisional: false }; continue; } }
       if (!lastAllow) { unread(s); continue; }
       out.otherAllowed = false; out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue;
     }
