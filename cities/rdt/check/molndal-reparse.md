@@ -1,18 +1,20 @@
 # Mölndal: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-30. 2260 segments: 2260 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2211, partly read 32. Verified equal 1843, filled from text 0, text stricter 0, disputed 0, expired 17, text without rules 364, multi-part texts (not compared) 4.
+Run 2026-10-31. 2260 segments: 2260 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2207, partly read 32. Verified equal 1839, filled from text 0, text stricter 0, disputed 0, expired 21, text without rules 364, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1481 2008-00222 | Trädgårdsgatan | expired 2013-10-29 | already uncertain |
 | 1481 2010-00124 | Holmåkravägen | expired 2014-09-07 | already uncertain |
 | 1481 2010-00141 | Kornvägen | expired 2014-09-08 | already uncertain |
-| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | now uncertain |
-| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | now uncertain |
-| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | now uncertain |
-| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | now uncertain |
+| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
+| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
+| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
+| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
 | 1481 2026-141 | Hulelycksgatan | expired 2026-10-16 | already uncertain |
+| 1481 2026-144 | Landshövdingegatan | expired 2026-10-31 | now uncertain |
+| 1481 2026-144 | Landshövdingegatan | expired 2026-10-31 | now uncertain |
 | 1481 2026-148 | Kämpegatan | expired 2026-10-20 | already uncertain |
 | 1481 2026-148 | Kämpegatan | expired 2026-10-20 | already uncertain |
 | 1481 2026-149 | Örngatan | expired 2026-10-20 | already uncertain |
@@ -20,5 +22,7 @@ Fully read 2211, partly read 32. Verified equal 1843, filled from text 0, text s
 | 1481 2026-150 | Kämpegatan | expired 2026-10-20 | already uncertain |
 | 1481 2026-154 | Baazgatan | expired 2026-10-23 | already uncertain |
 | 1481 2026-154 | Baazgatan | expired 2026-10-23 | already uncertain |
+| 1481 2026-156 | Frejagatan | expired 2026-10-31 | now uncertain |
+| 1481 2026-156 | Frejagatan | expired 2026-10-31 | now uncertain |
 | 1481 2026-160 | Heliumgatan | expired 2026-10-16 | already uncertain |
 | 1481 2026-160 | Heliumgatan | expired 2026-10-16 | already uncertain |

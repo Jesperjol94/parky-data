@@ -1,7 +1,7 @@
 # Säffle: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-30. 69 segments: 69 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 60, partly read 1. Verified equal 55, filled from text 0, text stricter 0, disputed 0, expired 8, text without rules 5, multi-part texts (not compared) 0.
+Run 2026-10-31. 69 segments: 69 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 61, partly read 0. Verified equal 55, filled from text 0, text stricter 0, disputed 0, expired 8, text without rules 6, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

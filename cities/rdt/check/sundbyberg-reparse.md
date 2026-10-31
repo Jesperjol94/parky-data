@@ -1,23 +1,10 @@
 # Sundbyberg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-30. 2185 segments: 2185 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2149, partly read 21. Verified equal 1879, filled from text 0, text stricter 0, disputed 11, expired 15, text without rules 216, multi-part texts (not compared) 0.
+Run 2026-10-31. 2185 segments: 2185 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2149, partly read 21. Verified equal 1879, filled from text 0, text stricter 0, disputed 11, expired 15, text without rules 259, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0183 2024-00284 | Örsvängen | uncertain → permitted (fee) | filled from text |
-| 0183 2024-00284 | Örsvängen | uncertain → permitted (fee) | filled from text |
-| 0183 2024-00284 | Örsvängen | uncertain → permitted (fee) | filled from text |
-| 0183 2024-00284 | Örsvängen | uncertain → permitted (fee) | filled from text |
-| 0183 2024-00287 | Järnvägsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2024-00287 | Järnvägsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2024-00287 | Järnvägsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2024-00287 | Järnvägsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2024-00287 | Järnvägsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2024-00287 | Järnvägsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00552 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00557 | Bergaliden | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00557 | Bergaliden | uncertain → permitted (fee) | filled from text |
 | 0183 2025-00582 | Oskarsvägen | {"f":[{"w":3,"a":480,"b":720,"m":[[11,1],[5,15]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":720,"m":[[11,1],[5,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0183 2025-00585 | Villavägen | {"f":[{"w":2,"a":480,"b":720,"m":[[11,1],[5,15]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":2,"a":480,"b":720,"m":[[11,1],[5,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0183 2025-00586 | Ringvägen | {"f":[{"w":1,"a":480,"b":720,"m":[[11,1],[5,15]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":720,"m":[[11,1],[5,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
@@ -28,36 +15,6 @@ Fully read 2149, partly read 21. Verified equal 1879, filled from text 0, text s
 | 0183 2025-00592 | Björkhagsvägen | {"f":[{"w":1,"a":480,"b":720,"m":[[11,1],[5,15]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":720,"m":[[11,1],[5,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0183 2025-00593 | Björkhagsvägen | {"f":[{"w":1,"a":480,"b":720,"m":[[11,1],[5,15]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":720,"m":[[11,1],[5,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0183 2025-00594 | Björkhagsvägen | {"f":[{"w":5,"a":480,"b":720,"m":[[11,1],[5,15]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":5,"a":480,"b":720,"m":[[11,1],[5,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0183 2025-00600 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00600 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00600 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00600 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00600 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00600 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00600 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00600 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00600 | Fredsgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00635 | Brunnsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00635 | Brunnsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00635 | Brunnsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00645 | Järnvägsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00645 | Järnvägsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00645 | Järnvägsgatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00649 | Lysgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00649 | Lysgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00649 | Lysgränd | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00654 | Rosengatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00654 | Rosengatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00654 | Rosengatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00654 | Rosengatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00654 | Rosengatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00654 | Rosengatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00654 | Rosengatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00654 | Rosengatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00654 | Rosengatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00658 | Sturegatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00658 | Sturegatan | uncertain → permitted (fee) | filled from text |
-| 0183 2025-00658 | Sturegatan | uncertain → permitted (fee) | filled from text |
 | 0183 2026-00101 | Örsvängen | expired 2026-10-28 | already uncertain |
 | 0183 2026-00101 | Örsvängen | expired 2026-10-28 | already uncertain |
 | 0183 2026-00101 | Örsvängen | expired 2026-10-28 | already uncertain |

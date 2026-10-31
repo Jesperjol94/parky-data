@@ -1,17 +1,19 @@
 # Ängelholm: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-30. 737 segments: 737 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 693, partly read 26. Verified equal 593, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 100, multi-part texts (not compared) 0.
+Run 2026-10-31. 737 segments: 737 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 691, partly read 26. Verified equal 591, filled from text 0, text stricter 0, disputed 0, expired 20, text without rules 100, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1292 2015-00215 | Östergatan | expired 2015-08-09 | already uncertain |
+| 1292 2026-00172 | Vinkelvägen | expired 2026-10-31 | now uncertain |
 | 1292 2026-00175 | Sofierogatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00176 | Alnarpsgatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00177 | Flyingegatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00178 | Borgebygatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00179 | Häckebergagatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00179 | Häckebergagatan | expired 2026-10-24 | already uncertain |
+| 1292 2026-00180 | Gåsahalsvägen | expired 2026-10-31 | now uncertain |
 | 1292 2026-00181 | Björkvägen | expired 2026-10-17 | already uncertain |
 | 1292 2026-00182 | Vårvägen | expired 2026-10-17 | already uncertain |
 | 1292 2026-00183 | Jägarestigen | expired 2026-10-17 | already uncertain |

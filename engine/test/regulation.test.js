@@ -484,3 +484,22 @@ test('a ban only for motorhomes and trailers is not a ban for cars (30 Oct)', ()
   // "fordon" or ordinary cars in the ban: still a ban
   assert.deepEqual(parseRegulation('följande. På Gatan är parkering förbjuden för fordon och släpkärra.').bans.length, 1);
 });
+test('a two-column "DennaPublicerat på webbplatsen författning …" footer ends the rule text (31 Oct)', () => {
+  const a = parseRegulation('följande. 1 § Inom rödmarkerade ytor på Bromsplan får fordon parkeras. 2 § Avgift ska betalas för parkering enligt 1 §. 5 § Parkering är dock förbjuden torsdag mellan klockan 00.00 och 09.00.\n\fDennaPublicerat på webbplatsen\n        författning träder i kraftSvensk\n   den 21 trafikföreskriftssamling den 9 juli\n juli 2025 då Örebro kommuns  2025 lokala trafikföreskrifter 1880 2021:00581 om parkering på Bromsplan skall upphöra att gälla.');
+  assert.deepEqual([a.bans, a.unread], [[{ w: 4, a: 0, b: 540 }], []]);
+});
+test('a deviation clause with no commas: "får fordon med avvikelse från kommunens lokala trafikföreskrifter 1277 2008 : 00261 parkeras" (31 Oct)', () => {
+  const a = parseRegulation('följande. 1 § På Fjällvägen får fordon med avvikelse från kommunens lokala trafikföreskrifter 1277 2008 : 00261 parkeras under högst 24 tim i följd. Tidsbegränsningen gäller vardag utom dag före sön- och helgdag.');
+  assert.deepEqual([a.limits, a.unread], [[{ dt: ['vardag'], a: 0, b: 1440, max: 1440 }], []]);
+  const b = parseRegulation('följande. På Gatan får fordon med avvikelse från 3 kap. 55 § 3 trafikförordningen (1998:1276) parkeras under högst 5 min i följd.');
+  assert.deepEqual([b.limits, b.unread], [[{ a: 0, b: 1440, max: 5 }], []]);
+  // a "not" inside the clause is never dropped
+  assert.equal(parseRegulation('följande. På Gatan får fordon med avvikelse från kommunens lokala trafikföreskrifter 1234 2008 : 1 inte parkeras.').permitted, undefined);
+});
+test('"får fordon som används av rörelsehindrade … parkeras" without "endast" is a disabled bay at all hours (31 Oct)', () => {
+  const a = parseRegulation('följande. På markerad plats på Östra Torggatan enligt kartbild får fordon som används av rörelsehindrade med särskilt tillstånd med avvikelse från kommunens lokala trafikföreskrifter 1081 2009-00116 parkeras under högst 2 tim i följd under tiden vardag utom dag före sön- och helgdag klockan 09.00 - 18.00. Övrig tid får fordon som används av rörelsehindrade med särskilt tillstånd parkeras under högst 24 tim i följd.');
+  assert.deepEqual([a.reserved, a.reservedFor, a.reservedWindows, a.limits, a.unread], [true, 'rörelsehindrade', [], [], []]);
+  // after a permission for all cars it is not a reservation; in a season it stays unread
+  assert.equal(parseRegulation('följande. På Gatan får fordon parkeras under högst 2 tim i följd. Där får fordon som används av rörelsehindrade med särskilt tillstånd parkeras under högst 24 tim i följd.').reserved, false);
+  assert.equal(parseRegulation('följande. På Gatan får fordon som används av rörelsehindrade med särskilt tillstånd parkeras under tiden 1 maj - 30 september.').unread.length, 1);
+});

@@ -1,6 +1,6 @@
 # Vänersborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-30. 972 segments: 972 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-10-31. 972 segments: 972 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 940, partly read 14. Verified equal 913, filled from text 0, text stricter 0, disputed 0, expired 18, text without rules 11, multi-part texts (not compared) 15.
 
 | Citation | Street | Change | Note |
