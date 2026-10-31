@@ -423,3 +423,11 @@ test('"får fordon parkeras och mot avgift" is a permission with fee hours and n
   assert.equal(r.permitted, true); assert.deepEqual([r.bans, r.limits, r.allowOnly, r.unread], [[], [], [], []]);
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1440 }, { dt: ['fore'], a: 480, b: 1440 }]);
 });
+test('a deviation clause with no commas: "får fordon med avvikelse från kommunens lokala trafikföreskrifter 1277 2008 : 00261 parkeras" (31 Oct)', () => {
+  const a = parseRegulation('följande. 1 § På Fjällvägen får fordon med avvikelse från kommunens lokala trafikföreskrifter 1277 2008 : 00261 parkeras under högst 24 tim i följd. Tidsbegränsningen gäller vardag utom dag före sön- och helgdag.');
+  assert.deepEqual([a.limits, a.unread], [[{ dt: ['vardag'], a: 0, b: 1440, max: 1440 }], []]);
+  const b = parseRegulation('följande. På Gatan får fordon med avvikelse från 3 kap. 55 § 3 trafikförordningen (1998:1276) parkeras under högst 5 min i följd.');
+  assert.deepEqual([b.limits, b.unread], [[{ a: 0, b: 1440, max: 5 }], []]);
+  // a "not" inside the clause is never dropped
+  assert.equal(parseRegulation('följande. På Gatan får fordon med avvikelse från kommunens lokala trafikföreskrifter 1234 2008 : 1 inte parkeras.').permitted, undefined);
+});
