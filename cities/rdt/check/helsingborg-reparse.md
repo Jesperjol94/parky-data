@@ -1,6 +1,6 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-31. 3818 segments: 3818 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-01. 3818 segments: 3818 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 3635, partly read 85. Verified equal 3337, filled from text 0, text stricter 0, disputed 0, expired 98, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -72,9 +72,9 @@ Fully read 3635, partly read 85. Verified equal 3337, filled from text 0, text s
 | 1283 2025-753 | Drottninggatan | expired 2026-10-30 | already uncertain |
 | 1283 2026-487 | Södra Strandgatan | expired 2026-10-30 | already uncertain |
 | 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
-| 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | now uncertain |
-| 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | now uncertain |
-| 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | now uncertain |
+| 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | already uncertain |
+| 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | already uncertain |
+| 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | already uncertain |
 | 1283 2026-596 | Föreningsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-618 | Konduktörsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-622 | Gränsgatan | expired 2026-10-29 | already uncertain |

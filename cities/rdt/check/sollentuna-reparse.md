@@ -1,7 +1,7 @@
 # Sollentuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-31. 1317 segments: 1317 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1272, partly read 37. Verified equal 1249, filled from text 0, text stricter 0, disputed 0, expired 8, text without rules 20, multi-part texts (not compared) 3.
+Run 2026-11-01. 1317 segments: 1317 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1267, partly read 37. Verified equal 1244, filled from text 0, text stricter 0, disputed 0, expired 13, text without rules 20, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -13,3 +13,8 @@ Fully read 1272, partly read 37. Verified equal 1249, filled from text 0, text s
 | 0163 2024-58 | Brunkebergsåsen | expired 2024-10-31 | already uncertain |
 | 0163 2024-58 | Brunkebergsåsen | expired 2024-10-31 | already uncertain |
 | 0163 2024-58 | Brunkebergsåsen | expired 2024-10-31 | already uncertain |
+| 0163 2026-113 | Rudbecks Väg | expired 2026-11-01 | now uncertain |
+| 0163 2026-113 | Rudbecks Väg | expired 2026-11-01 | now uncertain |
+| 0163 2026-114 | Rudbecks Väg | expired 2026-11-01 | now uncertain |
+| 0163 2026-114 | Rudbecks Väg | expired 2026-11-01 | now uncertain |
+| 0163 2026-114 | Rudbecks Väg | expired 2026-11-01 | now uncertain |

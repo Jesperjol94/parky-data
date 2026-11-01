@@ -1,6 +1,6 @@
 # Mölndal: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-31. 2260 segments: 2260 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-01. 2260 segments: 2260 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 2207, partly read 32. Verified equal 1839, filled from text 0, text stricter 0, disputed 0, expired 21, text without rules 364, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
@@ -13,8 +13,8 @@ Fully read 2207, partly read 32. Verified equal 1839, filled from text 0, text s
 | 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
 | 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
 | 1481 2026-141 | Hulelycksgatan | expired 2026-10-16 | already uncertain |
-| 1481 2026-144 | Landshövdingegatan | expired 2026-10-31 | now uncertain |
-| 1481 2026-144 | Landshövdingegatan | expired 2026-10-31 | now uncertain |
+| 1481 2026-144 | Landshövdingegatan | expired 2026-10-31 | already uncertain |
+| 1481 2026-144 | Landshövdingegatan | expired 2026-10-31 | already uncertain |
 | 1481 2026-148 | Kämpegatan | expired 2026-10-20 | already uncertain |
 | 1481 2026-148 | Kämpegatan | expired 2026-10-20 | already uncertain |
 | 1481 2026-149 | Örngatan | expired 2026-10-20 | already uncertain |
@@ -22,7 +22,7 @@ Fully read 2207, partly read 32. Verified equal 1839, filled from text 0, text s
 | 1481 2026-150 | Kämpegatan | expired 2026-10-20 | already uncertain |
 | 1481 2026-154 | Baazgatan | expired 2026-10-23 | already uncertain |
 | 1481 2026-154 | Baazgatan | expired 2026-10-23 | already uncertain |
-| 1481 2026-156 | Frejagatan | expired 2026-10-31 | now uncertain |
-| 1481 2026-156 | Frejagatan | expired 2026-10-31 | now uncertain |
+| 1481 2026-156 | Frejagatan | expired 2026-10-31 | already uncertain |
+| 1481 2026-156 | Frejagatan | expired 2026-10-31 | already uncertain |
 | 1481 2026-160 | Heliumgatan | expired 2026-10-16 | already uncertain |
 | 1481 2026-160 | Heliumgatan | expired 2026-10-16 | already uncertain |

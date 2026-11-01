@@ -1,7 +1,28 @@
 # Kiruna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-10-31. 507 segments: 507 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 407, partly read 100. Verified equal 382, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 24, multi-part texts (not compared) 0.
+Run 2026-11-01. 507 segments: 507 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 432, partly read 75. Verified equal 386, filled from text 0, text stricter 3, disputed 18, expired 0, text without rules 24, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 2584 2005-032 | Lars Jansonsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120}],"dp":[{"a":0,"b":480}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2584 2005-045 | Geologgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-046 | Geologgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-096 | Arent Grapegatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-104 | Föreningsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-105 | Föreningsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-106 | Föreningsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-107 | Föreningsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-108 | Föreningsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-109 | Föreningsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-122 | Hjalmar Lundbohmsvägen | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-124 | Hjalmar Lundbohmsvägen | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-133 | Steinholtsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-134 | Steinholtsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2005-423 | Mangigatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480}]} | text differs: text wins (owner's decision 18 Oct) |
+| 2584 2016-65 | Hjalmar Lundbohmsvägen | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60},{"a":0,"b":480,"max":60}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"dp":[{"a":0,"b":480,"m":[[10,1],[6,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2584 2016-89 | Hjalmar Lundbohmsvägen | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120},{"a":0,"b":480,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}],"dp":[{"a":0,"b":480,"m":[[10,1],[6,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 2584 2016-99 | Hjalmar Lundbohmsvägen | {"l":[{"a":0,"b":480,"max":120}]} → {"l":[{"a":0,"b":1440,"max":120}],"dp":[{"a":0,"b":480,"m":[[10,1],[6,30]]}]} | text stricter: applied |
+| 2584 2017-96 | Hjalmar Lundbohmsvägen | {"l":[{"a":0,"b":480,"max":120}]} → {"l":[{"a":0,"b":1440,"max":120}],"dp":[{"a":0,"b":480,"m":[[10,1],[6,30]]}]} | text stricter: applied |
+| 2584 2017-96 | Hjalmar Lundbohmsvägen | {"l":[{"a":0,"b":480,"max":120}]} → {"l":[{"a":0,"b":1440,"max":120}],"dp":[{"a":0,"b":480,"m":[[10,1],[6,30]]}]} | text stricter: applied |
+| 2584 2020-264 | Hjalmar Lundbohmsvägen | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120},{"a":60,"b":1080,"max":120}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}],"dp":[{"a":60,"b":1080}]} | text more permissive: text wins (owner's decision 18 Oct) |

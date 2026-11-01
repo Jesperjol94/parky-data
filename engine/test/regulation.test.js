@@ -503,3 +503,21 @@ test('"får fordon som används av rörelsehindrade … parkeras" without "endas
   assert.equal(parseRegulation('följande. På Gatan får fordon parkeras under högst 2 tim i följd. Där får fordon som används av rörelsehindrade med särskilt tillstånd parkeras under högst 24 tim i följd.').reserved, false);
   assert.equal(parseRegulation('följande. På Gatan får fordon som används av rörelsehindrade med särskilt tillstånd parkeras under tiden 1 maj - 30 september.').unread.length, 1);
 });
+test('Falun "Villkoret gäller ej mellan datumen 15/12-30/4 Torsdagar kl 09:00-15:00" after a deviating permission is a seasonal ban (1 Nov)', () => {
+  const a = parseRegulation('följande. På markerade sträckor på Blindgatan enligt kartbild får fordon, med avvikelse från Falu kommuns lokala trafikföreskrifter 2080 2025:00259 om stannande och parkering, parkeras under högst 24 tim i följd Tillåtelsen ger inte rätt att stanna eller parkera där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276). Tidsbegränsningen gäller vardag utom vardag före sön- och helgdag Villkoret gäller ej mellan datumen 15/12-30/4 Torsdagar 09:00 - 15:00 Denna författning träder i kraft den 11 december 2025.');
+  assert.deepEqual([a.limits, a.bans, a.unread], [[{ dt: ['vardag'], a: 0, b: 1440, max: 1440 }], [{ w: 4, a: 540, b: 900, m: [[12, 15], [4, 30]] }], []]);
+  // without a deviation clause the sentence is left unread
+  assert.equal(parseRegulation('följande. På Gatan får fordon inte parkeras. Villkoret gäller ej mellan datumen 15/12-30/4 Torsdagar kl 09:00-15:00').unread.length, 1);
+});
+test('"Föbudet" typo and "Förbudet gäller inte parkering på markerade platser" are read (1 Nov)', () => {
+  const a = parseRegulation('följande. På väg eller gata inom tättbebyggt område i Skurup får motorredskap, släpfordon, traktor, tung buss och tung lastbil med totalvikt över 3,5 ton inte parkeras under tiden vardagar utom vardag före sön- och helgdag klockan 22.00 - 06.00. Föbudet gäller inte på följande gator enligt kartbild: Östra Olstorpsgatan och Götgatan.');
+  assert.deepEqual([a.heavyOnly, a.unread], [true, []]);
+  const b = parseRegulation('följande. På samtliga delar av Västgötagatan enligt kartbild får fordon inte parkeras. Förbudet gäller inte parkering på markerade platser.');
+  assert.deepEqual([b.bans, b.unread], [[{ a: 0, b: 1440 }], []]);
+});
+test('"Datumparkering gäller mellan kl 00.00 och kl 08.00" and the "dag för sön- och helgdag" typo (1 Nov, Kiruna)', () => {
+  const a = parseRegulation('följande. På Lars Janssonsgatans östra sida får fordon parkeras högst 2 timmar vardagar utom dag för sön- och helgdag mellan kl 09.00 och kl 18.00. Datumparkering gäller mellan kl 00.00 och kl 08.00.');
+  assert.deepEqual([a.limits, a.dp, a.unread], [[{ dt: ['vardag'], a: 540, b: 1080, max: 120 }], [{ a: 0, b: 480 }], []]);
+  // a sentence about where date parking ends is not read as hours
+  assert.equal(parseRegulation('följande. På Gatan får fordon parkeras. Datumparkering gäller ej efter denna sträcka.').unread.length, 1);
+});
