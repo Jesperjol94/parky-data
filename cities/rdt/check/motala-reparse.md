@@ -1,6 +1,6 @@
 # Motala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-01. 1469 segments: 1469 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-02. 1469 segments: 1469 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1408, partly read 28. Verified equal 1403, filled from text 0, text stricter 0, disputed 0, expired 33, text without rules 5, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -19,22 +19,22 @@ Fully read 1408, partly read 28. Verified equal 1403, filled from text 0, text s
 | 0583 2019-28 | Skepparegatan | expired 2019-06-07 | already uncertain |
 | 0583 2019-32 | Källgatan | expired 2019-06-17 | already uncertain |
 | 0583 2019-33 | södra Allén | expired 2019-06-17 | already uncertain |
-| 0583 2026-227 | Marstadsvägen | expired 2026-11-01 | now uncertain |
-| 0583 2026-238 | Trädgårdsgatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-238 | Trädgårdsgatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-238 | Trädgårdsgatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-238 | Trädgårdsgatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-241 | Marstadsvägen | expired 2026-11-01 | now uncertain |
-| 0583 2026-241 | Marstadsvägen | expired 2026-11-01 | now uncertain |
-| 0583 2026-241 | Marstadsvägen | expired 2026-11-01 | now uncertain |
-| 0583 2026-241 | Marstadsvägen | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
-| 0583 2026-242 | Floragatan | expired 2026-11-01 | now uncertain |
+| 0583 2026-227 | Marstadsvägen | expired 2026-11-01 | already uncertain |
+| 0583 2026-238 | Trädgårdsgatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-238 | Trädgårdsgatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-238 | Trädgårdsgatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-238 | Trädgårdsgatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-241 | Marstadsvägen | expired 2026-11-01 | already uncertain |
+| 0583 2026-241 | Marstadsvägen | expired 2026-11-01 | already uncertain |
+| 0583 2026-241 | Marstadsvägen | expired 2026-11-01 | already uncertain |
+| 0583 2026-241 | Marstadsvägen | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |
+| 0583 2026-242 | Floragatan | expired 2026-11-01 | already uncertain |

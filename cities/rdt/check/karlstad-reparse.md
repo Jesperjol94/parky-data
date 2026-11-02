@@ -1,10 +1,19 @@
 # Karlstad: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-01. 1844 segments: 1844 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1773, partly read 54. Verified equal 1313, filled from text 0, text stricter 0, disputed 31, expired 17, text without rules 429, multi-part texts (not compared) 0.
+Run 2026-11-02. 1844 segments: 1844 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1780, partly read 45. Verified equal 1311, filled from text 0, text stricter 9, disputed 31, expired 19, text without rules 429, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 1780 2023-00096 | Konditorigatan | {} → {"aw":[{"a":0,"b":360,"dt":["vardag"]},{"a":600,"b":1440,"dt":["vardag"]},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
+| 1780 2023-00096 | Konditorigatan | {} → {"aw":[{"a":0,"b":360,"dt":["vardag"]},{"a":600,"b":1440,"dt":["vardag"]},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
+| 1780 2023-00096 | Konditorigatan | {} → {"aw":[{"a":0,"b":360,"dt":["vardag"]},{"a":600,"b":1440,"dt":["vardag"]},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
+| 1780 2023-00100 | Bagerigatan | {} → {"aw":[{"a":0,"b":360,"dt":["vardag"]},{"a":600,"b":1440,"dt":["vardag"]},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
+| 1780 2023-00100 | Bagerigatan | {} → {"aw":[{"a":0,"b":360,"dt":["vardag"]},{"a":600,"b":1440,"dt":["vardag"]},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
+| 1780 2023-00100 | Bagerigatan | {} → {"aw":[{"a":0,"b":360,"dt":["vardag"]},{"a":600,"b":1440,"dt":["vardag"]},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
+| 1780 2023-00197 | Lagerhusgatan | {} → {"aw":[{"a":0,"b":360,"dt":["vardag"]},{"a":600,"b":1440,"dt":["vardag"]},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
+| 1780 2023-00197 | Lagerhusgatan | {} → {"aw":[{"a":0,"b":360,"dt":["vardag"]},{"a":600,"b":1440,"dt":["vardag"]},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
+| 1780 2023-00197 | Lagerhusgatan | {} → {"aw":[{"a":0,"b":360,"dt":["vardag"]},{"a":600,"b":1440,"dt":["vardag"]},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
 | 1780 2024-00369 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1780 2024-00369 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1780 2024-00370 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
@@ -48,6 +57,8 @@ Fully read 1773, partly read 54. Verified equal 1313, filled from text 0, text s
 | 1780 2026-223 | Geijersgatan | expired 2026-10-30 | already uncertain |
 | 1780 2026-380 | Smedjegatan | expired 2026-10-30 | already uncertain |
 | 1780 2026-380 | Smedjegatan | expired 2026-10-30 | already uncertain |
+| 1780 2026-384 | Bryggaregatan | expired 2026-11-02 | now uncertain |
+| 1780 2026-384 | Bryggaregatan | expired 2026-11-02 | now uncertain |
 | 1780 2026-390 | Malmtorgsgatan | expired 2026-10-30 | already uncertain |
 | 1780 2026-390 | Malmtorgsgatan | expired 2026-10-30 | already uncertain |
 | 1780 2026-392 | Våxnäsgatan | expired 2026-10-30 | already uncertain |

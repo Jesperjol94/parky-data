@@ -1,7 +1,7 @@
 # Trollhättan: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-01. 1206 segments: 1206 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1147, partly read 20. Verified equal 1050, filled from text 0, text stricter 0, disputed 14, expired 39, text without rules 83, multi-part texts (not compared) 0.
+Run 2026-11-02. 1206 segments: 1206 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1152, partly read 15. Verified equal 1055, filled from text 0, text stricter 8, disputed 14, expired 39, text without rules 75, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -23,6 +23,14 @@ Fully read 1147, partly read 20. Verified equal 1050, filled from text 0, text s
 | 1488 2024-00186 | Strandgatan | expired 2024-10-04 | already uncertain |
 | 1488 2024-00189 | Föreningsgatan | expired 2024-10-04 | already uncertain |
 | 1488 2024-00190 | Magasinsgatan | expired 2024-10-04 | already uncertain |
+| 1488 2024-00365 | Resecentrum | {} → {"l":[{"a":0,"b":1440,"max":20160}]} | text stricter: applied |
+| 1488 2024-00365 | Resecentrum | {} → {"l":[{"a":0,"b":1440,"max":20160}]} | text stricter: applied |
+| 1488 2024-00365 | Resecentrum | {} → {"l":[{"a":0,"b":1440,"max":20160}]} | text stricter: applied |
+| 1488 2024-00365 | Resecentrum | {} → {"l":[{"a":0,"b":1440,"max":20160}]} | text stricter: applied |
+| 1488 2024-00365 | Resecentrum | {} → {"l":[{"a":0,"b":1440,"max":20160}]} | text stricter: applied |
+| 1488 2024-00365 | Resecentrum | {} → {"l":[{"a":0,"b":1440,"max":20160}]} | text stricter: applied |
+| 1488 2024-00365 | Resecentrum | {} → {"l":[{"a":0,"b":1440,"max":20160}]} | text stricter: applied |
+| 1488 2024-00365 | Resecentrum | {} → {"l":[{"a":0,"b":1440,"max":20160}]} | text stricter: applied |
 | 1488 2025-00045 | Kungsgatan | {"f":[{"dt":["vardag"],"a":660,"b":300},{"dt":["fore"],"a":660,"b":300},{"dt":["helgdag"],"a":660,"b":300},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":660,"b":300},{"dt":["fore"],"a":660,"b":300},{"dt":["helgdag"],"a":660,"b":300}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1488 2025-00045 | Spannmålsgatan | {"f":[{"dt":["vardag"],"a":660,"b":300},{"dt":["fore"],"a":660,"b":300},{"dt":["helgdag"],"a":660,"b":300},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":660,"b":300},{"dt":["fore"],"a":660,"b":300},{"dt":["helgdag"],"a":660,"b":300}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1488 2025-00045 | Kungsgatan | {"f":[{"dt":["vardag"],"a":660,"b":300},{"dt":["fore"],"a":660,"b":300},{"dt":["helgdag"],"a":660,"b":300},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":660,"b":300},{"dt":["fore"],"a":660,"b":300},{"dt":["helgdag"],"a":660,"b":300}]} | text more permissive: text wins (owner's decision 18 Oct) |

@@ -1,6 +1,6 @@
 # Uppsala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-01. 3816 segments: 3816 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-02. 3816 segments: 3816 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 3676, partly read 112. Verified equal 2305, filled from text 0, text stricter 0, disputed 0, expired 28, text without rules 1371, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -26,7 +26,7 @@ Fully read 3676, partly read 112. Verified equal 2305, filled from text 0, text 
 | 0380 2026-583 | Västra Ågatan | expired 2026-10-31 | already uncertain |
 | 0380 2026-597 | Geijersgatan | expired 2026-10-23 | already uncertain |
 | 0380 2026-597 | Geijersgatan | expired 2026-10-23 | already uncertain |
-| 0380 2026-605 | Birkagatan | expired 2026-11-01 | now uncertain |
+| 0380 2026-605 | Birkagatan | expired 2026-11-01 | already uncertain |
 | 0380 2026-609 | Kungsängsgatan | expired 2026-10-31 | already uncertain |
 | 0380 2026-609 | Kungsängsgatan | expired 2026-10-31 | already uncertain |
 | 0380 2026-610 | Kungsängsgatan | expired 2026-10-31 | already uncertain |
