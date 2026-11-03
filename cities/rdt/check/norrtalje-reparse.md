@@ -1,7 +1,8 @@
 # Norrtälje: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-02. 1829 segments: 1502 with a text, 327 without a cached text, 0 fetch errors.
-Fully read 1415, partly read 87. Verified equal 267, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 44.
+Run 2026-11-03. 1829 segments: 1502 with a text, 327 without a cached text, 0 fetch errors.
+Fully read 1417, partly read 85. Verified equal 267, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 45.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 0188 2024-00284 | Drottning Kristinas väg | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1020,"max":60}]} | filled from text |

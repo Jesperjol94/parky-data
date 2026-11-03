@@ -1,13 +1,13 @@
 # Karlshamn: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-02. 532 segments: 532 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-03. 532 segments: 532 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 502, partly read 19. Verified equal 491, filled from text 0, text stricter 0, disputed 0, expired 11, text without rules 9, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1082 2026-00019 | Nyemöllevägen | expired 2026-11-02 | now uncertain |
-| 1082 2026-00020 | Nyemöllevägen | expired 2026-11-02 | now uncertain |
-| 1082 2026-00020 | Nyemöllevägen | expired 2026-11-02 | now uncertain |
+| 1082 2026-00019 | Nyemöllevägen | expired 2026-11-02 | already uncertain |
+| 1082 2026-00020 | Nyemöllevägen | expired 2026-11-02 | already uncertain |
+| 1082 2026-00020 | Nyemöllevägen | expired 2026-11-02 | already uncertain |
 | 1082 2026-00073 | Juvelvägen | expired 2026-10-20 | already uncertain |
 | 1082 2026-00073 | Juvelvägen | expired 2026-10-20 | already uncertain |
 | 1082 2026-00074 | Jössastigen | expired 2026-10-20 | already uncertain |

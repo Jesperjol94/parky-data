@@ -39,7 +39,7 @@ function multiPart(body) {
   const colours = new Set((t.match(/markerats? (?:med )?(blå|grön|röd|gul|lila|orange|svart)/gi) || []).map((x) => x.toLowerCase().split(/\s/).pop())).size;
   // a ban on the street and a permission on part of it ("Trots förbudet får fordon parkeras på … sida mellan …", "Med avvikelse från
   // bestämmelserna i 1 § får fordon parkeras på anordnade platser"): two rule sets (QA 25 Oct: Täby Värtavägen, Danderyd Källvägen)
-  const exceptionPart = /(?:inte|ej) (?:stannas eller )?parkeras/i.test(t) && /(?:trots förbudet|med avvikelse från (?:bestämmelserna|förbudet) i (?:\d+\s*§|paragraf \d+|första stycket))[^.]*får (?:fordon|personbil)[^.]*parkeras/i.test(body.replace(/\s+/g, ' ')); // the raw text: ruleText drops "Med avvikelse från bestämmelserna i 1 §" (QA 2 Nov: Timrå Källvägen got the street ban on its bays)
+  const exceptionPart = /(?:inte|ej) (?:stannas eller )?parkeras/i.test(t) && /(?:trots förbudet|med avvikelse från (?:bestämmelserna|förbudet) i (?:\d+\s*§|paragraf \d+|första stycket))[^.]*får (?:fordon|personbil)[^.]*parkeras?\b/i.test(body.replace(/\s+/g, ' ')); // the raw text: ruleText drops "Med avvikelse från bestämmelserna i 1 §" (QA 2 Nov: Timrå Källvägen got the street ban on its bays; "får fordon parkera", QA 3 Nov: Norrtälje Parkstigen)
   if (exceptionPart) return true;
   return places > 1 || colours > 1 || (sides > 1 && (t.match(/får (?:fordon|endast|personbil)/g) || []).length > 1); // places marked in several colours with different rules (Norrtälje Campus Roslagen)
 }

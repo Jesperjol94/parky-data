@@ -1,6 +1,6 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-02. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-03. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 2651, partly read 105. Verified equal 2648, filled from text 0, text stricter 0, disputed 2, expired 45, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -9,8 +9,8 @@ Fully read 2651, partly read 105. Verified equal 2648, filled from text 0, text 
 | 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
 | 1880 2021-01026 | Överstegatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1880 2026-00954 | Höglundagatan | expired 2026-10-26 | already uncertain |
-| 1880 2026-01071 | Nygatan | expired 2026-11-02 | now uncertain |
-| 1880 2026-01071 | Nygatan | expired 2026-11-02 | now uncertain |
+| 1880 2026-01071 | Nygatan | expired 2026-11-02 | already uncertain |
+| 1880 2026-01071 | Nygatan | expired 2026-11-02 | already uncertain |
 | 1880 2026-01073 | Slussgatan | expired 2026-11-01 | already uncertain |
 | 1880 2026-01079 | Nygatan | expired 2026-10-19 | already uncertain |
 | 1880 2026-01125 | Olaigatan | expired 2026-10-31 | already uncertain |
@@ -23,16 +23,16 @@ Fully read 2651, partly read 105. Verified equal 2648, filled from text 0, text 
 | 1880 2026-01290 | Lövstagatan | expired 2026-10-24 | already uncertain |
 | 1880 2026-01290 | Lövstagatan | expired 2026-10-24 | already uncertain |
 | 1880 2026-01300 | Tunnelgatan | expired 2026-10-31 | already uncertain |
-| 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | now uncertain |
-| 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | now uncertain |
-| 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | now uncertain |
-| 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | now uncertain |
-| 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | now uncertain |
-| 1880 2026-01314 | Kristinagatan | expired 2026-11-02 | now uncertain |
-| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | now uncertain |
-| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | now uncertain |
-| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | now uncertain |
-| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | now uncertain |
+| 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | already uncertain |
+| 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | already uncertain |
+| 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | already uncertain |
+| 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | already uncertain |
+| 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | already uncertain |
+| 1880 2026-01314 | Kristinagatan | expired 2026-11-02 | already uncertain |
+| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
+| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
+| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
+| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
 | 1880 2026-01326 | Höglundagatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |

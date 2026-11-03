@@ -1,7 +1,7 @@
 # Sotenäs: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-02. 705 segments: 705 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 642, partly read 62. Verified equal 603, filled from text 0, text stricter 0, disputed 0, expired 1, text without rules 34, multi-part texts (not compared) 0.
+Run 2026-11-03. 705 segments: 705 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 645, partly read 59. Verified equal 606, filled from text 0, text stricter 0, disputed 0, expired 1, text without rules 34, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

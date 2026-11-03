@@ -1,7 +1,7 @@
 # Strömstad: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-02. 161 segments: 161 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 136, partly read 25. Verified equal 113, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 23, multi-part texts (not compared) 0.
+Run 2026-11-03. 161 segments: 161 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 155, partly read 6. Verified equal 113, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 42, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
