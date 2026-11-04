@@ -577,3 +577,18 @@ test('"dag före helgdag" is Saturday as in "dag före sön- och helgdag" (3 Nov
   assert.deepEqual(parseRegulation('följande. På Norrgatan får fordon parkeras högst 10 minuter i följd, Gäller vardagar utom dag före helgdag kl 00.00 - 08.00 och kl 11.00 - 24.00 samt dag före helgdag och helgdag kl 00.00 - 24.00.').limits[2], { dt: ['fore', 'helgdag'], a: 0, b: 1440, max: 10 });
   assert.deepEqual(parseRegulation('följande. 1 § På Linnégatan i Växjö, östra sidan från Sandgärdsgatan till Storgatan, vardagar utom dag före helgdag kl 08.00-18.00 samt dag före helgdag kl 08.00-15.00. får inte fordon parkeras.').bans, [{ dt: ['vardag'], a: 480, b: 1080 }, { dt: ['fore'], a: 480, b: 900 }]);
 });
+test('"Mellan klockan 9 och 15 på vardagar före sön- och helgdag gäller dock tillåtelsen …" and the "heldag" typo (4 Nov, Ängelholm)', () => {
+  const r = parseRegulation('följande. På Storgatan får fordon parkeras. Mellan klockan 9 och 18 vardagar utom vardag före sön- och heldag gäller dock tillåtelsen att parkera i högst 3 timmar i följd mot att avgift erläggs eller högst 1 timme i följd mot användande av parkeringsskiva eller motsvarande. Mellan klockan 9 och 15 på vardagar före sön- och helgdag gäller dock tillåtelsen att parkera i högst 3 timmar i följd.');
+  assert.deepEqual([r.limits, r.unread], [[{ dt: ['vardag'], a: 540, b: 1080, max: 180 }, { dt: ['fore'], a: 540, b: 900, max: 180 }], []]);
+});
+test('"får beskickningsfordon parkeras" without "endast" is a diplomatic bay, its limit is not for all cars (4 Nov, Sigtuna)', () => {
+  const r = parseRegulation('följande. På särskilt markerade platser längs väg U 21 enligt kartbild får beskickningsfordon parkeras. Parkering är dock tillåten under högst 3 tim i följd.');
+  assert.deepEqual([r.reserved, r.reservedFor, r.unread], [true, 'beskickningsfordon', []]);
+});
+test('"Tidsbegränsningen gäller …" in a text that never states the limit is flagged unknown, not read as free (4 Nov, Tyresö)', () => {
+  const r = parseRegulation('följande. 1 § På Radiovägens östra sida enligt kartbild får endast personbil parkeras. 2 § Tidsbegränsningen gäller vardag utom vardag före sön- och helgdag klockan 08.00 - 16.00.');
+  assert.deepEqual([r.limitUnknown, r.unread.length, r.limits], [true, 1, []]);
+  // a limit stated in the text keeps the usual reading
+  const b = parseRegulation('följande. På Radiovägen får fordon parkeras under högst 2 tim i följd. Tidsbegränsningen gäller vardag utom vardag före sön- och helgdag klockan 08.00 - 16.00.');
+  assert.deepEqual([b.limitUnknown, b.limits], [undefined, [{ dt: ['vardag'], a: 480, b: 960, max: 120 }]]);
+});

@@ -1,7 +1,7 @@
 # Danderyd: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-03. 750 segments: 750 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 694, partly read 56. Verified equal 596, filled from text 0, text stricter 0, disputed 5, expired 0, text without rules 22, multi-part texts (not compared) 71.
+Run 2026-11-04. 750 segments: 750 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 696, partly read 54. Verified equal 596, filled from text 2, text stricter 0, disputed 5, expired 0, text without rules 22, multi-part texts (not compared) 71.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,3 +10,5 @@ Fully read 694, partly read 56. Verified equal 596, filled from text 0, text str
 | 0162 2007-73 | Långbackavägen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0162 2007-73 | Långbackavägen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0162 2007-73 | Backstigen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0162 2023-00017 | Kyrkogårdsvägen | uncertain → {"v":"beskickningsfordon"} | filled from text |
+| 0162 2023-00020 | Brovägen | uncertain → {"v":"beskickningsfordon"} | filled from text |

@@ -1,7 +1,7 @@
 # Falun: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-03. 582 segments: 582 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 547, partly read 27. Verified equal 468, filled from text 0, text stricter 0, disputed 1, expired 8, text without rules 78, multi-part texts (not compared) 0.
+Run 2026-11-04. 582 segments: 582 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 548, partly read 26. Verified equal 469, filled from text 0, text stricter 0, disputed 1, expired 8, text without rules 78, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

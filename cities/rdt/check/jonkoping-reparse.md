@@ -1,6 +1,6 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-03. 2273 segments: 2273 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-04. 2273 segments: 2273 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 2052, partly read 19. Verified equal 1487, filled from text 0, text stricter 0, disputed 0, expired 202, text without rules 565, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -193,6 +193,8 @@ Fully read 2052, partly read 19. Verified equal 1487, filled from text 0, text s
 | 0680 2013-141 | Norra Bogesundsgatan | expired 2013-05-24 | already uncertain |
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
+| 0680 2017-1787 | Juneparkeringen | limit length not in text | now uncertain |
+| 0680 2017-1787 | Juneparkeringen | limit length not in text | now uncertain |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
 | 0680 2026-262 | Östra Storgatan | expired 2026-10-30 | already uncertain |
 | 0680 2026-262 | Östra Storgatan | expired 2026-10-30 | already uncertain |

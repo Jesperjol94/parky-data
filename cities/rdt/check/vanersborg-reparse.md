@@ -1,6 +1,6 @@
 # Vänersborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-03. 972 segments: 972 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-04. 972 segments: 972 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 939, partly read 14. Verified equal 912, filled from text 0, text stricter 0, disputed 0, expired 19, text without rules 11, multi-part texts (not compared) 15.
 
 | Citation | Street | Change | Note |
@@ -9,7 +9,7 @@ Fully read 939, partly read 14. Verified equal 912, filled from text 0, text str
 | 1487 2010-00395 | Sommarhemsvägen | expired 2010-07-02 | already uncertain |
 | 1487 2010-00395 | Sommarhemsvägen | expired 2010-07-02 | already uncertain |
 | 1487 2010-00395 | Sommarhemsvägen | expired 2010-07-02 | already uncertain |
-| 1487 2026-00285 | Södergatan | expired 2026-11-03 | now uncertain |
+| 1487 2026-00285 | Södergatan | expired 2026-11-03 | already uncertain |
 | 1487 2026-00286 | Drottninggatan | expired 2026-10-24 | already uncertain |
 | 1487 2026-00286 | Drottninggatan | expired 2026-10-24 | already uncertain |
 | 1487 2026-00287 | Kungsgatan | expired 2026-10-24 | already uncertain |

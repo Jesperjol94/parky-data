@@ -36,7 +36,8 @@ function multiPart(body) {
   const sides = new Set((t.match(/(?<![a-zåäö])((?:syd|nord)?(?:östra|västra)|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size; // not \b: it is ASCII-only, so "\böstra" never matched after a space (and matched inside "sydöstra")
   void paras; // "1 § place, 2 § hours, 3 § fee" is one place in several paragraphs: only several places or sides make a text multi-part (18 Oct review)
   // several sides in one sentence with one rule ("västra sida …, norra sida … samt östra sida … får fordon parkeras") are one rule set (QA 22 Oct)
-  const colours = new Set((t.match(/markerats? (?:med )?(blå|grön|röd|gul|lila|orange|svart)/gi) || []).map((x) => x.toLowerCase().split(/\s/).pop())).size;
+  const colours = new Set([...(t.match(/markerats? (?:med )?(blå|grön|röd|gul|lila|orange|svart)/gi) || []).map((x) => x.toLowerCase().split(/\s/).pop()),
+    ...(t.match(/\b(blå|grön|röd|gul|lila|orange|svart)(?=-?markerad)/gi) || []).map((x) => x.toLowerCase())]).size; // also "På blåmarkerade sträckor … 2 § På rödmarkerade sträckor" (QA 4 Nov: Täby allé)
   // a ban on the street and a permission on part of it ("Trots förbudet får fordon parkeras på … sida mellan …", "Med avvikelse från
   // bestämmelserna i 1 § får fordon parkeras på anordnade platser"): two rule sets (QA 25 Oct: Täby Värtavägen, Danderyd Källvägen)
   const exceptionPart = /(?:inte|ej) (?:stannas eller )?parkeras/i.test(t) && /(?:trots förbudet|med avvikelse från (?:bestämmelserna|förbudet) i (?:\d+\s*§|paragraf \d+|första stycket))[^.]*får (?:fordon|personbil)[^.]*parkeras?\b/i.test(body.replace(/\s+/g, ' ')); // the raw text: ruleText drops "Med avvikelse från bestämmelserna i 1 §" (QA 2 Nov: Timrå Källvägen got the street ban on its bays; "får fordon parkera", QA 3 Nov: Norrtälje Parkstigen)
@@ -154,6 +155,9 @@ for (const row of idx.cities) {
     if (!parsed.has(s.c)) parsed.set(s.c, { r: parseRegulation(rec.body), multi: multiPart(rec.body) || ruleSets.get(s.c) > 1 });
     const { r, multi } = parsed.get(s.c);
     const full = r.unread.length === 0 && ruleText(rec.body);
+    // the text has a time limit whose length it never states ("Tidsbegränsningen gäller vardag … 08.00 - 16.00"): only the sign knows,
+    // so a segment without a limit of its own goes grey (QA 4 Nov: Tyresö, Gävle showed free parking or a register ban)
+    if (r.limitUnknown && !s.u && !s.l && !s.v) { st.limitUnknown = (st.limitUnknown || 0) + 1; lines.push(`| ${s.c} | ${s.n} | limit length not in text | now uncertain |`); if (APPLY) { s.u = 1; changed++; } }
     if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; continue; }
     st.fullyRead++;
     // Fee hours from the text ("Avgift enligt Taxa Zon 2 … vardagar … 09.00 - 18.00") narrow a fee table that charges all day:

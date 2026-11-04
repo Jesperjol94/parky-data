@@ -1,6 +1,6 @@
 # Tyresö: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-03. 1155 segments: 1155 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-04. 1155 segments: 1155 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1129, partly read 21. Verified equal 1106, filled from text 0, text stricter 0, disputed 0, expired 5, text without rules 23, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -10,3 +10,17 @@ Fully read 1129, partly read 21. Verified equal 1106, filled from text 0, text s
 | 0138 2026-34 | Granängsringen | expired 2026-10-31 | already uncertain |
 | 0138 2026-34 | Granängsringen | expired 2026-10-31 | already uncertain |
 | 0138 2026-34 | Granängsringen | expired 2026-10-31 | already uncertain |
+| 0138 2026-55 | Strömfallsvägen | limit length not in text | now uncertain |
+| 0138 2026-55 | Strömfallsvägen | limit length not in text | now uncertain |
+| 0138 2026-55 | Strömfallsvägen | limit length not in text | now uncertain |
+| 0138 2026-56 | Strömfallsvägen | limit length not in text | now uncertain |
+| 0138 2026-56 | Strömfallsvägen | limit length not in text | now uncertain |
+| 0138 2026-56 | Strömfallsvägen | limit length not in text | now uncertain |
+| 0138 2026-58 | Vintervägen | limit length not in text | now uncertain |
+| 0138 2026-58 | Vintervägen | limit length not in text | now uncertain |
+| 0138 2026-61 | Radiovägen | limit length not in text | now uncertain |
+| 0138 2026-61 | Radiovägen | limit length not in text | now uncertain |
+| 0138 2026-61 | Radiovägen | limit length not in text | now uncertain |
+| 0138 2026-61 | Radiovägen | limit length not in text | now uncertain |
+| 0138 2026-61 | Radiovägen | limit length not in text | now uncertain |
+| 0138 2026-61 | Radiovägen | limit length not in text | now uncertain |
