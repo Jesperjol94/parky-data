@@ -592,3 +592,11 @@ test('"Tidsbegränsningen gäller …" in a text that never states the limit is 
   const b = parseRegulation('följande. På Radiovägen får fordon parkeras under högst 2 tim i följd. Tidsbegränsningen gäller vardag utom vardag före sön- och helgdag klockan 08.00 - 16.00.');
   assert.deepEqual([b.limitUnknown, b.limits], [undefined, [{ dt: ['vardag'], a: 480, b: 960, max: 120 }]]);
 });
+test('a ban departing from a comma-separated list of regulations is read (5 Nov, Karlstad Norra Klaragatan)', () => {
+  const r = parseRegulation('följande. 1 § På Norra Klaragatan, enligt kartan till dessa föreskrifter, får fordon, med avvikelse från Karlstads kommuns lokala trafikföreskrifter 1780 2024:00346 om parkering på Norra Klaragatan, 1780 2024:00347 om parkering på Norra Klaragatan, inte parkeras. Förbudet ger inte rätt att stanna där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276). Förbudet gäller onsdag klockan 10.00 - 12.00 udda veckor.');
+  assert.deepEqual([r.bans, r.unread], [[{ w: 3, a: 600, b: 720, p: 'odd' }], []]);
+});
+test('the parking-disc rounding sentence carries no rule (5 Nov, Lomma)', () => {
+  const r = parseRegulation('följande. 1 § På 5 markerade platser på Kajgatans södra sida enligt kartbild får fordon parkeras under högst 1 timme i följd. 2 § Tidsbegränsningen gäller vardagar utom dag före sön- och helgdag mellan klockan 0900 och 1700, vardagar före sön- och helgdag mellan klockan 0900 och 1700 samt sön- och helgdag mellan klockan 0900 och 1700. 3 § Tiden då parkeringen påbörjas skall anges med parkeringsskiva eller på annat tydligt sätt. Vid användande av parkeringsskiva får parkering ske från den tidpunkt då fordonet parkeras till närmast följande hel eller halvtimme samt under den tid som anges i 1 §.');
+  assert.deepEqual([r.limits.length, r.limits[0], r.unread], [3, { dt: ['vardag'], a: 540, b: 1020, max: 60 }, []]);
+});

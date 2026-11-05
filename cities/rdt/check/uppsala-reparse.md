@@ -1,7 +1,7 @@
 # Uppsala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-04. 3816 segments: 3816 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3682, partly read 106. Verified equal 2311, filled from text 0, text stricter 0, disputed 0, expired 28, text without rules 1371, multi-part texts (not compared) 0.
+Run 2026-11-05. 3816 segments: 3816 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3684, partly read 104. Verified equal 2313, filled from text 0, text stricter 0, disputed 0, expired 28, text without rules 1371, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

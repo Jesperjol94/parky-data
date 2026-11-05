@@ -22,7 +22,11 @@ for (const row of idx.cities) {
   const tf = `rdt/texts/${row.kommunkod}.jsonl.gz`; if (!fs.existsSync(tf)) continue;
   let raw; try { raw = zlib.gunzipSync(fs.readFileSync(tf)).toString(); } catch { continue; }
   const area = new Set(), named = new Set(); // named: street names the municipality's regulation titles mention
-  for (const l of raw.split('\n')) { if (!l) continue; const r = JSON.parse(l); for (const w of (r.rubrik || '').match(/[A-ZÅÄÖ][\wåäöéü-]+(?:vägen|gatan|stigen|gränd|gränden|backen|leden|allén|torget|plan|väg|gata)\b/g) || []) named.add(w.toLowerCase()); const t = (r.body || '').replace(/\s+/g, ' '); const i = t.indexOf('följande'); const head = t.slice(i, i + 400); if (AREA.test(head) && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(head) && !/gäller (?:ej|inte) (?:på |för )?markerade|med undantag|undantaget|utom (?:på|där)/i.test(t)) area.add(r.c); }
+  // A ban that departs from a street PERMISSION ("får fordon, med avvikelse från … 1780 2024:00346 om parkering på Norra Klaragatan,
+  // inte parkeras … onsdag 10–12") lies on a curb where parking is allowed: the area ban doesn't apply there (QA 5 Nov: Karlstad
+  // street-cleaning bans showed the town-centre ban all day; Varberg Västra hamnplan).
+  const onPermit = new Set();
+  for (const l of raw.split('\n')) { if (!l) continue; const r = JSON.parse(l); const pm = (r.body || '').replace(/\s+/g, ' ').match(/med avvikelse från (?:[^.]|\.(?=\d))*?\bom (?:tillåten |avgiftsbelagd |avgiftspliktig )?parkering (?:på|vid|inom|i)\s/i); if (pm && !/förbud/i.test(pm[0])) onPermit.add(r.c); for (const w of (r.rubrik || '').match(/[A-ZÅÄÖ][\wåäöéü-]+(?:vägen|gatan|stigen|gränd|gränden|backen|leden|allén|torget|plan|väg|gata)\b/g) || []) named.add(w.toLowerCase()); const t = (r.body || '').replace(/\s+/g, ' '); const i = t.indexOf('följande'); const head = t.slice(i, i + 400); if (AREA.test(head) && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(head) && !/gäller (?:ej|inte) (?:på |för )?markerade|med undantag|undantaget|utom (?:på|där)/i.test(t)) area.add(r.c); }
   // drop earlier overlay windows (idempotent)
   for (const s of c.segments) if (s.f) { s.f = s.f.filter((w) => !w.ov); if (!s.f.length) delete s.f; }
   const src = c.segments.filter((s) => area.has(s.c) && s.f && s.f.length && !s.v);
@@ -33,7 +37,7 @@ for (const row of idx.cities) {
   const box = src.map((s) => ({ w: Math.min(...s.g.map((p) => p[0])) - 0.0004, e: Math.max(...s.g.map((p) => p[0])) + 0.0004, s: Math.min(...s.g.map((p) => p[1])) - 0.0002, n: Math.max(...s.g.map((p) => p[1])) + 0.0002 }));
   let changed = false;
   for (const s of c.segments) {
-    if (s.v || area.has(s.c)) continue;
+    if (s.v || area.has(s.c) || onPermit.has(s.c)) continue;
     // Only on top of other BANS on the same road (Klingsta: "förbud 9–17" under "förbud på samtliga vägar"). A curb whose own
     // regulation permits parking (a limit, a fee, allowed hours, date parking) is the exception the area ban leaves room for
     // ("Gäller ej markerade platser", Norrköping/Linköping innerstad): QA 22 Oct found 4,100 such curbs wrongly banned.

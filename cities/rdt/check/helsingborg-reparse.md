@@ -1,6 +1,6 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-04. 3818 segments: 3818 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-05. 3818 segments: 3818 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 3635, partly read 84. Verified equal 3337, filled from text 0, text stricter 0, disputed 0, expired 99, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -103,4 +103,4 @@ Fully read 3635, partly read 84. Verified equal 3337, filled from text 0, text s
 | 1283 2026-690 | Byalagsgatan | expired 2026-10-23 | already uncertain |
 | 1283 2026-690 | D | expired 2026-10-23 | already uncertain |
 | 1283 2026-690 | Byalagsgatan | expired 2026-10-23 | already uncertain |
-| 1283 2026-693 | Mäster Ernsts gata | expired 2026-11-04 | now uncertain |
+| 1283 2026-693 | Mäster Ernsts gata | expired 2026-11-04 | already uncertain |

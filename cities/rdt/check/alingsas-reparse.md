@@ -1,6 +1,6 @@
 # Alingsås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-04. 722 segments: 722 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-05. 722 segments: 722 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 652, partly read 50. Verified equal 649, filled from text 0, text stricter 0, disputed 0, expired 20, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -10,7 +10,6 @@ Fully read 652, partly read 50. Verified equal 649, filled from text 0, text str
 | 1489 2026-79 | Stockslyckevägen | expired 2026-10-31 | already uncertain |
 | 1489 2026-80 | Kaptensvägen | expired 2026-10-31 | already uncertain |
 | 1489 2026-80 | Kaptensvägen | expired 2026-10-31 | already uncertain |
-| 1489 2026-164 | Badplatsvägen | limit length not in text | now uncertain |
 | 1489 2026-173 | Värmlandsgatan | expired 2026-10-31 | already uncertain |
 | 1489 2026-174 | Dalagatan | expired 2026-10-30 | already uncertain |
 | 1489 2026-174 | Dalagatan | expired 2026-10-30 | already uncertain |

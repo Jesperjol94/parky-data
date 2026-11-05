@@ -1,7 +1,7 @@
 # Tingsryd: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-04. 109 segments: 109 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 74, partly read 1. Verified equal 72, filled from text 0, text stricter 1, disputed 0, expired 34, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-11-05. 109 segments: 109 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 74, partly read 1. Verified equal 73, filled from text 0, text stricter 0, disputed 0, expired 34, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -24,7 +24,6 @@ Fully read 74, partly read 1. Verified equal 72, filled from text 0, text strict
 | 0763 2010-116 | Skolgatan | expired 2011-02-28 | already uncertain |
 | 0763 2010-117 | Odengatan | expired 2011-02-28 | already uncertain |
 | 0763 2010-118 | Skolgatan | expired 2011-02-28 | already uncertain |
-| 0763 2010-133 | Gamla vägen | {"f":[{"dt":["vardag"],"a":480,"b":960}]} → {"f":[{"dt":["vardag","fore"],"a":480,"b":960}]} | text stricter: applied |
 | 0763 2010-142 | Solgatan | expired 2011-02-28 | already uncertain |
 | 0763 2011-1 | Bokvägen | expired 2011-04-06 | already uncertain |
 | 0763 2011-2 | Bokvägen | expired 2011-03-19 | already uncertain |

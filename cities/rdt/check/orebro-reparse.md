@@ -1,6 +1,6 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-04. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-05. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 2650, partly read 105. Verified equal 2647, filled from text 0, text stricter 0, disputed 2, expired 46, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -28,7 +28,7 @@ Fully read 2650, partly read 105. Verified equal 2647, filled from text 0, text 
 | 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | already uncertain |
 | 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | already uncertain |
 | 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | already uncertain |
-| 1880 2026-01313 | Skolgatan | expired 2026-11-04 | now uncertain |
+| 1880 2026-01313 | Skolgatan | expired 2026-11-04 | already uncertain |
 | 1880 2026-01314 | Kristinagatan | expired 2026-11-02 | already uncertain |
 | 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
 | 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
