@@ -600,3 +600,24 @@ test('the parking-disc rounding sentence carries no rule (5 Nov, Lomma)', () => 
   const r = parseRegulation('följande. 1 § På 5 markerade platser på Kajgatans södra sida enligt kartbild får fordon parkeras under högst 1 timme i följd. 2 § Tidsbegränsningen gäller vardagar utom dag före sön- och helgdag mellan klockan 0900 och 1700, vardagar före sön- och helgdag mellan klockan 0900 och 1700 samt sön- och helgdag mellan klockan 0900 och 1700. 3 § Tiden då parkeringen påbörjas skall anges med parkeringsskiva eller på annat tydligt sätt. Vid användande av parkeringsskiva får parkering ske från den tidpunkt då fordonet parkeras till närmast följande hel eller halvtimme samt under den tid som anges i 1 §.');
   assert.deepEqual([r.limits.length, r.limits[0], r.unread], [3, { dt: ['vardag'], a: 540, b: 1020, max: 60 }, []]);
 });
+test('"får fordon endast parkeras med stöd av parkeringstillstånd enligt 13 kap. 8 §" is a disabled bay, its limit not for all cars (6 Nov, Örnsköldsvik)', () => {
+  const r = parseRegulation('följande. 1 § På Läroverksgatans norra sida på sträckan som anges på kartan, med avvikelse från Örnsköldsviks kommuns lokala trafikföreskrifter 2284 2023:00077 om förbud att parkera i centrala Örnsköldsvik, får fordon endast parkeras med stöd av parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276) eller utländska parkeringstillstånd som ger samma rätt att parkera. Tillåtelsen att parkera enligt 1 § gäller dock högst 3 timmar i följd.');
+  assert.deepEqual([r.reserved, r.reservedFor, r.unread], [true, 'rörelsehindrade', []]);
+});
+test('"tisdag - onsdag mellan klockan 12.00 - 12.00" is one span from Tuesday noon to Wednesday noon; the deviation sentence carries no rule (6 Nov, Gällivare)', () => {
+  const r = parseRegulation('följande. 1 § På norra sidan av Klockaregatan får fordon inte parkeras. 2 § Förbudet att parkera i paragraf 1 gäller under tiden tisdag - onsdag mellan klockan 12.00 - 12.00, torsdag - fredag 12.00 - 12.00 och söndag - måndag klockan 12.00 - 12.00. 3 § Föreskriften gäller med avvikelse från bestämmelserna i Gällivare kommuns lokala trafikföreskrifter (2523 2010:001) om datumparkering inom tättbebyggt område.');
+  assert.deepEqual([r.bans, r.unread], [[{ w: 2, a: 720, b: 1440 }, { w: 3, a: 0, b: 720 }, { w: 4, a: 720, b: 1440 }, { w: 5, a: 0, b: 720 }, { w: 7, a: 720, b: 1440 }, { w: 1, a: 0, b: 720 }], []]);
+  // different hours keep the per-day reading
+  assert.deepEqual(parseRegulation('följande. På Storgatan får fordon inte parkeras måndag - tisdag klockan 08.00 - 10.00.').bans, [{ w: 1, a: 480, b: 600 }, { w: 2, a: 480, b: 600 }]);
+});
+test('"får lätt lastbil och personbil parkeras" is ordinary parking; "parkers" typo (6 Nov, Västerås, Staffanstorp)', () => {
+  const r = parseRegulation('följande. På med rött markerade sträckor på Skerikesvägen enligt kartbild får lätt lastbil och personbil parkeras under högst 4 tim i följd under tiden vardagar utom vardag före sön- och helgdag klockan 07.00 - 22.00.');
+  assert.deepEqual([r.limits, r.unread, r.reserved], [[{ dt: ['vardag'], a: 420, b: 1320, max: 240 }], [], false]);
+  assert.deepEqual(parseRegulation('följande. 1 $ På samtliga vägar inom ett område i Hjärup får fordon inte parkers.').bans, [{ a: 0, b: 1440 }]);
+});
+test('a later ban outside the hours of "Tillåtelsen gäller högst 3 timmar … under tiden 06–22" shows those are the limit\'s hours, not the permission\'s; "2 §Tillåtelsen" (6 Nov, Örebro)', () => {
+  const r = parseRegulation('följande. 1 § På Fredsgatan, med avvikelse från Örebro kommuns lokala trafikföreskrifter 1880 2025:00098 om förbud att parkera i Örebro centrum, får fordon endast parkeras med stöd av parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276). 2 §Tillåtelsen i 1 § gäller högst 3 timmar i följd under tiden - vardagar utom vardag före sön- och helgdag klockan 06.00 - 22.00, - vardag före sön- och helgdag klockan 06.00 - 22.00 och - sön- och helgdag klockan 06.00 - 22.00. 3 § Parkering är dock förbjuden jämna datum klockan 00.00 - 06.00.');
+  assert.deepEqual([r.reservedFor, r.limits.length, r.allowOnly, r.bans, r.unread], ['rörelsehindrade', 3, [], [{ a: 0, b: 360, dd: 'even' }], []]);
+  // without such a ban the permission hours stay
+  assert.equal(parseRegulation('följande. 1 § På Fredsgatan, med avvikelse från Örebro kommuns lokala trafikföreskrifter 1880 2025:00098 om förbud att parkera i Örebro centrum, får fordon parkeras. 2 § Tillåtelsen gäller högst 3 timmar i följd under tiden vardagar klockan 06.00 - 22.00.').allowOnly.length, 1);
+});

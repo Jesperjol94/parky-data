@@ -1,66 +1,10 @@
 # Karlstad: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-05. 1844 segments: 1844 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1813, partly read 12. Verified equal 1328, filled from text 0, text stricter 0, disputed 56, expired 19, text without rules 429, multi-part texts (not compared) 0.
+Run 2026-11-06. 1844 segments: 1844 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1805, partly read 12. Verified equal 1376, filled from text 0, text stricter 0, disputed 0, expired 27, text without rules 429, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1780 2024-00369 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00369 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00370 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00371 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00372 | Sandbäcksgatan | {"f":[{"w":3,"a":300,"b":420,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":300,"b":420,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00373 | Malmtorgsgatan | {"f":[{"w":3,"a":480,"b":600,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00374 | Malmtorgsgatan | {"f":[{"w":3,"a":480,"b":600,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00375 | Malmtorgsgatan | {"f":[{"w":3,"a":480,"b":600,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00376 | Malmtorgsgatan | {"f":[{"w":3,"a":480,"b":600},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00376 | Malmtorgsgatan | {"f":[{"w":3,"a":480,"b":600},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00377 | Malmtorgsgatan | {"f":[{"w":3,"a":480,"b":600,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00378 | Malmtorgsgatan | {"f":[{"w":3,"a":480,"b":600},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00378 | Malmtorgsgatan | {"f":[{"w":3,"a":480,"b":600},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00378 | Malmtorgsgatan | {"f":[{"w":3,"a":480,"b":600},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00379 | Hybelejens gata | {"f":[{"w":3,"a":480,"b":600,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00380 | Bryggaregatan | {"f":[{"w":3,"a":480,"b":600,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00381 | Bryggaregatan | {"f":[{"w":3,"a":480,"b":600,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00383 | Odengatan | {"f":[{"w":3,"a":480,"b":600,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":600,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00385 | Våxnäsgatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00385 | Våxnäsgatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00385 | Våxnäsgatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00386 | Södra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00386 | Södra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00386 | Södra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00386 | Södra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00386 | Södra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00386 | Södra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00386 | Södra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00386 | Södra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00387 | Norra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00387 | Norra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00387 | Norra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00387 | Norra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00387 | Norra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00387 | Norra Klaragatan | {"f":[{"w":3,"a":600,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00388 | Regementsgatan | {"f":[{"w":3,"a":600,"b":720,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00388 | Regementsgatan | {"f":[{"w":3,"a":600,"b":720,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2024-00388 | Regementsgatan | {"f":[{"w":3,"a":600,"b":720,"p":"odd"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":600,"b":720,"p":"odd"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00193 | Trädgårdsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00193 | Trädgårdsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00193 | Trädgårdsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00193 | Trädgårdsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00193 | Trädgårdsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00193 | Trädgårdsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00195 | Rosenbadsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00198 | Vänernsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00198 | Vänernsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00199 | Stinsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00200 | Konduktörsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00200 | Konduktörsgatan | {"f":[{"w":1,"a":300,"b":420,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00201 | Vikengatan | {"f":[{"w":1,"a":480,"b":600},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":600,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00201 | Vikengatan | {"f":[{"w":1,"a":480,"b":600},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":600,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00201 | Vikengatan | {"f":[{"w":1,"a":480,"b":600},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":600,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00202 | Båtsmansgatan | {"f":[{"w":1,"a":480,"b":600,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":600,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00202 | Båtsmansgatan | {"f":[{"w":1,"a":480,"b":600,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":600,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2025-00203 | Wennbergsgatan | {"f":[{"w":1,"a":480,"b":600,"p":"even"},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":600,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
 | 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
 | 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
@@ -79,4 +23,12 @@ Fully read 1813, partly read 12. Verified equal 1328, filled from text 0, text s
 | 1780 2026-390 | Malmtorgsgatan | expired 2026-10-30 | already uncertain |
 | 1780 2026-392 | Våxnäsgatan | expired 2026-10-30 | already uncertain |
 | 1780 2026-392 | Våxnäsgatan | expired 2026-10-30 | already uncertain |
+| 1780 2026-396 | Sandbäcksgatan | expired 2026-11-06 | now uncertain |
+| 1780 2026-396 | Sandbäcksgatan | expired 2026-11-06 | now uncertain |
+| 1780 2026-396 | Sandbäcksgatan | expired 2026-11-06 | now uncertain |
+| 1780 2026-396 | Sandbäcksgatan | expired 2026-11-06 | now uncertain |
+| 1780 2026-397 | Södra Klaragatan | expired 2026-11-06 | now uncertain |
+| 1780 2026-397 | Södra Klaragatan | expired 2026-11-06 | now uncertain |
+| 1780 2026-397 | Södra Klaragatan | expired 2026-11-06 | now uncertain |
+| 1780 2026-397 | Södra Klaragatan | expired 2026-11-06 | now uncertain |
 | 1780 2026-00084 | Sandbäcksgatan | expired 2026-10-30 | already uncertain |

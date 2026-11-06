@@ -1,6 +1,6 @@
 # Karlshamn: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-05. 532 segments: 532 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-06. 532 segments: 532 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 502, partly read 19. Verified equal 491, filled from text 0, text stricter 0, disputed 0, expired 11, text without rules 9, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |

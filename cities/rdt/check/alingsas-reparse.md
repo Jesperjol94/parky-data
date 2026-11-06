@@ -1,7 +1,7 @@
 # Alingsås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-05. 722 segments: 722 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 652, partly read 50. Verified equal 649, filled from text 0, text stricter 0, disputed 0, expired 20, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-11-06. 722 segments: 722 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 650, partly read 50. Verified equal 647, filled from text 0, text stricter 0, disputed 0, expired 22, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -21,6 +21,8 @@ Fully read 652, partly read 50. Verified equal 649, filled from text 0, text str
 | 1489 2026-242 | Drottninggatan | expired 2026-10-23 | already uncertain |
 | 1489 2026-246 | Järnvägsgatan | expired 2026-10-16 | already uncertain |
 | 1489 2026-247 | Såggatan | expired 2026-10-16 | already uncertain |
+| 1489 2026-248 | Bryggaregatan | expired 2026-11-06 | now uncertain |
+| 1489 2026-248 | Bryggaregatan | expired 2026-11-06 | now uncertain |
 | 1489 2026-250 | Sävevägen | expired 2026-11-02 | already uncertain |
 | 1489 2026-252 | Hagavägen | expired 2026-10-16 | already uncertain |
 | 1489 2026-254 | Stationsgatan | expired 2026-10-16 | already uncertain |

@@ -1,7 +1,7 @@
 # Norrköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-05. 3724 segments: 3724 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3702, partly read 4. Verified equal 2639, filled from text 0, text stricter 0, disputed 2, expired 18, text without rules 67, multi-part texts (not compared) 994.
+Run 2026-11-06. 3724 segments: 3724 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3701, partly read 4. Verified equal 2638, filled from text 0, text stricter 0, disputed 2, expired 19, text without rules 67, multi-part texts (not compared) 994.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -25,3 +25,4 @@ Fully read 3702, partly read 4. Verified equal 2639, filled from text 0, text st
 | 0581 2026-555 | Tunnbindaregatan | expired 2026-10-18 | already uncertain |
 | 0581 2026-555 | Bredgatan | expired 2026-10-18 | already uncertain |
 | 0581 2026-555 | Bredgatan | expired 2026-10-18 | already uncertain |
+| 0581 2026-556 | Sandgatan | expired 2026-11-06 | now uncertain |

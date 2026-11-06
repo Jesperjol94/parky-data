@@ -1,8 +1,14 @@
 # Sala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-05. 278 segments: 278 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 254, partly read 23. Verified equal 203, filled from text 0, text stricter 0, disputed 0, expired 1, text without rules 50, multi-part texts (not compared) 1.
+Run 2026-11-06. 278 segments: 278 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 248, partly read 23. Verified equal 197, filled from text 0, text stricter 0, disputed 0, expired 7, text without rules 50, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1981 2026-29 | Vasagatan | expired 2026-10-16 | already uncertain |
+| 1981 2026-30 | Kålgårdsgatan | expired 2026-11-06 | now uncertain |
+| 1981 2026-30 | Kålgårdsgatan | expired 2026-11-06 | now uncertain |
+| 1981 2026-30 | Kålgårdsgatan | expired 2026-11-06 | now uncertain |
+| 1981 2026-30 | Kålgårdsgatan | expired 2026-11-06 | now uncertain |
+| 1981 2026-30 | Kålgårdsgatan | expired 2026-11-06 | now uncertain |
+| 1981 2026-30 | Kålgårdsgatan | expired 2026-11-06 | now uncertain |

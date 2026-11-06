@@ -32,7 +32,7 @@ const minutesBanned = (ws) => (ws || []).reduce((s, w) => s + (w.b > w.a ? w.b -
 function multiPart(body) {
   const t = ruleText(body) || '';
   const paras = (t.match(/\b\d{1,2}\s*§/g) || []).length;
-  const places = (t.match(/(?:^|[.;]\s*)På\s/g) || []).length + (t.match(/(?:^|[.;]\s*)Inom\s/g) || []).length;
+  const places = (t.match(/(?:^|[.;]\s*|\d\s*§\s*)På\s/g) || []).length + (t.match(/(?:^|[.;]\s*|\d\s*§\s*)Inom\s/g) || []).length; // also "… 4 § På parkeringsplatsen på de platser …" after a paragraph number (QA 6 Nov: Norrtälje Rimbo, Täby Arninge merged several places' rules)
   const sides = new Set((t.match(/(?<![a-zåäö])((?:syd|nord)?(?:östra|västra)|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size; // not \b: it is ASCII-only, so "\böstra" never matched after a space (and matched inside "sydöstra")
   void paras; // "1 § place, 2 § hours, 3 § fee" is one place in several paragraphs: only several places or sides make a text multi-part (18 Oct review)
   // several sides in one sentence with one rule ("västra sida …, norra sida … samt östra sida … får fordon parkeras") are one rule set (QA 22 Oct)
