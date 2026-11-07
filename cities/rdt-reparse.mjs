@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { parseRegulation, expired, ruleText } from '../engine/regulation.js';
+import { parseRegulation, expired, ruleText, samePlaceExceptions } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
 const dir = args[0] || 'cities/rdt';
@@ -42,7 +42,10 @@ function multiPart(body) {
   // bestämmelserna i 1 § får fordon parkeras på anordnade platser"): two rule sets (QA 25 Oct: Täby Värtavägen, Danderyd Källvägen)
   const exceptionPart = /(?:inte|ej) (?:stannas eller )?parkeras/i.test(t) && /(?:trots förbudet|med avvikelse från (?:bestämmelserna|förbudet) i (?:\d+\s*§|paragraf \d+|första stycket))[^.]*får (?:fordon|personbil)[^.]*parkeras?\b/i.test(body.replace(/\s+/g, ' ')); // the raw text: ruleText drops "Med avvikelse från bestämmelserna i 1 §" (QA 2 Nov: Timrå Källvägen got the street ban on its bays; "får fordon parkera", QA 3 Nov: Norrtälje Parkstigen)
   if (exceptionPart) return true;
-  return places > 1 || colours > 1 || (sides > 1 && (t.match(/får (?:fordon|endast|personbil)/g) || []).length > 1); // places marked in several colours with different rules (Norrtälje Campus Roslagen)
+  // "4 § Trots tillåtelsen i 1 § får fordon inte parkeras den 21:a dagen i månaden klockan 09.00 - 12.00" names no place of its own: it is a
+  // rule for all the places of 1 §, not a second rule set (QA 7 Nov: Norrköping's City-P texts list many sides, ~650 lines stayed grey)
+  const sameParts = samePlaceExceptions(t);
+  return places > 1 || colours > 1 || (sides > 1 && (t.match(/får (?:fordon|endast|personbil)/g) || []).length - sameParts > 1); // places marked in several colours with different rules (Norrtälje Campus Roslagen)
 }
 
 // A text that only says "får fordon parkeras" (optionally "mot avgift …" with the fee's hours) and nothing else with hours, days or

@@ -113,6 +113,7 @@ export function windows(clause) {
   clause = clause.replace(/\bmellan (\d{1,2}[.:]\d{2}\s*[-–—]\s*\d{1,2}[.:]\d{2})/gi, 'klockan $1'); // "mellan 00:00 - 17:00" (Rättvik)
   clause = clause.replace(/\b(parkeras|stannas|förbjuden|tillåten)\s+(?=\d{1,2}[.:]\d{2}\s*[-–—]\s*\d{1,2}[.:]\d{2})/gi, '$1 klockan '); // "inte stannas eller parkeras 21.00 - 03.00" (Hudiksvall)
   clause = clause.replace(/(\d{1,2}[.:]\d{2}\s*[-–—]\s*\d{1,2}[.:]\d{2})\s+och\s+(?=\d{1,2}[.:]\d{2}\s*[-–—])/g, '$1 och klockan '); // "07.00 - 10.00 och 15.00 - 18.00"
+  clause = clause.replace(/\b(januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december),?\s+och\s+(?=\d{1,2}[.:]\d{2}\s*[-–—]\s*\d{1,2}[.:]\d{2})/gi, '$1 klockan '); // "under tiden 15 maj - 15 augusti och 08.00 - 18.00": the season's hours (QA 7 Nov: Tanum showed the limit all day)
   // time before day type ("Mellan klockan 8 och 22 vardagar utom vardag före … och mellan klockan 8 och 22 vardag före …", Kungsbacka):
   // move each day-type phrase in front of its hours
   if (/^\s*(?:\d+\s*§\s*)?(?:(?:Föreskriften|Villkoret|Tidsbegränsningen|Förbudet|Tillåtelsen) gäller (?:under tiden )?(?:mellan )?)?(?:klockan|kl\.?)\s*\d/i.test(clause)) clause = clause.replace(new RegExp(String.raw`(?:klockan|kl\.?)\s*(${TIME})\s+((?:vardag|dag(?:ar)? före|sön- och helgdag|lördag|söndag)[^,;]*?)(?=\s+och\s+(?:klockan|kl)|\s+gäller|\s*[.,;]|$)`, 'gi'), (z, tm, a1, a2, a3, a4, days) => `${days} klockan ${tm}`);
@@ -515,6 +516,14 @@ function outsideHours(ws) {
   return [...gaps].map(([k, dt]) => { const [a, b] = k.split('-').map(Number); return { dt, a, b }; });
 }
 const complement = (m) => [nextDay(m[1]), prevDay(m[0])];
+
+// "4 § Trots tillåtelsen i 1 § får fordon inte parkeras den 21:a dagen i månaden klockan 09.00 - 12.00": an exception that names no place
+// of its own applies to every place of the paragraph it refers to. Returns how many such sentences the rule text has (the reparse's
+// multi-part check does not count them as another rule set; QA 7 Nov: Norrköping City-P texts listing many street sides stayed grey).
+export function samePlaceExceptions(t) {
+  return ((t || '').match(/Trots (?:tillåtelsen|förbudet) i \d+\s*§ får (?:fordon|endast|personbil)(?:[^.]|\.(?=\d))*?(?=\.(?!\d)|$)/g) || [])
+    .filter((x) => !/\bpå [A-ZÅÄÖ]|\bsidan?\b|sträck|\bmellan [A-ZÅÄÖ]|\bplats/.test(x)).length;
+}
 
 export function expired(rec, today = new Date().toISOString().slice(0, 10)) {
   return !!(rec && rec.to && /^\d{4}-\d{2}-\d{2}$/.test(rec.to) && rec.to <= today);

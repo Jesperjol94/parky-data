@@ -1,28 +1,407 @@
 # Norrköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-06. 3724 segments: 3724 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3701, partly read 4. Verified equal 2638, filled from text 0, text stricter 0, disputed 2, expired 19, text without rules 67, multi-part texts (not compared) 994.
+Run 2026-11-07. 3724 segments: 3724 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3701, partly read 4. Verified equal 2899, filled from text 649, text stricter 8, disputed 8, expired 19, text without rules 67, multi-part texts (not compared) 70.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0581 2017-00030 | Sandgatan | {"f":[{"dt":["vardag"],"a":1200,"b":360},{"dt":["fore"],"a":900,"b":360},{"dt":["helgdag"],"a":0,"b":1440},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":1200,"b":360},{"dt":["fore"],"a":900,"b":360},{"dt":["helgdag"],"a":0,"b":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0581 2021-00506 | Kungsgatan | {"f":[{"dt":["vardag"],"a":420,"b":540},{"dt":["vardag"],"a":660,"b":1080},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":420,"b":540},{"dt":["vardag"],"a":660,"b":1080}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0581 2024-715 | Prästgatan | expired 2024-09-29 | already uncertain |
-| 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
-| 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
-| 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
-| 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
-| 0581 2026-544 | Rågången | expired 2026-10-17 | already uncertain |
-| 0581 2026-549 | Wadströmsgatan | expired 2026-10-23 | already uncertain |
-| 0581 2026-549 | Wadströmsgatan | expired 2026-10-23 | already uncertain |
-| 0581 2026-552 | Nygatan | expired 2026-10-23 | already uncertain |
-| 0581 2026-552 | Nygatan | expired 2026-10-23 | already uncertain |
-| 0581 2026-552 | Nygatan | expired 2026-10-23 | already uncertain |
-| 0581 2026-552 | Nygatan | expired 2026-10-23 | already uncertain |
-| 0581 2026-553 | Stohagsgatan | expired 2026-10-30 | already uncertain |
-| 0581 2026-553 | Stohagsgatan | expired 2026-10-30 | already uncertain |
-| 0581 2026-555 | Tunnbindaregatan | expired 2026-10-18 | already uncertain |
-| 0581 2026-555 | Tunnbindaregatan | expired 2026-10-18 | already uncertain |
-| 0581 2026-555 | Bredgatan | expired 2026-10-18 | already uncertain |
-| 0581 2026-555 | Bredgatan | expired 2026-10-18 | already uncertain |
-| 0581 2026-556 | Sandgatan | expired 2026-11-06 | now uncertain |
+| 0581 2025-451 | Rågången | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Rågången | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Norralundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Norralundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Breda vägen | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Breda vägen | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Blomstergatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Blomstergatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Breda vägen | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Breda vägen | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Rågången | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Rågången | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Apelgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Apelgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Breda vägen | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Breda vägen | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Blommelundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Blommelundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Blommelundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Blommelundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Norralundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Norralundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Rågången | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Rågången | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Blommelundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Blommelundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Brunnegatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Brunnegatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Norralundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Norralundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Gabrielsbergsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Gabrielsbergsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Norralundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Norralundsgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Apelgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-451 | Apelgatan | uncertain → {"f":[{"dm":11,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-464 | Breda vägen | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60},{"a":540,"b":720,"max":60}]} → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0581 2025-464 | Breda vägen | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60},{"a":540,"b":720,"max":60}]} → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0581 2025-464 | Breda vägen | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60},{"a":540,"b":720,"max":60}]} → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0581 2025-464 | Breda vägen | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60},{"a":540,"b":720,"max":60}]} → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0581 2025-464 | Norralundsgatan | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60},{"a":540,"b":720,"max":60}]} → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0581 2025-464 | Norralundsgatan | {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60},{"a":540,"b":720,"max":60}]} → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | text differs: text wins (owner's decision 18 Oct) |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-615 | Hantverkaregatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-692 | Plåtslagaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Plåtslagaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Sågaregränd | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Sågaregränd | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Sågaregränd | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Sågaregränd | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Huggaregränd | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Huggaregränd | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Huggaregränd | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Huggaregränd | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Hageby | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Hageby | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Hageby | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Hageby | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Timmermansgatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Timmermansgatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Snickaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Snickaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Snickaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Snickaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Svarvaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Svarvaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Vrinnevigatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Formaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Formaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Åkaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Åkaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Hyvlaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Hyvlaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Åkaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Åkaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Hyvlaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Hyvlaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Åkaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Åkaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Dragaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Dragaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Åkaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Åkaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Dragaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Dragaregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-692 | Muraregatan | uncertain → {"f":[{"dm":9,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Grundläggaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Grundläggaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Ravingatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Ravingatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Egnahemsgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Egnahemsgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäckgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäckgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Ravingatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Ravingatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Ravingatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Ravingatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäckgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäckgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäckgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäckgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäckgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäckgatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Snickaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Snickaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Muraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Muraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Muraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Muraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Limmaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Limmaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Svarvaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Svarvaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Muraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Muraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Muraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Muraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Hyvlaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Hyvlaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Hyvlaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Hyvlaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Dragaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Dragaregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-701 | Bäraregatan | uncertain → {"f":[{"dm":19,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-749 | Slottsgatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-764 | Trädgårdsgatan | uncertain → {"f":[{"w":3,"a":360,"b":600,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-764 | Trädgårdsgatan | uncertain → {"f":[{"w":3,"a":360,"b":600,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-764 | Trädgårdsgatan | uncertain → {"f":[{"w":3,"a":360,"b":600,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-764 | Trädgårdsgatan | uncertain → {"f":[{"w":3,"a":360,"b":600,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-764 | Trädgårdsgatan | uncertain → {"f":[{"w":3,"a":360,"b":600,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-764 | Trädgårdsgatan | uncertain → {"f":[{"w":3,"a":360,"b":600,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-764 | Trädgårdsgatan | uncertain → {"f":[{"w":3,"a":360,"b":600,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-764 | Trädgårdsgatan | uncertain → {"f":[{"w":3,"a":360,"b":600,"dt":["vardag"]}]} | filled from text |
+| 0581 2025-797 | Haga | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Haga | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Norralundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Norralundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Breda vägen | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Breda vägen | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Breda vägen | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Breda vägen | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Hagagatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Hagagatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Rågången | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Rågången | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Apelgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Apelgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Norralundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Norralundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Blommelundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Blommelundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Blommelundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Blommelundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Norralundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Norralundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Apelgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Apelgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Blommelundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Blommelundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Rågången | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Rågången | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Brunnegatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Brunnegatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Gabrielsbergsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Gabrielsbergsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Norralundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Norralundsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Apelgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Apelgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Gabrielsbergsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2025-797 | Gabrielsbergsgatan | uncertain → {"f":[{"dm":21,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-16 | Vattengatan | uncertain → {"f":[{"w":3,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-17 | Hospitalsgatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-17 | Hospitalsgatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-17 | Hospitalsgatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-17 | Hospitalsgatan | uncertain → {"f":[{"w":4,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-19 | Knäpingsborgsgatan | uncertain → {"f":[{"w":5,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-23 | Bråddgatan | uncertain → {"f":[{"w":2,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-26 | Ektorpsgatan | uncertain → {"f":[{"dm":20,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-26 | Ektorpsgatan | uncertain → {"f":[{"dm":20,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-26 | Ektorpsgatan | uncertain → {"f":[{"dm":20,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-26 | Ektorpsgatan | uncertain → {"f":[{"dm":20,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-26 | Ektorpsgatan | uncertain → {"f":[{"dm":20,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-26 | Ektorpsgatan | uncertain → {"f":[{"dm":20,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-26 | Ektorpsgatan | uncertain → {"f":[{"dm":20,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-26 | Ektorpsgatan | uncertain → {"f":[{"dm":20,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-29 | Ektorpsgatan | uncertain → {"f":[{"dm":10,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-29 | Ektorpsgatan | uncertain → {"f":[{"dm":10,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-29 | Ektorpsgatan | uncertain → {"f":[{"dm":10,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-29 | Ektorpsgatan | uncertain → {"f":[{"dm":10,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-29 | Ektorpsgatan | uncertain → {"f":[{"dm":10,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-29 | Ektorpsgatan | uncertain → {"f":[{"dm":10,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-29 | Ektorpsgatan | uncertain → {"f":[{"dm":10,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-29 | Ektorpsgatan | uncertain → {"f":[{"dm":10,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-105 | Fleminggatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-105 | Fleminggatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-105 | Fleminggatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-105 | Fleminggatan | uncertain → {"f":[{"w":1,"a":480,"b":660,"dt":["vardag"]}]} | filled from text |
+| 0581 2026-107 | Eknäsgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Eknäsgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Trozelligatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Trozelligatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Eknäsgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Eknäsgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Fridtunagatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Fridtunagatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Trozelligatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Trozelligatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Eknäsgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Eknäsgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Fridtunagatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Fridtunagatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Gröndalsgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | Gröndalsgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-107 | S:t Johannesgatan | uncertain → {"f":[{"dm":7,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Fridtunagatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Fridtunagatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Trozelligatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Trozelligatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Fridtunagatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Fridtunagatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Eknäsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Eknäsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Eknäsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Eknäsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Jägaregatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Jägaregatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Eknäsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Eknäsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Grönhögsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Grönhögsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Gröndalsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-120 | Gröndalsgatan | uncertain → {"f":[{"dm":17,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Lindövägen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Lindövägen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Ledungsplan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Ledungsplan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Lindövägen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Lindövägen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Kungsladugatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Kungsladugatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Odaltorget | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Odaltorget | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Odaltorget | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Odaltorget | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Prinslotten | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Prinslotten | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Husebygatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Husebygatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Husebygatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Husebygatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Dalgången | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Dalgången | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Lösingsgatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | parkering inom Oxelbergen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Dalgången | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Dalgången | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Styrestagatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Styrestagatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Tingstagatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Tingstagatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Stohagsgatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Stohagsgatan | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-182 | Storsvängen | uncertain → {"f":[{"dm":2,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | parkering inom Marielund | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | parkering inom Marielund | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Blekinggatan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Blekinggatan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Blekinggatan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Blekinggatan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Bråboplan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Bråboplan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Tulegatan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Tulegatan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Bråboplan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Himmelstalundsvägen | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-193 | Bråboplan | uncertain → {"f":[{"dm":3,"dt":["vardag"],"a":540,"b":720}]} | filled from text |

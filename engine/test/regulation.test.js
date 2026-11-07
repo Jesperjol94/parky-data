@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseRegulation, applyRegulation } from '../regulation.js';
+import { parseRegulation, applyRegulation, samePlaceExceptions } from '../regulation.js';
 const wrap = (s) => `Stockholms kommun föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande. ${s} Denna författning träder i kraft den 1 maj 2026.`;
 
 test('time limit in the main sentence + "Övrig tid får fordon parkeras" + winter ban', () => {
@@ -620,4 +620,16 @@ test('a later ban outside the hours of "Tillåtelsen gäller högst 3 timmar …
   assert.deepEqual([r.reservedFor, r.limits.length, r.allowOnly, r.bans, r.unread], ['rörelsehindrade', 3, [], [{ a: 0, b: 360, dd: 'even' }], []]);
   // without such a ban the permission hours stay
   assert.equal(parseRegulation('följande. 1 § På Fredsgatan, med avvikelse från Örebro kommuns lokala trafikföreskrifter 1880 2025:00098 om förbud att parkera i Örebro centrum, får fordon parkeras. 2 § Tillåtelsen gäller högst 3 timmar i följd under tiden vardagar klockan 06.00 - 22.00.').allowOnly.length, 1);
+});
+test('"Trots tillåtelsen i 1 § får fordon inte parkeras den 21:a dagen …" names no place: one rule set for all of 1 § (7 Nov, Norrköping City-P)', () => {
+  const t = 'följande. 1 § På Blomstergatans norra sida mellan Hagagatan och Norralundsgatan, Rågångens västra sida mellan Hagalundsgatan och Norralundsgatan enligt kartbild får fordon parkeras. 2 § Avgift ska betalas för parkering enligt 1 §. Avgiftsplikten gäller vardag utom vardag före sön- och helgdag klockan 08.00 - 20.00 samt vardag före sön- och helgdag klockan 08.00 - 15.00. 4 § Trots tillåtelsen i 1 § får fordon inte parkeras den 21:a dagen i månaden klockan 09.00 - 12.00 (gäller vardag utom vardag före sön- och helgdag).';
+  assert.equal(samePlaceExceptions(t), 1);
+  assert.deepEqual(parseRegulation(t).bans, [{ dm: 21, dt: ['vardag'], a: 540, b: 720 }]);
+  assert.equal(samePlaceExceptions('följande. 4 § Trots tillåtelsen i 1 § får fordon inte parkeras på torsdagar klockan 08.00 - 12.00.'), 1);
+  // an exception that names its own place is another rule set
+  assert.equal(samePlaceExceptions('följande. 3 § Trots tillåtelsen i 1 § får fordon inte parkeras - på Esplanadens sydöstra sida mellan Ö Promenaden och Nygatan.'), 0);
+});
+test('"under tiden 15 maj - 15 augusti och 08.00 - 18.00": the hours belong to the season (7 Nov, Tanum)', () => {
+  const r = parseRegulation('följande. 1 § På Sjövägen i Havstenssund enligt markering i Kartbilaga 1 får fordon parkeras under högst 2 tim i följd under tiden 15 maj - 15 augusti och 08.00 - 18.00.');
+  assert.deepEqual([r.limits, r.unread], [[{ a: 480, b: 1080, m: [[5, 15], [8, 15]], max: 120 }], []]);
 });
