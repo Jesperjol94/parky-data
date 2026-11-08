@@ -651,5 +651,7 @@ test('QA 8 Nov round 2: fee only "övrig tid", weekday hours without "klockan", 
   const b = parseRegulation('följande. På Hindergårdsgatan får fordon parkeras under högst 24 tim i följd. Parkering är dock förbjuden under tiden 1:a maj - 31:a oktober udda veckor onsdag klockan 09.00 - 13.00 och 1:a november - 30:e april onsdagar 00.00 - 06.00.');
   assert.deepEqual(b.bans[1], { w: 3, a: 0, b: 360, m: [[11, 1], [4, 30]] });
   const c = parseRegulation('följande. På Esplanadens östra sida får endast sådant fordon parkeras som används för befordran av rörelsehindrad med parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276). Parkering är dock tillåten under högst 2 tim i följd under tiden vardagar utom vardag före sön- och helgdag klockan 08.00 - 21.00.');
-  assert.equal(c.reserved, false); assert.deepEqual(c.allowOnly, [{ dt: ['vardag'], a: 480, b: 1260 }]); assert.equal(c.limits[0].max, 120);
+  assert.equal(c.reserved, true); assert.equal(c.limits[0].max, 120); // the bay stays reserved: the limit is the permit holders'
+  const d = parseRegulation('följande. På östra sidan av Medborgargatan får Parkering ske, under högst 10 min i följd, vardag, vardag före sön- och helgdag och sön- och helgdag.');
+  assert.deepEqual(d.limits.map((w) => w.dt[0]).sort(), ['fore', 'helgdag', 'vardag']);
 });

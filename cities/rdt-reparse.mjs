@@ -171,8 +171,10 @@ for (const row of idx.cities) {
       const b0 = s.t >= 1e7 ? Math.floor(s.t / 100) : s.t, base = c.taxa?.[b0];
       // the text's hours replace the table's when the table has one price (all day, or hours the text narrows / gives a season to)
       const allDay = base && base.periods.length && new Set(base.periods.map((p) => p.price)).size === 1;
-      const periods = r.feeWindows.filter((w) => !w.w && !w.p && !w.dm && w.a < w.b).map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: base ? Math.max(...base.periods.map((p) => p.price)) : 0, m: w.m }));
-      if (allDay && periods.length === r.feeWindows.length) {
+      const split = (ws) => ws.flatMap((w) => (w.a < w.b ? [w] : [{ ...w, b: 1440 }, { ...w, a: 0 }])); // an overnight window (18.30 - 06.30) as two (QA 8 Nov: Haninge Vega allé, Solna)
+      const fws = split(r.feeWindows.filter((w) => !w.w && !w.p && !w.dm));
+      const periods = fws.map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: base ? Math.max(...base.periods.map((p) => p.price)) : 0, m: w.m }));
+      if (allDay && fws.length === split(r.feeWindows).length) {
         const sig = JSON.stringify(periods);
         let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
         if (!id) { let n = 1; while (c.taxa[b0 * 100 + n]) n++; id = b0 * 100 + n; c.taxa[id] = clean({ periods, label: base.label, dayCap: base.dayCap }); } // keep the day cap (QA 27 Oct: Orust)
@@ -183,8 +185,9 @@ for (const row of idx.cities) {
     // the text gives the fee hours (owner 24 Oct: Norrköping Torggatan/Fleminggatan said "fee" on a Saturday night).
     // The hours become a fee entry with an unknown price (null = "see the sign"), free outside them: <kommun>999*100+n.
     if (r.feeWindows && s.t == null && s.fu && APPLY && rec.body.split(/\.\s+/).filter((x) => /^\s*(?:\d+ §\s*)?avgift/i.test(x) && /(?:klockan|kl\.?)\s*\d/i.test(x)).length <= 1) { // one fee rule in the text, even for several stretches
-      const periods = r.feeWindows.filter((w) => !w.w && !w.p && !w.dm && !w.nw && !w.dd && !w.wk && w.a < w.b).map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: 0, m: w.m })).map((p) => ({ ...p, price: null }));
-      if (periods.length && periods.length === r.feeWindows.length) {
+      const fws2 = r.feeWindows.filter((w) => !w.w && !w.p && !w.dm && !w.nw && !w.dd && !w.wk).flatMap((w) => (w.a < w.b ? [w] : [{ ...w, b: 1440 }, { ...w, a: 0 }]));
+      const periods = fws2.map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: 0, m: w.m })).map((p) => ({ ...p, price: null }));
+      if (periods.length && fws2.length >= r.feeWindows.length) {
         c.taxa ||= {};
         const b0 = +c.kommunkod * 1000 + 999, sig = JSON.stringify(periods);
         let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
@@ -202,13 +205,15 @@ for (const row of idx.cities) {
       // A text with several stretches (different rules per part): the register's rules for this piece must at least appear
       // somewhere in the text. A ban hour or a time limit the text never mentions means the piece's rules can't be trusted:
       // grey "check the sign" (u, marked ux so a later run can lift it) rather than possibly wrong colours (owner, 24 Oct).
-      const tt = fromText(r), win = (w) => `${w.a}-${w.b}`;
+      const tt = fromText(r), win = (w) => `${w.w || 0}:${w.a}-${w.b}`; // the weekday too: an everyday 09–12 is not the text's Thursday 09–12 (QA 8 Nov: Norrtälje Grossgärdsgatan)
       const textBans = new Set((tt.f || []).map(win)), textMax = new Set((tt.l || []).map((l) => l.max)), anyText = hasRules(tt);
       const odd = anyText && (((s.f || []).filter((w) => !w.ov).some((w) => !textBans.has(win(w)) && !(w.a === 0 && w.b === 1440 && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(rec.body)))) || (s.l || []).some((l) => !textMax.has(l.max)) || (s.v && r.permitted)); // a reservation on a piece of a text that also lets ordinary cars park elsewhere: which piece is reserved can't be told (Bollebygd)
       if (APPLY) { if (odd && !s.u) { s.u = 1; s.ux = 1; changed++; st.multiGrey = (st.multiGrey || 0) + 1; } else if (!odd && s.ux) { delete s.u; delete s.ux; changed++; } }
       if (s.u) st.uStill++; continue;
     }
     const t = fromText(r);
+    // "mot att avgift betalas eller högst 1 timme med parkeringsskiva": whoever pays has no limit; the register's limit is the disc option's (QA 8 Nov: Kungsbacka Skogsallén, Ängelholm Bruksgatan)
+    if (APPLY && s.l && !t.l && r.feeWindows && /mot (?:att )?avgift(?: betalas)? eller (?:under )?högst/i.test(rec.body.replace(/\s+/g, ' '))) { delete s.l; s.rx = 1; changed++; st.payOrDisc = (st.payOrDisc || 0) + 1; }
     // a text that permits parking with no further conditions, where the register has a ban or allowed hours: the text wins (QA 22 Oct:
     // Halmstad Brogatan, Huddinge Månvägen and Uppsala Granitvägen showed the fee hours or a whole day as a ban)
     if (!hasRules(t) && r.permitted && !r.heavyOnly && (s.f || s.aw) && !s.v) { st.permitOnly = (st.permitOnly || 0) + 1; if (APPLY) { for (const k of ['f', 'l', 'aw', 'dp', 'k', 'ko']) delete s[k]; delete s.u; s.rx = 1; changed++; } continue; }
