@@ -4,7 +4,8 @@
 // After judging, append the sampled citations to cities/qa/reviewed.txt so they are not drawn again.
 import fs from 'node:fs'; import zlib from 'node:zlib';
 
-const [n = 40, out = 'sample.json', seed = Date.now() % 1e9] = process.argv.slice(2);
+const argv = process.argv.slice(2); const bi = argv.indexOf('--boost'); const boost = bi >= 0 ? new Set(argv.splice(bi, 2)[1].split(',')) : new Set(); // municipalities weighted x4 (where the users are)
+const [n = 40, out = 'sample.json', seed = Date.now() % 1e9] = argv;
 let s = +seed; const rnd = () => ((s = (s * 1103515245 + 12345) % 2147483648) / 2147483648);
 const done = new Set(fs.readFileSync('cities/qa/reviewed.txt', 'utf8').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#')));
 const idx = JSON.parse(fs.readFileSync('cities/rdt/index.json', 'utf8')).cities;
@@ -15,7 +16,7 @@ for (const c of idx) {
   meta[c.id] = d;
   for (const g of d.segments) if (g.c && !done.has(g.c)) { if (!cit.has(g.c)) cit.set(g.c, []); cit.get(g.c).push([c.id, g]); }
 }
-const pool = [...cit.keys()]; const w = pool.map((k) => cit.get(k).length); const tot = w.reduce((a, b) => a + b, 0);
+const pool = [...cit.keys()]; const w = pool.map((k) => cit.get(k).length * (cit.get(k).some(([id]) => boost.has(id)) ? 4 : 1)); const tot = w.reduce((a, b) => a + b, 0);
 const texts = {};
 const text = (c) => { const k = c.slice(0, 4); const p = `rdt/texts/${k}.jsonl.gz`;
   if (!(k in texts)) texts[k] = fs.existsSync(p) ? zlib.gunzipSync(fs.readFileSync(p)).toString().split('\n').filter(Boolean).map(JSON.parse) : [];
