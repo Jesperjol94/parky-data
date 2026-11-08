@@ -633,3 +633,15 @@ test('"under tiden 15 maj - 15 augusti och 08.00 - 18.00": the hours belong to t
   const r = parseRegulation('följande. 1 § På Sjövägen i Havstenssund enligt markering i Kartbilaga 1 får fordon parkeras under högst 2 tim i följd under tiden 15 maj - 15 augusti och 08.00 - 18.00.');
   assert.deepEqual([r.limits, r.unread], [[{ a: 480, b: 1080, m: [[5, 15], [8, 15]], max: 120 }], []]);
 });
+test('QA 8 Nov: "måndag söndag" summer limit, seasons joined by "samt", "gäller även" fee day, "på 2 av platserna", fee days from the permission', () => {
+  const a = parseRegulation('följande. 1 § På Skogen får fordon parkeras under högst 24 tim i följd under vardag utom dag före sön- och helgdag. 2 § Parkering är dock tillåten under högst 2 tim i följd under tiden den 15 juni - 15 augusti och måndag söndag klockan 08.00 - 18.00.');
+  assert.deepEqual(a.limits[1], { a: 480, b: 1080, m: [[6, 15], [8, 15]], max: 120 });
+  const b = parseRegulation('följande. 1 § På Lagmansbacken får fordon parkeras högst 3 tim i följd. 4 § Parkering är dock förbjuden onsdag mellan klockan 07.00 - 13.00 under tiden 1 november - 30 april samt onsdag mellan klockan 07.00 - 10.00 under tiden 1 maj - 30 oktober.');
+  assert.deepEqual(b.bans, [{ w: 3, a: 420, b: 780, m: [[11, 1], [4, 30]] }, { w: 3, a: 420, b: 600, m: [[5, 1], [10, 30]] }]);
+  const c = parseRegulation('följande. 1 § På Redargatan får fordon parkeras. 2 § Avgift ska betalas. 3 § Avgiftsplikten gäller vardag utom vardag före sön- och helgdag mellan klockan 09 - 18. 5 § Avgiftsplikten gäller även vardag före sön- och helgdag mellan klockan 09 - 15.');
+  assert.deepEqual(c.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }, { dt: ['fore'], a: 540, b: 900 }]);
+  const d = parseRegulation('följande. 1 § På parkeringsplatsen vid Bökebergsgatan får fordon parkeras på 132 markerade platser. 2 § På 2 av ovan nämnda 132 markerade platser, får endast fordon som används av rörelsehindrad med parkeringstillstånd parkeras.');
+  assert.equal(d.reserved, false);
+  const e = parseRegulation('följande. 1 § På Bruno Liljeforsgatan får fordon parkeras under högst 24 timmar i följd. Avgift mot klockan 09.00 - 24.00. 2 § Tillåtelsen gäller under tiden vardag utom dag före sön- och helgdag. Övrig tid får fordon parkeras.');
+  assert.deepEqual(e.feeWindows, [{ a: 540, b: 1440, dt: ['vardag'] }]);
+});

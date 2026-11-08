@@ -1,7 +1,7 @@
 # Täby: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-07. 662 segments: 662 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 528, partly read 127. Verified equal 475, filled from text 0, text stricter 0, disputed 1, expired 7, text without rules 6, multi-part texts (not compared) 46.
+Run 2026-11-08. 662 segments: 662 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 531, partly read 124. Verified equal 478, filled from text 0, text stricter 0, disputed 1, expired 7, text without rules 6, multi-part texts (not compared) 46.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -12,4 +12,4 @@ Fully read 528, partly read 127. Verified equal 475, filled from text 0, text st
 | 0160 2026-63 | Järnvägsallén | expired 2026-10-17 | already uncertain |
 | 0160 2026-63 | Järnvägsallén | expired 2026-10-17 | already uncertain |
 | 0160 2026-63 | Järnvägsallén | expired 2026-10-17 | already uncertain |
-| 0160 2026-64 | Hägerneholmsvägen | expired 2026-11-07 | now uncertain |
+| 0160 2026-64 | Hägerneholmsvägen | expired 2026-11-07 | already uncertain |

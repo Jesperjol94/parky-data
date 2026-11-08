@@ -1,10 +1,12 @@
 # Växjö: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-07. 3011 segments: 3011 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2885, partly read 109. Verified equal 2728, filled from text 0, text stricter 0, disputed 0, expired 17, text without rules 157, multi-part texts (not compared) 0.
+Run 2026-11-08. 3011 segments: 3011 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2887, partly read 107. Verified equal 2728, filled from text 2, text stricter 0, disputed 0, expired 17, text without rules 157, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 0780 2019-184 | Rönnbärsvägen | uncertain → {"f":[{"a":0,"b":1440}],"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
+| 0780 2019-184 | Rönnbärsvägen | uncertain → {"f":[{"a":0,"b":1440}],"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
 | 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
 | 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |

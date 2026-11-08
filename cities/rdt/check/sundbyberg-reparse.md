@@ -1,6 +1,6 @@
 # Sundbyberg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-07. 2185 segments: 2185 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-08. 2185 segments: 2185 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 2140, partly read 21. Verified equal 1870, filled from text 0, text stricter 0, disputed 11, expired 24, text without rules 259, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -27,15 +27,15 @@ Fully read 2140, partly read 21. Verified equal 1870, filled from text 0, text s
 | 0183 2026-00203 | Starrbäcksgatan | expired 2026-10-19 | already uncertain |
 | 0183 2026-00203 | Starrbäcksgatan | expired 2026-10-19 | already uncertain |
 | 0183 2026-00203 | Starrbäcksgatan | expired 2026-10-19 | already uncertain |
-| 0183 2026-00211 | Albygatan | expired 2026-11-07 | now uncertain |
-| 0183 2026-00211 | Albygatan | expired 2026-11-07 | now uncertain |
-| 0183 2026-00211 | Albygatan | expired 2026-11-07 | now uncertain |
-| 0183 2026-00211 | Albygatan | expired 2026-11-07 | now uncertain |
-| 0183 2026-00211 | Albygatan | expired 2026-11-07 | now uncertain |
-| 0183 2026-00211 | Albygatan | expired 2026-11-07 | now uncertain |
-| 0183 2026-00212 | Humblegatan | expired 2026-11-07 | now uncertain |
-| 0183 2026-00213 | Humblegatan | expired 2026-11-07 | now uncertain |
-| 0183 2026-00213 | Humblegatan | expired 2026-11-07 | now uncertain |
+| 0183 2026-00211 | Albygatan | expired 2026-11-07 | already uncertain |
+| 0183 2026-00211 | Albygatan | expired 2026-11-07 | already uncertain |
+| 0183 2026-00211 | Albygatan | expired 2026-11-07 | already uncertain |
+| 0183 2026-00211 | Albygatan | expired 2026-11-07 | already uncertain |
+| 0183 2026-00211 | Albygatan | expired 2026-11-07 | already uncertain |
+| 0183 2026-00211 | Albygatan | expired 2026-11-07 | already uncertain |
+| 0183 2026-00212 | Humblegatan | expired 2026-11-07 | already uncertain |
+| 0183 2026-00213 | Humblegatan | expired 2026-11-07 | already uncertain |
+| 0183 2026-00213 | Humblegatan | expired 2026-11-07 | already uncertain |
 | 0183 2026-00219 | Solängsvägen | expired 2026-10-17 | already uncertain |
 | 0183 2026-00222 | Otterstavägen | expired 2026-10-16 | already uncertain |
 | 0183 2026-00223 | Villavägen | expired 2026-10-19 | already uncertain |

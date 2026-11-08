@@ -1,6 +1,6 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-07. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-08. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 2700, partly read 53. Verified equal 2697, filled from text 0, text stricter 0, disputed 2, expired 48, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -22,7 +22,7 @@ Fully read 2700, partly read 53. Verified equal 2697, filled from text 0, text s
 | 1880 2026-01288 | Manillagatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01290 | Lövstagatan | expired 2026-10-24 | already uncertain |
 | 1880 2026-01290 | Lövstagatan | expired 2026-10-24 | already uncertain |
-| 1880 2026-01295 | Malmgatan | expired 2026-11-07 | now uncertain |
+| 1880 2026-01295 | Malmgatan | expired 2026-11-07 | already uncertain |
 | 1880 2026-01300 | Tunnelgatan | expired 2026-10-31 | already uncertain |
 | 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | already uncertain |
 | 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | already uncertain |
@@ -35,7 +35,7 @@ Fully read 2700, partly read 53. Verified equal 2697, filled from text 0, text s
 | 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
 | 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
 | 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
-| 1880 2026-01320 | Rådmansgatan | expired 2026-11-07 | now uncertain |
+| 1880 2026-01320 | Rådmansgatan | expired 2026-11-07 | already uncertain |
 | 1880 2026-01326 | Höglundagatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |

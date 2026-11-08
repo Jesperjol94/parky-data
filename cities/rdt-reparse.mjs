@@ -236,8 +236,10 @@ for (const row of idx.cities) {
       st.verified++;
       // equal at every time of a week the comparison samples, but the text says more (even weeks, a season, odd dates, the
       // nth weekday): the text's windows are more precise (QA 22 Oct: Karlstad, Solna "jämna veckor" bans every week)
-      const cond = (ws) => JSON.stringify((ws || []).map((w) => [w.p, w.m, w.dd, w.nw, w.dm]));
-      if (APPLY && (cond(t.f) !== cond(cur.f) || cond(t.l) !== cond(cur.l)) && JSON.stringify([t.f, t.l]).match(/"(?:p|m|dd|nw|dm)":/)) { put(); st.precise = (st.precise || 0) + 1; }
+      const cond = (ws) => JSON.stringify((ws || []).map((w) => [w.p, w.m, w.dd, w.nw, w.dm, w.dt])); // dt too: a Tuesday ban "not on days before holidays" samples equal (QA 8 Nov: Norrköping Lindövägen)
+      const keys = (ws) => new Set((ws || []).flatMap((w) => ['p', 'm', 'dd', 'nw', 'dm', 'dt'].filter((k) => w[k] != null)));
+      const noLoss = (a, b) => [...keys(b)].every((k) => keys(a).has(k)); // the text's windows must keep every condition the register had (QA 8 Nov: Askersund would have lost a season)
+      if (APPLY && (cond(t.f) !== cond(cur.f) || cond(t.l) !== cond(cur.l)) && noLoss(t.f, cur.f) && noLoss(t.l, cur.l) && JSON.stringify([t.f, t.l]).match(/"(?:p|m|dd|nw|dm|dt)":/)) { put(); st.precise = (st.precise || 0) + 1; }
       if (cur.v === 'personbil' && APPLY) { delete s.v; s.rx = 1; changed++; }
     } else if (verdict === 'stricter' || (cur.v === 'personbil' && !textV && verdict !== 'mixed')) {
       st.strictened++;
