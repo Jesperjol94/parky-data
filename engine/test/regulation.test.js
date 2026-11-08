@@ -678,3 +678,14 @@ test('QA 8 Nov round 6: "vardagar 07.00 till 17.00 utom dag före …", heavy su
   assert.deepEqual(parseRegulation('följande. 1 § På Stenhamraskolans vändplan får fordon inte parkeras. 2 § Förbudet gäller vardagar 07.00 till 17.00 utom dag före sön- och helgdag.').bans, [{ dt: ['vardag'], a: 420, b: 1020 }]);
   assert.equal(parseRegulation('följande. 1 § På Kärleksgatan får med totalvikt över 3,5 ton inte parkeras. 2 § Förbudet gäller vardag utom vardag före sön- och helgdag mellan klockan 00.00 – 06.00.').heavyOnly, true);
 });
+test('QA 8 Nov round 7: charging bays are reserved, placement-only house-number sentences are ignored', () => {
+  const a = parseRegulation('följande. 1 § På Mellersta Stenbocksgatan, parkering vid idrottens hus enligt markering i kartbild ska vara laddplats. 2 § Under vardagar utom vardag före sön- och helgdag mellan klockan 08.00 - 22.00 får fordon parkeras endast mot avgift.');
+  assert.equal(a.reserved, true); assert.equal(a.reservedFor, 'laddning');
+  const b = parseRegulation('följande. 1 § De markerade platser väster om Biblioteksgatan ska vara laddplats. 2 § På laddplatsen får fordon som kan laddas externt med elektrisk energi för fordonets framdrivning parkeras. 3 § Tillåtelsen i 2§ gäller parkering enbart under den tid som laddning pågår.');
+  assert.equal(b.reservedFor, 'laddning'); assert.deepEqual(b.unread, []);
+  const c = parseRegulation('följande. På Stationsplan enligt kartbild får endast fordon som kan laddas externt med elektrisk energi parkeras.');
+  assert.equal(c.reservedFor, 'laddning');
+  assert.equal(parseRegulation('följande. På Storgatan får fordon inte parkeras. Förbudet gäller inte laddplatser.').reserved, false);
+  const d = parseRegulation('följande. På Åkerbyvägen får fordon parkeras under högst 3 tim i följd. Tillåtelsen gäller följande sidor. Med husnr 362-382 gäller hussidan. med nr 320-330 gäller södra sidan. Tidsbegränsningen gäller under tiden vardag utom vardag före sön- och helgdag klockan 06.00 - 22.00, vardag före sön- och helgdag klockan 06.00 - 22.00 och sön- och helgdag klockan 06.00 - 22.00. Övrig tid får fordon inte parkeras.');
+  assert.deepEqual(d.unread, []); assert.equal(d.bans.length, 2);
+});

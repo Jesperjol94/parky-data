@@ -1,12 +1,14 @@
 # Lysekil: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 482 segments: 482 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 460, partly read 21. Verified equal 394, filled from text 21, text stricter 0, disputed 0, expired 1, text without rules 14, multi-part texts (not compared) 31.
+Fully read 460, partly read 21. Verified equal 416, filled from text 22, text stricter 5, disputed 0, expired 1, text without rules 14, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1484 2008-0093 | Melins backe | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1484 2008-0156 | Kungstorget | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1484 2009-0060 | Södra Hamngatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440},{"a":540,"b":1080,"m":[[6,15],[8,15]],"max":120}]} | filled from text |
+| 1484 2009-0060 | Södra Hamngatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440},{"dt":["helgdag"],"a":540,"b":1080,"max":120,"m":[[6,15],[8,15]]}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440},{"a":540,"b":1080,"m":[[6,15],[8,15]],"max":120}]} | text stricter: applied |
 | 1484 2009-0068 | Norra Kvarngatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1484 2009-0073 | Trädgårdsgatan | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":900,"max":120}]} | filled from text |
 | 1484 2009-0073 | Trädgårdsgatan | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":900,"max":120}]} | filled from text |
@@ -20,6 +22,10 @@ Fully read 460, partly read 21. Verified equal 394, filled from text 21, text st
 | 1484 2011-0094 | Lönndalsvägen | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440},{"a":480,"b":1080,"m":[[6,15],[8,15]],"max":120}]} | filled from text |
 | 1484 2011-0098 | Bovikstensvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1484 2011-0218 | Strandvägen | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
+| 1484 2013-0039 | Mossebacken | {"l":[{"a":0,"b":1440,"max":1440},{"dt":["helgdag"],"a":480,"b":1080,"max":120,"m":[[6,15],[8,15]]}]} → {"l":[{"a":0,"b":1440,"max":1440},{"a":480,"b":1080,"m":[[6,15],[8,15]],"max":120}]} | text stricter: applied |
+| 1484 2013-0039 | Mossebacken | {"l":[{"a":0,"b":1440,"max":1440},{"dt":["helgdag"],"a":480,"b":1080,"max":120,"m":[[6,15],[8,15]]}]} → {"l":[{"a":0,"b":1440,"max":1440},{"a":480,"b":1080,"m":[[6,15],[8,15]],"max":120}]} | text stricter: applied |
+| 1484 2013-0039 | Mossebacken | {"l":[{"a":0,"b":1440,"max":1440},{"dt":["helgdag"],"a":480,"b":1080,"max":120,"m":[[6,15],[8,15]]}]} → {"l":[{"a":0,"b":1440,"max":1440},{"a":480,"b":1080,"m":[[6,15],[8,15]],"max":120}]} | text stricter: applied |
+| 1484 2013-0039 | Mossebacken | {"l":[{"a":0,"b":1440,"max":1440},{"dt":["helgdag"],"a":480,"b":1080,"max":120,"m":[[6,15],[8,15]]}]} → {"l":[{"a":0,"b":1440,"max":1440},{"a":480,"b":1080,"m":[[6,15],[8,15]],"max":120}]} | text stricter: applied |
 | 1484 2014-6 | Bansviksgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1484 2014-34 | Kungsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1484 2014-37 | Bergsstigen | uncertain → {"l":[{"a":0,"b":1440,"max":1440},{"a":480,"b":1080,"m":[[6,15],[8,15]],"max":120}]} | filled from text |

@@ -45,7 +45,8 @@ function multiPart(body) {
   // "4 § Trots tillåtelsen i 1 § får fordon inte parkeras den 21:a dagen i månaden klockan 09.00 - 12.00" names no place of its own: it is a
   // rule for all the places of 1 §, not a second rule set (QA 7 Nov: Norrköping's City-P texts list many sides, ~650 lines stayed grey)
   const sameParts = samePlaceExceptions(t);
-  return places > 1 || colours > 1 || (sides > 1 && (t.match(/får (?:fordon|endast|personbil)/g) || []).length - sameParts > 1); // places marked in several colours with different rules (Norrtälje Campus Roslagen)
+  // "Övrig tid får fordon inte parkeras" is the same place's other hours, not a second rule set (QA 8 Nov round 7: Täby Åkerbyvägen lost its night ban)
+  return places > 1 || colours > 1 || (sides > 1 && (t.match(/(?<![Öö]vrig tid )får (?:fordon|endast|personbil)/g) || []).length - sameParts > 1); // places marked in several colours with different rules (Norrtälje Campus Roslagen)
 }
 
 // A text that only says "får fordon parkeras" (optionally "mot avgift …" with the fee's hours) and nothing else with hours, days or

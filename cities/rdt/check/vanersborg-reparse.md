@@ -1,7 +1,7 @@
 # Vänersborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 960 segments: 960 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 927, partly read 14. Verified equal 876, filled from text 27, text stricter 0, disputed 0, expired 19, text without rules 10, multi-part texts (not compared) 12.
+Fully read 934, partly read 7. Verified equal 876, filled from text 28, text stricter 6, disputed 0, expired 19, text without rules 10, multi-part texts (not compared) 12.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -34,7 +34,14 @@ Fully read 927, partly read 14. Verified equal 876, filled from text 27, text st
 | 1487 2023-00212 | Södergatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1487 2025-00038 | Residensgatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1487 2026-00021 | Karlslundsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":2880}]} | filled from text |
+| 1487 2026-00024 | Kyrkogatan | {"l":[{"dt":["fore"],"a":480,"b":840,"max":180}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}],"v":"laddning"} | text stricter: applied |
 | 1487 2026-00099 | Torget | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1487 2026-00168 | Torgets parkering | {"l":[{"dt":["fore"],"a":480,"b":840,"max":240}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":240},{"dt":["fore"],"a":480,"b":840,"max":240}],"v":"laddning"} | text stricter: applied |
+| 1487 2026-00168 | Torgets parkering | {"l":[{"dt":["fore"],"a":480,"b":840,"max":240}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":240},{"dt":["fore"],"a":480,"b":840,"max":240}],"v":"laddning"} | text stricter: applied |
+| 1487 2026-00168 | Stora Torget | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":240},{"dt":["fore"],"a":480,"b":840,"max":240}],"v":"laddning"} | filled from text |
+| 1487 2026-00169 | Belfragegatan | {"l":[{"dt":["fore"],"a":480,"b":840,"max":480}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":480},{"dt":["fore"],"a":480,"b":840,"max":480}],"v":"laddning"} | text stricter: applied |
+| 1487 2026-00169 | Belfragegatan | {"l":[{"dt":["fore"],"a":480,"b":840,"max":480}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":480},{"dt":["fore"],"a":480,"b":840,"max":480}],"v":"laddning"} | text stricter: applied |
+| 1487 2026-00169 | Belfragegatan | {"l":[{"dt":["fore"],"a":480,"b":840,"max":480}]} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":480},{"dt":["fore"],"a":480,"b":840,"max":480}],"v":"laddning"} | text stricter: applied |
 | 1487 2026-00225 | Lakevägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1487 2026-00267 | Marierovägen | uncertain → {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":240}]} | filled from text |
 | 1487 2026-00285 | Södergatan | expired 2026-11-03 | already uncertain |

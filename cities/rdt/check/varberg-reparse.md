@@ -1,7 +1,7 @@
 # Varberg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 783 segments: 783 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 768, partly read 8. Verified equal 686, filled from text 50, text stricter 0, disputed 0, expired 7, text without rules 2, multi-part texts (not compared) 30.
+Fully read 768, partly read 8. Verified equal 690, filled from text 50, text stricter 0, disputed 0, expired 7, text without rules 2, multi-part texts (not compared) 26.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

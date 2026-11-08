@@ -1,10 +1,11 @@
 # Sala: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 278 segments: 278 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 248, partly read 23. Verified equal 197, filled from text 0, text stricter 0, disputed 0, expired 7, text without rules 50, multi-part texts (not compared) 1.
+Fully read 249, partly read 22. Verified equal 197, filled from text 1, text stricter 0, disputed 0, expired 7, text without rules 50, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 1981 2021-9 | Aguéligatan | uncertain → {"v":"laddning"} | filled from text |
 | 1981 2026-29 | Vasagatan | expired 2026-10-16 | already uncertain |
 | 1981 2026-30 | Kålgårdsgatan | expired 2026-11-06 | already uncertain |
 | 1981 2026-30 | Kålgårdsgatan | expired 2026-11-06 | already uncertain |

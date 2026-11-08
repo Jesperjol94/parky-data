@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3594, partly read 80. Verified equal 3130, filled from text 167, text stricter 0, disputed 0, expired 99, text without rules 289, multi-part texts (not compared) 0.
+Fully read 3596, partly read 78. Verified equal 3130, filled from text 167, text stricter 2, disputed 0, expired 99, text without rules 289, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -235,6 +235,8 @@ Fully read 3594, partly read 80. Verified equal 3130, filled from text 167, text
 | 1283 2016-636 | Cindersgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2017-188 | Stenkretsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2017-435 | Bredgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1283 2021-633 | idrottens hus | {} → {"v":"laddning"} | text stricter: applied |
+| 1283 2021-633 | Mellersta Stenbocksgatan | {} → {"v":"laddning"} | text stricter: applied |
 | 1283 2022-492 | Båthusgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2025-753 | Drottninggatan | expired 2026-10-30 | already uncertain |
 | 1283 2026-487 | Södra Strandgatan | expired 2026-10-30 | already uncertain |

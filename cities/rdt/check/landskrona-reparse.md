@@ -1,7 +1,7 @@
 # Landskrona: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 2847 segments: 2847 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2809, partly read 12. Verified equal 1582, filled from text 25, text stricter 0, disputed 0, expired 26, text without rules 1189, multi-part texts (not compared) 0.
+Fully read 2810, partly read 11. Verified equal 1582, filled from text 25, text stricter 1, disputed 0, expired 26, text without rules 1189, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -18,6 +18,7 @@ Fully read 2809, partly read 12. Verified equal 1582, filled from text 25, text 
 | 1282 2021-00060 | Kavallerigatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1282 2021-00159 | Lill-Olas väg | uncertain → {"v":"utryckningsfordon"} | filled from text |
 | 1282 2021-00377 | Vasagatan | uncertain → {"dp":[{"dt":["vardag"],"a":120,"b":960}]} | filled from text |
+| 1282 2021-00509 | Trädgårdsgatan | {} → {"v":"laddning"} | text stricter: applied |
 | 1282 2022-00128 | Järnvägsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1282 2022-00158 | Järnvägstorget | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1282 2022-00159 | Järnvägstorget | uncertain → {"v":"motorcykel"} | filled from text |
