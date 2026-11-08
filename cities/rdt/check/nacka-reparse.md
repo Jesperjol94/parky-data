@@ -1,7 +1,7 @@
 # Nacka: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 2752 segments: 2752 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2730, partly read 20. Verified equal 2549, filled from text 0, text stricter 0, disputed 7, expired 2, text without rules 164, multi-part texts (not compared) 10.
+Fully read 2733, partly read 17. Verified equal 2549, filled from text 0, text stricter 0, disputed 10, expired 2, text without rules 164, multi-part texts (not compared) 10.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,6 +9,9 @@ Fully read 2730, partly read 20. Verified equal 2549, filled from text 0, text s
 | 0182 2015-00029 | Kadettvägen | {"f":[{"dt":["vardag"],"a":420,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":420,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2019-00066 | Skuru Skolväg | {"f":[{"dt":["vardag"],"a":60,"b":240},{"dt":["vardag"],"a":480,"b":1020,"ov":1}]} → {"f":[{"dt":["vardag"],"a":60,"b":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2023-00251 | Örnvägen | {"f":[{"w":1,"a":480,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0182 2025-00497 | Ektorpsvägen | {"l":[{"dt":["vardag"],"a":420,"b":540,"max":30},{"dt":["vardag"],"a":420,"b":1140,"max":30},{"dt":["fore"],"a":660,"b":1020,"max":30}]} → {"l":[{"dt":["vardag"],"a":420,"b":540,"max":30},{"dt":["vardag"],"a":900,"b":1020,"max":30}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0182 2025-00518 | Edinsvägen | {"l":[{"dt":["vardag"],"a":420,"b":540,"max":30},{"dt":["vardag"],"a":420,"b":1140,"max":30},{"dt":["fore"],"a":660,"b":1020,"max":30}]} → {"l":[{"dt":["vardag"],"a":420,"b":540,"max":30},{"dt":["vardag"],"a":900,"b":1020,"max":30}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0182 2025-00518 | Edinsvägen | {"l":[{"dt":["vardag"],"a":420,"b":540,"max":30},{"dt":["vardag"],"a":420,"b":1140,"max":30},{"dt":["fore"],"a":660,"b":1020,"max":30}]} → {"l":[{"dt":["vardag"],"a":420,"b":540,"max":30},{"dt":["vardag"],"a":900,"b":1020,"max":30}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2026-264 | Alphyddevägen | expired 2026-11-02 | already uncertain |
 | 0182 2026-264 | Alphyddevägen | expired 2026-11-02 | already uncertain |
 | 0182 2026-00174 | Trädgårdsvägen | {"f":[{"w":5,"a":480,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":5,"a":480,"b":720}]} | text more permissive: text wins (owner's decision 18 Oct) |

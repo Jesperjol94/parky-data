@@ -1,11 +1,10 @@
 # Mjölby: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 273 segments: 273 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 228, partly read 41. Verified equal 209, filled from text 0, text stricter 1, disputed 0, expired 4, text without rules 12, multi-part texts (not compared) 0.
+Fully read 228, partly read 41. Verified equal 210, filled from text 0, text stricter 0, disputed 0, expired 4, text without rules 12, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0586 2026-120 | Magasinsgatan | {"f":[{"w":1,"a":360,"b":840}]} → {"f":[{"w":1,"a":360,"b":840},{"w":4,"a":360,"b":840}]} | text stricter: applied |
 | 0586 2026-167 | Stora Torget | expired 2026-10-24 | already uncertain |
 | 0586 2026-167 | Stora Torget | expired 2026-10-24 | already uncertain |
 | 0586 2026-167 | Stora Torget | expired 2026-10-24 | already uncertain |

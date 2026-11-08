@@ -1,11 +1,12 @@
 # Växjö: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 3011 segments: 3011 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2887, partly read 107. Verified equal 2729, filled from text 0, text stricter 0, disputed 1, expired 17, text without rules 157, multi-part texts (not compared) 0.
+Fully read 2887, partly read 107. Verified equal 2727, filled from text 0, text stricter 2, disputed 0, expired 17, text without rules 157, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0780 2010-00001 | Norra Esplanaden | {"l":[{"w":1,"a":0,"b":1440,"max":30},{"w":4,"a":0,"b":1440,"max":30}]} → {"l":[{"w":1,"a":360,"b":480,"max":30},{"w":4,"a":360,"b":480,"max":30}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0780 2009-00730 | Centrumgatan | {"l":[{"dt":["fore"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag","fore"],"a":540,"b":1080,"max":60}]} | text stricter: applied |
+| 0780 2009-00731 | Centrumgatan | {"l":[{"dt":["fore"],"a":540,"b":1080,"max":60}]} → {"l":[{"dt":["vardag","fore"],"a":540,"b":1080,"max":60}]} | text stricter: applied |
 | 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
 | 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
 | 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
