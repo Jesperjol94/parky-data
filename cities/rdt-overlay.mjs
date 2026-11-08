@@ -48,7 +48,7 @@ for (const row of idx.cities) {
       if (n < Math.max(2, 0.7 * s.g.length)) continue;
       const have = new Set((s.f || []).map((w) => JSON.stringify({ ...w, ov: undefined })));
       for (const w of src[k].f) { const ww = { ...w }; if (have.has(JSON.stringify({ ...ww, ov: undefined }))) continue; (s.f ||= []).push({ ...ww, ov: 1 }); have.add(JSON.stringify(ww)); added++; changed = true; }
-      if (src[k].sb && !s.sb) s.sb = 1;
+      // (the area regulation's stopping ban is not copied: it would label this line's own parking ban a stopping ban, QA 8 Nov: Kiruna Lombia)
       // The area line got its name from the nearest OSM way (which can be a footpath: "Bergåsstigen" on Backstigen's access
       // road); the street regulation on the same road names the street, so the area line takes that name.
       if (src[k].an && s.n && s.n !== src[k].n && named.has(s.n.toLowerCase()) && !named.has(src[k].n.toLowerCase())) { src[k].n = s.n; changed = true; renamed++; }

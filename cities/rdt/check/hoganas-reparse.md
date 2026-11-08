@@ -1,10 +1,14 @@
 # Höganäs: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 230 segments: 230 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 212, partly read 11. Verified equal 186, filled from text 0, text stricter 0, disputed 0, expired 7, text without rules 20, multi-part texts (not compared) 0.
+Fully read 212, partly read 11. Verified equal 182, filled from text 0, text stricter 0, disputed 4, expired 7, text without rules 20, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 1284 2021-7 | Pridesgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"v":"rörelsehindrade"} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"aw":[{"dt":["vardag"],"a":540,"b":1080},{"dt":["fore"],"a":540,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1284 2023-3 | Köpmansgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"v":"rörelsehindrade"} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"aw":[{"dt":["vardag"],"a":540,"b":1080},{"dt":["fore"],"a":540,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1284 2023-3 | Köpmansgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"v":"rörelsehindrade"} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"aw":[{"dt":["vardag"],"a":540,"b":1080},{"dt":["fore"],"a":540,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1284 2023-3 | Köpmansgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"v":"rörelsehindrade"} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"aw":[{"dt":["vardag"],"a":540,"b":1080},{"dt":["fore"],"a":540,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1284 2026-32 | Odengatan | expired 2026-10-31 | already uncertain |
 | 1284 2026-32 | Idrottsgatan | expired 2026-10-31 | already uncertain |
 | 1284 2026-32 | Skolgatan | expired 2026-10-31 | already uncertain |

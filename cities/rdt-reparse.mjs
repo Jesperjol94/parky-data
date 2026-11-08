@@ -153,7 +153,8 @@ for (const row of idx.cities) {
       // "avgiften behöver inte erläggas av rörelsehindrad" is a fee exemption, not a reservation for disabled permit holders
       if (s.v === 'rörelsehindrade' && !/(?:endast|enbart)[^.]{0,60}rörelsehindr|reserverad/i.test(body) && /(?:behöver inte|ej|inte) (?:erläggas|betalas)[^.]{0,80}rörelsehindr|rörelsehindr[^.]{0,80}(?:behöver inte|utan avgift|avgiftsfri|inte betala)/i.test(body)) { delete s.v; changed++; st.notReserved = (st.notReserved || 0) + 1; }
       // a stopping ban ("får fordon inte stannas", "förbud att stanna") is stricter than a parking ban: the card says so
-      if (/(?:inte|ej) stannas|förbud att stanna|stanna(?:s)? eller parkera/i.test(body) && s.f && s.f.length && !s.sb) { s.sb = 1; changed++; }
+      if (/(?:inte|ej) stannas|förbud att stanna|stanna(?:s)? eller parkera/i.test(body.replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, '')) && s.f && s.f.length && !s.sb) { s.sb = 1; changed++; }
+      if (s.sb && !/(?:inte|ej) stannas|förbud att stanna|stanna(?:s)? eller parkera/i.test(body.replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, ''))) { delete s.sb; changed++; st.sbCleared = (st.sbCleared || 0) + 1; } // a parking ban the register marked as a stopping ban (QA 8 Nov: Kiruna, Linköping, Upplands Väsby, Karlstad)
     }
     if (!parsed.has(s.c)) parsed.set(s.c, { r: parseRegulation(rec.body), multi: multiPart(rec.body) || ruleSets.get(s.c) > 1 });
     const { r, multi } = parsed.get(s.c);
@@ -228,6 +229,11 @@ for (const row of idx.cities) {
     else if (textV) verdict = 'stricter'; // the text reserves the curb; cars cannot park
     else if (pelleV) verdict = 'looser'; // the text does not reserve it; never relaxed automatically
     else verdict = compare(t, { ...cur, v: undefined });
+    // the same ban windows (weekday, hours) but the text carries other seasons/parities: the register mis-copied the conditions
+    // and the text decides (QA 8 Nov: Örebro Norra Grev Rosengatan had both bans in May–Oct, none in winter)
+    const sig = (ws) => JSON.stringify((ws || []).filter((w) => !w.ov).map((w) => [w.w || 0, w.nw || 0, w.a, w.b]).sort());
+    const condOf = (ws) => JSON.stringify((ws || []).filter((w) => !w.ov).map((w) => [w.p, w.m, w.dd, w.dt, w.wk]));
+    if (APPLY && !s.u && verdict !== 'equal' && !pelleV && !textV && t.f && t.f.length && sig(t.f) === sig(cur.f) && condOf(t.f) !== condOf(cur.f) && !(cur.f || []).some((w) => w.dd || w.wk) && JSON.stringify(t.l || null) === JSON.stringify(cur.l || null)) { put(); st.conditions = (st.conditions || 0) + 1; continue; }
     if (s.u) {
       st.uFilled++;
       lines.push(`| ${s.c} | ${s.n} | uncertain → ${JSON.stringify(t)} | filled from text |`);

@@ -1,13 +1,20 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2700, partly read 53. Verified equal 2697, filled from text 0, text stricter 0, disputed 2, expired 48, text without rules 1, multi-part texts (not compared) 0.
+Fully read 2705, partly read 48. Verified equal 2695, filled from text 1, text stricter 0, disputed 8, expired 48, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1880 2014-00233 | Berghultsvägen | {"f":[{"w":4,"a":0,"b":480},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":4,"a":0,"b":480}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2017-00897 | Slussgatan | {"f":[{"w":4,"a":0,"b":1440,"m":[[5,1],[10,31]],"p":"odd"},{"w":4,"a":0,"b":1440,"m":[[11,1],[4,30]]}]} → {"f":[{"w":4,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"odd"},{"w":4,"a":0,"b":360,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2018-00237 | Kornellvägen | {"f":[{"w":1,"a":0,"b":1440,"m":[[5,1],[10,31]],"p":"odd"},{"w":1,"a":0,"b":1440,"m":[[11,1],[4,30]]}],"l":[{"dt":["vardag"],"a":480,"b":1260,"max":180}]} → {"f":[{"w":1,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"odd"},{"w":1,"a":0,"b":360,"m":[[11,1],[4,30]]}],"l":[{"dt":["vardag"],"a":480,"b":1260,"max":180}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2018-00531 | Vallare Wallsgatan | {"f":[{"w":4,"a":540,"b":780,"m":[[5,1],[10,31]]},{"w":4,"a":0,"b":1440,"m":[[11,1],[4,30]]}],"l":[{"a":0,"b":1440,"max":1440}]} → {"f":[{"w":4,"a":540,"b":780,"m":[[5,1],[10,31]]},{"w":4,"a":0,"b":360,"m":[[11,1],[4,30]]}],"l":[{"a":0,"b":1440,"max":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
+| 1880 2020-00723 | Hindergårdsgatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"odd"},{"w":3,"a":0,"b":1440,"m":[[11,1],[4,30]]}],"l":[{"a":0,"b":1440,"max":1440}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"odd"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}],"l":[{"a":0,"b":1440,"max":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2020-00723 | Hindergårdsgatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"odd"},{"w":3,"a":0,"b":1440,"m":[[11,1],[4,30]]}],"l":[{"a":0,"b":1440,"max":1440}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"odd"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}],"l":[{"a":0,"b":1440,"max":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1880 2021-01026 | Överstegatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2022-00032 | Kornellvägen | {"f":[{"w":3,"a":0,"b":1440,"m":[[5,1],[10,31]],"p":"odd"},{"w":3,"a":0,"b":1440,"m":[[11,1],[4,30]]}],"l":[{"dt":["vardag"],"a":480,"b":1260,"max":180}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"odd"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}],"l":[{"dt":["vardag"],"a":480,"b":1260,"max":180}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2026-00514 | Villagatan | uncertain → {"f":[{"w":5,"a":0,"b":540}]} | filled from text |
 | 1880 2026-00954 | Höglundagatan | expired 2026-10-26 | already uncertain |
 | 1880 2026-01071 | Nygatan | expired 2026-11-02 | already uncertain |
 | 1880 2026-01071 | Nygatan | expired 2026-11-02 | already uncertain |

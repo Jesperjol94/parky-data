@@ -9,7 +9,7 @@ import { parseRegulation } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
 const opt = (k, d) => { const i = args.indexOf(k); return i >= 0 ? args[i + 1] : d; };
-const ENGINE = opt('--engine', null), N = +opt('--examples', 5);
+const ENGINE = opt('--engine', null), N = +opt('--examples', 5), ONLY = opt('--only', null)?.split(',') ?? null; // --only: municipalities for the (slow) engine check
 const idx = JSON.parse(fs.readFileSync('cities/rdt/index.json', 'utf8')).cities;
 
 // ---- official texts
@@ -59,10 +59,11 @@ for (const row of idx) {
     // 2. the text says something the line does not carry (looser = the worst kind)
     if (b && !s.u && !s.ux) {
       const own = (s.f || []).filter((w) => !w.ov);
-      if (/\bhögst\s+(\d+|en|ett|två|tre|fyra|fem|sex|sju|åtta|nio|tio|tolv)\s*(tim|min|dygn|dag)/i.test(b) && !s.l && !s.aw && !totalBan(s) && !(p?.permitted === false)) add('limitMissing', 'Text has a longest stay ("högst N tim"), line has none', 'Looser: the app would allow a longer stay than the sign.', row.id, s, b.match(/högst[^.]{0,40}/i)?.[0]);
-      for (const [re, w] of WEEKDAY) if (re.test(b) && /parkeras|parkering/i.test(b) && !own.some((f) => f.w === w) && !totalBan(s) && !(s.dp)) { add('weekdayBanMissing', 'Text names a weekday, line has no ban that day', 'Looser: street-cleaning or market-day bans missing. Read the text: the weekday may be an exception, not a ban.', row.id, s, b.match(new RegExp(`[^.]{0,50}${re.source}[^.]{0,40}`, 'i'))?.[0]); break; }
-      if (/\bavgift/i.test(b) && !/avgiftsfri|utan avgift|ingen avgift/i.test(b) && !s.t && !s.fu && isPermission(s) && !(p?.permitted === false)) add('feeMissing', 'Text says fee, line has none', 'Looser: shown as free.', row.id, s, b.match(/[^.]{0,40}avgift[^.]{0,40}/i)?.[0]);
-      if (totalBan(s) && /\bfår\s+(fordon\s+)?parkeras\b/i.test(b) && !/får\s+(fordon\s+)?(inte|ej)\s+parkeras/i.test(b.slice(0, 400))) add('banButPermission', 'Total ban, but the text grants a permission', 'Stricter or a mis-read: a permission regulation drawn as a ban.', row.id, s, b.slice(b.search(/får\s+(fordon\s+)?parkeras/i), b.search(/får\s+(fordon\s+)?parkeras/i) + 60));
+      if (/\bhögst\s+(\d+|en|ett|två|tre|fyra|fem|sex|sju|åtta|nio|tio|tolv)\s*(tim|min|dygn|dag)/i.test(b.replace(/högst 24 tim\w*/gi, '')) && !s.l && !s.aw && !totalBan(s) && !(p?.permitted === false)) add('limitMissing', 'Text has a longest stay ("högst N tim"), line has none', 'Looser: the app would allow a longer stay than the sign.', row.id, s, b.match(/högst[^.]{0,40}/i)?.[0]);
+      const bw = b.replace(/\b(?:måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:ar)?\s*(?:[-–—]|till|t\.o\.m\.?)\s*(?:måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:ar)?/gi, ' '); // "måndag - fredag" is a range, not a cleaning day
+      for (const [re, w] of WEEKDAY) if (re.test(bw) && /parkeras|parkering/i.test(b) && !own.some((f) => f.w === w) && !totalBan(s) && !(s.dp)) { add('weekdayBanMissing', 'Text names a weekday, line has no ban that day', 'Looser: street-cleaning or market-day bans missing. Read the text: the weekday may be an exception, not a ban.', row.id, s, b.match(new RegExp(`[^.]{0,50}${re.source}[^.]{0,40}`, 'i'))?.[0]); break; }
+      if (/\bavgift/i.test(b) && !/avgiftsfri|utan avgift|ingen avgift|avgift behöver (?:ej|inte)/i.test(b) && !s.t && !s.fu && isPermission(s) && !(p?.permitted === false)) add('feeMissing', 'Text says fee, line has none', 'Looser: shown as free.', row.id, s, b.match(/[^.]{0,40}avgift[^.]{0,40}/i)?.[0]);
+      if (totalBan(s) && /\bfår\s+(fordon\s+)?parkeras\b/i.test(b) && !/får\s+(fordon\s+)?(inte|ej)\s+parkeras|får (?:inte|ej) heller stannas/i.test(b.slice(0, 400))) add('banButPermission', 'Total ban, but the text grants a permission', 'Stricter or a mis-read: a permission regulation drawn as a ban.', row.id, s, b.slice(b.search(/får\s+(fordon\s+)?parkeras/i), b.search(/får\s+(fordon\s+)?parkeras/i) + 60));
     }
     // 3. fees
     if (s.t && s.t > 0 && feeAllDay(d.taxa, s.t)) add('feeAllDay', 'Fee around the clock, all days', 'Usually wrong: most texts give fee hours. Confirm against the text.', row.id, s, `taxa ${s.t}`);
@@ -91,6 +92,7 @@ if (ENGINE) {
   const MOMENTS = [['2026-11-10T10:00:00+01:00', 'Tue 10:00'], ['2026-11-11T03:00:00+01:00', 'Wed 03:00'], ['2026-11-13T14:00:00+01:00', 'Fri 14:00'], ['2026-11-14T13:00:00+01:00', 'Sat 13:00'], ['2026-11-15T11:00:00+01:00', 'Sun 11:00'], ['2026-11-16T22:00:00+01:00', 'Mon 22:00']];
   let checked = 0;
   for (const row of idx) {
+    if (ONLY && !ONLY.includes(row.id)) continue;
     const d = JSON.parse(fs.readFileSync(`cities/rdt/${row.id}.json`, 'utf8'));
     try { addTaxa?.(d.taxa || {}); } catch { /* no taxa */ }
     for (const s of d.segments) {

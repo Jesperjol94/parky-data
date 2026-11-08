@@ -1,11 +1,12 @@
 # Kalmar: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 800 segments: 800 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 770, partly read 22. Verified equal 722, filled from text 0, text stricter 0, disputed 0, expired 8, text without rules 20, multi-part texts (not compared) 28.
+Fully read 770, partly read 22. Verified equal 721, filled from text 0, text stricter 0, disputed 1, expired 8, text without rules 20, multi-part texts (not compared) 28.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0880 2011-63 | den tillfälliga gatan mellan Södra vägen och Gasverksgatan | expired 2011-11-30 | already uncertain |
+| 0880 2022-212 | parkeringsplatsen väster om Ölandskajen | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":1440}],"v":"husbil"} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":1440}],"aw":[{"dt":["vardag"],"a":540,"b":1080}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0880 2026-224 | Skeppsbrogatan | expired 2026-10-31 | already uncertain |
 | 0880 2026-231 | Lybecksvägen | expired 2026-10-16 | already uncertain |
 | 0880 2026-239 | förbud att parkera och norr om Totties väg | expired 2026-11-02 | already uncertain |

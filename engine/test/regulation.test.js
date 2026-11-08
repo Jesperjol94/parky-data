@@ -645,3 +645,11 @@ test('QA 8 Nov: "måndag söndag" summer limit, seasons joined by "samt", "gäll
   const e = parseRegulation('följande. 1 § På Bruno Liljeforsgatan får fordon parkeras under högst 24 timmar i följd. Avgift mot klockan 09.00 - 24.00. 2 § Tillåtelsen gäller under tiden vardag utom dag före sön- och helgdag. Övrig tid får fordon parkeras.');
   assert.deepEqual(e.feeWindows, [{ a: 540, b: 1440, dt: ['vardag'] }]);
 });
+test('QA 8 Nov round 2: fee only "övrig tid", weekday hours without "klockan", disabled bay open to all in stated hours', () => {
+  const a = parseRegulation('följande. 1 § På Ankdammsgatan får fordon parkeras under högst 30 min i följd. 2 § Tidsbegränsningen gäller under tiden måndag - fredag klockan 07:00 - 17:00. 3 § Övrig tid får fordon parkeras mot avgift. 5 § Avgift enligt taxa A och Boende Solna.');
+  assert.deepEqual(a.feeWindows, [{ dt: ['vardag'], a: 0, b: 420 }, { dt: ['vardag'], a: 1020, b: 1440 }, { dt: ['fore', 'helgdag'], a: 0, b: 1440 }]);
+  const b = parseRegulation('följande. På Hindergårdsgatan får fordon parkeras under högst 24 tim i följd. Parkering är dock förbjuden under tiden 1:a maj - 31:a oktober udda veckor onsdag klockan 09.00 - 13.00 och 1:a november - 30:e april onsdagar 00.00 - 06.00.');
+  assert.deepEqual(b.bans[1], { w: 3, a: 0, b: 360, m: [[11, 1], [4, 30]] });
+  const c = parseRegulation('följande. På Esplanadens östra sida får endast sådant fordon parkeras som används för befordran av rörelsehindrad med parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276). Parkering är dock tillåten under högst 2 tim i följd under tiden vardagar utom vardag före sön- och helgdag klockan 08.00 - 21.00.');
+  assert.equal(c.reserved, false); assert.deepEqual(c.allowOnly, [{ dt: ['vardag'], a: 480, b: 1260 }]); assert.equal(c.limits[0].max, 120);
+});

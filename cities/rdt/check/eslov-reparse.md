@@ -1,7 +1,11 @@
 # Eslöv: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 633 segments: 633 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 585, partly read 48. Verified equal 505, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 80, multi-part texts (not compared) 0.
+Fully read 585, partly read 48. Verified equal 501, filled from text 0, text stricter 0, disputed 4, expired 0, text without rules 80, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 1285 2021-130 | Föreningstorget | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":600,"b":900,"max":180},{"dt":["helgdag"],"a":600,"b":900,"max":180}],"v":"rörelsehindrade"} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":600,"b":900,"max":180},{"dt":["helgdag"],"a":600,"b":900,"max":180}],"aw":[{"dt":["vardag"],"a":480,"b":1080},{"dt":["fore"],"a":600,"b":900},{"dt":["helgdag"],"a":600,"b":900}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1285 2021-130 | Föreningstorget | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":600,"b":900,"max":180},{"dt":["helgdag"],"a":600,"b":900,"max":180}],"v":"rörelsehindrade"} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":600,"b":900,"max":180},{"dt":["helgdag"],"a":600,"b":900,"max":180}],"aw":[{"dt":["vardag"],"a":480,"b":1080},{"dt":["fore"],"a":600,"b":900},{"dt":["helgdag"],"a":600,"b":900}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1285 2021-130 | Föreningstorget | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":600,"b":900,"max":180},{"dt":["helgdag"],"a":600,"b":900,"max":180}],"v":"rörelsehindrade"} → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":600,"b":900,"max":180},{"dt":["helgdag"],"a":600,"b":900,"max":180}],"aw":[{"dt":["vardag"],"a":480,"b":1080},{"dt":["fore"],"a":600,"b":900},{"dt":["helgdag"],"a":600,"b":900}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1285 2024-65 | Bastugatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120}],"v":"laddning"} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120}],"aw":[{"dt":["vardag"],"a":540,"b":1080},{"dt":["fore"],"a":540,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
