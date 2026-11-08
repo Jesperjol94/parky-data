@@ -1,7 +1,7 @@
 # Alingsås: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 716 segments: 716 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 644, partly read 50. Verified equal 628, filled from text 13, text stricter 0, disputed 0, expired 22, text without rules 0, multi-part texts (not compared) 0.
+Fully read 644, partly read 50. Verified equal 627, filled from text 12, text stricter 0, disputed 0, expired 22, text without rules 0, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,7 +10,6 @@ Fully read 644, partly read 50. Verified equal 628, filled from text 13, text st
 | 1489 2008-0178 | Enehagsgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1489 2008-0178 | Enehagsgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1489 2008-0182 | Teatergatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1489 2008-0187 | Stationsplan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1489 2008-0284 | Norra Strömgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1489 2008-0384 | Fjällgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1489 2008-0428 | Gräfsnäsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |

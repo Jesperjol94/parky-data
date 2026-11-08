@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 2269 segments: 2269 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2050, partly read 19. Verified equal 1484, filled from text 1, text stricter 0, disputed 0, expired 200, text without rules 565, multi-part texts (not compared) 0.
+Run 2026-11-08. 1764 segments: 1764 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1545, partly read 19. Verified equal 1194, filled from text 1, text stricter 0, disputed 0, expired 200, text without rules 350, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

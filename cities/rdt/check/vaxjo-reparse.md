@@ -1,11 +1,16 @@
 # Växjö: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 3005 segments: 3005 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2881, partly read 107. Verified equal 2723, filled from text 1, text stricter 0, disputed 0, expired 17, text without rules 157, multi-part texts (not compared) 0.
+Fully read 2881, partly read 107. Verified equal 2718, filled from text 1, text stricter 0, disputed 5, expired 17, text without rules 157, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0780 2021-15 | Nygatan | uncertain → {"l":[{"a":0,"b":1440,"max":180}],"v":"rörelsehindrade"} | filled from text |
+| 0780 2024-52 | Arenastaden | {"f":[{"a":0,"b":1440}]} → {"aw":[{"a":660,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0780 2024-52 | Arenastaden | {"f":[{"a":0,"b":1440}]} → {"aw":[{"a":660,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0780 2024-52 | Storgatan | {"f":[{"a":0,"b":1440}]} → {"aw":[{"a":660,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0780 2024-52 | Arenastaden | {"f":[{"a":0,"b":1440}]} → {"aw":[{"a":660,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0780 2024-52 | Arenastaden | {"f":[{"a":0,"b":1440}]} → {"aw":[{"a":660,"b":840}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
 | 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |
 | 0780 2026-183 | Åkervägen | expired 2026-10-23 | already uncertain |

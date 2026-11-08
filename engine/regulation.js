@@ -13,7 +13,7 @@ const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete 
 const MONTH_NAMES = ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'juli', 'augusti', 'september', 'oktober', 'november', 'december'];
 export function ruleText(body) {
   if (!body) return null;
-  let t = body.replace(/Publicerat på webbplatsen Svensk trafikföreskriftssamling den \d{1,2} \S+ \d{4}/g, ' ') /* page footers inside sentences (QA: Linköping, Norrköping) */.replace(/­/g, '').replace(/-\n(?=[a-zåäö])/g, '').replace(/\s+/g, ' ').replace(/sönoch/g, 'sön- och').replace(/sön och helgdag/g, 'sön- och helgdag')
+  let t = body.replace(/Publicerat på webbplatsen Svensk trafikföreskriftssamling den \d{1,2} \S+ \d{4}/g, ' ') /* page footers inside sentences (QA: Linköping, Norrköping) */.replace(/­/g, '').replace(/(?<=[a-zåäö])-\n(?=[a-zåäö])/g, '') /* not "augusti -\njuni": a season's dash (QA 8 Nov: Solna lost 'augusti - juni') */.replace(/\s+/g, ' ').replace(/sönoch/g, 'sön- och').replace(/sön och helgdag/g, 'sön- och helgdag')
     .replace(/sön ?- ?och/g, 'sön- och').replace(/sön ?- ?helgdag/g, 'sön- och helgdag').replace(/(\d{1,2}):[ae]\b/g, '$1') // "sön - och helgdag", "sön - helgdag", "1:a december"
     .replace(/\bMed avvikelse från bestämmelserna i \d+ § får/g, 'Får').replace(/\b(fordon) på (?:sträckan|platsen|sträckorna|platserna)\b/gi, '$1') // "Med avvikelse från bestämmelserna i 1 § får fordon på sträckan inte parkeras …"
     .replace(/(\d\s*§)(?=[A-ZÅÄÖ])/g, '$1 ') /* "2 §Tillåtelsen" (QA 6 Nov: Örebro Fredsgatan) */.replace(/\bTillåtelsen (?:att parkera )?i \d+ § gäller/g, 'Tillåtelsen gäller').replace(/\bFörbudet i \d+ § gäller/g, 'Förbudet gäller')
@@ -234,6 +234,28 @@ const RESERVED = [[/rörelsehindrad|handikappad|parkeringstillstånd enligt 13 k
   [/buss/, 'buss'], [/utryckning/, 'utryckningsfordon'], [/lastbil/, 'lastbil'], [/taxi/, 'taxi'], [/elfordon|laddning/, 'laddning'], [/cykel/, 'cykel'],
   [/personbil klass (?:ii|2)\b|husbil/, 'husbil'], [/med (?:tillkopplad )?släp/, 'fordon med släp'], [/tjänstefordon/, 'tjänstefordon']]; // personbil klass II = motorhomes
 function reservedFor(x) { for (const [re, v] of RESERVED) if (re.test(x)) return v; return null; }
+
+// Ban windows minus allowed windows, per weekday (1–5 vardag, 6 fore, 7 helgdag). null when a window has conditions (season, parity,
+// dates …) or nothing overlaps; 'grey' when an exception by day type (not a named weekday) cuts the ban. Pieces that change become weekday windows (a holiday on that weekday then shows the ban: the safe side).
+const SIMPLE = (w) => Object.keys(w).every((k) => ['a', 'b', 'dt', 'w'].includes(k)) && w.a < w.b;
+const DAYTYPE = (k) => (k <= 5 ? 'vardag' : k === 6 ? 'fore' : 'helgdag');
+const onDay = (w, k) => (w.w ? w.w === k : w.dt ? w.dt.includes(DAYTYPE(k)) : true);
+function subtractWindows(bans, allows) {
+  if (!bans.length || !bans.every(SIMPLE) || !allows.every(SIMPLE)) return null;
+  const out = []; let any = false;
+  for (const b of bans) {
+    const pieces = []; let changed = false;
+    for (let k = 1; k <= 7; k++) {
+      if (!onDay(b, k)) continue;
+      let iv = [[b.a, b.b]];
+      for (const w of allows) if (onDay(w, k)) { if (!w.w && w.a < b.b && w.b > b.a) return 'grey'; iv = iv.flatMap(([a, z]) => (w.b <= a || w.a >= z ? [[a, z]] : [[a, Math.max(a, w.a)], [Math.min(z, w.b), z]].filter(([p, q]) => q > p))); }
+      if (iv.length !== 1 || iv[0][0] !== b.a || iv[0][1] !== b.b) changed = true;
+      for (const [a, z] of iv) pieces.push({ w: k, a, b: z });
+    }
+    if (changed) { any = true; out.push(...pieces); } else out.push(b);
+  }
+  return any ? out : null;
+}
 
 export function parseRegulation(body) {
   const t = ruleText(body);
@@ -506,6 +528,19 @@ export function parseRegulation(body) {
       out.permitted = true; // the text permits parking (with or without conditions): a register ban on it is wrong
       let ws = windows(s); if (!ws.length) ws = dayOnlyWindows(s); ws = ws.map(withSP); const d = duration(s);
       if (halfRead(s, ws)) { unread(s); continue; }
+      // "får fordon inte parkeras. Parkering är dock tillåten mot avgift onsdag klockan 07.00 - 19.00 och vardag före sön- och helgdag
+      // klockan 11.00 - 17.00": the all-day ban has exceptions, parking is allowed only in those hours (QA 8 Nov: Nacka Becksjudarvägen showed a ban all week). Only plain hours and days: 'den 4:e tisdagen i månaden' as allowed-only hours is left to the ban (safe side)
+      if (/^parkering (?:är )?dock tillåten\b/.test(x) && ws.length && !d && ws.every((w) => Object.keys(w).every((k) => ['a', 'b', 'dt', 'w'].includes(k))) && lastBan && lastBan.items.length && lastBan.items.every((w) => w.a === 0 && w.b === 1440 && Object.keys(w).length === 2) && !out.reserved && !out.purpose.length) {
+        out.bans = out.bans.filter((w) => !lastBan.items.includes(w)); out.allowOnly.push(...ws); out.otherAllowed = false; lastBan = null;
+        if (/mot avgift/.test(x) && !out.feeWindows) out.feeWindows = ws; lastAllow = ws; continue;
+      }
+      // "får fordon inte parkeras vardag utom vardag före sön- och helgdag klockan 07.00 - 19.00. Parkering är dock tillåten mot avgift
+      // under onsdag klockan 07.00 - 19.00 och …": the ban has holes on those days (QA 8 Nov: Nacka Gamla Värmdövägen banned on Wednesdays)
+      if (/^parkering (?:är )?dock tillåten\b/.test(x) && ws.length && !d && lastBan && !out.reserved && !out.purpose.length) {
+        const cut = subtractWindows(lastBan.items, ws);
+        if (cut === 'grey') { unread(s); continue; } // the exception covers the ban's own day type ("… vardag utom … 11.00 - 17.00" after a weekday ban): likely a slip in the text, the sign decides
+        if (cut) { out.bans = out.bans.filter((w) => !lastBan.items.includes(w)).concat(cut); lastBan = { items: cut, provisional: false }; if (/mot avgift/.test(x) && !out.feeWindows) out.feeWindows = ws; lastAllow = ws; continue; }
+      }
       if (/mot avgift (?:under|mellan|klockan|kl\.?)/.test(x) && ws.length && !out.feeWindows && !d) out.feeWindows = ws; // "får fordon parkeras mot avgift klockan 16.00 - 19.00" (QA 8 Nov: Sundbyberg Järnvägsgatan charged all week)
       if (d) { const items = (ws.length ? ws : [clean({ a: 0, b: 1440, m, p })]).map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; }
       lastAllow = ws.length ? ws : null; permitSeason = !ws.length && !d && m ? m : null; // "får fordon parkeras 15 april – 15 oktober": a permission for a season (Knivsta)

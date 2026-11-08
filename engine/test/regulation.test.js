@@ -661,3 +661,16 @@ test('QA 8 Nov round 4: "jämn vecka 05-07", "24.00 - 08.00", motorhome-only ban
   assert.deepEqual(parseRegulation('följande. 1 § Inom det område får fordon parkeras under högst 24 tim i följd. 2 § Parkering är dock förbjuden under tiden vardag mellan klockan 24.00 - 08.00. 3 § Förbudet i paragraf 2 gäller endast personbil klass II.').bans, []);
   assert.deepEqual(parseRegulation('följande. På Järnvägsgatans norra sida får fordon parkeras mot avgift klockan 16.00 - 19.00. Avgiftsplikten gäller vardag utom vardag före sön- och helgdag. Avgift enligt taxa för zon C.').feeWindows, [{ a: 960, b: 1140, dt: ['vardag'] }]);
 });
+test('QA 8 Nov round 5: "Parkering är dock tillåten <hours>" after a ban, season dash at a line break', () => {
+  const a = parseRegulation('följande. På markerad sträcka på Becksjudarvägen enligt kartbild får fordon inte parkeras. Parkering är dock tillåten mot avgift onsdag klockan 07.00 - 19.00 och vardag före sön- och helgdag klockan 11.00 - 17.00. Avgift enligt taxa 1.');
+  assert.deepEqual(a.bans, []); assert.deepEqual(a.allowOnly, [{ w: 3, a: 420, b: 1140 }, { dt: ['fore'], a: 660, b: 1020 }]); assert.deepEqual(a.feeWindows, a.allowOnly);
+  const b = parseRegulation('följande. På Becksjudarvägen får fordon inte stannas eller parkeras under tiden vardag utom vardag före sön- och helgdag klockan 07.00 - 19.00. Parkering är dock tillåten mot avgift under onsdag klockan 07.00 - 19.00 och vardag före sön- och helgdag klockan 11.00 - 19.00.');
+  assert.deepEqual(b.bans.map((w) => w.w), [1, 2, 4, 5]); assert.ok(b.bans.every((w) => w.a === 420 && w.b === 1140));
+  const c = parseRegulation('följande. På Gamla Värmdövägen får fordon inte parkeras under tiden vardag utom vardag före sön- och helgdag klockan 07.00 - 19.00. Parkering är dock tillåten mot avgift under tiden onsdag klockan 07.00 - 19.00 och vardag utom vardag före sön- och helgdag klockan 11.00 - 17.00.');
+  assert.equal(c.unread.length, 1); // an exception by day type over the ban's own days: grey, not a guess
+  const d = parseRegulation('följande. På Gustav III:s boulevard får fordon parkeras mot avgift.\n\nParkering är dock förbjuden fredag klockan 10.00 - 14.00 udda veckor under augusti -\njuni.');
+  assert.deepEqual(d.bans, [{ w: 5, a: 600, b: 840, m: [[8, 1], [6, 30]], p: 'odd' }]);
+});
+test('QA 8 Nov round 5: an exception on "4 tisdagen i månaden" leaves the all-day ban (allowed-only hours stay plain)', () => {
+  assert.deepEqual(parseRegulation('följande. På Rosenbergsgatans sydvästra sida får fordon inte parkeras. Parkering är dock tillåten under tiden 4 tisdagen i månaden klockan 08.00 - 18.00.').bans, [{ a: 0, b: 1440 }]);
+});

@@ -1,7 +1,7 @@
 # Perstorp: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 322 segments: 322 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 281, partly read 41. Verified equal 264, filled from text 17, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-11-08. 136 segments: 136 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 107, partly read 29. Verified equal 90, filled from text 17, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

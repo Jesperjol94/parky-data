@@ -1,16 +1,10 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 1192 segments: 1192 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1103, partly read 57. Verified equal 976, filled from text 2, text stricter 0, disputed 0, expired 32, text without rules 125, multi-part texts (not compared) 0.
+Run 2026-11-08. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1099, partly read 57. Verified equal 972, filled from text 2, text stricter 0, disputed 0, expired 26, text without rules 125, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0484 2011-0003 | Ridhusgatan | expired 2017-01-20 | already uncertain |
-| 0484 2011-0003 | Ridhusgatan | expired 2017-01-20 | already uncertain |
-| 0484 2011-0135 | Ridhusgatan | expired 2017-01-20 | already uncertain |
-| 0484 2011-0135 | Ridhusgatan | expired 2017-01-20 | already uncertain |
-| 0484 2011-0141 | Ridhusplan | expired 2017-01-20 | already uncertain |
-| 0484 2011-0141 | Ridhusplan | expired 2017-01-20 | already uncertain |
 | 0484 2011-0271 | Rademachergatan | expired 2011-10-31 | already uncertain |
 | 0484 2011-0273 | Rademachergatan | expired 2011-10-31 | already uncertain |
 | 0484 2011-0306 | Västra Tunagatan | expired 2013-06-25 | already uncertain |

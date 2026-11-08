@@ -1,7 +1,7 @@
 # Karlstad: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 1820 segments: 1820 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1781, partly read 12. Verified equal 1332, filled from text 19, text stricter 0, disputed 3, expired 27, text without rules 427, multi-part texts (not compared) 0.
+Fully read 1781, partly read 12. Verified equal 1335, filled from text 19, text stricter 0, disputed 0, expired 27, text without rules 427, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,9 +10,6 @@ Fully read 1781, partly read 12. Verified equal 1332, filled from text 19, text 
 | 1780 2017-00052 | Flöjtgatan | uncertain → {"l":[{"a":0,"b":1440,"max":15}]} | filled from text |
 | 1780 2017-00241 | Åkdonsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1780 2019-00029 | Rudsbergsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1780 2020-00055 | Kungsgatan | {"f":[{"w":4,"a":0,"b":1440}]} → {"f":[{"w":4,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2020-00056 | Kungsgatan | {"f":[{"w":4,"a":0,"b":1440}]} → {"f":[{"w":4,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1780 2020-00056 | Kungsgatan | {"f":[{"w":4,"a":0,"b":1440}]} → {"f":[{"w":4,"a":300,"b":420,"p":"even"}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1780 2021-00086 | Wallbergsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1780 2021-00104 | Herrhagen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1780 2021-00212 | Horsensgatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
