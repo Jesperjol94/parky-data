@@ -32,7 +32,7 @@ const minutesBanned = (ws) => (ws || []).reduce((s, w) => s + (w.b > w.a ? w.b -
 function multiPart(body) {
   const t = ruleText(body) || '';
   const paras = (t.match(/\b\d{1,2}\s*§/g) || []).length;
-  const places = (t.match(/(?:^|[.;]\s*|\d\s*§\s*)På\s/g) || []).length + (t.match(/(?:^|[.;]\s*|\d\s*§\s*)Inom\s/g) || []).length; // also "… 4 § På parkeringsplatsen på de platser …" after a paragraph number (QA 6 Nov: Norrtälje Rimbo, Täby Arninge merged several places' rules)
+  const places = (t.match(/(?:^|[.;]\s*|\d\s*§\s*)På\s(?!(?:vardag|dag(?:ar)? före|sön-|helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|övriga ytor)\b)/g) || []).length + (t.match(/(?:^|[.;]\s*|\d\s*§\s*)Inom\s/g) || []).length; // also "… 4 § På parkeringsplatsen på de platser …" after a paragraph number (QA 6 Nov: Norrtälje Rimbo, Täby Arninge merged several places' rules)
   const sides = new Set((t.match(/(?<![a-zåäö])((?:syd|nord)?(?:östra|västra)|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size; // not \b: it is ASCII-only, so "\böstra" never matched after a space (and matched inside "sydöstra")
   void paras; // "1 § place, 2 § hours, 3 § fee" is one place in several paragraphs: only several places or sides make a text multi-part (18 Oct review)
   // several sides in one sentence with one rule ("västra sida …, norra sida … samt östra sida … får fordon parkeras") are one rule set (QA 22 Oct)
@@ -138,7 +138,7 @@ for (const row of idx.cities) {
     }
     // Facts read straight from the text, independent of how much of it the parser understands (18 Oct review):
     if (APPLY) {
-      const body = rec.body.replace(/\s+/g, ' ').replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna (?:eller|och) parkera[^.]*/gi, ''); // boilerplate about other bans
+      const body = rec.body.replace(/\s+/g, ' ').replace(/med avvikelse från [^,.]*?trafikföreskrifter[^,.]*? om [^,.]*,/gi, ' ').replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna (?:eller|och) parkera[^.]*/gi, ''); // boilerplate about other bans
       // validity: a regulation not yet in force, or one that ends later, is dated on the segment (the app honours fr/to)
       const fr = rec.from && /^\d{4}-\d{2}-\d{2}$/.test(rec.from) && rec.from > today ? rec.from : null;
       const to = rec.to && /^\d{4}-\d{2}-\d{2}$/.test(rec.to) ? rec.to : null;
@@ -162,6 +162,21 @@ for (const row of idx.cities) {
     // the text has a time limit whose length it never states ("Tidsbegränsningen gäller vardag … 08.00 - 16.00"): only the sign knows,
     // so a segment without a limit of its own goes grey (QA 4 Nov: Tyresö, Gävle showed free parking or a register ban)
     if (r.limitUnknown && !s.u && !s.l && !s.v) { st.limitUnknown = (st.limitUnknown || 0) + 1; lines.push(`| ${s.c} | ${s.n} | limit length not in text | now uncertain |`); if (APPLY) { s.u = 1; changed++; } }
+    // "Avgift – se skylten" (fu: a fee, but the rate is in another regulation) charged around the clock in the app, although
+    // the text gives the fee hours (owner 24 Oct: Norrköping Torggatan/Fleminggatan said "fee" on a Saturday night).
+    // The hours become a fee entry with an unknown price (null = "see the sign"), free outside them: <kommun>999*100+n.
+    if (r.feeWindows && s.t == null && s.fu && APPLY && !r.unread.some((u) => /avgift|taxa/i.test(u)) && rec.body.split(/\.\s+/).filter((x) => /^\s*(?:\d+ §\s*)?avgift/i.test(x) && /(?:klockan|kl\.?)\s*\d/i.test(x)).length <= 1) { // one fee rule in the text, even for several stretches
+      const fws2 = r.feeWindows.filter((w) => !w.w && !w.p && !w.dm && !w.nw && !w.dd && !w.wk).flatMap((w) => (w.a < w.b ? [w] : [{ ...w, b: 1440 }, { ...w, a: 0 }]));
+      const periods = fws2.map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: 0, m: w.m })).map((p) => ({ ...p, price: null }));
+      if (periods.length && fws2.length >= r.feeWindows.length) {
+        c.taxa ||= {};
+        const b0 = +c.kommunkod * 1000 + 999, sig = JSON.stringify(periods);
+        let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
+        if (!id) { let n = 1; while (c.taxa[b0 * 100 + n]) n++; id = b0 * 100 + n; c.taxa[id] = { periods, label: 'Taxa enligt skylten', otherTime: 0 }; }
+        s.t = id; changed++; st.feeHoursSign = (st.feeHoursSign || 0) + 1;
+      }
+    }
+    // (the block above runs before the fully-read gate: one unread sentence about something else must not keep the fee around the clock, QA 8 Nov: Sundbyberg, Östersund, Nacka)
     if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; continue; }
     st.fullyRead++;
     // Fee hours from the text ("Avgift enligt Taxa Zon 2 … vardagar … 09.00 - 18.00") narrow a fee table that charges all day:
@@ -179,20 +194,6 @@ for (const row of idx.cities) {
         let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
         if (!id) { let n = 1; while (c.taxa[b0 * 100 + n]) n++; id = b0 * 100 + n; c.taxa[id] = clean({ periods, label: base.label, dayCap: base.dayCap }); } // keep the day cap (QA 27 Oct: Orust)
         if (s.t !== id) { s.t = id; changed++; st.feeHours = (st.feeHours || 0) + 1; }
-      }
-    }
-    // "Avgift – se skylten" (fu: a fee, but the rate is in another regulation) charged around the clock in the app, although
-    // the text gives the fee hours (owner 24 Oct: Norrköping Torggatan/Fleminggatan said "fee" on a Saturday night).
-    // The hours become a fee entry with an unknown price (null = "see the sign"), free outside them: <kommun>999*100+n.
-    if (r.feeWindows && s.t == null && s.fu && APPLY && rec.body.split(/\.\s+/).filter((x) => /^\s*(?:\d+ §\s*)?avgift/i.test(x) && /(?:klockan|kl\.?)\s*\d/i.test(x)).length <= 1) { // one fee rule in the text, even for several stretches
-      const fws2 = r.feeWindows.filter((w) => !w.w && !w.p && !w.dm && !w.nw && !w.dd && !w.wk).flatMap((w) => (w.a < w.b ? [w] : [{ ...w, b: 1440 }, { ...w, a: 0 }]));
-      const periods = fws2.map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: 0, m: w.m })).map((p) => ({ ...p, price: null }));
-      if (periods.length && fws2.length >= r.feeWindows.length) {
-        c.taxa ||= {};
-        const b0 = +c.kommunkod * 1000 + 999, sig = JSON.stringify(periods);
-        let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
-        if (!id) { let n = 1; while (c.taxa[b0 * 100 + n]) n++; id = b0 * 100 + n; c.taxa[id] = { periods, label: 'Taxa enligt skylten', otherTime: 0 }; }
-        s.t = id; changed++; st.feeHoursSign = (st.feeHoursSign || 0) + 1;
       }
     }
     if (r.heavyOnly && !hasRules(fromText(r))) { // the whole text only restricts heavy vehicles: no rule for cars, even when it names several places
@@ -226,7 +227,8 @@ for (const row of idx.cities) {
     for (const k of ['f', 'l']) if ((cur[k] || []).length === 1 && (t[k] || []).length === 1 && !cur[k][0].w && !t[k][0].w) {
       const key = `${k} ${JSON.stringify(cur[k][0].dt || 'all')} → ${JSON.stringify(t[k][0].dt || 'all')}`; dtTally.set(key, (dtTally.get(key) || 0) + 1);
     }
-    const put = () => { for (const k of ['f', 'l', 'aw', 'dp', 'v', 'k', 'ko']) { if (t[k] !== undefined) s[k] = t[k]; else delete s[k]; } delete s.rd; s.rx = 1; changed++; };
+    const contradictory = (o) => (o.f || []).some((w) => w.a === 0 && w.b === 1440 && !w.dt && !w.w && !w.m && !w.p && !w.dd && !w.wk && !w.nw && !w.dm) && (o.l || []).length > 0;
+    const put = () => { if (contradictory(t)) { if (!s.u) { s.u = 1; s.ux = 1; changed++; st.contradictory = (st.contradictory || 0) + 1; } return; } for (const k of ['f', 'l', 'aw', 'dp', 'v', 'k', 'ko']) { if (t[k] !== undefined) s[k] = t[k]; else delete s[k]; } delete s.rd; s.rx = 1; changed++; };
     // Pelle's v: "personbil" is not a reservation (ordinary cars, or motorhomes "klass II"): the text decides
     const pelleV = cur.v === 'personbil' ? null : cur.v || null, textV = t.v || null;
     let verdict;
