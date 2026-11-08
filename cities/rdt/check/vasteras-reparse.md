@@ -1,7 +1,7 @@
 # Västerås: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 1533 segments: 1533 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1517, partly read 6. Verified equal 938, filled from text 19, text stricter 1, disputed 0, expired 10, text without rules 536, multi-part texts (not compared) 0.
+Fully read 1517, partly read 6. Verified equal 939, filled from text 19, text stricter 0, disputed 0, expired 10, text without rules 536, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -30,7 +30,6 @@ Fully read 1517, partly read 6. Verified equal 938, filled from text 19, text st
 | 1980 2021-00169 | Bälbygatan | uncertain → {"l":[{"dt":["vardag"],"a":420,"b":1320,"max":180},{"dt":["fore"],"a":420,"b":1320,"max":180},{"dt":["helgdag"],"a":420,"b":1320,"max":180}]} | filled from text |
 | 1980 2021-00169 | Bälbygatan | uncertain → {"l":[{"dt":["vardag"],"a":420,"b":1320,"max":180},{"dt":["fore"],"a":420,"b":1320,"max":180},{"dt":["helgdag"],"a":420,"b":1320,"max":180}]} | filled from text |
 | 1980 2021-00170 | Bälbygatan | uncertain → {"l":[{"dt":["vardag"],"a":420,"b":1320,"max":180},{"dt":["fore"],"a":420,"b":1320,"max":180},{"dt":["helgdag"],"a":420,"b":1320,"max":180}],"v":"rörelsehindrade"} | filled from text |
-| 1980 2021-00174 | Bellmansgatan | {"l":[{"dt":["vardag"],"a":540,"b":1200,"max":20},{"dt":["fore"],"a":540,"b":1020,"max":20},{"dt":["helgdag"],"a":660,"b":1020,"max":20}]} → {"f":[{"dt":["vardag","fore"],"a":0,"b":540},{"dt":["vardag"],"a":1200,"b":1440},{"dt":["fore","helgdag"],"a":1020,"b":1440},{"dt":["helgdag"],"a":0,"b":660}],"l":[{"dt":["vardag"],"a":540,"b":1200,"max":20},{"dt":["fore"],"a":540,"b":1020,"max":20},{"dt":["helgdag"],"a":660,"b":1020,"max":20}]} | text stricter: applied |
 | 1980 2022-00010 | Herrgärdsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1980 2022-00043 | Färjkajen | uncertain → permitted (fee) | filled from text |
 | 1980 2022-00043 | Färjkajen | uncertain → permitted (fee) | filled from text |

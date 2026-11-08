@@ -1,11 +1,10 @@
 # Karlskrona: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 2028 segments: 2028 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1988, partly read 40. Verified equal 1506, filled from text 17, text stricter 0, disputed 1, expired 0, text without rules 37, multi-part texts (not compared) 419.
+Fully read 1988, partly read 40. Verified equal 1507, filled from text 17, text stricter 0, disputed 0, expired 0, text without rules 37, multi-part texts (not compared) 419.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1080 2001-0016 | Mariebergsvägen | {"l":[{"a":0,"b":1440,"max":120}]} → {"l":[{"a":540,"b":1320,"max":120}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1080 2010-0230 | Herrgårdsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1080 2013-0131 | Drottninggatan | uncertain → {"l":[{"a":0,"b":1440,"max":10}]} | filled from text |
 | 1080 2014-0185 | Valhallavägen | uncertain → {"l":[{"w":1,"a":540,"b":1080,"max":60},{"w":2,"a":540,"b":1080,"max":60},{"w":3,"a":540,"b":1080,"max":60},{"w":4,"a":540,"b":1080,"max":60},{"w":5,"a":540,"b":1080,"max":60}]} | filled from text |

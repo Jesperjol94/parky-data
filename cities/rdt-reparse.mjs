@@ -218,7 +218,8 @@ for (const row of idx.cities) {
       // grey "check the sign" (u, marked ux so a later run can lift it) rather than possibly wrong colours (owner, 24 Oct).
       const tt = fromText(r), win = (w) => `${w.w || 0}:${w.a}-${w.b}`; // the weekday too: an everyday 09–12 is not the text's Thursday 09–12 (QA 8 Nov: Norrtälje Grossgärdsgatan)
       const textBans = new Set((tt.f || []).map(win)), textMax = new Set((tt.l || []).map((l) => l.max)), anyText = hasRules(tt);
-      const odd = anyText && (((s.f || []).filter((w) => !w.ov).some((w) => !textBans.has(win(w)) && !(w.a === 0 && w.b === 1440 && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(rec.body)))) || (s.l || []).some((l) => !textMax.has(l.max)) || (s.v && r.permitted)); // a reservation on a piece of a text that also lets ordinary cars park elsewhere: which piece is reserved can't be told (Bollebygd)
+      const odd = anyText && (((s.f || []).filter((w) => !w.ov).some((w) => !textBans.has(win(w)) && !(w.a === 0 && w.b === 1440 && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(rec.body)))) || (s.l || []).some((l) => !textMax.has(l.max)) || (s.v && r.permitted)
+        || ((tt.f || []).some((w) => (w.w || w.nw || w.dm) && !(s.f || []).some((f) => !f.ov && win(f) === win(w))))); // a cleaning/market-day ban in the text that the line lacks: which part it belongs to can't be told, and missing it would be looser (QA 8 Nov: Täby allé) // a reservation on a piece of a text that also lets ordinary cars park elsewhere: which piece is reserved can't be told (Bollebygd)
       if (APPLY) { if (odd && !s.u) { s.u = 1; s.ux = 1; changed++; st.multiGrey = (st.multiGrey || 0) + 1; } else if (!odd && s.ux) { delete s.u; delete s.ux; changed++; } }
       if (s.u) st.uStill++; continue;
     }

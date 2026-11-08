@@ -1,11 +1,10 @@
 # Ekerö: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 128 segments: 128 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 104, partly read 21. Verified equal 102, filled from text 1, text stricter 0, disputed 1, expired 3, text without rules 0, multi-part texts (not compared) 0.
+Fully read 104, partly read 21. Verified equal 103, filled from text 1, text stricter 0, disputed 0, expired 3, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0125 2010-29 | Herman Palms Plan | {"f":[{"dt":["fore"],"a":0,"b":1440}]} → {"f":[{"dt":["vardag"],"a":420,"b":1020}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0125 2010-47 | Väsbyvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0125 2026-43 | Stamvägen | expired 2026-10-31 | already uncertain |
 | 0125 2026-44 | Stamvägen | expired 2026-10-31 | already uncertain |

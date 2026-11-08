@@ -1,7 +1,7 @@
 # Skellefteå: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 579 segments: 579 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 569, partly read 10. Verified equal 524, filled from text 17, text stricter 0, disputed 4, expired 0, text without rules 23, multi-part texts (not compared) 0.
+Fully read 569, partly read 10. Verified equal 528, filled from text 17, text stricter 0, disputed 0, expired 0, text without rules 23, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -11,10 +11,6 @@ Fully read 569, partly read 10. Verified equal 524, filled from text 17, text st
 | 2482 2009-00067 | Mobackavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 2482 2009-00099 | Torggatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 2482 2010-00007 | Storgatan | uncertain → {"l":[{"a":0,"b":1440,"max":60}]} | filled from text |
-| 2482 2011-00135 | Bogatan | {"f":[{"a":0,"b":1440,"m":[[10,1],[5,31]]}]} → {"f":[{"w":4,"a":420,"b":720,"dt":["vardag"],"m":[[10,1],[5,31]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 2482 2011-00136 | Ågrensgatan | {"f":[{"a":0,"b":1440,"m":[[10,1],[5,31]]}]} → {"f":[{"w":4,"a":420,"b":720,"dt":["vardag"],"m":[[10,1],[5,31]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 2482 2011-00137 | Stapelvägen | {"f":[{"a":0,"b":1440,"m":[[10,1],[5,31]]}]} → {"f":[{"w":4,"a":420,"b":720,"dt":["vardag"],"m":[[10,1],[5,31]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 2482 2011-00138 | Måbärsgatan | {"f":[{"a":0,"b":1440,"m":[[10,1],[5,31]]}]} → {"f":[{"w":4,"a":420,"b":720,"dt":["vardag"],"m":[[10,1],[5,31]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 2482 2013-00009 | Mossgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 2482 2013-00102 | Aldergatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 2482 2024-2 | Fru Lovisas gata | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":900,"max":180}],"v":"rörelsehindrade"} | filled from text |

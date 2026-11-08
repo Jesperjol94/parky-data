@@ -1,7 +1,7 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1100, partly read 56. Verified equal 972, filled from text 2, text stricter 0, disputed 1, expired 26, text without rules 125, multi-part texts (not compared) 0.
+Fully read 1100, partly read 56. Verified equal 973, filled from text 2, text stricter 0, disputed 0, expired 26, text without rules 125, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -26,7 +26,6 @@ Fully read 1100, partly read 56. Verified equal 972, filled from text 2, text st
 | 0484 2018-050 | Tegnérgatan | expired 2018-07-06 | already uncertain |
 | 0484 2018-059 | Galléengatan | expired 2019-03-01 | already uncertain |
 | 0484 2018-080 | Rademachergatan | expired 2019-03-31 | already uncertain |
-| 0484 2021-99 | Tallåsvägen | {"f":[{"dt":["vardag"],"a":360,"b":1320}]} → {"aw":[{"dt":["vardag"],"a":360,"b":1320},{"dt":["fore"],"a":360,"b":1320},{"dt":["helgdag"],"a":360,"b":1320}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0484 2025-1 | Vattugatan | expired 2025-01-31 | already uncertain |
 | 0484 2026-14 | Germundsgatan | expired 2026-10-31 | already uncertain |
 | 0484 2026-47 | Eleonoragatan | expired 2026-10-16 | already uncertain |

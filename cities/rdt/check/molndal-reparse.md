@@ -1,7 +1,7 @@
 # Mölndal: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 2255 segments: 2255 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2211, partly read 23. Verified equal 1746, filled from text 91, text stricter 6, disputed 0, expired 21, text without rules 354, multi-part texts (not compared) 4.
+Fully read 2211, partly read 23. Verified equal 1752, filled from text 91, text stricter 0, disputed 0, expired 21, text without rules 354, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -109,12 +109,6 @@ Fully read 2211, partly read 23. Verified equal 1746, filled from text 91, text 
 | 1481 2019-00161 | Dalbogatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1481 2024-123 | Matildebergsgatan | uncertain → permitted (fee) | filled from text |
 | 1481 2024-183 | Kunskapsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1481 2025-199 | Gamla Riksvägen | {"l":[{"dt":["vardag"],"a":1320,"b":360,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":1320,"b":360,"max":240}]} | text stricter: applied |
-| 1481 2025-199 | Gamla Riksvägen | {"l":[{"dt":["vardag"],"a":1320,"b":360,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":1320,"b":360,"max":240}]} | text stricter: applied |
-| 1481 2025-199 | Gamla Riksvägen | {"l":[{"dt":["vardag"],"a":1320,"b":360,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":1320,"b":360,"max":240}]} | text stricter: applied |
-| 1481 2025-199 | Gamla Riksvägen | {"l":[{"dt":["vardag"],"a":1320,"b":360,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":1320,"b":360,"max":240}]} | text stricter: applied |
-| 1481 2025-199 | Gamla Riksvägen | {"l":[{"dt":["vardag"],"a":1320,"b":360,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":1320,"b":360,"max":240}]} | text stricter: applied |
-| 1481 2025-199 | Gamla Riksvägen | {"l":[{"dt":["vardag"],"a":1320,"b":360,"max":240}]} → {"l":[{"dt":["vardag","fore","helgdag"],"a":1320,"b":360,"max":240}]} | text stricter: applied |
 | 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
 | 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
 | 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
