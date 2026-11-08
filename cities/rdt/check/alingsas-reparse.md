@@ -1,10 +1,23 @@
 # Alingsås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 722 segments: 722 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 650, partly read 50. Verified equal 647, filled from text 0, text stricter 0, disputed 0, expired 22, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-11-08. 716 segments: 716 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 644, partly read 50. Verified equal 628, filled from text 13, text stricter 0, disputed 0, expired 22, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 1489 2008-0113 | Kvarnholmsvägen | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
+| 1489 2008-0178 | Enehagsgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
+| 1489 2008-0178 | Enehagsgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
+| 1489 2008-0178 | Enehagsgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
+| 1489 2008-0182 | Teatergatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1489 2008-0187 | Stationsplan | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1489 2008-0284 | Norra Strömgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1489 2008-0384 | Fjällgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
+| 1489 2008-0428 | Gräfsnäsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1489 2010-0004 | Nolhaga Allé | uncertain → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":30}]} | filled from text |
+| 1489 2010-0024 | Nolhaga Allé | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1489 2010-0031 | Nolhaga Allé | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1489 2020-2 | del av Timmermansvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1489 2026-38 | Stationsgatan | expired 2026-10-19 | already uncertain |
 | 1489 2026-79 | Stockslyckevägen | expired 2026-10-31 | already uncertain |
 | 1489 2026-79 | Stockslyckevägen | expired 2026-10-31 | already uncertain |

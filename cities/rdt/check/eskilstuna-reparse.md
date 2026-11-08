@@ -1,7 +1,7 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 1200 segments: 1200 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1111, partly read 57. Verified equal 986, filled from text 0, text stricter 0, disputed 0, expired 32, text without rules 125, multi-part texts (not compared) 0.
+Run 2026-11-08. 1192 segments: 1192 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1103, partly read 57. Verified equal 976, filled from text 2, text stricter 0, disputed 0, expired 32, text without rules 125, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -25,6 +25,8 @@ Fully read 1111, partly read 57. Verified equal 986, filled from text 0, text st
 | 0484 2014-037 | Björktorpsgatan | expired 2017-01-20 | already uncertain |
 | 0484 2014-093 | Rademachergatan | expired 2016-11-11 | already uncertain |
 | 0484 2014-093 | Rademachergatan | expired 2016-11-11 | already uncertain |
+| 0484 2015-079 | Brogatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 0484 2015-079 | Brogatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0484 2016-240 | Junivägen | expired 2016-10-06 | already uncertain |
 | 0484 2017-99 | Kriebsensgatan | expired 2018-12-07 | already uncertain |
 | 0484 2018-050 | Tegnérgatan | expired 2018-07-06 | already uncertain |

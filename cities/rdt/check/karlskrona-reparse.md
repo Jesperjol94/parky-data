@@ -1,14 +1,24 @@
 # Karlskrona: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 2049 segments: 2049 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2007, partly read 42. Verified equal 1536, filled from text 0, text stricter 7, disputed 0, expired 0, text without rules 37, multi-part texts (not compared) 419.
+Run 2026-11-08. 2028 segments: 2028 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1987, partly read 41. Verified equal 1506, filled from text 17, text stricter 0, disputed 0, expired 0, text without rules 37, multi-part texts (not compared) 419.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1080 2018-295 | Gamla Skeppsbrogatan | {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180}],"aw":[{"dt":["vardag"],"a":420,"b":1080}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180}],"v":"rörelsehindrade"} | text stricter: applied |
-| 1080 2018-296 | Östra Köpmansgatan | {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180}],"aw":[{"dt":["vardag"],"a":420,"b":1080}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180}],"v":"rörelsehindrade"} | text stricter: applied |
-| 1080 2019-112 | Arklimästaregatan | {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180},{"dt":["fore"],"a":420,"b":1080,"max":180},{"dt":["helgdag"],"a":420,"b":1080,"max":180}],"aw":[{"dt":["vardag"],"a":420,"b":1080},{"dt":["fore"],"a":420,"b":1080},{"dt":["helgdag"],"a":420,"b":1080}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180},{"dt":["fore"],"a":420,"b":1080,"max":180},{"dt":["helgdag"],"a":420,"b":1080,"max":180}],"v":"rörelsehindrade"} | text stricter: applied |
-| 1080 2022-5 | Järnvägstorget | {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180}],"aw":[{"dt":["vardag"],"a":420,"b":1080}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180}],"v":"rörelsehindrade"} | text stricter: applied |
-| 1080 2022-5 | Järnvägstorget | {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180}],"aw":[{"dt":["vardag"],"a":420,"b":1080}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180}],"v":"rörelsehindrade"} | text stricter: applied |
-| 1080 2025-2 | Landbrogatan | {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180},{"dt":["fore"],"a":420,"b":1080,"max":180},{"dt":["helgdag"],"a":420,"b":1080,"max":180}],"aw":[{"dt":["vardag"],"a":420,"b":1080},{"dt":["fore"],"a":420,"b":1080},{"dt":["helgdag"],"a":420,"b":1080}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180},{"dt":["fore"],"a":420,"b":1080,"max":180},{"dt":["helgdag"],"a":420,"b":1080,"max":180}],"v":"rörelsehindrade"} | text stricter: applied |
-| 1080 2025-2 | Landbrogatan | {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180},{"dt":["fore"],"a":420,"b":1080,"max":180},{"dt":["helgdag"],"a":420,"b":1080,"max":180}],"aw":[{"dt":["vardag"],"a":420,"b":1080},{"dt":["fore"],"a":420,"b":1080},{"dt":["helgdag"],"a":420,"b":1080}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":180},{"dt":["fore"],"a":420,"b":1080,"max":180},{"dt":["helgdag"],"a":420,"b":1080,"max":180}],"v":"rörelsehindrade"} | text stricter: applied |
+| 1080 2010-0230 | Herrgårdsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1080 2013-0131 | Drottninggatan | uncertain → {"l":[{"a":0,"b":1440,"max":10}]} | filled from text |
+| 1080 2014-0185 | Valhallavägen | uncertain → {"l":[{"w":1,"a":540,"b":1080,"max":60},{"w":2,"a":540,"b":1080,"max":60},{"w":3,"a":540,"b":1080,"max":60},{"w":4,"a":540,"b":1080,"max":60},{"w":5,"a":540,"b":1080,"max":60}]} | filled from text |
+| 1080 2015-47 | Saltösundsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1080 2017-32 | Ölandsgatan | uncertain → {"v":"motorcykel"} | filled from text |
+| 1080 2017-33 | Fortifikationsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1080 2017-149 | Arklimästaregatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
+| 1080 2017-290 | Bredgatan | uncertain → {"v":"motorcykel"} | filled from text |
+| 1080 2017-447 | Karlskrona | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1080 2018-25 | Skogsstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1080 2019-19 | Chapmansplan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2019-22 | Drottninggatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2019-29 | Byggmästaregatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2024-49 | Drottninggatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2024-49 | Drottninggatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2025-276 | Holmgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2025-276 | Holmgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |

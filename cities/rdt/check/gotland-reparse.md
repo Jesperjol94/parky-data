@@ -1,11 +1,10 @@
 # Gotland: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 786 segments: 786 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 679, partly read 105. Verified equal 629, filled from text 0, text stricter 0, disputed 2, expired 2, text without rules 37, multi-part texts (not compared) 0.
+Run 2026-11-08. 783 segments: 783 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 676, partly read 105. Verified equal 627, filled from text 1, text stricter 0, disputed 0, expired 2, text without rules 37, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0980 2013-543 | Mässgatan | {"f":[{"a":0,"b":1440}],"l":[{"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0980 2013-543 | Mässgatan | {"f":[{"a":0,"b":1440}],"l":[{"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 0980 2015-244 | Strandvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0980 2026-133 | Södertorg | expired 2026-10-30 | already uncertain |
 | 0980 2026-133 | Södertorg | expired 2026-10-30 | already uncertain |

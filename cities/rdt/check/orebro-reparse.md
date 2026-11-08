@@ -1,15 +1,19 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 2801 segments: 2801 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2705, partly read 48. Verified equal 2702, filled from text 0, text stricter 0, disputed 2, expired 48, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-11-08. 2788 segments: 2788 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2693, partly read 48. Verified equal 2685, filled from text 5, text stricter 0, disputed 2, expired 47, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 1880 2011-00380 | Brickebacken | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1880 2014-00233 | Berghultsvägen | {"f":[{"w":4,"a":0,"b":480},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":4,"a":0,"b":480}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2018-00975 | Lindrothsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
+| 1880 2020-00506 | Gustavsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1880 2021-01026 | Överstegatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2025-00256 | Slottsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"even"}],"l":[{"dt":["vardag"],"a":360,"b":1320,"max":180},{"dt":["fore"],"a":360,"b":1320,"max":180},{"dt":["helgdag"],"a":360,"b":1320,"max":180}],"v":"rörelsehindrade"} | filled from text |
+| 1880 2025-00675 | Honolulugatan | uncertain → {"f":[{"w":4,"a":0,"b":540}]} | filled from text |
 | 1880 2026-00954 | Höglundagatan | expired 2026-10-26 | already uncertain |
-| 1880 2026-01071 | Nygatan | expired 2026-11-02 | already uncertain |
 | 1880 2026-01071 | Nygatan | expired 2026-11-02 | already uncertain |
 | 1880 2026-01073 | Slussgatan | expired 2026-11-01 | already uncertain |
 | 1880 2026-01079 | Nygatan | expired 2026-10-19 | already uncertain |

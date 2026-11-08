@@ -253,6 +253,7 @@ for (const row of idx.cities) {
       const keys = (ws) => new Set((ws || []).flatMap((w) => ['p', 'm', 'dd', 'nw', 'dm', 'dt'].filter((k) => w[k] != null)));
       const noLoss = (a, b) => [...keys(b)].every((k) => keys(a).has(k)); // the text's windows must keep every condition the register had (QA 8 Nov: Askersund would have lost a season)
       if (APPLY && (cond(t.f) !== cond(cur.f) || cond(t.l) !== cond(cur.l)) && noLoss(t.f, cur.f) && noLoss(t.l, cur.l) && JSON.stringify([t.f, t.l]).match(/"(?:p|m|dd|nw|dm|dt)":/)) { put(); st.precise = (st.precise || 0) + 1; }
+      if (APPLY && t.dp && t.dp.length && !(cur.dp && cur.dp.length)) { put(); st.dpAdded = (st.dpAdded || 0) + 1; } // the comparison samples one week without date parking: a text that defers to the datumparkering rules adds it (QA 8 Nov: Gävle, 4 of 480)
       if (cur.v === 'personbil' && APPLY) { delete s.v; s.rx = 1; changed++; }
     } else if (verdict === 'stricter' || (cur.v === 'personbil' && !textV && verdict !== 'mixed')) {
       st.strictened++;

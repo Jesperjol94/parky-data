@@ -655,3 +655,9 @@ test('QA 8 Nov round 2: fee only "övrig tid", weekday hours without "klockan", 
   const d = parseRegulation('följande. På östra sidan av Medborgargatan får Parkering ske, under högst 10 min i följd, vardag, vardag före sön- och helgdag och sön- och helgdag.');
   assert.deepEqual(d.limits, [{ dt: ['vardag', 'fore', 'helgdag'], a: 0, b: 1440, max: 10 }]);
 });
+test('QA 8 Nov round 4: "jämn vecka 05-07", "24.00 - 08.00", motorhome-only ban, fee hours in the permission + fee day types', () => {
+  assert.deepEqual(parseRegulation('följande. På Kungsgatans norra sida får fordon inte parkeras. Förbudet gäller Torsdagar jämn vecka 05-07.').bans, [{ w: 4, a: 300, b: 420, p: 'even' }]);
+  assert.deepEqual(parseRegulation('följande. 1 § Inom det område får fordon parkeras. 2 § Parkering är dock förbjuden under tiden vardag mellan klockan 24.00 - 08.00.').bans, [{ dt: ['vardag', 'fore'], a: 0, b: 480 }]);
+  assert.deepEqual(parseRegulation('följande. 1 § Inom det område får fordon parkeras under högst 24 tim i följd. 2 § Parkering är dock förbjuden under tiden vardag mellan klockan 24.00 - 08.00. 3 § Förbudet i paragraf 2 gäller endast personbil klass II.').bans, []);
+  assert.deepEqual(parseRegulation('följande. På Järnvägsgatans norra sida får fordon parkeras mot avgift klockan 16.00 - 19.00. Avgiftsplikten gäller vardag utom vardag före sön- och helgdag. Avgift enligt taxa för zon C.').feeWindows, [{ a: 960, b: 1140, dt: ['vardag'] }]);
+});

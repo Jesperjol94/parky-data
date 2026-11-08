@@ -1,8 +1,19 @@
 # Järfälla: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 2537 segments: 2537 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2524, partly read 13. Verified equal 1195, filled from text 0, text stricter 1, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-11-08. 2527 segments: 2527 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2514, partly read 13. Verified equal 1175, filled from text 12, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0123 2016-00277 | Källtorpsvägen | {"l":[{"dt":["vardag"],"a":480,"b":900,"max":120},{"dt":["vardag"],"a":480,"b":1140,"max":120}]} → {"l":[{"dt":["vardag"],"a":480,"b":900,"max":120},{"dt":["vardag","fore"],"a":480,"b":1140,"max":120}]} | text stricter: applied |
+| 0123 2012-00005 | Äggelundavägen | uncertain → {"v":"lastbil"} | filled from text |
+| 0123 2013-00044 | Plogvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 0123 2013-00079 | Birgittavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0123 2013-00296 | Trimvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0123 2013-00381 | Ormbackavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0123 2017-00051 | Allmänningsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0123 2017-00294 | Kornvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0123 2017-00338 | Idrottsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0123 2019-00057 | Mjölnarvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 0123 2019-00057 | Mjölnarvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 0123 2019-00092 | Mejerivägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0123 2026-77 | Görvälnsvägen parkering Bruket | uncertain → {"l":[{"a":0,"b":1440,"max":480}]} | filled from text |

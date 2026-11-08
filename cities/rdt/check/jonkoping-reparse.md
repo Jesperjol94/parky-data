@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 2273 segments: 2273 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2052, partly read 19. Verified equal 1487, filled from text 0, text stricter 0, disputed 0, expired 202, text without rules 565, multi-part texts (not compared) 0.
+Run 2026-11-08. 2269 segments: 2269 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2050, partly read 19. Verified equal 1484, filled from text 1, text stricter 0, disputed 0, expired 200, text without rules 565, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -52,7 +52,6 @@ Fully read 2052, partly read 19. Verified equal 1487, filled from text 0, text s
 | 0680 2011-609 | Skolgatan | expired 2011-05-28 | already uncertain |
 | 0680 2011-633 | Skolgatan | expired 2011-07-08 | already uncertain |
 | 0680 2011-634 | Skolgatan | expired 2011-08-26 | already uncertain |
-| 0680 2011-737 | Dunkehallavägen | expired 2011-07-08 | already uncertain |
 | 0680 2011-737 | Dunkehallavägen | expired 2011-07-08 | already uncertain |
 | 0680 2011-755 | Klostergatan | expired 2011-07-13 | already uncertain |
 | 0680 2011-761 | Järnvägsgatan | expired 2011-08-21 | already uncertain |
@@ -115,7 +114,6 @@ Fully read 2052, partly read 19. Verified equal 1487, filled from text 0, text s
 | 0680 2012-168 | Hotellplan | expired 2012-06-05 | already uncertain |
 | 0680 2012-168 | Hotellplan | expired 2012-06-05 | already uncertain |
 | 0680 2012-168 | Hotellplan | expired 2012-06-05 | already uncertain |
-| 0680 2012-177 | Jönköping | expired 2012-06-09 | already uncertain |
 | 0680 2012-177 | Jönköping | expired 2012-06-09 | already uncertain |
 | 0680 2012-178 | Jönköping | expired 2012-06-09 | already uncertain |
 | 0680 2012-183 | Nygatan | expired 2012-06-12 | already uncertain |
@@ -193,6 +191,7 @@ Fully read 2052, partly read 19. Verified equal 1487, filled from text 0, text s
 | 0680 2013-141 | Norra Bogesundsgatan | expired 2013-05-24 | already uncertain |
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
+| 0680 2017-861 | Tegnérgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
 | 0680 2026-262 | Östra Storgatan | expired 2026-10-30 | already uncertain |
 | 0680 2026-262 | Östra Storgatan | expired 2026-10-30 | already uncertain |
