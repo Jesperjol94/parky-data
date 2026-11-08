@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3590, partly read 84. Verified equal 3128, filled from text 167, text stricter 0, disputed 0, expired 99, text without rules 287, multi-part texts (not compared) 0.
+Fully read 3594, partly read 80. Verified equal 3125, filled from text 167, text stricter 1, disputed 4, expired 99, text without rules 289, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -165,6 +165,7 @@ Fully read 3590, partly read 84. Verified equal 3128, filled from text 167, text
 | 1283 2010-01160 | Skånegatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-01163 | Koralgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-01206 | Jupitergatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1283 2010-01329 | Industrigatan | {"l":[{"a":0,"b":1440,"max":15}]} → {"l":[{"a":0,"b":1440,"max":15}],"v":"lastning","k":[{"w":5,"a":840,"b":900}]} | text stricter: applied |
 | 1283 2010-01457 | Kullavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-01457 | Kullavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-01482 | Brohultsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -192,6 +193,10 @@ Fully read 3590, partly read 84. Verified equal 3128, filled from text 167, text
 | 1283 2010-03443 | Närlundavägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-03497 | Vikingsgatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1283 2010-03518 | Norra Brunnsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1283 2011-00050 | Domaregatan | {"f":[{"dt":["vardag"],"a":420,"b":1080},{"dt":["fore"],"a":660,"b":1080},{"dt":["helgdag"],"a":660,"b":1080},{"a":0,"b":1440}]} → {"f":[{"dt":["vardag"],"a":420,"b":1080},{"dt":["fore"],"a":660,"b":1080},{"dt":["helgdag"],"a":660,"b":1080}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1283 2011-00050 | Domaregatan | {"f":[{"dt":["vardag"],"a":420,"b":1080},{"dt":["fore"],"a":660,"b":1080},{"dt":["helgdag"],"a":660,"b":1080},{"a":0,"b":1440}]} → {"f":[{"dt":["vardag"],"a":420,"b":1080},{"dt":["fore"],"a":660,"b":1080},{"dt":["helgdag"],"a":660,"b":1080}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1283 2011-00051 | Domaregatan | {"f":[{"a":540,"b":660}]} → {"f":[{"w":4,"nw":2,"a":540,"b":660}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1283 2011-00051 | Domaregatan | {"f":[{"a":540,"b":660}]} → {"f":[{"w":4,"nw":2,"a":540,"b":660}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1283 2011-00113 | Charlotte Yhlens gata | uncertain → {"v":"motorcykel"} | filled from text |
 | 1283 2011-00159 | Troedsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2011-00327 | Roskildegatan | uncertain → {"v":"rörelsehindrade"} | filled from text |

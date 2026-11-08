@@ -674,3 +674,7 @@ test('QA 8 Nov round 5: "Parkering är dock tillåten <hours>" after a ban, seas
 test('QA 8 Nov round 5: an exception on "4 tisdagen i månaden" leaves the all-day ban (allowed-only hours stay plain)', () => {
   assert.deepEqual(parseRegulation('följande. På Rosenbergsgatans sydvästra sida får fordon inte parkeras. Parkering är dock tillåten under tiden 4 tisdagen i månaden klockan 08.00 - 18.00.').bans, [{ a: 0, b: 1440 }]);
 });
+test('QA 8 Nov round 6: "vardagar 07.00 till 17.00 utom dag före …", heavy subject with the word lost', () => {
+  assert.deepEqual(parseRegulation('följande. 1 § På Stenhamraskolans vändplan får fordon inte parkeras. 2 § Förbudet gäller vardagar 07.00 till 17.00 utom dag före sön- och helgdag.').bans, [{ dt: ['vardag'], a: 420, b: 1020 }]);
+  assert.equal(parseRegulation('följande. 1 § På Kärleksgatan får med totalvikt över 3,5 ton inte parkeras. 2 § Förbudet gäller vardag utom vardag före sön- och helgdag mellan klockan 00.00 – 06.00.').heavyOnly, true);
+});

@@ -1,7 +1,7 @@
 # Uppsala: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3622, partly read 75. Verified equal 2247, filled from text 12, text stricter 0, disputed 0, expired 28, text without rules 1362, multi-part texts (not compared) 0.
+Fully read 3624, partly read 73. Verified equal 2247, filled from text 12, text stricter 2, disputed 0, expired 28, text without rules 1362, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -19,6 +19,8 @@ Fully read 3622, partly read 75. Verified equal 2247, filled from text 12, text 
 | 0380 2018-1041 | Kummingatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 0380 2021-60 | Östra Ågatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2021-61 | Östra Ågatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
+| 0380 2022-421 | Anundsgatan | {"f":[{"a":960,"b":1320}]} → {"f":[{"a":960,"b":1320},{"dt":["vardag","fore","helgdag"],"a":0,"b":960},{"dt":["vardag","fore","helgdag"],"a":1320,"b":1440}]} | text stricter: applied |
+| 0380 2022-421 | Anundsgatan | {"f":[{"a":960,"b":1320}]} → {"f":[{"a":960,"b":1320},{"dt":["vardag","fore","helgdag"],"a":0,"b":960},{"dt":["vardag","fore","helgdag"],"a":1320,"b":1440}]} | text stricter: applied |
 | 0380 2022-424 | Soldathemsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2024-211 | Vanadisgatan | uncertain → permitted (fee) | filled from text |
 | 0380 2026-489 | Birkagatan | expired 2026-10-16 | already uncertain |

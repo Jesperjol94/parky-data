@@ -177,7 +177,17 @@ for (const row of idx.cities) {
       }
     }
     // (the block above runs before the fully-read gate: one unread sentence about something else must not keep the fee around the clock, QA 8 Nov: Sundbyberg, Östersund, Nacka)
-    if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; continue; }
+    if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; 
+      // Bans the parser DID read are still added when some other sentence was unread: adding a ban never relaxes a line. Not when the
+      // unread sentence qualifies a rule ("Förbudet gäller …", "Tillåtelsen …", "Tidsbegränsningen …", "Övrig tid …", "Trots …"), not for
+      // multi-part texts, and never an unqualified all-day ban (QA 8 Nov: Vaxholm Hamngatan lost "Fordon får dock inte parkeras tisdag
+      // 0–8" to an unread fee sentence; ~20 Täby cleaning bans were lost to "Parkering ska ske vinkelrätt mot färdriktningen")
+      if (APPLY && !multi && !s.u && !s.v && r.bans.length && !r.unread.some((u) => /^(?:förbud|tillåtelse|tidsbegränsning|villkor|övrig tid|under tiden|trots)|totalvikt|bruttovikt|lastbil|tung|buss|släp|husbil|klass (?:ii|2)/i.test(u))) { // an unread sentence about heavy vehicles may be the subject of the ban (Burlöv)
+        const sigB = (w) => JSON.stringify([w.w || 0, w.nw || 0, w.dm || 0, w.dt || null, w.a, w.b, w.m || null, w.p || null]); const have = new Set((s.f || []).map(sigB));
+        const add = r.bans.filter((w) => !(w.a === 0 && w.b === 1440 && !w.w && !w.dt && !w.nw && !w.dm) && !have.has(sigB(w)));
+        if (add.length) { s.f = [...(s.f || []), ...add]; s.rx = 1; changed++; st.partialBans = (st.partialBans || 0) + 1; }
+      }
+      continue; }
     st.fullyRead++;
     // Fee hours from the text ("Avgift enligt Taxa Zon 2 … vardagar … 09.00 - 18.00") narrow a fee table that charges all day:
     // a derived fee entry <taxa>*100+n (8 digits, never a register code) with the same price in those hours only

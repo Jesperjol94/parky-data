@@ -1,7 +1,7 @@
 # Kalmar: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 798 segments: 798 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 769, partly read 21. Verified equal 715, filled from text 15, text stricter 0, disputed 0, expired 8, text without rules 20, multi-part texts (not compared) 19.
+Fully read 770, partly read 20. Verified equal 715, filled from text 15, text stricter 0, disputed 0, expired 8, text without rules 20, multi-part texts (not compared) 20.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

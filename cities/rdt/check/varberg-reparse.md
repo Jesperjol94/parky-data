@@ -1,7 +1,7 @@
 # Varberg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 783 segments: 783 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 767, partly read 9. Verified equal 686, filled from text 49, text stricter 0, disputed 0, expired 7, text without rules 2, multi-part texts (not compared) 30.
+Fully read 768, partly read 8. Verified equal 686, filled from text 50, text stricter 0, disputed 0, expired 7, text without rules 2, multi-part texts (not compared) 30.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -49,6 +49,7 @@ Fully read 767, partly read 9. Verified equal 686, filled from text 49, text str
 | 1383 2018-00016 | Ugglevägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1383 2018-00150 | Änggärdevägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1383 2019-00025 | Engelbrektsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1383 2019-00052 | Slottsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1383 2019-00059 | Villagatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1383 2019-00134 | Bäckgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1383 2020-00006 | Västra Vallgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

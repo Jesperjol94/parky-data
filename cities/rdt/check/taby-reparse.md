@@ -1,7 +1,7 @@
 # Täby: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 660 segments: 660 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 536, partly read 117. Verified equal 381, filled from text 96, text stricter 0, disputed 1, expired 7, text without rules 5, multi-part texts (not compared) 52.
+Fully read 567, partly read 86. Verified equal 381, filled from text 96, text stricter 0, disputed 1, expired 7, text without rules 5, multi-part texts (not compared) 83.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

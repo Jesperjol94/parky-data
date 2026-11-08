@@ -1,7 +1,7 @@
 # Järfälla: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-08. 2527 segments: 2527 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2514, partly read 13. Verified equal 1175, filled from text 12, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
+Fully read 2515, partly read 12. Verified equal 1176, filled from text 12, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
