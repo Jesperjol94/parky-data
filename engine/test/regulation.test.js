@@ -653,5 +653,5 @@ test('QA 8 Nov round 2: fee only "övrig tid", weekday hours without "klockan", 
   const c = parseRegulation('följande. På Esplanadens östra sida får endast sådant fordon parkeras som används för befordran av rörelsehindrad med parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276). Parkering är dock tillåten under högst 2 tim i följd under tiden vardagar utom vardag före sön- och helgdag klockan 08.00 - 21.00.');
   assert.equal(c.reserved, true); assert.equal(c.limits[0].max, 120); // the bay stays reserved: the limit is the permit holders'
   const d = parseRegulation('följande. På östra sidan av Medborgargatan får Parkering ske, under högst 10 min i följd, vardag, vardag före sön- och helgdag och sön- och helgdag.');
-  assert.deepEqual(d.limits.map((w) => w.dt[0]).sort(), ['fore', 'helgdag', 'vardag']);
+  assert.deepEqual(d.limits, [{ dt: ['vardag', 'fore', 'helgdag'], a: 0, b: 1440, max: 10 }]);
 });
