@@ -1,13 +1,12 @@
 # Uppsala: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-09. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3625, partly read 72. Verified equal 2245, filled from text 12, text stricter 1, disputed 4, expired 28, text without rules 1362, multi-part texts (not compared) 0.
+Fully read 3625, partly read 72. Verified equal 2250, filled from text 12, text stricter 0, disputed 0, expired 28, text without rules 1362, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0380 2009-00226 | Vasagatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0380 2009-00227 | Gluntens gränd | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0380 2009-00323 | S:t Persgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"v":"motorcykel"} | text stricter: applied |
 | 0380 2009-00392 | Almqvistgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2010-00329 | Kungsängsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0380 2010-00475 | Börjegatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}],"v":"rörelsehindrade"} | filled from text |
@@ -18,10 +17,6 @@ Fully read 3625, partly read 72. Verified equal 2245, filled from text 12, text 
 | 0380 2017-421 | Sysslomansgatan | expired 2017-07-08 | already uncertain |
 | 0380 2017-421 | Sysslomansgatan | expired 2017-07-08 | already uncertain |
 | 0380 2018-1041 | Kummingatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
-| 0380 2019-289 | S:t Johannesgatan | {"l":[{"a":0,"b":1440,"max":5}],"aw":[{"dt":["vardag"],"a":1080,"b":420},{"dt":["fore"],"a":0,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":5}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0380 2019-289 | S:t Johannesgatan | {"l":[{"a":0,"b":1440,"max":5}],"aw":[{"dt":["vardag"],"a":1080,"b":420},{"dt":["fore"],"a":0,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":5}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0380 2019-289 | S:t Johannesgatan | {"l":[{"a":0,"b":1440,"max":5}],"aw":[{"dt":["vardag"],"a":1080,"b":420},{"dt":["fore"],"a":0,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":5}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0380 2019-289 | S:t Johannesgatan | {"l":[{"a":0,"b":1440,"max":5}],"aw":[{"dt":["vardag"],"a":1080,"b":420},{"dt":["fore"],"a":0,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}]} → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":5}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0380 2021-60 | Östra Ågatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2021-61 | Östra Ågatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2022-424 | Soldathemsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |

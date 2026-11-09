@@ -714,3 +714,9 @@ test('QA 9 Nov round 9: "får motorcykel parkeras" is a motorcycle bay; Ystad pl
   const y = parseRegulation('följande. 1 § På Stortorget får endast sådant fordon parkeras som används för befordran av rörelsehindrad med parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276). 2 § Tillåtelsen gäller under tiden vardag utom vardag före sön- och helgdag mellan klockan 08.00 - 18.00 och vardag före sön- och helgdag mellan klockan 08.00 - 15.00 under högst 3 tim i följd. 3 § Tillåtelsen gäller på särskilt anordnad parkeringsplats.');
   assert.deepEqual(y.unread, []); assert.ok(y.limits.every((w) => w.dt));
 });
+
+test('"får fordon, parkeras där stannande och parkering är förbjuden": a stray comma, still a fee permission, not a ban (QA 9 Nov round 10: Eskilstuna Gredbyvägen)', () => {
+  const r = parseRegulation(wrap('1 § Inom ett område (På sydvästra sidan av Gredbyvägen på den anlagda ytan utanför körbanan i särskilt markerade parkeringsfickor) får fordon, parkeras där stannande och parkering är förbjuden enligt trafikförordningen (1998:1276) 3 kap 52§ andra stycket. 2 § Avgift ska betalas för parkering enligt taxa gällande för biljettområde CN1. Avgiftsplikten gäller vardag utom vardag före sön- och helgdag mellan klockan 08.00 - 20.00 och vardag före sön- och helgdag 08.00 - 15.00.'));
+  assert.equal(r.permitted, true); assert.deepEqual(r.bans, []); assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1200 }, { dt: ['fore'], a: 480, b: 900 }]);
+});

@@ -1,7 +1,7 @@
 # Danderyd: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-09. 747 segments: 747 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 701, partly read 46. Verified equal 591, filled from text 10, text stricter 1, disputed 5, expired 0, text without rules 23, multi-part texts (not compared) 71.
+Fully read 701, partly read 46. Verified equal 592, filled from text 10, text stricter 0, disputed 5, expired 0, text without rules 23, multi-part texts (not compared) 71.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -14,7 +14,6 @@ Fully read 701, partly read 46. Verified equal 591, filled from text 10, text st
 | 0162 2014-00014 | Mörbyleden | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0162 2014-00082 | Hamnvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0162 2014-00091 | Axel Johnsons väg | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0162 2014-00095 | Mörbygårdsvägen | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":60},{"dt":["fore"],"a":480,"b":960,"max":60}]} → {"v":"motorcykel"} | text stricter: applied |
 | 0162 2015-00013 | Hildingavägen | uncertain → {"f":[{"dt":["vardag"],"a":540,"b":780}]} | filled from text |
 | 0162 2016-00012 | Blåsippevägen | uncertain → {"f":[{"dt":["vardag"],"a":0,"b":540},{"dt":["vardag"],"a":1260,"b":1440},{"dt":["fore","helgdag"],"a":0,"b":1440}],"l":[{"dt":["vardag"],"a":540,"b":1260,"max":240}]} | filled from text |
 | 0162 2017-00030 | Skolgårdsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
