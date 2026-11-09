@@ -1,7 +1,7 @@
 # Varberg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 783 segments: 783 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 768, partly read 8. Verified equal 690, filled from text 50, text stricter 0, disputed 0, expired 7, text without rules 2, multi-part texts (not compared) 26.
+Run 2026-11-09. 783 segments: 783 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 767, partly read 8. Verified equal 689, filled from text 50, text stricter 0, disputed 0, expired 8, text without rules 2, multi-part texts (not compared) 26.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -61,4 +61,5 @@ Fully read 768, partly read 8. Verified equal 690, filled from text 50, text str
 | 1383 2026-00161 | Kungsgatan | expired 2026-11-02 | already uncertain |
 | 1383 2026-00162 | Strandbackavägen | expired 2026-10-30 | already uncertain |
 | 1383 2026-00163 | Kungsgatan | expired 2026-10-31 | already uncertain |
+| 1383 2026-00164 | Morkullegatan | expired 2026-11-09 | already uncertain |
 | 1383 2026-00165 | Borgmästaregatan | expired 2026-10-30 | already uncertain |

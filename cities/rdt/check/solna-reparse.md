@@ -1,7 +1,7 @@
 # Solna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 2280 segments: 2280 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2247, partly read 15. Verified equal 2159, filled from text 63, text stricter 0, disputed 0, expired 18, text without rules 20, multi-part texts (not compared) 0.
+Run 2026-11-09. 2280 segments: 2280 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2243, partly read 15. Verified equal 2155, filled from text 63, text stricter 0, disputed 0, expired 22, text without rules 20, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -90,4 +90,8 @@ Fully read 2247, partly read 15. Verified equal 2159, filled from text 63, text 
 | 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | already uncertain |
 | 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | already uncertain |
 | 0184 2026-244 | Gustav III:s boulevard | expired 2026-10-19 | already uncertain |
+| 0184 2026-246 | Släggbacken | expired 2026-11-09 | already uncertain |
+| 0184 2026-246 | Släggbacken | expired 2026-11-09 | already uncertain |
+| 0184 2026-246 | Släggbacken | expired 2026-11-09 | already uncertain |
+| 0184 2026-246 | Släggbacken | expired 2026-11-09 | already uncertain |
 | 0184 2026-258 | Östervägen | expired 2026-10-21 | already uncertain |

@@ -689,3 +689,14 @@ test('QA 8 Nov round 7: charging bays are reserved, placement-only house-number 
   const d = parseRegulation('följande. På Åkerbyvägen får fordon parkeras under högst 3 tim i följd. Tillåtelsen gäller följande sidor. Med husnr 362-382 gäller hussidan. med nr 320-330 gäller södra sidan. Tidsbegränsningen gäller under tiden vardag utom vardag före sön- och helgdag klockan 06.00 - 22.00, vardag före sön- och helgdag klockan 06.00 - 22.00 och sön- och helgdag klockan 06.00 - 22.00. Övrig tid får fordon inte parkeras.');
   assert.deepEqual(d.unread, []); assert.equal(d.bans.length, 2);
 });
+test('QA 9 Nov round 8: bare "Övrig tid parkeringsförbud." bans the hours outside the limit; "06.00 - 06.00" is round the clock', () => {
+  const a = parseRegulation('följande. På markerade sträckor på Klockargårdsvägen enligt kartbild får fordon parkeras under högst 4 tim i följd. Tidsbegränsningen gäller under tiden vardag utom vardag före sön- och helgdag klockan 08.00 - 22.00, vardag före sön- och helgdag klockan 08.00 - 22.00 och sön- och helgdag klockan 08.00 - 22.00. Övrig tid parkeringsförbud.');
+  assert.deepEqual(a.unread, []); assert.ok(a.bans.length > 0);
+  assert.ok(a.bans.every((b) => !(b.a < 1320 && b.b > 480 && b.a < b.b)));
+  const b = parseRegulation('följande. 1 § På Kärrvägen får fordon inte stannas eller parkeras. 2 § Förbudet gäller klockan 06.00 - 06.00 8 juni - 30 juni.');
+  assert.equal(b.bans.length, 1); assert.equal(b.bans[0].a, 0); assert.equal(b.bans[0].b, 1440);
+});
+test('QA 9 Nov round 8: "Övrig del av året gäller parkeringsförbud" bans the rest of the year only', () => {
+  const r = parseRegulation('följande. På Gruvvägen får fordon parkeras under högst 24 tim i följd under tiden 1 juli – 30 september. Övrig del av året gäller parkeringsförbud.');
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440, m: [[10, 1], [6, 30]] }]); assert.deepEqual(r.unread, []);
+});

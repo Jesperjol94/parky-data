@@ -1,6 +1,6 @@
 # Borgholm: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 367 segments: 367 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-09. 367 segments: 367 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 325, partly read 42. Verified equal 259, filled from text 6, text stricter 0, disputed 0, expired 0, text without rules 60, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

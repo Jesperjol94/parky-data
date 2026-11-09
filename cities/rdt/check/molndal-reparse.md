@@ -1,6 +1,6 @@
 # Mölndal: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 2255 segments: 2255 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-09. 2255 segments: 2255 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 2211, partly read 23. Verified equal 1752, filled from text 91, text stricter 0, disputed 0, expired 21, text without rules 354, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |

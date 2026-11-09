@@ -1,7 +1,7 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-08. 2788 segments: 2788 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2711, partly read 30. Verified equal 2685, filled from text 5, text stricter 0, disputed 2, expired 47, text without rules 1, multi-part texts (not compared) 18.
+Run 2026-11-09. 2788 segments: 2788 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2710, partly read 30. Verified equal 2684, filled from text 5, text stricter 0, disputed 2, expired 48, text without rules 1, multi-part texts (not compared) 18.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -47,6 +47,7 @@ Fully read 2711, partly read 30. Verified equal 2685, filled from text 5, text s
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01339 | Norrgatan | expired 2026-10-24 | already uncertain |
+| 1880 2026-01351 | Rådmansgatan | expired 2026-11-09 | already uncertain |
 | 1880 2026-01355 | Malmgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01356 | Norrgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01359 | Kasten Ottergatan | expired 2026-10-21 | already uncertain |

@@ -132,6 +132,7 @@ export function windows(clause) {
     const pre = m[1];
     let a = toMin(m[2], m[3]), b = toMin(m[4], m[5]); if (a === 1440) a = 0; // "24.00 - 08.00" starts at midnight (QA 8 Nov: Sölvesborg)
     if (b === 0) b = 1440;
+    if (a === b) { a = 0; b = 1440; } // "klockan 06.00 - 06.00": round the clock, not a zero-length window (QA 9 Nov: Tyresö)
     const wds = weekdaysOf(pre);
     const dm = (pre.match(/\b(?:den )?(\d{1,2}) dagen i (?:varje )?månaden/i) || [])[1]; // "den 7 dagen", "19:e dagen i månaden"
     if (wds) { lastDt = undefined; const dtw = dayTypesOf(pre.replace(new RegExp(String.raw`\b${WD}\b`, 'gi'), ' ')); if (!wds.length) out.push(clean({ a, b, dt: dtw ?? null })); else for (const w of wds) out.push(clean({ w, a, b, dt: dtw ?? null })); continue; } // "måndagar 08-11 (gäller vardag utom …)": the weekday, and only when it is a vardag (Norrköping)
@@ -388,7 +389,12 @@ export function parseRegulation(body) {
       // "får endast personbil parkeras …": ordinary cars may park; read the rest of the sentence as usual
       x = x.replace(/får endast (?:personbil(?:ar)?(?: klass (?:i|1)\b)?|fordon)\s*/, 'får fordon '); s = s.replace(/får endast (?:personbil(?:ar)?(?: klass (?:I|1)\b)?|fordon)\s*/i, 'får fordon ');
     }
-    if (/^övrig tid (?:får (?:fordon inte|inte fordon) parkeras|(?:är |råder )?parkering(?:en)? förbjuden|är det förbjudet att (?:stanna (?:eller|och) )?parkera|(?:råder|gäller) parkeringsförbud|gäller förbud (?:att|mot att) parkera|får fordon (?:inte|ej) stannas)/.test(x)) { // also "Övrig tid gäller parkeringsförbud" (Ekerö, Nynäshamn), "Övrig tid gäller förbud mot att parkera fordon" (Eskilstuna) // outside the stated hours: not allowed
+    if (/^övrig(?:a)? (?:del(?:en)? av året|tid(?:en)? av året) (?:gäller|råder|är det) (?:parkeringsförbud|förbud att parkera|förbjudet att parkera)/.test(x)) { // "… högst 24 tim i följd under tiden 1 juli – 30 september. Övrig del av året gäller parkeringsförbud." (QA 9 Nov: Kiruna read as an all-year ban)
+      const ms = lastLimit && lastLimit.items.length && lastLimit.items.every((w) => w.m && JSON.stringify(w.m) === JSON.stringify(lastLimit.items[0].m)) ? lastLimit.items[0].m : !lastLimit ? permitSeason : null;
+      if (ms && !windows(s).length) { const items = [{ a: 0, b: 1440, m: complement(ms) }]; out.bans.push(...items); lastBan = { items, provisional: false }; continue; }
+      unread(s); continue;
+    }
+    if (/^övrig tid (?:får (?:fordon inte|inte fordon) parkeras|(?:är |råder )?parkering(?:en)? förbjuden|är det förbjudet att (?:stanna (?:eller|och) )?parkera|(?:(?:råder|gäller) )?parkeringsförbud|gäller förbud (?:att|mot att) parkera|får fordon (?:inte|ej) stannas)/.test(x)) { // also "Övrig tid gäller parkeringsförbud" (Ekerö, Nynäshamn), bare "Övrig tid parkeringsförbud." (QA 9 Nov: Danderyd), "Övrig tid gäller förbud mot att parkera fordon" (Eskilstuna) // outside the stated hours: not allowed
       if (!lastAllow && lastBan && !lastBan.items.some((b) => b.w || b.m || b.p || b.dm || b.nw || b.dd)) { const o = outsideHours(lastBan.items); if (o && o.length) { out.bans.push(...o); continue; } } // a stopping ban at set hours, "Övrig tid får fordon inte parkeras" (Huddinge): no parking at other times either
       // after a time-limited permission with set hours and no "Tillåtelsen gäller …" ("… högst 1 tim i följd. Tidsbegränsningen gäller vardag …
       // 10.00 - 14.00. Övrig tid får fordon inte parkeras."): no parking outside the limit's hours (QA 30 Oct: Danderyd, Täby showed free parking)
