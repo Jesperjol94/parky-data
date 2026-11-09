@@ -1,7 +1,7 @@
 # Jönköping: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-09. 1764 segments: 1764 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1545, partly read 19. Verified equal 1194, filled from text 1, text stricter 0, disputed 0, expired 200, text without rules 350, multi-part texts (not compared) 0.
+Fully read 1549, partly read 15. Verified equal 1194, filled from text 5, text stricter 0, disputed 0, expired 200, text without rules 350, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -192,6 +192,10 @@ Fully read 1545, partly read 19. Verified equal 1194, filled from text 1, text s
 | 0680 2013-145 | Klostergatan | expired 2013-07-15 | already uncertain |
 | 0680 2013-151 | Järnvägsgatan | expired 2013-06-02 | already uncertain |
 | 0680 2017-861 | Tegnérgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 0680 2019-185 | Skjutsarbacken | uncertain → {"v":"motorcykel"} | filled from text |
+| 0680 2019-185 | Skjutsarbacken | uncertain → {"v":"motorcykel"} | filled from text |
+| 0680 2019-186 | Skjutsarbacken | uncertain → {"v":"motorcykel"} | filled from text |
+| 0680 2019-186 | Skjutsarbacken | uncertain → {"v":"motorcykel"} | filled from text |
 | 0680 2020-305 | Sandbacksgatan | expired 2021-12-31 | already uncertain |
 | 0680 2026-262 | Östra Storgatan | expired 2026-10-30 | already uncertain |
 | 0680 2026-262 | Östra Storgatan | expired 2026-10-30 | already uncertain |

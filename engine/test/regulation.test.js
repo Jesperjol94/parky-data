@@ -700,3 +700,17 @@ test('QA 9 Nov round 8: "Övrig del av året gäller parkeringsförbud" bans the
   const r = parseRegulation('följande. På Gruvvägen får fordon parkeras under högst 24 tim i följd under tiden 1 juli – 30 september. Övrig del av året gäller parkeringsförbud.');
   assert.deepEqual(r.bans, [{ a: 0, b: 1440, m: [[10, 1], [6, 30]] }]); assert.deepEqual(r.unread, []);
 });
+test('QA 9 Nov round 9: a weekly ban outside the limit hours means parking is otherwise allowed (no allowed-only hours)', () => {
+  const r = parseRegulation('följande. 1 § På rödmarkerad sträcka på Sörbyvägen enligt kartbilaga 1 får fordon, med avvikelse från Örebro kommuns lokala trafikföreskrifter 1880 2026:01207 om förbud att parkera på Tamarinden, parkeras. 5 § Tillåtelsen i 1 § gäller högst 3 timmar i följd under tiden - vardagar utom vardag före sön- och helgdag mellan klockan 08.00 och 20.00. 6 § Parkering är dock förbjuden torsdag mellan klockan 00.00 och 09.00.');
+  assert.deepEqual(r.allowOnly, []); assert.equal(r.limits.length, 1); assert.deepEqual(r.bans, [{ w: 4, a: 0, b: 540 }]);
+});
+test('QA 9 Nov round 9: "Övrig tid är parkering tillåten under högst 5 minuter" after permission hours over midnight', () => {
+  const r = parseRegulation('följande. 1 § På S:t Johannesgatan enligt kartbilaga får fordon, med avvikelse från Uppsala kommuns lokala trafikföreskrifter (0380 2018 : 118) om parkering inom centrala Uppsala, parkeras. 2 § Tillåtelsen gäller under tiden vardag utom vardag före sön- och helgdag mellan klockan 18.00 – 07.00, vardag före sön- och helgdag mellan klockan 00.00 – 24.00 och sön- och helgdag mellan klockan 00.00 – 24.00. 3 § Övrig tid är parkering tillåten under högst 5 minuter i följd.');
+  assert.deepEqual(r.allowOnly, []); assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 420, b: 1080, max: 5 }]); assert.deepEqual(r.unread, []);
+});
+test('QA 9 Nov round 9: "får motorcykel parkeras" is a motorcycle bay; Ystad placement sentence ignored', () => {
+  const r = parseRegulation('följande. På markerad sträcka av 5 meter på S:t Persgatans sydöstra sida enligt kartbild får motorcykel parkeras under högst 24 tim i följd vardag utom dag före sön- och helgdag. Övrig tid får motorcykel parkeras.');
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'motorcykel'); assert.deepEqual(r.unread, []);
+  const y = parseRegulation('följande. 1 § På Stortorget får endast sådant fordon parkeras som används för befordran av rörelsehindrad med parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276). 2 § Tillåtelsen gäller under tiden vardag utom vardag före sön- och helgdag mellan klockan 08.00 - 18.00 och vardag före sön- och helgdag mellan klockan 08.00 - 15.00 under högst 3 tim i följd. 3 § Tillåtelsen gäller på särskilt anordnad parkeringsplats.');
+  assert.deepEqual(y.unread, []); assert.ok(y.limits.every((w) => w.dt));
+});

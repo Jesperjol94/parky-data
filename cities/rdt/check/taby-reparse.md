@@ -1,7 +1,7 @@
 # Täby: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-09. 660 segments: 660 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 575, partly read 78. Verified equal 389, filled from text 96, text stricter 0, disputed 1, expired 7, text without rules 5, multi-part texts (not compared) 83.
+Fully read 576, partly read 77. Verified equal 389, filled from text 96, text stricter 1, disputed 1, expired 7, text without rules 5, multi-part texts (not compared) 83.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,6 +9,7 @@ Fully read 575, partly read 78. Verified equal 389, filled from text 96, text st
 | 0160 2013-00180 | Esplanaden | uncertain → {"f":[{"w":4,"a":480,"b":960,"m":[[10,1],[5,30]]}],"v":"rörelsehindrade"} | filled from text |
 | 0160 2013-00182 | Häradsgränd | uncertain → {"f":[{"w":4,"a":480,"b":960,"m":[[10,1],[5,30]]}],"v":"rörelsehindrade"} | filled from text |
 | 0160 2014-00655 | Galoppvägen | uncertain → {"v":"lastbil"} | filled from text |
+| 0160 2015-00165 | Näsbydalsvägen | {"f":[{"w":3,"a":480,"b":960,"m":[[12,1],[5,1]]}],"l":[{"dt":["vardag"],"a":420,"b":1200,"max":120},{"dt":["fore"],"a":420,"b":1200,"max":120},{"dt":["helgdag"],"a":420,"b":1200,"max":120}]} → {"f":[{"w":3,"a":480,"b":960,"m":[[12,1],[5,1]]}],"v":"motorcykel"} | text stricter: applied |
 | 0160 2015-00192 | Marknadsvägen | uncertain → {"l":[{"dt":["vardag"],"a":360,"b":600,"max":30},{"dt":["vardag"],"a":840,"b":1080,"max":30}],"aw":[{"dt":["vardag"],"a":360,"b":600},{"dt":["vardag"],"a":840,"b":1080}]} | filled from text |
 | 0160 2016-00068 | Kometvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0160 2017-00018 | Galoppvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

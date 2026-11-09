@@ -71,7 +71,7 @@ Fully read 370, partly read 5. Verified equal 282, filled from text 87, text str
 | 1081 2015-00009 | Nygatan | uncertain → {"l":[{"a":0,"b":1440,"max":60}]} | filled from text |
 | 1081 2015-00036 | Drottninggatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":840,"max":240}],"aw":[{"dt":["vardag"],"a":540,"b":1080},{"dt":["fore"],"a":540,"b":840}],"v":"rörelsehindrade"} | filled from text |
 | 1081 2015-00038 | Drottninggatan | uncertain → {"v":"motorcykel"} | filled from text |
-| 1081 2015-00040 | Drottninggatan | uncertain → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":240},{"dt":["fore"],"a":420,"b":840,"max":240},{"a":0,"b":1440,"max":1440}]} | filled from text |
+| 1081 2015-00040 | Drottninggatan | uncertain → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":240},{"dt":["fore"],"a":420,"b":840,"max":240},{"dt":["vardag","fore"],"a":0,"b":420,"max":1440},{"dt":["vardag"],"a":1080,"b":1440,"max":1440},{"dt":["fore"],"a":840,"b":1440,"max":1440},{"dt":["helgdag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1081 2016-00002 | Prinsgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120}]} | filled from text |
 | 1081 2020-00079 | Strandhemsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1081 2020-00080 | Strandhemsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |

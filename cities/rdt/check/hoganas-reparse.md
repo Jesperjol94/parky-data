@@ -1,7 +1,7 @@
 # Höganäs: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-09. 226 segments: 226 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 208, partly read 11. Verified equal 146, filled from text 36, text stricter 0, disputed 0, expired 7, text without rules 20, multi-part texts (not compared) 0.
+Fully read 209, partly read 10. Verified equal 146, filled from text 37, text stricter 0, disputed 0, expired 7, text without rules 20, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -29,6 +29,7 @@ Fully read 208, partly read 11. Verified equal 146, filled from text 36, text st
 | 1284 2021-99 | Järnvägsgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120}]} | filled from text |
 | 1284 2021-99 | Järnvägsgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120}]} | filled from text |
 | 1284 2022-28 | Solviksvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1284 2022-43 | Mölle hamnplan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1284 2023-3 | Köpmansgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1284 2023-3 | Köpmansgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1284 2023-3 | Köpmansgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":840,"max":180}],"v":"rörelsehindrade"} | filled from text |

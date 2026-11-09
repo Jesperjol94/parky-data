@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-09. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3596, partly read 78. Verified equal 3132, filled from text 167, text stricter 0, disputed 0, expired 99, text without rules 289, multi-part texts (not compared) 0.
+Fully read 3598, partly read 76. Verified equal 3132, filled from text 169, text stricter 0, disputed 0, expired 99, text without rules 289, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -14,6 +14,7 @@ Fully read 3596, partly read 78. Verified equal 3132, filled from text 167, text
 | 1283 2010-00364 | Dag Hammarskjölds väg | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-00405 | Domaregatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1283 2010-00499 | Båthusgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":540},{"dt":["fore"],"a":540,"b":840,"max":540}]} | filled from text |
+| 1283 2010-00501 | Båthusgatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1283 2010-00503 | Båthusgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":540},{"dt":["fore"],"a":540,"b":840,"max":540}]} | filled from text |
 | 1283 2010-00506 | Båthusgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-00509 | Båthusgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -183,6 +184,7 @@ Fully read 3596, partly read 78. Verified equal 3132, filled from text 167, text
 | 1283 2010-02990 | Norrbroplatsen | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1283 2010-03089 | Karlskronagatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1283 2010-03092 | Kustgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1283 2010-03153 | Drottninggatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1283 2010-03157 | Kvarnstensgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-03160 | Kvarnholmsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-03176 | Missionsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |

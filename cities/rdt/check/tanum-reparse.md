@@ -1,7 +1,7 @@
 # Tanum: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-09. 828 segments: 828 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 748, partly read 80. Verified equal 703, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 43, multi-part texts (not compared) 0.
+Fully read 749, partly read 79. Verified equal 704, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 43, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
