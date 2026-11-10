@@ -736,3 +736,22 @@ test('"Övrig tid se parkering." is a pointer to the sign, not an unread rule (Q
   const r = parseRegulation(wrap('1 § På Xgatan får fordon inte parkeras mellan klockan 22.00 och 08.00 alla dagar under tiden 1/12 till 31/3. Övrig tid se parkering.'));
   assert.deepEqual(r.unread, []); assert.deepEqual(r.bans, [{ a: 1320, b: 480, m: [[12, 1], [3, 31]] }]);
 });
+
+test('bare "Gäller <days>" after a ban or a limit refers to it (QA 10 Nov round 12: Växjö)', () => {
+  const r = parseRegulation('följande. 1 § På Sandgärdsgatan i Växjö får fordon inte stannas eller parkeras. 2 § Gäller vardagar mellan kl.11.00-05.00, lördag och dag före helgdag kl. 09.00-05.00 samt söndag och helgdag kl. 00.00-24.00.');
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 660, b: 300 }, { dt: ['fore'], a: 540, b: 300 }, { dt: ['helgdag'], a: 0, b: 1440 }]);
+  assert.deepEqual(r.unread, []);
+  const l = parseRegulation('följande. 1 § På X i Växjö får fordon parkeras under högst 2 tim i följd. 2 § Gäller vardagar utom dag före helgdag kl 09.00-18.00 samt dag före helgdag kl 09.00-14.00.');
+  assert.deepEqual(l.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 120 }, { dt: ['fore'], a: 540, b: 840, max: 120 }]);
+});
+
+test('"Tillåtelsen gäller även personbil klass I under högst N timmar … mellan <date> och <date>" adds a limit period (QA 10 Nov round 12: Tanum)', () => {
+  const r = parseRegulation('följande. 1 § På Coop parkeringen får personbil klass I parkeras. 2 § Tillåtelsen i 1 § gäller mellan 15 juni och 15 augusti under tiden 09.00 och 18.00 under högst 2 timmar i följd mot avgift. 3 § Avgiften i i 2 § är 20 kronor per timme. 5 § Tillåtelsen gäller även personbil klass I under högst 2 timmar i följd mellan 16 augusti och 14 juni, under tiden 08.00-20.00 och utan avgift.');
+  assert.deepEqual(r.limits, [{ a: 540, b: 1080, m: [[6, 15], [8, 15]], max: 120 }, { a: 480, b: 1200, m: [[8, 16], [6, 14]], max: 120 }]);
+  assert.equal(parseRegulation('följande. På X får fordon parkeras. Tillåtelsen gäller även fordon som används av boende i området.').limits.length, 0);
+});
+
+test('"jämn måndag" is a Monday of even weeks (QA 10 Nov round 12: Örebro Södra Lindhult)', () => {
+  const r = parseRegulation('följande. På X får fordon parkeras. Parkering är dock förbjuden under tiden 1:a maj - 31:a oktober jämn måndag klockan 09.00 - 13.00 och 1:a november - 30:e april måndag klockan 00.00 - 06.00.');
+  assert.deepEqual(r.bans, [{ w: 1, a: 540, b: 780, m: [[5, 1], [10, 31]], p: 'even' }, { w: 1, a: 0, b: 360, m: [[11, 1], [4, 30]] }]);
+});

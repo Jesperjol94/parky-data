@@ -45,7 +45,8 @@ function season(s) {
 // "vecka 42 - 18", "från vecka 42 till vecka 18": ISO weeks (wrapping over New Year), Rättvik
 function weeks(s) { const one = s.match(/(?<![\wåäö])(?:v\.?|vecka)\s*(\d{1,2})\b(?!\s*[-–—:.]\s*\d)/i); if (one && !/(?:v\.?|vecka)\s*\d{1,2}\s*(?:[-–—]|till)/i.test(s)) return [+one[1], +one[1]]; // "v 30" (QA 8 Nov: Rättvik Classic Car Week)
   const r = s.match(/(?<!(?:udda|jämna?)\s)vecka\s+(\d{1,2})\s*(?:[-–—]|till(?: och med)?(?: vecka)?)\s*(?:vecka\s+)?(\d{1,2})\b/i); return r ? [+r[1], +r[2]] : null; } // not "jämn vecka 05-07": those are hours (QA 8 Nov: Karlstad Kungsgatan)
-const parity = (s) => (/udda veck(?:a|or)/i.test(s) ? 'odd' : /jämna? veck(?:a|or)/i.test(s) ? 'even' : null);
+const PWD = '(?:måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)';
+const parity = (s) => (new RegExp(`udda (?:veck(?:a|or)|${PWD})`, 'i').test(s) ? 'odd' : new RegExp(`jämna? (?:veck(?:a|or)|${PWD})`, 'i').test(s) ? 'even' : null); // "jämn måndag" = Monday of even weeks (QA 10 Nov round 12: Örebro Södra Lindhult)
 
 // Day-type phrase right before a "klockan" → day types (null = every day).
 function dayTypesOf(s) {
@@ -297,6 +298,14 @@ export function parseRegulation(body) {
   for (let s of list) {
     s = s.replace(/\bunder tiden (\d{1,2}[.:]\d{2}) och (\d{1,2}[.:]\d{2})\b/gi, 'klockan $1 - $2').replace(/\bendast motordriv(?:et|na) fordon\b/gi, 'fordon').replace(/\bsamat\b/gi, 'samt').replace(/\bunder tider\b/gi, 'under tiden').replace(/^(\s*(?:\d+\s*§\s*)?)förbudet att parkera (på|under) /i, '$1parkering är förbjuden $2 ').replace(/\bunder tiden (?=\d{1,2}[.:]\d{2}\s*[-–—])/gi, 'klockan ') // typos and odd forms (QA 8 Nov: Bjuv)
       .replace(/\blördag(?:ar)? (?:och|samt) dag(?:ar)? före (?:sön- och )?helgdag(?:ar)?/gi, 'dag före sön- och helgdag').replace(/\bsöndag(?:ar)? (?:och|samt) helgdag(?:ar)?/gi, 'sön- och helgdag'); // Växjö: pinned to Saturday/Sunday only // "mot avgift under tiden 09.00 och 18.00" (QA 8 Nov: Tanum)
+    // "2 § Gäller vardagar mellan kl.11.00-05.00, …": a bare "Gäller" refers to the rule just stated (QA 10 Nov round 12: Växjö Sandgärdsgatan, Klostergatan lost Saturday/Sunday bans)
+    if (/^\s*(?:\d+\s*§\s*)?gäller\s+(?:vardag|dag(?:ar)? före|sön|lördag|söndag|måndag|tisdag|onsdag|torsdag|fredag|helgdag)/i.test(s)) {
+      const head = lastBan && !lastLimit ? 'Förbudet' : lastLimit ? 'Tidsbegränsningen' : null;
+      if (head) s = s.replace(/^(\s*(?:\d+\s*§\s*)?)gäller/i, `$1${head} gäller`);
+    }
+    // "Tillåtelsen gäller även personbil klass I under högst 2 timmar i följd mellan 16 augusti och 14 juni, …", "Tillåtelsen gäller även
+    // 2 tim övriga året mellan …": a second limit period, not a vehicle list (QA 10 Nov round 12: Tanum Fjällbacka had no off-season limit)
+    s = s.replace(/^(\s*(?:\d+\s*§\s*)?Tillåtelsen gäller) även (?:personbil(?:ar)?(?: klass (?:I|1))? |fordon )?(?:under )?(?:högst )?(\d+|en|ett|två|tre|fyra) (tim\w*|dygn)(?: övriga året)?/i, '$1 under högst $2 $3');
     let x = s.toLowerCase();
     // "får fordon inte (stannas eller) parkeras. Tidsbegränsningen gäller fredag klockan 06.00 - 14.00": the hours of that ban, worded as a
     // "time limit" (QA 4 Nov: Borlänge, Burlöv, Klippan, Aneby; the register showed the ban all day or not at all)
