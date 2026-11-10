@@ -755,3 +755,27 @@ test('"jämn måndag" is a Monday of even weeks (QA 10 Nov round 12: Örebro Sö
   const r = parseRegulation('följande. På X får fordon parkeras. Parkering är dock förbjuden under tiden 1:a maj - 31:a oktober jämn måndag klockan 09.00 - 13.00 och 1:a november - 30:e april måndag klockan 00.00 - 06.00.');
   assert.deepEqual(r.bans, [{ w: 1, a: 540, b: 780, m: [[5, 1], [10, 31]], p: 'even' }, { w: 1, a: 0, b: 360, m: [[11, 1], [4, 30]] }]);
 });
+
+test('"får fordon med avvikelse från <TF> (1998:1276), med avvikelse från <area ban list>, parkeras" is read (QA 10 Nov round 13: Kalmar Unionsgatan)', () => {
+  const r = parseRegulation('följande. 1 § På X får fordon med avvikelse från 3 kap. 53 § 2 trafikförordningen (1998:1276) ), med avvikelse från Kalmar kommuns lokala trafikföreskrifter ( 0880 2017 : 17 ) om område med förbud att parkera fordon på A, B och C, parkeras under högst 24 tim i följd under tiden vardagar utom vardag före sön- och helgdag. 2 § Parkering är dock tillåten endast mot avgift under tiden vardagar och vardag före sön- och helgdag mellan klockan 09.00 - 18.00. 4 § Avgiften är enligt Taxa 3, enligt bestämmelserna om avgifter för parkering i Kalmar kommuns lokala trafikföreskrifter.');
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 0, b: 1440, max: 1440 }]);
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag', 'fore'], a: 540, b: 1080 }]);
+});
+
+test('"Förbudet gäller onsdag - söndag v 30, måndag - söndag v 31 och måndag v 32" keeps week 31 (QA 10 Nov round 13: Rättvik Pilgatan)', () => {
+  const r = parseRegulation('följande. 1 § På X får fordon inte stannas eller parkeras. 2 § Förbudet gäller onsdag - söndag v 30, måndag - söndag v 31 och måndag v 32.');
+  assert.ok(r.bans.some((b) => !b.w && b.wk && b.wk[0] === 31 && b.a === 0 && b.b === 1440));
+  assert.equal(r.bans.length, 7);
+});
+
+test('"får endast bussar stanna eller parkera" reserves the curb (QA 10 Nov round 13: Kiruna Malmvägen)', () => {
+  const r = parseRegulation('följande. På X får endast bussar stanna eller parkera i högst 15 minuter.');
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'buss'); assert.deepEqual(r.limits, []);
+});
+
+test('"Parkering är förbjuden övrig tid" after a limit with hours bans only outside them (QA 10 Nov round 13: Umeå Plangatan)', () => {
+  const r = parseRegulation('följande. 1 § På X får fordon parkeras högst 15 minuter i följd. 2 § Tidsbegränsningen gäller vardag utom vardag före sön- och helgdag klockan 09.00 - 18.00 samt vardag före sön- och helgdag klockan 09.00 - 15.00. 3 § Parkering är förbjuden övrig tid.');
+  assert.ok(!r.bans.some((b) => !b.dt && b.a === 0 && b.b === 1440));
+  assert.deepEqual(r.bans.find((b) => b.dt && b.dt.includes('helgdag')), { dt: ['helgdag'], a: 0, b: 1440 });
+});
