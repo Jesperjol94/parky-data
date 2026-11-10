@@ -1,6 +1,6 @@
 # Motala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-09. 1442 segments: 1442 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-10. 1442 segments: 1442 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1387, partly read 22. Verified equal 1365, filled from text 17, text stricter 0, disputed 0, expired 33, text without rules 5, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

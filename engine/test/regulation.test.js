@@ -720,3 +720,19 @@ test('"får fordon, parkeras där stannande och parkering är förbjuden": a str
   assert.equal(r.permitted, true); assert.deepEqual(r.bans, []); assert.deepEqual(r.unread, []);
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1200 }, { dt: ['fore'], a: 480, b: 900 }]);
 });
+
+test('season "1/12 till 31/3" (slash dates with "till") limits the ban to the season (QA 10 Nov: Vimmerby Rönnbärsgatan night ban drawn all year)', () => {
+  const r = parseRegulation(wrap('1 § På Rönnbärsgatans norra sida får fordon inte parkeras mellan klockan 22.00 och 08.00 alla dagar under tiden 1/12 till 31/3 årligen.'));
+  assert.deepEqual(r.bans, [{ a: 1320, b: 480, m: [[12, 1], [3, 31]] }]);
+});
+
+test('a second "Avgift enligt taxa F …" sentence adds its hours to taxa G\'s (QA 10 Nov: Örebro Drottninggatan had no fee on Saturday evenings)', () => {
+  const r = parseRegulation(wrap('På Drottninggatan får fordon parkeras mot avgift. Avgift enligt taxa G på vardagar utom dag före sön- och helgdag mellan klockan 08.00 och klockan 18.00 samt på vardagar före sön- och helgdag mellan klockan 09.00 och klockan 13.00. Avgift enligt taxa F på vardagar före sön och helgdag mellan klockan 18.00 och klockan 22.00.'));
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1080 }, { dt: ['fore'], a: 540, b: 780 }, { dt: ['fore'], a: 1080, b: 1320 }]);
+  assert.deepEqual(r.unread, []);
+});
+
+test('"Övrig tid se parkering." is a pointer to the sign, not an unread rule (QA 10 Nov: Vimmerby)', () => {
+  const r = parseRegulation(wrap('1 § På Xgatan får fordon inte parkeras mellan klockan 22.00 och 08.00 alla dagar under tiden 1/12 till 31/3. Övrig tid se parkering.'));
+  assert.deepEqual(r.unread, []); assert.deepEqual(r.bans, [{ a: 1320, b: 480, m: [[12, 1], [3, 31]] }]);
+});

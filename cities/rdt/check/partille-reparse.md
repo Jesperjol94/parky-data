@@ -1,6 +1,6 @@
 # Partille: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-09. 1086 segments: 1086 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-10. 1086 segments: 1086 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1073, partly read 8. Verified equal 1049, filled from text 23, text stricter 0, disputed 0, expired 5, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
