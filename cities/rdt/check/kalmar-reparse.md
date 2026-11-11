@@ -1,13 +1,11 @@
 # Kalmar: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-10. 798 segments: 798 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 774, partly read 16. Verified equal 719, filled from text 15, text stricter 0, disputed 2, expired 8, text without rules 20, multi-part texts (not compared) 18.
+Run 2026-11-11. 798 segments: 798 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 774, partly read 16. Verified equal 721, filled from text 15, text stricter 0, disputed 0, expired 8, text without rules 20, multi-part texts (not compared) 18.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0880 2011-63 | den tillfälliga gatan mellan Södra vägen och Gasverksgatan | expired 2011-11-30 | already uncertain |
-| 0880 2022-183 | Unionsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":1440},{"a":0,"b":1440,"max":10080}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | text differs: text wins (owner's decision 18 Oct) |
-| 0880 2022-183 | Unionsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":1440},{"a":0,"b":1440,"max":10080}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0880 2024-206 | Koltrastvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0880 2025-27 | Magistratsgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"v":"rörelsehindrade"} | filled from text |
 | 0880 2026-105 | Kungsgårdsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

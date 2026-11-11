@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { parseRegulation, expired, ruleText, samePlaceExceptions } from '../engine/regulation.js';
+import { parseRegulation, expired, ruleText, samePlaceExceptions, outsideHours } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
 const dir = args[0] || 'cities/rdt';
@@ -75,6 +75,7 @@ function fromText(r) {
   if (r.dp && r.dp.length) o.dp = dedupe(r.dp);
   if (r.reserved) o.v = r.reservedFor || 'reserverad';
   if (r.purpose.length) { o.v = o.v || 'lastning'; o.k = r.purpose; if (r.otherAllowed) o.ko = 1; }
+  if (r.reserved && !r.purpose.length && r.otherAllowed && !r.reservedSeason && r.reservedWindows.length && o.v !== 'rörelsehindrade') { const oh = outsideHours(r.reservedWindows); if (oh && oh.length) o.o = oh; } // reserved only at the stated hours; other times open to all (QA 11 Nov round 14: Tyresö Radiovägen)
   return o;
 }
 const hasRules = (o) => !!(o.f || o.l || o.aw || o.v || o.k || o.dp);
@@ -261,12 +262,13 @@ for (const row of idx.cities) {
       st.verified++;
       // equal at every time of a week the comparison samples, but the text says more (even weeks, a season, odd dates, the
       // nth weekday): the text's windows are more precise (QA 22 Oct: Karlstad, Solna "jämna veckor" bans every week)
-      const cond = (ws) => JSON.stringify((ws || []).map((w) => [w.p, w.m, w.dd, w.nw, w.dm, w.dt])); // dt too: a Tuesday ban "not on days before holidays" samples equal (QA 8 Nov: Norrköping Lindövägen)
-      const keys = (ws) => new Set((ws || []).flatMap((w) => ['p', 'm', 'dd', 'nw', 'dm', 'dt'].filter((k) => w[k] != null)));
+      const cond = (ws) => JSON.stringify((ws || []).map((w) => [w.p, w.m, w.dd, w.nw, w.dm, w.dt, w.wk])); // wk too: week-bound bans sample equal (QA 11 Nov round 14: Rättvik Knihsgatan banned every week) // dt too: a Tuesday ban "not on days before holidays" samples equal (QA 8 Nov: Norrköping Lindövägen)
+      const keys = (ws) => new Set((ws || []).flatMap((w) => ['p', 'm', 'dd', 'nw', 'dm', 'dt', 'wk'].filter((k) => w[k] != null)));
       const noLoss = (a, b) => [...keys(b)].every((k) => keys(a).has(k)); // the text's windows must keep every condition the register had (QA 8 Nov: Askersund would have lost a season)
-      if (APPLY && (cond(t.f) !== cond(cur.f) || cond(t.l) !== cond(cur.l)) && noLoss(t.f, cur.f) && noLoss(t.l, cur.l) && JSON.stringify([t.f, t.l]).match(/"(?:p|m|dd|nw|dm|dt)":/)) { put(); st.precise = (st.precise || 0) + 1; }
+      if (APPLY && (cond(t.f) !== cond(cur.f) || cond(t.l) !== cond(cur.l)) && noLoss(t.f, cur.f) && noLoss(t.l, cur.l) && JSON.stringify([t.f, t.l]).match(/"(?:p|m|dd|nw|dm|dt|wk)":/)) { put(); st.precise = (st.precise || 0) + 1; }
       if (APPLY && t.dp && t.dp.length && !(cur.dp && cur.dp.length)) { put(); st.dpAdded = (st.dpAdded || 0) + 1; } // the comparison samples one week without date parking: a text that defers to the datumparkering rules adds it (QA 8 Nov: Gävle, 4 of 480)
       if (cur.v === 'personbil' && APPLY) { delete s.v; s.rx = 1; changed++; }
+      if (APPLY && t.o && t.v && t.v === cur.v && !s.o) { s.o = t.o; s.rx = 1; changed++; st.otherHours = (st.otherHours || 0) + 1; } // the reserved hours are stated: open to all outside them
     } else if (verdict === 'stricter' || (cur.v === 'personbil' && !textV && verdict !== 'mixed')) {
       st.strictened++;
       lines.push(`| ${s.c} | ${s.n} | ${JSON.stringify(cur)} → ${JSON.stringify(t)} | ${cur.v === 'personbil' && !textV ? '"personbil" was not a reservation' : 'text stricter'}: applied |`);
