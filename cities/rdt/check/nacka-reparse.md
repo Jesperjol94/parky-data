@@ -1,7 +1,7 @@
 # Nacka: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-11. 2635 segments: 2635 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2619, partly read 14. Verified equal 2087, filled from text 367, text stricter 0, disputed 12, expired 2, text without rules 133, multi-part texts (not compared) 6.
+Fully read 2619, partly read 14. Verified equal 2093, filled from text 367, text stricter 0, disputed 6, expired 2, text without rules 133, multi-part texts (not compared) 6.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -326,9 +326,6 @@ Fully read 2619, partly read 14. Verified equal 2087, filled from text 367, text
 | 0182 2025-00041 | Atlasvägen | uncertain → {"f":[{"w":1,"a":420,"b":720,"m":[[9,30],[5,30]]}]} | filled from text |
 | 0182 2025-00051 | Becksjudarvägen | uncertain → permitted (fee) | filled from text |
 | 0182 2025-00060 | Furuvägen | uncertain → permitted (fee) | filled from text |
-| 0182 2025-00064 | Gamla Värmdövägen | {"f":[{"dt":["vardag"],"a":420,"b":1140}]} → {"f":[{"w":1,"a":420,"b":660},{"w":1,"a":1020,"b":1140},{"w":2,"a":420,"b":660},{"w":2,"a":1020,"b":1140},{"w":4,"a":420,"b":660},{"w":4,"a":1020,"b":1140},{"w":5,"a":420,"b":660},{"w":5,"a":1020,"b":1140}]} | text differs: text wins (owner's decision 18 Oct) |
-| 0182 2025-00064 | Gamla Värmdövägen | {"f":[{"dt":["vardag"],"a":420,"b":1140}]} → {"f":[{"w":1,"a":420,"b":660},{"w":1,"a":1020,"b":1140},{"w":2,"a":420,"b":660},{"w":2,"a":1020,"b":1140},{"w":4,"a":420,"b":660},{"w":4,"a":1020,"b":1140},{"w":5,"a":420,"b":660},{"w":5,"a":1020,"b":1140}]} | text differs: text wins (owner's decision 18 Oct) |
-| 0182 2025-00064 | Gamla Värmdövägen | {"f":[{"dt":["vardag"],"a":420,"b":1140}]} → {"f":[{"w":1,"a":420,"b":660},{"w":1,"a":1020,"b":1140},{"w":2,"a":420,"b":660},{"w":2,"a":1020,"b":1140},{"w":4,"a":420,"b":660},{"w":4,"a":1020,"b":1140},{"w":5,"a":420,"b":660},{"w":5,"a":1020,"b":1140}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0182 2025-00067 | Gamla Värmdövägen | uncertain → {"v":"motorcykel"} | filled from text |
 | 0182 2025-00071 | Finntorpsvägen | uncertain → {"v":"motorcykel"} | filled from text |
 | 0182 2025-00077 | Helgesons väg | uncertain → permitted (fee) | filled from text |
@@ -368,14 +365,12 @@ Fully read 2619, partly read 14. Verified equal 2087, filled from text 367, text
 | 0182 2025-00485 | Tollarevägen | uncertain → {"f":[{"w":3,"a":480,"b":1020}],"l":[{"dt":["vardag"],"a":420,"b":1140,"max":240},{"dt":["fore"],"a":660,"b":1020,"max":240}]} | filled from text |
 | 0182 2025-00514 | Edinsvägen | uncertain → permitted (fee) | filled from text |
 | 0182 2025-00544 | Beckasinvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0182 2025-00561 | Oxelvägen | {"f":[{"dt":["vardag"],"a":420,"b":1140}]} → {"f":[{"w":1,"a":420,"b":660},{"w":1,"a":1020,"b":1140},{"w":2,"a":420,"b":660},{"w":2,"a":1020,"b":1140},{"w":3,"a":420,"b":660},{"w":3,"a":1020,"b":1140},{"w":5,"a":420,"b":660},{"w":5,"a":1020,"b":1140}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0182 2025-00568 | Järlavägen | uncertain → permitted (fee) | filled from text |
 | 0182 2026-264 | Alphyddevägen | expired 2026-11-02 | already uncertain |
 | 0182 2026-264 | Alphyddevägen | expired 2026-11-02 | already uncertain |
 | 0182 2026-00012 | Augustendalsvägen | uncertain → {"v":"utryckningsfordon"} | filled from text |
 | 0182 2026-00014 | Augustendalsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2026-00019 | Kvarnholmsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0182 2026-00024 | Oxelvägen | {"f":[{"dt":["vardag"],"a":420,"b":1140}]} → {"f":[{"w":1,"a":420,"b":660},{"w":1,"a":1020,"b":1140},{"w":2,"a":420,"b":660},{"w":2,"a":1020,"b":1140},{"w":4,"a":420,"b":660},{"w":4,"a":1020,"b":1140},{"w":5,"a":420,"b":660},{"w":5,"a":1020,"b":1140}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0182 2026-00030 | Kvarnholmsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2026-00046 | Stadshusgatan | uncertain → {"f":[{"w":1,"a":480,"b":720}],"l":[{"dt":["vardag"],"a":420,"b":1260,"max":240},{"dt":["fore"],"a":420,"b":1260,"max":240},{"dt":["helgdag"],"a":420,"b":1260,"max":240}]} | filled from text |
 | 0182 2026-00051 | Augustendalsvägen | uncertain → {"v":"motorcykel"} | filled from text |
@@ -384,7 +379,6 @@ Fully read 2619, partly read 14. Verified equal 2087, filled from text 367, text
 | 0182 2026-00064 | Telegrafvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2026-00065 | Telegrafvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2026-00074 | Storängens strandväg | uncertain → permitted (fee) | filled from text |
-| 0182 2026-00085 | Fasanvägen | {"f":[{"dt":["vardag"],"a":420,"b":1140}]} → {"f":[{"w":1,"a":420,"b":660},{"w":1,"a":1020,"b":1140},{"w":2,"a":420,"b":660},{"w":2,"a":1020,"b":1140},{"w":3,"a":420,"b":660},{"w":3,"a":1020,"b":1140},{"w":5,"a":420,"b":660},{"w":5,"a":1020,"b":1140}]} | text differs: text wins (owner's decision 18 Oct) |
 | 0182 2026-00102 | Torben Gruts väg | uncertain → {"v":"motorcykel"} | filled from text |
 | 0182 2026-00107 | Allévägen | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1320,"max":240},{"dt":["fore"],"a":480,"b":1320,"max":240},{"dt":["helgdag"],"a":480,"b":1320,"max":240}]} | filled from text |
 | 0182 2026-00117 | Storholmsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

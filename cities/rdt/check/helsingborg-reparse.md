@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-11. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3597, partly read 76. Verified equal 3126, filled from text 169, text stricter 0, disputed 5, expired 100, text without rules 289, multi-part texts (not compared) 0.
+Fully read 3597, partly read 76. Verified equal 3131, filled from text 169, text stricter 0, disputed 0, expired 100, text without rules 289, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -238,11 +238,6 @@ Fully read 3597, partly read 76. Verified equal 3126, filled from text 169, text
 | 1283 2017-188 | Stenkretsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2017-435 | Bredgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2022-492 | Båthusgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} → {"f":[{"dt":["vardag"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["fore"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["helgdag"],"a":60,"b":300,"m":[[6,15],[9,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} → {"f":[{"dt":["vardag"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["fore"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["helgdag"],"a":60,"b":300,"m":[[6,15],[9,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} → {"f":[{"dt":["vardag"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["fore"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["helgdag"],"a":60,"b":300,"m":[[6,15],[9,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} → {"f":[{"dt":["vardag"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["fore"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["helgdag"],"a":60,"b":300,"m":[[6,15],[9,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1283 2025-370 | Serpentinvägen | {"f":[{"a":0,"b":1440,"m":[[6,15],[9,15]]},{"dt":["vardag"],"a":60,"b":300},{"dt":["fore"],"a":60,"b":300},{"dt":["helgdag"],"a":60,"b":300}]} → {"f":[{"dt":["vardag"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["fore"],"a":60,"b":300,"m":[[6,15],[9,15]]},{"dt":["helgdag"],"a":60,"b":300,"m":[[6,15],[9,15]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1283 2025-753 | Drottninggatan | expired 2026-10-30 | already uncertain |
 | 1283 2026-487 | Södra Strandgatan | expired 2026-10-30 | already uncertain |
 | 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
@@ -263,7 +258,7 @@ Fully read 3597, partly read 76. Verified equal 3126, filled from text 169, text
 | 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
 | 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
 | 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
-| 1283 2026-672 | Ålögatan | expired 2026-11-11 | now uncertain |
+| 1283 2026-672 | Ålögatan | expired 2026-11-11 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |

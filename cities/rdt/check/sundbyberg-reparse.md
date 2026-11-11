@@ -1,7 +1,7 @@
 # Sundbyberg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-11. 2132 segments: 2132 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2091, partly read 20. Verified equal 1786, filled from text 42, text stricter 0, disputed 10, expired 21, text without rules 245, multi-part texts (not compared) 0.
+Fully read 2091, partly read 20. Verified equal 1786, filled from text 42, text stricter 0, disputed 11, expired 21, text without rules 245, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -66,6 +66,7 @@ Fully read 2091, partly read 20. Verified equal 1786, filled from text 42, text 
 | 0183 2026-00101 | Örsvängen | expired 2026-10-28 | already uncertain |
 | 0183 2026-00107 | Esplanaden | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0183 2026-00110 | Ringleken | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0183 2026-00159 | Oskarsvägen | {"f":[{"dt":["vardag"],"a":900,"b":1200,"m":[[10,13],[12,8]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":900,"b":1200,"m":[[10,13],[12,8]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0183 2026-00176 | Eliegatan | expired 2026-10-28 | already uncertain |
 | 0183 2026-00176 | Eliegatan | expired 2026-10-28 | already uncertain |
 | 0183 2026-00176 | Eliegatan | expired 2026-10-28 | already uncertain |

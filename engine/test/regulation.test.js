@@ -851,3 +851,17 @@ test('"Tillåtelsen gäller onsdag - söndag vecka 30, måndag - söndag vecka 3
   assert.ok(r.limits.some((l) => !l.w && l.wk[0] === 31 && l.max === 120));
   assert.ok(r.limits.some((l) => l.w === 1 && l.wk[0] === 32));
 });
+
+test('a bare "Gäller endast buss." after a permission reserves the curb, also joined by a comma (QA 11 Nov round 15: Växjö Kvarnvägen)', () => {
+  let r = parseRegulation(wrap('1 § På Kvarnvägen inom följande område i Åby, vändplatsen i dess norra ände, får fordon parkeras högst 24 timmar i följd, Gäller endast buss.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'buss'); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('1 § På Torggatan får fordon parkeras. Föreskriften gäller endast motorcykel.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'motorcykel');
+  r = parseRegulation(wrap('1 § På Torggatan får fordon parkeras högst 2 tim. Gäller endast personbil.'));
+  assert.equal(r.reserved, false); assert.equal(r.limits[0].max, 120);
+});
+
+test('"får motordrivet fordon med tillkopplat släpfordon parkeras" is a bay for cars with trailers (QA 11 Nov round 15: Lysekil Fiskebäckskil)', () => {
+  const r = parseRegulation(wrap('1 § På Fiskebäckskilsvägen inom följande område i Fiskebäckskil (inom fastigheten Skaftö-Fiskebäck 1:383 enligt kartbilaga) får motordrivet fordon med tillkopplat släpfordon parkeras under högst 8 dygn i följd mot avgift under tiden 15 juni - 15 augusti.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'fordon med släp'); assert.deepEqual(r.reservedSeason, [[6, 15], [8, 15]]); assert.deepEqual(r.unread, []);
+});
