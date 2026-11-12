@@ -896,3 +896,11 @@ test('hours written without "klockan" ("vardagar 8-18 på vardagar och 8-15 på 
   const r = parseRegulation(wrap('1 § På Storgatan får fordon parkeras under högst 1 timme. 2 § Tidsbegränsningen gäller vardagar 8-18 på vardagar och 8-15 på lördagar.'));
   assert.equal(r.unread.length, 1);
 });
+
+test('seasonal permission departing from an area ban: banned the rest of the year (QA 12 Nov round 19: Sundsvall Storgatan)', () => {
+  const r = parseRegulation(wrap('1 § På Storgatans södra sida, enligt markering på kartbild, får fordon , med avvikelse från Sundsvalls kommuns lokala trafikföreskrifter (2281 2010-00002) om förbud att parkera i\nCentrum, under tiden 1 oktober - 30 april parkeras mot avgift. 2 § Tillåtelsen gäller under högst 2 tim i följd. 4 § Parkering är dock förbjuden onsdag klockan 00.00 - 07.00.'));
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.bans, [{ w: 3, a: 0, b: 420 }, { a: 0, b: 1440, m: [[5, 1], [9, 30]] }]);
+  const q = parseRegulation(wrap('På Storgatan får fordon parkeras mot avgift under tiden 1 oktober - 30 april.'));
+  assert.deepEqual(q.bans, []); // no area ban named: outside the season the general rules apply
+});
