@@ -865,3 +865,13 @@ test('"får motordrivet fordon med tillkopplat släpfordon parkeras" is a bay fo
   const r = parseRegulation(wrap('1 § På Fiskebäckskilsvägen inom följande område i Fiskebäckskil (inom fastigheten Skaftö-Fiskebäck 1:383 enligt kartbilaga) får motordrivet fordon med tillkopplat släpfordon parkeras under högst 8 dygn i följd mot avgift under tiden 15 juni - 15 augusti.'));
   assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'fordon med släp'); assert.deepEqual(r.reservedSeason, [[6, 15], [8, 15]]); assert.deepEqual(r.unread, []);
 });
+
+test('"Övrig tid får personbil parkeras" after a klass I night permission: cars may park at all times (QA 12 Nov round 17: Helsingborg Palmqvistgatan)', () => {
+  const r = parseRegulation(wrap('1 § På parkeringsområdet på Palmqvistsgatan enligt kartbild får endast personbil klass I parkeras. 2 § Tillåtelsen gäller under tiden vardag utom vardag före sön- och helgdag mellan klockan 22.00 - 06.00, vardagar före sön- och helgdag mellan klockan 22.00 – 06.00 och sön- och helgdag mellan klockan 22.00 – 06.00. 3 § Övrig tid får personbil parkeras.'));
+  assert.deepEqual(r.allowOnly, []); assert.equal(r.otherAllowed, true); assert.deepEqual(r.bans, []); assert.deepEqual(r.unread, []);
+});
+
+test('"Förbudet gäller endast under perioden … mellan kl. …" after an odd-date ban: the hours and season of that ban (QA 12 Nov round 17: Östersund Torgbrinken)', () => {
+  const r = parseRegulation(wrap('På Torgbrinkens nordvästra sida mellan Rådhusgatan och Brunflovägen får fordon inte parkeras under udda datum. Förbudet gäller endast under perioden 1 oktober till 31 maj mellan kl. 00.00-07.00.'));
+  assert.deepEqual(r.bans, [{ a: 0, b: 420, dd: 'odd', m: [[10, 1], [5, 31]] }]); assert.deepEqual(r.unread, []);
+});

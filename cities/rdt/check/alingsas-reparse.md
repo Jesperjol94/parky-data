@@ -1,6 +1,6 @@
 # Alingsås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-11. 716 segments: 716 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-12. 716 segments: 716 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 647, partly read 47. Verified equal 629, filled from text 13, text stricter 0, disputed 0, expired 22, text without rules 0, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |

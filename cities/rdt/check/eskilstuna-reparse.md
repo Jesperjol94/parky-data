@@ -1,6 +1,6 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-11. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-12. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1108, partly read 48. Verified equal 973, filled from text 2, text stricter 0, disputed 0, expired 26, text without rules 133, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

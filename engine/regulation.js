@@ -437,7 +437,7 @@ export function parseRegulation(body) {
       if (!lastAllow) { unread(s); continue; }
       out.otherAllowed = false; out.allowOnly.push(...lastAllow.filter((w) => !out.allowOnly.includes(w))); continue;
     }
-    if (/^övrig tid (?:fri parkering|får fordon (?:stannas eller )?parkeras|är parkering tillåten\b)/.test(x)) { // also "Övrig tid är parkering tillåten under högst 5 minuter i följd" (QA 9 Nov: Uppsala S:t Johannesgatan, Ronneby) // "…other times vehicles may park": the permission hours are not the only hours
+    if (/^övrig tid (?:fri parkering|får (?:fordon|personbil(?:ar)?(?! klass (?:ii|2)\b)) (?:stannas eller )?parkeras|är parkering tillåten\b)/.test(x)) { // also "Övrig tid får personbil parkeras" after a klass I permission (QA 12 Nov round 17: Helsingborg Palmqvistgatan) // also "Övrig tid är parkering tillåten under högst 5 minuter i följd" (QA 9 Nov: Uppsala S:t Johannesgatan, Ronneby) // "…other times vehicles may park": the permission hours are not the only hours
       out.otherAllowed = true; out.allowOnly = out.allowOnly.filter((w) => !tillWs.includes(w));
       if (/mot avgift/.test(x) && lastLimit && !out.feeWindows) {
         let items = lastLimit.items; const ws5 = new Set(items.map((w) => w.w)); // "måndag - fredag 07-17" was expanded per weekday: Mon–Fri is the vardag day type
@@ -493,6 +493,11 @@ export function parseRegulation(body) {
       if (!ws.length && m) { // "Förbudet gäller 1 december - 31 mars": the season of the ban just stated, or a whole-season ban
         if (lastBan) { for (const b of lastBan.items) { b.m = m; if (p) b.p = p; } continue; }
         ws = [{ a: 0, b: 1440 }];
+      }
+      // "får fordon inte parkeras under udda datum. Förbudet gäller endast under perioden 1 oktober till 31 maj mellan kl. 00.00-07.00": the
+      // hours and season of that date-parity ban, not a second ban every night (QA 12 Nov round 17: Östersund Torgbrinken)
+      if (lastBan && !lastBan.provisional && /^förbudet gäller (?:endast|enbart|bara)\b/.test(x) && ws.length && ws.every((w) => !w.w && !w.dt && !w.nw && !w.dm && !w.dd && !w.p) && !DAY_WORD_RE.test(s.replace(ALL_DAYS_RE, ' ')) && lastBan.items.length && lastBan.items.every((b) => b.dd && b.a === 0 && b.b === 1440 && !b.w && !b.dt && !b.m)) {
+        const items = lastBan.items.flatMap((b) => ws.map((w) => clean({ ...w, dd: b.dd, ...(m && !w.m ? { m } : {}) }))); out.bans = out.bans.filter((b) => !lastBan.items.includes(b)); out.bans.push(...items); lastBan = { items, provisional: false }; continue;
       }
       // "får fordon inte parkeras torsdagar. Förbudet gäller klockan 07.00 - 12.00": the hours of the weekday ban just stated, not a second ban every day (Skellefteå)
       if (lastBan && ws.length && ws.every((w) => !w.w && !w.dt && !w.nw && !w.dm) && !(wk && lastBan.items.some((b) => JSON.stringify(b.wk) !== JSON.stringify(wk))) /* "Förbudet gäller måndag - söndag v 31" after "onsdag - söndag v 30": its own week, not the hours of the last ban (QA 10 Nov round 13: Rättvik Pilgatan) */ && !DAY_WORD_RE.test(s.replace(ALL_DAYS_RE, ' ')) && lastBan.items.every((b) => b.a === 0 && b.b === 1440 && (b.w || b.dt))) {
