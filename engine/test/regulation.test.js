@@ -875,3 +875,24 @@ test('"Förbudet gäller endast under perioden … mellan kl. …" after an odd-
   const r = parseRegulation(wrap('På Torgbrinkens nordvästra sida mellan Rådhusgatan och Brunflovägen får fordon inte parkeras under udda datum. Förbudet gäller endast under perioden 1 oktober till 31 maj mellan kl. 00.00-07.00.'));
   assert.deepEqual(r.bans, [{ a: 0, b: 420, dd: 'odd', m: [[10, 1], [5, 31]] }]); assert.deepEqual(r.unread, []);
 });
+
+test('old decision form without "föreskriver följande" ("Föreskrift … § 1 På … § 2 …"): the rules are read from § 1 (QA 12 Nov round 18: Svedala Svetsaregatan)', () => {
+  const r = parseRegulation('Beslut om Lokal Trafikföreskrift inom Svedala kommun Beslutsdatum 2007-02-05 Plats SVETSAREGATAN Föreskrift FÖRBUD ATT PARKERA FORDON § 1 På Svetsaregatan, södra sidan från Norra Ellenborgsgatan och 85 m österut får fordon inte parkeras. § 2 Förbudet gäller vardagar, utom dag före sön- och helgdag mellan kl 07.00 och 16.00. Ikraftträdande 2007-02-19 Giltig tom Lagrum 10 kap. 1 § andra stycket 12');
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 420, b: 960 }]); assert.deepEqual(r.unread, []);
+});
+
+test('a "Villkoret gäller - … klockan 09.00-15.00" list without a full stop does not run into the next sentence (QA 12 Nov round 18: Örnsköldsvik Lasarettsgatan)', () => {
+  const r = parseRegulation(wrap('1 § På Lasarettsgatans västra sida får fordon, med avvikelse från Örnsköldsviks kommuns lokala trafikföreskrifter 2284 2023:00077 om förbud att parkera i centrala Örnsköldsvik, parkeras. 2 § Tillåtelsen att parkera i 1 § gäller dock högst 3 timmar i följd och mot avgift. Villkoret gäller -vardagar utom vardag före sön- och helgdag klockan 09.00-18.00 och -vardag före sön- och helgdag klockan 09.00-15.00 Avgiften i 2 § är enligt taxa 2 enligt bestämmelserna om avgifter för parkering i Örnsköldsviks kommuns lokala trafikföreskrifter (2284 2023:00078) Med avvikelse från bestämmelserna i 1 § får fordon på sträckan inte parkeras vardagar utom vardag före sön- och helgdag klockan 02.00- 08.00, vardag före sön- och helgdag klockan 02.00- 08.00 och sön- och helgdag klockan 02.00- 08.00 och udda datum'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 180 }, { dt: ['fore'], a: 540, b: 900, max: 180 }]);
+  assert.ok(r.bans.every((b) => b.a === 120 && b.b === 480 && b.dd === 'odd')); assert.equal(r.bans.length, 3); assert.deepEqual(r.unread, []);
+});
+
+test('"Undantag från §1 … mellan klockan 02 och 04 då parkeringsförbud gäller" is a ban, not an ignorable remark: left unread (QA 12 Nov round 18: Nynäshamn Nickstabadsvägen)', () => {
+  const r = parseRegulation(wrap('1 § På parkeringsytan öster om Nickstabadsvägen får fordon parkeras. 2 § Undantag från 1 § på vardagar utom vardag före sön- och helgdag mellan klockan 02 och 04 då parkeringsförbud gäller.'));
+  assert.equal(r.unread.length, 1);
+});
+
+test('hours written without "klockan" ("vardagar 8-18 på vardagar och 8-15 på lördagar") that the windows lost make the sentence unread (QA 12 Nov round 18: Svedala Storgatan)', () => {
+  const r = parseRegulation(wrap('1 § På Storgatan får fordon parkeras under högst 1 timme. 2 § Tidsbegränsningen gäller vardagar 8-18 på vardagar och 8-15 på lördagar.'));
+  assert.equal(r.unread.length, 1);
+});

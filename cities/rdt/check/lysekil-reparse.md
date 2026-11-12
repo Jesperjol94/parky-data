@@ -1,13 +1,12 @@
 # Lysekil: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-12. 482 segments: 482 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 463, partly read 18. Verified equal 424, filled from text 22, text stricter 0, disputed 0, expired 1, text without rules 14, multi-part texts (not compared) 3.
+Fully read 460, partly read 21. Verified equal 422, filled from text 21, text stricter 0, disputed 0, expired 1, text without rules 14, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1484 2008-0093 | Melins backe | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1484 2008-0156 | Kungstorget | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 1484 2009-0060 | Södra Hamngatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440},{"a":540,"b":1080,"m":[[6,15],[8,15]],"max":120}]} | filled from text |
 | 1484 2009-0068 | Norra Kvarngatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1484 2009-0073 | Trädgårdsgatan | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":900,"max":120}]} | filled from text |
 | 1484 2009-0073 | Trädgårdsgatan | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":900,"max":120}]} | filled from text |

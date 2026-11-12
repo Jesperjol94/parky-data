@@ -1,7 +1,7 @@
 # Karlskrona: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-12. 2028 segments: 2028 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1992, partly read 36. Verified equal 1511, filled from text 17, text stricter 0, disputed 0, expired 0, text without rules 37, multi-part texts (not compared) 419.
+Fully read 1992, partly read 36. Verified equal 1924, filled from text 19, text stricter 0, disputed 0, expired 0, text without rules 37, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -20,5 +20,7 @@ Fully read 1992, partly read 36. Verified equal 1511, filled from text 17, text 
 | 1080 2019-29 | Byggmästaregatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1080 2024-49 | Drottninggatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1080 2024-49 | Drottninggatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2024-73 | Östra Köpmansgatan | uncertain → {"f":[{"w":2,"a":480,"b":600}],"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2024-73 | Östra Köpmansgatan | uncertain → {"f":[{"w":2,"a":480,"b":600}],"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1080 2025-276 | Holmgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1080 2025-276 | Holmgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |

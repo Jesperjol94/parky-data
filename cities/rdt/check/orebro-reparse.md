@@ -27,7 +27,7 @@ Fully read 2709, partly read 30. Verified equal 2683, filled from text 5, text s
 | 1880 2026-01290 | Lövstagatan | expired 2026-10-24 | already uncertain |
 | 1880 2026-01290 | Lövstagatan | expired 2026-10-24 | already uncertain |
 | 1880 2026-01295 | Malmgatan | expired 2026-11-07 | already uncertain |
-| 1880 2026-01299 | Malmgatan | expired 2026-11-12 | now uncertain |
+| 1880 2026-01299 | Malmgatan | expired 2026-11-12 | already uncertain |
 | 1880 2026-01300 | Tunnelgatan | expired 2026-10-31 | already uncertain |
 | 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | already uncertain |
 | 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | already uncertain |

@@ -40,7 +40,8 @@ function multiPart(body) {
     ...(t.match(/\b(blå|grön|röd|gul|lila|orange|svart)(?=-?markerad)/gi) || []).map((x) => x.toLowerCase())]).size; // also "På blåmarkerade sträckor … 2 § På rödmarkerade sträckor" (QA 4 Nov: Täby allé)
   // a ban on the street and a permission on part of it ("Trots förbudet får fordon parkeras på … sida mellan …", "Med avvikelse från
   // bestämmelserna i 1 § får fordon parkeras på anordnade platser"): two rule sets (QA 25 Oct: Täby Värtavägen, Danderyd Källvägen)
-  const exceptionPart = /(?:inte|ej) (?:stannas eller )?parkeras/i.test(t) && /(?:trots förbudet|med avvikelse från (?:bestämmelserna|förbudet) i (?:\d+\s*§|paragraf \d+|första stycket))[^.]*får (?:fordon|personbil)[^.]*parkeras?\b/i.test(body.replace(/\s+/g, ' ')); // the raw text: ruleText drops "Med avvikelse från bestämmelserna i 1 §" (QA 2 Nov: Timrå Källvägen got the street ban on its bays; "får fordon parkera", QA 3 Nov: Norrtälje Parkstigen)
+  // not "Med avvikelse från bestämmelserna i 1 § får fordon på sträckan inte parkeras …": a ban on the same stretch (QA 12 Nov round 18: Örnsköldsvik)
+  const exceptionPart = /(?:inte|ej) (?:stannas eller )?parkeras/i.test(t) && /(?:trots förbudet|med avvikelse från (?:bestämmelserna|förbudet) i (?:\d+\s*§|paragraf \d+|första stycket))[^.]*får (?:fordon|personbil)(?![^.]*(?:inte|ej) parkeras)[^.]*parkeras?\b/i.test(body.replace(/\s+/g, ' ')); // the raw text: ruleText drops "Med avvikelse från bestämmelserna i 1 §" (QA 2 Nov: Timrå Källvägen got the street ban on its bays; "får fordon parkera", QA 3 Nov: Norrtälje Parkstigen)
   if (exceptionPart) return true;
   // "4 § Trots tillåtelsen i 1 § får fordon inte parkeras den 21:a dagen i månaden klockan 09.00 - 12.00" names no place of its own: it is a
   // rule for all the places of 1 §, not a second rule set (QA 7 Nov: Norrköping's City-P texts list many sides, ~650 lines stayed grey)
