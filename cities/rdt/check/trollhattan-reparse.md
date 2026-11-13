@@ -1,6 +1,6 @@
 # Trollhättan: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-12. 1197 segments: 1197 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-13. 1197 segments: 1197 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1144, partly read 14. Verified equal 1046, filled from text 11, text stricter 0, disputed 14, expired 39, text without rules 72, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

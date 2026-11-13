@@ -1,7 +1,7 @@
 # Ronneby: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-12. 375 segments: 375 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 370, partly read 5. Verified equal 282, filled from text 87, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 1.
+Run 2026-11-13. 375 segments: 375 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 370, partly read 5. Verified equal 282, filled from text 88, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -66,6 +66,7 @@ Fully read 370, partly read 5. Verified equal 282, filled from text 87, text str
 | 1081 2013-00069 | Ljusebergsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1081 2014-00058 | Järnvägsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1081 2014-00062 | Järnvägsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":720}]} | filled from text |
+| 1081 2014-00065 | Järnvägsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":600}]} | filled from text |
 | 1081 2015-00002 | Järnvägsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":15}]} | filled from text |
 | 1081 2015-00003 | Järnvägsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":15}]} | filled from text |
 | 1081 2015-00009 | Nygatan | uncertain → {"l":[{"a":0,"b":1440,"max":60}]} | filled from text |

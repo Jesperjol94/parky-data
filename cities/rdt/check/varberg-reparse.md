@@ -1,7 +1,7 @@
 # Varberg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-12. 783 segments: 783 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 767, partly read 8. Verified equal 689, filled from text 50, text stricter 0, disputed 0, expired 8, text without rules 2, multi-part texts (not compared) 26.
+Run 2026-11-13. 783 segments: 783 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 766, partly read 8. Verified equal 712, filled from text 52, text stricter 0, disputed 0, expired 9, text without rules 2, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -11,6 +11,7 @@ Fully read 767, partly read 8. Verified equal 689, filled from text 50, text str
 | 1383 2010-00869 | Engelbrektsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}],"v":"rörelsehindrade"} | filled from text |
 | 1383 2011-00085 | Södra vägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1383 2012-00054 | Skeppsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1383 2013-00172 | Västra Hamnplan | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
 | 1383 2013-00174 | Västra Hamnplan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1383 2014-00047 | Gamlebygatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1383 2014-00048 | Södra Vallgatan | uncertain → {"l":[{"a":0,"b":1440,"max":480}]} | filled from text |
@@ -23,6 +24,7 @@ Fully read 767, partly read 8. Verified equal 689, filled from text 50, text str
 | 1383 2014-00167 | Strandgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":840,"max":240}]} | filled from text |
 | 1383 2014-00188 | Getterövägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1383 2014-00189 | Getterövägen | uncertain → {"v":"buss"} | filled from text |
+| 1383 2014-00190 | Getterövägen | uncertain → {"v":"husbil","o":[{"dt":["vardag","fore","helgdag"],"a":0,"b":600},{"dt":["vardag","fore","helgdag"],"a":1200,"b":1440}]} | filled from text |
 | 1383 2014-00191 | Getterövägen | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1383 2014-00212 | Eskilsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1383 2014-00229 | Fridhemsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -55,6 +57,7 @@ Fully read 767, partly read 8. Verified equal 689, filled from text 50, text str
 | 1383 2020-00006 | Västra Vallgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1383 2021-00033 | Otto Torells gata | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1383 2024-00066 | Träslövsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1383 2026-00147 | Magasinsgatan | expired 2026-11-13 | already uncertain |
 | 1383 2026-00149 | Östra Långgatan | expired 2026-10-23 | already uncertain |
 | 1383 2026-00159 | Västra Vallgatan | expired 2026-10-31 | already uncertain |
 | 1383 2026-00161 | Kungsgatan | expired 2026-11-02 | already uncertain |

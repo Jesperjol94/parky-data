@@ -30,9 +30,9 @@ const minutesBanned = (ws) => (ws || []).reduce((s, w) => s + (w.b > w.a ? w.b -
 // A text that describes several places (numbered paragraphs, several "På …" clauses, both sides) cannot be compared with
 // one segment: the parser merges all its rules. Such texts are only counted, never applied.
 function multiPart(body) {
-  const t = ruleText(body) || '';
+  const t = (ruleText(body) || '').replace(/\b(?:Vid|Med) (?:hus)?(?:nr|nummer)\.? [\d\s,–-]+ (?:avses|gäller) (?:(?:norra|södra|östra|västra) sidan|hussidan)\.?/gi, ''); // "Tillåtelsen gäller följande sidor: Vid husnr 271-291 avses västra sidan. Vid husnr 31- 49 avses östra sidan.": the same rule on both sides, one rule set (QA 13 Nov round 20: Täby Marknadsvägen)
   const paras = (t.match(/\b\d{1,2}\s*§/g) || []).length;
-  const places = (t.match(/(?:^|[.;]\s*|\d\s*§\s*)På\s(?!(?:vardag|dag(?:ar)? före|sön-|helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|övriga ytor)\b)/g) || []).length + (t.match(/(?:^|[.;]\s*|\d\s*§\s*)Inom\s/g) || []).length; // also "… 4 § På parkeringsplatsen på de platser …" after a paragraph number (QA 6 Nov: Norrtälje Rimbo, Täby Arninge merged several places' rules)
+  const places = (t.match(/(?:^|[.;]\s*|\d\s*§\s*)På\s(?!(?:vardag|dag(?:ar)? före|sön-|helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|övriga ytor|parkeringsskiva|p-skiva)\b)/g) || []).length + (t.match(/(?:^|[.;]\s*|\d\s*§\s*)Inom\s/g) || []).length; // also "… 4 § På parkeringsplatsen på de platser …" after a paragraph number (QA 6 Nov: Norrtälje Rimbo, Täby Arninge merged several places' rules) // "På parkeringsskiva eller motsvarande ska klockslaget … ställas in" is how to set the disc, not a place (QA 13 Nov round 20: Täby Marknadsvägen)
   const sides = new Set((t.match(/(?<![a-zåäö])((?:syd|nord)?(?:östra|västra)|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size; // not \b: it is ASCII-only, so "\böstra" never matched after a space (and matched inside "sydöstra")
   void paras; // "1 § place, 2 § hours, 3 § fee" is one place in several paragraphs: only several places or sides make a text multi-part (18 Oct review)
   // several sides in one sentence with one rule ("västra sida …, norra sida … samt östra sida … får fordon parkeras") are one rule set (QA 22 Oct)

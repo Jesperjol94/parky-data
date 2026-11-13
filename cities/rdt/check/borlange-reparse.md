@@ -1,6 +1,6 @@
 # Borlänge: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-12. 1038 segments: 1038 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-13. 1038 segments: 1038 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1024, partly read 9. Verified equal 974, filled from text 11, text stricter 0, disputed 0, expired 5, text without rules 34, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

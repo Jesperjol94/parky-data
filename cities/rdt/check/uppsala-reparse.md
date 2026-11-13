@@ -1,7 +1,7 @@
 # Uppsala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-12. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3625, partly read 72. Verified equal 2250, filled from text 12, text stricter 0, disputed 0, expired 28, text without rules 1362, multi-part texts (not compared) 0.
+Run 2026-11-13. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3623, partly read 72. Verified equal 2248, filled from text 12, text stricter 0, disputed 0, expired 30, text without rules 1362, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -25,6 +25,8 @@ Fully read 3625, partly read 72. Verified equal 2250, filled from text 12, text 
 | 0380 2026-518 | Petterslundsgatan | expired 2026-10-30 | already uncertain |
 | 0380 2026-518 | Petterslundsgatan | expired 2026-10-30 | already uncertain |
 | 0380 2026-518 | Petterslundsgatan | expired 2026-10-30 | already uncertain |
+| 0380 2026-532 | Fyrisvallsgatan | expired 2026-11-13 | already uncertain |
+| 0380 2026-532 | Fyrisvallsgatan | expired 2026-11-13 | already uncertain |
 | 0380 2026-537 | S:t Persgatan | expired 2026-10-30 | already uncertain |
 | 0380 2026-537 | S:t Persgatan | expired 2026-10-30 | already uncertain |
 | 0380 2026-552 | Tartugatan | expired 2026-10-16 | already uncertain |

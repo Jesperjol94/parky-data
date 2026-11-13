@@ -1,6 +1,6 @@
 # Haninge: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-12. 1999 segments: 1999 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-13. 1999 segments: 1999 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1986, partly read 9. Verified equal 1831, filled from text 13, text stricter 0, disputed 0, expired 4, text without rules 139, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

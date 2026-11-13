@@ -1,6 +1,6 @@
 # Sigtuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-12. 1007 segments: 1007 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-13. 1007 segments: 1007 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 992, partly read 15. Verified equal 942, filled from text 29, text stricter 0, disputed 1, expired 0, text without rules 3, multi-part texts (not compared) 16.
 
 | Citation | Street | Change | Note |

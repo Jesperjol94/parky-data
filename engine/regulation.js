@@ -202,6 +202,8 @@ function sentences(t) {
     t = t.replace(new RegExp(String.raw`\b([Ff]år)(?: (?:endast|enbart|bara))? (?:${LV},? (?:(?:och|samt|eller) )?)*personbil(?:ar)? klass (?:I|1)\b(?:(?:,|,? (?:och|samt|eller)) ${LV})*(?=,? (?:stannas|parkeras?)\b|,? (?:på|inom|i|under|mellan|med) )`, 'g'), '$1 fordon')
       .replace(/\bTillåtelsen gäller (?:endast |enbart )?(?:för )?personbil(?:ar)? klass (?:I|1)\.(?=\s|$)/g, 'Tillåtelsen gäller endast personbil.'); }
   t = t.replace(/\b((?:måndag|tisdag|onsdag|torsdag|fredag|lördag)(?:ar)?) som infaller (?:på )?vardag(?:ar)?\b/g, '$1 utom dag före sön- och helgdag'); // "torsdagar som infaller vardagar" (Skellefteå): the weekday when it is an ordinary weekday
+  t = t.replace(/\bklocka(?=\s*\d)/g, 'klockan');
+  t = t.replace(/(\d\d),? (och|samt) (sön- och helgdag(?:ar)?)(?=\s*(?:\.(?!\d)|$))/g, '$1 $2 $3 klockan 00.00 - 24.00'); // "… klockan 14.00 - 08.00 och sön- och helgdag.": a day type after the timed ones, with no hours of its own, is the whole day (QA 13 Nov round 20: Vänersborg Torget was free on Sundays) // "mellan klocka 08.00- 17.00": a typo for "klockan" (QA 13 Nov round 20: Gävle Ulvsätersvägen kept the register's limit at the wrong hours)
   t = t.replace(/\b(under tiden|gäller) (\d{1,2}[.:]\d{2}\s*[-–—]\s*\d{1,2}[.:]\d{2})\b/g, '$1 klockan $2'); // "Förbudet gäller under tiden 07:00 - 12:00": hours without "klockan"
   t = t.replace(/\b(\d):(?=\s+(?:måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)en\b)/g, '$1'); // "den 1: måndagen i varje månad" (Kalmar)
   // "får fordon (inte) parkera": the active form, read as "parkeras" (QA 3 Nov: Leksand, Strömstad, Ekerö)
@@ -217,7 +219,8 @@ function sentences(t) {
   t = t.replace(/([a-zåäö)0-9])\.(?=[A-ZÅÄÖ][a-zåäö])/g, '$1. '); // "… i följd.Tillåtelsen", "… 14.00.Tillåtelsen": glued sentences
   t = t.replace(/([^.;\s])\s+(\d{1,2}\s*§\s+)(?=[A-ZÅÄÖ][a-zåäö])/g, '$1. $2');
   t = t.replace(/([^.;\s])\s+(?=(?:Parkering (?:är|får)|Förbudet (?:gäller|ger)|Tillåtelsen (?:att parkera )?(?:gäller|ger)|Tidsbegränsningen gäller|Avgiftsplikten gäller|Avgift ska betalas)\b)/g, '$1. '); // a rule sentence with no full stop before it ("… KF § 119/18 Parkering är dock förbjuden …", Skövde) // "… (1998:1276) 2 § Mellan klockan …": a new paragraph without a full stop before it (Kungsbacka)
-  t = t.replace(/\bFörbuden i [\d\s§,och-]+§§? gäller\b/g, 'Förbudet gäller'); // "Förbuden i 2 § och 3 § gäller onsdagar …" (Norrtälje): the hours of the bans above
+  t = t.replace(/\bFörbuden i [\d\s§,och-]+§§? gäller\b/g, 'Förbudet gäller');
+  t = t.replace(/\b(Förbudet|Tidsbegränsningen|Tillåtelsen) i (?:paragraf )?\d+ ?§ gäller (?=(?:under tiden )?(?:vardag|dag(?:ar)? före|sön- och helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|mellan klockan|klockan|kl\.? ?\d))/g, '$1 gäller '); // "Tidsbegränsningen i 1 § gäller vardag utom … mellan klockan 08.00- 17.00": the hours of the rule in 1 § (QA 13 Nov round 20: Gävle Ulvsätersvägen) // "Förbuden i 2 § och 3 § gäller onsdagar …" (Norrtälje): the hours of the bans above
   t = t.replace(/(^|[.;]\s+)\d{1,2}\s*§\s+(?=[A-ZÅÄÖ])/g, '$1');
   t = t.replace(/(^|[.;]\s+)\d{1,2}\s*§\s+(?=\d{1,2}\s+(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b)/g, '$1Under tiden '); // "… gäller 31 juli - 1 maj. 4 § 1 maj - 31 juli gäller dock …": a paragraph opening with a date is a sentence of its own (QA 28 Oct: Sotenäs merged both seasons into none) // paragraph numbers "2 § Tidsbegränsningen …" (not "13 kap. 8 § trafikförordningen")
   t = t.replace(/\b(kv|ca|nr|resp|fast)\.(?=\s)/gi, '$1§DOT§'); // "parkeringsplats kv. Pilen": an abbreviation, not the end of a sentence
@@ -241,6 +244,9 @@ const IGNORE = [
   /^Förbudet (?:att (?:parkera|stanna)\S* )?gäller (?:på )?båda sid(?:or|orna|an)\b(?![^.]*(?:klockan|kl\b|\d[.:]\d|vardag|helgdag|dag\b|tim|datum|januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december|inte|ej|endast))/i,
   /^(?:Parkeringsplats(?:ernas|ens)|Plats(?:ernas|ens)) läge fram ?går av\b/i,
   /^Förbudet gäller (?:inte|ej) (?:parkering )?(?:på|inom) (?:de )?(?:särskilt )?(?:markerade|anvisade|uppmärkta|anordnade) (?:parkerings)?(?:platser|platserna|parkeringsfickor|parkeringsfickorna|rutor)\.?$/i, // the ban's own map lines leave out the bays (QA 1 Nov: Katrineholm, Motala)
+  // which side of the street, by house number: where, not when ("Tillåtelsen gäller följande sidor: Vid husnr 271-291 avses västra sidan."; QA 13 Nov round 20: Täby Marknadsvägen stayed unread and lost its night ban)
+  /^(?:Tillåtelsen|Förbudet|Tidsbegränsningen) (?:att parkera )?gäller följande sid(?:a|or)\s*[.:]?(?:\s*(?:Vid|Med) (?:hus)?(?:nr|nummer)\.? [\d\s,–-]+ (?:avses|gäller) (?:(?:norra|södra|östra|västra) sidan|hussidan)\.?)*$/i,
+  /^(?:Vid|Med) (?:hus)?(?:nr|nummer)\.? [\d\s,–-]+ (?:avses|gäller) (?:(?:norra|södra|östra|västra) sidan|hussidan)\.?$/i,
   /^Vid parkering av (?:motorcykel|moped)[^.]*krävs (?:inte|ej) parkeringsskiva\.?$/i,
   /^Tillåtelsen (?:att parkera )?gäller (?:inte|ej) (?:på|för) (?:de )?(?:plats(?:er|en|erna)?|parkeringsplats(?:er|en|erna)?|rutor) (?:som är )?(?:reserverade?|avsedda?) för rörelsehindrade(?: med (?:särskilt )?(?:parkerings)?tillstånd)?\.?$/i, // the disabled bays inside the area have their own regulation (QA 2 Nov: Vellinge)
 ];

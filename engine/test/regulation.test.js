@@ -904,3 +904,23 @@ test('seasonal permission departing from an area ban: banned the rest of the yea
   const q = parseRegulation(wrap('På Storgatan får fordon parkeras mot avgift under tiden 1 oktober - 30 april.'));
   assert.deepEqual(q.bans, []); // no area ban named: outside the season the general rules apply
 });
+
+test('"Tidsbegränsningen i 1 § gäller vardag utom … mellan klocka 08.00- 17.00": the hours of the 1 § limit, "klocka" a typo (QA 13 Nov round 20: Gävle Ulvsätersvägen)', () => {
+  const r = parseRegulation(wrap('1 § På Ulvsätersvägen får fordon parkeras högst 20 minuter i följd. 2 § Tidsbegränsningen i 1 § gäller vardag utom vardag före sön- och helgdag mellan klocka 08.00- 17.00.'));
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1020, max: 20 }]);
+  const q = parseRegulation(wrap('1 § På Storgatan får fordon inte parkeras. 2 § Förbudet i 1 § gäller inte enskild väg.'));
+  assert.deepEqual(q.bans, [{ a: 0, b: 1440 }]); // not a time: untouched
+});
+
+test('which side by house number ("Tillåtelsen gäller följande sidor: Vid husnr 271-291 avses västra sidan.") is where, not when (QA 13 Nov round 20: Täby Marknadsvägen)', () => {
+  const r = parseRegulation(wrap('1 § På Marknadsvägen får fordon parkeras under högst 1 timme. Tidsbegränsningen gäller klockan 06.00 - 22.00. Tillåtelsen gäller följande sidor: Vid husnr 271-291 avses västra sidan. Vid husnr 31- 49 avses östra sidan. Övrig tid får fordon inte parkeras.'));
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.bans.map((b) => [b.a, b.b]), [[0, 360], [1320, 1440]]);
+});
+
+test('"förbjuden … vardag före sön- och helgdag klockan 14.00 - 08.00 och sön- och helgdag.": the last day type without hours is banned all day (QA 13 Nov round 20: Vänersborg Torget)', () => {
+  const r = parseRegulation(wrap('På Torget får fordon parkeras under högst 3 tim i följd. Tidsbegränsningen gäller under tiden vardag utom vardag före sön- och helgdag klockan 08.00 - 20.00 och vardag före sön- och helgdag klockan 08.00 - 14.00. Parkering är dock förbjuden under tiden vardag utom vardag före sön- och helgdag klockan 20.00 - 08.00, vardag före sön- och helgdag klockan 14.00 - 08.00 och sön- och helgdag.'));
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 1200, b: 480 }, { dt: ['fore'], a: 840, b: 480 }, { dt: ['helgdag'], a: 0, b: 1440 }]);
+});

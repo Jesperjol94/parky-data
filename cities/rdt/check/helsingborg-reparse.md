@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-12. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3597, partly read 76. Verified equal 3130, filled from text 169, text stricter 0, disputed 0, expired 100, text without rules 290, multi-part texts (not compared) 0.
+Run 2026-11-13. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3590, partly read 76. Verified equal 3123, filled from text 169, text stricter 0, disputed 0, expired 107, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -241,6 +241,7 @@ Fully read 3597, partly read 76. Verified equal 3130, filled from text 169, text
 | 1283 2025-753 | Drottninggatan | expired 2026-10-30 | already uncertain |
 | 1283 2026-487 | Södra Strandgatan | expired 2026-10-30 | already uncertain |
 | 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
+| 1283 2026-574 | Michael Löfmans gata | expired 2026-11-13 | already uncertain |
 | 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | already uncertain |
 | 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | already uncertain |
 | 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | already uncertain |
@@ -258,6 +259,12 @@ Fully read 3597, partly read 76. Verified equal 3130, filled from text 169, text
 | 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
 | 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
 | 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
+| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
+| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
+| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
+| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
+| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
+| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
 | 1283 2026-672 | Ålögatan | expired 2026-11-11 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
 | 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
