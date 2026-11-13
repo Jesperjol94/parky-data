@@ -935,3 +935,17 @@ test('"Första två timmarna är avgiftsfria med elektronisk biljett" is a fee d
   assert.ok(!/avgiftsfri/i.test(dropFreeFirstHours('Den första timmen är avgiftsfri och kan nyttjas en gång per kalenderdygn.')));
   assert.ok(/avgiftsfri/i.test(dropFreeFirstHours('Parkeringen är avgiftsfri.')));
 });
+
+test('"Avgiftsplikten gäller …" after "mot avgift under tiden <hours>" gives the fee hours (QA 13 Nov round 22: Nacka Tor Boijes gata)', () => {
+  const r = parseRegulation(wrap('På markerad sträcka på Tor Boijes gata enligt kartbild får fordon parkeras under högst 4 tim i följd mot avgift under tiden vardag före sön- och helgdag klockan 07.00 - 21.00, vardag utom vardag före sön- och helgdag klockan 07.00 - 21.00 och sön- och helgdag klockan 07.00 - 21.00. Parkering är dock förbjuden under tiden måndag klockan 08.00 - 12.00. Avgiftsplikten gäller under tiden vardag utom vardag före sön- och helgdag klockan 07.00 - 19.00 och vardag före sön- och helgdag klockan 11.00 - 17.00. Avgift enligt taxa 1, 2 § allmänna föreskrifter taxor.'));
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 420, b: 1140 }, { dt: ['fore'], a: 660, b: 1020 }]);
+  assert.equal(r.limits.length, 3);
+});
+
+test('"Avgiften är enligt Taxa 2, vardag utom vardag före sön- och helgdag, enligt …": the fee\'s days (QA 13 Nov round 22: Värnamo)', () => {
+  const r = parseRegulation(wrap('På den del av parkeringen (markerade platser) väster om Järnvägsgatan som anges i kartan i bilagan till dessa föreskrifter får fordon parkeras mot avgift. 2 § Avgiften är enligt Taxa 2, vardag utom vardag före sön- och helgdag, enligt bestämmelserna om avgifter för parkering i Värnamo kommuns lokala trafikföreskrifter ( 0683 2025 : 31 ) om parkeringstaxor i Värnamo.'));
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.feeWindows, [{ a: 0, b: 1440, dt: ['vardag'], daysOnly: true }]);
+  assert.equal(r.taxa, 2);
+});

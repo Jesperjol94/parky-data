@@ -168,7 +168,7 @@ for (const row of idx.cities) {
     // "Avgift – se skylten" (fu: a fee, but the rate is in another regulation) charged around the clock in the app, although
     // the text gives the fee hours (owner 24 Oct: Norrköping Torggatan/Fleminggatan said "fee" on a Saturday night).
     // The hours become a fee entry with an unknown price (null = "see the sign"), free outside them: <kommun>999*100+n.
-    if (r.feeWindows && s.t == null && s.fu && APPLY && !r.unread.some((u) => /avgift|taxa/i.test(u)) && rec.body.split(/\.\s+/).filter((x) => /^\s*(?:\d+ §\s*)?avgift/i.test(x) && /(?:klockan|kl\.?)\s*\d/i.test(x)).length <= 1) { // one fee rule in the text, even for several stretches
+    if (r.feeWindows && (s.t == null || Math.floor(s.t / 100) === +c.kommunkod * 1000 + 999) && s.fu && APPLY && !r.unread.some((u) => /avgift|taxa/i.test(u)) && rec.body.split(/\.\s+/).filter((x) => /^\s*(?:\d+ §\s*)?avgift/i.test(x) && /(?:klockan|kl\.?)\s*\d/i.test(x)).length <= 1) { // one fee rule in the text, even for several stretches
       const fws2 = r.feeWindows.filter((w) => !w.w && !w.p && !w.dm && !w.nw && !w.dd && !w.wk).flatMap((w) => (w.a < w.b ? [w] : [{ ...w, b: 1440 }, { ...w, a: 0 }]));
       const periods = fws2.map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: 0, m: w.m })).map((p) => ({ ...p, price: null }));
       if (periods.length && fws2.length >= r.feeWindows.length) {
@@ -176,7 +176,7 @@ for (const row of idx.cities) {
         const b0 = +c.kommunkod * 1000 + 999, sig = JSON.stringify(periods);
         let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
         if (!id) { let n = 1; while (c.taxa[b0 * 100 + n]) n++; id = b0 * 100 + n; c.taxa[id] = { periods, label: 'Taxa enligt skylten', otherTime: 0 }; }
-        s.t = id; changed++; st.feeHoursSign = (st.feeHoursSign || 0) + 1;
+        if (s.t !== id) { s.t = id; changed++; st.feeHoursSign = (st.feeHoursSign || 0) + 1; } // also re-derived when an earlier run's "see the sign" entry no longer matches the text (QA 13 Nov round 22: Nacka Tor Boijes gata)
       }
     }
     // (the block above runs before the fully-read gate: one unread sentence about something else must not keep the fee around the clock, QA 8 Nov: Sundbyberg, Östersund, Nacka)
@@ -201,7 +201,9 @@ for (const row of idx.cities) {
       const allDay = base && base.periods.length && new Set(base.periods.map((p) => p.price)).size === 1;
       const split = (ws) => ws.flatMap((w) => (w.a < w.b ? [w] : [{ ...w, b: 1440 }, { ...w, a: 0 }])); // an overnight window (18.30 - 06.30) as two (QA 8 Nov: Haninge Vega allé, Solna)
       const fws = split(r.feeWindows.filter((w) => !w.w && !w.p && !w.dm));
-      const periods = fws.map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: base ? Math.max(...base.periods.map((p) => p.price)) : 0, m: w.m }));
+      let periods = fws.map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: base ? Math.max(...base.periods.map((p) => p.price)) : 0, m: w.m }));
+      // the text names only the fee's days ("Avgiften är enligt Taxa 2, vardag utom …"): keep the table's hours, on those days only (QA 13 Nov round 22: Värnamo)
+      if (base && fws.length && fws.every((w) => w.daysOnly && w.dt && !w.m)) { const days = new Set(fws.flatMap((w) => w.dt)); periods = base.periods.map((p) => clean({ ...p, days: p.days.filter((d) => days.has(d)) })).filter((p) => p.days.length); }
       if (allDay && fws.length === split(r.feeWindows).length) {
         const sig = JSON.stringify(periods);
         let id = Object.keys(c.taxa).map(Number).find((k) => Math.floor(k / 100) === b0 && JSON.stringify(c.taxa[k].periods) === sig);
