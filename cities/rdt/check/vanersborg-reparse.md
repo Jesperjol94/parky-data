@@ -1,7 +1,7 @@
 # Vänersborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-13. 960 segments: 960 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 934, partly read 7. Verified equal 890, filled from text 28, text stricter 4, disputed 0, expired 19, text without rules 10, multi-part texts (not compared) 0.
+Fully read 934, partly read 7. Verified equal 894, filled from text 28, text stricter 0, disputed 0, expired 19, text without rules 10, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -36,10 +36,6 @@ Fully read 934, partly read 7. Verified equal 890, filled from text 28, text str
 | 1487 2026-00021 | Karlslundsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":2880}]} | filled from text |
 | 1487 2026-00099 | Torget | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1487 2026-00168 | Stora Torget | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":240},{"dt":["fore"],"a":480,"b":840,"max":240}],"v":"laddning"} | filled from text |
-| 1487 2026-00199 | Torget | {"f":[{"dt":["vardag"],"a":1200,"b":480},{"dt":["fore"],"a":840,"b":480}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} → {"f":[{"dt":["vardag"],"a":1200,"b":480},{"dt":["fore"],"a":840,"b":480},{"dt":["helgdag"],"a":0,"b":1440}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} | text stricter: applied |
-| 1487 2026-00199 | Torget | {"f":[{"dt":["vardag"],"a":1200,"b":480},{"dt":["fore"],"a":840,"b":480}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} → {"f":[{"dt":["vardag"],"a":1200,"b":480},{"dt":["fore"],"a":840,"b":480},{"dt":["helgdag"],"a":0,"b":1440}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} | text stricter: applied |
-| 1487 2026-00199 | Torget | {"f":[{"dt":["vardag"],"a":1200,"b":480},{"dt":["fore"],"a":840,"b":480}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} → {"f":[{"dt":["vardag"],"a":1200,"b":480},{"dt":["fore"],"a":840,"b":480},{"dt":["helgdag"],"a":0,"b":1440}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} | text stricter: applied |
-| 1487 2026-00199 | Torget | {"f":[{"dt":["vardag"],"a":1200,"b":480},{"dt":["fore"],"a":840,"b":480}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} → {"f":[{"dt":["vardag"],"a":1200,"b":480},{"dt":["fore"],"a":840,"b":480},{"dt":["helgdag"],"a":0,"b":1440}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} | text stricter: applied |
 | 1487 2026-00225 | Lakevägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1487 2026-00267 | Marierovägen | uncertain → {"l":[{"dt":["vardag"],"a":360,"b":1080,"max":240}]} | filled from text |
 | 1487 2026-00285 | Södergatan | expired 2026-11-03 | already uncertain |

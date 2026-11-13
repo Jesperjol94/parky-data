@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseRegulation, applyRegulation, samePlaceExceptions } from '../regulation.js';
+import { parseRegulation, applyRegulation, samePlaceExceptions, dropFreeFirstHours } from '../regulation.js';
 const wrap = (s) => `Stockholms kommun föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande. ${s} Denna författning träder i kraft den 1 maj 2026.`;
 
 test('time limit in the main sentence + "Övrig tid får fordon parkeras" + winter ban', () => {
@@ -923,4 +923,15 @@ test('"förbjuden … vardag före sön- och helgdag klockan 14.00 - 08.00 och s
   const r = parseRegulation(wrap('På Torget får fordon parkeras under högst 3 tim i följd. Tidsbegränsningen gäller under tiden vardag utom vardag före sön- och helgdag klockan 08.00 - 20.00 och vardag före sön- och helgdag klockan 08.00 - 14.00. Parkering är dock förbjuden under tiden vardag utom vardag före sön- och helgdag klockan 20.00 - 08.00, vardag före sön- och helgdag klockan 14.00 - 08.00 och sön- och helgdag.'));
   assert.deepEqual(r.unread, []);
   assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 1200, b: 480 }, { dt: ['fore'], a: 840, b: 480 }, { dt: ['helgdag'], a: 0, b: 1440 }]);
+});
+
+test('"Första två timmarna är avgiftsfria med elektronisk biljett" is a fee discount: read, and not taken as free parking (QA 13 Nov round 21: Huddinge Sjödalsvägen)', () => {
+  const body = '1 § På Sjödalsvägen enligt markering på kartbild får fordon, med avvikelse från Huddinge kommuns lokala trafikföreskrifter (0126 2022:54) om förbud att parkera inom ett område i centrala Huddinge, parkeras mot avgift. 2 § Avgift ska betalas för parkering enligt 1 §. Avgiftsplikten gäller vardag utom vardag före sön- och helgdag mellan klockan 08.00 - 17.00. 4 § Första två timmarna är avgiftsfria med elektronisk biljett från betalautomat eller telefonbetalning.';
+  const r = parseRegulation(wrap(body));
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.bans, []);
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1020 }]);
+  assert.ok(!/avgiftsfri/i.test(dropFreeFirstHours(body)));
+  assert.ok(!/avgiftsfri/i.test(dropFreeFirstHours('Den första timmen är avgiftsfri och kan nyttjas en gång per kalenderdygn.')));
+  assert.ok(/avgiftsfri/i.test(dropFreeFirstHours('Parkeringen är avgiftsfri.')));
 });
