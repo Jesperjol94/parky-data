@@ -27,7 +27,7 @@ Fully read 656, partly read 11. Verified equal 626, filled from text 27, text st
 | 1441 2011-00192 | Pomonavägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1441 2011-00210 | Stationsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1441 2011-00217 | Brahevägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1441 2014-00038 | Ekollonvägen | expired 2015-03-08 | now uncertain |
+| 1441 2014-00038 | Ekollonvägen | expired 2015-03-08 | already uncertain |
 | 1441 2021-00013 | Hede äng | uncertain → {"l":[{"a":0,"b":1440,"max":4320}]} | filled from text |
 | 1441 2024-24 | Rurik Holms väg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1441 2024-24 | Rurik Holms väg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

@@ -11,7 +11,7 @@ Fully read 842, partly read 38. Verified equal 824, filled from text 11, text st
 | 0883 2012-00039 | parkeringsytan Järnvägsparken | expired 2012-08-18 | already uncertain |
 | 0883 2012-00039 | parkeringsytan Järnvägsparken | expired 2012-08-18 | already uncertain |
 | 0883 2012-00039 | parkeringsytan Järnvägsparken | expired 2012-08-18 | already uncertain |
-| 0883 2019-243 | del av Kristinebergsgatan | expired 2019-11-30 | now uncertain |
+| 0883 2019-243 | del av Kristinebergsgatan | expired 2019-11-30 | already uncertain |
 | 0883 2020-92 | Splintgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0883 2020-92 | Splintgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0883 2020-154 | Kungsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

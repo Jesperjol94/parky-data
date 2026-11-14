@@ -181,6 +181,9 @@ for (const row of idx.cities) {
       }
     }
     // (the block above runs before the fully-read gate: one unread sentence about something else must not keep the fee around the clock, QA 8 Nov: Sundbyberg, Östersund, Nacka)
+    // a permission for one season only ("får fordon parkeras under tiden 1 oktober - 30 april") that says nothing about the rest of the year:
+    // the line can't show summer as free or as banned, so it is grey (QA 14 Nov round 25: Skellefteå Hörnellgatan, Kanalgatan, Södra Järnvägsgatan)
+    if (r.seasonOnly && !s.v && !(s.f || []).some((f) => f.a === 0 && f.b === 1440 && f.m && !f.w && !f.dt)) { if (APPLY && !s.u) { s.u = 1; s.ux = 1; changed++; st.seasonOnlyGrey = (st.seasonOnlyGrey || 0) + 1; } if (s.u) st.uStill++; if (!full) st.partlyRead++; else st.fullyRead++; continue; }
     if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; 
       // a multi-part text with an unread sentence: a cleaning/market-day ban the parser did read but the line lacks can't be placed, and
       // missing it would be looser: grey, as for fully read multi-part texts (QA 14 Nov round 23: Täby Flygkårsvägen 0160 2022-76 had no Thursday ban)

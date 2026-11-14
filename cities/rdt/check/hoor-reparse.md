@@ -98,9 +98,9 @@ Fully read 523, partly read 5. Verified equal 423, filled from text 92, text str
 | 1267 2014-00015 | Bangårdsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1267 2014-00016 | Bangårdsgatan | uncertain → permitted | filled from text |
 | 1267 2024-10 | Lilla torg | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
-| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
-| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
-| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
-| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
-| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | already uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | already uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | already uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | already uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | already uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | already uncertain |

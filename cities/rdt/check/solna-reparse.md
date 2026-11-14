@@ -50,7 +50,7 @@ Fully read 2243, partly read 14. Verified equal 2155, filled from text 63, text 
 | 0184 2016-00462 | Linvävarvägen | uncertain → {"f":[{"w":2,"a":1080,"b":1320,"p":"odd"}]} | filled from text |
 | 0184 2017-00567 | Tritonvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0184 2018-00006 | Pyramidvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0184 2018-00022 | Jungfrudansen | expired 2019-12-01 | now uncertain |
+| 0184 2018-00022 | Jungfrudansen | expired 2019-12-01 | already uncertain |
 | 0184 2019-00188 | Annerovägen | uncertain → {"f":[{"w":3,"a":420,"b":600,"p":"even"}]} | filled from text |
 | 0184 2019-00189 | Annerovägen | uncertain → {"f":[{"w":5,"a":420,"b":600,"p":"even"}]} | filled from text |
 | 0184 2020-00073 | Badhusplanen | uncertain → {"f":[{"w":3,"a":600,"b":840,"m":[[8,1],[6,30]],"p":"odd"}]} | filled from text |

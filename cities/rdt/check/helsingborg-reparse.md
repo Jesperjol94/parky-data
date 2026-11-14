@@ -234,8 +234,8 @@ Fully read 3590, partly read 74. Verified equal 3123, filled from text 169, text
 | 1283 2014-00445 | Luggudegatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":840,"max":60}]} | filled from text |
 | 1283 2014-00694 | Blekingegatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2016-289 | Övre Långvinkelsgatan | uncertain → {"f":[{"w":1,"nw":3,"a":480,"b":720}]} | filled from text |
-| 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | now uncertain |
-| 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | now uncertain |
+| 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | already uncertain |
+| 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | already uncertain |
 | 1283 2016-636 | Cindersgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2017-188 | Stenkretsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2017-435 | Bredgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

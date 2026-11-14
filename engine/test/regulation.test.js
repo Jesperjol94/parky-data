@@ -981,3 +981,19 @@ test('dated periods with a year: the last day, so an ended temporary rule counts
   assert.equal(datedPeriodEnd(wrap('På Kyrkogatan får fordon inte parkeras under tiden 1 juni - 31 augusti.')), null); // yearly season, no year
   assert.equal(datedPeriodEnd('Föreskriften träder i kraft den 15 september 2000. ' + wrap('På Torget får fordon parkeras högst 2 tim.')), null);
 });
+
+test('limit with the hours before the day types, and a glued paragraph sign ("Tillåtelsen i 1§ gäller dock …")', () => {
+  let r = parseRegulation(wrap('1 § På parkeringsplatsen får fordon parkeras. 2 § Tillåtelsen i 1§ gäller dock högst 4 timmar i följd mellan klockan 9-16, vardagar utom vardag före söndag och helgdag. 3 § Parkeringsskiva eller motsvarande ska användas.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 960, max: 240 }]); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På parkeringsplatsen får fordon parkeras under högst 4 timmar i följd mellan klockan 8 och 18 vardagar utom dag före sön- och helgdag och mellan klockan 8 och 15 vardag före sön- och helgdag. Parkeringsskiva eller motsvarande ska användas.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1080, max: 240 }, { dt: ['fore'], a: 480, b: 900, max: 240 }]);
+});
+
+test('a permission for one season with nothing about the rest of the year is flagged seasonOnly (the line goes grey)', () => {
+  let r = parseRegulation(wrap('1 § På Hörnellgatan enligt kartbilaga får fordon parkeras under tiden 1 oktober - 30 april. 2 § Avgift ska betalas för parkering enligt 1 §. 3 § Parkering är dock förbjuden onsdag mellan klockan 00.00 - 07.00 under tiden 1 oktober - 30 april.'));
+  assert.deepEqual(r.seasonOnly, [[10, 1], [4, 30]]);
+  r = parseRegulation(wrap('På gatan får fordon parkeras 15 april – 15 oktober. Övrig tid får fordon inte parkeras.'));
+  assert.equal(r.seasonOnly, undefined); // the rest of the year is stated: a ban
+  r = parseRegulation(wrap('1 § På Sjövägen får fordon parkeras under högst 2 tim i följd under tiden 15 maj - 15 augusti och 08.00 - 18.00. 2 § Under tiden 16 augusti-14 juni får fordon parkeras 24 timmar.'));
+  assert.equal(r.seasonOnly, undefined); // both seasons have rules
+});
