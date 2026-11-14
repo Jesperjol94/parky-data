@@ -67,9 +67,9 @@ Fully read 2088, partly read 20. Verified equal 1783, filled from text 42, text 
 | 0183 2026-00107 | Esplanaden | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0183 2026-00110 | Ringleken | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0183 2026-00159 | Oskarsvägen | {"f":[{"dt":["vardag"],"a":900,"b":1200,"m":[[10,13],[12,8]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":900,"b":1200,"m":[[10,13],[12,8]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0183 2026-00171 | Järnvägsgatan | expired 2026-11-14 | now uncertain |
-| 0183 2026-00171 | Järnvägsgatan | expired 2026-11-14 | now uncertain |
-| 0183 2026-00171 | Järnvägsgatan | expired 2026-11-14 | now uncertain |
+| 0183 2026-00171 | Järnvägsgatan | expired 2026-11-14 | already uncertain |
+| 0183 2026-00171 | Järnvägsgatan | expired 2026-11-14 | already uncertain |
+| 0183 2026-00171 | Järnvägsgatan | expired 2026-11-14 | already uncertain |
 | 0183 2026-00176 | Eliegatan | expired 2026-10-28 | already uncertain |
 | 0183 2026-00176 | Eliegatan | expired 2026-10-28 | already uncertain |
 | 0183 2026-00176 | Eliegatan | expired 2026-10-28 | already uncertain |

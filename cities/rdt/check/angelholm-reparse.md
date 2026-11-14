@@ -67,6 +67,6 @@ Fully read 679, partly read 10. Verified equal 544, filled from text 42, text st
 | 1292 2026-00217 | Järnvägsgatan | expired 2026-10-23 | already uncertain |
 | 1292 2026-00218 | Västra Kyrkogatan | expired 2026-10-24 | already uncertain |
 | 1292 2026-00269 | Vaktgatan | expired 2026-10-28 | already uncertain |
-| 1292 2026-00279 | Söndrebaljsvägen | expired 2026-11-14 | now uncertain |
-| 1292 2026-00279 | Söndrebaljsvägen | expired 2026-11-14 | now uncertain |
+| 1292 2026-00279 | Söndrebaljsvägen | expired 2026-11-14 | already uncertain |
+| 1292 2026-00279 | Söndrebaljsvägen | expired 2026-11-14 | already uncertain |
 | 1292 2026-00282 | Åkerslundsgatan | expired 2026-11-07 | already uncertain |

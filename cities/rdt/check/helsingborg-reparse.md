@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-14. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3590, partly read 76. Verified equal 3123, filled from text 169, text stricter 0, disputed 0, expired 107, text without rules 290, multi-part texts (not compared) 0.
+Fully read 3590, partly read 74. Verified equal 3123, filled from text 169, text stricter 0, disputed 0, expired 109, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -234,6 +234,8 @@ Fully read 3590, partly read 76. Verified equal 3123, filled from text 169, text
 | 1283 2014-00445 | Luggudegatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":840,"max":60}]} | filled from text |
 | 1283 2014-00694 | Blekingegatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2016-289 | Övre Långvinkelsgatan | uncertain → {"f":[{"w":1,"nw":3,"a":480,"b":720}]} | filled from text |
+| 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | now uncertain |
+| 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | now uncertain |
 | 1283 2016-636 | Cindersgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2017-188 | Stenkretsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2017-435 | Bredgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

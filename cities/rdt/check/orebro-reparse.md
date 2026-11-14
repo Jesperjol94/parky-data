@@ -42,7 +42,7 @@ Fully read 2707, partly read 29. Verified equal 2681, filled from text 5, text s
 | 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
 | 1880 2026-01320 | Rådmansgatan | expired 2026-11-07 | already uncertain |
 | 1880 2026-01326 | Höglundagatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01328 | Väståstrand/Åbackegatan | expired 2026-11-14 | now uncertain |
+| 1880 2026-01328 | Väståstrand/Åbackegatan | expired 2026-11-14 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
@@ -55,8 +55,8 @@ Fully read 2707, partly read 29. Verified equal 2681, filled from text 5, text s
 | 1880 2026-01359 | Kasten Ottergatan | expired 2026-10-21 | already uncertain |
 | 1880 2026-01361 | Landbotorpsallén | expired 2026-10-16 | already uncertain |
 | 1880 2026-01361 | Landbotorpsallén | expired 2026-10-16 | already uncertain |
-| 1880 2026-01363 | Älvtomtagatan | expired 2026-11-14 | now uncertain |
-| 1880 2026-01363 | Hagastrand | expired 2026-11-14 | now uncertain |
+| 1880 2026-01363 | Älvtomtagatan | expired 2026-11-14 | already uncertain |
+| 1880 2026-01363 | Hagastrand | expired 2026-11-14 | already uncertain |
 | 1880 2026-01364 | Södra Lillåstrand | expired 2026-10-21 | already uncertain |
 | 1880 2026-01365 | Storgatan | expired 2026-10-21 | already uncertain |
 | 1880 2026-01366 | Markgatan | expired 2026-10-22 | already uncertain |

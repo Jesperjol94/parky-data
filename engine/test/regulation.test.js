@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseRegulation, applyRegulation, samePlaceExceptions, dropFreeFirstHours } from '../regulation.js';
+import { parseRegulation, applyRegulation, samePlaceExceptions, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd } from '../regulation.js';
 const wrap = (s) => `Stockholms kommun föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande. ${s} Denna författning träder i kraft den 1 maj 2026.`;
 
 test('time limit in the main sentence + "Övrig tid får fordon parkeras" + winter ban', () => {
@@ -961,4 +961,23 @@ test('a seasonal "Tillåtelsen i 1 § … gäller mellan <date> och <date>" depa
   assert.deepEqual(r.bans, [{ a: 0, b: 1440, m: [[6, 1], [8, 31]] }]); assert.deepEqual(r.unread, []);
   const r2 = parseRegulation(wrap('På Kyrkogatan får fordon parkeras. Tillåtelsen gäller mellan 1 september och 31 maj.'));
   assert.deepEqual(r2.bans, []); // no area ban to fall back on: nothing invented
+});
+
+test('quoted 3 kap. 49 a § 24-hour rule: Mon–Fri limit, and not a second rule set (Norrköping)', () => {
+  const q = 'Tillåtelsen i 1 § anger inte rätt att parkera fordon i strid mot 3 kap. 49 a § trafikförordningen (1998:1276): På allmän plats inom tättbebyggt område där kommunen är huvudman för hållande av allmänna platser och inom vägområde för allmän väg får fordon parkeras högst 24 timmar i följd på vardagar, utom vardag före sön- och helgdag.';
+  const body = wrap(`1 § På Eternellvägens nordvästra sida mellan 81 meter och 29 meter nordöst om Finspångsvägen samt Stensvängens norra sida mellan Pildammsvägen och Lagersbergsvägen enligt kartbild får fordon parkeras. 2 § ${q}`);
+  const r = parseRegulation(body);
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 0, b: 1440, max: 1440 }]); assert.deepEqual(r.unread, []);
+  const t = dropGeneralRuleQuote(body);
+  assert.ok(!/49 a/.test(t) && /får fordon parkeras\. 2 §/.test(t));
+  assert.equal((t.match(/får fordon/g) || []).length, 1);
+});
+
+test('dated periods with a year: the last day, so an ended temporary rule counts as expired', () => {
+  assert.equal(datedPeriodEnd(wrap('På Nya torg och Storgatan får fordon inte stannas eller parkeras under 27 april 2026 - 30 april 2026 mellan klockan 21.00 - 06.00 samt 4 maj 2026 - 8 maj 2026 21.00 - 06.00.')), '2026-05-08');
+  assert.equal(datedPeriodEnd(wrap('1 § På Älvängsvägen, Kalix får fordon inte parkeras Förbudet gäller 20 mars 2019.')), '2019-03-20');
+  assert.equal(datedPeriodEnd(wrap('På Lilla Norregatan får fordon inte stannas eller parkeras. Förbudet gäller under tiden 20 november 2023 - 25 november 2023.')), '2023-11-25');
+  assert.equal(datedPeriodEnd(wrap('1 § På Folkskolegatan får fordon inte stannas eller parkeras vardag utom vardag före sön- och helgdag mellan klockan 06.00 – 17.00 2 § Förbudet gäller under tiden 2 december 2016 – 23 december 2016 och 2 januari 2017 – 27 januari 2017.')), '2017-01-27');
+  assert.equal(datedPeriodEnd(wrap('På Kyrkogatan får fordon inte parkeras under tiden 1 juni - 31 augusti.')), null); // yearly season, no year
+  assert.equal(datedPeriodEnd('Föreskriften träder i kraft den 15 september 2000. ' + wrap('På Torget får fordon parkeras högst 2 tim.')), null);
 });

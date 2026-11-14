@@ -1,7 +1,7 @@
 # Simrishamn: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-14. 398 segments: 398 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 390, partly read 8. Verified equal 310, filled from text 19, text stricter 0, disputed 0, expired 0, text without rules 48, multi-part texts (not compared) 9.
+Fully read 390, partly read 7. Verified equal 310, filled from text 19, text stricter 0, disputed 0, expired 1, text without rules 48, multi-part texts (not compared) 9.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -23,6 +23,7 @@ Fully read 390, partly read 8. Verified equal 310, filled from text 19, text str
 | 1291 2023-00096 | Måns Nils Torg | uncertain → permitted | filled from text |
 | 1291 2023-00099 | Måns Nils Torg | uncertain → {"v":"motorcykel"} | filled from text |
 | 1291 2023-00102 | Strandvägen | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"m":[[10,2],[4,30]],"max":120},{"dt":["fore"],"a":540,"b":900,"m":[[10,2],[4,30]],"max":120}]} | filled from text |
+| 1291 2023-00109 | Lilla Norregatan | expired 2023-11-25 | now uncertain |
 | 1291 2024-00015 | Gyllebo ringväg | uncertain → {"v":"husbil"} | filled from text |
 | 1291 2024-00021 | Storgatan | uncertain → {"f":[{"a":0,"b":1440,"m":[[6,1],[8,31]]}]} | filled from text |
 | 1291 2025-00007 | Fabriksgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |

@@ -1,7 +1,7 @@
 # Höör: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-14. 534 segments: 534 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 529, partly read 5. Verified equal 429, filled from text 92, text stricter 0, disputed 0, expired 0, text without rules 7, multi-part texts (not compared) 0.
+Fully read 523, partly read 5. Verified equal 423, filled from text 92, text stricter 0, disputed 0, expired 6, text without rules 7, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -98,3 +98,9 @@ Fully read 529, partly read 5. Verified equal 429, filled from text 92, text str
 | 1267 2014-00015 | Bangårdsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1267 2014-00016 | Bangårdsgatan | uncertain → permitted | filled from text |
 | 1267 2024-10 | Lilla torg | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |
+| 1267 2026-4 | Nya torg och Storgatan | expired 2026-05-08 | now uncertain |

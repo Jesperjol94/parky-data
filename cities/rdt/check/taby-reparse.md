@@ -103,7 +103,7 @@ Fully read 578, partly read 74. Verified equal 399, filled from text 96, text st
 | 0160 2020-00222 | Skavlötsvägen | uncertain → {"f":[{"a":0,"b":360}]} | filled from text |
 | 0160 2021-00076 | Riddarstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0160 2024-55 | Kolarestigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0160 2026-45 | Esplanaden | expired 2026-11-14 | now uncertain |
+| 0160 2026-45 | Esplanaden | expired 2026-11-14 | already uncertain |
 | 0160 2026-60 | Näsbydalsvägen | expired 2026-10-16 | already uncertain |
 | 0160 2026-62 | Hamnvägen | expired 2026-11-02 | already uncertain |
 | 0160 2026-63 | Järnvägsallén | expired 2026-10-17 | already uncertain |

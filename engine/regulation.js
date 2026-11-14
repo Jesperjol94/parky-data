@@ -693,9 +693,35 @@ const complement = (m) => [nextDay(m[1]), prevDay(m[0])];
 // "4 § Trots tillåtelsen i 1 § får fordon inte parkeras den 21:a dagen i månaden klockan 09.00 - 12.00": an exception that names no place
 // of its own applies to every place of the paragraph it refers to. Returns how many such sentences the rule text has (the reparse's
 // multi-part check does not count them as another rule set; QA 7 Nov: Norrköping City-P texts listing many street sides stayed grey).
+// "Tillåtelsen i 1 § anger inte rätt att parkera fordon i strid mot 3 kap. 49 a § trafikförordningen (1998:1276): På allmän plats …
+// får fordon parkeras högst 24 timmar i följd på vardagar, utom vardag före sön- och helgdag." quotes the national 24-hour rule: it is the
+// same for every place the text lists, so it must not count as a second rule set (QA 14 Nov round 24: Norrköping Duvelundsvägen kept
+// the register's Saturday-only 24 h limit because the quote made the text look multi-part).
+export function dropGeneralRuleQuote(t) {
+  return t.replace(/\b(?:Tillåtelsen|Förbudet)(?: i \d+ §)? (?:anger|ger) (?:inte|ej) rätt att parkera (?:fordon )?i strid mot 3 kap\.? 49 a ?§ trafikförordningen(?: \(1998:1276\))?:[^.]*\./gi, '');
+}
+
 export function samePlaceExceptions(t) {
   return ((t || '').match(/Trots (?:tillåtelsen|förbudet) i \d+\s*§ får (?:fordon|endast|personbil)(?:[^.]|\.(?=\d))*?(?=\.(?!\d)|$)/g) || [])
     .filter((x) => !/\bpå [A-ZÅÄÖ]|\bsidan?\b|sträck|\bmellan [A-ZÅÄÖ]|\bplats/.test(x)).length;
+}
+
+// The last day of the dated periods a rule sentence is limited to ("får fordon inte stannas eller parkeras under 27 april 2026 - 30 april 2026
+// … samt 4 maj 2026 - 8 maj 2026", "Förbudet gäller 20 mars 2019", "Förbudet gäller under tiden 20 november 2023 - 25 november 2023"),
+// or null when the text names no such period. A temporary regulation whose periods have all ended is expired even when the register
+// has no end date (QA 14 Nov round 24: Höör Nya torg drew an April/May 2026 night ban every night).
+const MONTH_NO = { januari: 1, februari: 2, mars: 3, april: 4, maj: 5, juni: 6, juli: 7, augusti: 8, september: 9, oktober: 10, november: 11, december: 12 };
+export function datedPeriodEnd(body) {
+  const t = (ruleText(body) || '').replace(/\s+/g, ' ').replace(/^.*?följande\.?/, '');
+  const D = '(\\d{1,2}) (januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december) (20\\d\\d)';
+  const per = new RegExp(`\\b(?:under(?: tiden)?|gäller)(?: från)? (?:den )?${D}(?:(?: klockan [\\d.:]+)?\\s*(?:-|–|till|t\\.o\\.m\\.?)\\s*(?:den )?${D})?|\\bsamt (?:den )?${D}\\s*(?:-|–|till)\\s*(?:den )?${D}`, 'gi');
+  if (!per.test(t)) return null;
+  // the latest dated day anywhere in the rules (a list "20 september 2014 klockan …, 5 oktober 2014 …, och 2 januari 2017 – 27 januari 2017"),
+  // leaving out when the text comes into force or replaces another
+  let end = null;
+  const rules = t.split(/(?<=\.)\s+(?=[A-ZÅÄÖ0-9])/).filter((x) => !/träder i kraft|upphör(?:a)? att gälla|beslutade?|publicerat/i.test(x)).join(' ');
+  for (const m of rules.matchAll(new RegExp(D, 'gi'))) { const d = `${m[3]}-${String(MONTH_NO[m[2].toLowerCase()]).padStart(2, '0')}-${m[1].padStart(2, '0')}`; if (!end || d > end) end = d; }
+  return end;
 }
 
 export function expired(rec, today = new Date().toISOString().slice(0, 10)) {

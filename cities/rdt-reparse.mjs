@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { parseRegulation, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours } from '../engine/regulation.js';
+import { parseRegulation, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
 const dir = args[0] || 'cities/rdt';
@@ -30,7 +30,7 @@ const minutesBanned = (ws) => (ws || []).reduce((s, w) => s + (w.b > w.a ? w.b -
 // A text that describes several places (numbered paragraphs, several "På …" clauses, both sides) cannot be compared with
 // one segment: the parser merges all its rules. Such texts are only counted, never applied.
 function multiPart(body) {
-  const t = (ruleText(body) || '').replace(/\b(?:Vid|Med) (?:hus)?(?:nr|nummer)\.? [\d\s,–-]+ (?:avses|gäller) (?:(?:norra|södra|östra|västra) sidan|hussidan)\.?/gi, ''); // "Tillåtelsen gäller följande sidor: Vid husnr 271-291 avses västra sidan. Vid husnr 31- 49 avses östra sidan.": the same rule on both sides, one rule set (QA 13 Nov round 20: Täby Marknadsvägen)
+  const t = dropGeneralRuleQuote(ruleText(body) || '').replace(/\b(?:Vid|Med) (?:hus)?(?:nr|nummer)\.? [\d\s,–-]+ (?:avses|gäller) (?:(?:norra|södra|östra|västra) sidan|hussidan)\.?/gi, '')
   const paras = (t.match(/\b\d{1,2}\s*§/g) || []).length;
   const places = (t.match(/(?:^|[.;]\s*|\d\s*§\s*)På\s(?!(?:vardag|dag(?:ar)? före|sön-|helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|övriga ytor|parkeringsskiva|p-skiva)\b)/g) || []).length + (t.match(/(?:^|[.;]\s*|\d\s*§\s*)Inom\s/g) || []).length; // also "… 4 § På parkeringsplatsen på de platser …" after a paragraph number (QA 6 Nov: Norrtälje Rimbo, Täby Arninge merged several places' rules) // "På parkeringsskiva eller motsvarande ska klockslaget … ställas in" is how to set the disc, not a place (QA 13 Nov round 20: Täby Marknadsvägen)
   const sides = new Set((t.match(/(?<![a-zåäö])((?:syd|nord)?(?:östra|västra)|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size; // not \b: it is ASCII-only, so "\böstra" never matched after a space (and matched inside "sydöstra")
@@ -133,9 +133,10 @@ for (const row of idx.cities) {
     if (!rec) { st.noText++; continue; }
     if (rec.err || !rec.body) { st.err++; continue; }
     st.withText++;
-    if (expired(rec, today)) {
+    const periodEnd = datedPeriodEnd(rec.body); // a temporary rule whose dated periods have all ended (QA 14 Nov round 24)
+    if (expired(rec, today) || (periodEnd && periodEnd < today)) {
       st.expired++;
-      lines.push(`| ${s.c} | ${s.n} | expired ${rec.to} | ${s.u ? 'already uncertain' : 'now uncertain'} |`);
+      lines.push(`| ${s.c} | ${s.n} | expired ${rec.to || periodEnd} | ${s.u ? 'already uncertain' : 'now uncertain'} |`);
       if (APPLY && !s.u) { s.u = 1; s.ex = 1; changed++; }
       continue;
     }
