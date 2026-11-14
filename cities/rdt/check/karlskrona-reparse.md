@@ -1,7 +1,7 @@
 # Karlskrona: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-13. 2028 segments: 2028 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1992, partly read 36. Verified equal 1924, filled from text 19, text stricter 0, disputed 0, expired 0, text without rules 37, multi-part texts (not compared) 4.
+Run 2026-11-14. 2028 segments: 2028 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1992, partly read 36. Verified equal 1923, filled from text 19, text stricter 1, disputed 0, expired 0, text without rules 37, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -24,3 +24,4 @@ Fully read 1992, partly read 36. Verified equal 1924, filled from text 19, text 
 | 1080 2024-73 | Östra Köpmansgatan | uncertain → {"f":[{"w":2,"a":480,"b":600}],"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1080 2025-276 | Holmgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1080 2025-276 | Holmgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2026-175 | Stortorget | {"l":[{"dt":["vardag"],"a":540,"b":960,"max":240,"m":[[10,1],[4,30]]},{"dt":["fore"],"a":600,"b":840,"max":240,"m":[[10,1],[4,30]]}]} → {"f":[{"a":0,"b":1440,"m":[[5,1],[9,30]]}],"l":[{"dt":["vardag"],"a":540,"b":960,"max":240,"m":[[10,1],[4,30]]},{"dt":["fore"],"a":600,"b":840,"max":240,"m":[[10,1],[4,30]]}]} | text stricter: applied |

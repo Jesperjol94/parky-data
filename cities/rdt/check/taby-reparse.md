@@ -1,7 +1,7 @@
 # Täby: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-13. 660 segments: 660 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 578, partly read 75. Verified equal 399, filled from text 96, text stricter 0, disputed 1, expired 7, text without rules 5, multi-part texts (not compared) 76.
+Run 2026-11-14. 660 segments: 660 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 578, partly read 74. Verified equal 399, filled from text 96, text stricter 0, disputed 1, expired 8, text without rules 5, multi-part texts (not compared) 76.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -103,6 +103,7 @@ Fully read 578, partly read 75. Verified equal 399, filled from text 96, text st
 | 0160 2020-00222 | Skavlötsvägen | uncertain → {"f":[{"a":0,"b":360}]} | filled from text |
 | 0160 2021-00076 | Riddarstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0160 2024-55 | Kolarestigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0160 2026-45 | Esplanaden | expired 2026-11-14 | now uncertain |
 | 0160 2026-60 | Näsbydalsvägen | expired 2026-10-16 | already uncertain |
 | 0160 2026-62 | Hamnvägen | expired 2026-11-02 | already uncertain |
 | 0160 2026-63 | Järnvägsallén | expired 2026-10-17 | already uncertain |

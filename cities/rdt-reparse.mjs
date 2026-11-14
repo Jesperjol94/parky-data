@@ -181,6 +181,9 @@ for (const row of idx.cities) {
     }
     // (the block above runs before the fully-read gate: one unread sentence about something else must not keep the fee around the clock, QA 8 Nov: Sundbyberg, Östersund, Nacka)
     if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; 
+      // a multi-part text with an unread sentence: a cleaning/market-day ban the parser did read but the line lacks can't be placed, and
+      // missing it would be looser: grey, as for fully read multi-part texts (QA 14 Nov round 23: Täby Flygkårsvägen 0160 2022-76 had no Thursday ban)
+      if (APPLY && multi && !s.u) { const tt = fromText(r), win = (w) => `${w.w || 0}:${w.a}-${w.b}`; if ((tt.f || []).some((w) => (w.w || w.nw || w.dm) && !(s.f || []).some((f) => !f.ov && win(f) === win(w)))) { s.u = 1; s.ux = 1; changed++; st.multiGrey = (st.multiGrey || 0) + 1; st.uStill++; } }
       // Bans the parser DID read are still added when some other sentence was unread: adding a ban never relaxes a line. Not when the
       // unread sentence qualifies a rule ("Förbudet gäller …", "Tillåtelsen …", "Tidsbegränsningen …", "Övrig tid …", "Trots …"), not for
       // multi-part texts, and never an unqualified all-day ban (QA 8 Nov: Vaxholm Hamngatan lost "Fordon får dock inte parkeras tisdag

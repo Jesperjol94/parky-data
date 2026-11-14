@@ -1,6 +1,6 @@
 # Skövde: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-13. 1605 segments: 1605 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-14. 1605 segments: 1605 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1563, partly read 36. Verified equal 1548, filled from text 14, text stricter 0, disputed 0, expired 6, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

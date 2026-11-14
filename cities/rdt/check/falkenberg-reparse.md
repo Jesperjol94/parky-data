@@ -1,6 +1,6 @@
 # Falkenberg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-13. 523 segments: 523 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-14. 523 segments: 523 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 504, partly read 15. Verified equal 464, filled from text 7, text stricter 0, disputed 6, expired 4, text without rules 26, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

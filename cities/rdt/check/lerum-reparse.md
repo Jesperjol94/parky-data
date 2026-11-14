@@ -1,6 +1,6 @@
 # Lerum: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-13. 670 segments: 670 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-14. 670 segments: 670 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 657, partly read 11. Verified equal 627, filled from text 27, text stricter 0, disputed 0, expired 2, text without rules 3, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

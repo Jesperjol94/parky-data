@@ -1,7 +1,7 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-13. 2788 segments: 2788 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2709, partly read 30. Verified equal 2683, filled from text 5, text stricter 0, disputed 2, expired 49, text without rules 1, multi-part texts (not compared) 18.
+Run 2026-11-14. 2788 segments: 2788 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2707, partly read 29. Verified equal 2681, filled from text 5, text stricter 0, disputed 2, expired 52, text without rules 1, multi-part texts (not compared) 18.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -42,6 +42,7 @@ Fully read 2709, partly read 30. Verified equal 2683, filled from text 5, text s
 | 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
 | 1880 2026-01320 | Rådmansgatan | expired 2026-11-07 | already uncertain |
 | 1880 2026-01326 | Höglundagatan | expired 2026-10-17 | already uncertain |
+| 1880 2026-01328 | Väståstrand/Åbackegatan | expired 2026-11-14 | now uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
@@ -54,6 +55,8 @@ Fully read 2709, partly read 30. Verified equal 2683, filled from text 5, text s
 | 1880 2026-01359 | Kasten Ottergatan | expired 2026-10-21 | already uncertain |
 | 1880 2026-01361 | Landbotorpsallén | expired 2026-10-16 | already uncertain |
 | 1880 2026-01361 | Landbotorpsallén | expired 2026-10-16 | already uncertain |
+| 1880 2026-01363 | Älvtomtagatan | expired 2026-11-14 | now uncertain |
+| 1880 2026-01363 | Hagastrand | expired 2026-11-14 | now uncertain |
 | 1880 2026-01364 | Södra Lillåstrand | expired 2026-10-21 | already uncertain |
 | 1880 2026-01365 | Storgatan | expired 2026-10-21 | already uncertain |
 | 1880 2026-01366 | Markgatan | expired 2026-10-22 | already uncertain |

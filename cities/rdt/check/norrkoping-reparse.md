@@ -1,7 +1,7 @@
 # Norrköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-13. 3720 segments: 3720 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3697, partly read 4. Verified equal 3556, filled from text 5, text stricter 0, disputed 2, expired 19, text without rules 64, multi-part texts (not compared) 70.
+Run 2026-11-14. 3720 segments: 3720 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3695, partly read 4. Verified equal 3554, filled from text 5, text stricter 0, disputed 2, expired 21, text without rules 64, multi-part texts (not compared) 70.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -13,6 +13,8 @@ Fully read 3697, partly read 4. Verified equal 3556, filled from text 5, text st
 | 0581 2021-00506 | Kungsgatan | {"f":[{"dt":["vardag"],"a":420,"b":540},{"dt":["vardag"],"a":660,"b":1080},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":420,"b":540},{"dt":["vardag"],"a":660,"b":1080}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0581 2024-715 | Prästgatan | expired 2024-09-29 | already uncertain |
 | 0581 2025-776 | Jacob Ekbohmsgatan | uncertain → {"f":[{"dm":6,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
+| 0581 2026-344 | Skiljegatan | expired 2026-11-14 | now uncertain |
+| 0581 2026-345 | Nygatan | expired 2026-11-14 | now uncertain |
 | 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
 | 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
 | 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |

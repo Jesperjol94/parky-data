@@ -949,3 +949,16 @@ test('"Avgiften är enligt Taxa 2, vardag utom vardag före sön- och helgdag, e
   assert.deepEqual(r.feeWindows, [{ a: 0, b: 1440, dt: ['vardag'], daysOnly: true }]);
   assert.equal(r.taxa, 2);
 });
+
+test('"Förbudet gäller under tiden jämna veckor." after a ban: that week parity only (QA 14 Nov round 23: Falun)', () => {
+  const r = parseRegulation(wrap('På Zinkstigens södra sida på blåmarkerad sträcka enligt kartbild får fordon inte parkeras. Förbudet gäller under tiden jämna veckor.'));
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440, p: 'even' }]); assert.deepEqual(r.unread, []);
+});
+
+test('a seasonal "Tillåtelsen i 1 § … gäller mellan <date> och <date>" departing from an area ban: banned the rest of the year (QA 14 Nov round 23: Sotenäs)', () => {
+  const r = parseRegulation(wrap('1 § Med avvikelse från Sotenäs kommuns lokala trafikföreskrifter (1427 2010:00116) om förbud att parkera fordon i området Smögen får fordon parkeras på Kyrkogatan. 2 § Trots tillåtelsen i 1 § får dock fordon parkeras på Kyrkogatan högst 24 timmar i följd vardagar utom vardagar före sön- och helgdag. 3 § Tillåtelsen i 1 § och villkoren i 2 § gäller mellan 1 september och 31 maj.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 0, b: 1440, max: 1440, m: [[9, 1], [5, 31]] }]);
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440, m: [[6, 1], [8, 31]] }]); assert.deepEqual(r.unread, []);
+  const r2 = parseRegulation(wrap('På Kyrkogatan får fordon parkeras. Tillåtelsen gäller mellan 1 september och 31 maj.'));
+  assert.deepEqual(r2.bans, []); // no area ban to fall back on: nothing invented
+});
