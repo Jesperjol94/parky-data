@@ -1,13 +1,15 @@
 # Simrishamn: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-14. 398 segments: 398 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 390, partly read 7. Verified equal 310, filled from text 19, text stricter 0, disputed 0, expired 1, text without rules 48, multi-part texts (not compared) 9.
+Run 2026-11-15. 398 segments: 398 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 392, partly read 5. Verified equal 310, filled from text 20, text stricter 1, disputed 0, expired 1, text without rules 48, multi-part texts (not compared) 9.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1291 2020-00012 | Rörumsstrandsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1291 2021-00015 | Tobisvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1291 2022-00032 | Torget | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1291 2022-00044 | Stora Rådmansgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1291 2022-00079 | Rektorsgatan | {"l":[{"a":0,"b":1440,"max":180}]} → {"v":"rörelsehindrade"} | text stricter: applied |
 | 1291 2022-00080 | Tullhusgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | filled from text |
 | 1291 2022-00081 | Tullhusgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1291 2022-00082 | Repslagaregatan | uncertain → permitted | filled from text |

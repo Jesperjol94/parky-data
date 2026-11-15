@@ -1,7 +1,7 @@
 # Uppsala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-14. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3623, partly read 72. Verified equal 2248, filled from text 12, text stricter 0, disputed 0, expired 30, text without rules 1362, multi-part texts (not compared) 0.
+Run 2026-11-15. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3631, partly read 64. Verified equal 2248, filled from text 13, text stricter 7, disputed 0, expired 30, text without rules 1362, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,8 +10,16 @@ Fully read 3623, partly read 72. Verified equal 2248, filled from text 12, text 
 | 0380 2009-00392 | Almqvistgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2010-00329 | Kungsängsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0380 2010-00475 | Börjegatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}],"v":"rörelsehindrade"} | filled from text |
+| 0380 2010-00593 | Skolgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0380 2010-00643 | Kummingatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0380 2010-00838 | Geijersgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0380 2011-00365 | Vindhemsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 0380 2011-00386 | Övre Slottsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0380 2011-00604 | Linnégatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 0380 2011-00629 | Torsgatan | {"l":[{"a":0,"b":1440,"max":240}]} → {"v":"rörelsehindrade"} | text stricter: applied |
 | 0380 2011-01015 | Orkestervägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0380 2011-01050 | Täljstensvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 0380 2012-00100 | Olof Palmes plats | {"l":[{"a":0,"b":1440,"max":120}]} → {"v":"rörelsehindrade"} | text stricter: applied |
 | 0380 2016-00728 | Råbyvägen | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 0380 2017-421 | Sysslomansgatan | expired 2017-07-08 | already uncertain |
 | 0380 2017-421 | Sysslomansgatan | expired 2017-07-08 | already uncertain |

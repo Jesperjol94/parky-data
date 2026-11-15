@@ -997,3 +997,15 @@ test('a permission for one season with nothing about the rest of the year is fla
   r = parseRegulation(wrap('1 § På Sjövägen får fordon parkeras under högst 2 tim i följd under tiden 15 maj - 15 augusti och 08.00 - 18.00. 2 § Under tiden 16 augusti-14 juni får fordon parkeras 24 timmar.'));
   assert.equal(r.seasonOnly, undefined); // both seasons have rules
 });
+
+test('"får fordon med rörelsehindrade som är innehavare av parkeringstillstånd enligt 13 kap. 8 § … parkeras" is a disabled bay (QA round 26: Uppsala, Örebro)', () => {
+  let r = parseRegulation(wrap('På 2 markerade platser på Torsgatans lokalkörbana enligt kartbild får fordon med rörelsehindrade som är innehavare av parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276) parkeras under högst 4 tim i följd. Fordon som inte får parkeras får inte heller stannas annat än för på- och avstigning.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'rörelsehindrade'); assert.deepEqual(r.limits, []); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På Fotbollsgatan enligt kartbild får fordon med rörelsehindrade som är innehavare av parkeringstillstånd enligt 13 kap. 8 § trafikförordningen (1998:1276), med avvikelse från Örebro kommuns lokala trafikföreskrifter 1880 2024:00584 om förbud att parkera i Heden, parkeras under högst 3 tim i följd. Tidsbegränsningen gäller under tiden vardag utom vardag före sön- och helgdag klockan 08.00 - 21.00. Parkering är dock förbjuden under tiden 1:a november - 30:e april onsdag klockan 00:00 - 06:00.'));
+  assert.equal(r.reservedFor, 'rörelsehindrade'); assert.deepEqual(r.bans, [{ w: 3, a: 0, b: 360, m: [[11, 1], [4, 30]] }]);
+});
+
+test('typo "vardar" reads as vardagar (QA round 26: Lidingö)', () => {
+  const r = parseRegulation(wrap('1 § På Farkostvägen får fordon parkeras högst 30 minuter i följd. Tidsbegränsningen gäller vardar mellan kl. 07.00–10.00 och mellan kl. 15.00–18.00.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag', 'fore'], a: 420, b: 600, max: 30 }, { dt: ['vardag', 'fore'], a: 900, b: 1080, max: 30 }]);
+});

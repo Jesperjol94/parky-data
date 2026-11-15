@@ -1,7 +1,7 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-14. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1109, partly read 47. Verified equal 974, filled from text 2, text stricter 0, disputed 0, expired 26, text without rules 133, multi-part texts (not compared) 0.
+Run 2026-11-15. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1110, partly read 46. Verified equal 974, filled from text 3, text stricter 0, disputed 0, expired 26, text without rules 133, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -13,6 +13,7 @@ Fully read 1109, partly read 47. Verified equal 974, filled from text 2, text st
 | 0484 2011-0318 | Sturegatan | expired 2012-01-11 | already uncertain |
 | 0484 2011-0332 | Hökgatan | expired 2015-01-02 | already uncertain |
 | 0484 2012-044 | Östra Storgatan | expired 2012-11-07 | already uncertain |
+| 0484 2012-067 | Faktorigatan | uncertain → {"l":[{"a":0,"b":1440,"max":120}],"v":"rörelsehindrade"} | filled from text |
 | 0484 2012-150 | Erlandsgatan | expired 2016-02-08 | already uncertain |
 | 0484 2013-127 | Bryggaregatan | expired 2019-02-08 | already uncertain |
 | 0484 2014-034 | Ridhusplan | expired 2017-01-20 | already uncertain |

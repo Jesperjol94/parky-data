@@ -1,7 +1,7 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-14. 2788 segments: 2788 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2707, partly read 29. Verified equal 2681, filled from text 5, text stricter 0, disputed 2, expired 52, text without rules 1, multi-part texts (not compared) 18.
+Run 2026-11-15. 2788 segments: 2788 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2711, partly read 25. Verified equal 2681, filled from text 5, text stricter 4, disputed 2, expired 52, text without rules 1, multi-part texts (not compared) 18.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -11,6 +11,10 @@ Fully read 2707, partly read 29. Verified equal 2681, filled from text 5, text s
 | 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
 | 1880 2020-00506 | Gustavsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1880 2021-01026 | Överstegatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2022-00836 | Poesigatan | {"f":[{"a":0,"b":1440}]} → {"v":"rörelsehindrade"} | text stricter: applied |
+| 1880 2024-00587 | Fotbollsgatan | {"f":[{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"w":3,"a":540,"b":780,"m":[[11,1],[4,30]]}],"l":[{"dt":["vardag"],"a":480,"b":1260,"max":180}]} → {"f":[{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"}],"v":"rörelsehindrade"} | text stricter: applied |
+| 1880 2024-00605 | Fotbollsgatan | {"f":[{"w":4,"a":0,"b":360,"m":[[11,1],[4,30]]},{"w":4,"a":540,"b":780,"m":[[11,1],[4,30]]}],"l":[{"dt":["vardag"],"a":480,"b":1260,"max":180}]} → {"f":[{"w":4,"a":0,"b":360,"m":[[11,1],[4,30]]},{"w":4,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"}],"v":"rörelsehindrade"} | text stricter: applied |
+| 1880 2024-00608 | Centergatan | {"f":[{"w":2,"a":0,"b":360,"m":[[11,1],[4,30]]},{"w":2,"a":540,"b":780,"m":[[11,1],[4,30]]}],"l":[{"dt":["vardag"],"a":480,"b":1260,"max":180}]} → {"f":[{"w":2,"a":0,"b":360,"m":[[11,1],[4,30]]},{"w":2,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"}],"v":"rörelsehindrade"} | text stricter: applied |
 | 1880 2025-00256 | Slottsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"even"}],"l":[{"dt":["vardag"],"a":360,"b":1320,"max":180},{"dt":["fore"],"a":360,"b":1320,"max":180},{"dt":["helgdag"],"a":360,"b":1320,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1880 2025-00675 | Honolulugatan | uncertain → {"f":[{"w":4,"a":0,"b":540}]} | filled from text |
 | 1880 2026-00954 | Höglundagatan | expired 2026-10-26 | already uncertain |
