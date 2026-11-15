@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-15. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3590, partly read 74. Verified equal 3123, filled from text 169, text stricter 0, disputed 0, expired 109, text without rules 290, multi-part texts (not compared) 0.
+Fully read 3591, partly read 73. Verified equal 3123, filled from text 170, text stricter 0, disputed 0, expired 109, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -14,7 +14,7 @@ Fully read 3590, partly read 74. Verified equal 3123, filled from text 169, text
 | 1283 2010-00364 | Dag Hammarskjölds väg | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-00405 | Domaregatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1283 2010-00499 | Båthusgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":540},{"dt":["fore"],"a":540,"b":840,"max":540}]} | filled from text |
-| 1283 2010-00501 | Båthusgatan | uncertain → {"v":"motorcykel"} | filled from text |
+| 1283 2010-00501 | Båthusgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":540},{"dt":["fore"],"a":540,"b":840,"max":540}],"v":"motorcykel"} | filled from text |
 | 1283 2010-00503 | Båthusgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":540},{"dt":["fore"],"a":540,"b":840,"max":540}]} | filled from text |
 | 1283 2010-00506 | Båthusgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-00509 | Båthusgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -172,6 +172,7 @@ Fully read 3590, partly read 74. Verified equal 3123, filled from text 169, text
 | 1283 2010-01780 | Dannfeltsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-02126 | Norra Vallåkravägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-02138 | Mullbärsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1283 2010-02187 | Hamntorget | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"v":"motorcykel"} | filled from text |
 | 1283 2010-02291 | Norra Rälsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-02530 | A | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-02545 | Seglarevägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

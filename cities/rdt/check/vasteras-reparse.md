@@ -38,8 +38,8 @@ Fully read 1517, partly read 6. Verified equal 939, filled from text 19, text st
 | 1980 2022-00129 | Solbergagatan | uncertain → permitted (fee) | filled from text |
 | 1980 2022-00218 | Johannisbergsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":180}]} | filled from text |
 | 1980 2022-00218 | Johannisbergsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":180}]} | filled from text |
-| 1980 2022-00219 | Johannisbergsvägen | uncertain → {"v":"buss"} | filled from text |
-| 1980 2022-00219 | Johannisbergsvägen | uncertain → {"v":"buss"} | filled from text |
+| 1980 2022-00219 | Johannisbergsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":180}],"v":"buss"} | filled from text |
+| 1980 2022-00219 | Johannisbergsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":180}],"v":"buss"} | filled from text |
 | 1980 2022-00220 | Johannisbergsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1980 2022-00220 | Johannisbergsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1980 2022-00253 | Karlsgatan | uncertain → permitted (fee) | filled from text |

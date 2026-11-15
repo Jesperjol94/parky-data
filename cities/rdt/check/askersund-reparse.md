@@ -7,7 +7,7 @@ Fully read 93, partly read 4. Verified equal 78, filled from text 15, text stric
 |---|---|---|---|
 | 1882 2010-00018 | Sjöängsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1882 2010-00139 | Hagavägen | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
-| 1882 2010-00147 | Hamngatan | uncertain → {"v":"buss"} | filled from text |
+| 1882 2010-00147 | Hamngatan | uncertain → {"l":[{"a":0,"b":1440,"max":360}],"v":"buss"} | filled from text |
 | 1882 2010-00160 | Lilla Bergsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1882 2010-00162 | Stöökagatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1882 2010-00189 | Stöökagatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |

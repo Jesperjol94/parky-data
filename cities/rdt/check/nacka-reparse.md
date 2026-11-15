@@ -35,7 +35,7 @@ Fully read 2619, partly read 14. Verified equal 2093, filled from text 367, text
 | 0182 2011-00270 | Finntorpsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":4320}],"v":"rörelsehindrade"} | filled from text |
 | 0182 2011-00271 | Becksjudarvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2011-00273 | Setterwalls väg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0182 2011-00371 | Ormingeringen | uncertain → {"v":"lastbil"} | filled from text |
+| 0182 2011-00371 | Ormingeringen | uncertain → {"l":[{"a":0,"b":1440,"max":1440}],"v":"lastbil"} | filled from text |
 | 0182 2012-00009 | Fasanvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2012-00014 | Fasanvägen | uncertain → {"f":[{"a":0,"b":1440,"m":[[5,1],[12,1]]}]} | filled from text |
 | 0182 2012-00018 | Byvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

@@ -1,7 +1,7 @@
 # Strängnäs: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-15. 626 segments: 626 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 622, partly read 3. Verified equal 576, filled from text 30, text stricter 0, disputed 0, expired 1, text without rules 11, multi-part texts (not compared) 2.
+Fully read 622, partly read 3. Verified equal 578, filled from text 30, text stricter 0, disputed 0, expired 1, text without rules 11, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

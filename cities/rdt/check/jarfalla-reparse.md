@@ -1,11 +1,10 @@
 # Järfälla: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-15. 2527 segments: 2527 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2515, partly read 12. Verified equal 1176, filled from text 12, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
+Fully read 2515, partly read 12. Verified equal 1175, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0123 2012-00005 | Äggelundavägen | uncertain → {"v":"lastbil"} | filled from text |
 | 0123 2013-00044 | Plogvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0123 2013-00079 | Birgittavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0123 2013-00296 | Trimvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

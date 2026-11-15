@@ -15,7 +15,7 @@ Fully read 3694, partly read 4. Verified equal 3623, filled from text 5, text st
 | 0581 2025-776 | Jacob Ekbohmsgatan | uncertain → {"f":[{"dm":6,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
 | 0581 2026-344 | Skiljegatan | expired 2026-11-14 | already uncertain |
 | 0581 2026-345 | Nygatan | expired 2026-11-14 | already uncertain |
-| 0581 2026-497 | Jacob Ekbohmsgatan | expired 2026-11-15 | now uncertain |
+| 0581 2026-497 | Jacob Ekbohmsgatan | expired 2026-11-15 | already uncertain |
 | 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
 | 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
 | 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |

@@ -5,4 +5,4 @@ Fully read 44, partly read 9. Verified equal 42, filled from text 1, text strict
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0461 2007-001 | Torggatan | uncertain → {"v":"reserverad"} | filled from text |
+| 0461 2007-001 | Torggatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}],"v":"reserverad"} | filled from text |

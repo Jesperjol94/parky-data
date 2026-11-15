@@ -1009,3 +1009,14 @@ test('typo "vardar" reads as vardagar (QA round 26: Lidingö)', () => {
   const r = parseRegulation(wrap('1 § På Farkostvägen får fordon parkeras högst 30 minuter i följd. Tidsbegränsningen gäller vardar mellan kl. 07.00–10.00 och mellan kl. 15.00–18.00.'));
   assert.deepEqual(r.limits, [{ dt: ['vardag', 'fore'], a: 420, b: 600, max: 30 }, { dt: ['vardag', 'fore'], a: 900, b: 1080, max: 30 }]);
 });
+
+test('"får endast motordrivet fordon med tillkopplat släpfordon, med avvikelse från …, parkeras högst 6 timmar" is a trailer bay with its own limit (QA round 28: Umeå)', () => {
+  const r = parseRegulation(wrap('1 § På Strandpromenadens västra sida enligt röd markering på kartbild får endast motordrivet fordon med tillkopplat släpfordon, med avvikelse från Umeå kommuns lokala trafikföreskrifter (2480 2020:48) om parkeringsförbud, område i centrala Umeå, parkeras högst 6 timmar i följd .'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'fordon med släp'); assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 360 }]); assert.deepEqual(r.unread, []);
+});
+
+test('"Tillåtelsen gäller 30 april - 30 september. Övrig tid får fordon inte parkeras." bans the rest of the year (QA round 28: Kalmar)', () => {
+  const r = parseRegulation(wrap('1 § På östra sidan av Kalmarsundsparken får endast personbil parkeras under högst 6 tim i följd under vardagar, vardagar före sön- och helgdag och sön- och helgdag mellan klockan 08.00 - 20.00. 2 § Tillåtelsen gäller 30 april - 30 september. 3 § Övrig tid får fordon inte parkeras.'));
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440, m: [[10, 1], [4, 29]] }]);
+  assert.deepEqual(r.allowOnly, [{ dt: ['vardag', 'fore', 'helgdag'], a: 480, b: 1200 }]);
+});

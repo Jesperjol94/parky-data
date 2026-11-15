@@ -1,7 +1,7 @@
 # Vänersborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-15. 960 segments: 960 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 934, partly read 7. Verified equal 894, filled from text 28, text stricter 0, disputed 0, expired 19, text without rules 10, multi-part texts (not compared) 0.
+Fully read 935, partly read 6. Verified equal 894, filled from text 29, text stricter 0, disputed 0, expired 19, text without rules 10, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -29,6 +29,7 @@ Fully read 934, partly read 7. Verified equal 894, filled from text 28, text str
 | 1487 2017-00164 | Vallgatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 1487 2020-00125 | Torget | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} | filled from text |
 | 1487 2020-00125 | Torget | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":480,"b":840,"max":180}]} | filled from text |
+| 1487 2021-00149 | Sanden | uncertain → {"v":"fordon med släp"} | filled from text |
 | 1487 2021-00179 | Ursandsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1487 2023-00138 | Nabbensbergsvägen | uncertain → permitted | filled from text |
 | 1487 2023-00212 | Södergatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
