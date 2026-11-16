@@ -423,3 +423,10 @@ test('"får fordon parkeras och mot avgift" is a permission with fee hours and n
   assert.equal(r.permitted, true); assert.deepEqual([r.bans, r.limits, r.allowOnly, r.unread], [[], [], [], []]);
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1440 }, { dt: ['fore'], a: 480, b: 1440 }]);
 });
+
+test('the same day type twice with overlapping hours is a slip in the text: unread (QA 16 Nov round 30: Stockholm Hammarbybacken 0180 2021-03270)', () => {
+  const r = parseRegulation(wrap('På Hammarbybackens nordöstra sida får fordon parkeras under högst 1 tim i följd mot avgift under tiden vardagar utom vardag före sön- och helgdag klockan 07.00 - 19.00 och vardag utom vardag före sön- och helgdag klockan 11.00 - 17.00. Parkering är dock förbjuden onsdag klockan 00.00 - 06.00.'));
+  assert.equal(r.textSlip, true); assert.equal(r.unread.length, 1); assert.deepEqual(r.limits, []);
+  const ok = parseRegulation(wrap('På Storgatan får fordon parkeras under högst 2 tim i följd under tiden vardag utom vardag före sön- och helgdag klockan 07.00 - 09.00 och vardag utom vardag före sön- och helgdag klockan 16.00 - 18.00.'));
+  assert.equal(ok.textSlip, undefined); assert.equal(ok.limits.length, 2);
+});
