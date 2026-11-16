@@ -238,7 +238,7 @@ for (const row of idx.cities) {
     }
     const t = fromText(r);
     // "mot att avgift betalas eller högst 1 timme med parkeringsskiva": whoever pays has no limit; the register's limit is the disc option's (QA 8 Nov: Kungsbacka Skogsallén, Ängelholm Bruksgatan)
-    if (APPLY && s.l && !t.l && r.feeWindows && /mot (?:att )?avgift(?: betalas)? eller (?:under )?högst/i.test(rec.body.replace(/\s+/g, ' '))) { delete s.l; s.rx = 1; changed++; st.payOrDisc = (st.payOrDisc || 0) + 1; }
+    if (APPLY && s.l && !t.l && r.feeWindows && /mot (?:att )?avgift(?: betalas| erläggs)? eller (?:under )?högst/i.test(rec.body.replace(/\s+/g, ' '))) { delete s.l; s.rx = 1; changed++; st.payOrDisc = (st.payOrDisc || 0) + 1; }
     // a text that permits parking with no further conditions, where the register has a ban or allowed hours: the text wins (QA 22 Oct:
     // Halmstad Brogatan, Huddinge Månvägen and Uppsala Granitvägen showed the fee hours or a whole day as a ban)
     if (!hasRules(t) && r.permitted && !r.heavyOnly && (s.f || s.aw) && !s.v) { st.permitOnly = (st.permitOnly || 0) + 1; if (APPLY) { for (const k of ['f', 'l', 'aw', 'dp', 'k', 'ko']) delete s[k]; delete s.u; s.rx = 1; changed++; } continue; }

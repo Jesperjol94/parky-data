@@ -1052,3 +1052,20 @@ test('the same day type twice with overlapping hours is a slip in the text: unre
   const ok = parseRegulation(wrap('På Storgatan får fordon parkeras under högst 2 tim i följd under tiden vardag utom vardag före sön- och helgdag klockan 07.00 - 09.00 och vardag utom vardag före sön- och helgdag klockan 16.00 - 18.00.'));
   assert.equal(ok.textSlip, undefined); assert.equal(ok.limits.length, 2);
 });
+
+test('"får fordon inte parkeras längre än 12 timmar" is a longest stay, not a ban (QA 16 Nov round 31: Lidingö Kalvhagsvägen)', () => {
+  const r = parseRegulation(wrap('1 § På parkeringsplatsen vid Kalvhagsvägen 2A får fordon inte parkeras längre än 12 timmar. Förbudet ger inte rätt att stanna där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276).'));
+  assert.deepEqual(r.bans, []); assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 720 }]);
+  const r2 = parseRegulation(wrap('Utanför skolan får inte fordon parkeras längre tid än 15 minuter.'));
+  assert.deepEqual(r2.bans, []); assert.equal(r2.limits[0].max, 15);
+});
+
+test('"mellan klockan 00.00 06.00" with the dash lost is still a time range (QA 16 Nov round 31: Kalix Köpmannagatan)', () => {
+  const r = parseRegulation(wrap('1 § På norra sidan av Köpmannagatan får fordon parkeras under högst 3 tim i följd vardag utom vardag före sön- och helgdag mellan klockan 09.00 – 18.00. 2 § Parkering är dock förbjuden under 1 oktober – 30 april mellan klockan 00.00 06.00.'));
+  assert.deepEqual(r.unread, []); assert.deepEqual(r.bans, [{ a: 0, b: 360, m: [[10, 1], [4, 30]] }]);
+});
+
+test('"<days> klockan 09.00 – 18.00 gäller dock tillåtelsen att parkera mot att avgift erläggs eller högst 1 timme … parkeringsskiva": fee hours, no limit for whoever pays (QA 16 Nov round 31: Ängelholm, reparse drops the register\'s limit)', () => {
+  const r = parseRegulation(wrap('Inom rödmarkerat område på Södra Vägen enligt kartbild får fordon parkeras. Vardagar utom vardag före sön- och helgdag klockan 09.00 – 18.00 gäller dock tillåtelsen att parkera mot att avgift erläggs eller högst 1 timme i följd mot användande av parkeringsskiva eller motsvarande. Avgift enligt taxa zon 2.'));
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }]); assert.deepEqual(r.limits, []); assert.deepEqual(r.unread, []);
+});

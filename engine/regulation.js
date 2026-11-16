@@ -200,6 +200,10 @@ function duration(s) {
 
 // Split into sentences, keeping "kl. 7" and "8 §" intact; paragraph numbers ("1 §") and "med avvikelse från …" asides are dropped.
 function sentences(t) {
+  // "får fordon inte parkeras längre (tid) än 12 timmar": a longest stay, not a ban (QA 16 Nov round 31: Lidingö Kalvhagsvägen drawn as an all-day ban)
+  t = t.replace(/\bfår (inte |ej )?((?:fordon|motorfordon|personbil(?:ar)?)\s+)(?:(inte|ej)\s+)?parkeras längre (?:tid )?än (?=(?:\d+|en|ett|två|tre|fyra|fem|sex|sju|åtta|nio|tio|tolv|femton|tjugo|trettio)\s+(?:\(\d+\)\s*)?(?:tim|min|dygn))/gi, (z, n1, v, n2) => (n1 || n2 ? `får ${v}parkeras under högst ` : z));
+  // "mellan klockan 00.00 06.00": the dash between the times was lost (QA 16 Nov round 31: Kalix Köpmannagatan's winter night ban unread)
+  t = t.replace(/\b((?:mellan )?(?:klockan|kl\.?)\s*\d{1,2}[.:]\d{2})\s+(\d{1,2}[.:]\d{2})(?![\d.:]*\s*(?:[-–—]|och|till)\s*\d)/gi, '$1 - $2');
   t = t.replace(/(\d)§/g, '$1 §'); // "Tillåtelsen i 1§ gäller …": a glued paragraph sign hid the sentence's subject (QA 14 Nov round 25: Hudiksvall)
   t = t.replace(/,\s*med avvikelse från [^.,]*?trafikföreskrifter\s*\([^)]*\)([^.,]*?)\s(parkeras|stannas)\b/gi, (z, mid, v) => (/\b(?:inte|ej|får)\b/i.test(mid) ? z : ` ${v}`)) /* no comma after the clause: "får fordon, med avvikelse från … (0484 2016 : 211) om område med förbud att parkera parkeras under högst 3 tim" (QA 30 Oct: Eskilstuna) */;
   t = t.replace(/\b(får (?:fordon|motorfordon|motordrivet fordon|personbil(?:ar)?)(?: som används (?:av|för) [^.,;]{1,80}?)?) med avvikelse från ((?:[^.,;]|\.(?!\s+[A-ZÅÄÖ]|\s*$))*?(?:trafikföreskrifter|trafikförordningen|\(1998:1276\))(?:[^.,;]|\.(?!\s+[A-ZÅÄÖ]|\s*$))*?)\s(parkeras|stannas)\b/g, (z, f, mid, v) => (/\b(?:inte|ej|får)\b/i.test(mid) ? z : `${f} ${v}`)); // no commas around the clause: "får fordon med avvikelse från kommunens lokala trafikföreskrifter 1981 2004 : 0110 parkeras" (Sala, Åstorp, Alingsås, Mjölby)
