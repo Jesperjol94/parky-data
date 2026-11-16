@@ -1,7 +1,7 @@
 # Södertälje: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-16. 2169 segments: 2169 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2167, partly read 2. Verified equal 1903, filled from text 93, text stricter 0, disputed 0, expired 0, text without rules 124, multi-part texts (not compared) 36.
+Fully read 2166, partly read 3. Verified equal 1903, filled from text 93, text stricter 0, disputed 0, expired 0, text without rules 124, multi-part texts (not compared) 36.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -42,7 +42,6 @@ Fully read 2167, partly read 2. Verified equal 1903, filled from text 93, text s
 | 0181 2009-00200 | Badhusgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0181 2009-00211 | Nygatan | uncertain → permitted (fee) | filled from text |
 | 0181 2009-00222 | Nygatan | uncertain → permitted (fee) | filled from text |
-| 0181 2009-00225 | Nygatan | uncertain → permitted (fee) | filled from text |
 | 0181 2009-00227 | Mälaregatan | uncertain → permitted (fee) | filled from text |
 | 0181 2009-00254 | Gästgivaregatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0181 2009-00260 | Sankta Ragnhildsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

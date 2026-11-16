@@ -11,7 +11,7 @@ Fully read 1068, partly read 37. Verified equal 877, filled from text 3, text st
 | 1286 2026-151 | Sektersgatan | expired 2026-10-30 | already uncertain |
 | 1286 2026-155 | Långgatan | expired 2026-11-05 | already uncertain |
 | 1286 2026-157 | Teatergränd | expired 2026-11-09 | already uncertain |
-| 1286 2026-159 | Stora Västergatan | expired 2026-11-16 | now uncertain |
+| 1286 2026-159 | Stora Västergatan | expired 2026-11-16 | already uncertain |
 | 1286 2026-166 | Trädgårdsgatan | expired 2026-10-23 | already uncertain |
 | 1286 2026-174 | Herrestadsgatan | expired 2026-10-21 | already uncertain |
 | 1286 2026-174 | Herrestadsgatan | expired 2026-10-21 | already uncertain |

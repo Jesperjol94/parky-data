@@ -183,6 +183,7 @@ for (const row of idx.cities) {
     // (the block above runs before the fully-read gate: one unread sentence about something else must not keep the fee around the clock, QA 8 Nov: Sundbyberg, Östersund, Nacka)
     // a permission for one season only ("får fordon parkeras under tiden 1 oktober - 30 april") that says nothing about the rest of the year:
     // the line can't show summer as free or as banned, so it is grey (QA 14 Nov round 25: Skellefteå Hörnellgatan, Kanalgatan, Södra Järnvägsgatan)
+    if (r.textSlip && !s.v) { if (APPLY && !s.u) { s.u = 1; s.ux = 1; changed++; st.slipGrey = (st.slipGrey || 0) + 1; } if (s.u) st.uStill++; st.partlyRead++; continue; } // the same day type twice with overlapping hours: a slip in the text, the line can't be trusted either way (QA 16 Nov round 30: Hässleholm Tredje Avenyen, Helsingborg Gasverksgatan)
     if (r.seasonOnly && !s.v && !(s.f || []).some((f) => f.a === 0 && f.b === 1440 && f.m && !f.w && !f.dt)) { if (APPLY && !s.u) { s.u = 1; s.ux = 1; changed++; st.seasonOnlyGrey = (st.seasonOnlyGrey || 0) + 1; } if (s.u) st.uStill++; if (!full) st.partlyRead++; else st.fullyRead++; continue; }
     if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; 
       // a multi-part text with an unread sentence: a cleaning/market-day ban the parser did read but the line lacks can't be placed, and
@@ -267,7 +268,7 @@ for (const row of idx.cities) {
     if (s.u) {
       st.uFilled++;
       lines.push(`| ${s.c} | ${s.n} | uncertain → ${JSON.stringify(t)} | filled from text |`);
-      if (APPLY) { put(); delete s.u; if (!('t' in s) || s.t === null) { if (!/avgift/i.test(rec.body)) s.t = 0; } }
+      if (APPLY && !contradictory(t)) { put(); delete s.u; if (!('t' in s) || s.t === null) { if (!/avgift/i.test(rec.body)) s.t = 0; } } // a contradictory text (all-day ban plus a limit) keeps the line grey: put() refuses it, so u must stay (the Kiruna Vänortstorget / Norrtälje Faktorigatan flap)
     } else if (verdict === 'equal') {
       st.verified++;
       // equal at every time of a week the comparison samples, but the text says more (even weeks, a season, odd dates, the
@@ -278,6 +279,7 @@ for (const row of idx.cities) {
       if (APPLY && (cond(t.f) !== cond(cur.f) || cond(t.l) !== cond(cur.l)) && noLoss(t.f, cur.f) && noLoss(t.l, cur.l) && JSON.stringify([t.f, t.l]).match(/"(?:p|m|dd|nw|dm|dt|wk)":/)) { put(); st.precise = (st.precise || 0) + 1; }
       if (APPLY && t.dp && t.dp.length && !(cur.dp && cur.dp.length)) { put(); st.dpAdded = (st.dpAdded || 0) + 1; } // the comparison samples one week without date parking: a text that defers to the datumparkering rules adds it (QA 8 Nov: Gävle, 4 of 480)
       if (cur.v === 'personbil' && APPLY) { delete s.v; s.rx = 1; changed++; }
+      if (APPLY && pelleV && pelleV === textV && t.l && !cur.l) { s.l = t.l; s.rx = 1; changed++; st.reservedLimit = (st.reservedLimit || 0) + 1; } // a reserved bay's own "högst N" from the text: the register had the bay but not its limit (QA 16 Nov round 30: Tyresö Regnbågsgatan bus bay 30 min)
       if (APPLY && t.o && t.v && t.v === cur.v && !s.o) { s.o = t.o; s.rx = 1; changed++; st.otherHours = (st.otherHours || 0) + 1; } // the reserved hours are stated: open to all outside them
     } else if (verdict === 'stricter' || (cur.v === 'personbil' && !textV && verdict !== 'mixed')) {
       st.strictened++;

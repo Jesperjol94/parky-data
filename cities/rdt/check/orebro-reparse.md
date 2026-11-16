@@ -50,9 +50,9 @@ Fully read 2708, partly read 25. Verified equal 2682, filled from text 5, text s
 | 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01339 | Norrgatan | expired 2026-10-24 | already uncertain |
 | 1880 2026-01351 | Rådmansgatan | expired 2026-11-09 | already uncertain |
-| 1880 2026-01352 | Trängkårsvägen | expired 2026-11-16 | now uncertain |
-| 1880 2026-01352 | Trängkårsvägen | expired 2026-11-16 | now uncertain |
-| 1880 2026-01352 | Trängkårsvägen | expired 2026-11-16 | now uncertain |
+| 1880 2026-01352 | Trängkårsvägen | expired 2026-11-16 | already uncertain |
+| 1880 2026-01352 | Trängkårsvägen | expired 2026-11-16 | already uncertain |
+| 1880 2026-01352 | Trängkårsvägen | expired 2026-11-16 | already uncertain |
 | 1880 2026-01355 | Malmgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01356 | Norrgatan | expired 2026-10-17 | already uncertain |
 | 1880 2026-01359 | Kasten Ottergatan | expired 2026-10-21 | already uncertain |

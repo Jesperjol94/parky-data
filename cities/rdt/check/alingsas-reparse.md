@@ -19,7 +19,7 @@ Fully read 645, partly read 46. Verified equal 627, filled from text 13, text st
 | 1489 2010-0031 | Nolhaga Allé | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1489 2020-2 | del av Timmermansvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1489 2026-38 | Stationsgatan | expired 2026-10-19 | already uncertain |
-| 1489 2026-41 | Stationsgatan | expired 2026-11-16 | now uncertain |
+| 1489 2026-41 | Stationsgatan | expired 2026-11-16 | already uncertain |
 | 1489 2026-79 | Stockslyckevägen | expired 2026-10-31 | already uncertain |
 | 1489 2026-79 | Stockslyckevägen | expired 2026-10-31 | already uncertain |
 | 1489 2026-80 | Kaptensvägen | expired 2026-10-31 | already uncertain |
@@ -27,8 +27,8 @@ Fully read 645, partly read 46. Verified equal 627, filled from text 13, text st
 | 1489 2026-173 | Värmlandsgatan | expired 2026-10-31 | already uncertain |
 | 1489 2026-174 | Dalagatan | expired 2026-10-30 | already uncertain |
 | 1489 2026-174 | Dalagatan | expired 2026-10-30 | already uncertain |
-| 1489 2026-177 | Järnvägsgatan | expired 2026-11-16 | now uncertain |
-| 1489 2026-177 | Järnvägsgatan | expired 2026-11-16 | now uncertain |
+| 1489 2026-177 | Järnvägsgatan | expired 2026-11-16 | already uncertain |
+| 1489 2026-177 | Järnvägsgatan | expired 2026-11-16 | already uncertain |
 | 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |
 | 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |
 | 1489 2026-225 | Stationsgatan | expired 2026-10-19 | already uncertain |

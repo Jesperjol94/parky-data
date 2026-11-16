@@ -1025,3 +1025,30 @@ test('"Tillåtelsen gäller inte vid personbil klass II under tiden …" is a mo
   const r = parseRegulation(wrap('På markerade sträckor på Läroverksgatan enligt kartbild får fordon parkeras. Tillåtelsen gäller inte vid personbil klass II under tiden vardag klockan 22.00 - 08.00, vardag före sön- och helgdag klockan 22.00 - 08.00 och sön- och helgdag klockan 22.00 - 08.00.'));
   assert.deepEqual(r.bans, []); assert.deepEqual(r.unread, []);
 });
+
+test('"ska de särskilt anordnade platserna … vara laddplatser" is a charging bay (QA 16 Nov round 30: Söderköping)', () => {
+  const r = parseRegulation(wrap('1 § På parkeringsplats Kanal Väst ska de särskilt anordnade platserna inom det område som anges i kartan vara laddplatser. 2 § På laddplatserna får endast fordon som kan laddas externt med elektrisk energi för fordonets framdrivning parkeras. 3 § Mellan klockan 08-22.00 alla dagar är parkering tillåten högst 4 tim i följd.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'laddning'); assert.deepEqual(r.unread, []);
+});
+
+test('"Tillåtelsen gäller inte husbilar och husvagnar" is a motorhome rule (QA 16 Nov round 30: Borgholm)', () => {
+  const r = parseRegulation(wrap('1 § På Hamnvägen i Borgholm, inom zonen Yttre hamnen, på platser utmärkta med författningsenliga vägmärken, får personbil klass I parkeras. 2 § Tillåtelsen gäller inte husbilar och husvagnar.'));
+  assert.deepEqual(r.bans, []); assert.equal(r.reserved, false); assert.deepEqual(r.unread, []);
+});
+
+test('"får inga fordon parkeras" is a parking ban (QA 16 Nov round 30: Laxå)', () => {
+  const r = parseRegulation(wrap('På Smedjegatans båda sidor, får inga fordon parkeras.'));
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440 }]); assert.deepEqual(r.unread, []);
+});
+
+test('"får fordon parkeras under maj - september" with nothing about the rest of the year is season-only (QA 16 Nov round 30: Boden)', () => {
+  const r = parseRegulation(wrap('1 § På södra sidan av Kvarngatan i Boden får fordon parkeras under maj - september. 2 § Avgift ska betalas för parkering enligt 1§.'));
+  assert.deepEqual(r.seasonOnly, [[5, 1], [9, 30]]);
+});
+
+test('the same day type twice with overlapping hours is a slip in the text: unread (QA 16 Nov round 30: Hässleholm, Helsingborg)', () => {
+  const r = parseRegulation(wrap('På markerade sträckor på Tredje Avenyen enligt kartbild får fordon parkeras under högst 2 tim i följd mot avgift under tiden vardag utom vardag före sön- och helgdag klockan 09.00 - 18.00 och vardag utom vardag före sön- och helgdag klockan 09.00 - 15.00.'));
+  assert.equal(r.textSlip, true); assert.equal(r.unread.length, 1); assert.deepEqual(r.limits, []);
+  const ok = parseRegulation(wrap('På Storgatan får fordon parkeras under högst 2 tim i följd under tiden vardag utom vardag före sön- och helgdag klockan 07.00 - 09.00 och vardag utom vardag före sön- och helgdag klockan 16.00 - 18.00.'));
+  assert.equal(ok.textSlip, undefined); assert.equal(ok.limits.length, 2);
+});
