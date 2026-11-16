@@ -42,6 +42,13 @@ function season(s) {
 function weeks(s) { const r = s.match(/vecka\s+(\d{1,2})\s*(?:[-–—]|till(?: och med)?(?: vecka)?)\s*(?:vecka\s+)?(\d{1,2})\b/i); return r ? [+r[1], +r[2]] : null; }
 const parity = (s) => (/udda veckor/i.test(s) ? 'odd' : /jämna veckor/i.test(s) ? 'even' : null);
 
+// The text itself names the same day type twice before two time ranges ("vardag utom vardag före sön- och helgdag klockan 09.00 - 18.00 och
+// vardag utom vardag före sön- och helgdag klockan 09.00 - 15.00"): a slip, not a parser mis-read of two different phrases
+function sameDayPhraseTwice(s) {
+  const chunks = s.toLowerCase().split(/\d{1,2}(?:[.:]\d{2})?\s*[-–—]\s*\d{1,2}(?:[.:]\d{2})?/).slice(0, -1);
+  const ph = chunks.map((c) => { const i = c.search(/\b(?:vardag|dag(?:ar)? före|sön- och|helgdag|lördag|söndag)/); return i < 0 ? null : c.slice(i).replace(/\b(?:mellan|klockan|kl\.?|under tiden)\b/g, ' ').replace(/[,.]/g, ' ').replace(/\b(vardag|helgdag)ar\b/g, '$1').replace(/\s+/g, ' ').trim(); }).filter(Boolean);
+  return new Set(ph).size < ph.length;
+}
 // Day-type phrase right before a "klockan" → day types (null = every day).
 function dayTypesOf(s) {
   let x = s.toLowerCase().replace(/\b(vardag(?:ar)?),\s+(?=utom\b)/g, '$1 '); // "vardagar, utom vardag före …" in a days-only sentence (QA 26 Oct: Norrköping, Sollentuna read as Saturdays)
@@ -385,6 +392,8 @@ export function parseRegulation(body) {
       out.permitted = true; // the text permits parking (with or without conditions): a register ban on it is wrong
       let ws = windows(s); if (!ws.length) ws = dayOnlyWindows(s); ws = ws.map(withSP); const d = duration(s);
       if (halfRead(s, ws)) { unread(s); continue; }
+      // the same day type twice with overlapping hours ("vardagar utom vardag före sön- och helgdag klockan 07.00 - 19.00 och vardag utom vardag före sön- och helgdag klockan 11.00 - 17.00"): a slip in the text (the second clause means the day before a holiday), the sign decides (QA 16 Nov round 30: Hässleholm, Helsingborg; Stockholm Hammarbybacken, Älvdalsvägen)
+      if (ws.some((w, i) => ws.some((v, j) => j > i && !w.w && !v.w && !w.nw && !v.nw && !w.dm && !v.dm && w.dt && v.dt && JSON.stringify(w.dt) === JSON.stringify(v.dt) && JSON.stringify(w.m || null) === JSON.stringify(v.m || null) && w.a < w.b && v.a < v.b && w.a < v.b && v.a < w.b)) && sameDayPhraseTwice(s)) { unread(s); out.textSlip = true; continue; }
       if (d) { const items = (ws.length ? ws : [clean({ a: 0, b: 1440, m, p })]).map((w) => ({ ...w, max: d })); out.limits.push(...items); lastLimit = { max: d, items }; }
       lastAllow = ws.length ? ws : null;
       continue;
