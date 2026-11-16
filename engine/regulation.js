@@ -502,7 +502,7 @@ export function parseRegulation(body) {
     // "Förbudet gäller endast under den första helgfria måndagen varje månad" (Eslöv): the weekday of the ban just stated
     if (/^förbudet (?:att parkera )?(?:i (?:paragraf \d+|\d+ §) )?gäller/.test(x) && lastBan && NTH.test(s) && !/(?:klockan|kl\.?)\s*\d/.test(x)) { const n = NTH.exec(s); for (const b of lastBan.items) { b.w = WEEKDAYS[n[2].toLowerCase()]; b.nw = NTH_N[n[1].toLowerCase()]; delete b.dt; } continue; }
     // "Tillåtelsen gäller inte personbil klass II …": a rule for motorhomes only; ordinary cars are not affected (Visby)
-    if (/^tillåtelsen gäller (?:inte|ej) (?:för )?personbil klass (?:ii|2)\b/.test(x)) continue; // the hours of a heavy-vehicle ban (Norrtälje 0188 2020-00111)
+    if (/^tillåtelsen gäller (?:inte|ej) (?:för |vid )?personbil klass (?:ii|2)\b/.test(x)) continue; // also "Tillåtelsen gäller inte vid personbil klass II under tiden … 22.00 - 08.00" (QA 16 Nov round 29: Falkenberg Läroverksgatan showed a night ban for all cars) // the hours of a heavy-vehicle ban (Norrtälje 0188 2020-00111)
     if (/^förbudet (?:att (?:parkera|stanna)[^ ]* )?(?:i (?:första stycket|paragraf \d+|\d+\s*§) )?gäller/.test(x)) { // the hours of the ban just stated
       if (IGNORE.some((r) => r.test(s))) continue;
       if (/gäller (?:inte|ej)\b/.test(x)) {

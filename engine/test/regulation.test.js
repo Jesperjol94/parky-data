@@ -1020,3 +1020,8 @@ test('"Tillåtelsen gäller 30 april - 30 september. Övrig tid får fordon inte
   assert.deepEqual(r.bans, [{ a: 0, b: 1440, m: [[10, 1], [4, 29]] }]);
   assert.deepEqual(r.allowOnly, [{ dt: ['vardag', 'fore', 'helgdag'], a: 480, b: 1200 }]);
 });
+
+test('"Tillåtelsen gäller inte vid personbil klass II under tiden …" is a motorhome rule, not a night ban for all cars (QA 16 Nov round 29: Falkenberg)', () => {
+  const r = parseRegulation(wrap('På markerade sträckor på Läroverksgatan enligt kartbild får fordon parkeras. Tillåtelsen gäller inte vid personbil klass II under tiden vardag klockan 22.00 - 08.00, vardag före sön- och helgdag klockan 22.00 - 08.00 och sön- och helgdag klockan 22.00 - 08.00.'));
+  assert.deepEqual(r.bans, []); assert.deepEqual(r.unread, []);
+});

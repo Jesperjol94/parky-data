@@ -1,7 +1,7 @@
 # Borlänge: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-15. 1038 segments: 1038 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1031, partly read 2. Verified equal 981, filled from text 11, text stricter 0, disputed 0, expired 5, text without rules 34, multi-part texts (not compared) 0.
+Run 2026-11-16. 1038 segments: 1038 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1030, partly read 2. Verified equal 980, filled from text 11, text stricter 0, disputed 0, expired 6, text without rules 34, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -19,5 +19,6 @@ Fully read 1031, partly read 2. Verified equal 981, filled from text 11, text st
 | 2081 2020-00216 | Tolvmilavägen | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1320,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | filled from text |
 | 2081 2020-00216 | Tolvmilavägen | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1320,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | filled from text |
 | 2081 2024-00007 | Gymnasiegatan | expired 2026-11-01 | already uncertain |
+| 2081 2026-00023 | Vallgatan | expired 2026-11-16 | now uncertain |
 | 2081 2026-00160 | Simsgatan | expired 2026-10-30 | already uncertain |
 | 2081 2026-00161 | Simsgatan | expired 2026-10-30 | already uncertain |

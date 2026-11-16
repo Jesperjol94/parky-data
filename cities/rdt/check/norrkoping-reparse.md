@@ -1,7 +1,7 @@
 # Norrköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-15. 3720 segments: 3720 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3694, partly read 4. Verified equal 3623, filled from text 5, text stricter 0, disputed 2, expired 22, text without rules 64, multi-part texts (not compared) 0.
+Run 2026-11-16. 3720 segments: 3720 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3691, partly read 4. Verified equal 3620, filled from text 5, text stricter 0, disputed 2, expired 25, text without rules 64, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -15,7 +15,10 @@ Fully read 3694, partly read 4. Verified equal 3623, filled from text 5, text st
 | 0581 2025-776 | Jacob Ekbohmsgatan | uncertain → {"f":[{"dm":6,"dt":["vardag"],"a":540,"b":720}]} | filled from text |
 | 0581 2026-344 | Skiljegatan | expired 2026-11-14 | already uncertain |
 | 0581 2026-345 | Nygatan | expired 2026-11-14 | already uncertain |
+| 0581 2026-457 | Jacob Ekbohmsgatan | expired 2026-11-16 | now uncertain |
+| 0581 2026-459 | S:T Olofsgatan | expired 2026-11-16 | now uncertain |
 | 0581 2026-497 | Jacob Ekbohmsgatan | expired 2026-11-15 | already uncertain |
+| 0581 2026-518 | Jacob Ekbohmsgatan | expired 2026-11-16 | now uncertain |
 | 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
 | 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |
 | 0581 2026-541 | Enebygatan | expired 2026-10-30 | already uncertain |

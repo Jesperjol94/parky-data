@@ -1,6 +1,6 @@
 # Hässleholm: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-15. 670 segments: 670 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-16. 670 segments: 670 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 644, partly read 26. Verified equal 617, filled from text 5, text stricter 0, disputed 0, expired 0, text without rules 22, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

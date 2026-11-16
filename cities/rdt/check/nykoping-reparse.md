@@ -1,6 +1,6 @@
 # Nyköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-15. 1008 segments: 1008 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-16. 1008 segments: 1008 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 999, partly read 5. Verified equal 962, filled from text 5, text stricter 0, disputed 0, expired 4, text without rules 32, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

@@ -1,6 +1,6 @@
 # Höör: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-15. 534 segments: 534 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-16. 534 segments: 534 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 523, partly read 5. Verified equal 423, filled from text 92, text stricter 0, disputed 0, expired 6, text without rules 7, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

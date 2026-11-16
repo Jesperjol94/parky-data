@@ -1,7 +1,7 @@
 # Ystad: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-15. 1136 segments: 1136 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1069, partly read 37. Verified equal 878, filled from text 3, text stricter 0, disputed 0, expired 30, text without rules 131, multi-part texts (not compared) 0.
+Run 2026-11-16. 1136 segments: 1136 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1068, partly read 37. Verified equal 877, filled from text 3, text stricter 0, disputed 0, expired 31, text without rules 131, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -11,6 +11,7 @@ Fully read 1069, partly read 37. Verified equal 878, filled from text 3, text st
 | 1286 2026-151 | Sektersgatan | expired 2026-10-30 | already uncertain |
 | 1286 2026-155 | Långgatan | expired 2026-11-05 | already uncertain |
 | 1286 2026-157 | Teatergränd | expired 2026-11-09 | already uncertain |
+| 1286 2026-159 | Stora Västergatan | expired 2026-11-16 | now uncertain |
 | 1286 2026-166 | Trädgårdsgatan | expired 2026-10-23 | already uncertain |
 | 1286 2026-174 | Herrestadsgatan | expired 2026-10-21 | already uncertain |
 | 1286 2026-174 | Herrestadsgatan | expired 2026-10-21 | already uncertain |

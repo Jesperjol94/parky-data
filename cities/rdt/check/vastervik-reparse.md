@@ -1,6 +1,6 @@
 # Västervik: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-15. 898 segments: 898 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-16. 898 segments: 898 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 842, partly read 38. Verified equal 824, filled from text 11, text stricter 0, disputed 0, expired 18, text without rules 6, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

@@ -1,6 +1,6 @@
 # Sundbyberg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-15. 2132 segments: 2132 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-16. 2132 segments: 2132 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 2088, partly read 20. Verified equal 1783, filled from text 42, text stricter 0, disputed 11, expired 24, text without rules 245, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
