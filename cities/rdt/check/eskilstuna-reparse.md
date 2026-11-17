@@ -1,7 +1,7 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-16. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1110, partly read 46. Verified equal 974, filled from text 3, text stricter 0, disputed 0, expired 26, text without rules 133, multi-part texts (not compared) 0.
+Run 2026-11-17. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1109, partly read 46. Verified equal 973, filled from text 3, text stricter 0, disputed 0, expired 27, text without rules 133, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -34,3 +34,4 @@ Fully read 1110, partly read 46. Verified equal 974, filled from text 3, text st
 | 0484 2026-175 | Tegelbruksgatan | expired 2026-10-26 | already uncertain |
 | 0484 2026-183 | Kyrkogatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-186 | Sturegatan | expired 2026-10-18 | already uncertain |
+| 0484 2026-196 | Eleonoragatan | expired 2026-11-17 | now uncertain |

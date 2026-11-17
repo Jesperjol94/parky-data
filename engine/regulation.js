@@ -204,6 +204,9 @@ function sentences(t) {
   t = t.replace(/\bfår (inte |ej )?((?:fordon|motorfordon|personbil(?:ar)?)\s+)(?:(inte|ej)\s+)?parkeras längre (?:tid )?än (?=(?:\d+|en|ett|två|tre|fyra|fem|sex|sju|åtta|nio|tio|tolv|femton|tjugo|trettio)\s+(?:\(\d+\)\s*)?(?:tim|min|dygn))/gi, (z, n1, v, n2) => (n1 || n2 ? `får ${v}parkeras under högst ` : z));
   // "mellan klockan 00.00 06.00": the dash between the times was lost (QA 16 Nov round 31: Kalix Köpmannagatan's winter night ban unread)
   t = t.replace(/\b((?:mellan )?(?:klockan|kl\.?)\s*\d{1,2}[.:]\d{2})\s+(\d{1,2}[.:]\d{2})(?![\d.:]*\s*(?:[-–—]|och|till)\s*\d)/gi, '$1 - $2');
+  // "får fordon inte parkeras Under tiden 4:e tisdagen … får dock fordon parkeras": the full stop was lost at a line break, so the next
+  // sentence's hours were read as the ban's own hours (QA 17 Nov round 32: Helsingborg Kurirgatan banned only on the 4th Tuesday)
+  t = t.replace(/\b(parkeras|stannas)\s+(?=(?:Under tiden|Förbudet|Tillåtelsen|Tidsbegränsningen|Villkoret|Reservationen|Avgift|Parkering (?:är|får))\b)/g, '$1. ');
   t = t.replace(/(\d)§/g, '$1 §'); // "Tillåtelsen i 1§ gäller …": a glued paragraph sign hid the sentence's subject (QA 14 Nov round 25: Hudiksvall)
   t = t.replace(/,\s*med avvikelse från [^.,]*?trafikföreskrifter\s*\([^)]*\)([^.,]*?)\s(parkeras|stannas)\b/gi, (z, mid, v) => (/\b(?:inte|ej|får)\b/i.test(mid) ? z : ` ${v}`)) /* no comma after the clause: "får fordon, med avvikelse från … (0484 2016 : 211) om område med förbud att parkera parkeras under högst 3 tim" (QA 30 Oct: Eskilstuna) */;
   t = t.replace(/\b(får (?:fordon|motorfordon|motordrivet fordon|personbil(?:ar)?)(?: som används (?:av|för) [^.,;]{1,80}?)?) med avvikelse från ((?:[^.,;]|\.(?!\s+[A-ZÅÄÖ]|\s*$))*?(?:trafikföreskrifter|trafikförordningen|\(1998:1276\))(?:[^.,;]|\.(?!\s+[A-ZÅÄÖ]|\s*$))*?)\s(parkeras|stannas)\b/g, (z, f, mid, v) => (/\b(?:inte|ej|får)\b/i.test(mid) ? z : `${f} ${v}`)); // no commas around the clause: "får fordon med avvikelse från kommunens lokala trafikföreskrifter 1981 2004 : 0110 parkeras" (Sala, Åstorp, Alingsås, Mjölby)
@@ -299,6 +302,12 @@ function subtractWindows(bans, allows) {
 // (QA 13 Nov round 21: Huddinge Sjödalsvägen showed the register's ban instead of fee parking; Nyköping, Mora)
 export const FREE_FIRST_HOURS = /(?:\d+ §\s*)?(?:den )?första (?:timmen|halvtimmen|(?:två|tre|fyra|\d+) timmarna) är avgiftsfria?[^.]*/gi;
 export function dropFreeFirstHours(t) { return t.replace(FREE_FIRST_HOURS, ''); }
+
+// The text without the sentences that repeal older regulations: their titles ("… om parkering utan avgift på Trädgårdsgatan ska upphöra att
+// gälla") say nothing about this one (QA 17 Nov round 32: Växjö)
+export function dropRepealSentences(body) {
+  return String(body).replace(/\s+/g, ' ').replace(/\bträder i kraft(?:[^.]|\.(?=\d))*?\bupphör(?:a)? att gälla/gi, ' ').replace(/\bupphäv(?:s|as)\b(?:[^.]|\.(?=\d))*/gi, ' ');
+}
 
 export function parseRegulation(body) {
   const t = ruleText(body);

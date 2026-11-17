@@ -1,6 +1,6 @@
 # Simrishamn: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-16. 398 segments: 398 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-17. 398 segments: 398 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 392, partly read 5. Verified equal 311, filled from text 20, text stricter 0, disputed 0, expired 1, text without rules 48, multi-part texts (not compared) 9.
 
 | Citation | Street | Change | Note |

@@ -1,11 +1,10 @@
 # Högsby: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-16. 51 segments: 51 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 35, partly read 6. Verified equal 31, filled from text 0, text stricter 0, disputed 1, expired 10, text without rules 3, multi-part texts (not compared) 0.
+Run 2026-11-17. 51 segments: 51 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 35, partly read 6. Verified equal 32, filled from text 0, text stricter 0, disputed 0, expired 10, text without rules 3, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0821 2008-28 | Järnvägsgatan | {"f":[{"a":0,"b":1440}]} → {"l":[{"a":0,"b":1440,"max":15}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0821 2011-10 | Majestensvägen | expired 2011-06-19 | already uncertain |
 | 0821 2011-11 | Kyrkvägen | expired 2011-07-16 | already uncertain |
 | 0821 2011-12 | Välenvägen | expired 2011-07-16 | already uncertain |

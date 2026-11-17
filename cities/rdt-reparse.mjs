@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { parseRegulation, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd } from '../engine/regulation.js';
+import { parseRegulation, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
 const dir = args[0] || 'cities/rdt';
@@ -149,7 +149,11 @@ for (const row of idx.cities) {
       if ((s.fr || null) !== fr) { if (fr) s.fr = fr; else delete s.fr; changed++; }
       if ((s.to || null) !== to) { if (to) s.to = to; else delete s.to; changed++; }
       // fee: "mot avgift" in the text and no fee table known → unknown fee (orange "see sign"), never free
-      if (!s.t && /avgift/i.test(body) && !/utan avgift|avgiftsfri|ingen avgift|avgift(?:en)? (?:ska|skall|behöver) (?:inte|ej)(?! (?:erläggas|betalas) av (?:rörelsehindrad|boende))/i.test(dropFreeFirstHours(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, '')))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; } // "Första två timmarna är avgiftsfria med e-biljett" is a discount, not free parking (QA 13 Nov round 21: Huddinge Sjödalsvägen)
+      // a fee named only in the sentence that repeals the old regulation ("… (0780 2009:00663) om parkering utan avgift på Trädgårdsgatan ska
+      // upphöra att gälla") is not a fee here (QA 17 Nov round 32: Växjö Trädgårdsgatan 5 min bay drawn "fee – see the sign")
+      const feeBody = dropRepealSentences(body);
+      if (s.fu && !s.t && /avgift/i.test(body) && !/avgift/i.test(feeBody)) { delete s.fu; s.t = 0; changed++; st.feeRepealOnly = (st.feeRepealOnly || 0) + 1; }
+      if (!s.t && /avgift/i.test(feeBody) && !/utan avgift|avgiftsfri|ingen avgift|avgift(?:en)? (?:ska|skall|behöver) (?:inte|ej)(?! (?:erläggas|betalas) av (?:rörelsehindrad|boende))/i.test(dropFreeFirstHours(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, '')))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; } // "Första två timmarna är avgiftsfria med e-biljett" is a discount, not free parking (QA 13 Nov round 21: Huddinge Sjödalsvägen)
       // parking disc
       if (/parkeringsskiva|p-skiva/i.test(body) && !s.ps) { s.ps = 1; changed++; }
       // "personbil" is a vehicle class, not a reservation

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseRegulation, applyRegulation, samePlaceExceptions, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd } from '../regulation.js';
+import { parseRegulation, applyRegulation, samePlaceExceptions, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences } from '../regulation.js';
 const wrap = (s) => `Stockholms kommun föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande. ${s} Denna författning träder i kraft den 1 maj 2026.`;
 
 test('time limit in the main sentence + "Övrig tid får fordon parkeras" + winter ban', () => {
@@ -1068,4 +1068,22 @@ test('"mellan klockan 00.00 06.00" with the dash lost is still a time range (QA 
 test('"<days> klockan 09.00 – 18.00 gäller dock tillåtelsen att parkera mot att avgift erläggs eller högst 1 timme … parkeringsskiva": fee hours, no limit for whoever pays (QA 16 Nov round 31: Ängelholm, reparse drops the register\'s limit)', () => {
   const r = parseRegulation(wrap('Inom rödmarkerat område på Södra Vägen enligt kartbild får fordon parkeras. Vardagar utom vardag före sön- och helgdag klockan 09.00 – 18.00 gäller dock tillåtelsen att parkera mot att avgift erläggs eller högst 1 timme i följd mot användande av parkeringsskiva eller motsvarande. Avgift enligt taxa zon 2.'));
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }]); assert.deepEqual(r.limits, []); assert.deepEqual(r.unread, []);
+});
+
+test('"får fordon inte parkeras Under tiden 4:e tisdagen … får dock fordon parkeras" with the full stop lost: the ban holds all the time, not only in the exception\'s hours (QA 17 Nov round 32: Helsingborg Kurirgatan)', () => {
+  const r = parseRegulation(wrap('På Kurirgatans västra sida enligt kartbild får fordon inte parkeras Under tiden 4:e tisdagen i månaden klockan 08.00 - 18.00 får dock fordon parkeras.'));
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440 }]); assert.deepEqual(r.unread, []);
+  const r2 = parseRegulation(wrap('På Allévägens södra sida enligt kartbild får fordon inte parkeras Förbudet gäller inte buss i linjetrafik.'));
+  assert.deepEqual(r2.bans, [{ a: 0, b: 1440 }]);
+});
+
+test('a fee named only in the repealed regulation\'s title is no fee (QA 17 Nov round 32: Växjö Trädgårdsgatan 5 min bay)', () => {
+  const body = 'Växjö kommun föreskriver följande. På norra sidan av Trädgårdsgatan i Växjö får fordon parkeras under högst 5 min i följd. Denna författning träder i kraft den 1 juli 2021 då Växjö kommuns lokala trafikföreskrifter (0780 2009:00663) om parkering utan avgift på Trädgårdsgatan i Växjö ska upphöra att gälla.';
+  assert.equal(/avgift/i.test(dropRepealSentences(body)), false);
+  assert.match(dropRepealSentences('På Storgatan får fordon parkeras mot avgift. Denna författning träder i kraft den 1 maj 2020.'), /mot avgift/);
+});
+
+test('a fee rule named in a deviation clause is not a repealed title (dropRepealSentences keeps it)', () => {
+  assert.match(dropRepealSentences('1 § Vid Hamngatan 2 får endast MC, med avvikelse från lokala trafikföreskrifter (0484 2017 : 176) om parkering mot avgift parkeras där stannande är förbjudet enligt trafikförordningen (1998:1276) Denna författning träder i kraft den 1 maj 2017.'), /mot avgift/);
+  assert.doesNotMatch(dropRepealSentences('Fordon får parkeras högst 2 tim. Genom denna författning upphävs lokala trafikföreskrifter (0980 2012 : 81) om avgiftsbelagd parkering på Ryska gränd.'), /avgift/);
 });

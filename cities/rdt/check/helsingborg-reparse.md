@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-16. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3584, partly read 80. Verified equal 3116, filled from text 170, text stricter 0, disputed 0, expired 109, text without rules 290, multi-part texts (not compared) 0.
+Run 2026-11-17. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3584, partly read 80. Verified equal 3110, filled from text 170, text stricter 6, disputed 0, expired 109, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -166,6 +166,10 @@ Fully read 3584, partly read 80. Verified equal 3116, filled from text 170, text
 | 1283 2010-01160 | Skånegatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-01163 | Koralgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-01206 | Jupitergatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1283 2010-01367 | Lundagatan | {"f":[{"w":3,"nw":1,"a":480,"b":1080}]} → {"f":[{"a":0,"b":1440}]} | text stricter: applied |
+| 1283 2010-01367 | Lundagatan | {"f":[{"w":3,"nw":1,"a":480,"b":1080}]} → {"f":[{"a":0,"b":1440}]} | text stricter: applied |
+| 1283 2010-01374 | Traktörsgatan | {"f":[{"w":3,"nw":1,"a":480,"b":1080}]} → {"f":[{"a":0,"b":1440}]} | text stricter: applied |
+| 1283 2010-01389 | Kristinegatan | {"f":[{"w":3,"nw":1,"a":480,"b":1080}]} → {"f":[{"a":0,"b":1440}]} | text stricter: applied |
 | 1283 2010-01457 | Kullavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-01457 | Kullavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-01482 | Brohultsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -234,6 +238,8 @@ Fully read 3584, partly read 80. Verified equal 3116, filled from text 170, text
 | 1283 2014-00444 | Brunnbäcksgatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1283 2014-00445 | Luggudegatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":840,"max":60}]} | filled from text |
 | 1283 2014-00694 | Blekingegatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1283 2014-00731 | Kurirgatan | {"f":[{"w":2,"nw":4,"a":480,"b":1080}]} → {"f":[{"a":0,"b":1440}]} | text stricter: applied |
+| 1283 2014-00731 | Kurirgatan | {"f":[{"w":2,"nw":4,"a":480,"b":1080}]} → {"f":[{"a":0,"b":1440}]} | text stricter: applied |
 | 1283 2016-289 | Övre Långvinkelsgatan | uncertain → {"f":[{"w":1,"nw":3,"a":480,"b":720}]} | filled from text |
 | 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | already uncertain |
 | 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | already uncertain |
