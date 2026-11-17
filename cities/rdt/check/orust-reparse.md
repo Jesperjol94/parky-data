@@ -5,5 +5,5 @@ Fully read 399, partly read 27. Verified equal 309, filled from text 2, text str
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1421 2023-12 | Färjevägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1421 2023-12 | Färjevägen | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"v":"rörelsehindrade"} | filled from text |
 | 1421 2023-23 | Sörkilevägen | uncertain → {"v":"rörelsehindrade"} | filled from text |

@@ -1087,3 +1087,17 @@ test('a fee rule named in a deviation clause is not a repealed title (dropRepeal
   assert.match(dropRepealSentences('1 § Vid Hamngatan 2 får endast MC, med avvikelse från lokala trafikföreskrifter (0484 2017 : 176) om parkering mot avgift parkeras där stannande är förbjudet enligt trafikförordningen (1998:1276) Denna författning träder i kraft den 1 maj 2017.'), /mot avgift/);
   assert.doesNotMatch(dropRepealSentences('Fordon får parkeras högst 2 tim. Genom denna författning upphävs lokala trafikföreskrifter (0980 2012 : 81) om avgiftsbelagd parkering på Ryska gränd.'), /avgift/);
 });
+
+test('"Övrig tid får parkering ske högst 8h i följd" is a limit outside the stated hours (QA 17 Nov round 33: Upplands Väsby Ryttargatan)', () => {
+  const r = parseRegulation(wrap('1 § Inom Ryttargatan enligt markering på kartbild får fordon parkeras högst 15 minuter i följd. 2 § Tidsbegränsningen gäller vardag utom vardag före sön- och helgdag klockan 07.00 - 17.00. 3 § Parkeringsskiva eller motsvarande ska användas. 4 § Övrig tid får parkering ske högst 8h i följd.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 420, b: 1020, max: 15 }, { dt: ['vardag'], a: 0, b: 420, max: 480 }, { dt: ['vardag'], a: 1020, b: 1440, max: 480 }, { dt: ['fore', 'helgdag'], a: 0, b: 1440, max: 480 }]);
+  const r2 = parseRegulation(wrap('På Storgatan får fordon parkeras högst 15 minuter i följd vardagar klockan 07.00 - 17.00. Övrig tid får parkering ske utan tidsbegränsning.'));
+  assert.equal(r2.limits.length, 1);
+});
+
+test('"klockan 09,00- 18.00" and "bestämmelserna i § 1" (QA 17 Nov round 33: Örnsköldsvik Apoteksgränd)', () => {
+  const r = parseRegulation(wrap('1 § På Apoteksgränds norra sida får fordon, med avvikelse från Örnsköldsviks kommuns lokala trafikföreskrifter 2284 2023:00077 om förbud att parkera i centrala Örnsköldsvik, parkeras. 2 § Tillåtelsen att parkera i 1 § gäller dock högst 3 timmar i följd och mot avgift. Villkoret gäller - vardagar utom vardag före sön- och helgdag mellan klockan 09,00- 18.00, och - vardag före sön- och helgdag mellan klockan 09.00- 15.00. Avgiften i 2 § är enligt taxa 2. Med avvikelse från bestämmelserna i § 1 får fordon på sträckan inte parkeras vardagar utom vardag före sön- och helgdag klockan 02.00 - 08.00, vardag före sön- och helgdag klockan 02.00 - 08.00, sön- och helgdag klockan 02.00 - 08.00 och jämna datum.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 180 }, { dt: ['fore'], a: 540, b: 900, max: 180 }]);
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }, { dt: ['fore'], a: 540, b: 900 }]);
+  assert.equal(r.bans.length, 3);
+});

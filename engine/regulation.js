@@ -14,6 +14,7 @@ const MONTH_NAMES = ['januari', 'februari', 'mars', 'april', 'maj', 'juni', 'jul
 export function ruleText(body) {
   if (!body) return null;
   let t = body.replace(/Publicerat på webbplatsen Svensk trafikföreskriftssamling den \d{1,2} \S+ \d{4}/g, ' ') /* page footers inside sentences (QA: Linköping, Norrköping) */.replace(/­/g, '').replace(/(?<=[a-zåäö])-\n(?=[a-zåäö])/g, '') /* not "augusti -\njuni": a season's dash (QA 8 Nov: Solna lost 'augusti - juni') */.replace(/\s+/g, ' ').replace(/sönoch/g, 'sön- och').replace(/sön och helgdag/g, 'sön- och helgdag')
+    .replace(/\b(\d{1,2}),(\d{2})(?=\s*[-–]\s*\d{1,2}[.:]\d{2})/g, '$1.$2').replace(/\bbestämmelserna i § (\d+)/g, 'bestämmelserna i $1 §') // "klockan 09,00- 18.00", "bestämmelserna i § 1" (QA 17 Nov round 33: Örnsköldsvik Apoteksgränd)
     .replace(/sön ?- ?och/g, 'sön- och').replace(/sön ?- ?helgdag/g, 'sön- och helgdag').replace(/(\d{1,2}):[ae]\b/g, '$1') // "sön - och helgdag", "sön - helgdag", "1:a december"
     .replace(/(\d{2}|[a-zåäö)])\s+(?=(?:Avgiften i \d+ § är|Med avvikelse från bestämmelserna i \d+ § får)\s)/g, '$1. ') /* a list ending without a full stop ran into the next sentence (QA 12 Nov round 18: Örnsköldsvik Lasarettsgatan drew the fee's 09–18 as an odd-date ban) */.replace(/\bMed avvikelse från bestämmelserna i \d+ § får/g, 'Får').replace(/\b(fordon) på (?:sträckan|platsen|sträckorna|platserna)\b/gi, '$1') // "Med avvikelse från bestämmelserna i 1 § får fordon på sträckan inte parkeras …"
     .replace(/,\s+(Gäller (?:endast|enbart) )/g, '. $1') /* "… högst 24 timmar i följd, Gäller endast buss." (Växjö) */.replace(/(\d\s*§)(?=[A-ZÅÄÖ])/g, '$1 ') /* "2 §Tillåtelsen" (QA 6 Nov: Örebro Fredsgatan) */.replace(/\bTillåtelsen (?:att parkera )?i \d+ § gäller/g, 'Tillåtelsen gäller').replace(/\bFörbudet i \d+ § gäller/g, 'Förbudet gäller')
@@ -192,6 +193,7 @@ function duration(s) {
   // "högst två timmar", "högst en timma", "högst sju (7) dygn": the number written as a word (QA 25 Oct: the limit was dropped)
   s = s.replace(/\b(högs?t|under)\s+(en|ett|två|tre|fyra|fem|sex|sju|åtta|nio|tio|tolv|femton|tjugo|trettio)\s+(?:\((\d+)\)\s*)?(?=tim|min|dygn|dag)/gi, (_, h, w, d) => `${h.toLowerCase() === 'högt' ? 'högst' : h} ${d || NUM_WORDS[w.toLowerCase()]} `).replace(/\bhögst\s+(\d+)\s*\(\d+\)\s*(?=tim|min|dygn|dag)/gi, 'högst $1 ').replace(/\bhögt\s+(?=\d)/gi, 'högst ');
   s = s.replace(/\bhögst\s+(\d+)\s*\((tim\w*|min\w*|dygn)\)/gi, 'högst $1 $2') /* "högst 1 (timme) i följd" (Bollnäs) */.replace(/\b(parkeras|stannas eller parkeras) under (\d+)\s*(?=(?:tim\w*|min\w*|dygn)\s+i följd)/gi, '$1 under högst $2 '); // "får fordon parkeras under två timmar i följd" (Bollnäs Storgatan)
+  s = s.replace(/\bhögst\s+(\d+)\s*h\b(?![-–])/gi, 'högst $1 tim'); // "högst 8h i följd" (QA 17 Nov round 33: Upplands Väsby)
   const m = s.match(/högst\s+(\d+)\s*(tim(?:me|mar|ma|mar)?|timmar|min(?:uter)?|dygn|dag(?:ar)?|veck(?:a|or))\b/i) || s.match(/gäller (?:under )?(\d+)\s*(tim(?:me|mar)?|min(?:uter)?|dygn) i följd/i); // also "Tillåtelsen gäller 4 tim i följd" (Uppsala)
   if (!m) return null;
   const n = +m[1], u = m[2].toLowerCase();
@@ -492,7 +494,7 @@ export function parseRegulation(body) {
       if (allowSeason && !windows(s).length && lastAllow.every((w) => !w.m)) { const items = [{ a: 0, b: 1440, m: complement(allowSeason) }]; out.bans.push(...items); lastBan = { items, provisional: false }; }
       continue;
     }
-    if (/^övrig tid (?:fri parkering|får (?:fordon|personbil(?:ar)?(?! klass (?:ii|2)\b)) (?:stannas eller )?parkeras|är parkering tillåten\b)/.test(x)) { // also "Övrig tid får personbil parkeras" after a klass I permission (QA 12 Nov round 17: Helsingborg Palmqvistgatan) // also "Övrig tid är parkering tillåten under högst 5 minuter i följd" (QA 9 Nov: Uppsala S:t Johannesgatan, Ronneby) // "…other times vehicles may park": the permission hours are not the only hours
+    if (/^övrig tid (?:fri parkering|får (?:fordon|personbil(?:ar)?(?! klass (?:ii|2)\b)) (?:stannas eller )?parkeras|är parkering tillåten\b|får parkering ske (?!utan)(?=[^.]*högst))/.test(x)) { // also "Övrig tid får parkering ske högst 8h i följd" (QA 17 Nov round 33: Upplands Väsby Ryttargatan showed no limit outside 07–17) // also "Övrig tid får personbil parkeras" after a klass I permission (QA 12 Nov round 17: Helsingborg Palmqvistgatan) // also "Övrig tid är parkering tillåten under högst 5 minuter i följd" (QA 9 Nov: Uppsala S:t Johannesgatan, Ronneby) // "…other times vehicles may park": the permission hours are not the only hours
       out.otherAllowed = true; out.allowOnly = out.allowOnly.filter((w) => !tillWs.includes(w));
       if (/mot avgift/.test(x) && lastLimit && !out.feeWindows) {
         let items = lastLimit.items; const ws5 = new Set(items.map((w) => w.w)); // "måndag - fredag 07-17" was expanded per weekday: Mon–Fri is the vardag day type

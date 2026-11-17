@@ -11,7 +11,7 @@ Fully read 159, partly read 2. Verified equal 147, filled from text 11, text str
 | 0128 2010-00124 | Säby torg | uncertain → {"l":[{"a":0,"b":1440,"max":5}]} | filled from text |
 | 0128 2010-00126 | Säby torg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0128 2010-00128 | Säby torg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0128 2010-00167 | Tvillingvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 0128 2010-00167 | Tvillingvägen | uncertain → {"l":[{"dt":["vardag","fore"],"a":0,"b":1440,"max":1440}],"v":"rörelsehindrade"} | filled from text |
 | 0128 2010-00175 | Täppvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0128 2010-00183 | Vårstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0128 2010-00184 | Vårstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

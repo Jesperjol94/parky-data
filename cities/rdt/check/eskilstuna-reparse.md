@@ -34,4 +34,4 @@ Fully read 1109, partly read 46. Verified equal 973, filled from text 3, text st
 | 0484 2026-175 | Tegelbruksgatan | expired 2026-10-26 | already uncertain |
 | 0484 2026-183 | Kyrkogatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-186 | Sturegatan | expired 2026-10-18 | already uncertain |
-| 0484 2026-196 | Eleonoragatan | expired 2026-11-17 | now uncertain |
+| 0484 2026-196 | Eleonoragatan | expired 2026-11-17 | already uncertain |
