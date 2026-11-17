@@ -1101,3 +1101,17 @@ test('"klockan 09,00- 18.00" and "bestämmelserna i § 1" (QA 17 Nov round 33: �
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }, { dt: ['fore'], a: 540, b: 900 }]);
   assert.equal(r.bans.length, 3);
 });
+
+test('"får tungt släpfordon inte parkeras" concerns heavy trailers only (QA 17 Nov round 34: Bjuv Idrottsvägen)', () => {
+  const r = parseRegulation(wrap('På 2:a körfältet från körbanans sydvästra sida på Idrottsvägen ( på särskilt markerade sträckor ) får tungt släpfordon inte parkeras. Förbudet ger inte rätt att stanna där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276).'));
+  assert.equal(r.heavyOnly, true);
+  assert.deepEqual(r.bans, []);
+  assert.deepEqual(r.unread, []);
+});
+
+test('"På vardagar … får dock fordon inte parkeras" is the same place\'s hours, not a second place (QA 17 Nov round 34: Täby Östra Banvägen; multiPart in rdt-reparse.mjs)', () => {
+  const r = parseRegulation(wrap('På parkeringsplatsen på Östra Banvägen mellan Centralvägen, Ytterby grindväg och Näsbylundsvägen får fordon parkeras. På vardagar utom vardag före sön- och helgdag klockan 02.00 - 05.00 får dock fordon inte parkeras'));
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 120, b: 300 }]);
+  assert.equal(r.permitted, true);
+  assert.deepEqual(r.unread, []);
+});

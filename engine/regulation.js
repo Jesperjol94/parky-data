@@ -572,7 +572,7 @@ export function parseRegulation(body) {
       unread(s); continue;
     }
     // "får motorredskap, traktor, tung lastbil, personbil klass II och tung buss inte parkeras": heavy vehicles only, no rule for cars
-    if (/får (?:(?:motorredskap|traktor|tung lastbil|lastbil|tung buss|buss|personbil klass (?:ii|2)|släpfordon|släpvagn|fordonståg)[^.]*?)(?:inte|ej) (?:heller )?(?:stannas eller )?parkeras/.test(x) && !/\bfordon (?:inte|ej)|får (?:inte|ej) fordon|personbil(?! klass (?:ii|2))|bruttovikt över/.test(x)) { out.heavyOnly = true; continue; }
+    if (/får (?:(?:motorredskap|traktor|tung lastbil|lastbil|tung buss|buss|personbil klass (?:ii|2)|(?:tungt )?släpfordon|släpvagn|fordonståg)[^.]*?)(?:inte|ej) (?:heller )?(?:stannas eller )?parkeras/.test(x) && !/\bfordon (?:inte|ej)|får (?:inte|ej) fordon|personbil(?! klass (?:ii|2))|bruttovikt över/.test(x)) { out.heavyOnly = true; continue; }
     // a ban only for motorhomes and trailers ("Parkering är dock förbjuden för personbil klass II och släpkärra under tiden …", "Personbil klass II
     // får ej parkeras", "… får dock personbil klass II inte parkeras"): ordinary cars may park (QA 30 Oct: Landskrona, Karlskrona, Ulricehamn showed a ban)
     { const V = '(?:personbil(?:ar)? klass (?:ii|2)|släpkärr(?:a|or)|släpfordon|släpvagn(?:ar)?|husvagn(?:ar)?|husbil(?:ar)?)', L = `${V}(?:,? (?:och|samt|eller) (?:för )?${V})*`;

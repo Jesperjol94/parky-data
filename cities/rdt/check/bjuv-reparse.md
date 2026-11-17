@@ -1,7 +1,7 @@
 # Bjuv: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-17. 117 segments: 117 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 44, partly read 73. Verified equal 38, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Fully read 50, partly read 67. Verified equal 38, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
