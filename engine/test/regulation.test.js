@@ -423,3 +423,8 @@ test('"får fordon parkeras och mot avgift" is a permission with fee hours and n
   assert.equal(r.permitted, true); assert.deepEqual([r.bans, r.limits, r.allowOnly, r.unread], [[], [], [], []]);
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 480, b: 1440 }, { dt: ['fore'], a: 480, b: 1440 }]);
 });
+
+test('a full stop lost before "Under tiden … får dock fordon inte parkeras" still starts a new sentence (QA 17 Nov round 32: Stockholm 0180 2018-04057)', () => {
+  const r = parseRegulation(wrap('På Gatan enligt kartbild ska vara ändamålsplats för lastning eller lossning av tungt eller skrymmande gods torsdag klockan 07.00 - 17.00. Övrig tid får fordon parkeras Under tiden onsdag klockan 08.00 - 16.00 1 november - 15 maj får dock fordon inte parkeras.'));
+  assert.deepEqual(r.bans, [{ w: 3, a: 480, b: 960, m: [[11, 1], [5, 15]] }]);
+});
