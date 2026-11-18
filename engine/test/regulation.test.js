@@ -1115,3 +1115,30 @@ test('"På vardagar … får dock fordon inte parkeras" is the same place\'s hou
   assert.equal(r.permitted, true);
   assert.deepEqual(r.unread, []);
 });
+
+test('"får tvåhjulig motorcykel och moped klass I utan sidvagn, med avvikelse från …, parkeras" is a motorcycle bay (QA 18 Nov round 35: Knivsta Järnvägstorget)', () => {
+  const r = parseRegulation(wrap('1 § På pendlarparkering Järnvägstorget, på markerad plats inom område som framgår av blå markering i kartbilaga, får tvåhjulig motorcykel och moped klass I utan sidvagn, med avvikelse från Knivsta kommuns lokala trafikföreskrifter (0330 2019 : 052) om förbud att parkera på gator i centrala Knivsta, parkeras.Tillåtelsen ger inte rätt att stanna eller parkera där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276). 2 § Parkering är dock tillåten under högst 48 tim i följd. 3 § Avgift behöver ej erläggas.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'motorcykel');
+  assert.deepEqual(r.unread, []);
+  const r2 = parseRegulation(wrap('På Storgatan får moped, motorcykel, personbil klass I och traktor a parkeras under högst 2 tim i följd.'));
+  assert.equal(r2.reserved, false);
+});
+
+test('"får endast foodtrucks / servicefordon parkeras" reserves the curb (QA 18 Nov round 35: Gotland Holmen showed a 3 h limit for all cars)', () => {
+  const r = parseRegulation(wrap('1 § På del av Holmen i Visby får endast foodtrucks parkeras under högst 3 tim i följd.'));
+  assert.equal(r.reserved, true); assert.deepEqual(r.unread, []);
+  const r2 = parseRegulation(wrap('På parkeringsområde vid Kvarngatan, enligt plats som framgår av blå markering i kartbilaga, får endast servicefordon parkeras.'));
+  assert.equal(r2.reserved, true); assert.deepEqual(r2.unread, []);
+});
+
+test('"Tillåtelsen enligt §1 gäller inte peronbil klass 2" is a motorhome rule (QA 18 Nov round 35: Sotenäs Smögen)', () => {
+  const r = parseRegulation(wrap('1 § Med avvikelse från Sotenäs kommuns lokala trafikföreskrifter (1427 2010:00116) om förbud att parkera fordon i området Smögen får fordon parkeras på Klevenvägen inom det område som markerats med rött på kartan i bilagan till dessa föreskrifter. 2 § Mellan klockan 0 och 24 gäller dock tillåtelsen i 1 § mot avgift. 4 § Avgiften i 2 § är 35 kronor per timma. 5 § Tillåtelsen enligt §1 gäller inte peronbil klass 2 mellan 00-06. 6 § Tillåtelsen i 1 § och villkoren i 2-5 §§ gäller mellan 1 juni och 31 augusti.'));
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440, m: [[9, 1], [5, 31]] }]);
+});
+
+test('"Förbudet att parkera i paragraf gäller vardagar mellan klockan 24.00 - 07.00, …": no paragraph number (QA 18 Nov round 35: Uppsala Hällbygatan)', () => {
+  const r = parseRegulation(wrap('1 § På Hällbygatan inom markerat område enligt bifogad kartbild, får fordon inte parkeras. 2 § Förbudet att parkera i paragraf gäller vardagar mellan klockan 24.00 - 07.00, vardag före sön- och helgdag 24.00 - 07.00 och sön- och helgdag 24.00 - 07.00.'));
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 0, b: 420 }, { dt: ['fore'], a: 0, b: 420 }, { dt: ['helgdag'], a: 0, b: 420 }]);
+  assert.deepEqual(r.unread, []);
+});

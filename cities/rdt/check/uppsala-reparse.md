@@ -1,7 +1,7 @@
 # Uppsala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-17. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3627, partly read 68. Verified equal 2255, filled from text 13, text stricter 0, disputed 0, expired 30, text without rules 1358, multi-part texts (not compared) 0.
+Run 2026-11-18. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3631, partly read 64. Verified equal 2255, filled from text 13, text stricter 4, disputed 0, expired 30, text without rules 1358, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -20,6 +20,10 @@ Fully read 3627, partly read 68. Verified equal 2255, filled from text 13, text 
 | 0380 2018-1041 | Kummingatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 0380 2021-60 | Östra Ågatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2021-61 | Östra Ågatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
+| 0380 2021-310 | Hällbygatan | {"f":[{"dt":["fore"],"a":1440,"b":420}]} → {"f":[{"dt":["vardag"],"a":0,"b":420},{"dt":["fore"],"a":0,"b":420},{"dt":["helgdag"],"a":0,"b":420}]} | text stricter: applied |
+| 0380 2021-310 | Hällbygatan | {"f":[{"dt":["fore"],"a":1440,"b":420}]} → {"f":[{"dt":["vardag"],"a":0,"b":420},{"dt":["fore"],"a":0,"b":420},{"dt":["helgdag"],"a":0,"b":420}]} | text stricter: applied |
+| 0380 2022-218 | Swedenborgsgatan | {"f":[{"dt":["vardag"],"a":420,"b":540}]} → {"f":[{"dt":["vardag"],"a":420,"b":540},{"dt":["vardag"],"a":840,"b":1020},{"dt":["vardag"],"a":0,"b":420},{"dt":["vardag"],"a":540,"b":840},{"dt":["vardag"],"a":1020,"b":1440},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
+| 0380 2022-218 | Swedenborgsgatan | {"f":[{"dt":["vardag"],"a":420,"b":540}]} → {"f":[{"dt":["vardag"],"a":420,"b":540},{"dt":["vardag"],"a":840,"b":1020},{"dt":["vardag"],"a":0,"b":420},{"dt":["vardag"],"a":540,"b":840},{"dt":["vardag"],"a":1020,"b":1440},{"dt":["fore","helgdag"],"a":0,"b":1440}]} | text stricter: applied |
 | 0380 2022-424 | Soldathemsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2024-211 | Vanadisgatan | uncertain → permitted (fee) | filled from text |
 | 0380 2026-489 | Birkagatan | expired 2026-10-16 | already uncertain |

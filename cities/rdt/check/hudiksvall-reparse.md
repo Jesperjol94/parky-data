@@ -1,7 +1,7 @@
 # Hudiksvall: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-17. 554 segments: 554 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 523, partly read 28. Verified equal 493, filled from text 1, text stricter 0, disputed 0, expired 3, text without rules 29, multi-part texts (not compared) 0.
+Run 2026-11-18. 554 segments: 554 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 524, partly read 27. Verified equal 494, filled from text 1, text stricter 0, disputed 0, expired 3, text without rules 29, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

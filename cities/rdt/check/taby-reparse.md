@@ -1,7 +1,7 @@
 # Täby: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-17. 660 segments: 660 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 578, partly read 74. Verified equal 399, filled from text 96, text stricter 0, disputed 4, expired 8, text without rules 5, multi-part texts (not compared) 73.
+Run 2026-11-18. 660 segments: 660 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 578, partly read 74. Verified equal 402, filled from text 96, text stricter 0, disputed 1, expired 8, text without rules 5, multi-part texts (not compared) 73.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -102,9 +102,6 @@ Fully read 578, partly read 74. Verified equal 399, filled from text 96, text st
 | 0160 2020-00201 | Råholmsvägen | uncertain → permitted | filled from text |
 | 0160 2020-00222 | Skavlötsvägen | uncertain → {"f":[{"a":0,"b":360}]} | filled from text |
 | 0160 2021-00076 | Riddarstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0160 2022-17 | Östra Banvägen | {"f":[{"a":0,"b":1440}]} → {"f":[{"dt":["vardag"],"a":120,"b":300}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0160 2022-17 | Östra Banvägen | {"f":[{"a":0,"b":1440}]} → {"f":[{"dt":["vardag"],"a":120,"b":300}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0160 2022-17 | Östra Banvägen | {"f":[{"a":0,"b":1440}]} → {"f":[{"dt":["vardag"],"a":120,"b":300}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0160 2024-55 | Kolarestigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0160 2026-45 | Esplanaden | expired 2026-11-14 | already uncertain |
 | 0160 2026-60 | Näsbydalsvägen | expired 2026-10-16 | already uncertain |

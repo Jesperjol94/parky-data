@@ -1,7 +1,7 @@
 # Sala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-17. 278 segments: 278 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 250, partly read 21. Verified equal 200, filled from text 0, text stricter 0, disputed 0, expired 7, text without rules 50, multi-part texts (not compared) 0.
+Run 2026-11-18. 278 segments: 278 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 251, partly read 20. Verified equal 201, filled from text 0, text stricter 0, disputed 0, expired 7, text without rules 50, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

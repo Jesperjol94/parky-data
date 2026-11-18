@@ -1,7 +1,7 @@
 # Bollebygd: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-17. 19 segments: 13 with a text, 0 without a cached text, 6 fetch errors.
-Fully read 10, partly read 3. Verified equal 7, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 3.
+Run 2026-11-18. 19 segments: 13 with a text, 0 without a cached text, 6 fetch errors.
+Fully read 11, partly read 2. Verified equal 8, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
