@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { parseRegulation, applyRegulation, samePlaceExceptions, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences } from '../regulation.js';
+import { parseRegulation, applyRegulation, samePlaceExceptions, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING } from '../regulation.js';
 const wrap = (s) => `Stockholms kommun föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande. ${s} Denna författning träder i kraft den 1 maj 2026.`;
 
 test('time limit in the main sentence + "Övrig tid får fordon parkeras" + winter ban', () => {
@@ -1141,4 +1141,22 @@ test('"Förbudet att parkera i paragraf gäller vardagar mellan klockan 24.00 - 
   const r = parseRegulation(wrap('1 § På Hällbygatan inom markerat område enligt bifogad kartbild, får fordon inte parkeras. 2 § Förbudet att parkera i paragraf gäller vardagar mellan klockan 24.00 - 07.00, vardag före sön- och helgdag 24.00 - 07.00 och sön- och helgdag 24.00 - 07.00.'));
   assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 0, b: 420 }, { dt: ['fore'], a: 0, b: 420 }, { dt: ['helgdag'], a: 0, b: 420 }]);
   assert.deepEqual(r.unread, []);
+});
+
+test('a stopping ban in the active voice "får fordon inte stanna" and "får inte heller stannas" (QA 18 Nov round 36: Storfors Rörverksgatan had no stopping ban)', () => {
+  assert.ok(STOPPING.test('att från och med 2010-07-01 får fordon inte stanna längs Rörverksgatan.'));
+  assert.ok(STOPPING.test('får fordon inte parkeras, får inte heller stannas annat än för på- och avstigning'));
+  assert.ok(!STOPPING.test('Förbudet ger inte rätt att parkera där det är förbjudet enligt trafikförordningen.'));
+});
+
+test('a seasonal stopping ban that departs from an area parking ban keeps the area ban the rest of the year; delivery/authorised-traffic exemptions are not car rules (QA 18 Nov round 36: Halmstad innerstad)', () => {
+  const r = parseRegulation(wrap('På samtliga vägar och torg inom området Halmstads innerstad enligt kartbild får fordon, med avvikelse från Halmstads kommuns lokala trafikföreskrifter 1380 2021:00106 om förbud att parkera inom ett område i Innerstaden i Halmstad, inte stannas eller parkeras. Förbudet ger inte rätt att stanna där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276). Förbudet gäller under tiden 1:a juni - 31:a augusti. Förbudet gäller inte leveransfordon klockan 03.00-11.00 alla dagar. Förbudet gäller inte heller behörig trafik.'));
+  assert.deepEqual(r.unread, []);
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440 }]);
+  const r2 = parseRegulation(wrap('På Storgatan får fordon inte parkeras. Förbudet gäller under tiden 1 juni - 31 augusti. Förbudet gäller inte leveransfordon.'));
+  assert.deepEqual(r2.bans, [{ a: 0, b: 1440, m: [[6, 1], [8, 31]] }]);
+  const r3 = parseRegulation(wrap('1 § På Albäcksgatan får fordon, med avvikelse från Sundsvalls kommuns lokala trafikföreskrifter (2281 2010-00850) om förbud att parkera fordon (datumzon) i Sundsvall, inte parkeras under tiden 1 december - 30 april.'));
+  assert.deepEqual(r3.bans, [{ a: 0, b: 1440, m: [[12, 1], [4, 30]] }]);
+  const r4 = parseRegulation(wrap('1 § På Repslagarevägens norra sida enligt markering på kartbild får fordon, med avvikelse från Sundsvalls kommuns lokala trafikföreskrifter (2281 2024:483) om förbud att parkera inom område Alliero, parkeras. 2 § Parkering är dock förbjuden 1 december - 30 april.'));
+  assert.deepEqual(r4.bans, [{ a: 0, b: 1440, m: [[12, 1], [4, 30]] }]);
 });

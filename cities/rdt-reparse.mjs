@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { parseRegulation, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences } from '../engine/regulation.js';
+import { parseRegulation, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
 const dir = args[0] || 'cities/rdt';
@@ -161,8 +161,8 @@ for (const row of idx.cities) {
       // "avgiften behöver inte erläggas av rörelsehindrad" is a fee exemption, not a reservation for disabled permit holders
       if (s.v === 'rörelsehindrade' && !/(?:endast|enbart)[^.]{0,60}rörelsehindr|reserverad/i.test(body) && /(?:behöver inte|ej|inte) (?:erläggas|betalas)[^.]{0,80}rörelsehindr|rörelsehindr[^.]{0,80}(?:behöver inte|utan avgift|avgiftsfri|inte betala)/i.test(body)) { delete s.v; changed++; st.notReserved = (st.notReserved || 0) + 1; }
       // a stopping ban ("får fordon inte stannas", "förbud att stanna") is stricter than a parking ban: the card says so
-      if (/(?:inte|ej) stannas|förbud att stanna|stanna(?:s)? eller parkera/i.test(body.replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, '')) && s.f && s.f.length && !s.sb) { s.sb = 1; changed++; }
-      if (s.sb && !/(?:inte|ej) stannas|förbud att stanna|stanna(?:s)? eller parkera/i.test(body.replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, ''))) { delete s.sb; changed++; st.sbCleared = (st.sbCleared || 0) + 1; } // a parking ban the register marked as a stopping ban (QA 8 Nov: Kiruna, Linköping, Upplands Väsby, Karlstad)
+      if (STOPPING.test(body.replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, '')) && s.f && s.f.length && !s.sb) { s.sb = 1; changed++; }
+      if (s.sb && !STOPPING.test(body.replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, ''))) { delete s.sb; changed++; st.sbCleared = (st.sbCleared || 0) + 1; } // a parking ban the register marked as a stopping ban (QA 8 Nov: Kiruna, Linköping, Upplands Väsby, Karlstad)
     }
     if (!parsed.has(s.c)) parsed.set(s.c, { r: parseRegulation(rec.body), multi: multiPart(rec.body) || ruleSets.get(s.c) > 1 });
     const { r, multi } = parsed.get(s.c);
