@@ -1160,3 +1160,22 @@ test('a seasonal stopping ban that departs from an area parking ban keeps the ar
   const r4 = parseRegulation(wrap('1 § På Repslagarevägens norra sida enligt markering på kartbild får fordon, med avvikelse från Sundsvalls kommuns lokala trafikföreskrifter (2281 2024:483) om förbud att parkera inom område Alliero, parkeras. 2 § Parkering är dock förbjuden 1 december - 30 april.'));
   assert.deepEqual(r4.bans, [{ a: 0, b: 1440, m: [[12, 1], [4, 30]] }]);
 });
+
+test('"Tillåtelsen i 1 § och villkoren i 2 § gäller …" + "… villkoren i 3 § gäller …": each season goes to the paragraph it names (QA 18 Nov round 37: Sotenäs Hamngatan)', () => {
+  const r = parseRegulation(wrap('1 § På anvisade parkeringsplatser väster om Hamngatan får fordon parkeras. 2 § Trots tillåtelsen i 1 § får dock fordon parkeras högst 24 timmar i följd vardagar utom vardagar före sön- och helgdag. 3 § Mellan klockan 8 och 20 gäller dock tillåtelsen i 1 § högst 3 timmar i följd mot avgift eller högst en timma i följd mot användande av parkeringsskiva eller motsvarande. 4 § Avgiften i 3 § är 35 kronor per timma. 5 § Tillåtelsen i 1 § och villkoren i 2 § gäller mellan 1 september och 31 maj. 6 § Tillåtelsen i 1 § och villkoren i 3 § gäller mellan 1 juni och 31 augusti.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 0, b: 1440, max: 1440, m: [[9, 1], [5, 31]] }, { a: 480, b: 1200, max: 180, m: [[6, 1], [8, 31]] }]);
+  assert.deepEqual(r.feeWindows, [{ a: 480, b: 1200, m: [[6, 1], [8, 31]] }]);
+});
+
+test('"får fordon stannas under högst 24 tim i följd" is a longest stay at all times (QA 18 Nov round 37: Gotland Mellangatan)', () => {
+  const r = parseRegulation(wrap('1 § På Mellangatan i Visby får fordon stannas under högst 24 tim i följd. 2 § Avgift enligt Taxa A under tiden vardagar mellan klockan 09.00 – 18.00 och vardagar före sön- och helgdag mellan klockan 09.00 – 14.00.'));
+  assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 1440 }]); assert.deepEqual(r.unread, []);
+  assert.equal(r.feeWindows.length, 2);
+});
+
+test('"På samtliga gator inom markerat område gäller dock förbud att parkera onsdagar …" is the same area\'s ban, not a second place (QA 18 Nov round 37: Örebro Älvtomta; multiPart in rdt-reparse.mjs)', () => {
+  const r = parseRegulation(wrap('På samtliga gator och vägar inom området Älvtomta enligt kartbild får fordon parkeras under högst 3 tim i följd under tiden vardagar utom vardag före sön- och helgdag klockan 08.00 - 20.00. På samtliga gator inom markerat område gäller dock förbud att parkera onsdagar kl 00.00-06.00.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1200, max: 180 }]);
+  assert.deepEqual(r.bans, [{ w: 3, a: 0, b: 360 }]);
+  assert.deepEqual(r.unread, []);
+});

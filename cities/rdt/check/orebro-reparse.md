@@ -1,12 +1,30 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-18. 2788 segments: 2788 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2707, partly read 25. Verified equal 2681, filled from text 5, text stricter 0, disputed 2, expired 56, text without rules 1, multi-part texts (not compared) 18.
+Fully read 2707, partly read 25. Verified equal 2681, filled from text 23, text stricter 0, disputed 2, expired 56, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1880 2011-00380 | Brickebacken | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1880 2014-00233 | Berghultsvägen | {"f":[{"w":4,"a":0,"b":480},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":4,"a":0,"b":480}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Falkvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Vesslevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Älgvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Lärkvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Sparvvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Falkvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
+| 1880 2017-00234 | Sparvvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
 | 1880 2018-00975 | Lindrothsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
 | 1880 2020-00506 | Gustavsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
