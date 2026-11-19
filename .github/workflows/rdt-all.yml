@@ -126,6 +126,7 @@ jobs:
           node cities/rdt-namefix.mjs cities/rdt --apply
           node cities/rdt-reparse.mjs cities/rdt --apply
           node cities/rdt-overlay.mjs cities/rdt --apply
+          node cities/rdt-temp.mjs cities/rdt --apply
           node cities/rdt-trim.mjs cities/rdt --apply
           node cities/rdt-tiny.mjs cities/rdt --apply
           node cities/rdt-index.mjs cities/rdt
