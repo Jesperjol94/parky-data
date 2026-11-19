@@ -1,7 +1,7 @@
 # Motala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 1442 segments: 1442 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1388, partly read 21. Verified equal 1366, filled from text 17, text stricter 0, disputed 0, expired 33, text without rules 5, multi-part texts (not compared) 0.
+Run 2026-11-19. 1442 segments: 1442 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1389, partly read 20. Verified equal 1366, filled from text 17, text stricter 1, disputed 0, expired 33, text without rules 5, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,6 +10,7 @@ Fully read 1388, partly read 21. Verified equal 1366, filled from text 17, text 
 | 0583 2010-00043 | Platensgatan | expired 2010-09-30 | already uncertain |
 | 0583 2014-00013 | Ostdalsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 0583 2014-00311 | Kommunhuset | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 0583 2016-00204 | Sjögatan | {"l":[{"a":0,"b":1440,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}],"v":"buss"} | text stricter: applied |
 | 0583 2017-00185 | Bergsmansgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0583 2017-00187 | Vätterviksgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0583 2017-00192 | Holmsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

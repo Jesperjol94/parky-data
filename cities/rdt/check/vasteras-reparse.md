@@ -1,7 +1,7 @@
 # Västerås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 1533 segments: 1533 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1517, partly read 6. Verified equal 939, filled from text 19, text stricter 0, disputed 0, expired 10, text without rules 536, multi-part texts (not compared) 0.
+Run 2026-11-19. 1533 segments: 1533 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1518, partly read 5. Verified equal 939, filled from text 20, text stricter 0, disputed 0, expired 10, text without rules 536, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -47,6 +47,7 @@ Fully read 1517, partly read 6. Verified equal 939, filled from text 19, text st
 | 1980 2023-00160 | Biskopsgränd | uncertain → permitted (fee) | filled from text |
 | 1980 2023-00160 | Biskopsgränd | uncertain → permitted (fee) | filled from text |
 | 1980 2023-00160 | Biskopsgränd | uncertain → permitted (fee) | filled from text |
+| 1980 2024-00013 | Biskopsgränd | uncertain → {"v":"buss"} | filled from text |
 | 1980 2024-00110 | Norra Skjutbanegatan | uncertain → permitted (fee) | filled from text |
 | 1980 2025-00285 | Siggesborgsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1980 2026-00308 | Slakterigatan | expired 2026-10-31 | already uncertain |

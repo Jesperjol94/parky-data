@@ -1179,3 +1179,13 @@ test('"På samtliga gator inom markerat område gäller dock förbud att parkera
   assert.deepEqual(r.bans, [{ w: 3, a: 0, b: 360 }]);
   assert.deepEqual(r.unread, []);
 });
+
+test('"får lastbil och släpvagn / buss och lastbil parkeras under högst N" is a truck or bus bay with its own limit (QA 19 Nov round 38: Helsingborg Maskinistgatan showed the 7-day truck limit for all cars)', () => {
+  const r = parseRegulation(wrap('På Maskinistgatans nordvästra sida enligt kartbild får lastbil och släpvagn parkeras under högst 7 dygn i följd.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'lastbil');
+  assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 10080 }]); assert.deepEqual(r.unread, []);
+  const b = parseRegulation(wrap('På markerad sträcka på Prästgatan enligt kartbild får buss och lastbil parkeras under högst 30 min i följd.'));
+  assert.equal(b.reserved, true); assert.equal(b.reservedFor, 'buss');
+  const f = parseRegulation(wrap('På Storgatan får fordon parkeras under högst 2 tim i följd.'));
+  assert.equal(f.reserved, false);
+});

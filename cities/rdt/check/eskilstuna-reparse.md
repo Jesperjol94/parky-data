@@ -1,7 +1,7 @@
 # Eskilstuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1112, partly read 43. Verified equal 976, filled from text 3, text stricter 0, disputed 0, expired 27, text without rules 133, multi-part texts (not compared) 0.
+Run 2026-11-19. 1182 segments: 1182 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1116, partly read 39. Verified equal 976, filled from text 3, text stricter 4, disputed 0, expired 27, text without rules 133, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -23,11 +23,15 @@ Fully read 1112, partly read 43. Verified equal 976, filled from text 3, text st
 | 0484 2015-079 | Brogatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0484 2015-079 | Brogatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0484 2016-240 | Junivägen | expired 2016-10-06 | already uncertain |
+| 0484 2016-299 | Krongatan | {"f":[{"a":0,"b":1440}]} → {"v":"buss"} | text stricter: applied |
+| 0484 2016-300 | Krongatan | {"f":[{"a":0,"b":1440}]} → {"v":"buss"} | text stricter: applied |
 | 0484 2017-99 | Kriebsensgatan | expired 2018-12-07 | already uncertain |
+| 0484 2017-218 | Munktellsgatan | {"f":[{"a":0,"b":1440}]} → {"v":"buss"} | text stricter: applied |
 | 0484 2018-050 | Tegnérgatan | expired 2018-07-06 | already uncertain |
 | 0484 2018-059 | Galléengatan | expired 2019-03-01 | already uncertain |
 | 0484 2018-080 | Rademachergatan | expired 2019-03-31 | already uncertain |
 | 0484 2025-1 | Vattugatan | expired 2025-01-31 | already uncertain |
+| 0484 2025-187 | Traktorgatan | {"f":[{"a":0,"b":1440}]} → {"v":"buss"} | text stricter: applied |
 | 0484 2026-14 | Germundsgatan | expired 2026-10-31 | already uncertain |
 | 0484 2026-47 | Eleonoragatan | expired 2026-10-16 | already uncertain |
 | 0484 2026-165 | Skjulstagatan | expired 2026-10-16 | already uncertain |

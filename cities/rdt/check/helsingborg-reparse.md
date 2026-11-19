@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3584, partly read 80. Verified equal 3116, filled from text 170, text stricter 0, disputed 0, expired 109, text without rules 290, multi-part texts (not compared) 0.
+Run 2026-11-19. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3586, partly read 78. Verified equal 3116, filled from text 170, text stricter 2, disputed 0, expired 109, text without rules 290, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -217,6 +217,8 @@ Fully read 3584, partly read 80. Verified equal 3116, filled from text 170, text
 | 1283 2013-00390 | Kustgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2013-00584 | Carl Krooks gata | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2014-00006 | Stortorget | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1283 2014-00093 | Maskinistgatan | {"l":[{"a":0,"b":1440,"max":10080}]} → {"l":[{"a":0,"b":1440,"max":10080}],"v":"lastbil"} | text stricter: applied |
+| 1283 2014-00093 | Maskinistgatan | {"l":[{"a":0,"b":1440,"max":10080}]} → {"l":[{"a":0,"b":1440,"max":10080}],"v":"lastbil"} | text stricter: applied |
 | 1283 2014-00292 | Högastensgatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1283 2014-00293 | Drottninggatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1283 2014-00294 | Drottninggatan | uncertain → {"v":"motorcykel"} | filled from text |

@@ -1,11 +1,12 @@
 # Kungsbacka: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 1426 segments: 1426 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1398, partly read 21. Verified equal 1220, filled from text 8, text stricter 0, disputed 0, expired 7, text without rules 170, multi-part texts (not compared) 0.
+Run 2026-11-19. 1426 segments: 1426 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1399, partly read 20. Verified equal 1220, filled from text 9, text stricter 0, disputed 0, expired 7, text without rules 170, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1384 2010-01062 | Nydalsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
+| 1384 2011-00159 | Kungsparksvägen | uncertain → {"v":"buss"} | filled from text |
 | 1384 2012-00233 | Göteborgsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1384 2013-00082 | Västra Särövägen | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1384 2015-00007 | Slupvägen | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
