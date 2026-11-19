@@ -207,6 +207,7 @@ export function temp(c, records, today) {
   return st;
 }
 
+const canon = (v) => JSON.stringify(v, (k, x) => (x && typeof x === 'object' && !Array.isArray(x) ? Object.fromEntries(Object.keys(x).sort().map((q) => [q, x[q]])) : x));
 const asScript = process.argv[1] && path.resolve(process.argv[1]) === new URL(import.meta.url).pathname;
 if (asScript) {
   const dir = process.argv[2] || 'cities/rdt', APPLY = process.argv.includes('--apply'), LIST = process.argv.includes('--list');
@@ -222,7 +223,7 @@ if (asScript) {
     if (st.lines) per[row.id] = st.lines;
     for (const e of st.gone) ex.push(`${row.id} ${e}`); for (const e of st.examples) ex.push(`${row.id}${e}`);
     const { built, hash, ...a } = JSON.parse(raw), { built: b2, hash: h2, ...b } = c;
-    if (JSON.stringify(a) === JSON.stringify(b)) continue;
+    if (canon(a) === canon(b)) continue; // key order aside: taking a window off and putting it back must not publish a new file
     files++;
     c.built = new Date().toISOString(); delete c.hash;
     const text = JSON.stringify(c); c.hash = crypto.createHash('sha1').update(text.replace(c.built, '')).digest('hex').slice(0, 16);
