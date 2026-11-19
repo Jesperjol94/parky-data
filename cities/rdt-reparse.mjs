@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { parseRegulation, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING } from '../engine/regulation.js';
+import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
 const dir = args[0] || 'cities/rdt';
@@ -154,6 +154,12 @@ for (const row of idx.cities) {
       const feeBody = dropRepealSentences(body);
       if (s.fu && !s.t && /avgift/i.test(body) && !/avgift/i.test(feeBody)) { delete s.fu; s.t = 0; changed++; st.feeRepealOnly = (st.feeRepealOnly || 0) + 1; }
       if (!s.t && /avgift/i.test(feeBody) && !/utan avgift|avgiftsfri|ingen avgift|avgift(?:en)? (?:ska|skall|behöver) (?:inte|ej)(?! (?:erläggas|betalas) av (?:rörelsehindrad|boende))/i.test(dropFreeFirstHours(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, '')))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; } // "Första två timmarna är avgiftsfria med e-biljett" is a discount, not free parking (QA 13 Nov round 21: Huddinge Sjödalsvägen)
+      // The register drew "vardagar, utom (vardag|dag) före sön- och helgdag" as Saturdays only (it read the day after "utom"): when the
+      // text names that day type only after "utom", the rule is for ordinary weekdays (Mon–Fri). A weekday before "utom" ("tisdagar, utom …")
+      // can't be drawn from the register's day types, so the line goes grey (QA 19 Nov round 40: Sandviken Skogsfruvägen, Timrå, Härnösand)
+      { const rs = [...(s.f || []), ...(s.l || [])], k = !s.rx && !s.u && rs.length && rs.every((w) => !w.w && w.dt && w.dt.length === 1 && w.dt[0] === 'fore') ? utomForeOnly(body) : null;
+        if (k === 'weekday') { s.u = 1; s.ux = 1; changed++; st.utomGrey = (st.utomGrey || 0) + 1; }
+        else if (k === 'vardag') { for (const w of rs) w.dt = ['vardag']; changed++; st.utomFore = (st.utomFore || 0) + 1; } }
       // parking disc
       if (/parkeringsskiva|p-skiva/i.test(body) && !s.ps) { s.ps = 1; changed++; }
       // "personbil" is a vehicle class, not a reservation
@@ -164,7 +170,7 @@ for (const row of idx.cities) {
       if (STOPPING.test(body.replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, '')) && s.f && s.f.length && !s.sb) { s.sb = 1; changed++; }
       if (s.sb && !STOPPING.test(body.replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, ''))) { delete s.sb; changed++; st.sbCleared = (st.sbCleared || 0) + 1; } // a parking ban the register marked as a stopping ban (QA 8 Nov: Kiruna, Linköping, Upplands Väsby, Karlstad)
     }
-    if (!parsed.has(s.c)) parsed.set(s.c, { r: parseRegulation(rec.body), multi: multiPart(rec.body) || ruleSets.get(s.c) > 1 });
+    if (!parsed.has(s.c)) parsed.set(s.c, { r: ((r) => { r.feeWindows = weekdaysAsDayTypes(r.feeWindows); return r; })(parseRegulation(rec.body)), multi: multiPart(rec.body) || ruleSets.get(s.c) > 1 });
     const { r, multi } = parsed.get(s.c);
     const full = r.unread.length === 0 && ruleText(rec.body);
     // the text has a time limit whose length it never states ("Tidsbegränsningen gäller vardag … 08.00 - 16.00"): only the sign knows,

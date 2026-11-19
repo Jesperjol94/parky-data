@@ -249,6 +249,7 @@ function sentences(t) {
   t = t.replace(/([^.;\s])\s+(\d{1,2}\s*§\s+)(?=[A-ZÅÄÖ][a-zåäö])/g, '$1. $2');
   t = t.replace(/([^.;\s])\s+(?=(?:Parkering (?:är|får)|Förbudet (?:gäller|ger)|Tillåtelsen (?:att parkera )?(?:gäller|ger)|Tidsbegränsningen gäller|Avgiftsplikten gäller|Avgift ska betalas)\b)/g, '$1. '); // a rule sentence with no full stop before it ("… KF § 119/18 Parkering är dock förbjuden …", Skövde) // "… (1998:1276) 2 § Mellan klockan …": a new paragraph without a full stop before it (Kungsbacka)
   t = t.replace(/\bFörbuden i [\d\s§,och-]+§§? gäller\b/g, 'Förbudet gäller');
+  t = t.replace(/\bTillståndet gäller (?=(?:under (?:tiden|perioden) )?(?:den )?\d{1,2}\s*(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\s*[-–—])/g, 'Tillåtelsen gäller '); // "får fordon parkeras under högst 15 min … Tillståndet gäller under tiden 1 september - 31 maj": the permission's season, as "Tillåtelsen gäller" (QA 19 Nov round 40: Halmstad Skolgatan showed summer as free inside the area ban)
   t = t.replace(/\b(Förbudet|Tidsbegränsningen|Tillåtelsen) i (?:paragraf )?\d+ ?§ gäller (?=(?:under tiden )?(?:vardag|dag(?:ar)? före|sön- och helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|mellan klockan|klockan|kl\.? ?\d))/g, '$1 gäller '); // "Tidsbegränsningen i 1 § gäller vardag utom … mellan klockan 08.00- 17.00": the hours of the rule in 1 § (QA 13 Nov round 20: Gävle Ulvsätersvägen) // "Förbuden i 2 § och 3 § gäller onsdagar …" (Norrtälje): the hours of the bans above
   t = t.replace(/(^|[.;]\s+)\d{1,2}\s*§\s+(?=[A-ZÅÄÖ])/g, '$1');
   t = t.replace(/(^|[.;]\s+)\d{1,2}\s*§\s+(?=\d{1,2}\s+(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b)/g, '$1Under tiden '); // "… gäller 31 juli - 1 maj. 4 § 1 maj - 31 juli gäller dock …": a paragraph opening with a date is a sentence of its own (QA 28 Oct: Sotenäs merged both seasons into none) // paragraph numbers "2 § Tidsbegränsningen …" (not "13 kap. 8 § trafikförordningen")
@@ -737,6 +738,31 @@ const DIM = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 const nextDay = ([m, d]) => (d >= DIM[m - 1] ? [m % 12 + 1, 1] : [m, d + 1]);
 const prevDay = ([m, d]) => (d <= 1 ? [m === 1 ? 12 : m - 1, DIM[(m + 10) % 12]] : [m, d - 1]);
 // The hours outside a reserved spot's reserved hours, as car-allowed windows { dt, a, b } (null when the hours can't be read safely).
+// Fee windows per weekday ("Avgiftsplikten gäller måndag - lördag klockan 22.00 - 06.00 samt söndag …") as day types, so the fee table can hold
+// them: Monday–Friday with the same hours → vardag, Saturday → fore, Sunday → helgdag. Anything else stays as it was (QA 19 Nov round 40: Haninge Vega allé
+// charged only Saturday nights and Sundays)
+export function weekdaysAsDayTypes(ws) {
+  if (!ws || !ws.some((w) => w.w)) return ws;
+  const key = (w) => JSON.stringify([w.a, w.b, w.m || null]);
+  const byW = new Map(); for (const w of ws) if (w.w) { if (w.dt || w.p || w.dm || w.nw || w.dd || w.wk || byW.has(w.w)) return ws; byW.set(w.w, w); }
+  const wk = [1, 2, 3, 4, 5].map((d) => byW.get(d));
+  if (wk.some((w) => !w) || new Set(wk.map(key)).size !== 1) return ws;
+  const out = ws.filter((w) => !w.w);
+  const { w: _w1, ...base } = wk[0]; out.push({ ...base, dt: ['vardag'] });
+  for (const [d, dt] of [[6, 'fore'], [7, 'helgdag']]) if (byW.has(d)) { const { w: _w, ...x } = byW.get(d); out.push({ ...x, dt: [dt] }); }
+  return out;
+}
+// The register drew "vardagar, utom (vardag|dag) före sön- och helgdag" as Saturdays only (it read the day after "utom"). When the text names
+// that day type only after "utom", a register rule on 'fore' alone is a rule for ordinary weekdays: 'vardag'. A weekday before "utom"
+// ("tisdagar, utom vardag före …") can't be drawn from day types: 'weekday' (the line goes grey). null: the text names Saturdays itself.
+// (QA 19 Nov round 40: Sandviken Skogsfruvägen, Timrå, Härnösand, Simrishamn)
+const UTOM_FORE = /utom,? (?:vardag(?:ar)? |dag(?:ar)? )?före sön- och helgdag/gi;
+export function utomForeOnly(body) {
+  const b = body.replace(/\s+/g, ' ');
+  if (!new RegExp(UTOM_FORE.source, 'i').test(b) || /(?:vardag|dag)(?:ar)? före sön/i.test(b.replace(UTOM_FORE, ' '))) return null;
+  return /\b(?:måndag|tisdag|onsdag|torsdag|fredag)(?:ar(?:na)?|en)?,? utom,? (?:vardag(?:ar)? |dag(?:ar)? )?före sön/i.test(b) ? 'weekday' : 'vardag';
+}
+
 export function outsideHours(ws) {
   if (!ws.length || ws.some((w) => w.w || w.m || w.p || w.a == null || w.b == null)) return null;
   const gaps = new Map();
