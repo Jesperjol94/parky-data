@@ -250,7 +250,10 @@ for (const row of idx.cities) {
     // text answers it (QA 27 Oct: Uppsala Valhallagatan, Sundbyberg Bergsgatan "får fordon parkeras och mot avgift" were grey)
     if (!hasRules(t) && r.permitted && !r.heavyOnly && s.u && !s.ux && !s.ex && !s.v && !s.f && !s.l && !s.aw && plainPermit(rec.body)) { st.permitFilled = (st.permitFilled || 0) + 1; lines.push(`| ${s.c} | ${s.n} | uncertain → permitted${s.fu || s.t ? ' (fee)' : ''} | filled from text |`); if (APPLY) { delete s.u; s.rx = 1; if (!('t' in s) || s.t === null) { if (!/avgift/i.test(rec.body)) s.t = 0; } changed++; } continue; }
     if (!hasRules(t)) { st.textNoRule++; if (s.u) st.uStill++; continue; } // e.g. a pure fee regulation: nothing to compare
-    const cur = { f: s.f, l: s.l, aw: s.aw, v: s.v, k: s.k };
+    // the line's own bans only: windows laid on it by an area-wide ban (ov: 1, rdt-overlay) or by roadworks (ov: 2, rdt-temp)
+    // are not the register's reading of this text, and made every such line "text more permissive" on every run
+    const ownF = (s.f || []).filter((w) => !w.ov);
+    const cur = { f: s.f && ownF.length ? ownF : s.f && !ownF.length ? undefined : s.f, l: s.l, aw: s.aw, v: s.v, k: s.k };
     // day-type convention check: when both sides have exactly one window of the same kind, tally (Pelle dt → text dt)
     for (const k of ['f', 'l']) if ((cur[k] || []).length === 1 && (t[k] || []).length === 1 && !cur[k][0].w && !t[k][0].w) {
       const key = `${k} ${JSON.stringify(cur[k][0].dt || 'all')} → ${JSON.stringify(t[k][0].dt || 'all')}`; dtTally.set(key, (dtTally.get(key) || 0) + 1);
