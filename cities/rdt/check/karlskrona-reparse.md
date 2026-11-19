@@ -1,7 +1,7 @@
 # Karlskrona: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-19. 2028 segments: 2028 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1990, partly read 36. Verified equal 1922, filled from text 19, text stricter 0, disputed 0, expired 2, text without rules 37, multi-part texts (not compared) 4.
+Fully read 1990, partly read 36. Verified equal 1918, filled from text 19, text stricter 0, disputed 4, expired 2, text without rules 37, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -14,6 +14,10 @@ Fully read 1990, partly read 36. Verified equal 1922, filled from text 19, text 
 | 1080 2017-32 | Ölandsgatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1080 2017-33 | Fortifikationsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1080 2017-149 | Arklimästaregatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
+| 1080 2017-247 | Södra Kungsgatan | {"l":[{"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":240},{"dt":["fore"],"a":600,"b":840,"max":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1080 2017-247 | Södra Kungsgatan | {"l":[{"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":240},{"dt":["fore"],"a":600,"b":840,"max":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1080 2017-285 | Stortorget | {"l":[{"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":240},{"dt":["fore"],"a":600,"b":840,"max":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1080 2017-285 | Stortorget | {"l":[{"a":0,"b":1440,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":960,"max":240},{"dt":["fore"],"a":600,"b":840,"max":240}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1080 2017-290 | Bredgatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1080 2017-447 | Karlskrona | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1080 2018-25 | Skogsstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

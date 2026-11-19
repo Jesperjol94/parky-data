@@ -1,7 +1,7 @@
 # Uppsala: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3631, partly read 64. Verified equal 2259, filled from text 13, text stricter 0, disputed 0, expired 30, text without rules 1358, multi-part texts (not compared) 0.
+Run 2026-11-19. 3725 segments: 3725 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3636, partly read 59. Verified equal 2259, filled from text 13, text stricter 5, disputed 0, expired 30, text without rules 1358, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,6 +10,7 @@ Fully read 3631, partly read 64. Verified equal 2259, filled from text 13, text 
 | 0380 2009-00392 | Almqvistgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2010-00329 | Kungsängsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0380 2010-00475 | Börjegatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"aw":[{"dt":["vardag"],"a":0,"b":1440}],"v":"rörelsehindrade"} | filled from text |
+| 0380 2010-00739 | Biskopsgatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"v":"buss"} | text stricter: applied |
 | 0380 2011-00365 | Vindhemsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0380 2011-01015 | Orkestervägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0380 2011-01050 | Täljstensvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -22,6 +23,10 @@ Fully read 3631, partly read 64. Verified equal 2259, filled from text 13, text 
 | 0380 2021-61 | Östra Ågatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2022-424 | Soldathemsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0380 2024-211 | Vanadisgatan | uncertain → permitted (fee) | filled from text |
+| 0380 2026-47 | Tycho Hedéns väg | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"v":"lastbil"} | text stricter: applied |
+| 0380 2026-47 | Tycho Hedéns väg | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"v":"lastbil"} | text stricter: applied |
+| 0380 2026-47 | Tycho Hedéns väg | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"v":"lastbil"} | text stricter: applied |
+| 0380 2026-47 | Tycho Hedéns väg | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"v":"lastbil"} | text stricter: applied |
 | 0380 2026-489 | Birkagatan | expired 2026-10-16 | already uncertain |
 | 0380 2026-518 | Petterslundsgatan | expired 2026-10-30 | already uncertain |
 | 0380 2026-518 | Petterslundsgatan | expired 2026-10-30 | already uncertain |

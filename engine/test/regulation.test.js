@@ -1189,3 +1189,21 @@ test('"får lastbil och släpvagn / buss och lastbil parkeras under högst N" is
   const f = parseRegulation(wrap('På Storgatan får fordon parkeras under högst 2 tim i följd.'));
   assert.equal(f.reserved, false);
 });
+
+test('round 39: "2 § § Tidsbegränsningen och avgiftsplikten gäller …" — a doubled paragraph sign still gives the limit and fee hours', () => {
+  const r = parseRegulation(wrap('1 § På Stortorget får fordon parkeras under högst 4 tim i följd och mot avgift. 2 § § Tidsbegränsningen och avgiftsplikten gäller under vardag utom vardag före sön- och helgdag mellan klockan 09.00 - 16.00 och vardag före sön- och helgdag mellan klockan 10.00 - 14.00. 3 § Övrig tid får fordon parkeras.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 960, max: 240 }, { dt: ['fore'], a: 600, b: 840, max: 240 }]);
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 960 }, { dt: ['fore'], a: 600, b: 840 }]);
+  assert.deepEqual(r.unread, []);
+});
+
+test('round 39: "Förbudet gäller måndag mellan klockan 08.12 under tiden …" — unread hours are not a whole-season ban', () => {
+  const r = parseRegulation(wrap('På Islinge Hamnväg får fordon inte parkeras. Förbudet gäller måndag mellan klockan 08.12 under tiden 1 december - 30 april.'));
+  assert.equal(r.unread.length, 1);
+  assert.ok(!r.bans.some((b) => b.m && !b.w));
+});
+
+test('round 39: "får tung lastbil och släpkärra parkeras under högst 24 tim … Övrig tid får tung lastbil och släpkärra parkeras" is a truck bay', () => {
+  const r = parseRegulation(wrap('1 § På Tycho Hedéns väg får tung lastbil och släpkärra parkeras under högst 24 tim i följd under vardagar utom vardag före sön- och helgdag. 2 § Övrig tid får tung lastbil och släpkärra parkeras.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'lastbil'); assert.deepEqual(r.unread, []);
+});
