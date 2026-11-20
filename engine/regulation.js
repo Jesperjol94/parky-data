@@ -144,6 +144,10 @@ export function windows(clause) {
   // time before day type ("Mellan klockan 8 och 22 vardagar utom vardag före … och mellan klockan 8 och 22 vardag före …", Kungsbacka):
   // move each day-type phrase in front of its hours
   // also right after a limit ("högst 4 timmar i följd mellan klockan 9-16, vardagar utom vardag före …", "… mellan klockan 8 och 18 vardagar utom … och mellan klockan 8 och 15 vardag före …"; QA 14 Nov round 25: Hudiksvall, Vellinge)
+  // one time range with its day type after it, closing the sentence: "ändamålsplats för lastning … mellan klockan 09-18 under vardagar utom
+  // vardag före sön- och helgdag." Move the day type in front of the hours (QA 20 Nov round 3: Gävle Norra Köpmangatan loading bay every day)
+  { const tm = clause.match(new RegExp(String.raw`^([^]*?)((?:mellan\s+)?(?:klockan|kl\.?)\s*\d{1,2}(?:[.:]\d{2})?\s*[-–—]\s*\d{1,2}(?:[.:]\d{2})?)\s+(?:under\s+|på\s+)?((?:vardag(?:ar)?(?: utom (?:vardag(?:ar)? |dag(?:ar)? )?före sön- och helgdag(?:ar)?)?|(?:vardag(?:ar)?|dag(?:ar)?) före sön- och helgdag(?:ar)?|sön- och helgdag(?:ar)?))\s*\.?\s*$`, 'i'));
+    if (tm && !DAY_WORD_RE.test(tm[1]) && !/\b(?:klockan|kl\.?)\s*\d/i.test(tm[1])) clause = `${tm[1]}${tm[3]} ${tm[2]}`; }
   const hoursFirst = /i följd,?\s+(?:under tiden\s+)?(?:mellan\s+)?(?:klockan|kl\.?)\s*\d/i.test(clause);
   if (hoursFirst || /^\s*(?:\d+\s*§\s*)?(?:(?:Föreskriften|Villkoret|Tidsbegränsningen|Förbudet|Tillåtelsen) gäller (?:under tiden )?(?:mellan )?)?(?:klockan|kl\.?)\s*\d/i.test(clause)) clause = clause.replace(new RegExp(String.raw`(?:klockan|kl\.?)\s*(${TIME})${hoursFirst ? ',?' : ''}\s+((?:vardag|dag(?:ar)? före|sön- och helgdag|lördag|söndag)[^,;]*?)(?=\s+och\s+(?:klockan|kl)|\s+gäller|\s*[.,;]|$)`, 'gi'), (z, tm, a1, a2, a3, a4, days) => `${days} klockan ${tm}`);
   const out = [];

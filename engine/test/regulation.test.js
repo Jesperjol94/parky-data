@@ -1256,3 +1256,10 @@ test('QA 20 Nov round 2: "vardagar mellan klockan 8-19 och dag före sön- och h
   const r = parseRegulation(wrap('På Järnvägsgatan får fordon parkeras under högst 1 timme i följd vardagar mellan klockan 8-19 och dag före sön- och helgdag 8-15.'));
   assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1140, max: 60 }, { dt: ['fore'], a: 480, b: 900, max: 60 }]);
 });
+
+test('QA 20 Nov round 3: one time range with its day type after it closes the sentence ("ändamålsplats … mellan klockan 09-18 under vardagar utom vardag före …", Gävle Norra Köpmangatan)', () => {
+  let r = parseRegulation(wrap('1 § På Norra Köpmangatans västra sida enligt markering på kartbild ska det vara ändamålsplats för lastning eller lossning av tungt eller skrymmande gods mellan klockan 09-18 under vardagar utom vardag före sön- och helgdag. 2 § Övrig tid får fordon parkeras.'));
+  assert.deepEqual(r.purpose, [{ dt: ['vardag'], a: 540, b: 1080 }]);
+  r = parseRegulation(wrap('På Ågatan får fordon inte parkeras mellan klockan 09-18 under vardagar utom vardag före sön- och helgdag.'));
+  assert.deepEqual(r.bans, [{ dt: ['vardag'], a: 540, b: 1080 }]);
+});
