@@ -121,6 +121,7 @@ jobs:
           node cities/rdt-repealed.mjs cities/rdt --apply
           node cities/rdt-split.mjs cities/rdt --apply
           node cities/rdt-zones.mjs cities/rdt --apply
+          node cities/rdt-strips.mjs cities/rdt --apply
           node cities/rdt-datum.mjs cities/rdt --apply
           node cities/rdt-names.mjs cities/rdt --apply
           node cities/rdt-namefix.mjs cities/rdt --apply
