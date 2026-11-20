@@ -1,0 +1,1 @@
+# Read in the weekly check of the three big cities (Stockholm: citations; Göteborg and Malmö: "<city> <i> <street>"). One per line.
