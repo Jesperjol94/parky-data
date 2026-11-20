@@ -1,88 +1,15 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 2788 segments: 2788 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2707, partly read 25. Verified equal 2681, filled from text 23, text stricter 0, disputed 2, expired 56, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-11-20. 2594 segments: 2594 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2571, partly read 23. Verified equal 2542, filled from text 8, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 20.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1880 2011-00380 | Brickebacken | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1880 2014-00233 | Berghultsvägen | {"f":[{"w":4,"a":0,"b":480},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":4,"a":0,"b":480}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Falkvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Vesslevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Älgvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Lärkvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Oxhagevägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Sparvvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Falkvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Stenfalksgatan | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
-| 1880 2017-00234 | Sparvvägen | uncertain → {"f":[{"w":3,"a":0,"b":360}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180}]} | filled from text |
 | 1880 2018-00975 | Lindrothsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1880 2019-00614 | Hästhagsvägen | expired 2019-11-02 | already uncertain |
 | 1880 2020-00506 | Gustavsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1880 2021-01026 | Överstegatan | {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":540,"b":780,"m":[[5,1],[10,31]],"p":"even"},{"w":3,"a":0,"b":360,"m":[[11,1],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
+| 1880 2025-00217 | Engelbrektsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"odd"}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":1200,"max":180},{"dt":["helgdag"],"a":480,"b":840,"max":180}]} | filled from text |
+| 1880 2025-00218 | Engelbrektsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1880 2025-00256 | Slottsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"even"}],"l":[{"dt":["vardag"],"a":360,"b":1320,"max":180},{"dt":["fore"],"a":360,"b":1320,"max":180},{"dt":["helgdag"],"a":360,"b":1320,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1880 2025-00675 | Honolulugatan | uncertain → {"f":[{"w":4,"a":0,"b":540}]} | filled from text |
-| 1880 2026-00954 | Höglundagatan | expired 2026-10-26 | already uncertain |
-| 1880 2026-01071 | Nygatan | expired 2026-11-02 | already uncertain |
-| 1880 2026-01073 | Slussgatan | expired 2026-11-01 | already uncertain |
-| 1880 2026-01079 | Nygatan | expired 2026-10-19 | already uncertain |
-| 1880 2026-01125 | Olaigatan | expired 2026-10-31 | already uncertain |
-| 1880 2026-01126 | Olaigatan | expired 2026-10-31 | already uncertain |
-| 1880 2026-01221 | Kristinagatan | expired 2026-10-16 | already uncertain |
-| 1880 2026-01221 | Kristinagatan | expired 2026-10-16 | already uncertain |
-| 1880 2026-01224 | Sancta Birgittagatan | expired 2026-10-16 | already uncertain |
-| 1880 2026-01277 | Vasagatan | expired 2026-10-21 | already uncertain |
-| 1880 2026-01288 | Manillagatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01290 | Lövstagatan | expired 2026-10-24 | already uncertain |
-| 1880 2026-01290 | Lövstagatan | expired 2026-10-24 | already uncertain |
-| 1880 2026-01295 | Malmgatan | expired 2026-11-07 | already uncertain |
-| 1880 2026-01299 | Malmgatan | expired 2026-11-12 | already uncertain |
-| 1880 2026-01300 | Tunnelgatan | expired 2026-10-31 | already uncertain |
-| 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | already uncertain |
-| 1880 2026-01311 | Kristinagatan | expired 2026-11-02 | already uncertain |
-| 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | already uncertain |
-| 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | already uncertain |
-| 1880 2026-01312 | Oskarsvägen | expired 2026-11-02 | already uncertain |
-| 1880 2026-01313 | Skolgatan | expired 2026-11-04 | already uncertain |
-| 1880 2026-01314 | Kristinagatan | expired 2026-11-02 | already uncertain |
-| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
-| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
-| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
-| 1880 2026-01315 | Oskarsvägen | expired 2026-11-02 | already uncertain |
-| 1880 2026-01320 | Rådmansgatan | expired 2026-11-07 | already uncertain |
-| 1880 2026-01326 | Höglundagatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01328 | Väståstrand/Åbackegatan | expired 2026-11-14 | already uncertain |
-| 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01338 | Markgatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01339 | Norrgatan | expired 2026-10-24 | already uncertain |
-| 1880 2026-01348 | Poesigatan | expired 2026-11-18 | already uncertain |
-| 1880 2026-01351 | Rådmansgatan | expired 2026-11-09 | already uncertain |
-| 1880 2026-01352 | Trängkårsvägen | expired 2026-11-16 | already uncertain |
-| 1880 2026-01352 | Trängkårsvägen | expired 2026-11-16 | already uncertain |
-| 1880 2026-01352 | Trängkårsvägen | expired 2026-11-16 | already uncertain |
-| 1880 2026-01355 | Malmgatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01356 | Norrgatan | expired 2026-10-17 | already uncertain |
-| 1880 2026-01359 | Kasten Ottergatan | expired 2026-10-21 | already uncertain |
-| 1880 2026-01361 | Landbotorpsallén | expired 2026-10-16 | already uncertain |
-| 1880 2026-01361 | Landbotorpsallén | expired 2026-10-16 | already uncertain |
-| 1880 2026-01363 | Älvtomtagatan | expired 2026-11-14 | already uncertain |
-| 1880 2026-01363 | Hagastrand | expired 2026-11-14 | already uncertain |
-| 1880 2026-01364 | Södra Lillåstrand | expired 2026-10-21 | already uncertain |
-| 1880 2026-01365 | Storgatan | expired 2026-10-21 | already uncertain |
-| 1880 2026-01366 | Markgatan | expired 2026-10-22 | already uncertain |
-| 1880 2026-01367 | Ribbingsgatan | expired 2026-10-21 | already uncertain |
-| 1880 2026-01367 | Ribbingsgatan | expired 2026-10-21 | already uncertain |
-| 1880 2026-01373 | Drottninggatan | expired 2026-10-21 | already uncertain |
-| 1880 2026-01374 | Änggatan | expired 2026-10-23 | already uncertain |
+| 1880 2026-00769 | Rostagatan | uncertain → {"f":[{"w":2,"a":0,"b":540}]} | filled from text |

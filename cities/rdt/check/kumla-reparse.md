@@ -1,7 +1,7 @@
 # Kumla: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 247 segments: 247 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 241, partly read 5. Verified equal 221, filled from text 11, text stricter 0, disputed 0, expired 1, text without rules 9, multi-part texts (not compared) 0.
+Run 2026-11-20. 237 segments: 237 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 232, partly read 5. Verified equal 213, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 8, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -16,4 +16,3 @@ Fully read 241, partly read 5. Verified equal 221, filled from text 11, text str
 | 1881 2015-00037 | Flinkagatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
 | 1881 2015-00057 | Parkgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1881 2016-00018 | Parkgatan | uncertain → {"l":[{"a":480,"b":1200,"max":360}]} | filled from text |
-| 1881 2026-00003 | Badhusgatan | expired 2026-10-31 | already uncertain |

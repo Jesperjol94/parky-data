@@ -1,7 +1,7 @@
 # Ale: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 335 segments: 335 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 329, partly read 6. Verified equal 322, filled from text 3, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-11-20. 324 segments: 324 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 318, partly read 6. Verified equal 311, filled from text 3, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

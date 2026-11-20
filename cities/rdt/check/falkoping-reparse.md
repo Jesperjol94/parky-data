@@ -1,7 +1,7 @@
 # Falköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 329 segments: 329 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 325, partly read 3. Verified equal 300, filled from text 23, text stricter 0, disputed 0, expired 1, text without rules 2, multi-part texts (not compared) 0.
+Run 2026-11-20. 322 segments: 322 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 319, partly read 3. Verified equal 294, filled from text 23, text stricter 0, disputed 0, expired 0, text without rules 2, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -28,4 +28,3 @@ Fully read 325, partly read 3. Verified equal 300, filled from text 23, text str
 | 1499 2019-00220 | Scheelegatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1499 2019-00228 | Ångloksgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1499 2019-00248 | Per Larsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 1499 2026-271 | Hemmingsgatan | expired 2026-10-16 | already uncertain |

@@ -1,7 +1,7 @@
 # Sigtuna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-19. 1007 segments: 1007 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 994, partly read 13. Verified equal 942, filled from text 30, text stricter 1, disputed 1, expired 0, text without rules 3, multi-part texts (not compared) 16.
+Run 2026-11-20. 942 segments: 942 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 930, partly read 12. Verified equal 884, filled from text 30, text stricter 0, disputed 0, expired 0, text without rules 2, multi-part texts (not compared) 13.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -18,11 +18,9 @@ Fully read 994, partly read 13. Verified equal 942, filled from text 30, text st
 | 0191 2019-00096 | Dalgatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0191 2020-00002 | Atletvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0191 2020-00002 | Valstavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0191 2020-00111 | Lupinvägen | {"f":[{"dt":["vardag"],"a":0,"b":360},{"dt":["fore"],"a":0,"b":360},{"dt":["helgdag"],"a":0,"b":360},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":0,"b":360},{"dt":["fore"],"a":0,"b":360},{"dt":["helgdag"],"a":0,"b":360}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0191 2021-00026 | Tornvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0191 2021-00080 | Uppsalavägen | uncertain → {"l":[{"a":0,"b":1440,"max":720}],"v":"rörelsehindrade"} | filled from text |
 | 0191 2021-00086 | Sigtuna busstorg | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1260,"max":360},{"dt":["fore"],"a":540,"b":1260,"max":360},{"dt":["helgdag"],"a":540,"b":1260,"max":360}],"v":"rörelsehindrade"} | filled from text |
-| 0191 2021-00089 | Prästgatan | {"l":[{"a":0,"b":1440,"max":30}]} → {"l":[{"a":0,"b":1440,"max":30}],"v":"buss"} | text stricter: applied |
 | 0191 2021-00108 | Hajkvägen | uncertain → {"l":[{"a":0,"b":1440,"max":720}]} | filled from text |
 | 0191 2021-00161 | Fältvägen | uncertain → {"f":[{"dt":["vardag"],"a":150,"b":240},{"dt":["fore"],"a":180,"b":240},{"dt":["helgdag"],"a":180,"b":240}],"v":"motorcykel"} | filled from text |
 | 0191 2021-00214 | Nordanleden och väg U 11 | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

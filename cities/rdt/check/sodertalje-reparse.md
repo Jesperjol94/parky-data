@@ -1,7 +1,7 @@
 # Södertälje: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 2169 segments: 2169 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2166, partly read 3. Verified equal 1903, filled from text 93, text stricter 0, disputed 0, expired 0, text without rules 124, multi-part texts (not compared) 36.
+Run 2026-11-20. 1751 segments: 1751 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1748, partly read 3. Verified equal 1553, filled from text 93, text stricter 0, disputed 0, expired 0, text without rules 73, multi-part texts (not compared) 19.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

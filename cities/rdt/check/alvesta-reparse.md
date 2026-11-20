@@ -1,7 +1,7 @@
 # Alvesta: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 205 segments: 205 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 172, partly read 33. Verified equal 166, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 0.
+Run 2026-11-20. 184 segments: 184 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 151, partly read 33. Verified equal 145, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

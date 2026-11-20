@@ -1,7 +1,7 @@
 # Skövde: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 1605 segments: 1605 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1564, partly read 35. Verified equal 1548, filled from text 15, text stricter 0, disputed 0, expired 6, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-11-20. 1523 segments: 1523 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1494, partly read 28. Verified equal 1430, filled from text 15, text stricter 0, disputed 0, expired 1, text without rules 1, multi-part texts (not compared) 48.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -20,9 +20,4 @@ Fully read 1564, partly read 35. Verified equal 1548, filled from text 15, text 
 | 1496 2023-00056 | Åkerholmsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1496 2023-00116 | Sörgårdsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1496 2026-00282 | Stationsgatan | uncertain → {"v":"motorcykel"} | filled from text |
-| 1496 2026-00307 | Tränggatan | expired 2026-10-30 | already uncertain |
-| 1496 2026-00316 | Kaplansgatan | expired 2026-10-30 | already uncertain |
-| 1496 2026-00321 | Alströmersgatan | expired 2026-10-18 | already uncertain |
-| 1496 2026-00326 | Lennart Torstensons gata | expired 2026-10-23 | already uncertain |
-| 1496 2026-00332 | Eriksdalsgatan | expired 2026-10-16 | already uncertain |
-| 1496 2026-00340 | Torggatan | expired 2026-10-30 | already uncertain |
+| 1496 2026-00308 | Alströmersgatan | expired 2026-11-20 | now uncertain |

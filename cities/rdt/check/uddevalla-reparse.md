@@ -1,13 +1,7 @@
 # Uddevalla: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 604 segments: 604 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 592, partly read 6. Verified equal 526, filled from text 0, text stricter 0, disputed 0, expired 6, text without rules 66, multi-part texts (not compared) 0.
+Run 2026-11-20. 479 segments: 479 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 473, partly read 6. Verified equal 420, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 53, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1485 2026-52 | Muraregatan | expired 2026-11-01 | already uncertain |
-| 1485 2026-52 | Muraregatan | expired 2026-11-01 | already uncertain |
-| 1485 2026-52 | Muraregatan | expired 2026-11-01 | already uncertain |
-| 1485 2026-78 | Södergatan | expired 2026-10-30 | already uncertain |
-| 1485 2026-78 | Södergatan | expired 2026-10-30 | already uncertain |
-| 1485 2026-82 | Snickaregatan | expired 2026-10-31 | already uncertain |

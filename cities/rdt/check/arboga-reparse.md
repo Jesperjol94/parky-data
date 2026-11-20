@@ -1,7 +1,7 @@
 # Arboga: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 189 segments: 189 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 182, partly read 1. Verified equal 158, filled from text 12, text stricter 0, disputed 0, expired 6, text without rules 8, multi-part texts (not compared) 0.
+Run 2026-11-20. 176 segments: 176 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 175, partly read 1. Verified equal 152, filled from text 12, text stricter 0, disputed 0, expired 0, text without rules 7, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -17,9 +17,3 @@ Fully read 182, partly read 1. Verified equal 158, filled from text 12, text str
 | 1984 2016-00116 | Varvsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1984 2016-00119 | Garvaregränd | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1984 2018-00047 | Engelbrektsleden | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
-| 1984 2026-00009 | parkering norr om Österled med infart från Garvaregränd | expired 2026-10-31 | already uncertain |
-| 1984 2026-00062 | Lindbacksvägen | expired 2026-10-31 | already uncertain |
-| 1984 2026-00063 | Lindbacksvägen | expired 2026-10-31 | already uncertain |
-| 1984 2026-00064 | Lindbacksvägen | expired 2026-10-31 | already uncertain |
-| 1984 2026-00064 | Lindbacksvägen | expired 2026-10-31 | already uncertain |
-| 1984 2026-00072 | Kapellgatan | expired 2026-10-24 | already uncertain |

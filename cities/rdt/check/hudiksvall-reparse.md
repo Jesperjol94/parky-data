@@ -1,11 +1,8 @@
 # Hudiksvall: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 554 segments: 554 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 524, partly read 27. Verified equal 494, filled from text 1, text stricter 0, disputed 0, expired 3, text without rules 29, multi-part texts (not compared) 0.
+Run 2026-11-20. 471 segments: 471 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 447, partly read 24. Verified equal 423, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 23, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 2184 2010-0160 | Kalvstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 2184 2026-87 | Kolonivägen | expired 2026-10-30 | already uncertain |
-| 2184 2026-90 | Skeppargatan | expired 2026-10-29 | already uncertain |
-| 2184 2026-90 | Skeppargatan | expired 2026-10-29 | already uncertain |

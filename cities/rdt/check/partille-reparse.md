@@ -1,16 +1,11 @@
 # Partille: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 1086 segments: 1086 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1073, partly read 8. Verified equal 1049, filled from text 23, text stricter 0, disputed 0, expired 5, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-11-20. 939 segments: 939 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 932, partly read 7. Verified equal 908, filled from text 23, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1402 2009-00079 | Göteborgsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
-| 1402 2010-00013 | Göteborgsvägen | expired 2010-06-24 | already uncertain |
-| 1402 2010-00013 | Göteborgsvägen | expired 2010-06-24 | already uncertain |
-| 1402 2010-00013 | Göteborgsvägen | expired 2010-06-24 | already uncertain |
-| 1402 2010-00013 | Göteborgsvägen | expired 2010-06-24 | already uncertain |
-| 1402 2010-00033 | Andra Tillfället | expired 2010-06-24 | already uncertain |
 | 1402 2010-00082 | Slottskullevägen | uncertain → {"l":[{"a":0,"b":1440,"max":10}]} | filled from text |
 | 1402 2010-00082 | Slottskullevägen | uncertain → {"l":[{"a":0,"b":1440,"max":10}]} | filled from text |
 | 1402 2010-00127 | Nävervägen | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |

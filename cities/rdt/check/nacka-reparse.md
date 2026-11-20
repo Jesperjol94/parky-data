@@ -1,7 +1,7 @@
 # Nacka: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 2635 segments: 2635 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2612, partly read 21. Verified equal 2090, filled from text 367, text stricter 0, disputed 6, expired 2, text without rules 129, multi-part texts (not compared) 6.
+Run 2026-11-20. 2413 segments: 2413 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2395, partly read 18. Verified equal 1917, filled from text 366, text stricter 0, disputed 0, expired 0, text without rules 90, multi-part texts (not compared) 8.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -53,7 +53,6 @@ Fully read 2612, partly read 21. Verified equal 2090, filled from text 367, text
 | 0182 2013-00065 | Glasbruksvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2013-00067 | Glasbruksvägen | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 0182 2013-00073 | Aborrvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0182 2013-00079 | Atlasvägen | {"f":[{"dt":["vardag"],"a":480,"b":1080},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":480,"b":1080}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2013-00143 | Björknäs skolväg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2013-00145 | Almvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2013-00147 | Almvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
@@ -69,7 +68,6 @@ Fully read 2612, partly read 21. Verified equal 2090, filled from text 367, text
 | 0182 2015-00008 | Älta idrottsväg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2015-00009 | Älta idrottsväg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2015-00010 | Knackholmsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0182 2015-00029 | Kadettvägen | {"f":[{"dt":["vardag"],"a":420,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"dt":["vardag"],"a":420,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2015-00032 | Montelius väg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2015-00044 | Borgvallavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2015-00093 | Alphyddevägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
@@ -316,7 +314,6 @@ Fully read 2612, partly read 21. Verified equal 2090, filled from text 367, text
 | 0182 2023-00135 | Velamsundsvägen | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1320,"max":240},{"dt":["fore"],"a":480,"b":1320,"max":240},{"dt":["helgdag"],"a":480,"b":1320,"max":240}]} | filled from text |
 | 0182 2023-00169 | Talluddsvägen och Axens väg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2023-00169 | Talluddsvägen och Axens väg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0182 2023-00251 | Örnvägen | {"f":[{"w":1,"a":480,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":1,"a":480,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2023-00304 | Järla skolväg | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2024-00009 | Stadshusgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2024-00014 | Nya Gatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -366,8 +363,6 @@ Fully read 2612, partly read 21. Verified equal 2090, filled from text 367, text
 | 0182 2025-00514 | Edinsvägen | uncertain → permitted (fee) | filled from text |
 | 0182 2025-00544 | Beckasinvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2025-00568 | Järlavägen | uncertain → permitted (fee) | filled from text |
-| 0182 2026-264 | Alphyddevägen | expired 2026-11-02 | already uncertain |
-| 0182 2026-264 | Alphyddevägen | expired 2026-11-02 | already uncertain |
 | 0182 2026-00012 | Augustendalsvägen | uncertain → {"v":"utryckningsfordon"} | filled from text |
 | 0182 2026-00014 | Augustendalsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2026-00019 | Kvarnholmsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
@@ -380,15 +375,11 @@ Fully read 2612, partly read 21. Verified equal 2090, filled from text 367, text
 | 0182 2026-00065 | Telegrafvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2026-00074 | Storängens strandväg | uncertain → permitted (fee) | filled from text |
 | 0182 2026-00102 | Torben Gruts väg | uncertain → {"v":"motorcykel"} | filled from text |
-| 0182 2026-00107 | Allévägen | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1320,"max":240},{"dt":["fore"],"a":480,"b":1320,"max":240},{"dt":["helgdag"],"a":480,"b":1320,"max":240}]} | filled from text |
 | 0182 2026-00117 | Storholmsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2026-00138 | Kantatvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0182 2026-00144 | Ångbåtsvägen | uncertain → {"f":[{"dt":["vardag"],"a":60,"b":240}]} | filled from text |
 | 0182 2026-00155 | Jungmansvägen | uncertain → {"v":"motorcykel"} | filled from text |
 | 0182 2026-00168 | Skurusundsvägen | uncertain → {"v":"motorcykel"} | filled from text |
-| 0182 2026-00174 | Trädgårdsvägen | {"f":[{"w":5,"a":480,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":5,"a":480,"b":720}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0182 2026-00174 | Skymningsvägen | {"f":[{"w":5,"a":480,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":5,"a":480,"b":720}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0182 2026-00175 | Trädgårdsvägen | {"f":[{"w":3,"a":480,"b":720},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":3,"a":480,"b":720}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0182 2026-00190 | Åbroddsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":360}]} | filled from text |
 | 0182 2026-00191 | Åbroddsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0182 2026-00225 | Velamsundsvägen | uncertain → permitted | filled from text |

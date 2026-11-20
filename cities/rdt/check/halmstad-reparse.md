@@ -1,7 +1,7 @@
 # Halmstad: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-19. 1105 segments: 1105 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1092, partly read 13. Verified equal 744, filled from text 11, text stricter 2, disputed 0, expired 0, text without rules 335, multi-part texts (not compared) 0.
+Run 2026-11-20. 1071 segments: 1071 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1058, partly read 13. Verified equal 742, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 305, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -16,5 +16,3 @@ Fully read 1092, partly read 13. Verified equal 744, filled from text 11, text s
 | 1380 2018-00060 | Femkampsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1380 2018-00099 | Ringenäsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1380 2023-00202 | Von Möllersgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1380 2024-00102 | Köpmansgatan | {"l":[{"a":0,"b":1440,"max":5,"m":[[9,1],[5,31]]}]} → {"f":[{"a":0,"b":1440,"m":[[6,1],[8,31]]}],"l":[{"a":0,"b":1440,"max":5,"m":[[9,1],[5,31]]}]} | text stricter: applied |
-| 1380 2024-00103 | Skolgatan | {"l":[{"a":0,"b":1440,"max":15,"m":[[9,1],[5,31]]}]} → {"f":[{"a":0,"b":1440,"m":[[6,1],[8,31]]}],"l":[{"a":0,"b":1440,"max":15,"m":[[9,1],[5,31]]}]} | text stricter: applied |

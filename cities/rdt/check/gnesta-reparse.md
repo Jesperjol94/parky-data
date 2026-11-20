@@ -1,8 +1,9 @@
 # Gnesta: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 53 segments: 53 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 44, partly read 9. Verified equal 42, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 1.
+Run 2026-11-20. 53 segments: 53 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 45, partly read 8. Verified equal 42, filled from text 1, text stricter 1, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 1.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
+| 0461 2002-009 | Mejerigatan | {"l":[{"a":0,"b":1440,"max":1440}]} → {"v":"husbil"} | text stricter: applied |
 | 0461 2007-001 | Torggatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}],"v":"motorcykel"} | filled from text |

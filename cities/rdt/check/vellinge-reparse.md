@@ -1,11 +1,7 @@
 # Vellinge: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 575 segments: 575 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 540, partly read 31. Verified equal 384, filled from text 0, text stricter 0, disputed 0, expired 4, text without rules 153, multi-part texts (not compared) 0.
+Run 2026-11-20. 458 segments: 458 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 427, partly read 31. Verified equal 283, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 109, multi-part texts (not compared) 32.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1233 2021-70 | Norra Lillvägen mellan väg 100 och Falsterbovägen | expired 2021-10-08 | already uncertain |
-| 1233 2021-70 | Norra Lillvägen mellan väg 100 och Falsterbovägen | expired 2021-10-08 | already uncertain |
-| 1233 2021-70 | Falsterbovägen | expired 2021-10-08 | already uncertain |
-| 1233 2021-70 | Norra Lillvägen mellan väg 100 och Falsterbovägen | expired 2021-10-08 | already uncertain |

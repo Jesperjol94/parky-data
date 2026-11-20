@@ -1,7 +1,7 @@
 # Värnamo: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 281 segments: 281 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 262, partly read 19. Verified equal 215, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 47, multi-part texts (not compared) 0.
+Run 2026-11-20. 274 segments: 274 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 257, partly read 17. Verified equal 210, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 47, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

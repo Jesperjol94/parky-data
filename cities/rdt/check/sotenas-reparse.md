@@ -1,7 +1,7 @@
 # Sotenäs: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 699 segments: 699 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 654, partly read 44. Verified equal 603, filled from text 18, text stricter 0, disputed 0, expired 1, text without rules 28, multi-part texts (not compared) 0.
+Run 2026-11-20. 642 segments: 642 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 604, partly read 38. Verified equal 552, filled from text 18, text stricter 0, disputed 0, expired 0, text without rules 29, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -12,7 +12,6 @@ Fully read 654, partly read 44. Verified equal 603, filled from text 18, text st
 | 1427 2010-00288 | Bäckevikstorget | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":30},{"dt":["fore"],"a":480,"b":1200,"max":30},{"dt":["helgdag"],"a":480,"b":1200,"max":30}]} | filled from text |
 | 1427 2010-00292 | Östergatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1427 2010-00385 | Hamngatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1427 2010-00388 | Hamngatan | expired 2012-12-31 | already uncertain |
 | 1427 2010-00646 | Trangatan | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":120},{"dt":["fore"],"a":480,"b":1200,"max":120},{"dt":["helgdag"],"a":480,"b":1200,"max":120}]} | filled from text |
 | 1427 2010-00647 | Lärkgatan-Torget | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":1200,"max":180},{"dt":["helgdag"],"a":480,"b":1200,"max":180}]} | filled from text |
 | 1427 2010-00648 | Lärkgatan-Torget | uncertain → {"v":"rörelsehindrade"} | filled from text |

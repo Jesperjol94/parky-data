@@ -1,7 +1,7 @@
 # Höganäs: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 226 segments: 226 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 209, partly read 10. Verified equal 147, filled from text 36, text stricter 0, disputed 0, expired 7, text without rules 20, multi-part texts (not compared) 0.
+Run 2026-11-20. 217 segments: 217 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 207, partly read 10. Verified equal 145, filled from text 36, text stricter 0, disputed 0, expired 0, text without rules 20, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -41,10 +41,3 @@ Fully read 209, partly read 10. Verified equal 147, filled from text 36, text st
 | 1284 2026-15 | Järnvägsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":120}]} | filled from text |
 | 1284 2026-15 | Järnvägsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":120}]} | filled from text |
 | 1284 2026-26 | Småbåtshamnen | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 1284 2026-32 | Odengatan | expired 2026-10-31 | already uncertain |
-| 1284 2026-32 | Idrottsgatan | expired 2026-10-31 | already uncertain |
-| 1284 2026-32 | Skolgatan | expired 2026-10-31 | already uncertain |
-| 1284 2026-32 | Östra Parkgatan | expired 2026-10-31 | already uncertain |
-| 1284 2026-32 | Östra Parkgatan | expired 2026-10-31 | already uncertain |
-| 1284 2026-32 | Lilla Banan | expired 2026-10-31 | already uncertain |
-| 1284 2026-32 | Kolgatan | expired 2026-10-31 | already uncertain |

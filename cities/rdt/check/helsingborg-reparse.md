@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-19. 3773 segments: 3773 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3586, partly read 78. Verified equal 3116, filled from text 170, text stricter 2, disputed 0, expired 109, text without rules 290, multi-part texts (not compared) 0.
+Run 2026-11-20. 3478 segments: 3478 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3402, partly read 71. Verified equal 2901, filled from text 171, text stricter 0, disputed 0, expired 5, text without rules 249, multi-part texts (not compared) 68.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -19,70 +19,6 @@ Fully read 3586, partly read 78. Verified equal 3116, filled from text 170, text
 | 1283 2010-00506 | Båthusgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2010-00509 | Båthusgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2010-00598 | Faktorsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 1283 2010-00663 | Ormvråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Duvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Ormvråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Busksångaregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Duvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Busksångaregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Ormvråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Duvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Busksångaregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Busksångaregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Ormvråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Gråsparvsgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Gråsparvsgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Duvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Duvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Gråsparvsgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Gråsparvsgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Gråsparvsgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Ormvråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Sparvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Gulsångaregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Svarthättegatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Duvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Sparvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Sparvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Duvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Sparvhöksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Blåhakegatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Blåhakegatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Mariehällsvägen | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Jaktfalksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Kungsfågelgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Bofinksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Ormvråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Svarthättegatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Kungsfågelgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Talgoxegatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Kungsfågelgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Kungsfågelgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Kungsfågelgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Jaktfalksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Jaktfalksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Kungsfågelgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Tornfalksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Domherregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Domherregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Domherregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Jaktfalksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Domherregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Domherregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Domherregatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Tornfalksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Blåmesgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Tornfalksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Stenfalksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Mariastaden | expired 2010-07-09 | already uncertain |
-| 1283 2010-00663 | Bivråksgatan | expired 2010-07-09 | already uncertain |
 | 1283 2010-00679 | Drottninggatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1283 2010-00715 | Fjärestadsvägen | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1283 2010-00969 | Allévägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -217,8 +153,6 @@ Fully read 3586, partly read 78. Verified equal 3116, filled from text 170, text
 | 1283 2013-00390 | Kustgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2013-00584 | Carl Krooks gata | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2014-00006 | Stortorget | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 1283 2014-00093 | Maskinistgatan | {"l":[{"a":0,"b":1440,"max":10080}]} → {"l":[{"a":0,"b":1440,"max":10080}],"v":"lastbil"} | text stricter: applied |
-| 1283 2014-00093 | Maskinistgatan | {"l":[{"a":0,"b":1440,"max":10080}]} → {"l":[{"a":0,"b":1440,"max":10080}],"v":"lastbil"} | text stricter: applied |
 | 1283 2014-00292 | Högastensgatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1283 2014-00293 | Drottninggatan | uncertain → {"v":"motorcykel"} | filled from text |
 | 1283 2014-00294 | Drottninggatan | uncertain → {"v":"motorcykel"} | filled from text |
@@ -243,46 +177,7 @@ Fully read 3586, partly read 78. Verified equal 3116, filled from text 170, text
 | 1283 2017-188 | Stenkretsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2017-435 | Bredgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2022-492 | Båthusgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1283 2025-753 | Drottninggatan | expired 2026-10-30 | already uncertain |
-| 1283 2026-487 | Södra Strandgatan | expired 2026-10-30 | already uncertain |
-| 1283 2026-513 | Hantverkaregatan | expired 2026-10-23 | already uncertain |
-| 1283 2026-574 | Michael Löfmans gata | expired 2026-11-13 | already uncertain |
-| 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | already uncertain |
-| 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | already uncertain |
-| 1283 2026-576 | Sköldenborgsgatan | expired 2026-10-31 | already uncertain |
-| 1283 2026-596 | Föreningsgatan | expired 2026-10-23 | already uncertain |
-| 1283 2026-618 | Konduktörsgatan | expired 2026-10-23 | already uncertain |
-| 1283 2026-622 | Gränsgatan | expired 2026-10-29 | already uncertain |
-| 1283 2026-625 | Östergatan och Timmermansgatan | expired 2026-10-30 | already uncertain |
-| 1283 2026-625 | Östergatan och Timmermansgatan | expired 2026-10-30 | already uncertain |
-| 1283 2026-642 | Rosenvägen | expired 2026-10-30 | already uncertain |
-| 1283 2026-661 | Lilla Bergaliden | expired 2026-10-16 | already uncertain |
-| 1283 2026-666 | Gasverksgatan | expired 2026-10-26 | already uncertain |
-| 1283 2026-667 | Norra Vallgatan | expired 2026-10-26 | already uncertain |
-| 1283 2026-667 | Norra Vallgatan | expired 2026-10-26 | already uncertain |
-| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
-| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
-| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
-| 1283 2026-668 | Östra Sandgatan | expired 2026-10-29 | already uncertain |
-| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
-| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
-| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
-| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
-| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
-| 1283 2026-669 | Sägengatan | expired 2026-11-13 | already uncertain |
-| 1283 2026-672 | Ålögatan | expired 2026-11-11 | already uncertain |
-| 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
-| 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
-| 1283 2026-677 | Bergaliden och Lilla Bergaliden | expired 2026-10-23 | already uncertain |
-| 1283 2026-678 | Ängesögatan | expired 2026-10-22 | already uncertain |
-| 1283 2026-679 | Furutorpsgatan | expired 2026-10-23 | already uncertain |
-| 1283 2026-680 | Vintapparegatan | expired 2026-10-30 | already uncertain |
-| 1283 2026-680 | Vintapparegatan | expired 2026-10-30 | already uncertain |
-| 1283 2026-680 | Vintapparegatan | expired 2026-10-30 | already uncertain |
-| 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | already uncertain |
-| 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | already uncertain |
-| 1283 2026-687 | Erik Dahlbergs gata och Bellmansgatan | expired 2026-10-20 | already uncertain |
-| 1283 2026-690 | Byalagsgatan | expired 2026-10-23 | already uncertain |
-| 1283 2026-690 | D | expired 2026-10-23 | already uncertain |
-| 1283 2026-690 | Byalagsgatan | expired 2026-10-23 | already uncertain |
-| 1283 2026-693 | Mäster Ernsts gata | expired 2026-11-04 | already uncertain |
+| 1283 2026-632 | Hamntorget | expired 2026-11-20 | now uncertain |
+| 1283 2026-649 | Hantverkaregatan | uncertain → {"f":[{"w":4,"nw":2,"a":360,"b":540}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | filled from text |
+| 1283 2026-684 | Drottninggatan | expired 2026-11-20 | now uncertain |
+| 1283 2026-684 | Kronborgsgatan | expired 2026-11-20 | now uncertain |

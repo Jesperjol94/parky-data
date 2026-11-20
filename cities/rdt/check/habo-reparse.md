@@ -1,11 +1,7 @@
 # Habo: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 53 segments: 53 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 49, partly read 0. Verified equal 49, filled from text 0, text stricter 0, disputed 0, expired 4, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-11-20. 41 segments: 41 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 41, partly read 0. Verified equal 41, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0643 2020-21 | Kyrkvägen | expired 2020-10-31 | already uncertain |
-| 0643 2020-22 | Gunnarsbogatan | expired 2020-10-31 | already uncertain |
-| 0643 2020-38 | Kyrkvägen | expired 2020-11-20 | already uncertain |
-| 0643 2020-39 | Gunnarsbogatan | expired 2020-11-20 | already uncertain |

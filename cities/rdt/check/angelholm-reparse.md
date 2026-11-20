@@ -1,7 +1,7 @@
 # Ängelholm: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 712 segments: 712 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 679, partly read 10. Verified equal 544, filled from text 42, text stricter 0, disputed 0, expired 23, text without rules 93, multi-part texts (not compared) 0.
+Run 2026-11-20. 677 segments: 677 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 667, partly read 10. Verified equal 539, filled from text 41, text stricter 0, disputed 0, expired 0, text without rules 87, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -19,7 +19,6 @@ Fully read 679, partly read 10. Verified equal 544, filled from text 42, text st
 | 1292 2013-00056 | Strandridarevägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1292 2013-00056 | Strandridarevägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1292 2014-00038 | Norra Sockerbruksgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1292 2015-00215 | Östergatan | expired 2015-08-09 | already uncertain |
 | 1292 2015-00283 | Thorslundsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1292 2015-00284 | Thorslundsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1292 2015-00285 | Thorslundsgatan | uncertain → {"v":"motorcykel"} | filled from text |
@@ -46,27 +45,4 @@ Fully read 679, partly read 10. Verified equal 544, filled from text 42, text st
 | 1292 2025-00171 | Strandgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1292 2025-00287 | Norra Kvickvägen | uncertain → {"f":[{"a":0,"b":1440,"m":[[11,15],[4,15]]}]} | filled from text |
 | 1292 2026-00009 | Jämtlandsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1292 2026-00019 | Strandbackevägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1292 2026-00172 | Vinkelvägen | expired 2026-10-31 | already uncertain |
-| 1292 2026-00175 | Sofierogatan | expired 2026-10-24 | already uncertain |
-| 1292 2026-00176 | Alnarpsgatan | expired 2026-10-24 | already uncertain |
-| 1292 2026-00177 | Flyingegatan | expired 2026-10-24 | already uncertain |
-| 1292 2026-00178 | Borgebygatan | expired 2026-10-24 | already uncertain |
-| 1292 2026-00179 | Häckebergagatan | expired 2026-10-24 | already uncertain |
-| 1292 2026-00179 | Häckebergagatan | expired 2026-10-24 | already uncertain |
-| 1292 2026-00180 | Gåsahalsvägen | expired 2026-10-31 | already uncertain |
-| 1292 2026-00181 | Björkvägen | expired 2026-10-17 | already uncertain |
-| 1292 2026-00182 | Vårvägen | expired 2026-10-17 | already uncertain |
-| 1292 2026-00183 | Jägarestigen | expired 2026-10-17 | already uncertain |
-| 1292 2026-00184 | Sommarvägen | expired 2026-10-17 | already uncertain |
-| 1292 2026-00185 | Dalslandsgatan | expired 2026-10-17 | already uncertain |
-| 1292 2026-00186 | Västgötagatan | expired 2026-10-17 | already uncertain |
-| 1292 2026-00187 | Östgötagatan | expired 2026-10-17 | already uncertain |
 | 1292 2026-00201 | Industrigatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1292 2026-00216 | Järnvägsgatan | expired 2026-10-24 | already uncertain |
-| 1292 2026-00217 | Järnvägsgatan | expired 2026-10-23 | already uncertain |
-| 1292 2026-00218 | Västra Kyrkogatan | expired 2026-10-24 | already uncertain |
-| 1292 2026-00269 | Vaktgatan | expired 2026-10-28 | already uncertain |
-| 1292 2026-00279 | Söndrebaljsvägen | expired 2026-11-14 | already uncertain |
-| 1292 2026-00279 | Söndrebaljsvägen | expired 2026-11-14 | already uncertain |
-| 1292 2026-00282 | Åkerslundsgatan | expired 2026-11-07 | already uncertain |

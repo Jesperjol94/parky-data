@@ -1,7 +1,7 @@
 # Tyresö: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 1135 segments: 1135 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1099, partly read 31. Verified equal 1065, filled from text 11, text stricter 0, disputed 0, expired 5, text without rules 23, multi-part texts (not compared) 0.
+Run 2026-11-20. 742 segments: 742 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 728, partly read 14. Verified equal 703, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 11, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -16,8 +16,3 @@ Fully read 1099, partly read 31. Verified equal 1065, filled from text 11, text 
 | 0138 2021-39 | Strandallén 42 A Strandbadets parkeringsplats | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0138 2021-67 | Granängsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0138 2021-107 | Öringe strandväg | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0138 2026-34 | Granängsringen | expired 2026-10-31 | already uncertain |
-| 0138 2026-34 | Granängsringen | expired 2026-10-31 | already uncertain |
-| 0138 2026-34 | Granängsringen | expired 2026-10-31 | already uncertain |
-| 0138 2026-34 | Granängsringen | expired 2026-10-31 | already uncertain |
-| 0138 2026-34 | Granängsringen | expired 2026-10-31 | already uncertain |

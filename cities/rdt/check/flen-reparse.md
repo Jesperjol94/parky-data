@@ -1,7 +1,7 @@
 # Flen: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 474 segments: 474 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 471, partly read 3. Verified equal 469, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 2, multi-part texts (not compared) 0.
+Run 2026-11-20. 403 segments: 403 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 400, partly read 3. Verified equal 399, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

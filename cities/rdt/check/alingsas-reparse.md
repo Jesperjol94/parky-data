@@ -1,7 +1,7 @@
 # Alingsås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 716 segments: 716 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 645, partly read 46. Verified equal 627, filled from text 13, text stricter 0, disputed 0, expired 25, text without rules 0, multi-part texts (not compared) 2.
+Run 2026-11-20. 642 segments: 642 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 598, partly read 44. Verified equal 576, filled from text 15, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -18,28 +18,5 @@ Fully read 645, partly read 46. Verified equal 627, filled from text 13, text st
 | 1489 2010-0024 | Nolhaga Allé | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1489 2010-0031 | Nolhaga Allé | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1489 2020-2 | del av Timmermansvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1489 2026-38 | Stationsgatan | expired 2026-10-19 | already uncertain |
-| 1489 2026-41 | Stationsgatan | expired 2026-11-16 | already uncertain |
-| 1489 2026-79 | Stockslyckevägen | expired 2026-10-31 | already uncertain |
-| 1489 2026-79 | Stockslyckevägen | expired 2026-10-31 | already uncertain |
-| 1489 2026-80 | Kaptensvägen | expired 2026-10-31 | already uncertain |
-| 1489 2026-80 | Kaptensvägen | expired 2026-10-31 | already uncertain |
-| 1489 2026-173 | Värmlandsgatan | expired 2026-10-31 | already uncertain |
-| 1489 2026-174 | Dalagatan | expired 2026-10-30 | already uncertain |
-| 1489 2026-174 | Dalagatan | expired 2026-10-30 | already uncertain |
-| 1489 2026-177 | Järnvägsgatan | expired 2026-11-16 | already uncertain |
-| 1489 2026-177 | Järnvägsgatan | expired 2026-11-16 | already uncertain |
-| 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |
-| 1489 2026-178 | Järnvägsgatan | expired 2026-10-19 | already uncertain |
-| 1489 2026-225 | Stationsgatan | expired 2026-10-19 | already uncertain |
-| 1489 2026-227 | Jungmansgatan | expired 2026-10-17 | already uncertain |
-| 1489 2026-227 | Jungmansgatan | expired 2026-10-17 | already uncertain |
-| 1489 2026-242 | Drottninggatan | expired 2026-10-23 | already uncertain |
-| 1489 2026-246 | Järnvägsgatan | expired 2026-10-16 | already uncertain |
-| 1489 2026-247 | Såggatan | expired 2026-10-16 | already uncertain |
-| 1489 2026-248 | Bryggaregatan | expired 2026-11-06 | already uncertain |
-| 1489 2026-248 | Bryggaregatan | expired 2026-11-06 | already uncertain |
-| 1489 2026-250 | Sävevägen | expired 2026-11-02 | already uncertain |
-| 1489 2026-252 | Hagavägen | expired 2026-10-16 | already uncertain |
-| 1489 2026-254 | Stationsgatan | expired 2026-10-16 | already uncertain |
-| 1489 2026-254 | Stationsgatan | expired 2026-10-16 | already uncertain |
+| 1489 2026-87 | Södra Ringgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
+| 1489 2026-87 | Södra Ringgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |

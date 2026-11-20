@@ -1,7 +1,7 @@
 # Täby: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 660 segments: 660 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 578, partly read 74. Verified equal 402, filled from text 96, text stricter 0, disputed 1, expired 8, text without rules 5, multi-part texts (not compared) 73.
+Run 2026-11-20. 650 segments: 650 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 576, partly read 74. Verified equal 394, filled from text 96, text stricter 0, disputed 0, expired 0, text without rules 5, multi-part texts (not compared) 80.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -51,7 +51,6 @@ Fully read 578, partly read 74. Verified equal 402, filled from text 96, text st
 | 0160 2019-00188 | Stora Marknadsvägen | uncertain → {"f":[{"dt":["vardag"],"a":120,"b":300}]} | filled from text |
 | 0160 2020-00004 | Åkerbyvägen | uncertain → {"v":"motorcykel"} | filled from text |
 | 0160 2020-00004 | Åkerbyvägen | uncertain → {"v":"motorcykel"} | filled from text |
-| 0160 2020-00029 | Helgavägen | {"f":[{"w":1,"a":60,"b":240,"m":[[10,1],[5,31]]},{"dt":["vardag"],"a":480,"b":1080,"ov":1}]} → {"f":[{"w":1,"a":60,"b":240,"m":[[10,1],[5,31]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0160 2020-00051 | Flygstigen | uncertain → {"f":[{"a":120,"b":300}],"v":"rörelsehindrade"} | filled from text |
 | 0160 2020-00092 | Rodengränd | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0160 2020-00093 | Koltrastvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -103,11 +102,3 @@ Fully read 578, partly read 74. Verified equal 402, filled from text 96, text st
 | 0160 2020-00222 | Skavlötsvägen | uncertain → {"f":[{"a":0,"b":360}]} | filled from text |
 | 0160 2021-00076 | Riddarstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0160 2024-55 | Kolarestigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0160 2026-45 | Esplanaden | expired 2026-11-14 | already uncertain |
-| 0160 2026-60 | Näsbydalsvägen | expired 2026-10-16 | already uncertain |
-| 0160 2026-62 | Hamnvägen | expired 2026-11-02 | already uncertain |
-| 0160 2026-63 | Järnvägsallén | expired 2026-10-17 | already uncertain |
-| 0160 2026-63 | Järnvägsallén | expired 2026-10-17 | already uncertain |
-| 0160 2026-63 | Järnvägsallén | expired 2026-10-17 | already uncertain |
-| 0160 2026-63 | Järnvägsallén | expired 2026-10-17 | already uncertain |
-| 0160 2026-64 | Hägerneholmsvägen | expired 2026-11-07 | already uncertain |

@@ -1,15 +1,10 @@
 # Danderyd: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 747 segments: 747 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 700, partly read 47. Verified equal 591, filled from text 10, text stricter 0, disputed 5, expired 0, text without rules 23, multi-part texts (not compared) 71.
+Run 2026-11-20. 729 segments: 729 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 688, partly read 41. Verified equal 584, filled from text 10, text stricter 0, disputed 0, expired 0, text without rules 23, multi-part texts (not compared) 71.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0162 2007-73 | Backstigen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0162 2007-73 | Långbackavägen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0162 2007-73 | Långbackavägen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0162 2007-73 | Långbackavägen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 0162 2007-73 | Backstigen | {"f":[{"a":540,"b":1020},{"a":0,"b":1440,"ov":1}]} → {"f":[{"a":540,"b":1020}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 0162 2013-00259 | Anundvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0162 2014-00014 | Mörbyleden | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0162 2014-00082 | Hamnvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |

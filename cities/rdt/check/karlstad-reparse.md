@@ -1,7 +1,7 @@
 # Karlstad: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-19. 1820 segments: 1820 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1782, partly read 11. Verified equal 1335, filled from text 20, text stricter 0, disputed 0, expired 27, text without rules 427, multi-part texts (not compared) 0.
+Run 2026-11-20. 1657 segments: 1657 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1645, partly read 11. Verified equal 1214, filled from text 19, text stricter 0, disputed 0, expired 1, text without rules 348, multi-part texts (not compared) 64.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,7 +10,6 @@ Fully read 1782, partly read 11. Verified equal 1335, filled from text 20, text 
 | 1780 2017-00052 | Flöjtgatan | uncertain → {"l":[{"a":0,"b":1440,"max":15}]} | filled from text |
 | 1780 2017-00241 | Åkdonsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1780 2019-00029 | Rudsbergsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1780 2020-00052 | Västra Kanalgatan | uncertain → {"v":"buss"} | filled from text |
 | 1780 2021-00086 | Wallbergsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1780 2021-00104 | Herrhagen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1780 2021-00212 | Horsensgatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
@@ -25,30 +24,4 @@ Fully read 1782, partly read 11. Verified equal 1335, filled from text 20, text 
 | 1780 2023-00170 | Knud Dahls gata | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1780 2023-00176 | Kanikenäsgatan | uncertain → {"f":[{"w":5,"a":480,"b":600,"p":"even"}]} | filled from text |
 | 1780 2025-00040 | Hedjämnan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
-| 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
-| 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
-| 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
-| 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
-| 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
-| 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
-| 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
-| 1780 2026-211 | Kungsgatan | expired 2026-06-28 | already uncertain |
-| 1780 2026-223 | Geijersgatan | expired 2026-10-30 | already uncertain |
-| 1780 2026-223 | Geijersgatan | expired 2026-10-30 | already uncertain |
-| 1780 2026-380 | Smedjegatan | expired 2026-10-30 | already uncertain |
-| 1780 2026-380 | Smedjegatan | expired 2026-10-30 | already uncertain |
-| 1780 2026-384 | Bryggaregatan | expired 2026-11-02 | already uncertain |
-| 1780 2026-384 | Bryggaregatan | expired 2026-11-02 | already uncertain |
-| 1780 2026-390 | Malmtorgsgatan | expired 2026-10-30 | already uncertain |
-| 1780 2026-390 | Malmtorgsgatan | expired 2026-10-30 | already uncertain |
-| 1780 2026-392 | Våxnäsgatan | expired 2026-10-30 | already uncertain |
-| 1780 2026-392 | Våxnäsgatan | expired 2026-10-30 | already uncertain |
-| 1780 2026-396 | Sandbäcksgatan | expired 2026-11-06 | already uncertain |
-| 1780 2026-396 | Sandbäcksgatan | expired 2026-11-06 | already uncertain |
-| 1780 2026-396 | Sandbäcksgatan | expired 2026-11-06 | already uncertain |
-| 1780 2026-396 | Sandbäcksgatan | expired 2026-11-06 | already uncertain |
-| 1780 2026-397 | Södra Klaragatan | expired 2026-11-06 | already uncertain |
-| 1780 2026-397 | Södra Klaragatan | expired 2026-11-06 | already uncertain |
-| 1780 2026-397 | Södra Klaragatan | expired 2026-11-06 | already uncertain |
-| 1780 2026-397 | Södra Klaragatan | expired 2026-11-06 | already uncertain |
-| 1780 2026-00084 | Sandbäcksgatan | expired 2026-10-30 | already uncertain |
+| 1780 2026-386 | Geijersgatan | expired 2026-11-20 | now uncertain |

@@ -1228,3 +1228,17 @@ test('round 40: "vardagar, utom dag före sön- och helgdag" names Mon–Fri; a 
   assert.equal(utomForeOnly('vardagar utom vardag före sön- och helgdag 8-18 och vardag före sön- och helgdag 8-14'), null);
   assert.equal(utomForeOnly('Förbudet gäller vardagar klockan 8-18'), null);
 });
+
+test('QA 20 Nov: "får husvagnar/husbilar parkeras högst 24 timmar" is a bay for them, not a 24 h limit for every car; a lot with "övriga platser" stays unread', () => {
+  let r = parseRegulation(wrap('På Mejerigatan norr om och längs med gatan 2st platser, får husvagnar parkeras högst 24 timmar i följd.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'husbil'); assert.deepEqual(r.limits, []); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På Artillerigatan på tre rödmarkerade platser enligt kartbilaga får husbilar och husvagnar parkeras under högst 24 tim i följd.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'husbil');
+  r = parseRegulation(wrap('På parkeringsplatsen invid Sofielundsvägen 1 får endast husvagnar parkeras på de två nordligaste platserna, under tre månader i följd. På övriga platser får fordon parkeras under högst sju dygn i följd.'));
+  assert.equal(r.reserved, false); assert.equal(r.unread.length, 1);
+});
+
+test('QA 20 Nov: the typo "kockan" reads as "klockan" (Sala: "högst 2 tim i följd kockan 09.00-19.00. Övrig tid får inte fordon parkeras")', () => {
+  const r = parseRegulation(wrap('På Bråstagatan får fordon parkeras. Parkering är dock tillåten under högst 2 tim i följd kockan 09.00-19.00. Övrig tid får inte fordon parkeras.'));
+  assert.deepEqual(r.limits, [{ a: 540, b: 1140, max: 120 }]); assert.deepEqual(r.allowOnly, [{ a: 540, b: 1140 }]); assert.deepEqual(r.unread, []);
+});

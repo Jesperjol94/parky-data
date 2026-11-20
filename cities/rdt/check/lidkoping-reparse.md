@@ -1,7 +1,7 @@
 # Lidköping: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 809 segments: 809 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 808, partly read 1. Verified equal 791, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 0.
+Run 2026-11-20. 789 segments: 789 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 788, partly read 1. Verified equal 771, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

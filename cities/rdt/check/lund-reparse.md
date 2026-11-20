@@ -1,7 +1,7 @@
 # Lund: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 859 segments: 859 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 846, partly read 13. Verified equal 797, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 42, multi-part texts (not compared) 6.
+Run 2026-11-20. 857 segments: 857 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 844, partly read 13. Verified equal 795, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 42, multi-part texts (not compared) 6.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

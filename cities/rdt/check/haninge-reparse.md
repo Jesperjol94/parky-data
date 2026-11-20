@@ -1,7 +1,7 @@
 # Haninge: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-19. 1999 segments: 1999 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1986, partly read 9. Verified equal 1831, filled from text 13, text stricter 0, disputed 0, expired 4, text without rules 139, multi-part texts (not compared) 0.
+Run 2026-11-20. 1707 segments: 1707 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1698, partly read 9. Verified equal 1570, filled from text 13, text stricter 0, disputed 0, expired 0, text without rules 112, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -19,7 +19,3 @@ Fully read 1986, partly read 9. Verified equal 1831, filled from text 13, text s
 | 0136 2021-167 | Milavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0136 2021-376 | Nedersta allé | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0136 2022-90 | Solhemsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0136 2023-442 | Odinsvägen | expired 2023-06-17 | already uncertain |
-| 0136 2023-442 | Odinsvägen | expired 2023-06-17 | already uncertain |
-| 0136 2023-451 | Odinsvägen | expired 2023-06-17 | already uncertain |
-| 0136 2023-451 | Odinsvägen | expired 2023-06-17 | already uncertain |

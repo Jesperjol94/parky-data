@@ -1,7 +1,7 @@
 # Vetlanda: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 235 segments: 233 with a text, 0 without a cached text, 2 fetch errors.
-Fully read 217, partly read 16. Verified equal 209, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 0.
+Run 2026-11-20. 212 segments: 210 with a text, 0 without a cached text, 2 fetch errors.
+Fully read 195, partly read 15. Verified equal 187, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

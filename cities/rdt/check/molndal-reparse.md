@@ -1,7 +1,7 @@
 # Mölndal: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 2255 segments: 2255 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2211, partly read 23. Verified equal 1752, filled from text 91, text stricter 0, disputed 0, expired 21, text without rules 354, multi-part texts (not compared) 4.
+Run 2026-11-20. 1830 segments: 1830 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1814, partly read 16. Verified equal 1447, filled from text 91, text stricter 0, disputed 0, expired 0, text without rules 256, multi-part texts (not compared) 9.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -43,7 +43,6 @@ Fully read 2211, partly read 23. Verified equal 1752, filled from text 91, text 
 | 1481 2008-00216 | Tallspinnaregatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1481 2008-00218 | Torahögsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1481 2008-00219 | Torgilsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1481 2008-00222 | Trädgårdsgatan | expired 2013-10-29 | already uncertain |
 | 1481 2008-00223 | Träsnidaregatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1481 2008-00225 | Tvärgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1481 2008-00227 | Utriggaregatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
@@ -56,8 +55,6 @@ Fully read 2211, partly read 23. Verified equal 1752, filled from text 91, text 
 | 1481 2008-00242 | Ävavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1481 2008-00243 | Östersnäsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1481 2009-00152 | Skogsbovägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1481 2010-00124 | Holmåkravägen | expired 2014-09-07 | already uncertain |
-| 1481 2010-00141 | Kornvägen | expired 2014-09-08 | already uncertain |
 | 1481 2010-00235 | Svealiden | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1481 2010-00398 | Baazgatan | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":900,"max":120}]} | filled from text |
 | 1481 2010-00452 | Kvarnbygatan | uncertain → {"l":[{"a":0,"b":1440,"max":10}]} | filled from text |
@@ -109,21 +106,3 @@ Fully read 2211, partly read 23. Verified equal 1752, filled from text 91, text 
 | 1481 2019-00161 | Dalbogatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1481 2024-123 | Matildebergsgatan | uncertain → permitted (fee) | filled from text |
 | 1481 2024-183 | Kunskapsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
-| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
-| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
-| 1481 2026-11 | Våmmedalsvägen | expired 2026-10-30 | already uncertain |
-| 1481 2026-141 | Hulelycksgatan | expired 2026-10-16 | already uncertain |
-| 1481 2026-144 | Landshövdingegatan | expired 2026-10-31 | already uncertain |
-| 1481 2026-144 | Landshövdingegatan | expired 2026-10-31 | already uncertain |
-| 1481 2026-148 | Kämpegatan | expired 2026-10-20 | already uncertain |
-| 1481 2026-148 | Kämpegatan | expired 2026-10-20 | already uncertain |
-| 1481 2026-149 | Örngatan | expired 2026-10-20 | already uncertain |
-| 1481 2026-149 | Örngatan | expired 2026-10-20 | already uncertain |
-| 1481 2026-150 | Kämpegatan | expired 2026-10-20 | already uncertain |
-| 1481 2026-154 | Baazgatan | expired 2026-10-23 | already uncertain |
-| 1481 2026-154 | Baazgatan | expired 2026-10-23 | already uncertain |
-| 1481 2026-156 | Frejagatan | expired 2026-10-31 | already uncertain |
-| 1481 2026-156 | Frejagatan | expired 2026-10-31 | already uncertain |
-| 1481 2026-160 | Heliumgatan | expired 2026-10-16 | already uncertain |
-| 1481 2026-160 | Heliumgatan | expired 2026-10-16 | already uncertain |

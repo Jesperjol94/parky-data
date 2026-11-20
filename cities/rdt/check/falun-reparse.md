@@ -1,7 +1,7 @@
 # Falun: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-19. 574 segments: 574 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 547, partly read 19. Verified equal 454, filled from text 11, text stricter 0, disputed 1, expired 8, text without rules 80, multi-part texts (not compared) 0.
+Run 2026-11-20. 562 segments: 562 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 543, partly read 19. Verified equal 449, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 76, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -16,13 +16,6 @@ Fully read 547, partly read 19. Verified equal 454, filled from text 11, text st
 | 2080 2025-00307 | Lövbergsvägen | uncertain → permitted | filled from text |
 | 2080 2025-00435 | Pelle Bergs backe | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
 | 2080 2025-00441 | Sturegatan | uncertain → {"f":[{"w":4,"a":540,"b":900,"m":[[12,15],[4,30]]}]} | filled from text |
-| 2080 2025-00444 | Magasinsgatan | {"f":[{"w":4,"a":540,"b":900,"m":[[12,15],[4,30]]},{"a":0,"b":1440,"ov":1}]} → {"f":[{"w":4,"a":540,"b":900,"m":[[12,15],[4,30]]}]} | text more permissive: text wins (owner's decision 18 Oct) |
-| 2080 2026-00080 | Slaggatan | expired 2026-10-16 | already uncertain |
-| 2080 2026-00101 | Slaggatan | expired 2026-10-16 | already uncertain |
-| 2080 2026-00101 | Slaggatan | expired 2026-10-16 | already uncertain |
-| 2080 2026-00116 | Sturegatan | expired 2026-10-31 | already uncertain |
-| 2080 2026-00137 | Slaggatan | expired 2026-10-30 | already uncertain |
+| 2080 2026-00122 | Nybrogatan | uncertain → permitted (fee) | filled from text |
+| 2080 2026-00122 | Nybrogatan | uncertain → permitted (fee) | filled from text |
 | 2080 2026-00150 | Fisktorget | uncertain → {"l":[{"dt":["vardag","fore"],"a":480,"b":1080,"max":60},{"dt":["vardag"],"a":480,"b":1080,"max":60}]} | filled from text |
-| 2080 2026-00161 | Hyttgatan | expired 2026-10-30 | already uncertain |
-| 2080 2026-00162 | Köpmansgränd | expired 2026-10-30 | already uncertain |
-| 2080 2026-00163 | Blindgatan | expired 2026-10-23 | already uncertain |

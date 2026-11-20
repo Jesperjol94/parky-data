@@ -1,9 +1,8 @@
 # Örkelljunga: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 195 segments: 195 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 194, partly read 0. Verified equal 187, filled from text 1, text stricter 0, disputed 0, expired 1, text without rules 6, multi-part texts (not compared) 0.
+Run 2026-11-20. 174 segments: 174 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 174, partly read 0. Verified equal 167, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1257 2010-00059 | Stockholmsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 1257 2026-43 | Skogavägen | expired 2026-10-30 | already uncertain |

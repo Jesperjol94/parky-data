@@ -1,7 +1,7 @@
 # Eslöv: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-18. 624 segments: 624 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 583, partly read 41. Verified equal 495, filled from text 8, text stricter 0, disputed 0, expired 0, text without rules 80, multi-part texts (not compared) 0.
+Run 2026-11-20. 538 segments: 538 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 501, partly read 35. Verified equal 420, filled from text 8, text stricter 0, disputed 0, expired 2, text without rules 73, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -13,3 +13,5 @@ Fully read 583, partly read 41. Verified equal 495, filled from text 8, text str
 | 1285 2023-80 | Villavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1285 2025-45 | Blomstervägen | uncertain → {"l":[{"a":0,"b":1440,"m":[[4,1],[10,31]],"max":20160}]} | filled from text |
 | 1285 2025-45 | Blomstervägen | uncertain → {"l":[{"a":0,"b":1440,"m":[[4,1],[10,31]],"max":20160}]} | filled from text |
+| 1285 2026-32 | Strövägen | expired 2026-11-20 | now uncertain |
+| 1285 2026-33 | Strövägen | expired 2026-11-20 | now uncertain |
