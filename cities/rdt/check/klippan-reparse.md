@@ -5,4 +5,4 @@ Fully read 282, partly read 11. Verified equal 282, filled from text 0, text str
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1276 2026-66 | Kronostigen | expired 2026-11-20 | now uncertain |
+| 1276 2026-66 | Kronostigen | expired 2026-11-20 | already uncertain |

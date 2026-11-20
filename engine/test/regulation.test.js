@@ -1242,3 +1242,17 @@ test('QA 20 Nov: the typo "kockan" reads as "klockan" (Sala: "högst 2 tim i fö
   const r = parseRegulation(wrap('På Bråstagatan får fordon parkeras. Parkering är dock tillåten under högst 2 tim i följd kockan 09.00-19.00. Övrig tid får inte fordon parkeras.'));
   assert.deepEqual(r.limits, [{ a: 540, b: 1140, max: 120 }]); assert.deepEqual(r.allowOnly, [{ a: 540, b: 1140 }]); assert.deepEqual(r.unread, []);
 });
+
+test('QA 20 Nov round 2: "Övrig tid förbud att parkera" / "Övrig tid råder förbud mot parkering" ban the hours outside the permission (Lidingö Pyrolavägen showed free nights)', () => {
+  let r = parseRegulation(wrap('På Pyrolavägen delen 75 meter norr om Almvägen-Linnéavägen får fordon parkeras högst 15 minuter alla dagar klockan 8-24. Övrig tid förbud att parkera.'));
+  assert.deepEqual(r.limits, [{ a: 480, b: 1440, max: 15 }]); assert.deepEqual(r.allowOnly, [{ a: 480, b: 1440 }]); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På markerad sträcka på Köpmangatan enligt kartbild får fordon parkeras under högst 15 min i följd under tiden vardag klockan 07.00 - 21.00, vardag före sön- och helgdag klockan 07.00 - 21.00 och sön- och helgdagar klockan 07.00 - 21.00. Övrig tid råder förbud mot parkering inom zon.'));
+  assert.equal(r.allowOnly.length, 3); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På Ekvägen får fordon parkeras högst 15 minuter klockan 07.30 - 08.30. All övrig tid råder förbud att parkera mot färdriktningen.'));
+  assert.deepEqual(r.allowOnly, []); // a ban against the driving direction only: not a ban on the other hours
+});
+
+test('QA 20 Nov round 2: "vardagar mellan klockan 8-19 och dag före sön- och helgdag 8-15" gives Saturday its own hours (Vaggeryd)', () => {
+  const r = parseRegulation(wrap('På Järnvägsgatan får fordon parkeras under högst 1 timme i följd vardagar mellan klockan 8-19 och dag före sön- och helgdag 8-15.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 480, b: 1140, max: 60 }, { dt: ['fore'], a: 480, b: 900, max: 60 }]);
+});

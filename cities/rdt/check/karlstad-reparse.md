@@ -1,7 +1,7 @@
 # Karlstad: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-20. 1657 segments: 1657 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1645, partly read 11. Verified equal 1214, filled from text 19, text stricter 0, disputed 0, expired 1, text without rules 348, multi-part texts (not compared) 64.
+Fully read 1645, partly read 11. Verified equal 1216, filled from text 19, text stricter 0, disputed 0, expired 1, text without rules 350, multi-part texts (not compared) 60.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -24,4 +24,4 @@ Fully read 1645, partly read 11. Verified equal 1214, filled from text 19, text 
 | 1780 2023-00170 | Knud Dahls gata | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1780 2023-00176 | Kanikenäsgatan | uncertain → {"f":[{"w":5,"a":480,"b":600,"p":"even"}]} | filled from text |
 | 1780 2025-00040 | Hedjämnan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
-| 1780 2026-386 | Geijersgatan | expired 2026-11-20 | now uncertain |
+| 1780 2026-386 | Geijersgatan | expired 2026-11-20 | already uncertain |

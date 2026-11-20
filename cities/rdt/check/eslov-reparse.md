@@ -13,5 +13,5 @@ Fully read 501, partly read 35. Verified equal 420, filled from text 8, text str
 | 1285 2023-80 | Villavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1285 2025-45 | Blomstervägen | uncertain → {"l":[{"a":0,"b":1440,"m":[[4,1],[10,31]],"max":20160}]} | filled from text |
 | 1285 2025-45 | Blomstervägen | uncertain → {"l":[{"a":0,"b":1440,"m":[[4,1],[10,31]],"max":20160}]} | filled from text |
-| 1285 2026-32 | Strövägen | expired 2026-11-20 | now uncertain |
-| 1285 2026-33 | Strövägen | expired 2026-11-20 | now uncertain |
+| 1285 2026-32 | Strövägen | expired 2026-11-20 | already uncertain |
+| 1285 2026-33 | Strövägen | expired 2026-11-20 | already uncertain |

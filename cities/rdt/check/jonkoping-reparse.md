@@ -6,5 +6,5 @@ Fully read 1410, partly read 10. Verified equal 1124, filled from text 1, text s
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0680 2017-861 | Tegnérgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
-| 0680 2026-480 | Lergränd | expired 2026-11-20 | now uncertain |
-| 0680 2026-480 | Lergränd | expired 2026-11-20 | now uncertain |
+| 0680 2026-480 | Lergränd | expired 2026-11-20 | already uncertain |
+| 0680 2026-480 | Lergränd | expired 2026-11-20 | already uncertain |

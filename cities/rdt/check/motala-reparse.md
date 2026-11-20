@@ -22,5 +22,5 @@ Fully read 1022, partly read 15. Verified equal 996, filled from text 17, text s
 | 0583 2025-216 | Vätterpromenaden | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":1440},{"dt":["fore"],"a":540,"b":900,"max":1440}],"v":"rörelsehindrade"} | filled from text |
 | 0583 2025-221 | Buntmakaren | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":900,"max":240}],"v":"rörelsehindrade"} | filled from text |
 | 0583 2025-223 | Drottninggatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
-| 0583 2026-251 | Jungfru Isbergs gata | expired 2026-11-20 | now uncertain |
-| 0583 2026-251 | Jungfru Isbergs gata | expired 2026-11-20 | now uncertain |
+| 0583 2026-251 | Jungfru Isbergs gata | expired 2026-11-20 | already uncertain |
+| 0583 2026-251 | Jungfru Isbergs gata | expired 2026-11-20 | already uncertain |

@@ -1,7 +1,7 @@
 # Skövde: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-20. 1523 segments: 1523 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1494, partly read 28. Verified equal 1430, filled from text 15, text stricter 0, disputed 0, expired 1, text without rules 1, multi-part texts (not compared) 48.
+Fully read 1494, partly read 28. Verified equal 1478, filled from text 15, text stricter 0, disputed 0, expired 1, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -20,4 +20,4 @@ Fully read 1494, partly read 28. Verified equal 1430, filled from text 15, text 
 | 1496 2023-00056 | Åkerholmsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1496 2023-00116 | Sörgårdsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1496 2026-00282 | Stationsgatan | uncertain → {"v":"motorcykel"} | filled from text |
-| 1496 2026-00308 | Alströmersgatan | expired 2026-11-20 | now uncertain |
+| 1496 2026-00308 | Alströmersgatan | expired 2026-11-20 | already uncertain |

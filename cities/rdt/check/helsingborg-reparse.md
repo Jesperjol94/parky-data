@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-20. 3478 segments: 3478 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3402, partly read 71. Verified equal 2901, filled from text 171, text stricter 0, disputed 0, expired 5, text without rules 249, multi-part texts (not compared) 68.
+Fully read 3402, partly read 71. Verified equal 2910, filled from text 171, text stricter 0, disputed 0, expired 5, text without rules 249, multi-part texts (not compared) 59.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -177,7 +177,7 @@ Fully read 3402, partly read 71. Verified equal 2901, filled from text 171, text
 | 1283 2017-188 | Stenkretsgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1283 2017-435 | Bredgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1283 2022-492 | Båthusgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1283 2026-632 | Hamntorget | expired 2026-11-20 | now uncertain |
+| 1283 2026-632 | Hamntorget | expired 2026-11-20 | already uncertain |
 | 1283 2026-649 | Hantverkaregatan | uncertain → {"f":[{"w":4,"nw":2,"a":360,"b":540}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | filled from text |
-| 1283 2026-684 | Drottninggatan | expired 2026-11-20 | now uncertain |
-| 1283 2026-684 | Kronborgsgatan | expired 2026-11-20 | now uncertain |
+| 1283 2026-684 | Drottninggatan | expired 2026-11-20 | already uncertain |
+| 1283 2026-684 | Kronborgsgatan | expired 2026-11-20 | already uncertain |
