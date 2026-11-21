@@ -82,3 +82,8 @@ operative text only.
 - 2026-11-21 wave 12 (`findings/wave12-2026-11-21.jsonl`): 2,000 in the big towns (group 4). 97.7 % correct by lines,
   looser 0.1 %, stricter 1.0 % (Växjö 5.7 %: fee at all hours), grey with a clear text 0.8 % (Västerås residents).
 - Running total: 24,352 regulations in twelve waves (Stockholm 10,419).
+- 2026-11-21 wave 13 (`findings/wave13-2026-11-21.jsonl`): the last 306 of group 4 (the big towns are now read in
+  full) and 1,688 from the rest of the country (66 towns with findings). 94.6 % correct by lines, looser 1.1 %,
+  stricter 1.4 %, grey with a clear text 1.5 %. Outside the big towns the reading is less tuned: more hours and seasons
+  dropped, one-off dates repeated yearly, free first hours not shown.
+- Running total: 26,346 regulations in thirteen waves (Stockholm 10,419).

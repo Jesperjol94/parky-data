@@ -113,6 +113,15 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   price (10 and 2 kr/h). Check the town's Taxa B before changing; same question in Växjö and Norrköping notes.
 - (wave 11) Dates written "15:april" drop the season (Eskilstuna Årbygatan: winter ban shown all year).
 - (wave 11) Stockholm "Parkering är dock tillåten" windows stored in `s` (Rålambsvägen): part of the `s` problem above.
+- (wave 13, rest of the country) A one-off dated ban held as a yearly season with no year (Piteå 20–28 July 2026,
+  Linköping 28 Oct–15 Nov 2024): it comes back every year. Stricter. Carry the year into `fr`/`to`.
+- (wave 13) Hours or seasons dropped so a ban or reservation holds at all times: school-day bans 07/08–16 (Forshaga,
+  school yards), overnight stopping bans 20–02 (Dorotea), "1 maj – 30 november tillåtelse, övrig tid förbjuden"
+  (Sundsvall), seasonal stopping bans, driving-school bays Mon–Fri. Stricter; the largest group outside the big towns.
+- (wave 13) "Avgift behöver inte erläggas de N första timmarna" / free first hour with a parking disc: the app charges
+  from the first minute (several towns). Stricter.
+- (wave 13) Two paragraphs for different spots or sides merged into one line, so the stricter rule shows everywhere.
+- (wave 13) Karlskoga and a few others: texts come through garbled; the line follows the title only (unsure).
 Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov). Stockholm's live data still
 predates it: the city's API answered HTTP 500 on 21 Nov (nightly and a rerun), so the fix reaches the app with the
 next nightly that can fetch. Sweep flags of this kind in Stockholm until then are already fixed.
