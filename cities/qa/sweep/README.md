@@ -55,4 +55,10 @@ operative text only.
   all-day bans at turning areas ("vändplats", "I markerad vändplats … får inte fordon parkeras") whose line holds the
   right ban but carries `ut` (very short lines). Groups 2 and 3 are now read in full. Biggest single fix in the
   findings so far: un-grey those lines (about 330 regulations over waves 2–3).
+- 2026-11-21 wave 4 (`findings/wave4-2026-11-21.jsonl`): 1,000 in Stockholm. 94.8 % correct by lines, looser 0.7 %,
+  stricter 0.9 %, parking disc not shown 3.4 %. Fixed the same day: seasonal motorcycle bays had an open window
+  without hours and answered "reserved" all winter (engine/regulation.js, main PR #8 and expansion/rdt; 37 lines).
+- 2026-11-21 wave 5 (`findings/wave5-2026-11-21.jsonl`): 1,000: the last 330 of group 3 and 670 of the big towns
+  (group 4). 93.2 % correct by lines, looser 0.7 %, stricter 1.4 %, grey with a clear text 3.9 %.
+- Running total 21 Nov: 10,352 regulations read in five waves (Stockholm 3,500).
 
