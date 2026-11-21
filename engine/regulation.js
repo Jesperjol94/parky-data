@@ -435,7 +435,7 @@ export function applyRegulation(seg, rec, today) {
     // the city data sometimes lacks the vehicle ("får endast beskickningsfordon parkeras" with a plain record): reserve the curb
     if (!seg.v) { seg.v = r.reservedFor || 'reserverad'; seg.rx = 1; }
     // "Only motorcycles 1 April – 30 September. Other times vehicles may park": ordinary cars may park outside that season.
-    if (r.otherAllowed && r.reservedSeason) { seg.o = [{ m: complement(r.reservedSeason) }]; seg.rx = 1; }
+    if (r.otherAllowed && r.reservedSeason) { seg.o = [{ a: 0, b: 1440, m: complement(r.reservedSeason) }]; seg.rx = 1; }
     // "Only motorcycles weekdays 07–19 … Other times vehicles may park" (Alströmergatan, owner mail 15 Oct): cars may park outside the reserved hours.
     else if (r.otherAllowed && !seg.o) { const o = outsideHours(r.reservedWindows); if (o) { seg.o = o; seg.rx = 1; } }
     // A ban in the same text (e.g. "Parkering är dock förbjuden fredag klockan 00.00 - 06.00") applies to everyone, reserved spot or not.
