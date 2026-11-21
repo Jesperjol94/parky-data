@@ -75,3 +75,7 @@ operative text only.
 - 2026-11-21 wave 10 (`findings/wave10-2026-11-21.jsonl`): 1,000 in Stockholm and 1,000 in the big towns (group 4).
   96.8 % correct by lines, looser 0.4 %, stricter 1.0 %, grey with a clear text 0.5 %. Stockholm 96.1 %.
 - Running total: 20,352 regulations in ten waves (Stockholm 9,500).
+- 2026-11-21 wave 11 (`findings/wave11-2026-11-21.jsonl`): the last 919 Stockholm regulations of the 20 Nov data and
+  1,081 in the big towns (group 4). 97.5 % correct by lines, looser 0.2 %, stricter 0.4 %. Stockholm 97.1 %.
+  Every Stockholm regulation in the live data has now been read once.
+- Running total: 22,352 regulations in eleven waves (Stockholm 10,419).

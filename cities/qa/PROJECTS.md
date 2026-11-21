@@ -103,6 +103,13 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   cases (taxi, buses) read as open. Settle the rule and apply it both ways.
 - (wave 10, confirmed in the engine) The extra Stockholm servicetid window from 16:00 to 08:00 next day in `s` makes the
   app answer NO on its own (evaluate.js reads `s` as a ban), so those lines are stricter on that evening and night.
+- (wave 11, confirmed in the engine) "1:a helgfria onsdagen": evaluate.js counts the plain n-th weekday (`nw`) and
+  never skips a holiday. First real miss: Wednesday 6 Jan 2027 (Trettondedag jul) gets a ban that belongs to 13 Jan
+  (Jönköping, Örebro). Fix before 6 Jan: a holiday-free flag on the window, read in the engine (app code: beta first).
+- (wave 11) Night fee tables: Linköping 58000201 and 58000103 price every period, Taxa B 22–08 included, at the Taxa A
+  price (10 and 2 kr/h). Check the town's Taxa B before changing; same question in Växjö and Norrköping notes.
+- (wave 11) Dates written "15:april" drop the season (Eskilstuna Årbygatan: winter ban shown all year).
+- (wave 11) Stockholm "Parkering är dock tillåten" windows stored in `s` (Rålambsvägen): part of the `s` problem above.
 Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov). Stockholm's live data still
 predates it: the city's API answered HTTP 500 on 21 Nov (nightly and a rerun), so the fix reaches the app with the
 next nightly that can fetch. Sweep flags of this kind in Stockholm until then are already fixed.
