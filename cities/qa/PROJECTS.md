@@ -21,6 +21,29 @@ No personal data in this file.
 
 ## Queue
 
+### 0. [ ] Findings of the sweeps
+A sweep (`sweep/README.md`) reads thousands of regulations with many readers at once and writes what it finds to
+`sweep/findings/<name>.jsonl`: one line per regulation that a reader did not judge "ok" (verdict loose / strict / grey /
+unsure, what the text says against what the app shows, a pattern, a short quote). A sweep fixes nothing. This project
+turns its findings into fixes. While a findings file has open rows, this project comes first.
+
+One batch:
+1. Take the oldest findings file that is not listed as finished in the log below. Group its rows by pattern (the
+   `pattern` and `what` fields; readers word the same thing differently, so group by meaning). Work the groups in this
+   order: `loose` first (largest group first), then `grey` with `clear: true`, then `strict`, then `unsure`.
+2. Take as many groups as one run can do well (normally 3–6). For each group, read the regulations again yourself
+   against the text (`rdt/texts/<code>.jsonl.gz`, Stockholm: branch main `rdt/rdt.jsonl.gz`): a reader's verdict is a
+   lead, not a decision. Where the reader was wrong, write that in the log and move on.
+3. Fix the confirmed groups as general fixes with a test, exactly as in any project run (parser or pipeline step,
+   never one street), apply, check, and publish under the publish rule. Rows from Stockholm (`"city": "stockholm"`)
+   are fixed the way the weekly three-city check fixes Stockholm: a pull request against `main` with the same guard.
+4. Log line: date, file, which groups (rows each) were confirmed and fixed, which were reader mistakes, how many rows
+   of the file are still open. When every row of a file is fixed, refuted or written up as "cannot be settled from
+   the text", write "finished: <file>" in the log.
+Exit: every findings file is finished and no sweep is scheduled.
+
+Log:
+
 ### 1. [ ] The app allows more than the sign: flagged lines
 The audit's "looser" leads, smallest and most harmful first. One batch per check, in this order:
 `--check limitMissing` (text has "högst N tim", the line has no limit; 189 regulations on 20 Nov),
@@ -35,7 +58,7 @@ Log:
 ### 2. [ ] Read every regulation in the towns where people use the app
 Outside Stockholm, Göteborg and Malmö the live users are few and concentrated, so these towns can be read completely.
 Batches of 240 with `--only`, one group at a time, in this order:
-1. `uppsala,solna,sollentuna,upplands-vasby` (1,875 unread regulations on 20 Nov)
+1. `uppsala,solna,sollentuna,upplands-vasby` (1,875 unread regulations on 20 Nov; read in full by sweep wave 1, 20 Nov)
 2. `nacka,sundbyberg,jarfalla,huddinge,taby,danderyd,lidingo`
 3. `haninge,tyreso,botkyrka,sodertalje,varmdo`
 4. `vasteras,orebro,linkoping,norrkoping,helsingborg,jonkoping,lund,umea,gavle,eskilstuna,karlstad,vaxjo,halmstad,sundsvall`

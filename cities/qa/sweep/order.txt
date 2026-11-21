@@ -1,0 +1,7 @@
+# The order in which sweeps read the national register: one group of municipalities per line, "*" = the rest of the
+# country. Groups 1-3 are the towns around Stockholm and Uppsala where street taps come from (PostHog, Nov 2026).
+uppsala,solna,sollentuna,upplands-vasby
+nacka,sundbyberg,jarfalla,huddinge,taby,danderyd,lidingo
+haninge,tyreso,botkyrka,sodertalje,varmdo
+vasteras,orebro,linkoping,norrkoping,helsingborg,jonkoping,lund,umea,gavle,eskilstuna,karlstad,vaxjo,halmstad,sundsvall
+*
