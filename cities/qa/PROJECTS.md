@@ -62,6 +62,15 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   and night after. Likely from the city's servicetid record; compare with the text before trusting `s`.
 - A date-parking line (`dp`, "datumparkering 02–16") answered FREE on both dates inside the window (Gävle, wave 6):
   check whether this is the both-sides rule in dpDay or a data fault.
+- Stockholm loading zones: the limit in "Övrig tid får fordon parkeras under högst N tim i följd …" after the loading
+  hours is not read, so the app shows unlimited parking outside them (Hans Werthéns gata, Skogsnävegränd,
+  Ångermannagatan, Götalandsvägen, Ester Ellqvists Väg, Mäster Samuelsgatan …). Looser: high priority.
+- A ban for some vehicles only ("cykel och moped klass II", Helsingborg Kungstorget) read as a ban for everyone.
+- n-th weekday bans with "helgfria" ("1:a helgfria onsdagen") are kept as the plain n-th weekday (Jönköping, Örebro).
+- Karlstad: the fee table shows "4 kr/tim" where the text names "taxa 4": check that the price is not the taxa number.
+- A regulation's future end date ("upphör att gälla den 1 december 2026") is not copied to the line's `to` (Stockholm).
+- The engine ignores a window's own `to` (temporary overlays `ov: 2`); harmless while the nightly build drops expired
+  overlays, but the end is at 00:00 of the end date even when the text ends at a clock time.
 Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov).
 
 Exit: every findings file is finished and no sweep is scheduled.
