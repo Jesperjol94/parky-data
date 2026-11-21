@@ -132,6 +132,13 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
 - (wave 14, reading question) "Parkering är dock tillåten under högst N tim …" on a disabled bay: readers differ on
   whether it opens the bay to all cars or limits permit holders. Settle this with the independent reviewer before
   the disabled-bay fix above changes anything; until then the app keeps those bays reserved.
+- (wave 15) Summer-only fees: the season is in the fee table's label ("15 kr/tim 1 juni–31 aug") but not in its
+  periods, so the app charges all year (Vaxholm and about 6 others). Stricter. Skövde (1496): texts say 5 kr/h
+  (40 kr/dygn), the generic table charges 20 kr/h (4 lines). Fix both in the fee tables.
+- (wave 15) "torsdagar som infaller vardagar" read as `vardag` only: a Thursday before a holiday loses its ban
+  (Skellefteå 2482, twice). Looser. It means vardag + fore.
+- (wave 15) A ban sentence at the end of the text not read (a 21–05 stopping ban), and loading-exception hours read as
+  the ban's hours (free at night under an all-day ban). Looser.
 Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov). Stockholm's live data still
 predates it: the city's API answered HTTP 500 on 21 Nov (nightly and a rerun), so the fix reaches the app with the
 next nightly that can fetch. Sweep flags of this kind in Stockholm until then are already fixed.
