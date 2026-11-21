@@ -61,4 +61,6 @@ operative text only.
 - 2026-11-21 wave 5 (`findings/wave5-2026-11-21.jsonl`): 1,000: the last 330 of group 3 and 670 of the big towns
   (group 4). 93.2 % correct by lines, looser 0.7 %, stricter 1.4 %, grey with a clear text 3.9 %.
 - Running total 21 Nov: 10,352 regulations read in five waves (Stockholm 3,500).
+- 2026-11-21 wave 6 (`findings/wave6-2026-11-21.jsonl`): 1,000 in Stockholm and 1,000 in the big towns (group 4).
+  Stockholm's motorcycle-bay flags in this wave were read against data built before main PR #8.
 

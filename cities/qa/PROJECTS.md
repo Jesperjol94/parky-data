@@ -57,6 +57,11 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
 - Järfälla taxa A: fee table "50 kr/dygn" is shown as 50 kr/h (display; check the table's unit).
 - Seasonal fee paragraph not read ("taxa 9 … 1 juni – 31 augusti", Stockholm beach roads: Bredängs Badväg, Flatenvägen,
   Ålstens Skogsväg): FREE in summer where the text charges.
+- Stockholm: an extra street-cleaning window in `s` from the ban day 16:00 to the next day 08:00 beside the text's
+  08–16 ban (Bergviksvägen, Erik Tegels väg, Terriergränd, Bågvägen, Rissnavägen, Kummelvägen …): NO on the evening
+  and night after. Likely from the city's servicetid record; compare with the text before trusting `s`.
+- A date-parking line (`dp`, "datumparkering 02–16") answered FREE on both dates inside the window (Gävle, wave 6):
+  check whether this is the both-sides rule in dpDay or a data fault.
 Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov).
 
 Exit: every findings file is finished and no sweep is scheduled.
