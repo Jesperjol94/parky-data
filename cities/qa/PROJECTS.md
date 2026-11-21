@@ -40,6 +40,25 @@ One batch:
 4. Log line: date, file, which groups (rows each) were confirmed and fixed, which were reader mistakes, how many rows
    of the file are still open. When every row of a file is fixed, refuted or written up as "cannot be settled from
    the text", write "finished: <file>" in the log.
+Leads already grouped by the owner session (21 Nov), largest first; check each against the texts before fixing:
+- Turning-area bans greyed: plain all-day bans "På vändplatsen … får fordon inte (stannas eller) parkeras" / "I markerad
+  vändplats …" whose line holds the right ban but carries `ut` (very short lines). About 330 regulations in Nacka, Täby,
+  Södertälje (waves 2, 3, 5). The rule that greys short lines (rdt-tiny) should spare a line whose regulation is one
+  plain all-day ban or reservation for the whole drawn area.
+- Area-wide ban copied onto a cleaning street (`ov: 1` from rdt-overlay.mjs): an "on all roads in area X" ban is added
+  to a street whose own regulation is a weekly or seasonal ban ("fredag 08–12, 1 nov–15 maj"). A cleaning ban only
+  makes sense where parking is otherwise allowed, so the street is probably an exception to the area ban. About 15
+  readers' flags (Sundbyberg, Nacka, Linköping, Björkhagsvägen, Eriksvägen, Villavägen …). This REMOVES bans: read the
+  area regulation and five street texts first, and get the independent confirmation before publishing.
+- "Parkering är dock tillåten under högst N tim … vardagar 08–21" on a disabled-only bay: the app keeps it reserved
+  at all hours (about 15, Sundbyberg, Danderyd, Stockholm).
+- Overnight fee windows split at midnight charge Monday 00–06 (Haninge taxa C, Södertälje).
+- A temporary ban that ends at a clock time ("… 28 februari 2027 klockan 16:00") ends at midnight before (`to` date).
+- Järfälla taxa A: fee table "50 kr/dygn" is shown as 50 kr/h (display; check the table's unit).
+- Seasonal fee paragraph not read ("taxa 9 … 1 juni – 31 augusti", Stockholm beach roads: Bredängs Badväg, Flatenvägen,
+  Ålstens Skogsväg): FREE in summer where the text charges.
+Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov).
+
 Exit: every findings file is finished and no sweep is scheduled.
 
 Log:
