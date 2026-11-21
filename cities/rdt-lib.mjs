@@ -74,3 +74,19 @@ export function plainWholeRule(s) {
   if (s.v) return !own.length;
   return own.length === 1 && own[0].a === 0 && own[0].b === 1440 && Object.keys(own[0]).every((k) => k === 'a' || k === 'b');
 }
+
+// "Övrig tid är parkering tillåten utan avgift och tidsbegränsning": free outside the fee hours, so the words "utan avgift" there do not
+// make the regulation free of charge (sweep wave 3: Danderyd Brovägen "högst 4 tim i följd mot avgift" was shown free at all hours)
+export const dropOtherTimeFree = (body) => String(body).replace(/(?<![a-zåäö])övrig tid\b[^.]*?\b(?:utan avgift|avgiftsfri)[^.]*/gi, ' ');
+
+// The register put a ban's season on the time limit as well ("får fordon parkeras högst 3 timmar i följd. Parkering är dock förbjuden torsdag
+// klockan 02.00 - 05.00 1 november - 30 april": the line had the 3 h limit in winter only). True when the text's limits carry no season, the
+// line's limits are the same windows with the season of one of the text's bans (sweep wave 2: Järfälla Kopparvägen)
+export function limitSeasonFromBan(text, line) {
+  const tl = text.l || [], ll = line.l || [];
+  if (!tl.length || tl.length !== ll.length || tl.some((w) => w.m) || !ll.every((w) => w.m)) return false;
+  const key = (w) => JSON.stringify([w.w || 0, w.dt || null, w.a, w.b, w.max, w.p || null]);
+  const a = tl.map(key).sort(), b = ll.map(key).sort();
+  if (JSON.stringify(a) !== JSON.stringify(b)) return false;
+  return (text.f || []).some((f) => f.m && ll.every((w) => JSON.stringify(w.m) === JSON.stringify(f.m)));
+}

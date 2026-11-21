@@ -29,3 +29,20 @@ test('a tiny line is kept as fact only when its whole rule is one plain all-day 
   assert.equal(plainWholeRule({ rx: 1, t: 184001, f: [{ a: 0, b: 1440 }] }), false); // a fee
   assert.equal(plainWholeRule({ rx: 1, t: null, fu: 1, v: 'rörelsehindrade' }), false);
 });
+
+test('sweep wave 3: "utan avgift" in an "Övrig tid" sentence does not make a fee regulation free (Danderyd Brovägen)', async () => {
+  const { dropOtherTimeFree } = await import('../rdt-lib.mjs');
+  const body = 'får fordon parkeras under högst 4 tim i följd mot avgift. Avgiftsplikten gäller under tiden vardagar klockan 09.00 - 17.00. Övrig tid är parkering tillåten utan avgift och tidsbegränsning';
+  assert.equal(/utan avgift/.test(dropOtherTimeFree(body)), false); assert.equal(/mot avgift/.test(dropOtherTimeFree(body)), true);
+  assert.equal(/utan avgift/.test(dropOtherTimeFree('På Storgatan får fordon parkeras utan avgift under högst 2 tim i följd.')), true);
+});
+
+test('sweep wave 2: a ban\'s season that the register put on the time limit too (Järfälla Kopparvägen)', async () => {
+  const { limitSeasonFromBan } = await import('../rdt-lib.mjs');
+  const m = [[11, 1], [4, 30]];
+  const text = { l: [{ a: 0, b: 1440, max: 180 }], f: [{ w: 4, a: 120, b: 300, m }] };
+  assert.equal(limitSeasonFromBan(text, { l: [{ a: 0, b: 1440, max: 180, m }], f: [{ w: 4, a: 120, b: 300, m }] }), true);
+  assert.equal(limitSeasonFromBan(text, { l: [{ a: 0, b: 1440, max: 180, m: [[5, 1], [9, 30]] }] }), false); // another season: not the ban's
+  assert.equal(limitSeasonFromBan(text, { l: [{ a: 0, b: 1440, max: 120, m }] }), false); // another limit
+  assert.equal(limitSeasonFromBan({ l: [{ a: 0, b: 1440, max: 180, m }], f: text.f }, { l: [{ a: 0, b: 1440, max: 180, m }] }), false); // the text has the season itself
+});

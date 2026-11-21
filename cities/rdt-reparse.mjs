@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay } from './rdt-lib.mjs';
+import { endDay, dropOtherTimeFree, limitSeasonFromBan } from './rdt-lib.mjs';
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
@@ -33,7 +33,7 @@ const minutesBanned = (ws) => (ws || []).reduce((s, w) => s + (w.b > w.a ? w.b -
 function multiPart(body) {
   const t = dropGeneralRuleQuote(ruleText(body) || '').replace(/\b(?:Vid|Med) (?:hus)?(?:nr|nummer)\.? [\d\s,–-]+ (?:avses|gäller) (?:(?:norra|södra|östra|västra) sidan|hussidan)\.?/gi, '')
   const paras = (t.match(/\b\d{1,2}\s*§/g) || []).length;
-  const places = (t.match(/(?:^|[.;]\s*|\d\s*§\s*)På\s(?!(?:vardag(?:ar)?|dag(?:ar)? före|sön-|helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|övriga ytor|parkeringsskiva|p-skiva|laddplats(?:en|erna)|laddningsplats(?:en|erna)|samtliga gator(?: och vägar)? inom markerat område gäller dock)\b)/g) || []).length + (t.match(/(?:^|[.;]\s*|\d\s*§\s*)Inom\s/g) || []).length; // "På samtliga gator inom markerat område gäller dock förbud …" refers back to the area just named (QA 18 Nov round 37: Örebro Älvtomta 18 lines grey) // also "… 4 § På parkeringsplatsen på de platser …" after a paragraph number (QA 6 Nov: Norrtälje Rimbo, Täby Arninge merged several places' rules) // "På parkeringsskiva eller motsvarande ska klockslaget … ställas in" is how to set the disc, not a place (QA 13 Nov round 20: Täby Marknadsvägen)
+  const places = (t.match(/(?:^|[.;]\s*|\d\s*§\s*)På\s(?!(?:vardag(?:ar)?|dag(?:ar)? före|sön-|helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|övriga ytor|parkeringsskiva|p-skiva|laddplats(?:en|erna)|laddningsplats(?:en|erna)|samtliga gator(?: och vägar)? inom markerat område gäller dock)\b)/g) || []).length + (t.match(/(?:^|[.;]\s*|\d\s*§\s*)Inom\s(?!tidsangivelsen\b)/g) || []).length; // "3 § Inom tidsangivelsen som anges i 2 § skall avgift erläggas" names hours, not a place (sweep wave 3: Haninge Rudsjöterrassen) // "På samtliga gator inom markerat område gäller dock förbud …" refers back to the area just named (QA 18 Nov round 37: Örebro Älvtomta 18 lines grey) // also "… 4 § På parkeringsplatsen på de platser …" after a paragraph number (QA 6 Nov: Norrtälje Rimbo, Täby Arninge merged several places' rules) // "På parkeringsskiva eller motsvarande ska klockslaget … ställas in" is how to set the disc, not a place (QA 13 Nov round 20: Täby Marknadsvägen)
   const sides = new Set((t.match(/(?<![a-zåäö])((?:syd|nord)?(?:östra|västra)|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size; // not \b: it is ASCII-only, so "\böstra" never matched after a space (and matched inside "sydöstra")
   void paras; // "1 § place, 2 § hours, 3 § fee" is one place in several paragraphs: only several places or sides make a text multi-part (18 Oct review)
   // several sides in one sentence with one rule ("västra sida …, norra sida … samt östra sida … får fordon parkeras") are one rule set (QA 22 Oct)
@@ -154,7 +154,7 @@ for (const row of idx.cities) {
       // upphöra att gälla") is not a fee here (QA 17 Nov round 32: Växjö Trädgårdsgatan 5 min bay drawn "fee – see the sign")
       const feeBody = dropRepealSentences(body);
       if (s.fu && !s.t && /avgift/i.test(body) && !/avgift/i.test(feeBody)) { delete s.fu; s.t = 0; changed++; st.feeRepealOnly = (st.feeRepealOnly || 0) + 1; }
-      if (!s.t && /avgift/i.test(feeBody) && !/utan avgift|avgiftsfri|ingen avgift|avgift(?:en)? (?:ska|skall|behöver) (?:inte|ej)(?! (?:erläggas|betalas) av (?:rörelsehindrad|boende))/i.test(dropFreeFirstHours(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, '')))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; } // "Första två timmarna är avgiftsfria med e-biljett" is a discount, not free parking (QA 13 Nov round 21: Huddinge Sjödalsvägen)
+      if (!s.t && /avgift/i.test(feeBody) && !/utan avgift|avgiftsfri|ingen avgift|avgift(?:en)? (?:ska|skall|behöver) (?:inte|ej)(?! (?:erläggas|betalas) av (?:rörelsehindrad|boende))/i.test(dropOtherTimeFree(dropFreeFirstHours(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, ''))))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; } // "Första två timmarna är avgiftsfria med e-biljett" is a discount, not free parking (QA 13 Nov round 21: Huddinge Sjödalsvägen)
       // The register drew "vardagar, utom (vardag|dag) före sön- och helgdag" as Saturdays only (it read the day after "utom"): when the
       // text names that day type only after "utom", the rule is for ordinary weekdays (Mon–Fri). A weekday before "utom" ("tisdagar, utom …")
       // can't be drawn from the register's day types, so the line goes grey (QA 19 Nov round 40: Sandviken Skogsfruvägen, Timrå, Härnösand)
@@ -291,6 +291,7 @@ for (const row of idx.cities) {
       const keys = (ws) => new Set((ws || []).flatMap((w) => ['p', 'm', 'dd', 'nw', 'dm', 'dt', 'wk'].filter((k) => w[k] != null)));
       const noLoss = (a, b) => [...keys(b)].every((k) => keys(a).has(k)); // the text's windows must keep every condition the register had (QA 8 Nov: Askersund would have lost a season)
       if (APPLY && (cond(t.f) !== cond(cur.f) || cond(t.l) !== cond(cur.l)) && noLoss(t.f, cur.f) && noLoss(t.l, cur.l) && JSON.stringify([t.f, t.l]).match(/"(?:p|m|dd|nw|dm|dt|wk)":/)) { put(); st.precise = (st.precise || 0) + 1; }
+      if (APPLY && limitSeasonFromBan(t, cur)) { put(); st.limitSeason = (st.limitSeason || 0) + 1; } // the register put the ban's season on the limit too: the limit holds all year (sweep wave 2: Järfälla Kopparvägen)
       if (APPLY && t.dp && t.dp.length && !(cur.dp && cur.dp.length)) { put(); st.dpAdded = (st.dpAdded || 0) + 1; } // the comparison samples one week without date parking: a text that defers to the datumparkering rules adds it (QA 8 Nov: Gävle, 4 of 480)
       if (cur.v === 'personbil' && APPLY) { delete s.v; s.rx = 1; changed++; }
       if (APPLY && pelleV && pelleV === textV && t.l && !cur.l) { s.l = t.l; s.rx = 1; changed++; st.reservedLimit = (st.reservedLimit || 0) + 1; } // a reserved bay's own "högst N" from the text: the register had the bay but not its limit (QA 16 Nov round 30: Tyresö Regnbågsgatan bus bay 30 min)

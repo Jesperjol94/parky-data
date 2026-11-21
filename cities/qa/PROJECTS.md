@@ -76,7 +76,7 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   (Linköping S:t Larsgatan, Västerås, Växjö, Helsingborg, Danderyd). Looser.
 - A permission for one vehicle type read as a rule for every car ("får buss parkeras högst 5 min", motorcycle-only
   summer season turned into a summer ban for everyone; Helsingborg/Örebro "får endast personbilar parkeras" as a ban).
-- Växjö fee texts with fee hours given but `t` null + `fu`: PAID at all hours (Norra Esplanaden and others). Stricter.
+- (fixed 21 Nov batch 2, see the log) Växjö fee texts with fee hours given but `t` null + `fu`: PAID at all hours (Norra Esplanaden and others). Stricter.
   Measured 21 Nov: 47 lines of 27 regulations in cities/rdt/vaxjo.json; old texts "parkeras högst N dygn i följd mot
   avgift, zon X, vardagar kl 09–18 samt dag före helgdag kl 09–14" (the hours go to the limit only). Confirmed in
   waves 9–12 about 15 times: high priority.
@@ -90,7 +90,7 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   (about 7). Same family as the turning-area fix: extend that rule to plain all-day bans on marked areas.
 - (wave 9) Västerås: "får endast fordon som används av boende i området med särskilt tillstånd parkeras" with fee
   hours is grey (6). The text says nothing about other hours; decide whether that is "reserved" or stays grey.
-- (wave 9) Vehicle words: "får taxi i tjänst parkeras" read as open to all (Växjö, looser); "gäller endast lätt
+- (taxi, emergency vehicles, buses in regular service, chargeable cars and "Tillåtelsen gäller buss" fixed 21 Nov batch 2; the Västerås truck case is open) (wave 9) Vehicle words: "får taxi i tjänst parkeras" read as open to all (Växjö, looser); "gäller endast lätt
   lastbil och personbil" read as reserved for trucks (Västerås, stricter); "Tillåtelsen gäller buss" in its own
   paragraph not read (Sundsvall, looser).
 - (wave 9) Växjö "utom dag före helgdag och helgdag" read as adding helgdag (stricter); Stockholm fee "taxa 10 kr/tim"
@@ -126,7 +126,7 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   the text allows free parking (Hudiksvall, several). Stricter.
 - (wave 14) Per-day fees shown as per hour ("20 kr/dygn" answered 20 kr/h: Ystad, Järfälla and others). Fix in the
   fee-table unit for every town at once.
-- (wave 14) Spots for one purpose shown open to all cars: "får laddbara fordon parkeras", "resande med tåg eller buss",
+- ("laddbara fordon" fixed 21 Nov batch 2; "resande med tåg eller buss" and "endast släpvagnar" open) (wave 14) Spots for one purpose shown open to all cars: "får laddbara fordon parkeras", "resande med tåg eller buss",
   motorcycle-only, "endast släpvagnar". Looser: high priority.
 - (wave 14) "enligt taxa N får fordon parkeras" not read as a fee (shown free; Lidköping and others). Looser.
 - (wave 14, reading question) "Parkering är dock tillåten under högst N tim …" on a disabled bay: readers differ on
@@ -175,6 +175,36 @@ Log:
   "Stannande- och parkeringsförbud gäller dock …", Sollentuna 2018-440 utryckningsfordon, Uppsala 2019-646 bicycle garage shown as car
   parking, Solna "uddda veckor", Solna overnight fee hours per day type 2015-00049/-00055, Uppsala 2014-00032/2011-00021 fee days) and
   the grey Solna fee-plus-cleaning lines that are tiny. Next batch: these singles, then wave 2's loose rows.
+- 2026-11-21 batch 2 · `wave1-2026-11-20.jsonl` singles, the loose rows of waves 2–3 and the same shapes in waves 9–14 · every row read again
+  against its text; confirmed and fixed (parser, each with a test; 95 lines of 77 regulations in 33 municipalities changed):
+  (1) a place followed straight by "parkeras" has lost "får fordon" ("På den del av X som anges i kartan parkeras under högst 4 tim"): 20 texts
+  now read (Uppsala, Nacka Kvarnholmsvägen, Burlöv, Vadstena, Kumla); with "Tillåtelsen gäller 1 april - 31 oktober. Övrig tid får fordon inte
+  parkeras" the rest of the year is banned (Uppsala Eriksbergsvägen, Söderhamn ×2 were free in winter). (2) "Parkeringsförbud övrig tid" /
+  "Parkeringsförbud gäller övrig tid" / "Stannande- och parkeringsförbud gäller dock måndagar - fredagar …" (Täby Djursholmsvägen free 22–07,
+  Nacka Diligensvägen free outside Wednesdays, Upplands Väsby 2023-2 had the ban hours as fee hours). (3) a permission for one kind of vehicle
+  without "endast" is a bay for it: "får utryckningsfordon / taxi i tjänst / taxifordon / buss i linjetrafik / laddbara fordon parkeras",
+  "Tillåtelsen gäller buss i linjetrafik", "Gäller alla bussar …" (Sollentuna Tingsvägen, Växjö Drottninggatan, Eslöv, Sundsvall Hamngatan, Värmdö,
+  Alvesta gave every car the bay's limit; 6 grey lines became reserved). (4) a plain stopping ban "får inte fordon stannas." and "råder förbud mot
+  att stanna eller parkera fordon" were never read (about 280 texts; nearly all lines already held the ban from the register, now verified), and
+  "Förbudet gäller inte vid taxi i tjänst / för skolbuss och taxi / ej buss i linjetrafik" is an exemption: 10 lines the register showed as
+  taxi-only at all hours now show the text's ban hours (Bräcke, Kristianstad ×3, Landskrona ×3, Markaryd, Mjölby, Solna). (5) second hour range
+  keeps the weekdays of the first ("måndag - fredag 08-10 och 15-17", "klockan 7-10 samt 15-18": Upplands Väsby Ryttargatan, Lidingö Kalvhagsvägen,
+  Södertälje Högåsavägen, Herrljunga). (6) hours first with their day types after a comma ("klockan 18.00 - 07.00, vardag utom …, klockan 00.00 -
+  24.00, vardag före … och sön- och helgdag": Solna night-fee streets ×7 charged Mon–Fri around the clock). (7) Växjö "mot avgift, zon 2, vardagar
+  utom dag före helgdag kl 09-18 samt dag före helgdag kl 09-14": the fee hours (19 texts, the lead above; fee "see the sign" in those hours,
+  free outside). (8) small shapes: "uddda veckor", "högst15 min", "Övrig tid är parkeringen tillåten under högst 5 minuter" (Uppsala Götgatan),
+  limit hours keep the day type the limit was stated with (Upplands Väsby Holmvägen, Hässleholm), "Övrig tid är parkering tillåten utan avgift och
+  tidsbegränsning" (Danderyd Brovägen: fee and limit 09–17 only; it was shown free), a ban's season the register had put on the limit too
+  (Järfälla Kopparvägen, Botkyrka Lagmansbacken ×6: `limitSeasonFromBan` in rdt-lib), Haninge Rudsjöterrassen bus bay.
+  Reader mistakes or already right: Danderyd 2003-1860/-1862 (ban and limit both on the line), Täby 2015-00165 (fixed in batch 1), Solna 2022-2
+  (parking is banned at all hours as the text says; one stopping flag per line). Cannot be settled from the text: Uppsala 2014-00032 / 2011-00021
+  (fee days not named), Nacka 2025-00118 (text cut off). Still open in waves 1–3: Uppsala 2019-646 bicycle garage shown as car parking, Solna
+  2020-00763 (fee 19–07 only, two fee tables in one sentence), Haninge 2026-319 (fee by named weekday: the fee table has no weekdays),
+  Örnsköldsvik 2284 2026-00094, Alvesta 0764 2016-19 "resande med tåg eller buss", Täby multi-part 2021-00137 / 2022-98, Danderyd 2001-1310,
+  and motorhome bays whose "högst N tim" hours are read as the hours the bay is reserved (Varberg 1383 2014-00190, grey: a first try gave 49
+  bays a limit and broke the 20 Nov caravan test, taken out). Independent check: 60 changed lines (every one that lost or narrowed a ban, limit,
+  fee or reservation), 59 confirmed; the one not confirmed (Varberg, an open-hours flap on a grey line, not from this batch) was restored.
+  Next batch: the open rows above, then the strict and grey-clear rows of waves 2–3.
 
 ### 1. [ ] The app allows more than the sign: flagged lines
 The audit's "looser" leads, smallest and most harmful first. One batch per check, in this order:
