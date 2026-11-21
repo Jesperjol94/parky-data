@@ -96,7 +96,7 @@ Log:
   inte vid lastning och lossning (av gods)" / "för på- och avstigning" is an exemption, not an unread rule: Solna Gustav III:s boulevard
   "vardag" 09–12 now Saturdays too, Danderyd Studievägen and Skolgårdsvägen get their 07.30–08.30 stopping ban. (6) Stockholm loading
   zones, "Övrig tid får fordon parkeras under högst N tim" (5 loose rows here, the lead above): read as a limit outside the loading hours
-  (13 Stockholm texts, Västerås Västra Ringvägen in the register); in main PR, NOT merged yet (see DAILY.md).
+  (13 Stockholm texts, Västerås Västra Ringvägen in the register); in main PR #9, NOT merged yet (see DAILY.md).
   Reader mistakes: 17 Uppsala rows "PAID at every hour" (fee tables 380xxxxx hold Mon–Sat 08–24 and the app is free outside them: the
   sheet tool had not loaded the table); 9 Stockholm motorcycle-season rows were fixed by main PR #8 before this run.
   Cannot be fixed here (told the owner 21 Nov, do not repeat): Stockholm's build ignores the fee hours the parser reads (taxa 9 beach
