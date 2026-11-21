@@ -98,3 +98,6 @@ operative text only.
 - 2026-11-21 wave 17 (`findings/wave17-2026-11-21.jsonl`): 2,000 from the rest of the country (stopped halfway by
   the usage limit and finished one reader at a time, reading 50 regulations per slice).
 - Running total: 34,346 regulations in seventeen waves (Stockholm 10,419).
+- 2026-11-21 wave 18 (`findings/wave18-2026-11-21.jsonl`): 2,000 from the rest of the country, one reader at a time
+  (slices of 50).
+- Running total: 36,346 regulations in eighteen waves (Stockholm 10,419).
