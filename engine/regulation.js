@@ -271,6 +271,7 @@ const IGNORE = [
   /^Uppställning av fordon sker/i, /^Tillåtelsen ger inte rätt/i, /^Föreskrifterna gäller/i, /^Bestämmelsen gäller/i, /^Detta gäller/i, /^Undantag(?![^.]*(?:klockan|kl\b|\d[.:]?\d* (?:och|-|–) \d|förbud))/i /* not "Undantag från §1 på vardagar … mellan klockan 02 och 04 då parkeringsförbud gäller": a ban (QA 12 Nov round 18: Nynäshamn) */,
   /^Förbudet ger inte rätt/i, /^Parkering (?:ska|skall) ske vinkelrätt|^Parkering sker vinkelrätt/i /* how to stand, no rule (Täby) */, /^För parkering på [^.]* ska avgift erläggas/i /* the fee's season; the fee itself is in the data (Vaxholm) */, /gäller (?:inte|ej) (?:på )?enskild väg/i, /^Tiden, avrundad/i, /anges med parkeringsskiva/i, /^Förbudet gäller alla fordon/i, /^Förbudet gäller om inte annat/i, /gäller inte fordon i linjetrafik/i,
   /^Förbudet gäller (?:inte|ej) (?:heller )?(?:för )?(?:leveransfordon|behörig trafik)\b(?:[^.]|\.(?=\d))*\.?$/i, // exemptions for delivery vehicles / authorised traffic, not for cars (QA 18 Nov round 36: Halmstad innerstad summer ban stayed unread)
+  /^Förbudet gäller (?:inte|ej) (?:vid|för) (?:lastning (?:och|eller) lossning(?: av gods)?|(?:på|av)- (?:och|eller) (?:av|på)stigning)\.?$/i, // an exemption for loading or for letting passengers off changes nothing for parking (sweep wave 1: Solna Gustav III:s boulevard kept the register's Mon–Fri where the text bans "vardag", Saturdays too)
   /^Förbudet gäller inte där parkering är tillåten enligt/i, /^Se /i, /^Övrig tid se parkering\.?$/i /* a pointer to the sign (QA 10 Nov: Vimmerby) */, /^Tillåtelsen gäller (?:endast )?på särskilt anordnade? parkeringsplats(?:er)?\.?$/i, /\bboendeparkering\b[^.]*(?:tillåte?n?|villkor|bestämmelser)/i, /^särskilda (?:villkor|bestämmelser)/i, /^förbudet gäller (?:inte|ej) fordon med (?:särskilt )?tillstånd/i, /^förbudet gäller (?:inte|ej) [^.]{0,40}\bpersonal(?:en|s)?\b/i, /^första (?:timmen|halvtimmen|(?:två|tre|fyra|\d+) timmarna) är avgiftsfria?/i /* free first hours: a fee detail, no rule (QA 13 Nov round 21: Huddinge Sjödalsvägen) */, /^förbuden i [^.]*ger (?:inte|ej) rätt/i, /^följande (?:gator|vägar) ingår/i, /^om inte annat föreskrivits/i, /^övrig tid får parkering ske utan/i, /^föreskriften träder i kraft/i, /^i området ingår även/i, /^förbudet gäller endast på allmänna platser/i, /^förbudet gäller (?:inte|ej) (?:på )?markerade platser/i, /^förbudet gäller (?:inte|ej) om annat/i, /^\S+ taxa\b[^.]*biljett/i, /^taxa\s*[-–]/i, /^vid parkering enligt \d+\s*§/i, /^\S+ kommuns lokala trafikföreskrifter om\b/i, /^tillåtelsen gäller endast personbil(?:ar)?\.?$/i, /^parkering (?:är )?endast tillåte[nt] för (?:fordon|personbil(?:ar)?) klass (?:I|1)\.?$/i, /^på parkeringsskiva/i, /^vid använ-?dande av parkeringsskiva får parkering ske\b/i /* rounding to the next half hour: no rule (QA 5 Nov: Lomma, Danderyd) */, /^samtliga koordinater/i, /^zon\.?$/i, /^förbudet gäller på (?:gatans|vägens) båda sidor/i, /^tillåtelsen gäller följande sidor\.?$/i, /^(?:med (?:hus)?nr\.? \d+\s*[-–]\s*\d+ gäller (?:\S+ )?\S*sidan?\.?\s*)+$/i /* which side by house number: placement only (QA 8 Nov round 7: Täby Åkerbyvägen lost its night ban) */, /^förbudet gäller (?:inte|ej) (?:för )?(?:skolskjuts|vid på- eller avlastning|vid av- och pålastning)/i, /^avvikelsen avser även/i, /^trf \(/i, /^allmänna lokala trafikföreskrifter\b/i, /^(?:röd|blå|grön|gul|vit|lila) taxa\.?$/i, /^förbudet gäller (?:endast )?(?:under )?skoldagar\.?$/i, /^boende(?:parkering)? zon \S+\.?$/i, /(?:inte|ej) parkeras annat än (?:på|inom) (?:särskilt )?(?:markerad|anordnad)/i, /^vid parkering ska(?:ll)? fordon uppställas/i, /^förbudet gäller (?:inte|ej) (?:inom|på) särskilt (?:anordnad|markerad)/i, /nämnden\b(?![^.]*(?:får|parkeras|gäller|förbjud))/i, /\btaxa\b[^.]*boendeparkering[^.]*gäller/i, /^Instruktioner på parkeringsmätare/i, /^villkor för boendeparkering gäller/i, /^tillåtelsen gäller endast (?:\w+ )?(?:särskilt )?(?:markerade|anvisade|uppmärkta) platser\.?$/i, /^camping är (?:inte|ej) tillåte[nt]/i, /^Digital registrering/i, /^Den första timmen/i, /^För parkering inom .* tas avgift/i,
   /årligen återkommande/i, /^(?:Författningen|Föreskriften|Denna författning) (?:ersätter|upphäver)/i, /^Denna föreskrift gäller ej där annat/i, /^Tillåtelsen (?:att parkera )?gäller dock mot avgift/i, /^Parkeringsregler för boendeparkering/i, /^Om förbud att parkera fordon är föreskriven viss tid på plats för boendeparkering/i, /^Tillåtelsen gäller även/i, /boendeparkeringskort|boendeparkeringstillstånd/i, /^Avgift(?:en)?\b/i, /behöver inte erläggas/i, /^Fordonet ska vara försett/i, /^Tillstånd(?:et)? /i,
   /^(?:Parkering|Uppställning) får (?:endast )?ske (?:i|på) (?:markerade|anvisade)/i, /ska ha (?:ett )?giltigt parkeringstillstånd/i,
@@ -512,7 +513,7 @@ export function parseRegulation(body) {
       if (!lastAllow && lastBan && !lastBan.items.some((b) => b.w || b.m || b.p || b.dm || b.nw || b.dd)) { const o = outsideHours(lastBan.items); if (o && o.length) { out.bans.push(...o); continue; } } // a stopping ban at set hours, "Övrig tid får fordon inte parkeras" (Huddinge): no parking at other times either
       // after a time-limited permission with set hours and no "Tillåtelsen gäller …" ("… högst 1 tim i följd. Tidsbegränsningen gäller vardag …
       // 10.00 - 14.00. Övrig tid får fordon inte parkeras."): no parking outside the limit's hours (QA 30 Oct: Danderyd, Täby showed free parking)
-      if (!lastAllow && lastLimit && !lastLimit.items.some((w) => w.w || w.m || w.p || w.wk || w.dm || w.nw || w.dd || !(w.a < w.b))) { const o = outsideHours(lastLimit.items); if (o && o.length) { out.bans.push(...o); lastBan = { items: o, provisional: false }; continue; } }
+      if (!lastAllow && lastLimit && !lastLimit.items.some((w) => w.m || w.p || w.wk || w.dm || w.nw || w.dd || !(w.a < w.b))) { const o = outsideHoursW(lastLimit.items); /* also a limit on named weekdays ("Tidsbegränsningen gäller måndag - fredag 07-17. Övrig tid råder parkeringsförbud": sweep wave 1, Solna Kristinelundsvägen was free at night) */ if (o && o.length) { out.bans.push(...o); lastBan = { items: o, provisional: false }; continue; } }
       // "… får endast personbil klass II parkeras mellan klockan 09.00 - 20.00. Övrig tid får fordon inte parkeras." (Halmstad): banned outside the reserved hours
       if (!lastAllow && !lastLimit && out.reserved && out.reservedWindows.length && !out.reservedWindows.some((w) => w.w || w.m || w.p || w.wk || w.dm || w.nw || w.dd || !(w.a < w.b))) { const o = outsideHours(out.reservedWindows); if (o && o.length) { out.bans.push(...o); lastBan = { items: o, provisional: false }; continue; } }
       if (!lastAllow && !lastLimit && permitSeason && !windows(s).length) { const items = [{ a: 0, b: 1440, m: complement(permitSeason) }]; out.bans.push(...items); lastBan = { items, provisional: false }; continue; } // "… parkeras 15 april – 15 oktober. Övrig tid får fordon inte parkeras": banned the rest of the year (Knivsta, Karlskoga)
@@ -532,6 +533,9 @@ export function parseRegulation(body) {
       const d = duration(s);
       if (d) { // "Övrig tid får fordon parkeras under högst 4 tim i följd": a limit in the hours outside the limit just stated
         let o = lastLimit ? outsideHours(lastLimit.items) : null;
+        // "… ska vara ändamålsplats för lastning … vardagar 07.00 - 19.00. Övrig tid får fordon parkeras under högst 3 tim i följd.": the limit holds
+        // outside the loading hours (sweep waves 1–8: Stockholm Perstorpsvägen, Mäster Samuelsgatan, Trollesundsvägen showed no limit)
+        if (!lastLimit && !lastAllow && out.purpose.length && !out.reserved && !windows(s).length && !/vardag|helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag/.test(x)) o = outsideHoursW(out.purpose);
         // "Tillåtelsen gäller under tiden vardag … 18.00 – 07.00 … Övrig tid är parkering tillåten under högst 5 minuter i följd": the limit holds outside the permission's hours (QA 9 Nov: Uppsala S:t Johannesgatan)
         if (!lastLimit && lastAllow && tillWs.length && lastAllow.every((w) => tillWs.includes(w) && !w.w && !w.m && !w.p && !w.wk && !w.dm && !w.nw && !w.dd)) o = outsideHours(lastAllow);
         // a limit in a season ("… högst 20 min i följd. Tidsbegränsningen gäller under tiden 15 augusti - 15 juni. Övrig tid får fordon parkeras
@@ -782,6 +786,20 @@ export function outsideHours(ws) {
     if (at < 1440) gaps.set(`${at}-1440`, [...(gaps.get(`${at}-1440`) || []), D]);
   }
   return [...gaps].map(([k, dt]) => { const [a, b] = k.split('-').map(Number); return { dt, a, b }; });
+}
+// outsideHours, also for windows on named weekdays only ("måndag - fredag 07-17", "onsdag 07-15"): the gaps of each named weekday and
+// the whole of the other weekdays, as weekday windows. null when weekdays and day types are mixed or a window has other conditions.
+export function outsideHoursW(ws) {
+  const o = outsideHours(ws); if (o) return o;
+  if (!ws.length || ws.some((w) => !w.w || w.dt || w.m || w.p || w.wk || w.dm || w.nw || w.dd || w.a == null || w.b == null)) return null;
+  const out = [];
+  for (let d = 1; d <= 7; d++) {
+    const iv = ws.filter((w) => w.w === d).flatMap((w) => (w.a > w.b ? [[w.a, 1440], [0, w.b]] : [[w.a, w.b]])).sort((x, y) => x[0] - y[0]);
+    let at = 0;
+    for (const [a, b] of iv) { if (a > at) out.push({ w: d, a: at, b: a }); at = Math.max(at, b); }
+    if (at < 1440) out.push({ w: d, a: at, b: 1440 });
+  }
+  return out;
 }
 const complement = (m) => [nextDay(m[1]), prevDay(m[0])];
 

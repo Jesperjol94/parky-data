@@ -1,7 +1,7 @@
 # Salem: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-20. 151 segments: 151 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 149, partly read 2. Verified equal 137, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-11-21. 151 segments: 151 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 149, partly read 2. Verified equal 143, filled from text 5, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,10 +9,4 @@ Fully read 149, partly read 2. Verified equal 137, filled from text 11, text str
 | 0128 2010-00097 | Söderby torg | uncertain → {"l":[{"a":0,"b":1440,"max":60}]} | filled from text |
 | 0128 2010-00097 | Söderby torg | uncertain → {"l":[{"a":0,"b":1440,"max":60}]} | filled from text |
 | 0128 2010-00124 | Säby torg | uncertain → {"l":[{"a":0,"b":1440,"max":5}]} | filled from text |
-| 0128 2010-00126 | Säby torg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0128 2010-00128 | Säby torg | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0128 2010-00167 | Tvillingvägen | uncertain → {"l":[{"dt":["vardag","fore"],"a":0,"b":1440,"max":1440}],"v":"rörelsehindrade"} | filled from text |
-| 0128 2010-00175 | Täppvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0128 2010-00183 | Vårstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0128 2010-00184 | Vårstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0128 2010-00189 | Åstorpsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

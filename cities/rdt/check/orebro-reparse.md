@@ -1,15 +1,14 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-20. 2594 segments: 2594 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2571, partly read 23. Verified equal 2542, filled from text 8, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 20.
+Run 2026-11-21. 2594 segments: 2594 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2569, partly read 23. Verified equal 2546, filled from text 5, text stricter 0, disputed 0, expired 2, text without rules 1, multi-part texts (not compared) 17.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1880 2011-00380 | Brickebacken | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1880 2018-00975 | Lindrothsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1880 2020-00506 | Gustavsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1880 2025-00217 | Engelbrektsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"odd"}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":1200,"max":180},{"dt":["helgdag"],"a":480,"b":840,"max":180}]} | filled from text |
 | 1880 2025-00218 | Engelbrektsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1880 2025-00256 | Slottsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"even"}],"l":[{"dt":["vardag"],"a":360,"b":1320,"max":180},{"dt":["fore"],"a":360,"b":1320,"max":180},{"dt":["helgdag"],"a":360,"b":1320,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1880 2025-00675 | Honolulugatan | uncertain → {"f":[{"w":4,"a":0,"b":540}]} | filled from text |
 | 1880 2026-00769 | Rostagatan | uncertain → {"f":[{"w":2,"a":0,"b":540}]} | filled from text |
+| 1880 2026-01296 | Malmgatan | expired 2026-11-21 | already uncertain |
+| 1880 2026-01337 | Bondegatan | expired 2026-11-21 | already uncertain |

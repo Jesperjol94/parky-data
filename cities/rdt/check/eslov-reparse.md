@@ -1,17 +1,11 @@
 # Eslöv: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-20. 538 segments: 538 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 501, partly read 35. Verified equal 420, filled from text 8, text stricter 0, disputed 0, expired 2, text without rules 73, multi-part texts (not compared) 0.
+Run 2026-11-21. 536 segments: 536 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 501, partly read 35. Verified equal 424, filled from text 4, text stricter 0, disputed 0, expired 0, text without rules 73, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1285 2010-0072 | Greve Duckers väg | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1285 2021-76 | del av Kanalgatan | uncertain → {"f":[{"a":300,"b":480,"w":2,"nw":1}]} | filled from text |
 | 1285 2021-90 | Bäckavägen | uncertain → {"f":[{"a":480,"b":720,"w":2,"nw":1}]} | filled from text |
-| 1285 2023-35 | Södergatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1285 2023-80 | Skolgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1285 2023-80 | Villavägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1285 2025-45 | Blomstervägen | uncertain → {"l":[{"a":0,"b":1440,"m":[[4,1],[10,31]],"max":20160}]} | filled from text |
 | 1285 2025-45 | Blomstervägen | uncertain → {"l":[{"a":0,"b":1440,"m":[[4,1],[10,31]],"max":20160}]} | filled from text |
-| 1285 2026-32 | Strövägen | expired 2026-11-20 | already uncertain |
-| 1285 2026-33 | Strövägen | expired 2026-11-20 | already uncertain |

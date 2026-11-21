@@ -49,3 +49,28 @@ export const DROP_CITATIONS = {
   '0162 2016-00023': 'no parking at all turning areas (vändplaner) "enligt kartbild": the export maps it to 687 whole streets of Danderyd, 373 m on average',
   '0162 2013-00361': 'no stopping or parking "i terräng" (off-road public land): the export maps it to 30 Danderyd streets',
 };
+
+// The line's last day. The register gives the end date as a day, and the app treats that day as already over. A regulation that
+// "upphör att gälla den 27 november 2026 klockan 16:00" still holds for most of that day, so its end is the day after (the ban shows
+// to midnight rather than ending at 00:00 with 16 hours to go: sweep wave 1, Uppsala Geijersgatan and three more roadworks bans).
+const MONTH_NO = { januari: 1, februari: 2, mars: 3, april: 4, maj: 5, juni: 6, juli: 7, augusti: 8, september: 9, oktober: 10, november: 11, december: 12 };
+export function endDay(rec) {
+  const to = rec && rec.to && /^\d{4}-\d{2}-\d{2}$/.test(rec.to) ? rec.to : null;
+  if (!to) return null;
+  const m = String(rec.body || '').replace(/\s+/g, ' ').match(/upphör(?:a)? att gälla (?:den )?(\d{1,2}) (januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december) (20\d\d),? (?:klockan|kl\.?) ?(\d{1,2})[.:](\d{2})/i);
+  if (!m || (+m[4] === 0 && +m[5] === 0)) return to;
+  if (`${m[3]}-${String(MONTH_NO[m[2].toLowerCase()]).padStart(2, '0')}-${m[1].padStart(2, '0')}` !== to) return to;
+  const d = new Date(`${to}T12:00:00Z`); d.setUTCDate(d.getUTCDate() + 1);
+  return d.toISOString().slice(0, 10);
+}
+
+// A line whose whole rule, read from its regulation's text, is one plain all-day ban ("På vändplatsen … får fordon inte parkeras") or one
+// plain reservation (a disabled bay): nothing about hours, days, seasons, limits or fees that a point-sized drawing could misplace.
+// rdt-tiny.mjs keeps such a line as fact instead of greying it (sweep waves 1–5: about 330 turning-area bans in Nacka, Täby and
+// Södertälje were read right but shown as "check the sign").
+export function plainWholeRule(s) {
+  if (!s.rx || s.ux || s.ex || s.l || s.aw || s.k || s.dp || s.o || s.t || s.fu || s.hv) return false;
+  const own = (s.f || []).filter((w) => !w.ov);
+  if (s.v) return !own.length;
+  return own.length === 1 && own[0].a === 0 && own[0].b === 1440 && Object.keys(own[0]).every((k) => k === 'a' || k === 'b');
+}

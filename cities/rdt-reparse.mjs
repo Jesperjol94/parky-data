@@ -14,6 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
+import { endDay } from './rdt-lib.mjs';
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
@@ -134,7 +135,7 @@ for (const row of idx.cities) {
     if (rec.err || !rec.body) { st.err++; continue; }
     st.withText++;
     const periodEnd = datedPeriodEnd(rec.body); // a temporary rule whose dated periods have all ended (QA 14 Nov round 24)
-    if (expired(rec, today) || (periodEnd && periodEnd < today)) {
+    if ((endDay(rec) !== rec.to ? endDay(rec) <= today : expired(rec, today)) || (periodEnd && periodEnd < today)) {
       st.expired++;
       lines.push(`| ${s.c} | ${s.n} | expired ${rec.to || periodEnd} | ${s.u ? 'already uncertain' : 'now uncertain'} |`);
       if (APPLY && !s.u) { s.u = 1; s.ex = 1; changed++; }
@@ -145,7 +146,7 @@ for (const row of idx.cities) {
       const body = rec.body.replace(/\s+/g, ' ').replace(/med avvikelse från [^,.]*?trafikföreskrifter[^,.]*? om [^,.]*,/gi, ' ').replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna (?:eller|och) parkera[^.]*/gi, ''); // boilerplate about other bans
       // validity: a regulation not yet in force, or one that ends later, is dated on the segment (the app honours fr/to)
       const fr = rec.from && /^\d{4}-\d{2}-\d{2}$/.test(rec.from) && rec.from > today ? rec.from : null;
-      const to = rec.to && /^\d{4}-\d{2}-\d{2}$/.test(rec.to) ? rec.to : null;
+      const to = endDay(rec);
       if ((s.fr || null) !== fr) { if (fr) s.fr = fr; else delete s.fr; changed++; }
       if ((s.to || null) !== to) { if (to) s.to = to; else delete s.to; changed++; }
       // fee: "mot avgift" in the text and no fee table known → unknown fee (orange "see sign"), never free
@@ -293,7 +294,8 @@ for (const row of idx.cities) {
       if (APPLY && t.dp && t.dp.length && !(cur.dp && cur.dp.length)) { put(); st.dpAdded = (st.dpAdded || 0) + 1; } // the comparison samples one week without date parking: a text that defers to the datumparkering rules adds it (QA 8 Nov: Gävle, 4 of 480)
       if (cur.v === 'personbil' && APPLY) { delete s.v; s.rx = 1; changed++; }
       if (APPLY && pelleV && pelleV === textV && t.l && !cur.l) { s.l = t.l; s.rx = 1; changed++; st.reservedLimit = (st.reservedLimit || 0) + 1; } // a reserved bay's own "högst N" from the text: the register had the bay but not its limit (QA 16 Nov round 30: Tyresö Regnbågsgatan bus bay 30 min)
-      if (APPLY && t.o && t.v && t.v === cur.v && !s.o) { s.o = t.o; s.rx = 1; changed++; st.otherHours = (st.otherHours || 0) + 1; } // the reserved hours are stated: open to all outside them
+      if (APPLY && t.o && t.v && t.v === cur.v && !s.o) { s.o = t.o; s.rx = 1; changed++; st.otherHours = (st.otherHours || 0) + 1; }
+      if (APPLY && s.o && !t.o && t.v && t.v === cur.v && !multi) { delete s.o; s.rx = 1; changed++; st.otherHoursGone = (st.otherHoursGone || 0) + 1; } // open hours the fully read text does not give (the hours belong to the bay's time limit: "får endast buss parkeras högst 3 timmar … Tidsbegränsningen gäller vardag 09-19"): reserved at all hours (sweep wave 1: Sollentuna Kung Agnes väg) // the reserved hours are stated: open to all outside them
     } else if (verdict === 'stricter' || (cur.v === 'personbil' && !textV && verdict !== 'mixed')) {
       st.strictened++;
       lines.push(`| ${s.c} | ${s.n} | ${JSON.stringify(cur)} → ${JSON.stringify(t)} | ${cur.v === 'personbil' && !textV ? '"personbil" was not a reservation' : 'text stricter'}: applied |`);

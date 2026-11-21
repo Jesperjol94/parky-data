@@ -1,7 +1,7 @@
 # Alingsås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-20. 642 segments: 642 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 598, partly read 44. Verified equal 576, filled from text 15, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 4.
+Run 2026-11-21. 642 segments: 642 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 598, partly read 44. Verified equal 582, filled from text 9, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,14 +9,8 @@ Fully read 598, partly read 44. Verified equal 576, filled from text 15, text st
 | 1489 2008-0178 | Enehagsgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1489 2008-0178 | Enehagsgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1489 2008-0178 | Enehagsgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
-| 1489 2008-0182 | Teatergatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1489 2008-0284 | Norra Strömgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1489 2008-0384 | Fjällgatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
-| 1489 2008-0428 | Gräfsnäsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1489 2010-0004 | Nolhaga Allé | uncertain → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":30}]} | filled from text |
 | 1489 2010-0023 | Nolhaga Allé | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}],"v":"motorcykel"} | filled from text |
-| 1489 2010-0024 | Nolhaga Allé | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 1489 2010-0031 | Nolhaga Allé | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 1489 2020-2 | del av Timmermansvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1489 2026-87 | Södra Ringgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 1489 2026-87 | Södra Ringgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |

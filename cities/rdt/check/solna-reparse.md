@@ -1,44 +1,19 @@
 # Solna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-20. 1910 segments: 1910 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1896, partly read 13. Verified equal 1803, filled from text 63, text stricter 0, disputed 0, expired 1, text without rules 17, multi-part texts (not compared) 8.
+Run 2026-11-21. 1910 segments: 1910 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1899, partly read 10. Verified equal 1831, filled from text 38, text stricter 0, disputed 0, expired 1, text without rules 17, multi-part texts (not compared) 8.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0184 2008-00236 | Blomgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0184 2008-00237 | Blomgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0184 2008-00288 | Centralvägen | uncertain → {"l":[{"a":0,"b":1440,"max":15}],"v":"buss"} | filled from text |
-| 0184 2008-00334 | Ekstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2008-00354 | Fyrgränd | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2008-00366 | Klippgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2008-00367 | Klippgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2008-00370 | Skytteholmsvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2008-00373 | Postgränd | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2008-00377 | Järvstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2008-00384 | Sagagatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2008-00398 | Jaktstigen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2008-00405 | Gamla vägen | uncertain → {"v":"motorcykel"} | filled from text |
-| 0184 2009-00122 | Gårdsvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0184 2009-00147 | Hjortstigen | uncertain → {"l":[{"a":0,"b":1440,"max":15}]} | filled from text |
-| 0184 2009-00148 | Himlabacken | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2009-00207 | Johan Enbergs väg | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0184 2009-00208 | Johan Enbergs väg | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0184 2009-00209 | Johan Enbergs väg | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0184 2009-00378 | Rådjursstigen | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0184 2009-00447 | Smidesvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2010-00515 | Gårdsvägen | uncertain → {"v":"beskickningsfordon"} | filled from text |
 | 0184 2012-00478 | Regementsgatan | uncertain → {"f":[{"w":5,"nw":2,"a":480,"b":960}]} | filled from text |
-| 0184 2013-00003 | Västra vägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2014-00027 | Blomgatan | uncertain → {"v":"rörelsehindrade"} | filled from text |
-| 0184 2015-00021 | Gränsgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 0184 2015-00045 | Hjortstigen | uncertain → permitted (fee) | filled from text |
 | 0184 2015-00048 | Blomgatan | uncertain → permitted (fee) | filled from text |
 | 0184 2015-00051 | Bollgatan | uncertain → permitted (fee) | filled from text |
 | 0184 2015-00054 | Alphyddevägen | uncertain → permitted (fee) | filled from text |
 | 0184 2016-00461 | Linvävarvägen | uncertain → {"f":[{"w":4,"a":600,"b":840,"p":"odd"}]} | filled from text |
 | 0184 2016-00462 | Linvävarvägen | uncertain → {"f":[{"w":2,"a":1080,"b":1320,"p":"odd"}]} | filled from text |
-| 0184 2017-00567 | Tritonvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0184 2018-00006 | Pyramidvägen | uncertain → {"v":"rörelsehindrade"} | filled from text |
 | 0184 2018-00022 | Jungfrudansen | expired 2019-12-01 | already uncertain |
 | 0184 2019-00188 | Annerovägen | uncertain → {"f":[{"w":3,"a":420,"b":600,"p":"even"}]} | filled from text |
 | 0184 2019-00189 | Annerovägen | uncertain → {"f":[{"w":5,"a":420,"b":600,"p":"even"}]} | filled from text |

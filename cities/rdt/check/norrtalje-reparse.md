@@ -1,11 +1,9 @@
 # Norrtälje: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-20. 1820 segments: 1498 with a text, 322 without a cached text, 0 fetch errors.
-Fully read 1451, partly read 47. Verified equal 232, filled from text 4, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 114.
+Run 2026-11-21. 1820 segments: 1498 with a text, 322 without a cached text, 0 fetch errors.
+Fully read 1451, partly read 47. Verified equal 234, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 114.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 0188 2019-00105 | Esplanaden | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":780,"max":60}]} | filled from text |
 | 0188 2019-00577 | Faktorigatan | uncertain → {"f":[{"a":0,"b":1440}],"l":[{"a":0,"b":1440,"max":60}]} | filled from text |
-| 0188 2020-00188 | Ekebyvägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 0188 2024-00285 | Stegelbäcksgatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |

@@ -1,7 +1,7 @@
 # Olofström: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-20. 166 segments: 166 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 146, partly read 20. Verified equal 133, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 13, multi-part texts (not compared) 0.
+Run 2026-11-21. 166 segments: 166 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 147, partly read 19. Verified equal 134, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 13, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

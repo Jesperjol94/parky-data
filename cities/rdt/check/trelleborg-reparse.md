@@ -1,16 +1,8 @@
 # Trelleborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-20. 753 segments: 753 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 747, partly read 6. Verified equal 660, filled from text 9, text stricter 0, disputed 0, expired 0, text without rules 76, multi-part texts (not compared) 2.
+Run 2026-11-21. 753 segments: 753 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 747, partly read 6. Verified equal 668, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 76, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1287 2009-0153 | Kasalagatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1287 2010-0074 | Floragatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1287 2015-75 | Floragatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1287 2015-75 | Floragatan | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1287 2015-208 | Riggarevägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1287 2015-208 | Riggarevägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1287 2016-118 | Höskrindevägen | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
-| 1287 2017-30 | Flygelgränd | uncertain → {"f":[{"a":0,"b":1440}]} | filled from text |
 | 1287 2017-43 | Stortorget | uncertain → {"l":[{"a":0,"b":1440,"max":180}],"v":"rörelsehindrade"} | filled from text |

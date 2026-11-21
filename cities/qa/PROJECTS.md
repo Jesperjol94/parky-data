@@ -41,7 +41,7 @@ One batch:
    of the file are still open. When every row of a file is fixed, refuted or written up as "cannot be settled from
    the text", write "finished: <file>" in the log.
 Leads already grouped by the owner session (21 Nov), largest first; check each against the texts before fixing:
-- Turning-area bans greyed: plain all-day bans "På vändplatsen … får fordon inte (stannas eller) parkeras" / "I markerad
+- (fixed 21 Nov, see the log) Turning-area bans greyed: plain all-day bans "På vändplatsen … får fordon inte (stannas eller) parkeras" / "I markerad
   vändplats …" whose line holds the right ban but carries `ut` (very short lines). About 330 regulations in Nacka, Täby,
   Södertälje (waves 2, 3, 5). The rule that greys short lines (rdt-tiny) should spare a line whose regulation is one
   plain all-day ban or reservation for the whole drawn area.
@@ -53,7 +53,7 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
 - "Parkering är dock tillåten under högst N tim … vardagar 08–21" on a disabled-only bay: the app keeps it reserved
   at all hours (about 15, Sundbyberg, Danderyd, Stockholm).
 - Overnight fee windows split at midnight charge Monday 00–06 (Haninge taxa C, Södertälje).
-- A temporary ban that ends at a clock time ("… 28 februari 2027 klockan 16:00") ends at midnight before (`to` date).
+- (fixed 21 Nov, see the log) A temporary ban that ends at a clock time ("… 28 februari 2027 klockan 16:00") ends at midnight before (`to` date).
 - Järfälla taxa A: fee table "50 kr/dygn" is shown as 50 kr/h (display; check the table's unit).
 - Seasonal fee paragraph not read ("taxa 9 … 1 juni – 31 augusti", Stockholm beach roads: Bredängs Badväg, Flatenvägen,
   Ålstens Skogsväg): FREE in summer where the text charges.
@@ -71,7 +71,7 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
 - A regulation's future end date ("upphör att gälla den 1 december 2026") is not copied to the line's `to` (Stockholm).
 - The engine ignores a window's own `to` (temporary overlays `ov: 2`); harmless while the nightly build drops expired
   overlays, but the end is at 00:00 of the end date even when the text ends at a clock time.
-- Bus-only (or other single-vehicle) bays where the text's hours belong to the time limit ("får endast buss parkeras
+- (22 lines fixed 21 Nov, see the log; check the rest) Bus-only (or other single-vehicle) bays where the text's hours belong to the time limit ("får endast buss parkeras
   … Tidsbegränsningen gäller 07–19"): the app reserves only in those hours and lets cars park the rest of the day
   (Linköping S:t Larsgatan, Västerås, Växjö, Helsingborg, Danderyd). Looser.
 - A permission for one vehicle type read as a rule for every car ("får buss parkeras högst 5 min", motorcycle-only
@@ -83,6 +83,29 @@ Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 
 Exit: every findings file is finished and no sweep is scheduled.
 
 Log:
+- 2026-11-21 · `wave1-2026-11-20.jsonl` (149 rows), first batch, with the same patterns in waves 2–8 · confirmed and fixed:
+  (1) tiny lines greyed (56 grey rows here, about 600 over all waves): rdt-tiny now keeps a lone tiny line as fact when its whole rule,
+  read from the text, is one plain all-day ban or one plain reservation (`plainWholeRule` in rdt-lib.mjs): 1,568 lines un-greyed (1,139 bans,
+  423 reservations checked one by one against their parse; Nacka 256, Helsingborg 107, Höör 88, Södertälje 86, Mölndal 79, Täby 68); 434
+  of the 664 grey findings outside Stockholm are now shown as fact; tiny lines with hours, limits or fees (664) stay grey by design.
+  (2) end date with a clock time (4 loose rows, Uppsala): "upphör att gälla den 27 november 2026 klockan 16:00" now ends the line the day
+  after (`endDay`), 120 lines; before, the app showed FREE on the whole last day. (3) Bus, truck and motorcycle bays whose hours belong to
+  the time limit ("får endast buss parkeras högst 3 tim … Tidsbegränsningen gäller vardag 09-19", Sollentuna Kung Agnes väg, Linköping
+  S:t Larsgatan: also the lead "Bus-only bays" above): stale open hours `o` removed, 22 lines reserved at all hours again. (4) "Övrig tid
+  råder parkeringsförbud" after a limit on named weekdays (Solna Kristinelundsvägen): banned at night and at weekends. (5) "Förbudet gäller
+  inte vid lastning och lossning (av gods)" / "för på- och avstigning" is an exemption, not an unread rule: Solna Gustav III:s boulevard
+  "vardag" 09–12 now Saturdays too, Danderyd Studievägen and Skolgårdsvägen get their 07.30–08.30 stopping ban. (6) Stockholm loading
+  zones, "Övrig tid får fordon parkeras under högst N tim" (5 loose rows here, the lead above): read as a limit outside the loading hours
+  (13 Stockholm texts, Västerås Västra Ringvägen in the register); in main PR, NOT merged yet (see DAILY.md).
+  Reader mistakes: 17 Uppsala rows "PAID at every hour" (fee tables 380xxxxx hold Mon–Sat 08–24 and the app is free outside them: the
+  sheet tool had not loaded the table); 9 Stockholm motorcycle-season rows were fixed by main PR #8 before this run.
+  Cannot be fixed here (told the owner 21 Nov, do not repeat): Stockholm's build ignores the fee hours the parser reads (taxa 9 beach
+  roads, 3 loose rows: `applyRegulation` only fills `t` when it is empty) and adds the inverted 16–08 cleaning windows in `s` (5 strict
+  rows): both are in main's build, outside the parser. 29 "parking disc not shown" rows are display only.
+  Still open in wave 1 (about 35 rows): one-off wordings (Uppsala 2024-500 and 2025-83 "får fordon" missing, Upplands Väsby 2023-2
+  "Stannande- och parkeringsförbud gäller dock …", Sollentuna 2018-440 utryckningsfordon, Uppsala 2019-646 bicycle garage shown as car
+  parking, Solna "uddda veckor", Solna overnight fee hours per day type 2015-00049/-00055, Uppsala 2014-00032/2011-00021 fee days) and
+  the grey Solna fee-plus-cleaning lines that are tiny. Next batch: these singles, then wave 2's loose rows.
 
 ### 1. [ ] The app allows more than the sign: flagged lines
 The audit's "looser" leads, smallest and most harmful first. One batch per check, in this order:
