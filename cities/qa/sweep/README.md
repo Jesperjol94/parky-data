@@ -87,3 +87,6 @@ operative text only.
   stricter 1.4 %, grey with a clear text 1.5 %. Outside the big towns the reading is less tuned: more hours and seasons
   dropped, one-off dates repeated yearly, free first hours not shown.
 - Running total: 26,346 regulations in thirteen waves (Stockholm 10,419).
+- 2026-11-21 wave 14 (`findings/wave14-2026-11-21.jsonl`): 2,000 from the rest of the country. 94.1 % correct by
+  lines, looser 0.6 %, stricter 1.8 %, grey with a clear text 1.7 %.
+- Running total: 28,346 regulations in fourteen waves (Stockholm 10,419).

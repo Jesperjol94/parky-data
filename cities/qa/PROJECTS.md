@@ -122,6 +122,16 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   from the first minute (several towns). Stricter.
 - (wave 13) Two paragraphs for different spots or sides merged into one line, so the stricter rule shows everywhere.
 - (wave 13) Karlskoga and a few others: texts come through garbled; the line follows the title only (unsure).
+- (wave 14) Time-limit hours read as the only hours parking is allowed (`aw`): NO in the evening and at weekends where
+  the text allows free parking (Hudiksvall, several). Stricter.
+- (wave 14) Per-day fees shown as per hour ("20 kr/dygn" answered 20 kr/h: Ystad, Järfälla and others). Fix in the
+  fee-table unit for every town at once.
+- (wave 14) Spots for one purpose shown open to all cars: "får laddbara fordon parkeras", "resande med tåg eller buss",
+  motorcycle-only, "endast släpvagnar". Looser: high priority.
+- (wave 14) "enligt taxa N får fordon parkeras" not read as a fee (shown free; Lidköping and others). Looser.
+- (wave 14, reading question) "Parkering är dock tillåten under högst N tim …" on a disabled bay: readers differ on
+  whether it opens the bay to all cars or limits permit holders. Settle this with the independent reviewer before
+  the disabled-bay fix above changes anything; until then the app keeps those bays reserved.
 Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov). Stockholm's live data still
 predates it: the city's API answered HTTP 500 on 21 Nov (nightly and a rerun), so the fix reaches the app with the
 next nightly that can fetch. Sweep flags of this kind in Stockholm until then are already fixed.
