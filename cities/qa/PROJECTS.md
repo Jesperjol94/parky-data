@@ -77,6 +77,9 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
 - A permission for one vehicle type read as a rule for every car ("får buss parkeras högst 5 min", motorcycle-only
   summer season turned into a summer ban for everyone; Helsingborg/Örebro "får endast personbilar parkeras" as a ban).
 - Växjö fee texts with fee hours given but `t` null + `fu`: PAID at all hours (Norra Esplanaden and others). Stricter.
+  Measured 21 Nov: 47 lines of 27 regulations in cities/rdt/vaxjo.json; old texts "parkeras högst N dygn i följd mot
+  avgift, zon X, vardagar kl 09–18 samt dag före helgdag kl 09–14" (the hours go to the limit only). Confirmed in
+  waves 9–12 about 15 times: high priority.
 - A stated start year typo ("3010-03-10") read literally: the ban never starts (Gävle 2180 2010-577).
 - (wave 9) Stockholm: a ban sentence after a missing full stop is not read ("… 17.00 Under tiden torsdag klockan
   08–16 … får fordon inte parkeras"; Arkadvägen, Mariebergsgatan, 0180 2018-04057): FREE or PAID while the text bans.

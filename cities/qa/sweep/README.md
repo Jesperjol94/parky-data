@@ -79,3 +79,6 @@ operative text only.
   1,081 in the big towns (group 4). 97.5 % correct by lines, looser 0.2 %, stricter 0.4 %. Stockholm 97.1 %.
   Every Stockholm regulation in the live data has now been read once.
 - Running total: 22,352 regulations in eleven waves (Stockholm 10,419).
+- 2026-11-21 wave 12 (`findings/wave12-2026-11-21.jsonl`): 2,000 in the big towns (group 4). 97.7 % correct by lines,
+  looser 0.1 %, stricter 1.0 % (Växjö 5.7 %: fee at all hours), grey with a clear text 0.8 % (Västerås residents).
+- Running total: 24,352 regulations in twelve waves (Stockholm 10,419).
