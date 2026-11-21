@@ -42,4 +42,11 @@ operative text only.
   97.4, Uppsala 94.4, Solna 93.4 (mostly grey: lines read right but flagged uncertain). 149 findings.
   The first 9 town sheets showed "PAID" at every hour for lines with a town fee table (the sheet tool did not load the
   table; fixed in sheets.mjs); readers judged those fee hours from the table.
+- 2026-11-21 wave 2 (`findings/wave2-2026-11-21.jsonl`): 3,000 regulations, 30 sheets: 1,996 in Nacka, Sundbyberg,
+  Järfälla, Huddinge, Täby, Danderyd and Lidingö, 1,000 in Stockholm, 4 left over in group 1. Stockholm 98.9 % correct
+  by lines. Towns: Järfälla 98.5, Huddinge 98.3, Lidingö 95.8, Danderyd 92.8, Sundbyberg 90.3, Nacka 70.8 and Täby
+  58.2 (mostly grey: plain bans at turning areas, "vändplats", read right but flagged uncertain). Main patterns:
+  turning-area bans greyed (Nacka, Täby); an all-day ban window `ov: 1` without `tb` (Sundbyberg) making the line NO at
+  all hours; "Parkering är dock tillåten högst N tim … 08–21" not opening disabled bays; motorcycle bays reserved all
+  year where winter is open with a fee (open window with a season but no hours); Järfälla "50 kr/dygn" shown as kr/h.
 
