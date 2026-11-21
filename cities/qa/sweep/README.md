@@ -65,4 +65,6 @@ operative text only.
   Stockholm's motorcycle-bay flags in this wave were read against data built before main PR #8.
 - 2026-11-21 wave 7 (`findings/wave7-2026-11-21.jsonl`): 1,000 in Stockholm and 1,000 in the big towns (group 4).
 - Running total: 14,352 regulations in seven waves (Stockholm 6,500).
+- 2026-11-21 wave 8 (`findings/wave8-2026-11-21.jsonl`): 1,000 in Stockholm and 1,000 in the big towns (group 4).
+- Running total: 16,352 regulations in eight waves (Stockholm 7,500).
 

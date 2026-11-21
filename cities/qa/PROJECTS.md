@@ -71,6 +71,13 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
 - A regulation's future end date ("upphör att gälla den 1 december 2026") is not copied to the line's `to` (Stockholm).
 - The engine ignores a window's own `to` (temporary overlays `ov: 2`); harmless while the nightly build drops expired
   overlays, but the end is at 00:00 of the end date even when the text ends at a clock time.
+- Bus-only (or other single-vehicle) bays where the text's hours belong to the time limit ("får endast buss parkeras
+  … Tidsbegränsningen gäller 07–19"): the app reserves only in those hours and lets cars park the rest of the day
+  (Linköping S:t Larsgatan, Västerås, Växjö, Helsingborg, Danderyd). Looser.
+- A permission for one vehicle type read as a rule for every car ("får buss parkeras högst 5 min", motorcycle-only
+  summer season turned into a summer ban for everyone; Helsingborg/Örebro "får endast personbilar parkeras" as a ban).
+- Växjö fee texts with fee hours given but `t` null + `fu`: PAID at all hours (Norra Esplanaden and others). Stricter.
+- A stated start year typo ("3010-03-10") read literally: the ban never starts (Gävle 2180 2010-577).
 Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov).
 
 Exit: every findings file is finished and no sweep is scheduled.
