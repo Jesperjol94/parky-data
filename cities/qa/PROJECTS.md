@@ -139,6 +139,12 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   (Skellefteå 2482, twice). Looser. It means vardag + fore.
 - (wave 15) A ban sentence at the end of the text not read (a 21–05 stopping ban), and loading-exception hours read as
   the ban's hours (free at night under an all-day ban). Looser.
+- (wave 16) Karlskoga (1883): 191 of 299 texts in rdt/texts/1883.jsonl.gz look garbled (PDF font encoding), so their
+  lines follow the title only and cannot be checked. Re-extract those PDFs (another text layer or OCR), then re-read.
+- (wave 16) "betala eller högst 1 tim med parkeringsskiva": only the fee is shown, the free disc hour is not (about a
+  dozen across waves 13–16; Ängelholm and others). Stricter; drivers may pay when they need not.
+- (wave 16) Written-out or week-number seasons not read ("mellan första november och 31 mars", "lördagen vecka 27 –
+  söndagen vecka 28"); short day forms ("8-18 på vardagar och 8-15 på lördagar", Svedala) read as Mon–Fri all day.
 Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov). Stockholm's live data still
 predates it: the city's API answered HTTP 500 on 21 Nov (nightly and a rerun), so the fix reaches the app with the
 next nightly that can fetch. Sweep flags of this kind in Stockholm until then are already fixed.
