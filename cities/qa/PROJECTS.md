@@ -92,6 +92,17 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   paragraph not read (Sundsvall, looser).
 - (wave 9) Växjö "utom dag före helgdag och helgdag" read as adding helgdag (stricter); Stockholm fee "taxa 10 kr/tim"
   with free first hours not read (looser).
+- (wave 10) Typos in the text break the reading: Örebro "onddag" (the ban loses its day and applies every day,
+  stricter) and "tmmar" (5 § and 6 § dropped: limit and Wednesday ban missing, looser). Tolerate common misspellings
+  of day names and "timmar".
+- (wave 10) A rule of the regulation this one replaced is still on the line (Arenastaden 4 h limit, Kapellgatan
+  disabled-only). Stricter. Check how replaced ("upphävs") regulations are dropped.
+- (wave 10) Night fee tables priced like the day table (Taxa B at the Taxa A price; Taxa D and B both 2 kr/h):
+  check the fee-table prices in those towns.
+- (wave 10) "får lastbil / motorcykel … parkeras" without "endast" read as a reservation (stricter); the opposite
+  cases (taxi, buses) read as open. Settle the rule and apply it both ways.
+- (wave 10, confirmed in the engine) The extra Stockholm servicetid window from 16:00 to 08:00 next day in `s` makes the
+  app answer NO on its own (evaluate.js reads `s` as a ban), so those lines are stricter on that evening and night.
 Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov). Stockholm's live data still
 predates it: the city's API answered HTTP 500 on 21 Nov (nightly and a rerun), so the fix reaches the app with the
 next nightly that can fetch. Sweep flags of this kind in Stockholm until then are already fixed.
