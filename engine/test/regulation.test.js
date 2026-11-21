@@ -51,6 +51,9 @@ test('motorcycle spot with a season: cars may park outside the season', () => {
   const seg = applyRegulation({ t: 2, v: 'motorcykel' }, { body, to: null }, '2026-10-04');
   assert.ok(seg.o && seg.o[0].m);
   assert.deepEqual(seg.o[0].m, [[10, 1], [3, 31]]);
+  // the open window needs hours too: the app's engine skips a window without a and b (sweep 21 Nov: 37 Stockholm
+  // motorcycle bays answered "reserved" all winter)
+  assert.equal(seg.o[0].a, 0); assert.equal(seg.o[0].b, 1440);
 });
 
 test('"Övrig tid får fordon parkeras" does not make the limit hours allowed-only; two hour ranges are both read', () => {
