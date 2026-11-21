@@ -49,4 +49,10 @@ operative text only.
   turning-area bans greyed (Nacka, Täby); an all-day ban window `ov: 1` without `tb` (Sundbyberg) making the line NO at
   all hours; "Parkering är dock tillåten högst N tim … 08–21" not opening disabled bays; motorcycle bays reserved all
   year where winter is open with a fee (open window with a season but no hours); Järfälla "50 kr/dygn" shown as kr/h.
+- 2026-11-21 wave 3 (`findings/wave3-2026-11-21.jsonl`): 2,000 regulations, 20 sheets: the rest of group 2 (982) and
+  Haninge, Tyresö, Botkyrka, Södertälje, Värmdö (1,018). Correct by lines 89.4 %, looser 0.2 %, stricter 0.9 %, grey
+  with a clear text 8.7 %. Nacka 54 %, Täby 63 % and Södertälje 83 % are almost all the same grey pattern: plain
+  all-day bans at turning areas ("vändplats", "I markerad vändplats … får inte fordon parkeras") whose line holds the
+  right ban but carries `ut` (very short lines). Groups 2 and 3 are now read in full. Biggest single fix in the
+  findings so far: un-grey those lines (about 330 regulations over waves 2–3).
 
