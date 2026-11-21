@@ -67,4 +67,8 @@ operative text only.
 - Running total: 14,352 regulations in seven waves (Stockholm 6,500).
 - 2026-11-21 wave 8 (`findings/wave8-2026-11-21.jsonl`): 1,000 in Stockholm and 1,000 in the big towns (group 4).
 - Running total: 16,352 regulations in eight waves (Stockholm 7,500).
-
+- 2026-11-21 wave 9 (`findings/wave9-2026-11-21.jsonl`): 1,000 in Stockholm and 1,000 in the big towns (group 4).
+  95.5 % correct by lines, looser 0.7 %, stricter 0.9 %, grey with a clear text 1.1 %, parking disc not shown 1.2 %.
+  Stockholm 95.8 %, Örebro and Umeå 100, Västerås 75.7 (resident-permit streets grey). New: a ban sentence after a
+  missing full stop not read (Stockholm); "Parkering är dock tillåten" day-type lists cut to the first.
+- Running total: 18,352 regulations in nine waves (Stockholm 8,500).

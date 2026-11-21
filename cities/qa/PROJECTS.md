@@ -78,7 +78,23 @@ Leads already grouped by the owner session (21 Nov), largest first; check each a
   summer season turned into a summer ban for everyone; Helsingborg/Örebro "får endast personbilar parkeras" as a ban).
 - Växjö fee texts with fee hours given but `t` null + `fu`: PAID at all hours (Norra Esplanaden and others). Stricter.
 - A stated start year typo ("3010-03-10") read literally: the ban never starts (Gävle 2180 2010-577).
-Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov).
+- (wave 9) Stockholm: a ban sentence after a missing full stop is not read ("… 17.00 Under tiden torsdag klockan
+  08–16 … får fordon inte parkeras"; Arkadvägen, Mariebergsgatan, 0180 2018-04057): FREE or PAID while the text bans.
+  Looser. The same sentence with the full stop is read correctly.
+- (wave 9) Stockholm "Parkering är dock tillåten …" exceptions: not read at all (ban shown at all hours), or a list of
+  day types after it keeps only the first (Frejgatan: weekends shown reserved). About 6 rows. Stricter.
+- (wave 9) Helsingborg: plain bans and limits on "markerat område" / "blå markerad sträcka" carry `ut` and are grey
+  (about 7). Same family as the turning-area fix: extend that rule to plain all-day bans on marked areas.
+- (wave 9) Västerås: "får endast fordon som används av boende i området med särskilt tillstånd parkeras" with fee
+  hours is grey (6). The text says nothing about other hours; decide whether that is "reserved" or stays grey.
+- (wave 9) Vehicle words: "får taxi i tjänst parkeras" read as open to all (Växjö, looser); "gäller endast lätt
+  lastbil och personbil" read as reserved for trucks (Västerås, stricter); "Tillåtelsen gäller buss" in its own
+  paragraph not read (Sundsvall, looser).
+- (wave 9) Växjö "utom dag före helgdag och helgdag" read as adding helgdag (stricter); Stockholm fee "taxa 10 kr/tim"
+  with free first hours not read (looser).
+Done: seasonal motorcycle bays without hours in the open window (main PR #8, 21 Nov). Stockholm's live data still
+predates it: the city's API answered HTTP 500 on 21 Nov (nightly and a rerun), so the fix reaches the app with the
+next nightly that can fetch. Sweep flags of this kind in Stockholm until then are already fixed.
 
 Exit: every findings file is finished and no sweep is scheduled.
 
