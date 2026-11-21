@@ -43,7 +43,7 @@ operative text only.
   The first 9 town sheets showed "PAID" at every hour for lines with a town fee table (the sheet tool did not load the
   table; fixed in sheets.mjs); readers judged those fee hours from the table.
 - 2026-11-21 wave 2 (`findings/wave2-2026-11-21.jsonl`): 3,000 regulations, 30 sheets: 1,996 in Nacka, Sundbyberg,
-  Järfälla, Huddinge, Täby, Danderyd and Lidingö, 1,000 in Stockholm, 4 left over in group 1. Stockholm 98.9 % correct
+  Järfälla, Huddinge, Täby, Danderyd and Lidingö, 1,000 in Stockholm, 4 left over in group 1. Stockholm 96.6 % correct (2.2 % more only lack the parking disc)
   by lines. Towns: Järfälla 98.5, Huddinge 98.3, Lidingö 95.8, Danderyd 92.8, Sundbyberg 90.3, Nacka 70.8 and Täby
   58.2 (mostly grey: plain bans at turning areas, "vändplats", read right but flagged uncertain). Main patterns:
   turning-area bans greyed (Nacka, Täby); an all-day ban window `ov: 1` without `tb` (Sundbyberg) making the line NO at
