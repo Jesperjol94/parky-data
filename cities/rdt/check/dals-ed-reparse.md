@@ -1,7 +1,7 @@
 # Dals-Ed: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-20. 10 segments: 10 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 5, partly read 5. Verified equal 5, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-11-22. 10 segments: 10 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 10, partly read 0. Verified equal 7, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

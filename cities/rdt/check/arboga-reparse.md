@@ -1,6 +1,6 @@
 # Arboga: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-21. 176 segments: 176 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-22. 176 segments: 176 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 175, partly read 1. Verified equal 160, filled from text 4, text stricter 0, disputed 0, expired 0, text without rules 7, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

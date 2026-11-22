@@ -1,7 +1,7 @@
 # Gotland: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-21. 648 segments: 648 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 591, partly read 57. Verified equal 545, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 35, multi-part texts (not compared) 0.
+Run 2026-11-22. 648 segments: 648 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 595, partly read 53. Verified equal 549, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 35, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

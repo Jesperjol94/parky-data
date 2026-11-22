@@ -1419,3 +1419,17 @@ test('sweep waves 9–12: "mot avgift, zon 2, vardagar utom dag före helgdag kl
   r = parseRegulation(wrap('På Storgatan får fordon parkeras högst 2 tim i följd vardagar utom dag före helgdag kl 09.00 - 18.00.'));
   assert.equal(r.feeWindows, null);
 });
+
+test('QA 22 Nov measure: "Parkeringen får endast användas av fordon med särskilt tillstånd": a permit bay, the limit is the bay\'s (Falun Tingshusgatan gave every car 1 h)', () => {
+  let r = parseRegulation(wrap('På Tingshusgatan på blåmarkerad sträcka enligt kartbild får fordon parkeras under högst 1 tim i följd. Parkeringen får endast användas av fordon med särskilt tillstånd, - vuxenpsykiatri landstinget.'));
+  assert.equal(r.reserved, true); assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 60 }]); assert.deepEqual(r.unread, []);
+  // a resident permit is not a reservation: the sentence stays as before
+  r = parseRegulation(wrap('På Storgatan får fordon parkeras under högst 1 tim i följd. Parkeringen får endast användas av fordon med särskilt tillstånd för boende.'));
+  assert.equal(r.reserved, false);
+});
+
+test('QA 22 Nov measure: "får fordon och fordon som används av boende … för vilka särskilt tillstånd utfärdats … parkeras": a permission for every vehicle (Kalmar Proviantgatan)', () => {
+  const r = parseRegulation(wrap('På Proviantgatan, västra sidan mellan Fiskaregatan och Södra Kanalgatan (6 platser) får fordon och fordon som används av boende i området och för vilka särskilt tillstånd utfärdats med avvikelse från kommunens lokala trafikföreskrifter 0880 2010:79 parkeras under högst 24 tim i följd endast mot avgift vardag och vardag före sön- och helgdag klockan 09.00 - 15.00. Övrig tid får fordon parkeras.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag', 'fore'], a: 540, b: 900, max: 1440 }]);
+  assert.deepEqual(r.feeWindows, [{ dt: ['vardag', 'fore'], a: 540, b: 900 }]); assert.equal(r.otherAllowed, true); assert.deepEqual(r.unread, []);
+});

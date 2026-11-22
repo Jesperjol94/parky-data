@@ -1,7 +1,7 @@
 # Karlskrona: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-21. 1542 segments: 1542 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1512, partly read 29. Verified equal 1461, filled from text 12, text stricter 0, disputed 0, expired 1, text without rules 27, multi-part texts (not compared) 4.
+Run 2026-11-22. 1542 segments: 1542 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1517, partly read 24. Verified equal 1466, filled from text 12, text stricter 0, disputed 0, expired 1, text without rules 27, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

@@ -1,7 +1,7 @@
 # Kumla: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-21. 237 segments: 237 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 232, partly read 5. Verified equal 217, filled from text 7, text stricter 0, disputed 0, expired 0, text without rules 8, multi-part texts (not compared) 0.
+Run 2026-11-22. 237 segments: 237 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 235, partly read 2. Verified equal 220, filled from text 7, text stricter 0, disputed 0, expired 0, text without rules 8, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

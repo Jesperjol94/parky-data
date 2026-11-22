@@ -1,7 +1,7 @@
 # Trelleborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-21. 753 segments: 753 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 747, partly read 6. Verified equal 668, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 76, multi-part texts (not compared) 2.
+Run 2026-11-22. 753 segments: 753 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 750, partly read 3. Verified equal 671, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 76, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

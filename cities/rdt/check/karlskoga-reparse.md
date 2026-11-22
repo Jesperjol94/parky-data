@@ -1,7 +1,7 @@
 # Karlskoga: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-21. 362 segments: 148 with a text, 0 without a cached text, 214 fetch errors.
-Fully read 139, partly read 9. Verified equal 128, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 3.
+Run 2026-11-22. 362 segments: 148 with a text, 0 without a cached text, 214 fetch errors.
+Fully read 140, partly read 8. Verified equal 129, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

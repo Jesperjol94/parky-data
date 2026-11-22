@@ -231,6 +231,9 @@ function sentences(t) {
   // sentence's hours were read as the ban's own hours (QA 17 Nov round 32: Helsingborg Kurirgatan banned only on the 4th Tuesday)
   t = t.replace(/\b(parkeras|stannas)\s+(?=(?:Under tiden|Förbudet|Tillåtelsen|Tidsbegränsningen|Villkoret|Reservationen|Avgift|Parkering (?:är|får))\b)/g, '$1. ');
   t = t.replace(/(\d)§/g, '$1 §');
+  // "får fordon och fordon som används av boende i området och för vilka särskilt tillstånd utfärdats … parkeras": every vehicle (residents
+  // included) gets the permission; the resident clause adds nobody (QA 22 Nov measure: Kalmar Proviantgatan, Ölandsgatan kept the register's Saturday-only limit)
+  t = t.replace(/\b([Ff]år (?:fordon|personbil(?:ar)?)) och (?:fordon|personbil(?:ar)?) som (?:används|brukas|nyttjas) av boende\b[^.;]*?\b(?:tillstånd|parkeringstillstånd) (?:har )?(?:utfärdats|meddelats|beviljats)\s+/g, '$1 ');
   // "1 § På den del av Eriksbergsvägen som anges i kartan parkeras under högst 4 tim i följd.": the words "får fordon" were lost when the
   // regulation was written; a place followed straight by "parkeras" is that permission (sweep wave 1: Uppsala Eriksbergsvägen, Råbyvägen)
   t = t.replace(/(^|[.;]\s+|\d\s*§\s+)((?:På|Inom) (?:(?!\b(?:får|inte|ej|ska|skall)\b)[^.;])*?(?:som anges i kartan|enligt (?:markering (?:på|i) )?kartbild(?:en)?))\s+(?=parkeras\b)/g, '$1$2 får fordon ');
@@ -514,6 +517,9 @@ export function parseRegulation(body) {
     // for everyone (QA 2 Nov: Nynäshamn); an unnamed group ("servicefordon till kvarteret") stays a ban
     { const ao = x.match(/får (?:inte|ej) andra fordon (?:parkeras |stannas |stannas eller parkeras )?än (.*)$/); const who = ao && reservedFor(ao[1]);
       if (who) { out.reserved = true; out.reservedFor = who; if (m) out.reservedSeason = m; out.reservedWindows.push(...windows(s).map(withSP)); continue; } }
+    // "Parkeringen får endast användas av fordon med särskilt tillstånd, - vuxenpsykiatri landstinget": a bay for permit holders only; a limit
+    // read before it is theirs (QA 22 Nov measure: Falun Tingshusgatan gave every car 1 h)
+    if (/^(?:parkering(?:en|splatse(?:n|rna))?|plats(?:en|erna)?|ytan) får endast (?:användas|nyttjas|utnyttjas) (?:av|för) (?:fordon|bil(?:ar)?)\b[^.]*\b(?:tillstånd|tillståndshavare)\b/.test(x) && !/\bboende\b|(?:inte|ej) parkeras|förbjud/.test(x) && !windows(s).length) { out.reserved = true; out.reservedFor = reservedFor(x); if (m) out.reservedSeason = m; continue; }
     // "får fordon endast parkeras med stöd av parkeringstillstånd enligt 13 kap. 8 §": a disabled bay (QA 6 Nov: Örnsköldsvik Läroverksgatan showed a 3 h limit for all cars)
     if (/\bfår fordon endast parkeras med stöd av (?:särskilt )?parkeringstillstånd enligt 13 kap\.? ?8 §/.test(x)) { x = x.replace(/\bfår fordon endast parkeras/, 'får endast fordon parkeras'); s = s.replace(/\bfår fordon endast parkeras/i, 'får endast fordon parkeras'); }
     if (/får endast\b/.test(x) && /parkeras|stannas|får endast [^.]*?\b(?:stanna|parkera)\b/.test(x)) { // also the infinitive: "får endast bussar stanna eller parkera i högst 15 minuter" (QA 10 Nov round 13: Kiruna Malmvägen showed 15 min for all cars)

@@ -1,6 +1,6 @@
 # Norrtälje: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-21. 1820 segments: 1498 with a text, 322 without a cached text, 0 fetch errors.
+Run 2026-11-22. 1820 segments: 1498 with a text, 322 without a cached text, 0 fetch errors.
 Fully read 1451, partly read 47. Verified equal 234, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 114.
 
 | Citation | Street | Change | Note |
