@@ -115,3 +115,5 @@ operative text only.
 - Running total: 48,346 regulations in twenty-four waves (Stockholm 10,419).
 - 2026-11-21 wave 25 (`findings/wave25-2026-11-21.jsonl`): 2,000 from the rest of the country.
 - Running total: 50,346 regulations in twenty-five waves (Stockholm 10,419).
+- 2026-11-22 wave 26 (`findings/wave26-2026-11-22.jsonl`): 2,000 from the rest of the country.
+- Running total: 52,346 regulations in twenty-six waves (Stockholm 10,419).
