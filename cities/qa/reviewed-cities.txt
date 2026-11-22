@@ -9418,3 +9418,123 @@
 0180 2025-04489
 0180 2019-01734
 0180 2024-04712
+goteborg 3954 Molinsgatan
+goteborg 4522 Kristinelundsgatan
+goteborg 4325 Birkagatan
+goteborg 3086 Engelbrektsgatan
+goteborg 4500 Kungsportsavenyen
+goteborg 1588 Sofiagatan
+goteborg 2911 Kristinelundsgatan
+goteborg 2990 Doktor Saléns Gata
+goteborg 417 Persgatan
+goteborg 1434 Vasagatan
+goteborg 1104 Stallmästaregatan
+goteborg 4425 Rödlönnsgången
+goteborg 2075 Eklandagatan
+goteborg 3809 Magasinsgatan
+goteborg 2353 Storebackegatan
+goteborg 1993 Linnégatan
+goteborg 2671 Såggatan
+goteborg 89 Ljunggatan
+goteborg 4297 Fjälletvägen
+goteborg 1039 Lars Kaggsgatan
+goteborg 3793 Vasagatan
+goteborg 1932 Friedländers Gata
+goteborg 713 Tellgrensgatan
+goteborg 2630 Hjalmar Brantingsgatan
+goteborg 2037 Färgfabriksgatan
+goteborg 601 Rambergsvägen
+goteborg 1580 Ejdergatan
+goteborg 3630 Stora Nygatan
+goteborg 1068 Gamlestadstorget
+goteborg 1535 Södra Viktoriagatan
+goteborg 1065 Kråketegen
+goteborg 3865 Norra Gubberogatan
+goteborg 3006 Lugnet
+goteborg 642 Kamomillvägen
+goteborg 4352 Lillebyvägen
+goteborg 2200 Fjällgatan
+goteborg 2016 Munkebäcksgatan
+goteborg 1734 Beväringsgatan
+goteborg 4454 Torvhögsvägen
+goteborg 363 Oxhagsgatan
+goteborg 392 Örgryte Stomgata
+goteborg 3811 Viktor Rydbergsgatan
+goteborg 609 Formskäraregatan
+goteborg 3889 Thorild Wulffsgatan
+goteborg 2406 Karl Johansgatan
+goteborg 2657 Lergöksgatan
+goteborg 3242 Kabelgatan
+goteborg 4257 Eketrägatan
+goteborg 2460 Daggdroppegatan
+goteborg 1824 Lövmånadsgatan
+goteborg 3901 Kolonigatan
+goteborg 4111 Wadmansgatan
+goteborg 2362 Karl Johansgatan
+goteborg 3322 Sankt Pauligatan
+goteborg 829 Viloplatsen
+goteborg 4109 Wadmansgatan
+goteborg 2156 Jägaregatan
+goteborg 2782 Guldkällegatan
+goteborg 1056 Korpralsgatan
+goteborg 1737 Ebbe Lieberathsgatan
+malmo 526 Ehrensvärdsgatan
+malmo 2800 Stortorget
+malmo 3067 Marsgatan
+malmo 1108 Betaniaplan
+malmo 2052 Sankt Pauli Kyrkogata
+malmo 1996 Södra Gulsparvsgatan
+malmo 2711 Dammfrivägen
+malmo 683 Karlskronaplan
+malmo 3238 Bågegatan
+malmo 792 Simrishamnsgatan
+malmo 1313 Småfolksgatan
+malmo 3487
+malmo 1037 Jörgen Ankersgatan
+malmo 2508 Danska vägen
+malmo 1195 Bodekullsgatan
+malmo 3113 Erik Dahlbergsgatan
+malmo 1865 Tessins väg
+malmo 1608 Falsterbogatan
+malmo 2366 Bergsgatan
+malmo 975 Augustenborgsgatan
+malmo 2518 Stortorget
+malmo 2949 Skeppsbron
+malmo 2614 Upplandsgatan
+malmo 392 Rosendalsvägen
+malmo 2804 Bredgatan
+malmo 3324 Byggmästaregatan
+malmo 1518 Berguvsgatan
+malmo 3138 Sommarvägen
+malmo 1072 Davidshallstorg
+malmo 1400 Friisgatan
+malmo 3479 Stormgatan
+malmo 3339 Stora Nygatan
+malmo 2069 Kiviksgatan
+malmo 901 Lorensborgsgatan
+malmo 1826 Fågelbacksgatan
+malmo 1633 Henrik Wranérsgatan
+malmo 620 Köpenhamnsvägen
+malmo 1101 Västergatan
+malmo 1912 Rådmansgatan
+malmo 159 Köpenhamnsvägen
+malmo 386 Torngatan
+malmo 2797
+malmo 1012 Södra Gulsparvsgatan
+malmo 3512
+malmo 691 Spånehusvägen
+malmo 3398 Vikingagatan
+malmo 1570 Sveagatan
+malmo 3021 Celsiusgatan
+malmo 1332 Lugna gatan
+malmo 599 Erik Dahlbergsgatan
+malmo 460 Korsörvägen
+malmo 64 Birger Jarlsgatan
+malmo 388 Almedalsgatan
+malmo 956 Fosievägen
+malmo 2030 Älggatan
+malmo 492 Byggmästaregatan
+malmo 2198 Tärningholmsgatan
+malmo 1271 Föreningsgatan
+malmo 703 Norra Skolgatan
+malmo 1015 Södra Gulsparvsgatan
