@@ -1,7 +1,7 @@
 # Södertälje: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-22. 1751 segments: 1751 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1748, partly read 3. Verified equal 1640, filled from text 6, text stricter 0, disputed 0, expired 0, text without rules 73, multi-part texts (not compared) 19.
+Fully read 1748, partly read 3. Verified equal 1639, filled from text 6, text stricter 1, disputed 0, expired 0, text without rules 73, multi-part texts (not compared) 19.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -21,3 +21,4 @@ Fully read 1748, partly read 3. Verified equal 1640, filled from text 6, text st
 | 0181 2011-00024 | Nygatan | uncertain → {"l":[{"a":0,"b":1440,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 0181 2011-00036 | Västra Kanalgatan | uncertain → {"l":[{"a":0,"b":1440,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 0181 2011-00037 | Västra Kanalgatan | uncertain → {"l":[{"a":0,"b":1440,"max":180}],"v":"rörelsehindrade"} | filled from text |
+| 0181 2020-00030 | Jakob borgmästares väg | {"f":[{"w":5,"a":540,"b":1020,"m":[[10,15],[5,15]]}],"l":[{"dt":["vardag"],"a":480,"b":1080,"max":1440},{"dt":["fore"],"a":480,"b":960,"max":1440}]} → {"f":[{"w":5,"a":540,"b":1020,"m":[[10,15],[5,15]]}],"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |

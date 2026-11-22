@@ -1,7 +1,7 @@
 # Kungsbacka: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-22. 1386 segments: 1386 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1368, partly read 18. Verified equal 1200, filled from text 5, text stricter 0, disputed 0, expired 0, text without rules 155, multi-part texts (not compared) 6.
+Fully read 1369, partly read 17. Verified equal 1201, filled from text 5, text stricter 0, disputed 0, expired 0, text without rules 155, multi-part texts (not compared) 6.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

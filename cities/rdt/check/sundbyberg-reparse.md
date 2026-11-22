@@ -1,7 +1,7 @@
 # Sundbyberg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-22. 1943 segments: 1943 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1922, partly read 14. Verified equal 1748, filled from text 8, text stricter 0, disputed 0, expired 7, text without rules 159, multi-part texts (not compared) 0.
+Run 2026-11-22. 1936 segments: 1936 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1922, partly read 14. Verified equal 1748, filled from text 8, text stricter 0, disputed 0, expired 0, text without rules 159, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -20,10 +20,3 @@ Fully read 1922, partly read 14. Verified equal 1748, filled from text 8, text s
 | 0183 2025-00651 | Prästgårdsgatan | uncertain → {"f":[{"w":1,"a":480,"b":720,"m":[[11,1],[5,15]]}]} | filled from text |
 | 0183 2025-00651 | Prästgårdsgatan | uncertain → {"f":[{"w":1,"a":480,"b":720,"m":[[11,1],[5,15]]}]} | filled from text |
 | 0183 2026-00008 | Ringleken | uncertain → permitted (fee) | filled from text |
-| 0183 2026-00075 | Esplanaden | expired 2026-11-21 | already uncertain |
-| 0183 2026-00075 | Esplanaden | expired 2026-11-21 | already uncertain |
-| 0183 2026-00107 | Esplanaden | expired 2026-11-21 | already uncertain |
-| 0183 2026-00109 | Järnvägsgatan | expired 2026-11-21 | already uncertain |
-| 0183 2026-00117 | Järnvägsgatan | expired 2026-11-21 | already uncertain |
-| 0183 2026-00117 | Järnvägsgatan | expired 2026-11-21 | already uncertain |
-| 0183 2026-00125 | Järnvägsgatan | expired 2026-11-21 | already uncertain |

@@ -1,7 +1,7 @@
 # Tranemo: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-22. 34 segments: 34 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 31, partly read 3. Verified equal 31, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Fully read 33, partly read 1. Verified equal 33, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

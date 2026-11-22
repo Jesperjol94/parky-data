@@ -1304,8 +1304,11 @@ test('sweep wave 1: "Förbudet gäller inte vid lastning och lossning av gods" i
   assert.deepEqual(r.bans, [{ dt: ['vardag', 'fore'], a: 540, b: 720 }]); assert.deepEqual(r.unread, []);
   r = parseRegulation(wrap('Inom en zon om ca 30 m rundkörningsslinga på Studievägen får fordon inte stannas eller parkeras mellan kl 07.30 och 08.30. Förbudet gäller inte för på- och avstigning.'));
   assert.deepEqual(r.bans, [{ a: 450, b: 510 }]); assert.deepEqual(r.unread, []);
-  // an exemption with a duration or for some vehicles is still unread
+  // an exemption for loading with its own terms leaves the ban standing too (project 0 batch 3, 22 Nov: Gnesta Kullagatan showed 30 min of free parking)
   r = parseRegulation(wrap('På Kullagatans östra sida får fordon inte stannas eller parkeras. Förbudet gäller ej för lastning och lossning under högst 30 minuter.'));
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440 }]); assert.deepEqual(r.unread, []);
+  // an exemption for parking is still unread
+  r = parseRegulation(wrap('På Kullagatans östra sida får fordon inte stannas eller parkeras. Förbudet gäller inte fordon med nyttoparkeringskort under högst 30 minuter.'));
   assert.equal(r.unread.length, 1);
 });
 
@@ -1432,4 +1435,80 @@ test('QA 22 Nov measure: "får fordon och fordon som används av boende … för
   const r = parseRegulation(wrap('På Proviantgatan, västra sidan mellan Fiskaregatan och Södra Kanalgatan (6 platser) får fordon och fordon som används av boende i området och för vilka särskilt tillstånd utfärdats med avvikelse från kommunens lokala trafikföreskrifter 0880 2010:79 parkeras under högst 24 tim i följd endast mot avgift vardag och vardag före sön- och helgdag klockan 09.00 - 15.00. Övrig tid får fordon parkeras.'));
   assert.deepEqual(r.limits, [{ dt: ['vardag', 'fore'], a: 540, b: 900, max: 1440 }]);
   assert.deepEqual(r.feeWindows, [{ dt: ['vardag', 'fore'], a: 540, b: 900 }]); assert.equal(r.otherAllowed, true); assert.deepEqual(r.unread, []);
+});
+
+// ---- project 0, sweep findings batch 3 (22 Nov 2026): the loose rows of all waves, read again ----
+test('sweep batch 3: bays for one kind of vehicle or a named group are reserved, not a limit for every car', () => {
+  const res = (s) => { const r = parseRegulation(wrap(s)); assert.deepEqual(r.unread, [], s); return [r.reserved, r.reservedFor ?? null]; };
+  assert.deepEqual(res('Inom ett område i Ulricehamn som motsvarar den västra delen av parkeringsplatsen på Fiskaregatan får endast släpvagnar parkeras under högst 24 tim i följd.'), [true, 'fordon med släp']);
+  assert.deepEqual(res('På Nibbleplan, på 5 markerade parkeringsplatser, på parkeringens östra sida, får endast personbil med tillkopplat släpvagn parkeras.'), [true, 'fordon med släp']);
+  assert.deepEqual(res('På västra sidan av Fraktvägen i Trelleborg får endast motorfordon över 3,5 ton, traktor, motorredskap och släpfordon parkeras under högst 24 tim i följd vardagar utom vardag före sön- och helgdag.'), [true, 'lastbil']);
+  assert.deepEqual(res('På Tuvesvik i Ellös på angiven uppställningsyta får endast fordon klass II parkeras under högst 2 dygn i följd.'), [true, 'husbil']);
+  assert.deepEqual(res('På västra sidan av Drottninggatan 21D i Karlskrona får motorcykel och moped klass I, parkeras under högst 24 tim i följd.'), [true, 'motorcykel']);
+  assert.deepEqual(res('På den del av Mantorps Resecentrum som anges i kartan får moped klass I och moped klass II parkeras under högst 24 tim i följd vardag utom vardag före sön- och helgdag.'), [true, 'moped']);
+  assert.deepEqual(res('På Mejerigatan norr om och längs med gatan 3 st. platser, får bussar parkeras i högst 24 timmar i följd.'), [true, 'buss']);
+  assert.deepEqual(res('På Margaretagatan i Söderköping får turistbussar stannas eller parkeras under högst 2 tim i följd.'), [true, 'buss']);
+  assert.deepEqual(res('På Åvägen i Henån, på angivna parkeringsplatser, får elbilar parkeras under högst 3 tim i följd måndag – söndag.'), [true, 'laddning']);
+  assert.deepEqual(res('Det rödmarkerade område som framgår av kartbilaga ska vara laddplats.'), [true, 'laddning']);
+  assert.deepEqual(res('Inom följande område i Arlöv får endast fordon med tillstånd parkeras under högst 24 tim i följd.'), [true, null]);
+  assert.deepEqual(res('På västra sidan av Apoteksgatan i Lysekil får endast fordon för biblioteksverksamhet parkeras under högst 24 tim i följd under tiden vardag utom vardag före sön- och helgdag'), [true, null]);
+  assert.deepEqual(res('På södra sidan av Kungsgatan i Söderhamn får fordon parkeras under högst 1 tim i följd. Tillåtelsen gäller endast besökare till Kungsgatan 6.'), [true, null]);
+  assert.deepEqual(res('På en markerad parkeringsplats framför Kungsgatan 29 får endast sådant fordon parkeras som används för befordran av rörelshindrad med särskilt parkeringstillstånd, dock högst 2 timmar i följd.'), [true, 'rörelsehindrade']);
+  assert.deepEqual(res('På 1 markerad parkeringsplats på Viktoriagatans nordöstra sida får - under högst 2 timmar i följd - endast sådant fordon parkeras som används för befordran av handikappad med särskilt parkeringstillstånd.'), [true, 'rörelsehindrade']);
+  assert.deepEqual(res('På Kungsgatan i Växjö, västra sidan, 2 markerade platser, får fordon parkeras högst 2 timmar i följd för rörelsehindrade personer med tillstånd.'), [true, 'rörelsehindrade']);
+  assert.deepEqual(res('På Koppargatans norra ände i Hultsfred på en särskild markerad plats får fordon som används av rörelsehindrade med särskilt tillstånd parkeras under högst 24 timmar i följd vardag utom dag före sön- och helgdag.2 § Fordon som inte får parkeras får inte heller stannas annat än för på- och avstigning'), [true, 'rörelsehindrade']);
+  assert.deepEqual(res('På Kyrkogatans östra sida får buss parkeras under högst 5 minuter. Tillåtelsen gäller inte på särskilt markerad busshållplats för fordon i linjetrafik.'), [true, 'buss']);
+  // the visitors' hours are the hours the bay is reserved; other times are open
+  let r = parseRegulation(wrap('På östra sidan av Södra Strandvägen får endast besökare till MVC parkeras under högst 1 tim i följd under vardag utom vardag före sön- och helgdag mellan klockan 08.00 – 17.00. Övrig tid får fordon parkeras.'));
+  assert.equal(r.reserved, true); assert.deepEqual(r.reservedWindows, [{ dt: ['vardag'], a: 480, b: 1020 }]); assert.equal(r.otherAllowed, true);
+  // ordinary cars stay ordinary: light vehicles, residents' permits (left to the register)
+  r = parseRegulation(wrap('På södra sidan av Mångatan i Arlöv får endast motor- och släpfordon under 3,5 ton parkeras.')); assert.equal(r.reserved, false);
+  r = parseRegulation(wrap('På Storgatan får endast personbil utan släpvagn parkeras under högst 2 tim i följd.')); assert.equal(r.reserved, false);
+  r = parseRegulation(wrap('På Storgatan får endast fordon med särskilt boendeparkeringstillstånd parkeras.')); assert.equal(r.reserved, false);
+  // inside an area parking ban a motorcycle bay's hours do not open the other hours to cars (Hudiksvall)
+  r = parseRegulation(wrap('Med avvikelse från Hudiksvalls kommuns lokala trafikföreskrifter 2184 2024:78 om område för parkeringsförbud, får tvåhjulig motorcykel och moped klass I utan sidvagn parkeras på de platser som rödmarkerats i kartbilaga 1. Tillåtelsen gäller vardagar klockan 05.00 - 24.00.'));
+  assert.equal(r.reserved, true); assert.notEqual(r.otherAllowed, true);
+});
+test('sweep batch 3: a second limit for the other hours, however it is worded', () => {
+  for (const tail of ['Övrig tid 24 timmar.', 'Övrig tid gäller parkering max 24 timmar.', 'Övrig tid är parkering tillåten under 24 timmar i följd.', 'Övrig tid får fordon parkeras 24 tim i följd.']) {
+    const r = parseRegulation(wrap('På Torggatans södra sida får fordon parkeras under högst 2 timmar i följd vardag mellan kl. 08.00 till 19.00. ' + tail));
+    assert.deepEqual(r.unread, [], tail);
+    assert.deepEqual(r.limits, [{ dt: ['vardag', 'fore'], a: 480, b: 1140, max: 120 }, { dt: ['vardag', 'fore'], a: 0, b: 480, max: 1440 }, { dt: ['vardag', 'fore'], a: 1140, b: 1440, max: 1440 }, { dt: ['helgdag'], a: 0, b: 1440, max: 1440 }], tail);
+  }
+  const r = parseRegulation(wrap('På Skolvägen i Hamburgsund får fordon parkeras under högst 12 tim i följd under tiden 15 juni - 15 augusti. Övrig tid får fordon parkeras 24 tim i följd.'));
+  assert.deepEqual(r.limits, [{ a: 0, b: 1440, m: [[6, 15], [8, 15]], max: 720 }, { a: 0, b: 1440, m: [[8, 16], [6, 14]], max: 1440 }]);
+});
+test('sweep batch 3: an exemption from an all-day ban at stated hours leaves parking allowed only then', () => {
+  let r = parseRegulation(wrap('På blåmarkerad sträcka på Rosenkällavägens norra sida enligt kartbild får fordon inte parkeras. Förbudet gäller inte under tiden onsdag klockan 08.00 - 16.00.'));
+  assert.deepEqual(r.bans, []); assert.deepEqual(r.allowOnly, [{ w: 3, a: 480, b: 960 }]); assert.deepEqual(r.unread, []);
+  // an n-th weekday exemption is not read: the reparse greys the line when the register has turned it into the ban
+  r = parseRegulation(wrap('På norra sidan av F M Franzéns gata får fordon inte parkeras. Förbudet gäller inte 3:e måndagen i månaden mellan klockan 8-18.'));
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440 }]); assert.equal(r.unread.length, 1);
+  // exemptions for loading, refuse trucks and school transport change nothing for parking
+  for (const ex of ['Förbudet gäller inte av- och pålastning av gods, dock längst 5 min.', 'Förbudet gäller inte lastning och lossning under tiden mellan klockan 06.00 – 18.00.', 'Förbudet gäller inte renhållningsbil under tiden vardagar utom vardag före sön- och helgdag mellan klockan 06.00 - 14.00.', 'Förbudet gäller inte vid skolskjuts.']) {
+    r = parseRegulation(wrap('På Storgatans södra sida får fordon inte stannas eller parkeras. ' + ex)); assert.deepEqual(r.bans, [{ a: 0, b: 1440 }], ex); assert.deepEqual(r.unread, [], ex);
+  }
+});
+test('sweep batch 3: a limit of a day or more before "mot avgift <hours>" holds at all hours; the hours are the fee\'s', () => {
+  let r = parseRegulation(wrap('På Skeppsbron i Västervik får fordon parkeras under högst 10 dygn i följd och mot avgift vardagar utom vardag före sön- och helgdag mellan klockan 09.00 - 18.00.'));
+  assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 14400 }]); assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }]);
+  r = parseRegulation(wrap('På Kungsgatan i Växjö får fordon parkeras högst 24 timmar i följd mot avgift, zon 1, vardagar utom dag före helgdag kl 09.00 - 18.00 samt dag före helgdag kl 09.00 - 14.00.'));
+  assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 1440 }]); assert.deepEqual(r.feeWindows, [{ dt: ['vardag'], a: 540, b: 1080 }, { dt: ['fore'], a: 540, b: 840 }]);
+  // a short limit keeps the hours
+  r = parseRegulation(wrap('På Storgatan får fordon parkeras under högst 1 tim i följd och mot avgift under tiden vardag utom vardag före sön- och helgdag klockan 09.00 - 18.00.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 60 }]);
+});
+test('sweep batch 3: day types and small shapes', () => {
+  let r = parseRegulation(wrap('På sydvästra sidan av Kaptensgatan får fordon parkeras vardagar utom sön- och helgdagar under högst 24 tim i följd.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag', 'fore'], a: 0, b: 1440, max: 1440 }]);
+  r = parseRegulation(wrap('På markerade parkeringsplatser vid St Hansgatan får fordon parkeras högst 2 timmar i följd. Tidsbegränsningen gäller vardagar utom vardag rore sön- och helgdag mellan klockan 09 och 18 och vardag före sön- och helgdag mellan klockan 09 och 14.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 120 }, { dt: ['fore'], a: 540, b: 840, max: 120 }]);
+  r = parseRegulation(wrap('På Tallåsvägens västra sida får fordon inte parkeras. Förbudet gäller vardagar, mellan klockan 06.00 och 18.00'));
+  assert.deepEqual(r.bans, [{ dt: ['vardag', 'fore'], a: 360, b: 1080 }]); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På Katja Geigers gata i Ekeby får motordrivet fordon parkeras under högst 15 min i följd under tiden vardagar mellan klockan 07.00 - 17.00.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag', 'fore'], a: 420, b: 1020, max: 15 }]); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På södra sidan av Prytzgatan får fordon parkeras högst 2 timmar i följd. Tidsregleringen gäller vardagar och sön- och helgdagar.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag', 'fore', 'helgdag'], a: 0, b: 1440, max: 120 }]); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På markerade sträckor på Sveagatan enligt kartbild och enligt taxa 1 får fordon parkeras under högst 1 tim i följd. Tillåtelsen gäller under tiden vardag utom dag före sön- och helgdag klockan 08.00 - 18.00.'));
+  assert.equal(r.taxa, 1);
 });

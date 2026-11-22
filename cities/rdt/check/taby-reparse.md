@@ -29,6 +29,6 @@ Fully read 588, partly read 59. Verified equal 465, filled from text 23, text st
 | 0160 2020-00118 | Klövervallsvägen | uncertain → {"f":[{"dt":["vardag"],"a":510,"b":840},{"dt":["vardag"],"a":1020,"b":1440}],"l":[{"dt":["vardag"],"a":450,"b":510,"max":10},{"dt":["vardag"],"a":840,"b":1020,"max":10}],"aw":[{"dt":["vardag"],"a":450,"b":510},{"dt":["vardag"],"a":840,"b":1020}]} | filled from text |
 | 0160 2020-00201 | Råholmsvägen | uncertain → permitted | filled from text |
 | 0160 2020-00222 | Skavlötsvägen | uncertain → {"f":[{"a":0,"b":360}]} | filled from text |
-| 0160 2026-65 | Radarvägen | expired 2026-11-22 | now uncertain |
-| 0160 2026-66 | Pilotvägen | expired 2026-11-22 | now uncertain |
-| 0160 2026-66 | Pilotvägen | expired 2026-11-22 | now uncertain |
+| 0160 2026-65 | Radarvägen | expired 2026-11-22 | already uncertain |
+| 0160 2026-66 | Pilotvägen | expired 2026-11-22 | already uncertain |
+| 0160 2026-66 | Pilotvägen | expired 2026-11-22 | already uncertain |

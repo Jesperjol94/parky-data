@@ -1,7 +1,7 @@
 # Herrljunga: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-22. 54 segments: 54 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 50, partly read 4. Verified equal 50, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Fully read 52, partly read 2. Verified equal 52, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

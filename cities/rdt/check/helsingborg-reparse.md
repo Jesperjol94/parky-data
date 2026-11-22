@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-22. 3475 segments: 3475 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3403, partly read 70. Verified equal 3052, filled from text 30, text stricter 0, disputed 0, expired 2, text without rules 249, multi-part texts (not compared) 59.
+Run 2026-11-22. 3477 segments: 3477 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3411, partly read 64. Verified equal 3054, filled from text 31, text stricter 4, disputed 1, expired 2, text without rules 249, multi-part texts (not compared) 59.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -13,6 +13,7 @@ Fully read 3403, partly read 70. Verified equal 3052, filled from text 30, text 
 | 1283 2010-00679 | Drottninggatan | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1283 2010-00715 | Fjärestadsvägen | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1283 2010-02187 | Hamntorget | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":900,"max":60}],"v":"motorcykel"} | filled from text |
+| 1283 2010-02450 | Carl Krooks gata | {"v":"taxi"} → {"f":[{"a":0,"b":1440}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1283 2010-02984 | Elinebergsvägen | uncertain → {"l":[{"dt":["vardag"],"a":390,"b":1080,"max":15}]} | filled from text |
 | 1283 2010-02990 | Norrbroplatsen | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1283 2010-03089 | Karlskronagatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
@@ -21,6 +22,9 @@ Fully read 3403, partly read 70. Verified equal 3052, filled from text 30, text 
 | 1283 2011-00611 | Östra Fridhemsgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240}]} | filled from text |
 | 1283 2012-00006 | Åragatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1283 2012-00342 | Garnisonsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":120}]} | filled from text |
+| 1283 2012-00350 | Rydebäcks strand/Fortuna strand | {"l":[{"dt":["vardag"],"a":1320,"b":360,"max":120},{"dt":["helgdag"],"a":1320,"b":360,"max":120}]} → {"l":[{"dt":["vardag","fore"],"a":1320,"b":360,"max":120,"m":[[6,15],[8,15]]},{"dt":["helgdag"],"a":1320,"b":360,"max":120,"m":[[6,15],[8,15]]}]} | text stricter: applied |
+| 1283 2012-00350 | Rydebäcks strand/Fortuna strand | {"l":[{"dt":["vardag"],"a":1320,"b":360,"max":120},{"dt":["helgdag"],"a":1320,"b":360,"max":120}]} → {"l":[{"dt":["vardag","fore"],"a":1320,"b":360,"max":120,"m":[[6,15],[8,15]]},{"dt":["helgdag"],"a":1320,"b":360,"max":120,"m":[[6,15],[8,15]]}]} | text stricter: applied |
+| 1283 2012-00350 | Rydebäcks strand/Fortuna strand | {"l":[{"dt":["vardag"],"a":1320,"b":360,"max":120},{"dt":["helgdag"],"a":1320,"b":360,"max":120}]} → {"l":[{"dt":["vardag","fore"],"a":1320,"b":360,"max":120,"m":[[6,15],[8,15]]},{"dt":["helgdag"],"a":1320,"b":360,"max":120,"m":[[6,15],[8,15]]}]} | text stricter: applied |
 | 1283 2014-00340 | Stampgatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1283 2014-00372 | Lucerngatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1283 2014-00380 | Bankogårdsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
@@ -36,4 +40,6 @@ Fully read 3403, partly read 70. Verified equal 3052, filled from text 30, text 
 | 1283 2016-289 | Övre Långvinkelsgatan | uncertain → {"f":[{"w":1,"nw":3,"a":480,"b":720}]} | filled from text |
 | 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | already uncertain |
 | 1283 2016-618 | Folkskolegatan | expired 2017-01-27 | already uncertain |
+| 1283 2017-237 | Palmqvistsgatan | uncertain → {"v":"motorcykel"} | filled from text |
+| 1283 2021-623 | Parapeten | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":4320},{"dt":["fore"],"a":540,"b":900,"max":4320}]} → {"l":[{"a":0,"b":1440,"max":4320}]} | text stricter: applied |
 | 1283 2026-649 | Hantverkaregatan | uncertain → {"f":[{"w":4,"nw":2,"a":360,"b":540}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | filled from text |

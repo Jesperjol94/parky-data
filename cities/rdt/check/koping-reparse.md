@@ -1,7 +1,7 @@
 # Köping: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-22. 289 segments: 289 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 281, partly read 8. Verified equal 239, filled from text 3, text stricter 0, disputed 0, expired 0, text without rules 38, multi-part texts (not compared) 0.
+Fully read 283, partly read 6. Verified equal 241, filled from text 3, text stricter 0, disputed 0, expired 0, text without rules 38, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

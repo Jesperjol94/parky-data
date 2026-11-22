@@ -1,7 +1,7 @@
 # Ronneby: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-22. 363 segments: 363 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 358, partly read 5. Verified equal 317, filled from text 41, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Fully read 359, partly read 4. Verified equal 315, filled from text 42, text stricter 2, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -26,6 +26,8 @@ Fully read 358, partly read 5. Verified equal 317, filled from text 41, text str
 | 1081 2010-00308 | anslutning till Hjortronvägen | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1081 2010-00325 | Strandgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":840,"max":30}]} | filled from text |
 | 1081 2010-00325 | Vierydsvägen | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":840,"max":30}]} | filled from text |
+| 1081 2011-00005 | Kungsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":840,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":840,"max":240},{"dt":["vardag","fore"],"a":0,"b":540,"max":1440},{"dt":["vardag"],"a":1080,"b":1440,"max":1440},{"dt":["fore"],"a":840,"b":1440,"max":1440},{"dt":["helgdag"],"a":0,"b":1440,"max":1440}]} | text stricter: applied |
+| 1081 2011-00005 | Kungsgatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":840,"max":240}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":840,"max":240},{"dt":["vardag","fore"],"a":0,"b":540,"max":1440},{"dt":["vardag"],"a":1080,"b":1440,"max":1440},{"dt":["fore"],"a":840,"b":1440,"max":1440},{"dt":["helgdag"],"a":0,"b":1440,"max":1440}]} | text stricter: applied |
 | 1081 2012-00038 | Gamla Karlshamnsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":600}]} | filled from text |
 | 1081 2013-00049 | Hemmansvägen | uncertain → {"l":[{"a":0,"b":1440,"max":2880}]} | filled from text |
 | 1081 2014-00062 | Järnvägsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":720}]} | filled from text |
@@ -35,6 +37,7 @@ Fully read 358, partly read 5. Verified equal 317, filled from text 41, text str
 | 1081 2015-00009 | Nygatan | uncertain → {"l":[{"a":0,"b":1440,"max":60}]} | filled from text |
 | 1081 2015-00036 | Drottninggatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":840,"max":240}],"aw":[{"dt":["vardag"],"a":540,"b":1080},{"dt":["fore"],"a":540,"b":840}],"v":"rörelsehindrade"} | filled from text |
 | 1081 2015-00038 | Drottninggatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":240},{"dt":["fore"],"a":540,"b":840,"max":240}],"v":"motorcykel"} | filled from text |
+| 1081 2015-00039 | Drottninggatan | uncertain → {"v":"laddning"} | filled from text |
 | 1081 2015-00040 | Drottninggatan | uncertain → {"l":[{"dt":["vardag"],"a":420,"b":1080,"max":240},{"dt":["fore"],"a":420,"b":840,"max":240},{"dt":["vardag","fore"],"a":0,"b":420,"max":1440},{"dt":["vardag"],"a":1080,"b":1440,"max":1440},{"dt":["fore"],"a":840,"b":1440,"max":1440},{"dt":["helgdag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1081 2016-00002 | Prinsgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120}]} | filled from text |
 | 1081 2020-00080 | Strandhemsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |

@@ -1,7 +1,7 @@
 # Danderyd: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-22. 729 segments: 729 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 690, partly read 39. Verified equal 594, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 23, multi-part texts (not compared) 71.
+Fully read 691, partly read 38. Verified equal 595, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 23, multi-part texts (not compared) 71.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

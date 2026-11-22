@@ -1,7 +1,7 @@
 # Borlänge: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-22. 1018 segments: 1018 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1015, partly read 3. Verified equal 975, filled from text 8, text stricter 0, disputed 0, expired 0, text without rules 27, multi-part texts (not compared) 0.
+Fully read 1015, partly read 3. Verified equal 974, filled from text 8, text stricter 1, disputed 0, expired 0, text without rules 27, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -13,3 +13,4 @@ Fully read 1015, partly read 3. Verified equal 975, filled from text 8, text str
 | 2081 2020-00048 | Tolvmilavägen | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1320,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | filled from text |
 | 2081 2020-00216 | Tolvmilavägen | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1320,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | filled from text |
 | 2081 2020-00216 | Tolvmilavägen | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1320,"max":60},{"dt":["fore"],"a":480,"b":900,"max":60}]} | filled from text |
+| 2081 2023-00066 | Maximparkeringen | {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":1440},{"dt":["fore"],"a":600,"b":900,"max":1440}]} → {"l":[{"a":0,"b":1440,"max":1440}]} | text stricter: applied |

@@ -105,6 +105,11 @@ const dedupe = (ws) => { const seen = new Set(); return ws.filter((w) => { const
 
 const unread = new Map();
 const dtTally = new Map();
+const plainAllDay = (w) => w.a === 0 && w.b === 1440 && !w.w && !w.dt && !w.m && !w.nw && !w.dm && !w.p && !w.wk;
+const unreadExemptionOnly = (r, s, multi) => !multi && !s.u && !s.v && r.bans.length === 1 && plainAllDay(r.bans[0]) && !r.limits.length && !r.allowOnly.length && !r.reserved && r.unread.length > 0
+  && r.unread.every((u) => /^(?:förbudet gäller (?:inte|ej)\b|under tiden [^.]*får fordon dock parkeras)/i.test(u) && /(?:klockan|kl\.?)\s*\d|\b(?:måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)/i.test(u)
+    && !/\bparkering|plats|högst|\bmax\b/i.test(u)) // an exemption for marked bays ("Förbudet gäller inte markerade parkeringsplatser där parkering är tillåten högst 30 min") is the bay's own rule: the line is right
+  && (s.f || []).some((w) => !w.ov) && !(s.f || []).some((w) => !w.ov && plainAllDay(w));
 const pattern = (s) => s.toLowerCase().replace(/\d{1,2}[.:]\d{2}/g, 'HH.MM').replace(/\b\d+\b/g, 'N').replace(/\b[A-ZÅÄÖ][a-zåäö]+(?:gatan|vägen|gränd|plan|torget|stigen|gången|leden|backen)\b/gi, 'GATAN').slice(0, 140);
 
 const idx = JSON.parse(fs.readFileSync(path.join(dir, 'index.json'), 'utf8'));
@@ -154,7 +159,7 @@ for (const row of idx.cities) {
       // upphöra att gälla") is not a fee here (QA 17 Nov round 32: Växjö Trädgårdsgatan 5 min bay drawn "fee – see the sign")
       const feeBody = dropRepealSentences(body);
       if (s.fu && !s.t && /avgift/i.test(body) && !/avgift/i.test(feeBody)) { delete s.fu; s.t = 0; changed++; st.feeRepealOnly = (st.feeRepealOnly || 0) + 1; }
-      if (!s.t && /avgift/i.test(feeBody) && !/utan avgift|avgiftsfri|ingen avgift|avgift(?:en)? (?:ska|skall|behöver) (?:inte|ej)(?! (?:erläggas|betalas) av (?:rörelsehindrad|boende))/i.test(dropOtherTimeFree(dropFreeFirstHours(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, ''))))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; } // "Första två timmarna är avgiftsfria med e-biljett" is a discount, not free parking (QA 13 Nov round 21: Huddinge Sjödalsvägen)
+      if (!s.t && (/avgift/i.test(feeBody) || /\benligt taxa \d+,? får fordon parkeras\b/i.test(feeBody.replace(/\s+/g, ' '))) /* "enligt kartbild och enligt taxa 1 får fordon parkeras": a fee without the word (sweep: Lidköping ×9 shown free) */ && !/utan avgift|avgiftsfri|ingen avgift|avgift(?:en)? (?:ska|skall|behöver) (?:inte|ej)(?! (?:erläggas|betalas) av (?:rörelsehindrad|boende))/i.test(dropOtherTimeFree(dropFreeFirstHours(body.replace(/[^.]*lokala trafikföreskrifter\s*\([^.]*/gi, ''))))) { if (s.t !== null) { s.t = null; changed++; } if (!s.fu) { s.fu = 1; changed++; } st.feeUnknown = (st.feeUnknown || 0) + 1; } // "Första två timmarna är avgiftsfria med e-biljett" is a discount, not free parking (QA 13 Nov round 21: Huddinge Sjödalsvägen)
       // The register drew "vardagar, utom (vardag|dag) före sön- och helgdag" as Saturdays only (it read the day after "utom"): when the
       // text names that day type only after "utom", the rule is for ordinary weekdays (Mon–Fri). A weekday before "utom" ("tisdagar, utom …")
       // can't be drawn from the register's day types, so the line goes grey (QA 19 Nov round 40: Sandviken Skogsfruvägen, Timrå, Härnösand)
@@ -209,6 +214,11 @@ for (const row of idx.cities) {
         const add = r.bans.filter((w) => !(w.a === 0 && w.b === 1440 && !w.w && !w.dt && !w.nw && !w.dm) && !have.has(sigB(w)));
         if (add.length) { s.f = [...(s.f || []), ...add]; s.rx = 1; changed++; st.partialBans = (st.partialBans || 0) + 1; }
       }
+      // A plain all-day ban whose exemption the parser cannot read ("Förbudet gäller inte 3:e måndagen i månaden klockan 8-18", "Under tiden onsdag
+      // klockan 08-16 får fordon dock parkeras", "Förbudet gäller inte fordon på östra sidan 1 maj - 1 oktober") while the line has no all-day ban: the
+      // register has made the exemption's hours the ban's, so the line is free when the text bans. Grey until the exemption is read (sweep waves
+      // 13–27: Helsingborg F M Franzéns gata, Borlänge Musikanten, Ovanåker Östra Kyrkogatan)
+      if (APPLY && unreadExemptionOnly(r, s, multi)) { s.u = 1; s.ux = 1; changed++; st.exemptGrey = (st.exemptGrey || 0) + 1; st.uStill++; }
       continue; }
     st.fullyRead++;
     // Fee hours from the text ("Avgift enligt Taxa Zon 2 … vardagar … 09.00 - 18.00") narrow a fee table that charges all day:
@@ -266,7 +276,7 @@ for (const row of idx.cities) {
       const key = `${k} ${JSON.stringify(cur[k][0].dt || 'all')} → ${JSON.stringify(t[k][0].dt || 'all')}`; dtTally.set(key, (dtTally.get(key) || 0) + 1);
     }
     const contradictory = (o) => (o.f || []).some((w) => w.a === 0 && w.b === 1440 && !w.dt && !w.w && !w.m && !w.p && !w.dd && !w.wk && !w.nw && !w.dm) && (o.l || []).length > 0;
-    const put = () => { if (contradictory(t)) { if (!s.u) { s.u = 1; s.ux = 1; changed++; st.contradictory = (st.contradictory || 0) + 1; } return; } for (const k of ['f', 'l', 'aw', 'dp', 'v', 'k', 'ko']) { if (t[k] !== undefined) s[k] = t[k]; else delete s[k]; } delete s.rd; s.rx = 1; changed++; };
+    const put = () => { if (contradictory(t)) { if (!s.u) { s.u = 1; s.ux = 1; changed++; st.contradictory = (st.contradictory || 0) + 1; } return; } const newBay = !s.v && !!t.v; for (const k of ['f', 'l', 'aw', 'dp', 'v', 'k', 'ko']) { if (t[k] !== undefined) s[k] = t[k]; else delete s[k]; } if (newBay && t.o) s.o = t.o; /* the open hours of a bay reserved at stated hours go with the reservation (project 0 batch 3: Orust Södra Strandvägen became reserved around the clock on the first pass) */ delete s.rd; s.rx = 1; changed++; };
     // Pelle's v: "personbil" is not a reservation (ordinary cars, or motorhomes "klass II"): the text decides
     const pelleV = cur.v === 'personbil' ? null : cur.v || null, textV = t.v || null;
     let verdict;
