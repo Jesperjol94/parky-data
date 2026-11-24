@@ -14,9 +14,9 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText } from './rdt-lib.mjs';
+import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText } from './rdt-lib.mjs';
 const MONTH_NAME = /\b(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b/i;
-import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING } from '../engine/regulation.js';
+import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING, complement } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
 const dir = args[0] || 'cities/rdt';
@@ -80,6 +80,9 @@ function fromText(r) {
   if (r.reserved) o.v = r.reservedFor || 'reserverad';
   if (r.purpose.length) { o.v = o.v || 'lastning'; o.k = r.purpose; if (r.otherAllowed) o.ko = 1; }
   if (r.reserved && !r.purpose.length && r.otherAllowed && !r.reservedSeason && r.reservedWindows.length && o.v !== 'rörelsehindrade') { const oh = outsideHours(r.reservedWindows); if (oh && oh.length) o.o = oh; } // reserved only at the stated hours; other times open to all (QA 11 Nov round 14: Tyresö Radiovägen)
+  // reserved in a season only ("får endast motorcykel och moped parkeras under tiden 1 april - 30 september"): open to all the rest of the year, as the
+  // engine does for Stockholm (sweep findings batch 5: Vänersborg, Simrishamn, Upplands-Bro motorcycle and motorhome bays were reserved all year)
+  if (r.reserved && !r.purpose.length && r.otherAllowed && r.reservedSeason && o.v !== 'rörelsehindrade' && !r.limits.length && !r.allowOnly.length) o.o = [{ a: 0, b: 1440, m: complement(r.reservedSeason) }];
   return o;
 }
 const hasRules = (o) => !!(o.f || o.l || o.aw || o.v || o.k || o.dp);
@@ -214,6 +217,7 @@ for (const row of idx.cities) {
       // The day types of windows the parser read and the line already holds with the same hours: the text's wider day types (plain "vardagar" is
       // Mon–Sat, "vardagar och vardag före sön- och helgdag", a list of all three) replace the register's. Not when an unread sentence may
       // restate that rule's days (sweep findings batch 4: Kalmar Larmgatan had its limit on Saturdays only, Burlöv Svenshögsvägen on Sundays only)
+      if (APPLY && !multi && !s.u) { const nf = nthWeekdayFromText(s.f, r.bans); if (nf) { s.f = nf; s.rx = 1; changed++; st.nthWeekday = (st.nthWeekday || 0) + 1; } } // the register's weekly twin of an n-th weekday ban (sweep findings batch 5: Hässleholm)
       if (APPLY && !multi && !s.u) for (const [k, src, guard] of [['f', r.bans, /^förbudet gäller/i], ['l', r.limits, /^(?:tidsbegränsningen|villkoret|tillåtelsen) gäller/i]]) {
         if (r.unread.some((u) => guard.test(u))) continue;
         const nw = dayTypesFromText(s[k], src, false, true); if (nw) { s[k] = nw; s.rx = 1; changed++; st.dayTypes = (st.dayTypes || 0) + 1; }

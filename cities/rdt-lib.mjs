@@ -135,3 +135,16 @@ export function limitSeasonNotInText(text, line, feeWindows, textNamesMonths) {
   const mine = seasonDays(ll[0].m);
   return (text.f || []).some((f) => { if (!f.m) return false; const s = seasonDays(f.m); return [...s].every((d) => !mine.has(d)) && s.size + mine.size >= 365; });
 }
+
+// "Parkering är dock förbjuden under tiden 1 tisdagen i månaden klockan 08.00 - 12.00": where the line holds the text's n-th weekday ban AND the
+// same weekday and hours without the n-th (the register's plain weekly window), the plain one is dropped: the text bans one Tuesday a month, not
+// every Tuesday. Only when the text itself has no plain window of that weekday and hours. Returns the new list, or null when nothing changes.
+// (sweep findings batch 5: Hässleholm Torsgatan, Kungsgatan, Nygatan were banned every Tuesday morning)
+export function nthWeekdayFromText(reg, txt) {
+  if (!reg || !reg.length || !txt || !txt.length) return null;
+  const key = (w) => JSON.stringify([w.w, w.a, w.b, w.dt || null, w.m || null, w.p || null, w.dd || null, w.wk || null]);
+  const nth = new Set(txt.filter((w) => w.w && w.nw).map(key)), plain = new Set(txt.filter((w) => w.w && !w.nw).map(key));
+  const onLine = new Set(reg.filter((w) => !w.ov && w.w && w.nw).map(key));
+  const out = reg.filter((w) => !(!w.ov && w.w && !w.nw && !w.dm && nth.has(key(w)) && onLine.has(key(w)) && !plain.has(key(w))));
+  return out.length === reg.length ? null : out;
+}

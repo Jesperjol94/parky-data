@@ -75,3 +75,13 @@ test('a season on the limit that the text does not give it (sweep findings batch
   assert.equal(limitSeasonNotInText({ l: text.l, f: [{ w: 2, a: 420, b: 960, m: [[10, 2], [6, 29]] }] }, { l: [{ a: 0, b: 1440, max: 1440, m: [[6, 30], [10, 1]] }] }, null, true), true); // the season the ban is lifted in (Kiruna Porfyrvägen)
   assert.equal(limitSeasonNotInText({ l: [{ a: 0, b: 1440, max: 120 }] }, line, null, false), false); // another limit: not the same windows
 });
+
+test('the weekly twin of an n-th weekday ban is dropped (sweep findings batch 5)', async () => {
+  const { nthWeekdayFromText } = await import('../rdt-lib.mjs');
+  const nth = { w: 2, nw: 1, a: 480, b: 720 }, weekly = { w: 2, a: 480, b: 720 };
+  assert.deepEqual(nthWeekdayFromText([weekly, nth], [nth]), [nth]); // Hässleholm Torsgatan: every Tuesday → the first Tuesday of the month
+  assert.equal(nthWeekdayFromText([weekly], [nth]), null); // the line lacks the n-th window: left alone
+  assert.equal(nthWeekdayFromText([weekly, nth], [nth, weekly]), null); // the text bans every Tuesday too
+  assert.equal(nthWeekdayFromText([{ ...weekly, ov: 2 }, nth], [nth]), null); // overlays are never touched
+  assert.equal(nthWeekdayFromText([{ w: 3, a: 480, b: 720 }, nth], [nth]), null); // another weekday
+});

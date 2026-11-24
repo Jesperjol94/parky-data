@@ -271,6 +271,36 @@ Log:
   day fee (Ängelholm ×3, Karlstad); residents-only (Kalmar ×3, Uddevalla, Vaxholm, Orust 2022-4); "N:e helgfria" (app side); week-number bans (Vellinge ×2, Rättvik);
   Strömstad Ångbåtskajen (heavy-vehicle ban plus "Övrig tid får fordon inte parkeras": inverted on the line); Eslöv 2021-16, Ljusdal, Nybro and Ulricehamn (garbled day
   lists), Lerum and Tanum 2025-33 "Övrig tid … 24 tim" with a trailing word; singles from batch 3's list. Then the 512 strict rows whose lines are unchanged.
+- 2026-11-24 batch 5 · the strict rows outside Stockholm (563), grouped by pattern and the five largest groups that the parser can settle read again by hand against their
+  texts (about 260 rows) · confirmed and fixed, each with a test (145 lines of 93 regulations in 38 municipalities changed; 82 strict rows now differ from the swept line):
+  (1) a limit's hours taken as the only hours parking is allowed (`aw`, 72 lines): "… får fordon, med avvikelse från … parkeringsförbudszon, parkeras. Tillåtelsen att
+  parkera i 1 § gäller dock högst 1 tim i följd. villkoret gäller under tiden vardagar … 09.00 - 16.00" and "… gäller dock högst 24 timmar i följd, vardagar utom …": the
+  permission has no hours, "dock högst N" only limits it (Hudiksvall, 33 regulations answered NO every evening and weekend: the open question of 25 Oct, settled by the
+  wording "villkoret gäller"); the title of the regulation a text replaces ("… träder i kraft …, då … om förbud att parkera på X ska upphöra att gälla") no longer
+  counts as a ban context (Perstorp Bryggaregatan, Burlöv Hamngatan, Linköping Hedborns gata). (2) "får fordon inte parkeras (under) längre tid än N / i längre följd än N"
+  is a limit, and a "Förbudet gäller <hours>" after it, or after "parkeras under högst N" in a text that bans nothing, gives the limit's hours (Sollefteå ×3, Vilhelmina ×2,
+  Laxå ×2, Lund, Filipstad, Hallstahammar, Lycksele, Tingsryd, Lomma, Salem: 19 lines were drawn as bans). (3) exceptions to an all-day ban: "Parkering är dock tillåten
+  april - november" leaves a winter ban (Ulricehamn ×6); "Parkering är dock tillåten under högst 2 tim mellan klockan 06.00 – 22.00" = allowed then with the limit, banned
+  outside (Värnamo), without hours a plain limit (Forshaga). Not when the exception is for marked bays, for loading, or on one named weekday. (4) a bay for one kind of
+  vehicle with "endast" and its own hours or season, no limit, fee, ban or area ban in the text, is open at other times (12 lines: Simrishamn ×3, Vänersborg ×2, Varberg,
+  Upplands-Bro, Söderköping, Sigtuna, Mjölby, Trelleborg, Årjäng; rdt-reparse now writes the off-season `o` window as the engine does for Stockholm). (5) hours and seasons
+  of a ban that were dropped: "den 15 maj t.o.m. 15 september", "30:april", "mellan kl 18.00 – kl 02.00", hours straight after a season, "får fordon under tiden … inte
+  parkeras", "får fordon på tisdagar inte parkeras …", "Förbudet gäller på dagar med jämna datum …" beside its own plain ban (Bollnäs ×3), "Tillåtelsen gäller 1 maj - 30
+  november. Övrig tid är parkering förbjuden" (Sundsvall ×2: winter ban only), "Tidsbegränsningen gäller alla dagar" after the hours (Huddinge), date parking's season
+  (Kiruna); pipeline: the register's weekly twin of an n-th weekday ban is dropped (`nthWeekdayFromText`: Hässleholm ×5 were banned every Tuesday, not one a month).
+  Left as they are, on purpose: "Parkering är dock tillåten under högst N tim" on disabled bays (about 25 rows: the bay stays reserved, the rule of this project);
+  an all-day ban with "Under tiden onsdag klockan 08.00 - 16.00 får dock fordon parkeras" or "… dock tillåten 4 tisdagen i månaden 08.00 - 18.00" (Borlänge ×12,
+  Nyköping ×5, Helsingborg ×9: read literally parking is allowed only on the cleaning day, which looks like the register's form filled in backwards; the lines stay banned,
+  the safe side: the sign decides); exceptions for marked bays on a banned street (Mjölby, Katrineholm, Båstad, Vallentuna: the line is the street).
+  Independent check of all 97 distinct changed lines by a reviewer who did not write the fixes: 95 confirmed, 2 not: Kalmar Gustaf Adolfs väg 0880 2025-51 ("Tillåtelsen
+  gäller vardagar utom … under högst 24 tim" without "dock", inside an area ban: weekends stay closed) and Tanum Sjövägen 1435 2017-46 ("dock tillåten under högst 5
+  minuter för i och urlastning": the ban stays). Both readings were taken out of the parser (with tests), the data rebuilt from the last commit; nothing unconfirmed is in.
+  Still open among the strict rows (481 unchanged; many are not parser errors): disabled bays with hours and an explicit "Övrig tid får fordon parkeras" (Söderhamn ×3,
+  Laholm, Sundbyberg 2025-00018, Karlskrona 2010-0833: reserved around the clock, next batch); fee or free disc time (Kungsbacka ×13, Ängelholm ×5, Tanum, Sotenäs),
+  free first hours (Skellefteå ×3, Nyköping) and per-day prices: display, app side; fee seasons missing in the fee table (Vaxholm ×12, Borgholm ×8, Landskrona ×2, Båstad,
+  Lysekil, Vellinge, Ystad) and Skövde's prices (×8): fee tables; vehicle-class bans read as general (bicycles, motorhomes, heavy vehicles: about 20); area-ban overlays
+  `ov: 1` on streets with their own rule (about 17, removes bans: needs the area texts); multi-part texts merged (Norrtälje ×12, Säter ×4); school days and school terms;
+  week numbers; one-off dates kept as yearly seasons; stopping flag from the title (display).
 
 ### 1. [ ] The app allows more than the sign: flagged lines
 The audit's "looser" leads, smallest and most harmful first. One batch per check, in this order:
