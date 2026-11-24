@@ -90,3 +90,48 @@ export function limitSeasonFromBan(text, line) {
   if (JSON.stringify(a) !== JSON.stringify(b)) return false;
   return (text.f || []).some((f) => f.m && ll.every((w) => JSON.stringify(w.m) === JSON.stringify(f.m)));
 }
+
+// Day types from the text for windows whose hours the register and the text agree on. The register often holds a window on the wrong day
+// type: plain "vardagar" (Mon–Sat) as Mon–Fri, "vardagar och vardag före sön- och helgdag" or a list of all three day types as its last
+// one only, "vardagar, dock ej dag före …" as Saturdays. A register window (bans or limits) gets the text's day types when the text has
+// a window of the same weekday, hours, length, season and parity and either names more day types (the line gets stricter) or the register
+// has only 'fore' where the text has only 'vardag'. Windows without a twin in the text are left alone. `uniqueOnly`: for texts with
+// several places, only when the text has exactly one window of that shape. `explicitOnly`: for texts with an unread sentence, only text
+// windows that name their day types count (a window without day words may have them in the unread sentence: Vimmerby Nybblevägen,
+// "Tidsbegräsningen gäller vardag före sön- och helgdag"). Returns the new list, or null when nothing changes.
+// (sweep findings batch 4: Kalmar Larmgatan, Burlöv Svenshögsvägen, Hagfors Uddeholmsvägen)
+export function dayTypesFromText(reg, txt, uniqueOnly = false, explicitOnly = false) {
+  if (!reg || !reg.length || !txt || !txt.length) return null;
+  const shape = (w) => JSON.stringify([w.w || 0, w.nw || 0, w.dm || 0, w.a, w.b, w.max ?? null, w.m || null, w.p || null, w.dd || null, w.wk || null]);
+  const T = new Map(); const seen = new Set();
+  for (const w of txt) { if (explicitOnly && !w.dt) continue; const full = JSON.stringify(w); if (seen.has(full)) continue; seen.add(full); const k = shape(w); const e = T.get(k) || { n: 0, dt: new Set() }; e.n++; for (const d of w.dt || ALL_DAYS) e.dt.add(d); T.set(k, e); }
+  let changed = false;
+  const out = reg.map((w) => {
+    if (w.ov || w.w || !w.dt) return w; // overlays, named weekdays and all-day-type windows are never touched
+    const e = T.get(shape(w)); if (!e || (uniqueOnly && e.n !== 1)) return w;
+    const have = new Set(w.dt), wider = w.dt.every((d) => e.dt.has(d)) && e.dt.size > have.size;
+    const swap = w.dt.length === 1 && w.dt[0] === 'fore' && e.dt.size === 1 && e.dt.has('vardag');
+    if (!wider && !swap) return w;
+    changed = true; const dt = ALL_DAYS.filter((d) => e.dt.has(d)); const { dt: _dt, ...rest } = w;
+    return dt.length === 3 ? rest : { ...w, dt };
+  });
+  if (!changed) return null;
+  const uniq = new Set(); return out.filter((w) => { const k = JSON.stringify(w); if (uniq.has(k)) return false; uniq.add(k); return true; });
+}
+
+const seasonDays = (m) => { const s = new Set(); let [mo, d] = m[0]; for (let i = 0; i < 400; i++) { s.add(mo * 100 + d); if (mo === m[1][0] && d === m[1][1]) break; d++; if (d > 31) { d = 1; mo = mo % 12 + 1; } } return s; };
+// The register put a season on the time limit that the text does not give it: the fee's season ("högst 24 tim i följd mot avgift.
+// Avgiftsplikten gäller 1 juni - 31 augusti": Båstad, Orust), the season a weekday ban is lifted in ("Parkering är dock förbjuden tisdag
+// 07–16, utom under tiden 30 juni – 1 oktober": Kiruna), or a season the text never mentions (Sotenäs Köpmansgatan). True when the text's
+// limits carry no season and the line's limits are the same windows, all with one such season. The limit then holds all year (stricter).
+export function limitSeasonNotInText(text, line, feeWindows, textNamesMonths) {
+  const tl = text.l || [], ll = line.l || [];
+  if (!tl.length || tl.length !== ll.length || tl.some((w) => w.m) || !ll.every((w) => w.m)) return false;
+  const key = (w) => JSON.stringify([w.w || 0, w.dt || null, w.a, w.b, w.max, w.p || null]);
+  if (JSON.stringify(tl.map(key).sort()) !== JSON.stringify(ll.map(key).sort())) return false;
+  const m0 = JSON.stringify(ll[0].m); if (!ll.every((w) => JSON.stringify(w.m) === m0)) return false;
+  if (!textNamesMonths) return true;
+  if ((feeWindows || []).length && feeWindows.every((w) => w.m && JSON.stringify(w.m) === m0)) return true;
+  const mine = seasonDays(ll[0].m);
+  return (text.f || []).some((f) => { if (!f.m) return false; const s = seasonDays(f.m); return [...s].every((d) => !mine.has(d)) && s.size + mine.size >= 365; });
+}

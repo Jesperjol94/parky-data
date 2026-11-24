@@ -1,7 +1,7 @@
 # Solna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-22. 1910 segments: 1910 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1902, partly read 7. Verified equal 1833, filled from text 39, text stricter 0, disputed 0, expired 1, text without rules 17, multi-part texts (not compared) 8.
+Run 2026-11-24. 1910 segments: 1910 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1901, partly read 7. Verified equal 1832, filled from text 39, text stricter 0, disputed 0, expired 2, text without rules 17, multi-part texts (not compared) 8.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -50,3 +50,4 @@ Fully read 1902, partly read 7. Verified equal 1833, filled from text 39, text s
 | 0184 2020-00656 | Västra vägen | uncertain → {"f":[{"w":1,"a":600,"b":840,"m":[[8,1],[6,30]],"p":"even"}]} | filled from text |
 | 0184 2020-00676 | Åsvägen | uncertain → {"f":[{"w":3,"a":600,"b":840,"m":[[8,1],[6,30]],"p":"odd"}]} | filled from text |
 | 0184 2020-00724 | Hjortstigen | uncertain → permitted (fee) | filled from text |
+| 0184 2026-138 | Hagavägen | expired 2026-11-24 | now uncertain |

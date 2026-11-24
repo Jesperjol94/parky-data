@@ -1,6 +1,6 @@
 # Skellefteå: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-22. 460 segments: 460 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-24. 460 segments: 460 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 457, partly read 3. Verified equal 421, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 20, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

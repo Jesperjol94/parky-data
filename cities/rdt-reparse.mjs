@@ -14,7 +14,8 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay, dropOtherTimeFree, limitSeasonFromBan } from './rdt-lib.mjs';
+import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText } from './rdt-lib.mjs';
+const MONTH_NAME = /\b(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b/i;
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING } from '../engine/regulation.js';
 
 const args = process.argv.slice(2);
@@ -32,6 +33,7 @@ const minutesBanned = (ws) => (ws || []).reduce((s, w) => s + (w.b > w.a ? w.b -
 // one segment: the parser merges all its rules. Such texts are only counted, never applied.
 function multiPart(body) {
   const t = dropGeneralRuleQuote(ruleText(body) || '').replace(/\b(?:Vid|Med) (?:hus)?(?:nr|nummer)\.? [\d\s,–-]+ (?:avses|gäller) (?:(?:norra|södra|östra|västra) sidan|hussidan)\.?/gi, '')
+    .replace(/(?:\d+\s*§\s*)?På [^.]{3,80}? gäller (?:gatuparkering enligt )?datumparkering\.?/gi, ''); // "4 § På Korsängsvägen gäller gatuparkering enligt datumparkering": the same street's date parking, not a second place (sweep findings batch 4: Upplands-Bro)
   const paras = (t.match(/\b\d{1,2}\s*§/g) || []).length;
   const places = (t.match(/(?:^|[.;]\s*|\d\s*§\s*)På\s(?!(?:vardag(?:ar)?|dag(?:ar)? före|sön-|helgdag|måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag|övriga ytor|parkeringsskiva|p-skiva|laddplats(?:en|erna)|laddningsplats(?:en|erna)|samtliga gator(?: och vägar)? inom markerat område gäller dock)\b)/g) || []).length + (t.match(/(?:^|[.;]\s*|\d\s*§\s*)Inom\s(?!tidsangivelsen\b)/g) || []).length; // "3 § Inom tidsangivelsen som anges i 2 § skall avgift erläggas" names hours, not a place (sweep wave 3: Haninge Rudsjöterrassen) // "På samtliga gator inom markerat område gäller dock förbud …" refers back to the area just named (QA 18 Nov round 37: Örebro Älvtomta 18 lines grey) // also "… 4 § På parkeringsplatsen på de platser …" after a paragraph number (QA 6 Nov: Norrtälje Rimbo, Täby Arninge merged several places' rules) // "På parkeringsskiva eller motsvarande ska klockslaget … ställas in" is how to set the disc, not a place (QA 13 Nov round 20: Täby Marknadsvägen)
   const sides = new Set((t.match(/(?<![a-zåäö])((?:syd|nord)?(?:östra|västra)|norra|södra)\s+sidan?/gi) || []).map((x) => x.toLowerCase().split(/\s/)[0])).size; // not \b: it is ASCII-only, so "\böstra" never matched after a space (and matched inside "sydöstra")
@@ -209,9 +211,21 @@ for (const row of idx.cities) {
       // unread sentence qualifies a rule ("Förbudet gäller …", "Tillåtelsen …", "Tidsbegränsningen …", "Övrig tid …", "Trots …"), not for
       // multi-part texts, and never an unqualified all-day ban (QA 8 Nov: Vaxholm Hamngatan lost "Fordon får dock inte parkeras tisdag
       // 0–8" to an unread fee sentence; ~20 Täby cleaning bans were lost to "Parkering ska ske vinkelrätt mot färdriktningen")
-      if (APPLY && !multi && !s.u && !s.v && r.bans.length && !r.unread.some((u) => /^(?:förbud|tillåtelse|tidsbegränsning|villkor|övrig tid|under tiden|trots)|totalvikt|bruttovikt|lastbil|tung|buss|släp|husbil|klass (?:ii|2)/i.test(u))) { // an unread sentence about heavy vehicles may be the subject of the ban (Burlöv)
+      // The day types of windows the parser read and the line already holds with the same hours: the text's wider day types (plain "vardagar" is
+      // Mon–Sat, "vardagar och vardag före sön- och helgdag", a list of all three) replace the register's. Not when an unread sentence may
+      // restate that rule's days (sweep findings batch 4: Kalmar Larmgatan had its limit on Saturdays only, Burlöv Svenshögsvägen on Sundays only)
+      if (APPLY && !multi && !s.u) for (const [k, src, guard] of [['f', r.bans, /^förbudet gäller/i], ['l', r.limits, /^(?:tidsbegränsningen|villkoret|tillåtelsen) gäller/i]]) {
+        if (r.unread.some((u) => guard.test(u))) continue;
+        const nw = dayTypesFromText(s[k], src, false, true); if (nw) { s[k] = nw; s.rx = 1; changed++; st.dayTypes = (st.dayTypes || 0) + 1; }
+      }
+      // An unread sentence about the permission ("Tillåtelsen gäller inte under tiden då Storgatan är gågata", "Villkoret gäller … 06.00 - 22.00" for a
+      // vehicle class) says nothing about a ban that has its own hours in its own sentence ("Parkering är dock förbjuden vardagar mellan klockan
+      // 06.00 – 09.00"): such a ban is added too; an all-day ban is not (sweep findings batch 4: Borgholm Storgatan, Öckerö Lappesandsvägen were free then)
+      const softUnread = r.unread.some((u) => /^(?:tillåtelse|tidsbegränsning|villkor)/i.test(u));
+      if (APPLY && !multi && !s.u && !s.v && r.bans.length && !r.unread.some((u) => /^(?:förbud|övrig tid|under tiden|trots)|totalvikt|bruttovikt|lastbil|tung|buss|släp|husbil|klass (?:ii|2)/i.test(u))) { // an unread sentence about heavy vehicles may be the subject of the ban (Burlöv)
         const sigB = (w) => JSON.stringify([w.w || 0, w.nw || 0, w.dm || 0, w.dt || null, w.a, w.b, w.m || null, w.p || null]); const have = new Set((s.f || []).map(sigB));
-        const add = r.bans.filter((w) => !(w.a === 0 && w.b === 1440 && !w.w && !w.dt && !w.nw && !w.dm) && !have.has(sigB(w)));
+        const add = r.bans.filter((w) => !(w.a === 0 && w.b === 1440 && !w.w && !w.dt && !w.nw && !w.dm) && !(softUnread && w.a === 0 && w.b === 1440) && !have.has(sigB(w))
+          && !(w.dt && w.dt.every((d) => (s.f || []).some((q) => (q.dt || ['vardag', 'fore', 'helgdag']).includes(d) && sigB({ ...q, dt: null }) === sigB({ ...w, dt: null }))))); // already held as one window per day type (Mölndal)
         if (add.length) { s.f = [...(s.f || []), ...add]; s.rx = 1; changed++; st.partialBans = (st.partialBans || 0) + 1; }
       }
       // A plain all-day ban whose exemption the parser cannot read ("Förbudet gäller inte 3:e måndagen i månaden klockan 8-18", "Under tiden onsdag
@@ -255,6 +269,8 @@ for (const row of idx.cities) {
       const odd = anyText && (((s.f || []).filter((w) => !w.ov).some((w) => !textBans.has(win(w)) && !(w.a === 0 && w.b === 1440 && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(rec.body)))) || (s.l || []).some((l) => !textMax.has(l.max)) || (s.v && r.permitted)
         || ((tt.f || []).some((w) => (w.w || w.nw || w.dm) && !(s.f || []).some((f) => !f.ov && win(f) === win(w))))); // a cleaning/market-day ban in the text that the line lacks: which part it belongs to can't be told, and missing it would be looser (QA 8 Nov: Täby allé) // a reservation on a piece of a text that also lets ordinary cars park elsewhere: which piece is reserved can't be told (Bollebygd)
       if (APPLY) { if (odd && !s.u) { s.u = 1; s.ux = 1; changed++; st.multiGrey = (st.multiGrey || 0) + 1; } else if (!odd && s.ux) { delete s.u; delete s.ux; changed++; } }
+      // day types for a piece whose hours the text has exactly once (sweep findings batch 4: Hagfors Uddeholmsvägen, "vardagar, dock ej dag före sön- och helgdag" held as Saturdays)
+      if (APPLY && !odd && !s.u) for (const k of ['f', 'l']) { const nw = dayTypesFromText(s[k], tt[k], true); if (nw) { s[k] = nw; s.rx = 1; changed++; st.dayTypes = (st.dayTypes || 0) + 1; } }
       if (s.u) st.uStill++; continue;
     }
     const t = fromText(r);
@@ -302,6 +318,7 @@ for (const row of idx.cities) {
       const noLoss = (a, b) => [...keys(b)].every((k) => keys(a).has(k)); // the text's windows must keep every condition the register had (QA 8 Nov: Askersund would have lost a season)
       if (APPLY && (cond(t.f) !== cond(cur.f) || cond(t.l) !== cond(cur.l)) && noLoss(t.f, cur.f) && noLoss(t.l, cur.l) && JSON.stringify([t.f, t.l]).match(/"(?:p|m|dd|nw|dm|dt|wk)":/)) { put(); st.precise = (st.precise || 0) + 1; }
       if (APPLY && limitSeasonFromBan(t, cur)) { put(); st.limitSeason = (st.limitSeason || 0) + 1; } // the register put the ban's season on the limit too: the limit holds all year (sweep wave 2: Järfälla Kopparvägen)
+      if (APPLY && limitSeasonNotInText(t, cur, r.feeWindows, MONTH_NAME.test(ruleText(rec.body) || ''))) { put(); st.limitSeason = (st.limitSeason || 0) + 1; } // the fee's season, or a season the text never gives the limit (sweep findings batch 4: Båstad Havsbadsvägen, Orust Bryggvägen, Kiruna Porfyrvägen, Sotenäs Köpmansgatan had no limit most of the year)
       if (APPLY && t.dp && t.dp.length && !(cur.dp && cur.dp.length)) { put(); st.dpAdded = (st.dpAdded || 0) + 1; } // the comparison samples one week without date parking: a text that defers to the datumparkering rules adds it (QA 8 Nov: Gävle, 4 of 480)
       if (cur.v === 'personbil' && APPLY) { delete s.v; s.rx = 1; changed++; }
       if (APPLY && pelleV && pelleV === textV && t.l && !cur.l) { s.l = t.l; s.rx = 1; changed++; st.reservedLimit = (st.reservedLimit || 0) + 1; } // a reserved bay's own "högst N" from the text: the register had the bay but not its limit (QA 16 Nov round 30: Tyresö Regnbågsgatan bus bay 30 min)

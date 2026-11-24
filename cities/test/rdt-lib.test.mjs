@@ -46,3 +46,32 @@ test('sweep wave 2: a ban\'s season that the register put on the time limit too 
   assert.equal(limitSeasonFromBan(text, { l: [{ a: 0, b: 1440, max: 120, m }] }), false); // another limit
   assert.equal(limitSeasonFromBan({ l: [{ a: 0, b: 1440, max: 180, m }], f: text.f }, { l: [{ a: 0, b: 1440, max: 180, m }] }), false); // the text has the season itself
 });
+
+test('day types from the text for windows with the same hours (sweep findings batch 4)', async () => {
+  const { dayTypesFromText } = await import('../rdt-lib.mjs');
+  // "vardagar och vardag före sön- och helgdag" held as Saturdays only (Kalmar Larmgatan)
+  assert.deepEqual(dayTypesFromText([{ dt: ['fore'], a: 540, b: 1080, max: 15 }], [{ dt: ['vardag', 'fore'], a: 540, b: 1080, max: 15 }]), [{ dt: ['vardag', 'fore'], a: 540, b: 1080, max: 15 }]);
+  // three day types with the same hours held as the last one (Burlöv Svenshögsvägen): every day
+  assert.deepEqual(dayTypesFromText([{ dt: ['helgdag'], a: 480, b: 1080, max: 240 }], [{ dt: ['vardag'], a: 480, b: 1080, max: 240 }, { dt: ['fore'], a: 480, b: 1080, max: 240 }, { dt: ['helgdag'], a: 480, b: 1080, max: 240 }]), [{ a: 480, b: 1080, max: 240 }]);
+  // "vardagar, dock ej dag före … 09–18 samt dag före … 09–15" held as Saturday twice (Hagfors Uddeholmsvägen), also for a text with two places
+  assert.deepEqual(dayTypesFromText([{ dt: ['fore'], a: 540, b: 1080, max: 30 }, { dt: ['fore'], a: 540, b: 900, max: 30 }], [{ dt: ['vardag'], a: 540, b: 1080, max: 30 }, { dt: ['fore'], a: 540, b: 900, max: 30 }, { dt: ['vardag'], a: 540, b: 1080, max: 30 }, { dt: ['fore'], a: 540, b: 900, max: 30 }], true),
+    [{ dt: ['vardag'], a: 540, b: 1080, max: 30 }, { dt: ['fore'], a: 540, b: 900, max: 30 }]);
+  // never narrower, never other hours, never a named weekday or an overlay
+  assert.equal(dayTypesFromText([{ dt: ['vardag', 'fore'], a: 540, b: 1080 }], [{ dt: ['vardag'], a: 540, b: 1080 }]), null);
+  assert.equal(dayTypesFromText([{ dt: ['vardag'], a: 540, b: 1020 }], [{ dt: ['vardag', 'fore'], a: 540, b: 1080 }]), null);
+  assert.equal(dayTypesFromText([{ a: 0, b: 1440, ov: 1 }, { w: 2, a: 0, b: 480 }], [{ dt: ['vardag', 'fore'], a: 0, b: 1440 }]), null);
+  // a text window without day words does not widen a line when a sentence is unread (Vimmerby Nybblevägen: the unread sentence names the day)
+  assert.equal(dayTypesFromText([{ dt: ['fore'], a: 0, b: 1440, max: 720 }], [{ a: 0, b: 1440, max: 720 }], false, true), null);
+  // two places with different days for the same hours: not decided for a text with several places
+  assert.equal(dayTypesFromText([{ dt: ['vardag'], a: 540, b: 1080, max: 60 }], [{ dt: ['vardag'], a: 540, b: 1080, max: 60 }, { dt: ['vardag', 'fore'], a: 540, b: 1080, max: 60 }], true), null);
+});
+
+test('a season on the limit that the text does not give it (sweep findings batch 4)', async () => {
+  const { limitSeasonNotInText } = await import('../rdt-lib.mjs');
+  const summer = [[6, 1], [8, 31]], text = { l: [{ a: 0, b: 1440, max: 1440 }] }, line = { l: [{ a: 0, b: 1440, max: 1440, m: summer }] };
+  assert.equal(limitSeasonNotInText(text, line, [{ a: 600, b: 1080, m: summer }], true), true); // the fee's season (Båstad Havsbadsvägen)
+  assert.equal(limitSeasonNotInText(text, line, null, false), true); // the text names no season at all (Sotenäs Köpmansgatan)
+  assert.equal(limitSeasonNotInText(text, line, null, true), false); // a season somewhere in the text that is not the fee's: not decided
+  assert.equal(limitSeasonNotInText({ l: text.l, f: [{ w: 2, a: 420, b: 960, m: [[10, 2], [6, 29]] }] }, { l: [{ a: 0, b: 1440, max: 1440, m: [[6, 30], [10, 1]] }] }, null, true), true); // the season the ban is lifted in (Kiruna Porfyrvägen)
+  assert.equal(limitSeasonNotInText({ l: [{ a: 0, b: 1440, max: 120 }] }, line, null, false), false); // another limit: not the same windows
+});
