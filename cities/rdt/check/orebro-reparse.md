@@ -1,7 +1,7 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-24. 2592 segments: 2592 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2564, partly read 23. Verified equal 2541, filled from text 5, text stricter 0, disputed 0, expired 5, text without rules 1, multi-part texts (not compared) 17.
+Run 2026-11-25. 2587 segments: 2587 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2564, partly read 23. Verified equal 2540, filled from text 5, text stricter 0, disputed 1, expired 0, text without rules 1, multi-part texts (not compared) 17.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,9 +9,5 @@ Fully read 2564, partly read 23. Verified equal 2541, filled from text 5, text s
 | 1880 2025-00218 | Engelbrektsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1880 2025-00256 | Slottsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"even"}],"l":[{"dt":["vardag"],"a":360,"b":1320,"max":180},{"dt":["fore"],"a":360,"b":1320,"max":180},{"dt":["helgdag"],"a":360,"b":1320,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1880 2025-00675 | Honolulugatan | uncertain → {"f":[{"w":4,"a":0,"b":540}]} | filled from text |
+| 1880 2026-00429 | Toringsgatan | {"f":[{"a":0,"b":540}]} → {"f":[{"w":3,"a":0,"b":540}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1880 2026-00769 | Rostagatan | uncertain → {"f":[{"w":2,"a":0,"b":540}]} | filled from text |
-| 1880 2026-01334 | Västra Bangatan | expired 2026-11-23 | now uncertain |
-| 1880 2026-01334 | Västra Bangatan | expired 2026-11-23 | now uncertain |
-| 1880 2026-01335 | Västra Bangatan | expired 2026-11-23 | now uncertain |
-| 1880 2026-01335 | Västra Bangatan | expired 2026-11-23 | now uncertain |
-| 1880 2026-01335 | Västra Bangatan | expired 2026-11-23 | now uncertain |

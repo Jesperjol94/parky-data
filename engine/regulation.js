@@ -43,6 +43,8 @@ function season(s) {
   s = s.replace(/\bsepember\b/gi, 'september'); s = s.replace(/\b(\d{1,2})\s*(jan|feb|apr|aug|sept?|okt|nov|dec)\.?(?![a-zåäö])/gi, (z, d, a) => `${d} ${{ jan: 'januari', feb: 'februari', apr: 'april', aug: 'augusti', sep: 'september', sept: 'september', okt: 'oktober', nov: 'november', dec: 'december' }[a.toLowerCase()]}`); // "1 sept – 1 juni" (QA 11 Nov round 14: Sollefteå Kyrkvägen)
   // "den 15 maj t.o.m. 15 september", "fr om 15 okt t om 15 april", "1 november - 30:april" (sweep: Vellinge, Övertorneå, Nykvarn lost the season)
   s = s.replace(/(\d{1,2})\s+(januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\s+(?:t\.?\s?o\.?\s?m\.?|till och med)\s+(?:den\s+)?(\d{1,2})[:.]?\s*(?=januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)/gi, '$1 $2 - $3 ').replace(/([-–—]\s*\d{1,2}):(?=(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b)/gi, '$1 ');
+  // "mellan 1 nov och 30 april påföljande år", "från den 1 maj till den 30 september": a season (measure 25 Nov: Danderyd Slagrutevägen was banned all year)
+  s = s.replace(/\b(mellan|från(?: och med)?)\s+(?:den\s+)?(\d{1,2})\s+(januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\s+(?:och|till(?: och med)?)\s+(?:den\s+)?(\d{1,2})\s+(?=(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b)/gi, '$1 $2 $3 - $4 ');
   const all = [...s.matchAll(/(\d{1,2})\s+(januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\s*[-–—]\s*(\d{1,2})\s+(januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)/gi)]
     .map((r) => [[MONTHS[r[2].toLowerCase()], +r[1]], [MONTHS[r[4].toLowerCase()], +r[3]]]);
   if (!all.length) { // "under augusti - juni": whole months (QA: Solna)
@@ -416,6 +418,13 @@ export function parseRegulation(body) {
     const wks = [...tail[3].matchAll(/(?:v\.?|vecka)\s*(\d{1,2})/gi)].map((r) => r[1]);
     const parts = tail[2].split(/(?<=\d)\s*(?:,|\boch\b|\bsamt\b)\s*(?=(?:måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:ar)?\b)/i).filter(Boolean);
     return wks.flatMap((k) => parts.map((q) => `Förbudet gäller ${q} vecka ${k}.`)); });
+  // "Förbudet gäller årligen mellan lördagen vecka 27 och söndagen vecka 28": one span over the weeks, not the day types of its ends
+  // (measure 25 Nov: Vellinge Reuterswärds väg was banned every weekend all year and open Mon–Fri of week 28)
+  list = list.flatMap((s) => { const WD = '(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:en)?';
+    const r = s.match(new RegExp(`^(\\s*(?:\\d+\\s*§\\s*)?(?:förbudet|tillåtelsen|tidsbegränsningen) gäller)\\s+(?:årligen\\s+)?(?:under tiden\\s+)?(?:mellan|från(?: och med)?)\\s+${WD}\\s+(?:i\\s+)?(?:v\\.?|vecka)\\s*(\\d{1,2})\\s+(?:och|till(?: och med)?)\\s+${WD}\\s+(?:i\\s+)?(?:v\\.?|vecka)\\s*(\\d{1,2})\\.?\\s*$`, 'i'));
+    if (!r) return [s]; const [, hd, w1, n1, w2, n2] = r; const a = +n1, b = +n2; if (!(b > a && b - a <= 8 && b <= 53)) return [s];
+    const d1 = w1.toLowerCase(), d2 = w2.toLowerCase();
+    return [`${hd} ${d1 === 'söndag' ? 'söndag' : `${d1} - söndag`} vecka ${a}.`, ...Array.from({ length: b - a - 1 }, (_, i) => `${hd} måndag - söndag vecka ${a + 1 + i}.`), `${hd} ${d2 === 'måndag' ? 'måndag' : `måndag - ${d2}`} vecka ${b}.`]; });
   const weekCont = new Set(); // later parts of a week list split above: they add to the rule of the first part
   list = list.flatMap((s) => { const n = (s.match(/(?<![\wåäö])(?:v\.?|vecka)\s*\d{1,2}\b/gi) || []).length; const hd = s.match(/^\s*(?:\d+\s*§\s*)?(förbudet|tillåtelsen|tidsbegränsningen) gäller\s*/i); if (n < 2 || !hd) return [s];
     const H = hd[1][0].toUpperCase() + hd[1].slice(1).toLowerCase(); // also "Tillåtelsen gäller onsdag - söndag vecka 30, måndag - söndag vecka 31 …" (QA 11 Nov round 14: Rättvik Riksvägen limit only in week 30)
@@ -449,6 +458,7 @@ export function parseRegulation(body) {
       .replace(/^(\s*(?:\d+\s*§\s*)?)Övrigt? tid (?:gäller (?:parkering )?|är parkering(?:en)? tillåten |får fordon parkeras )?(?:under |i )?(?:högst |max(?:imalt)? )?(\d+) ?(tim(?:me|mar|ma)?|dygn|min(?:uter)?)(?: i följd)?\.?\s*$/i, '$1Övrig tid får fordon parkeras under högst $2 $3 i följd.');
     s = s.replace(/\bfår\s*[-–]\s*under högst [^-–.]{3,30}?\s*[-–]\s*endast\b/i, 'får endast'); // "får - under högst 2 timmar i följd - endast sådant fordon parkeras som …" (Vaggeryd)
     // Sweep findings, batch 4 (24 Nov): wordings that left a ban, a limit or the day types unread (each line names the street that showed it)
+    s = s.replace(/\b(tis|ons|tors)s+dag/gi, '$1dag') // "Parkering är dock förbjuden onssdag mellan klockan 00.00 och 09.00" (measure 25 Nov: Örebro Toringsgatan was banned every night)
     s = s.replace(/\b(m)el{3,}an\b/gi, '$1ellan') // "melllan klockan 0 och klockan 8" (Vaxholm Rådhusgatan had no Wednesday ban)
       .replace(/\bsön- och\/eller helgdag/gi, 'sön- och helgdag') // Kiruna
       .replace(/\b(vardag(?:ar)?),? dock (?:ej|inte) ((?:vardag|dag)(?:ar)? före)/gi, '$1 utom $2') // "vardagar, dock ej dag före sön- och helgdag" (Hagfors, Sunne)

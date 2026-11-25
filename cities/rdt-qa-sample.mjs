@@ -6,6 +6,9 @@
 //   --only a,b,c     only regulations with a line in these municipalities (to read a town completely)
 //   --check <name>   only regulations flagged by this check in cities/qa/audit.json (e.g. feeAllDay, limitMissing)
 //   --unread         only regulations whose text has a sentence the parser does not read
+//   --all            ignore reviewed.txt: draw from every regulation (re-reads allowed). Used automatically when no
+//                    narrowing option is given and fewer than <count> unread regulations are left (the national
+//                    register was read in full by the sweep on 22 Nov 2026), so the daily thermometer keeps working.
 // The last output line says how many unread regulations the pool holds, so a run can tell when a bucket is finished.
 // After judging, append the sampled citations to cities/qa/reviewed.txt so they are not drawn again.
 import fs from 'node:fs'; import zlib from 'node:zlib';
@@ -19,6 +22,7 @@ const boost = list(take('--boost'));
 const only = list(take('--only'));
 const check = take('--check');
 const unreadOnly = flag('--unread');
+let all = flag('--all');
 let flagged = null;
 if (check) {
   const a = JSON.parse(fs.readFileSync('cities/qa/audit.json', 'utf8')).checks?.[check];
@@ -27,21 +31,26 @@ if (check) {
 }
 const [n = 40, out = 'sample.json', seed = Date.now() % 1e9] = argv;
 let s = +seed; const rnd = () => ((s = (s * 1103515245 + 12345) % 2147483648) / 2147483648);
-const done = new Set(fs.readFileSync('cities/qa/reviewed.txt', 'utf8').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#')));
+const reviewed = new Set(fs.readFileSync('cities/qa/reviewed.txt', 'utf8').split('\n').map((l) => l.trim()).filter((l) => l && !l.startsWith('#')));
 const idx = JSON.parse(fs.readFileSync('cities/rdt/index.json', 'utf8')).cities;
 const strip = (x) => Object.fromEntries(Object.entries(x).filter(([k]) => !['g', 'pc', 'i'].includes(k)));
 const cit = new Map(); const meta = {};
-for (const c of idx) {
-  const d = JSON.parse(fs.readFileSync(`cities/rdt/${c.id}.json`, 'utf8'));
-  meta[c.id] = d;
-  for (const g of d.segments) if (g.c && !done.has(g.c)) { if (!cit.has(g.c)) cit.set(g.c, []); cit.get(g.c).push([c.id, g]); }
-}
+const loadPool = (done) => { cit.clear();
+  for (const c of idx) {
+    const d = meta[c.id] || (meta[c.id] = JSON.parse(fs.readFileSync(`cities/rdt/${c.id}.json`, 'utf8')));
+    for (const g of d.segments) if (g.c && !done.has(g.c)) { if (!cit.has(g.c)) cit.set(g.c, []); cit.get(g.c).push([c.id, g]); }
+  } };
+loadPool(all ? new Set() : reviewed);
 const texts = {};
 const text = (c) => { const k = c.slice(0, 4); const p = `rdt/texts/${k}.jsonl.gz`;
   if (!(k in texts)) texts[k] = new Map(fs.existsSync(p) ? zlib.gunzipSync(fs.readFileSync(p)).toString().split('\n').filter(Boolean).map(JSON.parse).map((x) => [x.c, x]) : []);
   return texts[k].get(c); };
 const hasUnread = (c) => { const b = text(c)?.body; if (!b) return false; try { return parseRegulation(b).unread.length > 0; } catch { return false; } };
-const pool = [...cit.keys()].filter((k) => (!only.size || cit.get(k).some(([id]) => only.has(id))) && (!flagged || flagged.has(k)) && (!unreadOnly || hasUnread(k)));
+let pool = [...cit.keys()].filter((k) => (!only.size || cit.get(k).some(([id]) => only.has(id))) && (!flagged || flagged.has(k)) && (!unreadOnly || hasUnread(k)));
+if (!all && !only.size && !flagged && !unreadOnly && pool.filter((k) => text(k)?.body).length < +n) {
+  console.log(`only ${pool.filter((k) => text(k)?.body).length} unread regulations with a text are left: drawing from all regulations (re-reads allowed)`);
+  all = true; loadPool(new Set()); pool = [...cit.keys()];
+}
 if (!pool.length) { fs.writeFileSync(out, '[]'); console.log(`0 regulations: nothing unread is left in this pool → ${out}`); process.exit(0); }
 const w = pool.map((k) => cit.get(k).length * (cit.get(k).some(([id]) => boost.has(id)) ? 4 : 1)); const tot = w.reduce((a, b) => a + b, 0);
 const sel = []; const seen = new Set(); let tries = 0;
@@ -55,4 +64,4 @@ while (sel.length < +n && seen.size < pool.length && tries++ < 200000) {
     others: segs.filter(([, q]) => JSON.stringify(strip({ ...q, n: 0 })) !== JSON.stringify(strip({ ...g, n: 0 }))).slice(0, 2).map(([, q]) => strip(q)) });
 }
 fs.writeFileSync(out, JSON.stringify(sel, null, 1));
-console.log(`${sel.length} regulations (${sel.reduce((a, x) => a + x.nseg, 0)} segments) from ${pool.length} not yet reviewed → ${out}`);
+console.log(`${sel.length} regulations (${sel.reduce((a, x) => a + x.nseg, 0)} segments) from ${pool.length} ${all ? 'in the whole register' : 'not yet reviewed'} → ${out}`);

@@ -1673,3 +1673,19 @@ test('sweep findings batch 5: hours and seasons of a ban that were dropped', () 
   r = parseRegulation(wrap('1 § På Lammholmsbacken får fordon parkeras högst 3 tim i följd. 2 § Tidsbegränsningen gäller mellan klockan 08.00 - 22.00. 3 § Parkeringsskiva eller motsvarande ska användas. 4 § Tidsbegränsningen gäller alla dagar.'));
   assert.deepEqual(r.limits, [{ a: 480, b: 1320, max: 180 }]);
 });
+
+test('measure 25 Nov: a season "mellan D M och D M", a week span between two weekdays, a doubled letter in a weekday', () => {
+  // Danderyd Slagrutevägen 0162 2008-25: banned all year
+  let r = parseRegulation(wrap('På Slagrutevägen mellan Enstigen och Edsviksvägen får fordon inte parkeras mellan 1 nov\noch 30 april påföljande år.'));
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440, m: [[11, 1], [4, 30]] }]); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På Storgatan får fordon inte parkeras från den 1 juni till den 31 augusti.'));
+  assert.deepEqual(r.bans, [{ a: 0, b: 1440, m: [[6, 1], [8, 31]] }]);
+  // Vellinge Reuterswärds väg 1233 2022-75: the register had every weekend all year
+  r = parseRegulation(wrap('1 § På Reuterswärds väg mellan Strandbadsvägen och infarten till campingplatsen får fordon inte stannas eller parkeras. 2 § Förbudet gäller årligen mellan lördagen vecka 27 och söndagen vecka 28.'));
+  assert.deepEqual(r.bans, [{ w: 6, a: 0, b: 1440, wk: [27, 27] }, { w: 7, a: 0, b: 1440, wk: [27, 27] }, { a: 0, b: 1440, wk: [28, 28] }]); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('1 § På Strandvägen får fordon inte parkeras. 2 § Förbudet gäller mellan fredagen vecka 30 och måndagen vecka 32.'));
+  assert.deepEqual(r.bans.map((b) => b.wk[0]), [30, 30, 30, 31, 32]);
+  // Örebro Toringsgatan 1880 2026-00429: "onssdag"
+  r = parseRegulation(wrap('1 § På Toringsgatan får fordon parkeras. 2 § Parkering är dock förbjuden onssdag mellan klockan 00.00 och 09.00.'));
+  assert.deepEqual(r.bans, [{ w: 3, a: 0, b: 540 }]);
+});
