@@ -114,13 +114,13 @@ function weekdaysOf(pre) {
 
 // All "<day words> klockan A - B" pieces in a clause.
 // "första tisdagen i månaden", "sista fredagen i varje månad": one weekday a month (nw 1–4, or -1 for the last).
-const NTH = /\b(?:under\s+)?(?:den\s+)?(första|andra|tredje|fjärde|sista|[1-4])\s+(?:helgfria\s+)?(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:en)?\s+(?:i\s+)?(?:varje\s+)?månad(?:en)?/i;
+const NTH = /\b(?:under\s+)?(?:den\s+)?(första|andra|tredje|fjärde|sista|[1-4])\s+(helgfria\s+)?(måndag|tisdag|onsdag|torsdag|fredag|lördag|söndag)(?:en)?\s+(?:i\s+)?(?:varje\s+)?månad(?:en)?/i; // group 2: "helgfria" (nh: holidays are skipped when counting)
 const NTH_N = { första: 1, andra: 2, tredje: 3, fjärde: 4, sista: -1, 1: 1, 2: 2, 3: 3, 4: 4 }; // "1:a tisdagen" arrives as "1 tisdagen" (ruleText)
 export function windows(clause) {
   const nth = NTH.exec(clause);
   if (nth) {
     const ws = windows(clause.replace(NTH, ' ').replace(/\s+året runt\b/i, ''));
-    return ws.map(({ a, b, m, p }) => clean({ w: WEEKDAYS[nth[2].toLowerCase()], nw: NTH_N[nth[1].toLowerCase()], a, b, m, p }));
+    return ws.map(({ a, b, m, p }) => clean({ w: WEEKDAYS[nth[3].toLowerCase()], nw: NTH_N[nth[1].toLowerCase()], nh: nth[2] ? 1 : undefined, a, b, m, p }));
   }
   // "mot avgift under tiden klockan 18.00 - 07.00, vardag utom dag före sön- och helgdag, klockan 00.00 - 24.00, vardag före sön- och helgdag och
   // sön- och helgdag.": every time range comes first and its day types follow after a comma. Move each day list in front of its hours
@@ -715,7 +715,7 @@ export function parseRegulation(body) {
     if (/^förbudet (?:att (?:parkera|stanna)[^ ]* )?(?:i (?:första stycket|paragraf \d+|\d+\s*§) )?gäller/.test(x) && out.heavyOnly && !lastBan) continue;
     if (/^förbudet gäller (?:inte|ej) (?:vardag|dag|sön)/.test(x) && !lastBan && out.permitted) continue; // about the area ban this permission departs from (Norrköping)
     // "Förbudet gäller endast under den första helgfria måndagen varje månad" (Eslöv): the weekday of the ban just stated
-    if (/^förbudet (?:att parkera )?(?:i (?:paragraf \d+|\d+ §) )?gäller/.test(x) && lastBan && NTH.test(s) && !/(?:klockan|kl\.?)\s*\d/.test(x)) { const n = NTH.exec(s); for (const b of lastBan.items) { b.w = WEEKDAYS[n[2].toLowerCase()]; b.nw = NTH_N[n[1].toLowerCase()]; delete b.dt; } continue; }
+    if (/^förbudet (?:att parkera )?(?:i (?:paragraf \d+|\d+ §) )?gäller/.test(x) && lastBan && NTH.test(s) && !/(?:klockan|kl\.?)\s*\d/.test(x)) { const n = NTH.exec(s); for (const b of lastBan.items) { b.w = WEEKDAYS[n[3].toLowerCase()]; b.nw = NTH_N[n[1].toLowerCase()]; if (n[2]) b.nh = 1; delete b.dt; } continue; }
     // "Tillåtelsen gäller inte personbil klass II …": a rule for motorhomes only; ordinary cars are not affected (Visby)
     if (/^tillåtelsen(?: att parkera)?(?: (?:enligt|i) (?:§\s*\d+|\d+\s*§))? gäller (?:inte|ej) (?:för |vid )?pe(?:rs|r|s)onbil klass (?:ii|2)\b/.test(x)) continue; // also "Tillåtelsen enligt §1 gäller inte peronbil klass 2" (QA 18 Nov round 35: Sotenäs Smögen kept the register's all-year fee)
     if (/^(?:\d+\s*§\s*)?tillåtelsen gäller (?:inte|ej) (?:för )?(?:husbil(?:ar)?|husvagn(?:ar)?)(?:,? (?:och|samt|eller) (?:för )?(?:husbil(?:ar)?|husvagn(?:ar)?|släpvagn(?:ar)?|släpfordon))?\.?$/.test(x)) continue; // "Tillåtelsen gäller inte husbilar och husvagnar": a rule for motorhomes and caravans only (QA 16 Nov round 30: Borgholm Hamnvägen drew an all-day ban) // also "Tillåtelsen gäller inte vid personbil klass II under tiden … 22.00 - 08.00" (QA 16 Nov round 29: Falkenberg Läroverksgatan showed a night ban for all cars) // the hours of a heavy-vehicle ban (Norrtälje 0188 2020-00111)
