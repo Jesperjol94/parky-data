@@ -1464,7 +1464,8 @@ test('sweep batch 3: bays for one kind of vehicle or a named group are reserved,
   // ordinary cars stay ordinary: light vehicles, residents' permits (left to the register)
   r = parseRegulation(wrap('På södra sidan av Mångatan i Arlöv får endast motor- och släpfordon under 3,5 ton parkeras.')); assert.equal(r.reserved, false);
   r = parseRegulation(wrap('På Storgatan får endast personbil utan släpvagn parkeras under högst 2 tim i följd.')); assert.equal(r.reserved, false);
-  r = parseRegulation(wrap('På Storgatan får endast fordon med särskilt boendeparkeringstillstånd parkeras.')); assert.equal(r.reserved, false);
+  // (until batch 7 this was left to the register, which holds no resident zones outside the three big cities, so the line stayed grey; the text lets nobody else park)
+  r = parseRegulation(wrap('På Storgatan får endast fordon med särskilt boendeparkeringstillstånd parkeras.')); assert.equal(r.reserved, true); assert.equal(r.reservedFor, null);
   // inside an area parking ban a motorcycle bay's hours do not open the other hours to cars (Hudiksvall)
   r = parseRegulation(wrap('Med avvikelse från Hudiksvalls kommuns lokala trafikföreskrifter 2184 2024:78 om område för parkeringsförbud, får tvåhjulig motorcykel och moped klass I utan sidvagn parkeras på de platser som rödmarkerats i kartbilaga 1. Tillåtelsen gäller vardagar klockan 05.00 - 24.00.'));
   assert.equal(r.reserved, true); assert.notEqual(r.otherAllowed, true);
@@ -1834,4 +1835,43 @@ test('sweep findings batch 6: a disabled bay is opened outside its hours only wh
   // what permit holders get on top of a permission for every car reserves nothing (Visby S:t Hansgatan 0980 2015-16)
   r = parseRegulation(wrap('1 § På S:t Hansgatans östra sida i Visby inom markerade parkeringsplatser får fordon parkeras under högst 2 tim i följd. 2 § Parkeringsskiva eller motsvarande ska användas. 3 § Tidsbegränsningen gäller under tiden vardagar mellan klockan 09.00 – 18.00. 4 § Rörelsehindrad person med parkeringstillstånd för rörelsehindrad eller utländskt parkeringstillstånd som ger samma rätt att parkera får parkera under högst 3 tim i följd enligt 13 kap. 8 § trafikförordningen (1998:1276).'));
   assert.equal(r.reserved, false); assert.deepEqual(r.unread, []); assert.equal(r.limits.length, 1);
+});
+
+test('sweep findings batch 7: places the text gives to residents or permit holders only are reserved; bicycle racks are no place for a car', () => {
+  let r;
+  // "endast" + residents with a permit: nobody else may park (Lysekil, Orust, Sotenäs, Vaxholm, Danderyd, Mölndal)
+  for (const s of ['På västra sidan av Hagen i Grundsund, i uppställningsraden norr om fastigheten Bockepall 2, får endast fordon som används av boende i området och för vilka särskilt tillstånd utfärdats parkeras.',
+    '1 § På Carl Anderssons gatas sydvästra sida mellan Norrhamnsgatan och Trädgårdsgatan får endast sådana fordon parkeras för vars ägare särskilt boendeparkeringstillstånd utfärdats.',
+    'På markerad plats vid Bredabergsvägen enligt kartbild får fordon parkeras. Tillåtelsen gäller endast fordon som används av boende i området och för vilka särskilt tillstånd utfärdats.',
+    '1 § På Lergropsvägen enligt markering på kartbild får fordon parkeras. 2 § Tillåtelsen gäller endast boende med särskilt parkeringstillstånd.',
+    '1 § På Torneviksvägen i Mollösund får personbil klass I, med avvikelse från Orusts kommuns lokala trafikföreskrifter ( 1421 2012 : 60 ) om parkeringsförbudsområde i Mollösund, parkeras. 2 § Tillåtelsen gäller endast fordon som används av boende i området och för vilka särskilt tillstånd utfärdats.']) {
+    r = parseRegulation(wrap(s)); assert.equal(r.reserved, true, s); assert.equal(r.reservedFor, null); assert.deepEqual(r.unread, []); assert.deepEqual(r.bans, []);
+  }
+  // the bay's own limit stays with it (Uddevalla Kämpegatan)
+  r = parseRegulation(wrap('1 § Inom ett område som motsvaras av parkeringsplatsen på Kämpegatan får endast fordon med särskilt boendeparkeringstillstånd parkeras. 2 § Tillåtelsen gäller under högst 24 tim i följd.'));
+  assert.equal(r.reserved, true); assert.equal(r.limits[0].max, 1440);
+  // reserved in the season the text names, open to all the rest of the year when the text says so (Orust Kvarnvägen)
+  r = parseRegulation(wrap('1 § På den del av Kvarnvägen som anges i kartan får endast fordon som används av boende i området och för vilka särskilt tillstånd utfärdats parkeras mot avgift under tiden 15 maj - 15 september. 2 § Övrig tid får fordon parkeras under 17 september - 14 maj.'));
+  assert.equal(r.reserved, true); assert.deepEqual(r.reservedSeason, [[5, 15], [9, 15]]); assert.equal(r.otherAllowed, true); assert.deepEqual(r.openSeason, [[9, 17], [5, 14]]); // the open season as the text names it (16 September is in neither)
+  // WITHOUT "endast" the text says nothing about other cars: not reserved, as before (Västerås: the same bays have a regulation for every car)
+  r = parseRegulation(wrap('På med rött markerade sträckor (59 parkeringsplatser) på Källgatan enligt kartbild får fordon som används av boende i området med särskilt tillstånd parkeras mot avgift under tiden vardagar utom vardag före sön- och helgdag klockan 09.00 - 18.00.'));
+  assert.equal(r.reserved, false);
+  // what residents get on top of a rule for everyone is still skipped
+  r = parseRegulation(wrap('1 § På Storgatan får fordon parkeras under högst 2 tim i följd. 2 § Tidsbegränsningen gäller inte boende med särskilt tillstånd.'));
+  assert.equal(r.reserved, false); assert.equal(r.limits[0].max, 120);
+  // permit holders only (Valdemarsvik, Arboga)
+  r = parseRegulation(wrap('1 § På del av parkeringen Löten, i karta rödmarkerat område, får fordon parkeras. 2 § Tillåtelsen gäller endast fordon med särskilt tillstånd, vilket erhålles efter kontakt med kommunen.'));
+  assert.equal(r.reserved, true); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På markerat område på parkeringen vid Vasagymnasiet enligt kartbild får fordon parkeras.. Tillåtelsen gäller endast fordon med särskilt parkeringstillstånd'));
+  assert.equal(r.reserved, true);
+  // bicycle racks (Uppsala, Oxelösund, Laholm, Tanum, Linköping Resecentrum)
+  r = parseRegulation(wrap('1 § Inom område centrala Uppsala 2 enligt kartbild i särskilt anordnade cykelställ på allmän platsmark får cykel parkeras. 2 § Tillåtelsen gäller under högst 2 veckor i följd.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'cykel'); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('1 § På Järntorget i Oxelösund får cykel parkeras. 2 § Cykel får endast parkeras i cykelställ.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'cykel'); assert.deepEqual(r.unread, []);
+  r = parseRegulation(wrap('På blåmarkerade sträckor vid Resecentrum enligt kartbild får cykel och moped klass 2 parkeras under högst 24 tim i följd. Parkering är endast tillåten i cykelställ.'));
+  assert.equal(r.reserved, true); assert.equal(r.limits[0].max, 1440); assert.deepEqual(r.unread, []);
+  // one part of the text for cars, one for bicycles: the car rule is untouched and nothing is reserved (Härnösand Trädgårdsgatan)
+  r = parseRegulation(wrap('1 § a På Trädgårdsgatan södra sidan får fordon parkeras under högst 2 timmar i följd. 2 § a Tidsbegränsningen gäller vardagar utom vardag före sön- och helgdag mellan klockan 09 och 18. 1 § b På Trädgårdsgatan mellan Storgatan och Norra Kyrkogatan får cyklar parkeras.'));
+  assert.equal(r.reserved, false); assert.equal(r.limits.length, 1); assert.equal(r.limits[0].a, 540);
 });

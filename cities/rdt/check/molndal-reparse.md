@@ -1,7 +1,7 @@
 # Mölndal: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-24. 1830 segments: 1830 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1815, partly read 15. Verified equal 1529, filled from text 10, text stricter 0, disputed 0, expired 0, text without rules 256, multi-part texts (not compared) 9.
+Run 2026-11-25. 1830 segments: 1830 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1815, partly read 15. Verified equal 1529, filled from text 10, text stricter 0, disputed 0, expired 0, text without rules 251, multi-part texts (not compared) 9.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -24,4 +24,9 @@ Fully read 1815, partly read 15. Verified equal 1529, filled from text 10, text 
 | 1481 2015-00008 | Sågdalsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":15}]} | filled from text |
 | 1481 2015-00092 | Bangårdsvägen | uncertain → permitted | filled from text |
 | 1481 2018-00169 | Residensgatan | uncertain → permitted (fee) | filled from text |
+| 1481 2021-160 | Kläppegatan | uncertain → permitted (fee) | filled from text |
+| 1481 2021-160 | Kläppegatan | uncertain → permitted (fee) | filled from text |
+| 1481 2021-160 | Kullabergsgatan | uncertain → permitted (fee) | filled from text |
+| 1481 2021-160 | Nordängsgatan | uncertain → permitted (fee) | filled from text |
 | 1481 2024-123 | Matildebergsgatan | uncertain → permitted (fee) | filled from text |
+| 1481 2021-160 | Kläppegatan | uncertain → permitted (fee) | filled from text |

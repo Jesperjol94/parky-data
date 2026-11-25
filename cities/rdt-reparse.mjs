@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted } from './rdt-lib.mjs';
+import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit } from './rdt-lib.mjs';
 const MONTH_NAME = /\b(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b/i;
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING, complement } from '../engine/regulation.js';
 
@@ -53,23 +53,6 @@ function multiPart(body) {
   return places > 1 || colours > 1 || (sides > 1 && (t.match(/(?<![Öö]vrig tid )får (?:fordon|endast|personbil)/g) || []).length - sameParts > 1); // places marked in several colours with different rules (Norrtälje Campus Roslagen)
 }
 
-// A text that only says "får fordon parkeras" (optionally "mot avgift …" with the fee's hours) and nothing else with hours, days or
-// a duration: safe to read as "park freely / pay the fee". Anything more (hours on the permission, "24 tim i följd" without
-// "högst", "endast …") keeps a grey segment grey (QA 27 Oct).
-const TIMEWORD = /\d{1,2}[.:]\d{2}|\b(?:tim(?:me|mar|ma)?|dygn|minut\w*|klockan|kl|vardag\w*|helgdag\w*|högst|endast|enbart|måndag\w*|tisdag\w*|onsdag\w*|torsdag\w*|fredag\w*|lördag\w*|söndag\w*|udda|jämna|datum\w*|januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december|förbjud\w*|inte|ej|reserver\w*|tillstånd|klass)\b/i;
-function plainPermit(body) {
-  const t = ruleText(body); if (!t) return false;
-  const ss = t.replace(/\(\d{4}:\d+\)/g, '').split(/(?<=[.;])(?!\d)\s*/).map((x) => x.replace(/^\s*\d+\s*§\s*/, '').trim()) /* not inside "08.00": a fee sentence's hours were split off and read as permission hours (QA 30 Oct: Uppsala Marknadsgatan stayed grey) */.filter((x) => /[a-zåäö]{3}/i.test(x));
-  let permit = false;
-  for (const x of ss) {
-    if (/^(?:tillåtelsen|förbudet) (?:ger|ge) (?:inte|ej) rätt/i.test(x)) continue;
-    if (/får (?:fordon|parkeras)[^.]*parkeras|får fordon[^.]*parkeras|får parkeras/i.test(x)) { const head = x.replace(/\bmot (?:att )?avgift\b.*$/i, '').replace(/med avvikelse från [^,]*,/i, ''); if (TIMEWORD.test(head)) return false; permit = true; continue; }
-    if (/^(?:avgift\w*|parkeringsavgift\w*)\b/i.test(x)) continue; // fee sentences: their hours are the fee's
-    if (TIMEWORD.test(x)) return false;
-  }
-  return permit;
-}
-
 // Rules the text gives, in segment form
 function fromText(r) {
   const o = {};
@@ -82,7 +65,7 @@ function fromText(r) {
   if (r.reserved && !r.purpose.length && (r.otherAllowed || r.reservedOpenOutside) && !r.reservedSeason && r.reservedWindows.length && (o.v !== 'rörelsehindrade' || r.reservedOpenOutside /* a disabled bay only when the text says "Övrig tid får fordon parkeras" in so many words (sweep findings batch 6) */)) { const oh = outsideHours(r.reservedWindows); if (oh && oh.length) o.o = oh; } // reserved only at the stated hours; other times open to all (QA 11 Nov round 14: Tyresö Radiovägen)
   // reserved in a season only ("får endast motorcykel och moped parkeras under tiden 1 april - 30 september"): open to all the rest of the year, as the
   // engine does for Stockholm (sweep findings batch 5: Vänersborg, Simrishamn, Upplands-Bro motorcycle and motorhome bays were reserved all year)
-  if (r.reserved && !r.purpose.length && r.otherAllowed && r.reservedSeason && o.v !== 'rörelsehindrade' && !r.limits.length && !r.allowOnly.length) o.o = [{ a: 0, b: 1440, m: complement(r.reservedSeason) }];
+  if (r.reserved && !r.purpose.length && r.otherAllowed && r.reservedSeason && o.v !== 'rörelsehindrade' && !r.limits.length && !r.allowOnly.length) o.o = [{ a: 0, b: 1440, m: r.openSeason || complement(r.reservedSeason) }];
   return o;
 }
 const hasRules = (o) => !!(o.f || o.l || o.aw || o.v || o.k || o.dp);

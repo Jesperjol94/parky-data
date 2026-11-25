@@ -340,6 +340,33 @@ Log:
   fee or free disc time and free first hours (display, app side), area-ban overlays `ov: 1` on streets with their own rule (about 17, needs the area texts), multi-part texts merged
   (Norrtälje ×12, Säter ×4, Härnösand's all-day twin of a limit), residents-only places (Kalmar ×3, Uddevalla, Vaxholm, Orust), school days and terms, week numbers, one-off dates kept
   as yearly seasons (Piteå, Strängnäs ×2, Huddinge), "N:e helgfria" (app side, before 6 Jan), disabled bays with "Parkering är dock tillåten" (about 25, left on purpose).
+- 2026-11-25 batch 7 · the grey rows with a clear text (1,240 rows outside Stockholm, the next group in the order after the loose rows): 465 were shown as fact already, 487 are tiny lines with hours,
+  limits or fees (grey by design), 287 regulations / 872 lines were grey for another reason. Every grey line in the country was sorted by why it stays grey (1,691 lines with a text: tiny 744, an unread
+  sentence 257, a permission with conditions 246, residents' places 239, several places in one text 139, a slip in the text 45, beside roadworks 12, a season only 7), and the two largest groups the
+  text settles were read by hand · confirmed and fixed, each with a test (282 lines of 154 regulations in 35 municipalities changed; the parser reads 55 of 61,211 texts differently, none of Stockholm's):
+  (1) plain permissions kept grey by words that only look like conditions (105 regulations, 175 lines now "parking allowed", with the fee where the text has one): the recogniser `plainPermit`
+  (moved to rdt-lib.mjs) took "Kl" in "Klågerup", "Klövergatan", "Kläppegatan" for "kl" (Svedala ×22, Uppsala, Mölndal: \b is ASCII-only), "endast mot avgift" for a reservation (Trelleborg ×35),
+  "endast på (särskilt) markerade platser" / "Parkering är endast tillåten inom markerade platser" for a condition (Lund ×12, Skurup, Sala, Sölvesborg, Eslöv), the boilerplate about other bans when it is
+  glued to the permission (Söderköping, Jönköping, Norrköping), "3 kap." for a sentence end (Åstorp, Kumla, Mjölby, Säffle, Karlstad), other regulations' and properties' numbers for clock times
+  (Eskilstuna ×3, Mariestad, Sala), a colophon line mixed into the rules (Nyköping ×18, Östersund), "Tillåtelsen gäller även parkering närmare korsningen …" (Uppsala). Hours, a length without "högst",
+  a group, a permit or a ban on the permission keep the line grey, as before (tested). (2) places the text gives to residents or permit holders ONLY are reserved (36 regulations, 65 lines, 59 of them
+  were grey): "får endast fordon som används av boende i området och för vilka särskilt tillstånd utfärdats parkeras", "får endast sådana fordon parkeras för vars ägare särskilt
+  boendeparkeringstillstånd utfärdats", "Tillåtelsen gäller endast fordon som används av boende …", "… endast boende med särskilt parkeringstillstånd", "Tillåtelsen gäller endast fordon med särskilt
+  tillstånd" (Lysekil, Orust, Sotenäs, Vaxholm, Danderyd, Mölndal, Uddevalla, Ronneby, Upplands Väsby, Arboga, Valdemarsvik). This replaces batch 3's "residents' permits stay with the register": the
+  register holds no resident zones outside the three big cities, so those lines could only be grey; the old test is changed and says so. Orust Kvarnvägen is reserved 15 May–15 Sep and open the rest of
+  the year as its 2 § says. (3) bicycle racks ("i särskilt anordnade cykelställ … får cykel parkeras", "får cykel och moped klass II parkeras under högst 24 tim"): a bay for bicycles, no place for a car
+  (8 regulations, 35 lines: Uppsala's central racks ×19, Oxelösund, Laholm, Tanum, Linköping Resecentrum). Not when another sentence of the text lets cars park (Härnösand Trädgårdsgatan).
+  Read and left grey on purpose: Västerås' 60 resident regulations (about 140 lines) "får fordon som används av boende i området med särskilt tillstånd parkeras mot avgift … 09–18" WITHOUT "endast":
+  the same bays have a second regulation for every car (Källgatan 2021-00324 beside 2024-00041, Knutsgatan 2024-00036 beside 2024-00037), so "reserved" would be wrong and the text says nothing about
+  other cars; the resident line is a twin of the general one and belongs to project 5 (two regulations on one stretch). Also left: permissions with hours only ("får fordon parkeras mellan klockan
+  05.00 - 23.00": Bollnäs, Helsingborg Halalid, Oxelösund, Salem; what holds outside is not in the text), "parkeras 24 tim i följd" without "högst" (Alvesta, Timrå, Säter), "Tillstånd erfordras
+  vardagar 8–16" (Arvika, Stenungsund), Norrköping's limits whose length stands only in the title (×8).
+  Independent check by a reviewer who saw only texts and old and new lines: 93 distinct changes (all 50 that are not plain permissions, 43 of the 109 plain ones drawn at random, at most 4 per town):
+  92 confirmed, 1 not: Orust 1421 2026-48 was open from 16 September where the text says 17 (the day after the reserved season instead of the season the text names); fixed in the parser
+  (`openSeason`), rebuilt, and confirmed on a second check. No line lost a ban, a limit, a fee or a reservation. Its remark, kept: Nyköping's new fee streets give the first hour free once a day
+  with digital registration; the line shows the fee only (display, app side).
+  Still open: 185 grey regulations with a clear text that are not tiny (unread one-off sentences, texts with several places, slips), about 420 strict and 110 loose rows with unchanged lines as
+  listed under batch 6.
 
 ### 1. [ ] The app allows more than the sign: flagged lines
 The audit's "looser" leads, smallest and most harmful first. One batch per check, in this order:

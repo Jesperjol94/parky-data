@@ -104,3 +104,33 @@ test('a register reservation goes only when the text plainly lets every car park
   assert.equal(carsPermitted(wrap('På Storgatan får motorcykel parkeras.'), 'motorcykel'), false);
   assert.equal(carsPermitted(wrap('På Storgatan får fordon inte parkeras.'), 'buss'), false);
 });
+
+test('sweep findings batch 7: a plain permission stays plain beside words that only look like conditions', async () => {
+  const { plainPermit } = await import('../rdt-lib.mjs');
+  const wrap = (s) => `Kommunen föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande. ${s} Denna författning träder i kraft den 1 maj 2026.`;
+  // "Kl" in a place name is not "kl" (Svedala ×22, Uppsala Klövergatan, Mölndal Kläppegatan)
+  assert.equal(plainPermit(wrap('På Lindesborgsvägens östra sida i Klågerup, på särskilt anordnad parkeringsplats, 30 platser, får fordon parkeras.')), true);
+  // where to stand (Lund ×12, Skurup, Sala, Sölvesborg, Eslöv)
+  assert.equal(plainPermit(wrap('På Postiljonsgatan får fordon parkeras endast på särskilt markerade platser. Tillåtelsen ger inte rätt att stanna eller parkera där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276).')), true);
+  assert.equal(plainPermit(wrap('På östra sidan av Stattenagatan enligt kartbild får fordon parkeras. Parkering är endast tillåten inom markerade platser.')), true);
+  assert.equal(plainPermit(wrap('1 § På östra sidan av Östra Storgatan får fordon parkeras 2 § Tillåtelsen gäller endast på markerade platser.')), true);
+  assert.equal(plainPermit(wrap('Inom ett område som definieras som Karlsrobadets parkering enligt kartbilaga, och endast på markerade platser får fordon parkeras.')), true);
+  // "endast mot avgift" is a fee (Trelleborg ×35)
+  assert.equal(plainPermit(wrap('1 § På norra sidan av Hamngatan i Trelleborg ( enligt kartbilaga ) får fordon parkeras endast mot avgift. 2 § Avgift ska betalas för parkering enligt röd taxa. Avgiftsplikten gäller vardagar klockan 09.00 - 18.00.')), true);
+  // the boilerplate glued to the permission, "3 kap." as a sentence end, other regulations' and properties' numbers (Söderköping, Åstorp, Eskilstuna, Mariestad)
+  assert.equal(plainPermit(wrap('1 § På markerade parkeringsplatser mitt emot Storängsparken 7 får fordon stannas eller parkeras Tillåtelsen ger inte rätt att stanna eller parkera där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276).')), true);
+  assert.equal(plainPermit(wrap('På norra sidan av Västra Storgatan på särskilt anordnad parkeringsplats får fordon med avvikelse från 3 kap. 55 § 3 trafikförordningen (1998:1276) parkeras.')), true);
+  assert.equal(plainPermit(wrap('1 § På östra sidan av Törnerosgatan (i särskilt anlagda fickor, med avvikelse från 3 kap. 52§ trafikförordningen (1998:1276) och kommunens lokala trafikföreskrifter 0484 2008:0408) får fordon parkeras.')), true);
+  assert.equal(plainPermit(wrap('På markerad parkeringsyta på fastigheten MARIESTAD FÅGELÖ 4:13 enligt kartbild får fordon parkeras mot avgift.')), true);
+  assert.equal(plainPermit(wrap('1 § På den del av Stenkilsgatan som anges i kartan får fordon parkeras. Tillåtelsen gäller även parkering närmare korsningen med Lagmansgatan än vad som annars inte är tillåtet enligt 3 kap. 53 § trafikförordningen.')), true);
+  assert.equal(plainPermit(wrap('1 § På den del av Råbyvägen som anges i kartan parkeras.')), true);
+  // real conditions keep the line grey: hours, a length without "högst", a group, a permit, a real clock time, a ban
+  assert.equal(plainPermit(wrap('På de delar av Långnäsvägen som anges i kartan får fordon parkeras mellan klockan 05.00 - 23.00.')), false);
+  assert.equal(plainPermit(wrap('På Allbotorget får fordon parkeras 24 tim i följd.')), false);
+  assert.equal(plainPermit(wrap('På Vikingagatan enligt kartbild får fordon parkeras. Tillåtelsen gäller endast fordon som används av boende i området och för vilka särskilt tillstånd utfärdats.')), false);
+  assert.equal(plainPermit(wrap('1 § På Östra Esplanaden får fordon parkeras. 2 § Tillstånd erfordras under vardagar 8.00-16.00.')), false);
+  assert.equal(plainPermit(wrap('På Storgatan får fordon parkeras endast på markerade platser och endast vardagar.')), false);
+  assert.equal(plainPermit(wrap('På Storgatan får endast personbilar parkeras.')), false);
+  assert.equal(plainPermit(wrap('På Storgatan får fordon inte parkeras.')), false);
+  assert.equal(plainPermit(wrap('På Klågerupsvägen får fordon parkeras kl 8-18.')), false);
+});

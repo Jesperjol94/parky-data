@@ -1,7 +1,7 @@
 # Mariestad: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-25. 334 segments: 334 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 324, partly read 10. Verified equal 295, filled from text 8, text stricter 0, disputed 0, expired 0, text without rules 18, multi-part texts (not compared) 0.
+Fully read 324, partly read 10. Verified equal 295, filled from text 8, text stricter 0, disputed 0, expired 0, text without rules 10, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -13,3 +13,11 @@ Fully read 324, partly read 10. Verified equal 295, filled from text 8, text str
 | 1493 2018-00009 | Leksbergsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1493 2018-00076 | Bangatan | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120}]} | filled from text |
 | 1493 2021-00062 | Kyrkvägen | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
+| 1493 2024-00027 | Torsö | uncertain → permitted (fee) | filled from text |
+| 1493 2026-00045 | Hamngatan | uncertain → permitted | filled from text |
+| 1493 2026-00045 | Hamngatan | uncertain → permitted | filled from text |
+| 1493 2026-00045 | Hamngatan | uncertain → permitted | filled from text |
+| 1493 2026-00045 | Hamngatan | uncertain → permitted | filled from text |
+| 1493 2026-00045 | Hamngatan | uncertain → permitted | filled from text |
+| 1493 2026-00045 | Hamngatan | uncertain → permitted | filled from text |
+| 1493 2026-00045 | Hamngatan | uncertain → permitted | filled from text |

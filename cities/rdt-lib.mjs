@@ -160,3 +160,31 @@ export function carsPermitted(body, v) {
   if (v === 'rörelsehindrade') return ss.filter((x) => /rörelse?hind|handikapp/i.test(x)).every((x) => /avgift|gäller (?:inte|ej)|förutom|får parkera under högst/i.test(x));
   return !/reserverad|\bavses\b|gäller (?:endast|enbart)\b|(?:endast|enbart) för\b|tillstånd/i.test(t); // "Med fordon avses endast taxi" (Karlshamn Stationsvägen) keeps its bay
 }
+
+// A text that only says "får fordon parkeras" (optionally "mot avgift …" with the fee's hours) and nothing else with hours, days or
+// a duration: safe to read as "park freely / pay the fee". Anything more (hours on the permission, "24 tim i följd" without
+// "högst", "endast …") keeps a grey segment grey (QA 27 Oct).
+const TIMEWORD = /(?<![\d:])\d{1,2}[.:]\d{2}(?![\d:])|(?<![a-zåäö])(?:tim(?:me|mar|ma)?|dygn|minut\w*|klockan|kl|vardag\w*|helgdag\w*|högst|endast|enbart|måndag\w*|tisdag\w*|onsdag\w*|torsdag\w*|fredag\w*|lördag\w*|söndag\w*|udda|jämna|datum\w*|januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december|förbjud\w*|inte|ej|reserver\w*|tillstånd|klass)(?![a-zåäö])/i; // letters, not \b: \b is ASCII-only, so "kl" matched in "Klågerup" and "Klövergatan" (sweep findings batch 7: 22 Svedala texts stayed grey)
+export function plainPermit(body) {
+  let t = ruleText(body); if (!t) return false;
+  // words that look like conditions but are none (sweep findings batch 7: about 110 plain permissions stayed grey for these alone): the boilerplate about other
+  // bans, also glued to the permission without a full stop (Söderköping, Jönköping); "3 kap. 53 §" split as a sentence end (Åstorp, Kumla, Säffle); the numbers of
+  // other regulations and of properties ("0484 2010:129", "FÅGELÖ 4:13") read as clock times (Eskilstuna, Mariestad, Sala); where to stand ("endast på särskilt
+  // markerade platser": Lund ×12, Skurup, Sala); "endast mot avgift" (Trelleborg ×35: a fee, not a reservation)
+  t = t.replace(/\(\d{4}:\d+\)/g, '').replace(/\s+/g, ' ')
+    .replace(/(?:Tillåtelsen|Förbudet)(?: i \d+ ?§)? (?:ger|ge) (?:inte|ej) rätt att (?:stanna (?:eller|och) )?parkera där det (?:enligt trafikförordningen )?är förbjudet att stanna (?:eller|och) parkera(?: enligt trafikförordningen)?\s*\.?/gi, '. ')
+    .replace(/\b(\d+) kap\. ?/g, '$1 kap ').replace(/\b\d{4} \d{4}:\d+\b/g, ' ').replace(/\bfastighet(?:en|erna)? [^,.;]*?\d+:\d+/gi, 'fastigheten')
+    .replace(/,? ?(?:och )?\b(?:endast|enbart) (?:tillåte[nt] )?(?:på|inom|i) (?:de )?(?:särskilt )?(?:markerade?|anvisade?|uppmärkta?|anordnade?|iordningställda?) (?:parkerings)?(?:plats(?:er|erna|en)?|rutor|fickor)\b/gi, ' ')
+    .replace(/\b(?:endast|enbart) (?=mot (?:att )?avgift\b)/gi, '');
+  const ss = t.split(/(?<=[.;])(?!\d)\s*/).map((x) => x.replace(/^\s*\d+\s*§\s*/, '').trim()) /* not inside "08.00": a fee sentence's hours were split off and read as permission hours (QA 30 Oct: Uppsala Marknadsgatan stayed grey) */.filter((x) => /[a-zåäö]{3}/i.test(x));
+  let permit = false;
+  for (const x of ss) {
+    if (/^(?:tillåtelsen|förbudet) (?:ger|ge) (?:inte|ej) rätt/i.test(x)) continue;
+    if (/^tillåtelsen gäller även\b/i.test(x) || /^publicerat\b/i.test(x)) continue; // "Tillåtelsen gäller även parkering närmare korsningen än …" (Uppsala); a colophon line the text layer mixed into the rules (Nyköping, Östersund)
+    if (/får (?:fordon|parkeras)[^.]*parkeras|får fordon[^.]*parkeras|får parkeras|^(?:på|inom) [^.]*[a-zåäö] parkeras\.?$/i.test(x)) { // also a place followed straight by "parkeras" ("får fordon" lost: Uppsala Råbyvägen)
+      const head = x.replace(/\bmot (?:att )?avgift\b.*$/i, '').replace(/med avvikelse från [^,]*,/i, ''); if (TIMEWORD.test(head)) return false; permit = true; continue; }
+    if (/^(?:avgift\w*|parkeringsavgift\w*)\b/i.test(x)) continue; // fee sentences: their hours are the fee's
+    if (TIMEWORD.test(x)) return false;
+  }
+  return permit;
+}
