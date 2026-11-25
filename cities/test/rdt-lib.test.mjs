@@ -85,3 +85,22 @@ test('the weekly twin of an n-th weekday ban is dropped (sweep findings batch 5)
   assert.equal(nthWeekdayFromText([{ ...weekly, ov: 2 }, nth], [nth]), null); // overlays are never touched
   assert.equal(nthWeekdayFromText([{ w: 3, a: 480, b: 720 }, nth], [nth]), null); // another weekday
 });
+
+test('a register reservation goes only when the text plainly lets every car park and reserves nothing (sweep findings batch 6)', async () => {
+  const { carsPermitted } = await import('../rdt-lib.mjs');
+  const wrap = (s) => `Kommunen föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande. ${s} Denna författning träder i kraft den 1 maj 2026.`;
+  // Jönköping Kapellgatan 0680 2024-473 (the replaced regulation's disabled bay was still on the line), Borgholm Verdandi gränd
+  assert.equal(carsPermitted(wrap('1 § På östra sidan av Kapellgatan i Jönköping får fordon parkeras mot avgift. 2 § Avgiften är enligt Taxa 1.'), 'rörelsehindrade'), true);
+  assert.equal(carsPermitted(wrap('1 § På Verdandi gränd i Borgholm, på uppmärkta platser får fordon parkeras. 2 § Tillåtelsen gäller inte parkeringsplatser för rörelsehindrade.'), 'rörelsehindrade'), true);
+  // Ystad Västerleden, Lerum Hedeforsvägen, Mark Boråsvägen: cars are named among the vehicles
+  assert.equal(carsPermitted(wrap('1 § På Västerleden i Ystad får endast personbil klass I och motorcykel parkeras.'), 'motorcykel'), true);
+  assert.equal(carsPermitted(wrap('På markerad parkeringsyta vid Kastenhofsmotet får endast motorcykel och personbil parkeras.'), 'motorcykel'), true);
+  assert.equal(carsPermitted(wrap('1 § Inom ett område som utgör parkeringsplatsen öster om Boråsvägen, utom på markerade bussplatser i nordöstra hörnet får endast personbil parkeras.'), 'buss'), true);
+  // real bays stay
+  assert.equal(carsPermitted(wrap('På Storgatan får endast sådant fordon parkeras som används för befordran av rörelsehindrad med parkeringstillstånd.'), 'rörelsehindrade'), false);
+  assert.equal(carsPermitted(wrap('På Storgatan får fordon parkeras. Två platser är reserverade för rörelsehindrade med parkeringstillstånd.'), 'rörelsehindrade'), false);
+  assert.equal(carsPermitted(wrap('På särskilt markerade platser på parkeringsplats enligt kartbild får fordon parkeras. Med fordon avses endast taxi.'), 'taxi'), false);
+  assert.equal(carsPermitted(wrap('På Storgatan får endast personbil klass II parkeras.'), 'husbil'), false);
+  assert.equal(carsPermitted(wrap('På Storgatan får motorcykel parkeras.'), 'motorcykel'), false);
+  assert.equal(carsPermitted(wrap('På Storgatan får fordon inte parkeras.'), 'buss'), false);
+});

@@ -1,7 +1,7 @@
 # Kiruna: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-24. 454 segments: 454 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 425, partly read 29. Verified equal 395, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 28, multi-part texts (not compared) 0.
+Run 2026-11-25. 454 segments: 454 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 427, partly read 27. Verified equal 397, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 24, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

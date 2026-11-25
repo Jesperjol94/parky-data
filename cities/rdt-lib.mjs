@@ -1,4 +1,5 @@
 // Shared helpers for the RDT municipality pipeline.
+import { ruleText } from "../engine/regulation.js";
 export const ALL_DAYS = ['vardag', 'fore', 'helgdag'];
 
 // Pelle's fee tables sometimes list several prices for the same hours (one municipality-wide table: "8 kr/tim,
@@ -147,4 +148,15 @@ export function nthWeekdayFromText(reg, txt) {
   const onLine = new Set(reg.filter((w) => !w.ov && w.w && w.nw).map(key));
   const out = reg.filter((w) => !(!w.ov && w.w && !w.nw && !w.dm && nth.has(key(w)) && onLine.has(key(w)) && !plain.has(key(w))));
   return out.length === reg.length ? null : out;
+}
+
+// True when the rule text plainly permits ordinary cars ("får fordon parkeras", "får endast personbil (klass I) (och motorcykel) parkeras") and, for a
+// disabled reservation, no sentence reserves anything for permit holders (sentences about their fee, their longer stay or where their bays are do not)
+export function carsPermitted(body, v) {
+  const t = (ruleText(body) || '').replace(/\s+/g, ' ').replace(/,?\s*med avvikelse från [^,]*,/gi, ' ');
+  const ss = t.split(/(?<=[.;])\s+(?=[A-ZÅÄÖ0-9])/);
+  const permit = ss.some((x) => /\bfår (?:endast |enbart |bara )?(?:fordon|(?:motorcykel (?:och|samt) )?personbil(?:ar)?(?: klass (?:I|1)\b)?(?! klass)(?: (?:och|samt) motorcykel)?)(?: (?:stannas eller|stannas och))? parkeras\b/i.test(x) && !/\b(?:inte|ej)\b/i.test(x.replace(/(?:ger|ge) (?:inte|ej) rätt att.*$/i, '')));
+  if (!permit) return false;
+  if (v === 'rörelsehindrade') return ss.filter((x) => /rörelse?hind|handikapp/i.test(x)).every((x) => /avgift|gäller (?:inte|ej)|förutom|får parkera under högst/i.test(x));
+  return !/reserverad|\bavses\b|gäller (?:endast|enbart)\b|(?:endast|enbart) för\b|tillstånd/i.test(t); // "Med fordon avses endast taxi" (Karlshamn Stationsvägen) keeps its bay
 }

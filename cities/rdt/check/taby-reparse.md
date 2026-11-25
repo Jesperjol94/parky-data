@@ -1,7 +1,7 @@
 # Täby: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-24. 650 segments: 650 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 588, partly read 59. Verified equal 465, filled from text 23, text stricter 0, disputed 0, expired 3, text without rules 5, multi-part texts (not compared) 94.
+Run 2026-11-25. 647 segments: 647 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 590, partly read 57. Verified equal 467, filled from text 23, text stricter 0, disputed 0, expired 0, text without rules 5, multi-part texts (not compared) 94.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -29,6 +29,3 @@ Fully read 588, partly read 59. Verified equal 465, filled from text 23, text st
 | 0160 2020-00118 | Klövervallsvägen | uncertain → {"f":[{"dt":["vardag"],"a":510,"b":840},{"dt":["vardag"],"a":1020,"b":1440}],"l":[{"dt":["vardag"],"a":450,"b":510,"max":10},{"dt":["vardag"],"a":840,"b":1020,"max":10}],"aw":[{"dt":["vardag"],"a":450,"b":510},{"dt":["vardag"],"a":840,"b":1020}]} | filled from text |
 | 0160 2020-00201 | Råholmsvägen | uncertain → permitted | filled from text |
 | 0160 2020-00222 | Skavlötsvägen | uncertain → {"f":[{"a":0,"b":360}]} | filled from text |
-| 0160 2026-65 | Radarvägen | expired 2026-11-22 | already uncertain |
-| 0160 2026-66 | Pilotvägen | expired 2026-11-22 | already uncertain |
-| 0160 2026-66 | Pilotvägen | expired 2026-11-22 | already uncertain |

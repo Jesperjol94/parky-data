@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText } from './rdt-lib.mjs';
+import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted } from './rdt-lib.mjs';
 const MONTH_NAME = /\b(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b/i;
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING, complement } from '../engine/regulation.js';
 
@@ -79,7 +79,7 @@ function fromText(r) {
   if (r.dp && r.dp.length) o.dp = dedupe(r.dp);
   if (r.reserved) o.v = r.reservedFor || 'reserverad';
   if (r.purpose.length) { o.v = o.v || 'lastning'; o.k = r.purpose; if (r.otherAllowed) o.ko = 1; }
-  if (r.reserved && !r.purpose.length && r.otherAllowed && !r.reservedSeason && r.reservedWindows.length && o.v !== 'rörelsehindrade') { const oh = outsideHours(r.reservedWindows); if (oh && oh.length) o.o = oh; } // reserved only at the stated hours; other times open to all (QA 11 Nov round 14: Tyresö Radiovägen)
+  if (r.reserved && !r.purpose.length && (r.otherAllowed || r.reservedOpenOutside) && !r.reservedSeason && r.reservedWindows.length && (o.v !== 'rörelsehindrade' || r.reservedOpenOutside /* a disabled bay only when the text says "Övrig tid får fordon parkeras" in so many words (sweep findings batch 6) */)) { const oh = outsideHours(r.reservedWindows); if (oh && oh.length) o.o = oh; } // reserved only at the stated hours; other times open to all (QA 11 Nov round 14: Tyresö Radiovägen)
   // reserved in a season only ("får endast motorcykel och moped parkeras under tiden 1 april - 30 september"): open to all the rest of the year, as the
   // engine does for Stockholm (sweep findings batch 5: Vänersborg, Simrishamn, Upplands-Bro motorcycle and motorhome bays were reserved all year)
   if (r.reserved && !r.purpose.length && r.otherAllowed && r.reservedSeason && o.v !== 'rörelsehindrade' && !r.limits.length && !r.allowOnly.length) o.o = [{ a: 0, b: 1440, m: complement(r.reservedSeason) }];
@@ -286,6 +286,11 @@ for (const row of idx.cities) {
     // an uncertain segment whose fully read text only permits parking (with or without a fee) and gives no other rule: the
     // text answers it (QA 27 Oct: Uppsala Valhallagatan, Sundbyberg Bergsgatan "får fordon parkeras och mot avgift" were grey)
     if (!hasRules(t) && r.permitted && !r.heavyOnly && s.u && !s.ux && !s.ex && !s.v && !s.f && !s.l && !s.aw && plainPermit(rec.body)) { st.permitFilled = (st.permitFilled || 0) + 1; lines.push(`| ${s.c} | ${s.n} | uncertain → permitted${s.fu || s.t ? ' (fee)' : ''} | filled from text |`); if (APPLY) { delete s.u; s.rx = 1; if (!('t' in s) || s.t === null) { if (!/avgift/i.test(rec.body)) s.t = 0; } changed++; } continue; }
+    // A reservation the register holds on a line whose fully read text plainly lets every car park and reserves nothing ("får fordon parkeras mot avgift", "får endast
+    // personbil klass I och motorcykel parkeras", "… utom på markerade bussplatser … får endast personbil parkeras"): the text wins, as it already does when it also gives a
+    // limit or a ban. A disabled reservation only when no sentence of the text reserves anything for permit holders (sweep findings batch 6: Jönköping Kapellgatan,
+    // Uppsala Wallingatan, Ystad Västerleden, Simrishamn Örnahusvägen, Lerum Hedeforsvägen, Mark Boråsvägen answered NO to ordinary cars)
+    if (!hasRules(t) && r.permitted && !r.heavyOnly && !r.reserved && !r.purpose.length && s.v && !s.u && !s.f && !s.aw && carsPermitted(rec.body, s.v)) { st.notReservedByText = (st.notReservedByText || 0) + 1; lines.push(`| ${s.c} | ${s.n} | reserved "${s.v}" → open | the text lets every car park |`); if (APPLY) { delete s.v; delete s.o; delete s.k; delete s.ko; s.rx = 1; changed++; } continue; }
     if (!hasRules(t)) { st.textNoRule++; if (s.u) st.uStill++; continue; } // e.g. a pure fee regulation: nothing to compare
     // the line's own bans only: windows laid on it by an area-wide ban (ov: 1, rdt-overlay) or by roadworks (ov: 2, rdt-temp)
     // are not the register's reading of this text, and made every such line "text more permissive" on every run

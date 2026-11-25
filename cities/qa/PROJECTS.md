@@ -301,6 +301,45 @@ Log:
   Lysekil, Vellinge, Ystad) and Skövde's prices (×8): fee tables; vehicle-class bans read as general (bicycles, motorhomes, heavy vehicles: about 20); area-ban overlays
   `ov: 1` on streets with their own rule (about 17, removes bans: needs the area texts); multi-part texts merged (Norrtälje ×12, Säter ×4); school days and school terms;
   week numbers; one-off dates kept as yearly seasons; stopping flag from the title (display).
+- 2026-11-25 batch 6 · the 452 strict and 157 loose rows outside Stockholm whose lines had not changed, grouped again; six groups read by hand against their texts (about 190 rows) ·
+  confirmed and fixed, each with a test (132 lines of 74 regulations in 48 municipalities changed; every fix measured on all 70,817 texts: 99 parse differently, none in Stockholm):
+  (1) bans and bays that are for other vehicles (41 lines now "no rule for cars", `hv`): bicycles and mopeds ("får cykel och moped klass II inte parkeras", "får cyklar inte parkeras
+  utanför … cykelställ", "… endast parkeras i särskilt anordnade cykelställ": Linköping Resecentrum ×12, Helsingborg Kungstorget, Konsul Perssons plats, Lund Västra Stationstorget,
+  Örebro Köpmangatan, Varberg resecentrum ×5 was a motorcycle bay), "Förbudet gäller endast (för) husbilar / lastbil / lastbil, tung lastbil, fordonståg och släpfordon" (Borgholm ×4,
+  Kiruna ×4, Mariestad ×3, Mora ×2: the parser dropped the ban but the register's stayed), "får personbil klass II och släpvagn inte stannas eller parkeras" read as a motorhome BAY
+  (Falkenberg, Karlshamn, Båstad), "Tillåtelsen gäller inte husvagn och husbil … 20–06" (Höganäs), detached trailers (Krokom), "Parkering är förbjuden utanför markerad plats" is
+  where to stand (Karlskrona ×2). (2) reservations the register held but the text does not give (38 lines): "Tillåtelsen gäller endast lätt lastbil och personbil klass I" is no
+  truck bay (Västerås ×12, Köping ×3); a new pipeline rule (`carsPermitted` in rdt-lib) drops a register reservation when the fully read text plainly lets every car park and
+  reserves nothing ("får fordon parkeras mot avgift": Jönköping Kapellgatan, the lead of wave 10; "får endast personbil klass I och motorcykel parkeras": Ystad ×5, Simrishamn, Lerum,
+  Helsingborg; Mark Boråsvägen; Borgholm Verdandi gränd ×4); what permit holders get on top of a permission for every car is read as that ("Rörelsehindrad person med
+  parkeringstillstånd … får parkera under högst 3 tim": Visby ×10 lines were "disabled only", Falkenberg Storgatan ×2). (3) disabled bays reserved at stated hours whose text says
+  "Övrig tid får fordon parkeras" / "övrig tid är det allmän parkering" (the group named for this batch): open to all outside those hours (`o`, 12 lines: Söderhamn ×3, Laholm ×4,
+  Sundbyberg ×3, Karlskrona). Bays with "Parkering är dock tillåten under högst N tim" or with hours and nothing about other times stay reserved, as before. (4) permissions inside
+  an area parking ban ("med avvikelse från … om förbud att parkera …"), the loose rows: the permission's own hours are allowed-only hours (Örebro Almbyvägen was open at night), a
+  seasonal permission leaves the area ban the rest of the year ("… under högst 8 dygn i följd mot avgift under tiden 15 juni - 15 augusti": Lysekil ×4; "Tillåtelsen att parkera gäller
+  under tiden 1 oktober - 31 maj": Östersund; "Tillåtelsen gäller endast under perioden …": Örnsköldsvik; "Tillåtelsen i 1 § och villkoren i 2-4 §§ gäller mellan 1 juni och
+  31augusti": Sotenäs Skolgatan ×2): bans added on 9 lines. (5) hours and seasons that slips of the pen had hidden: "07 0ch 16" (Simrishamn), "(Tidsbegränsningen gäller" (Sollefteå),
+  "mellan klockan 03:00 och klockan 05:00" (Kumla ×2: banned around the clock), "från klockan 19:00 till påföljande dag klockan 01:00" (Jokkmokk ×2), "15 oktober till 15:april"
+  (Eskilstuna), "15oktober-15 maj" (Värmdö ×2), "perioden I november" (Lycksele), "under augusti" (Orust), "Förbudet gäller ej juli månad" (Tidaholm, Jönköping Gärdesvägen), "den 1
+  varje månad" (Eslöv), "Undantag från §1 på vardagar … då parkeringsförbud gäller" (Nynäshamn), hours before a paragraph with no full stop (Nynäshamn Järnvägsgatan), "sön- eller
+  helgdag" read as Mon–Sat (Norrtälje ×2, parser only). (6) limits: days in the sentence after the hours ("… högst 2 tim i följd vardag klockan 08.00 - 18.00. Tidsbegränsningen gäller
+  vardag utom dag före …": Tingsryd ×2), the limit's season kept when its hours follow (Askersund ×6, Vaxholm Hamngatan); exemptions and notes that kept a text half-read are ignored
+  ("Förbudet gäller inte varutransporter": Vellinge Hamnvägen's summer ban held all year; "Parkeringen avser besökande": Salem; "Under samma tid ska föreskrifter … inte tillämpas":
+  Katrineholm kept the register's daily twin of a first-Wednesday ban).
+  Read and left: Uddevalla Brattgatan and Ludvika ("endast personbil med tillkopplad släpkärra": stay trailer bays), Karlshamn Stationsvägen ("Med fordon avses endast taxi": stays a
+  taxi bay), Halmstad Norra Badvägen ("Parkering är dock tillåten under högst 1 tim … 1 juni - 31 augusti": only limits the summer, no winter ban), Orust Hamnvägen 2019-6 ("parkeras 1
+  tim i följd" without "högst": not read as allowed-only hours), "får fordon parkeras <hours>. Tillåtelsen gäller högst N" (Tanum Nestorsvägen, Ulricehamn Tingshusgatan, Oskarshamn:
+  the limit stays around the clock, the safe side), Vänersborg Bojortskajen ("Denna föreskrift gäller under tiden 1 oktober - 30 april": what holds in summer is not in the text),
+  Gävle Slottstorget ×2 and Vimmerby Norrtullsgatan (hours before "får fordon" / without "klockan": still open at night, next batch), Ystad "den 15 varje månad" after the hours,
+  heavy-vehicle 24 h limits shown for cars (Åstorp ×4, stricter only), "får lastbil / motorcykel parkeras" without "endast" (stays a bay: the rule of batch 2).
+  Independent check: all 73 distinct changed lines (131 lines; every line that lost or narrowed a ban, limit, fee or reservation is among them) by a reviewer who saw only the texts
+  and the old and new lines: 73 confirmed, 0 not. Its remarks, kept: Vaxholm Hamngatan's 2 h limit now holds 1 Sep–31 Mar only, as "Tillåtelsen gäller årligen 1 september - 31 mars"
+  says (summer is probably another regulation's); the off-season bans in (4) assume the area ban holds all day; Båstad Italienska vägen's derived summer fee table lost its day cap
+  (60 kr/dygn, display: fix in the fee-table step next batch).
+  Still open (about 420 strict and 110 loose rows with unchanged lines; many are not parser errors): fee seasons and prices in the fee tables (Vaxholm ×12, Borgholm ×8, Skövde ×8),
+  fee or free disc time and free first hours (display, app side), area-ban overlays `ov: 1` on streets with their own rule (about 17, needs the area texts), multi-part texts merged
+  (Norrtälje ×12, Säter ×4, Härnösand's all-day twin of a limit), residents-only places (Kalmar ×3, Uddevalla, Vaxholm, Orust), school days and terms, week numbers, one-off dates kept
+  as yearly seasons (Piteå, Strängnäs ×2, Huddinge), "N:e helgfria" (app side, before 6 Jan), disabled bays with "Parkering är dock tillåten" (about 25, left on purpose).
 
 ### 1. [ ] The app allows more than the sign: flagged lines
 The audit's "looser" leads, smallest and most harmful first. One batch per check, in this order:

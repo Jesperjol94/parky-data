@@ -1,6 +1,6 @@
 # Askersund: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-22. 92 segments: 92 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-25. 92 segments: 92 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 89, partly read 3. Verified equal 77, filled from text 12, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
@@ -15,5 +15,5 @@ Fully read 89, partly read 3. Verified equal 77, filled from text 12, text stric
 | 1882 2011-00020 | Drottning Kristinas väg | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1882 2011-00037 | Väderkvarnsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1882 2025-00024 | Södra infarten | uncertain → {"l":[{"a":0,"b":1440,"m":[[5,1],[9,30]],"max":360}]} | filled from text |
-| 1882 2025-00031 | Hamngatan | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":180},{"dt":["fore"],"a":480,"b":1080,"max":180},{"dt":["helgdag"],"a":480,"b":1080,"max":180}],"v":"rörelsehindrade"} | filled from text |
+| 1882 2025-00031 | Hamngatan | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"m":[[5,1],[9,30]],"max":180},{"dt":["fore"],"a":480,"b":1080,"m":[[5,1],[9,30]],"max":180},{"dt":["helgdag"],"a":480,"b":1080,"m":[[5,1],[9,30]],"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1882 2026-00046 | Sundsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
