@@ -2,31 +2,31 @@
 # Subtest: a suspension that names another place than the cited regulation is a mistyped number: left alone
 ok 30 - a suspension that names another place than the cited regulation is a mistyped number: left alone
   ---
-  duration_ms: 0.229095
+  duration_ms: 0.255436
   type: 'test'
   ...
 # Subtest: roadworks: a temporary all-day ban is laid on the older lines along it, and lifted when it ends
 ok 31 - roadworks: a temporary all-day ban is laid on the older lines along it, and lifted when it ends
   ---
-  duration_ms: 5.909568
+  duration_ms: 6.159565
   type: 'test'
   ...
 # Subtest: roadworks: the opposite side of the street, a crossing street and an uncertain ban are left alone
 ok 32 - roadworks: the opposite side of the street, a crossing street and an uncertain ban are left alone
   ---
-  duration_ms: 2.025032
+  duration_ms: 1.976816
   type: 'test'
   ...
 # Subtest: roadworks: a regulation as new as the ban goes grey, one the ban names is banned, a newer temporary permission stays
 ok 33 - roadworks: a regulation as new as the ban goes grey, one the ban names is banned, a newer temporary permission stays
   ---
-  duration_ms: 3.718634
+  duration_ms: 3.843928
   type: 'test'
   ...
 # Subtest: cutLine cuts at distances along the line
 ok 34 - cutLine cuts at distances along the line
   ---
-  duration_ms: 0.196959
+  duration_ms: 0.216203
   type: 'test'
   ...
 1..34
@@ -37,4 +37,4 @@ ok 34 - cutLine cuts at distances along the line
 # cancelled 0
 # skipped 2
 # todo 0
-# duration_ms 247.757787
+# duration_ms 225.366883
