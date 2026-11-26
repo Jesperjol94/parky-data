@@ -1884,3 +1884,78 @@ test('a limit repeated at the end of the "Tillåtelsen gäller" hours is the sam
   const s = parseRegulation(wrap('På Gatan får fordon parkeras under högst 2 tim i följd. Tillåtelsen gäller under tiden vardag utom vardag före sön- och helgdag klockan 09.00 - 18.00 och under högst 3 tim i följd.'));
   assert.notDeepEqual(s.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 120 }]);
 });
+
+// ---- Sweep findings, batch 8 (26 Nov 2026) ----
+test('sweep findings batch 8: an exemption for dropping off or fetching people leaves the parking ban standing', () => {
+  // Lekeberg Dammgatan, Tanum Solhöjdsvägen, Rättvik Thunbergs gata showed 10–30 minutes of free parking
+  for (const t of ['1§ På Dammgatan från Skolgatan till en punkt 80 meter öster därom och på gatans båda sidor, får fordon inte parkeras. Förbudet ger inte rätt att stanna där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276). 2§ Förbudet gäller inte vid lämnande och hämtning av barn vid Skattkistan, då parkering tillåts i högst 10 minuter.',
+    '1 § På Solhöjdsvägen i Rabbalshede, som framgår av Kartbilaga 1, får fordon inte parkeras. 2 § Förbudet i 1 § tillåter av och påstigning i max 15 minuter.',
+    'På samtliga vägar på Thunbergs gata inom resecenturm enligt kartbild får fordon inte stannas eller parkeras. Förbudet gäller inte fordon i linjetrafik. Förbudet gäller inte fordon parkerade för upphämtning av passargerare vid resecentrum, där parkeringsskiva eller motsvarande ska användas dock max 30 min.']) {
+    const r = parseRegulation(wrap(t));
+    assert.deepEqual(r.bans, [{ a: 0, b: 1440 }], t); assert.deepEqual(r.limits, [], t); assert.deepEqual(r.unread, [], t);
+  }
+  // an exemption for marked bays with their own limit is the bays' rule: still unread, the line is left to the register
+  const s = parseRegulation(wrap('1 § På västra sidan av Norregatan i Sjöbo mellan Västergatan och Lillgatan får fordon inte stannas eller parkeras. 3 § Förbudet gäller inte markerade parkeringsplatser där parkering är tillåten högst 30 min i följd.'));
+  assert.equal(s.unread.length, 1);
+});
+
+test('sweep findings batch 8: "tvåhjulig motorcykel och moped kl. 1 utan sidvagn" inside an area ban is a motorcycle bay', () => {
+  // Sundsvall Kyrkogatan: the line kept the register's ban in the bay's season and was free for cars the rest of the year
+  const r = parseRegulation(wrap('1 § På Kyrkogatans södra sida, enligt markering på kartbild får tvåhjulig motorcykel och moped kl. 1 utan sidvagn, med avvikelse från Sundsvalls kommuns lokala trafikföreskrifter (2281 2021:429) om förbud att parkera inom område Sundsvalls centrum, parkeras . Tillåtelsen ger inte rätt att parkera där det enligt trafikförordningen (1998:1276) är förbjudet att stanna och parkera. 2 § Tillåtelsen gäller 15 april-15 oktober.'));
+  assert.equal(r.reserved, true); assert.equal(r.reservedFor, 'motorcykel'); assert.deepEqual(r.reservedSeason, [[4, 15], [10, 15]]);
+  assert.ok(!r.otherAllowed, 'inside an area ban the rest of the year is not opened'); assert.deepEqual(r.bans, []); assert.deepEqual(r.unread, []);
+  // Eskilstuna Rademachergatan, Sigtuna Hamngatan
+  for (const t of ['1 § På nordöstra sidan av Rademachergatan får tvåhjulig motorcykel utan sidovagn och tvåhjulig moped klass I utan sidovagn, med avvikelse från Eskilstuna kommuns lokala trafikföreskrifter (0484 2017 : 77) om tidsbegränsad parkering, parkeras där stannande och parkering är förbjuden enligt 3 kap 52§ andra stycket trafikförordningen (1998:1276).',
+    'På markerad sträcka på Hamngatan enligt kartbild får motorcykel och tvåhjulig moped klass I och klass II parkeras.']) {
+    const q = parseRegulation(wrap(t)); assert.equal(q.reserved, true, t); assert.equal(q.reservedFor, 'motorcykel', t); assert.deepEqual(q.unread, [], t);
+  }
+});
+
+test('sweep findings batch 8: bays for travellers are reserved; the limit is the bay\'s', () => {
+  const a = parseRegulation(wrap('1 § Inom ett område i Moheda, som motsvarar markerade platser på östra sidan av Västra Järnvägsgatan, får fordon med resande med tåg eller buss, parkeras under högst 24 tim i följd.'));
+  assert.equal(a.reserved, true); assert.deepEqual(a.limits, [{ a: 0, b: 1440, max: 1440 }]); assert.deepEqual(a.unread, []);
+  const g = parseRegulation(wrap('1 § Inom Långstidsparkeringensplats på Godsgatan ( vid tågstationen ) får fordon parkeras under högst 4 dygn i följd. 2 § Endast resenärer i samband med långtidsresor som reser från Gällivare tågstation får parkera.'));
+  assert.equal(g.reserved, true); assert.deepEqual(g.limits, [{ a: 0, b: 1440, max: 5760 }]); assert.deepEqual(g.unread, []);
+  // an ordinary limit is no bay
+  assert.equal(parseRegulation(wrap('1 § På Godsgatan får fordon parkeras under högst 4 dygn i följd.')).reserved, false);
+});
+
+test('sweep findings batch 8: a car park where only caravans have a limit gives cars no rule', () => {
+  // Kiruna, Abisko östra: the caravans' 24 h must not become a reservation or a limit for cars
+  const r = parseRegulation(wrap('På parkeringsplatserna mellan väg E10 och reningsverket i Abisko östra får husvagnar parkeras måndagar - fredagar högst 24 timmar i följd. För övrig parkering gäller ingen tidsbegränsning.'));
+  assert.equal(r.reserved, false); assert.deepEqual(r.limits, []); assert.deepEqual(r.bans, []); assert.deepEqual(r.unread, []);
+  // without that sentence it stays a caravan bay
+  assert.equal(parseRegulation(wrap('På parkeringsplatserna i Abisko östra får husvagnar parkeras högst 24 timmar i följd.')).reserved, true);
+});
+
+test('sweep findings batch 8: stopping bans worded "får inte fordon stannas", "Stannande eller parkering är dock förbjuden"', () => {
+  assert.ok(STOPPING.test('På norra sidan av Hallevadsgatan får inte fordon stannas.')); // Mjölby
+  assert.ok(STOPPING.test('Stannande eller parkering är dock förbjuden torsdag klockan 07.00 - 16.00.')); // Falun, Trelleborg
+  assert.ok(STOPPING.test('På norra sidan av Arklimästaregatan får fordon inte Stannande eller parkering.')); // Karlskrona
+  // a permission to park where the traffic ordinance forbids stopping is no stopping ban (Örebro, Eskilstuna)
+  assert.ok(!STOPPING.test('får fordon parkeras där stannande och parkering är förbjuden enligt 3 kap 52 § trafikförordningen (1998:1276).'));
+  assert.ok(!STOPPING.test('På Langsgatan får fordon inte parkeras.'));
+});
+
+test('sweep findings batch 8: bays for a named owner or errand, police cars and ambulances are reserved', () => {
+  // Osby Köpmannagatan, Hultsfred, Karlskrona Stenbergsgränd, Åsele Industrivägen, Partille Furulundsvägen, Kil Karlslundsgatan, Mönsterås Stationsgatan were grey
+  for (const t of ['På två markerade parkeringsplatser, på parkeringsplatsen belägen på Köpmannagatans södra sida mellan Parkgatan och Västra Storgatan, får endast fordon tillhörande polismyndigheten parkeras. Fordon som inte får parkeras får inte heller stannas annat än för på- och avstigning.',
+    '1 § På parkering vid Västra Långgatan/Koppargatan på fyra särskilt markerade platser får endast sådana fordon parkeras som används av polismyndigheten.',
+    'På södra sidan av Stenbergsgränd i Karlskrona , 4 st markerade platser mellan 52 m och 74 m öster om Norra Smedjegatan, får endast fordon som tillhör Blekinge Läns Tidning parkeras.',
+    'På markerade sträckor på Furulundsvägen enligt kartbild får endast fordon i linjetrafik parkeras. Tillåtelsen ger inte rätt att stanna eller parkera där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276).',
+    'På Karlslundsgatan, östra sidan, mellan Idrottsgatan och Långgatan får endast fordon som har ärende till förskolan parkera.',
+    '1 § På norra sidan av Stationsgatan i Blomstermåla, 2 platser på parkering enligt område som framgår av rödmarkering i kartbild, får endast fordon som används av distriktsköterskor till läkarstationen parkeras.',
+    'På Dalslundskolan i Åkarp på sträcka markerad i karbilaga får endast färdtjänstfordon parkeras.',
+    '1 § På södra sidan av Skönbergagatan Söderköping (på markerad plats cirka 25 meter öster om korsning med Östra Hagagatan ) får polisbil stannas eller parkeras.',
+    'På Talldungevägen i Tanumshede enligt markering i Kartbilaga 1, får ambulans parkeras.']) {
+    const r = parseRegulation(wrap(t)); assert.equal(r.reserved, true, t); assert.deepEqual(r.unread, [], t); assert.deepEqual(r.bans, [], t);
+  }
+  // residents' bays keep their own rules; ordinary cars are no group
+  assert.equal(parseRegulation(wrap('På Gatan får endast fordon parkeras.')).reserved, false);
+  assert.equal(parseRegulation(wrap('På Gatan får endast personbil klass I parkeras under högst 2 tim i följd.')).reserved, false);
+});
+
+test('sweep findings batch 8: "får fordon ej parkeras längre tid än 2 timmar … Parkeringstiden övervakas med s.k P-skiva" is fully read', () => {
+  const r = parseRegulation(wrap('På Storgatans östra sida mellan Packhusgatan och Sundellsgatan får fordon ej parkeras längre tid än 2 timmar. Parkeringstiden övervakas med s.k P-skiva.')); // Haparanda ×4 stayed grey
+  assert.deepEqual(r.limits, [{ a: 0, b: 1440, max: 120 }]); assert.deepEqual(r.bans, []); assert.deepEqual(r.unread, []);
+});

@@ -134,3 +134,59 @@ test('sweep findings batch 7: a plain permission stays plain beside words that o
   assert.equal(plainPermit(wrap('På Storgatan får fordon inte parkeras.')), false);
   assert.equal(plainPermit(wrap('På Klågerupsvägen får fordon parkeras kl 8-18.')), false);
 });
+
+// ---- sweep findings batch 8 (26 Nov 2026) ----
+import { stoppingBan, reservedBesideUnread, ownBans } from '../rdt-lib.mjs';
+import { parseRegulation as parseB8, ruleText as ruleTextB8 } from '../../engine/regulation.js';
+const wrapB8 = (s, title = '') => `Gävle kommuns lokala trafikföreskrifter ${title};\nbeslutade den 1 december 2023.\nGävle kommun föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande.\n${s}\nDenna författning träder i kraft den 14 december 2023 då Gävle kommuns lokala trafikföreskrifter (2180 2023:17) om förbud mot att stanna eller parkera på en del av Glaciärvägen ska upphöra att gälla.`;
+
+test('sweep findings batch 8: a stopping ban is judged on the operative text, not on the title or the repealed regulation', () => {
+  const sb = (s, title) => { const b = wrapB8(s, title); return stoppingBan(b, ruleTextB8(b)); };
+  // Gävle Glaciärvägen, Eskilstuna Munktellsgatan: plain parking bans under a "stanna eller parkera" title
+  assert.equal(sb('1 § På Glaciärvägens Södra sida framför sopstationen enligt markering på kartbild får fordon inte parkeras.', 'om förbud att stanna eller parkera på Glaciärvägen'), false);
+  assert.equal(sb('På Torbornavägen enligt markeringar i kartbild får fordon inte parkeras. Förbudet ger inte rätt att stanna där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276).'), false);
+  // the boilerplate in other wordings (Helsingborg, Hedemora)
+  assert.equal(sb('På nordvästra sidan av Domaregatan får fordon inte parkeras under tiden vardag klockan 07.00 - 18.00. Föreskriften innebär inte tillåtelse att stanna där det är förbjudet att stanna eller parkera enligt trafikförordningen.'), false);
+  assert.equal(sb('1 § På samtliga gator inom det område som anges i kartbilaga får fordon inte parkeras. Förbudet ger inte rätt stanna där det är förbjudet att stanna eller parkera enligt trafikförordningen (1998:1276).'), false);
+  // the title of the regulation a permission departs from (Falun, Sigtuna)
+  assert.equal(sb('På markerade platser får personbil, med avvikelse från kommunens lokala trafikföreskrifter 0114 2015-00019 om förbud att stanna och parkera, parkeras mot avgift. Parkering är dock förbjuden under tiden onsdag klockan 08.00 - 12.00.'), false);
+  // real stopping bans
+  assert.equal(sb('1 § På Linnégatan i Växjö, västra körbanan, från Sandgärdsgatan till Norra Järnvägsgatan får inte fordon stannas.'), true);
+  assert.equal(sb('På Flädervägen får fordon parkeras mot avgift. Stannande eller parkering är dock förbjuden under tiden onsdag klockan 08.00 - 16.00.'), true);
+  assert.equal(sb('På Lyckebyvägen i Lyckeby får fordon inte stannas eller parkeras.'), true);
+  // no operative text to cut out: the whole body decides, as before
+  assert.equal(stoppingBan('På X-gatan får fordon inte stannas eller parkeras.', null), true);
+});
+
+test('sweep findings batch 8: a bay read as reserved is added beside an unread sentence, unless that sentence may open the place', () => {
+  const w = (s) => parseB8(`Ängelholms kommun föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande. ${s} Denna författning träder i kraft den 1 maj 2024.`);
+  // Ängelholm Klittervägen and Valhallsvägen (motorhome bays), Kungsbacka Parkeringshus Linden (charging bays)
+  for (const t of ['På rödmarkerad sträcka på Klittervägens parkeringsplatsmarkerade enligt kartbild får personbil klass II parkeras under högst 24 tim i följd. Dygnstaxa avläggs om 150 kr alla dagar i veckan. De 3 första parkeringstimmarna är avgifsfria med parkeringsskiva eller motsvarande.',
+    'På markerad sträcka på Valhallsvägen enligt kartbild får endast personbil klass II parkeras. Avgift enligt taxa zon 4. Tillåtelsen att parkera sker mot att avgift erläggs eller högst 3 timmar i följd mot användande av parkeringsskiva eller motsvarande.',
+    '1 § Särskilt uppmärkta parkeringsplatser på plan 2 och plan 3 i Parkeringshus Linden skall vara laddplats. 2 § Mellan klockan 8 och 22 på vardagar är det tillåtet att parkera mot att avgift betalas.']) {
+    const r = w(t); assert.ok(r.unread.length > 0, t); assert.equal(reservedBesideUnread(r), true, t);
+  }
+  // fully read: nothing to add here (the ordinary comparison handles it); a seasonal bay, or an unread sentence about other hours or other parking: left alone
+  assert.equal(reservedBesideUnread(w('På markerad sträcka på Valhallsvägen enligt kartbild får endast personbil klass II parkeras.')), false);
+  assert.equal(reservedBesideUnread({ reserved: true, reservedFor: 'husbil', unread: ['För övrig parkering gäller ingen tidsbegränsning.'], purpose: [], reservedWindows: [], bans: [], allowOnly: [] }), false);
+  assert.equal(reservedBesideUnread({ reserved: true, reservedFor: 'buss', unread: ['Övrig tid får fordon parkeras under högst 2 tim i följd.'], purpose: [], reservedWindows: [], bans: [], allowOnly: [] }), false);
+  assert.equal(reservedBesideUnread({ reserved: true, reservedFor: 'buss', reservedSeason: [[6, 1], [8, 31]], unread: ['Avgift tas ut.'], purpose: [], reservedWindows: [], bans: [], allowOnly: [] }), false);
+  assert.equal(reservedBesideUnread({ reserved: true, reservedFor: 'laddning', permitted: true, unread: ['Avgift tas ut.'], purpose: [], reservedWindows: [], bans: [], allowOnly: [] }), false);
+});
+
+test('sweep findings batch 8: bans laid on a line from roadworks or an area regulation are not the line\'s own rule set', () => {
+  // Västervik Skeppsbron: two of ten lines carried a roadworks ban, so the text counted as "several rule sets" and its 10-day limit was never applied
+  assert.deepEqual(ownBans({ f: [{ a: 0, b: 1440, ov: 2, to: '2027-05-20' }] }), []);
+  assert.deepEqual(ownBans({ f: [{ w: 4, a: 420, b: 960 }, { a: 0, b: 1440, ov: 1 }] }), [{ w: 4, a: 420, b: 960 }]);
+  assert.deepEqual(ownBans({}), []);
+});
+
+test('sweep findings batch 8: a text whose every part is a plain permission is a plain permission (Svedala\'s car parks stayed grey)', async () => {
+  const { plainPermit } = await import('../rdt-lib.mjs');
+  const w = (s) => `Svedala kommun föreskriver med stöd av 10 kap. 1 § trafikförordningen (1998:1276) följande. ${s} Denna författning träder i kraft den 1 juli 2008.`;
+  const two = w('På Vinbärsgatans norra sida vid Värbyvägen, på särskilt anordnad parkeringsplats, 18 platser, får fordon parkeras. 2 § På Vinbärsgatans södra sida, på särskilt anordnad parkeringsplats, 13 platser, får fordon parkeras.');
+  assert.equal(plainPermit(two), true);
+  const r = parseB8(two); assert.equal(!!r.permitted, true); assert.deepEqual([r.bans, r.limits, r.allowOnly, r.unread], [[], [], [], []]); assert.equal(r.reserved, false);
+  // one part with hours or a limit: not plain, stays grey
+  assert.equal(plainPermit(w('På Vinbärsgatans norra sida får fordon parkeras. 2 § På Vinbärsgatans södra sida får fordon parkeras vardagar klockan 08.00 - 18.00.')), false);
+});

@@ -1,5 +1,5 @@
 // Shared helpers for the RDT municipality pipeline.
-import { ruleText } from "../engine/regulation.js";
+import { ruleText, STOPPING } from "../engine/regulation.js";
 export const ALL_DAYS = ['vardag', 'fore', 'helgdag'];
 
 // Pelle's fee tables sometimes list several prices for the same hours (one municipality-wide table: "8 kr/tim,
@@ -188,3 +188,25 @@ export function plainPermit(body) {
   }
   return permit;
 }
+
+// ---- sweep findings batch 8 (26 Nov 2026) ----
+// Is the regulation a stopping ban? Judged on the operative text when it can be cut out (ruleText), else on the whole body: the title ("… om förbud att stanna eller parkera
+// på X") and the sentence about the regulation this one replaces made plain parking bans ("får fordon inte parkeras") stopping bans (Gävle Glaciärvägen, Eskilstuna
+// Munktellsgatan, Skellefteå, Nynäshamn, Helsingborg). Left out before testing: the boilerplate "… ger inte rätt att stanna där det är förbjudet att stanna eller parkera" in
+// any wording, repeal sentences, and the title of a regulation the text departs from ("med avvikelse från … föreskrifter 2080 2025:00259 om förbud att stanna och parkera").
+export function stoppingBan(body, rule) {
+  const rt = rule && rule.replace(/\s+/g, ' ').trim().length > 30 ? rule.replace(/\s+/g, ' ') : String(body || '');
+  return STOPPING.test(rt.replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/[^.]*\bdär det är förbjudet att stanna (?:eller|och) parkera[^.]*/gi, '')
+    .replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, '').replace(/föreskrifter[^.]{0,40}?\bom (?:område med )?förbud (?:mot )?att stanna[^.,]*/gi, ''));
+}
+// A bay the parser DID read as reserved at all hours for a vehicle or a group ("får endast personbil klass II parkeras", "… skall vara laddplats") while another sentence
+// is unread (a fee detail, the same bay worded twice): reserving never relaxes a line, so the reservation is added, as read bans are. Not when an unread sentence may open
+// the place to other cars or other hours ("Övrig tid …", "För övrig parkering gäller ingen tidsbegränsning", "… får fordon parkeras …", residents), and not when the text also
+// lets every car park somewhere (Ängelholm's motorhome bays on Klittervägen and Valhallsvägen and Kungsbacka's charging bays in Parkeringshus Linden gave every car the bay's limit).
+export function reservedBesideUnread(r) {
+  return !!r.reserved && r.unread.length > 0 && !r.purpose.length && !r.reservedSeason && !r.reservedWindows.length && !r.otherAllowed && !r.reservedOpenOutside && !r.permitted && !r.bans.length && !r.allowOnly.length
+    && !r.unread.some((u) => /^(?:övrig tid|för övrig|under tiden|trots|parkering är dock|på övriga|tillåtelsen gäller (?:även|också))|\bfår (?:fordon|personbil(?:ar)?(?: klass (?:i|1))?|motorfordon|bil(?:ar)?) [^.]*\bparkeras?\b|\bboende\b|\bövriga (?:platser|fordon)\b/i.test(u));
+}
+// A line's own bans: not those laid on it from an area regulation (ov: 1) or roadworks (ov: 2). Counting the laid-on bans made a one-place text "several rule sets" wherever
+// roadworks touched one of its lines, so the text was never applied (Västervik Skeppsbron kept its 10-day limit in the fee hours only).
+export const ownBans = (s) => (s.f || []).filter((w) => !w.ov);

@@ -1,7 +1,7 @@
 # Växjö: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-26. 2012 segments: 2012 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2006, partly read 6. Verified equal 1905, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 88, multi-part texts (not compared) 8.
+Fully read 2006, partly read 6. Verified equal 1913, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 88, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

@@ -1,6 +1,6 @@
 # Ängelholm: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-22. 677 segments: 677 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-26. 677 segments: 677 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 668, partly read 9. Verified equal 575, filled from text 6, text stricter 0, disputed 0, expired 0, text without rules 87, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

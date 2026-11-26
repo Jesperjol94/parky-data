@@ -1,7 +1,7 @@
 # Sollentuna: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-26. 899 segments: 899 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 890, partly read 9. Verified equal 868, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 11, multi-part texts (not compared) 9.
+Fully read 890, partly read 9. Verified equal 877, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 11, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

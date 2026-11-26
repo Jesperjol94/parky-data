@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit } from './rdt-lib.mjs';
+import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit, stoppingBan, reservedBesideUnread, ownBans } from './rdt-lib.mjs';
 const MONTH_NAME = /\b(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b/i;
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING, complement } from '../engine/regulation.js';
 
@@ -121,7 +121,7 @@ for (const row of idx.cities) {
   }
   const parsed = new Map();
   const ruleSets = new Map(); // citation -> number of distinct rule sets among its segments (Pelle split one text into parts)
-  { const m = new Map(); for (const s of c.segments) { if (!m.has(s.c)) m.set(s.c, new Set()); m.get(s.c).add(JSON.stringify([canon(s.f), canon(s.l), canon(s.aw), s.v || null])); } for (const [k, v] of m) ruleSets.set(k, v.size); }
+  { const m = new Map(); for (const s of c.segments) { if (!m.has(s.c)) m.set(s.c, new Set()); m.get(s.c).add(JSON.stringify([canon(ownBans(s)), canon(s.l), canon(s.aw), s.v || null])); } for (const [k, v] of m) ruleSets.set(k, v.size); }
   for (const s of c.segments) {
     const rec = texts.get(s.c);
     if (!rec) { st.noText++; continue; }
@@ -161,8 +161,11 @@ for (const row of idx.cities) {
       // "avgiften behöver inte erläggas av rörelsehindrad" is a fee exemption, not a reservation for disabled permit holders
       if (s.v === 'rörelsehindrade' && !/(?:endast|enbart)[^.]{0,60}rörelsehindr|reserverad/i.test(body) && /(?:behöver inte|ej|inte) (?:erläggas|betalas)[^.]{0,80}rörelsehindr|rörelsehindr[^.]{0,80}(?:behöver inte|utan avgift|avgiftsfri|inte betala)/i.test(body)) { delete s.v; changed++; st.notReserved = (st.notReserved || 0) + 1; }
       // a stopping ban ("får fordon inte stannas", "förbud att stanna") is stricter than a parking ban: the card says so
-      if (STOPPING.test(body.replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, '')) && s.f && s.f.length && !s.sb) { s.sb = 1; changed++; }
-      if (s.sb && !STOPPING.test(body.replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/[^.]*(?:upphör|upphöra) att gälla[^.]*/gi, ''))) { delete s.sb; changed++; st.sbCleared = (st.sbCleared || 0) + 1; } // a parking ban the register marked as a stopping ban (QA 8 Nov: Kiruna, Linköping, Upplands Väsby, Karlstad)
+      // judged on the operative text when it can be cut out: the title ("… om förbud att stanna eller parkera på X") and the sentence about the regulation this one replaces
+      // made plain parking bans ("får fordon inte parkeras") stopping bans (sweep findings batch 8: Gävle Glaciärvägen, Eskilstuna Munktellsgatan, Skellefteå, Nynäshamn, Helsingborg)
+      const sbHit = stoppingBan(body, ruleText(rec.body));
+      if (sbHit && s.f && s.f.some((w) => !w.ov) && !s.sb) { s.sb = 1; changed++; st.sbSet = (st.sbSet || 0) + 1; }
+      if (s.sb && !sbHit) { delete s.sb; changed++; st.sbCleared = (st.sbCleared || 0) + 1; } // a parking ban the register marked as a stopping ban (QA 8 Nov: Kiruna, Linköping, Upplands Väsby, Karlstad)
     }
     if (!parsed.has(s.c)) parsed.set(s.c, { r: ((r) => { r.feeWindows = weekdaysAsDayTypes(r.feeWindows); return r; })(parseRegulation(rec.body)), multi: multiPart(rec.body) || ruleSets.get(s.c) > 1 });
     const { r, multi } = parsed.get(s.c);
@@ -219,6 +222,11 @@ for (const row of idx.cities) {
       // klockan 08-16 får fordon dock parkeras", "Förbudet gäller inte fordon på östra sidan 1 maj - 1 oktober") while the line has no all-day ban: the
       // register has made the exemption's hours the ban's, so the line is free when the text bans. Grey until the exemption is read (sweep waves
       // 13–27: Helsingborg F M Franzéns gata, Borlänge Musikanten, Ovanåker Östra Kyrkogatan)
+      // A bay the parser DID read as reserved at all hours for a vehicle or a group ("får endast personbil klass II parkeras", "… skall vara laddplats") while another
+      // sentence is unread (a fee detail, the same bay worded twice): reserving never relaxes a line, so the reservation is added, as read bans are. Not when an unread
+      // sentence may open the place to other cars or other hours, and not when the text also lets every car park somewhere (sweep findings batch 8: Ängelholm's motorhome
+      // bays on Klittervägen, Helsingborgsvägen and Valhallsvägen and Kungsbacka's charging bays in Parkeringshus Linden gave every car the bay's limit)
+      if (APPLY && !multi && !s.u && !s.v && !s.f && !s.aw && reservedBesideUnread(r)) { s.v = r.reservedFor || 'reserverad'; s.rx = 1; changed++; st.partialReserved = (st.partialReserved || 0) + 1; }
       if (APPLY && unreadExemptionOnly(r, s, multi)) { s.u = 1; s.ux = 1; changed++; st.exemptGrey = (st.exemptGrey || 0) + 1; st.uStill++; }
       continue; }
     st.fullyRead++;
@@ -256,6 +264,10 @@ for (const row of idx.cities) {
       const odd = anyText && (((s.f || []).filter((w) => !w.ov).some((w) => !textBans.has(win(w)) && !(w.a === 0 && w.b === 1440 && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(rec.body)))) || (s.l || []).some((l) => !textMax.has(l.max)) || (s.v && r.permitted)
         || ((tt.f || []).some((w) => (w.w || w.nw || w.dm) && !(s.f || []).some((f) => !f.ov && win(f) === win(w))))); // a cleaning/market-day ban in the text that the line lacks: which part it belongs to can't be told, and missing it would be looser (QA 8 Nov: Täby allé) // a reservation on a piece of a text that also lets ordinary cars park elsewhere: which piece is reserved can't be told (Bollebygd)
       if (APPLY) { if (odd && !s.u) { s.u = 1; s.ux = 1; changed++; st.multiGrey = (st.multiGrey || 0) + 1; } else if (!odd && s.ux) { delete s.u; delete s.ux; changed++; } }
+      // every part of the text is a plain permission ("På X norra sida, på särskilt anordnad parkeringsplats, 18 platser, får fordon parkeras. 2 § På X södra sida … 13
+      // platser, får fordon parkeras"): whichever part the line belongs to, parking is allowed, so a grey line is answered as for a one-place text (sweep findings
+      // batch 8: Svedala's car parks, about 16 regulations, stayed grey)
+      if (APPLY && !anyText && r.permitted && !r.heavyOnly && !r.reserved && !r.purpose.length && s.u && !s.ux && !s.ex && !s.v && !s.f && !s.l && !s.aw && plainPermit(rec.body)) { delete s.u; s.rx = 1; if (!('t' in s) || s.t === null) { if (!/avgift/i.test(rec.body)) s.t = 0; } changed++; st.permitFilled = (st.permitFilled || 0) + 1; }
       // day types for a piece whose hours the text has exactly once (sweep findings batch 4: Hagfors Uddeholmsvägen, "vardagar, dock ej dag före sön- och helgdag" held as Saturdays)
       if (APPLY && !odd && !s.u) for (const k of ['f', 'l']) { const nw = dayTypesFromText(s[k], tt[k], true); if (nw) { s[k] = nw; s.rx = 1; changed++; st.dayTypes = (st.dayTypes || 0) + 1; } }
       if (s.u) st.uStill++; continue;
