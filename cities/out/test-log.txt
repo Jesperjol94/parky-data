@@ -1,40 +1,40 @@
   ...
 # Subtest: a suspension that names another place than the cited regulation is a mistyped number: left alone
-ok 31 - a suspension that names another place than the cited regulation is a mistyped number: left alone
+ok 35 - a suspension that names another place than the cited regulation is a mistyped number: left alone
   ---
-  duration_ms: 0.331508
+  duration_ms: 0.316298
   type: 'test'
   ...
 # Subtest: roadworks: a temporary all-day ban is laid on the older lines along it, and lifted when it ends
-ok 32 - roadworks: a temporary all-day ban is laid on the older lines along it, and lifted when it ends
+ok 36 - roadworks: a temporary all-day ban is laid on the older lines along it, and lifted when it ends
   ---
-  duration_ms: 8.728524
+  duration_ms: 7.803848
   type: 'test'
   ...
 # Subtest: roadworks: the opposite side of the street, a crossing street and an uncertain ban are left alone
-ok 33 - roadworks: the opposite side of the street, a crossing street and an uncertain ban are left alone
+ok 37 - roadworks: the opposite side of the street, a crossing street and an uncertain ban are left alone
   ---
-  duration_ms: 2.783729
+  duration_ms: 2.89011
   type: 'test'
   ...
 # Subtest: roadworks: a regulation as new as the ban goes grey, one the ban names is banned, a newer temporary permission stays
-ok 34 - roadworks: a regulation as new as the ban goes grey, one the ban names is banned, a newer temporary permission stays
+ok 38 - roadworks: a regulation as new as the ban goes grey, one the ban names is banned, a newer temporary permission stays
   ---
-  duration_ms: 6.425979
+  duration_ms: 6.449672
   type: 'test'
   ...
 # Subtest: cutLine cuts at distances along the line
-ok 35 - cutLine cuts at distances along the line
+ok 39 - cutLine cuts at distances along the line
   ---
-  duration_ms: 0.254044
+  duration_ms: 0.248502
   type: 'test'
   ...
-1..35
-# tests 35
+1..39
+# tests 39
 # suites 0
-# pass 33
+# pass 37
 # fail 0
 # cancelled 0
 # skipped 2
 # todo 0
-# duration_ms 222.599449
+# duration_ms 248.940091
