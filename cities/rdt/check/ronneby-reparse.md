@@ -1,7 +1,7 @@
 # Ronneby: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-25. 363 segments: 363 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 359, partly read 4. Verified equal 318, filled from text 41, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-11-26. 363 segments: 363 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 360, partly read 3. Verified equal 318, filled from text 41, text stricter 1, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -18,6 +18,7 @@ Fully read 359, partly read 4. Verified equal 318, filled from text 41, text str
 | 1081 2010-00254 | parkering inom Brunnsparken | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120},{"dt":["vardag","fore"],"a":0,"b":540,"max":1440},{"dt":["vardag"],"a":1080,"b":1440,"max":1440},{"dt":["fore"],"a":840,"b":1440,"max":1440},{"dt":["helgdag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1081 2010-00256 | Hälsocenter | uncertain → {"l":[{"a":0,"b":1440,"max":1440}],"v":"rörelsehindrade"} | filled from text |
 | 1081 2010-00257 | Hälsocenter | uncertain → {"l":[{"a":0,"b":1440,"max":120}]} | filled from text |
+| 1081 2010-00265 | Karlskronagatan | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120},{"a":840,"b":540,"max":1440}]} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":840,"max":120}],"v":"motorcykel"} | text stricter: applied |
 | 1081 2010-00267 | Strandgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":840,"max":30},{"dt":["vardag","fore"],"a":0,"b":540,"max":1440},{"dt":["vardag"],"a":1080,"b":1440,"max":1440},{"dt":["fore"],"a":840,"b":1440,"max":1440},{"dt":["helgdag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1081 2010-00267 | Vierydsvägen | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":30},{"dt":["fore"],"a":540,"b":840,"max":30},{"dt":["vardag","fore"],"a":0,"b":540,"max":1440},{"dt":["vardag"],"a":1080,"b":1440,"max":1440},{"dt":["fore"],"a":840,"b":1440,"max":1440},{"dt":["helgdag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1081 2010-00268 | Strandgatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":840,"max":60}],"v":"rörelsehindrade"} | filled from text |

@@ -408,6 +408,42 @@ Log:
   copies conditions to the line does not look at `nh`; the app must read it first (app side, before 6 Jan).
   Still open: about 330 strict, 100 loose and 300 unsure rows with unchanged lines, about 160 grey regulations with a clear text that are not tiny (Västerås' residents' bays ×12 left on purpose,
   expired dated bans in Kalix ×3, Karlskrona ×2, Helsingborg, Simrishamn, Västervik that are grey and should be dropped, limits without "högst").
+- 2026-11-26 batch 9 · the 92 loose rows outside Stockholm whose lines had not changed since the sweep, read again by hand against their texts (text, parse and today's line side by
+  side), grouped by meaning; five groups worked · confirmed and fixed, each with a test (49 lines of 33 regulations in 21 municipalities changed; the parser reads 39 of 61,211 texts
+  differently, none of Stockholm's 9,606; 27 of the 92 rows now differ from the swept line, 65 are left):
+  (1) permissions inside an area ban that hold only at stated hours or every other week: hours written before the place ("…, mellan klockan 05-23 på Slottstorgets parkeringsplats
+  får fordon, med avvikelse från … om område med förbud att stanna och parkera fordon, parkeras": Gävle Slottstorget ×2, 6 lines were open at night; "område med förbud att stanna
+  och parkera" now counts as an area ban), "Tillåtelsen gäller udda veckor" / "jämna veckor" (Falun Hyttgatan's two sides: banned in the weeks between), "Villkoret gäller ej
+  15 december - 30 april Tisdagar 09:00-15:00" without "mellan datumen" (Falun Rostvändaregatan: the winter cleaning ban was missing), "2 § Övrig tid får fordon inte stannas"
+  standing before the hours it refers to (Gislaved Smålandsstenar held the permission's hours as a ban and was free at night: now allowed-only hours), "Tillåtelsen gäller endast
+  fordon med giltigt parkeringsbiljett som hämtas från fastighet …" is a permit (Laholm Stationsgatan was a ban 09–18 and free at night: now reserved), "Tillåtelsen att parkera
+  gäller husbil under tiden 17 maj- 30 september" (Sundsvall Heffners Allé, Industrigatan ×2, Stuvarvägen: a summer ban and free in winter, or open to all; now motorhome bays).
+  (2) a place the text gives to another vehicle in a season or at stated hours is a ban for cars then, the rest of the text as it stands: "Under tiden 15 juni- 15 aug gäller
+  tillåtelsen endast buss" (Lysekil Verkstadsgatan), "Mellan den 1 maj - 31 augusti får endast personbil klass II parkeras" (Karlstad Bjurbäcksgatan), "Tillåtelsen gäller för
+  buss mot avgift … Det gäller för vardag före sön- och helgdag kl 14:00-24:00 samt sön- och helgdag" (Mölndal Göteborgsvägen), "får endast släpvagn parkeras … under tiden maj –
+  oktober. Övrig tid får endast personbil klass I parkeras under högst 24 tim" (Eslöv Göingevägen). (3) vehicle bays whose wording hid the vehicle: "får enbart personbil klass II
+  parkera under högst 24 timmar i föjd" with the place named twice (Ängelholm Helsingborgsvägen, Hässleholm Österåsgatan 2023-00115: motorhome bays shown as 24 h for all; with
+  "peronbil klass I" Hässleholm 2026-00013 gets its 24 h limit), "motordrivet fordon med tillkopplad släpvagn annat än påhängsvagn eller enaxlig släpvagn" (Mariestad Torsö),
+  "får godstransporter, fordon i linjetrafik och lastbil parkeras" (Tanum Prästgårdsvägen), "får motorcykel med avvikelse från … parkeras … Övrig tid får motorcykel parkeras under
+  högst 24 tim" (Ronneby Karlskronagatan). (4) limits: "Övrig tid får fordon parkeras 24 tim.." without "högst" (Tanum Halsviksvägen), "… under högst 4 tim i följd under tiden
+  måndag-söndag" (Orust Hamntorget ×4), "Övrig tid får fordon parkeras under högst 7 dygn i följd och mot avgift under tiden …" after a cleaning ban (Karlskrona Alamedan: the hours
+  are the fee's), "Fordon får parkera högst under 2 tim" (Nacka Järla östra skolväg), "Följande inskränkningar gäller: Parkering högst 2 timmar i följd …" (Växjö Värnamovägen: 24 h
+  always and 2 h by day), "En tidsbegränsning om att parkera fordon under högst 2 timmar gäller vardagar, vardag före sön- och helgdag, samt sön- och helgdag" (Ljusdal
+  Lantmätargatan: every day, was Saturdays), a third hour range after "samt" without day words is Sundays (Sundsvall Tullgatan), "Parkeringen gäller 5 platser" is no rule
+  (Söderhamn Åsgatan: the 24 h limit now covers Sunday 10–15). (5) slips: "den första helgfria måndagen varje månad 08-00-12.00" (Eslöv Palmgatan: cleaning ban added, `nh` set),
+  "Förbudet gäller inte Mölndals stads renhållningsfordon" is an exemption (Knarrhögsgatan: Thursday's ban was missing), "07-00- 09.00", "1:a nov", "15 aug" (parser only:
+  Sollentuna, Olofström, Örebro).
+  Independent check by a reviewer who saw only the texts and the old and new lines: all 34 distinct changes: 33 confirmed, 1 not: Lerum Almekärrsvägen 1441 2011-00283 ("Övrig tid
+  får fordon parkeras 24 tim i följd vardagar utom vardag före sön- och helgdag" inside an area ban: the first reading gave weekends a 24 h permission the text does not give).
+  That reading was taken out of the parser (test says so), the data rebuilt from the last commit: the line is as it was. Its remark, kept: Ängelholm's 150 kr day fee is not in the data.
+  Read and left (next batches): Vimmerby Norrtullsgatan ("högst 1 timme i följd alla dagar mellan 16 - 09": limit hours or permission hours, the text does not say), Åstorp
+  Esplanaden 2019-16 (no place sentence), Valdemarsvik Borgsområdet ("Särskilt tillstånd erfordras under perioden 15 juni-15 augusti": the line holds the 24 h limit in that season
+  only), Sotenäs ×4 (seasons of 2 § and 3 §), Kalmar Proviantgatan and the residents' places ×3 ("högst 24 tim i följd endast mot avgift … Övrig tid får fordon parkeras": kept as
+  the test of 22 Nov reads it), Kalmar Skeppsbrogatan 2022-45 (1 § has lost "får fordon"), Nybro and Ulricehamn (the same day type twice), Lidköping Kylandersgatan, Strömstad
+  Ångbåtskajen, Växjö Norra Esplanaden 2010-00001 ("alla dagar utom måndagar och torsdagar 06.00-08.00"), Norrtälje and Täby multi-part texts, Mölndal's fee days ×9 and
+  Finspång's Saturday fee (fee tables: project 4), Haninge ×2 and Uddevalla ×2 (fee tables), Jönköping "helgfria" ×3 (app side, before 6 Jan), Umeå date parking (engine), Tanum
+  Sjövägen ("gäller i och urlastning"), Hylte ("2 pl för taxi", only in a parenthesis).
+  Still open: 65 loose, 357 strict and 300 unsure rows with unchanged lines; about 160 grey regulations with a clear text that are not tiny.
 
 ### 1. [ ] The app allows more than the sign: flagged lines
 The audit's "looser" leads, smallest and most harmful first. One batch per check, in this order:

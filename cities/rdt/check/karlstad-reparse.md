@@ -1,11 +1,12 @@
 # Karlstad: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-26. 1656 segments: 1656 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1645, partly read 11. Verified equal 1225, filled from text 10, text stricter 0, disputed 0, expired 0, text without rules 350, multi-part texts (not compared) 60.
+Fully read 1646, partly read 10. Verified equal 1251, filled from text 10, text stricter 1, disputed 0, expired 0, text without rules 374, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
 | 1780 2017-00052 | Flöjtgatan | uncertain → {"l":[{"a":0,"b":1440,"max":15}]} | filled from text |
+| 1780 2018-00147 | Bjurbäcksgatan | {"l":[{"dt":["fore"],"a":480,"b":1080,"max":120},{"a":0,"b":1440,"max":120,"m":[[5,1],[8,31]]}]} → {"f":[{"a":0,"b":1440,"m":[[5,1],[8,31]]}],"l":[{"dt":["fore"],"a":480,"b":1080,"m":[[9,1],[4,30]],"max":120}]} | text stricter: applied |
 | 1780 2021-00212 | Horsensgatan | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
 | 1780 2022-00014 | Långövägen | uncertain → {"l":[{"a":0,"b":1440,"max":600}],"v":"rörelsehindrade"} | filled from text |
 | 1780 2023-00072 | Timmergatan | uncertain → {"l":[{"a":0,"b":1440,"max":60}],"v":"rörelsehindrade"} | filled from text |
