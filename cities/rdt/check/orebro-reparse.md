@@ -1,11 +1,10 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-25. 2587 segments: 2587 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2566, partly read 21. Verified equal 2541, filled from text 5, text stricter 0, disputed 1, expired 0, text without rules 1, multi-part texts (not compared) 17.
+Run 2026-11-26. 2587 segments: 2587 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2566, partly read 21. Verified equal 2542, filled from text 5, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 17.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 1880 2009-00542 | Karlslundsgatan | {"v":"motorcykel"} → {"v":"moped"} | text differs: text wins (owner's decision 18 Oct) |
 | 1880 2025-00217 | Engelbrektsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"odd"}],"l":[{"dt":["vardag"],"a":480,"b":1200,"max":180},{"dt":["fore"],"a":480,"b":1200,"max":180},{"dt":["helgdag"],"a":480,"b":840,"max":180}]} | filled from text |
 | 1880 2025-00218 | Engelbrektsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1880 2025-00256 | Slottsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"even"}],"l":[{"dt":["vardag"],"a":360,"b":1320,"max":180},{"dt":["fore"],"a":360,"b":1320,"max":180},{"dt":["helgdag"],"a":360,"b":1320,"max":180}],"v":"rörelsehindrade"} | filled from text |

@@ -1875,3 +1875,12 @@ test('sweep findings batch 7: places the text gives to residents or permit holde
   r = parseRegulation(wrap('1 § a På Trädgårdsgatan södra sidan får fordon parkeras under högst 2 timmar i följd. 2 § a Tidsbegränsningen gäller vardagar utom vardag före sön- och helgdag mellan klockan 09 och 18. 1 § b På Trädgårdsgatan mellan Storgatan och Norra Kyrkogatan får cyklar parkeras.'));
   assert.equal(r.reserved, false); assert.equal(r.limits.length, 1); assert.equal(r.limits[0].a, 540);
 });
+
+test('a limit repeated at the end of the "Tillåtelsen gäller" hours is the same limit, not one around the clock (QA 26 Nov: Osby)', () => {
+  const r = parseRegulation(wrap('På markerad sträcka på Västra Storgatans östra sida enligt kartbild får fordon parkeras under högst 2 tim i följd. Tillåtelsen gäller under tiden vardag utom vardag före sön- och helgdag klockan 09.00 - 18.00 och vardag före sön- och helgdag klockan 09.00 - 14.00 och under högst 2 tim iföljd. Parkeringsskiva eller motsvarande ska användas.'));
+  assert.deepEqual(r.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 120 }, { dt: ['fore'], a: 540, b: 840, max: 120 }]);
+  assert.deepEqual(r.unread, []);
+  // a different second limit is left alone
+  const s = parseRegulation(wrap('På Gatan får fordon parkeras under högst 2 tim i följd. Tillåtelsen gäller under tiden vardag utom vardag före sön- och helgdag klockan 09.00 - 18.00 och under högst 3 tim i följd.'));
+  assert.notDeepEqual(s.limits, [{ dt: ['vardag'], a: 540, b: 1080, max: 120 }]);
+});

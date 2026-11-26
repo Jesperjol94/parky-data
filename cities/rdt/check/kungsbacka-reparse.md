@@ -1,7 +1,7 @@
 # Kungsbacka: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-24. 1386 segments: 1386 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1369, partly read 17. Verified equal 1200, filled from text 5, text stricter 1, disputed 0, expired 0, text without rules 155, multi-part texts (not compared) 6.
+Run 2026-11-26. 1386 segments: 1386 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1369, partly read 17. Verified equal 1201, filled from text 5, text stricter 0, disputed 0, expired 0, text without rules 155, multi-part texts (not compared) 6.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,4 +10,3 @@ Fully read 1369, partly read 17. Verified equal 1200, filled from text 5, text s
 | 1384 2016-00163 | Sjöallén | uncertain → {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1384 2019-00403 | Kommunvägen | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1384 2021-00126 | Åsa Stationsväg | uncertain → {"l":[{"a":0,"b":1440,"max":60}]} | filled from text |
-| 1384 2026-00086 | Västergatan | {"l":[{"dt":["vardag"],"a":180,"b":1320,"max":15},{"dt":["fore"],"a":180,"b":1320,"max":15},{"dt":["helgdag"],"a":180,"b":1320,"max":15}]} → {"f":[{"dt":["vardag","fore","helgdag"],"a":0,"b":180},{"dt":["vardag","fore","helgdag"],"a":1320,"b":1440}],"l":[{"dt":["vardag"],"a":180,"b":1320,"max":15},{"dt":["fore"],"a":180,"b":1320,"max":15},{"dt":["helgdag"],"a":180,"b":1320,"max":15}]} | text stricter: applied |

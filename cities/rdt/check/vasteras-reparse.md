@@ -1,7 +1,7 @@
 # Västerås: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-25. 1368 segments: 1368 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1365, partly read 3. Verified equal 872, filled from text 12, text stricter 0, disputed 1, expired 0, text without rules 456, multi-part texts (not compared) 0.
+Run 2026-11-26. 1368 segments: 1368 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1365, partly read 3. Verified equal 873, filled from text 12, text stricter 0, disputed 0, expired 0, text without rules 456, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -27,7 +27,6 @@ Fully read 1365, partly read 3. Verified equal 872, filled from text 12, text st
 | 1980 2022-00043 | Färjkajen | uncertain → permitted (fee) | filled from text |
 | 1980 2022-00043 | Färjkajen | uncertain → permitted (fee) | filled from text |
 | 1980 2022-00043 | Färjkajen | uncertain → permitted (fee) | filled from text |
-| 1980 2022-00062 | Lögarängsvägen | {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":900,"max":180}],"v":"lastbil"} → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":180},{"dt":["fore"],"a":540,"b":900,"max":180}]} | text more permissive: text wins (owner's decision 18 Oct) |
 | 1980 2022-00129 | Solbergagatan | uncertain → permitted (fee) | filled from text |
 | 1980 2022-00129 | Solbergagatan | uncertain → permitted (fee) | filled from text |
 | 1980 2022-00218 | Johannisbergsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":180}]} | filled from text |

@@ -247,6 +247,9 @@ function sentences(t) {
   t = t.replace(/\b(Förbudet gäller endast) fordon (?=den \d{1,2}(?::[ae])? (?:varje|i varje) månad)/g, '$1 ').replace(/\b(Förbudet gäller (?:endast )?den \d{1,2})(?::[ae])? (?:i )?varje månad\b/g, '$1 dagen i månaden'); // "Förbudet gäller endast fordon den 1 varje månad mellan klockan 08.00-12.00" (sweep: Eslöv Odengatan was banned 08–12 every day)
   t = t.replace(/\b(sön)- eller (helgdag(?:ar)?)\b/gi, '$1- och $2'); // "vardagar utom vardagar före sön- eller helgdag" (Norrtälje): the usual day type; it was read as Mon–Sat
   t = t.replace(/\b0ch\b/g, 'och').replace(/\((?=Tidsbegränsningen gäller\b)/g, '');
+  // "får fordon parkeras under högst 2 tim i följd. Tillåtelsen gäller under tiden vardag … 09.00 - 18.00 och … 09.00 - 14.00 och under högst 2 tim iföljd.":
+  // the limit repeated at the end of the hours sentence is the same limit, not a second one; it kept the first sentence's limit around the clock (QA 26 Nov: Osby Västra Storgatan)
+  t = t.replace(/(\bhögst (\d+) (tim(?:me|mar)?|min(?:uter)?|dygn) i ?följd\.\s*(?:\d+\s*§\s*)?Tillåtelsen gäller (?:under (?:tiden|perioden) )?(?:[^.§]|\.(?=\d))*?\d),? och (?:under )?högst \2 \3 i ?följd(?=\s*\.)/gi, '$1');
   t = t.replace(/\b(mellan (?:klockan|kl\.?)\s*\d{1,2}(?:[.:]\d{2})?) och (?:klockan|kl\.?)\s*(?=\d)/gi, '$1 och ');
   t = t.replace(/(?:\b(?:från|mellan) )?\b(?:klockan|kl\.?)\s*(\d{1,2}[.:]\d{2}) (?:till|och|[-–—]) (?:påföljande|nästföljande) dag (?:klockan |kl\.? ?)?(\d{1,2}[.:]\d{2})/gi, 'klockan $1 - $2');
   t = t.replace(/\b(\d{1,2}):\s*(?=(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b)/gi, '$1 ').replace(/(?<![\d.:])(\d{1,2})(?=(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b)/gi, '$1 ');

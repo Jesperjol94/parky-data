@@ -1,7 +1,7 @@
 # Partille: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-24. 939 segments: 939 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 934, partly read 5. Verified equal 922, filled from text 10, text stricter 1, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-11-26. 939 segments: 939 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 934, partly read 5. Verified equal 923, filled from text 10, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -15,4 +15,3 @@ Fully read 934, partly read 5. Verified equal 922, filled from text 10, text str
 | 1402 2011-00048 | Första Villavägen | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1402 2011-00049 | Sjätte Villavägen | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 1402 2023-00018 | Långekärrsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
-| 1402 2025-00025 | Almas väg | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":120}]} → {"l":[{"a":0,"b":1440,"max":120}]} | text stricter: applied |

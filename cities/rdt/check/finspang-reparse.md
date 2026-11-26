@@ -1,8 +1,7 @@
 # Finspång: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-22. 238 segments: 134 with a text, 0 without a cached text, 104 fetch errors.
-Fully read 126, partly read 8. Verified equal 111, filled from text 0, text stricter 1, disputed 0, expired 0, text without rules 14, multi-part texts (not compared) 0.
+Run 2026-11-26. 238 segments: 134 with a text, 0 without a cached text, 104 fetch errors.
+Fully read 126, partly read 8. Verified equal 112, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 14, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
-| 0562 2020-205 | Gronvägen | {} → {"v":"laddning"} | text stricter: applied |
