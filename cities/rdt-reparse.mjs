@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit, stoppingBan, reservedBesideUnread, ownBans, tableForTextRate } from './rdt-lib.mjs';
+import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit, stoppingBan, reservedBesideUnread, ownBans, tableForTextRate, oneOffEnd, limitsFromText } from './rdt-lib.mjs';
 const MONTH_NAME = /\b(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b/i;
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING, complement } from '../engine/regulation.js';
 
@@ -128,9 +128,14 @@ for (const row of idx.cities) {
     if (rec.err || !rec.body) { st.err++; continue; }
     st.withText++;
     const periodEnd = datedPeriodEnd(rec.body); // a temporary rule whose dated periods have all ended (QA 14 Nov round 24)
-    if ((endDay(rec) !== rec.to ? endDay(rec) <= today : expired(rec, today)) || (periodEnd && periodEnd < today)) {
+    const pEnd = periodEnd || oneOffEnd(s.c, parseRegulation(rec.body).bans); // a ban on named weekdays and dates without a year: the dates of the regulation's own year
+    if ((endDay(rec) !== rec.to ? endDay(rec) <= today : expired(rec, today)) || (pEnd && pEnd < today)) {
       st.expired++;
-      lines.push(`| ${s.c} | ${s.n} | expired ${rec.to || periodEnd} | ${s.u ? 'already uncertain' : 'now uncertain'} |`);
+      lines.push(`| ${s.c} | ${s.n} | expired ${rec.to || pEnd} | ${s.u ? 'already uncertain' : 'now uncertain'} |`);
+      // A ban for dated days that are all over ("Förbudet gäller 18 juli 2019 – 21 juli 2019", "fredag 11 december - 11 december" of the regulation's year) and nothing
+      // else in the text (no permission, limit, fee or bay that could outlive the dates): the line gets the last day as its end, and rdt-temp drops it like any
+      // ended regulation instead of leaving it grey for good (sweep findings batch 10: Kalix Älvängsvägen ×3, Helsingborg Folkskolegatan, Västervik, Simrishamn)
+      if (APPLY && pEnd && pEnd < today && !(s.to && s.to <= pEnd)) { const r0 = parseRegulation(rec.body); if (!r0.permitted && !r0.limits.length && !r0.reserved && !r0.feeWindows && !r0.taxa && !r0.allowOnly.length && !r0.dp.length && !s.t && !s.l && !s.v && !/avgift|taxa/i.test(ruleText(rec.body) || '')) { /* a fee or a bay beside the dated ban stays (Solna Jungfrudansen) */ s.to = pEnd; changed++; st.datedOver = (st.datedOver || 0) + 1; } }
       if (APPLY && !s.u) { s.u = 1; s.ex = 1; changed++; }
       continue;
     }
@@ -190,6 +195,9 @@ for (const row of idx.cities) {
     // (the block above runs before the fully-read gate: one unread sentence about something else must not keep the fee around the clock, QA 8 Nov: Sundbyberg, Östersund, Nacka)
     // a permission for one season only ("får fordon parkeras under tiden 1 oktober - 30 april") that says nothing about the rest of the year:
     // the line can't show summer as free or as banned, so it is grey (QA 14 Nov round 25: Skellefteå Hörnellgatan, Kanalgatan, Södra Järnvägsgatan)
+    // the hours and days of the limit, from the text, when the line holds the same limit more widely (limitsFromText). Not for bays (the limit is the permit holders'),
+    // not for grey lines, and not when an unread sentence may be about a limit or other hours
+    if (APPLY && !s.u && !s.v && s.l && r.limits.length && !r.textSlip && !r.unread.some((u) => /högst|\btim|\bmin|dygn|tidsbegr|övrig|^villkor|^tillåtelsen gäller/i.test(u))) { const nl = limitsFromText(s.l, r.limits); if (nl) { s.l = nl; s.rx = 1; changed++; st.limitHours = (st.limitHours || 0) + 1; } }
     if (r.textSlip && !s.v) { if (APPLY && !s.u) { s.u = 1; s.ux = 1; changed++; st.slipGrey = (st.slipGrey || 0) + 1; } if (s.u) st.uStill++; st.partlyRead++; continue; } // the same day type twice with overlapping hours: a slip in the text, the line can't be trusted either way (QA 16 Nov round 30: Hässleholm Tredje Avenyen, Helsingborg Gasverksgatan)
     if (r.seasonOnly && !s.v && !(s.f || []).some((f) => f.a === 0 && f.b === 1440 && f.m && !f.w && !f.dt)) { if (APPLY && !s.u) { s.u = 1; s.ux = 1; changed++; st.seasonOnlyGrey = (st.seasonOnlyGrey || 0) + 1; } if (s.u) st.uStill++; if (!full) st.partlyRead++; else st.fullyRead++; continue; }
     if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; 

@@ -1,7 +1,7 @@
 # Sjöbo: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-26. 117 segments: 117 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 110, partly read 7. Verified equal 105, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 4, multi-part texts (not compared) 0.
+Run 2026-11-27. 117 segments: 117 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 114, partly read 3. Verified equal 109, filled from text 0, text stricter 0, disputed 0, expired 0, text without rules 4, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

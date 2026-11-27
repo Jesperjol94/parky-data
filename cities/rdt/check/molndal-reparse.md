@@ -1,7 +1,7 @@
 # Mölndal: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-26. 1830 segments: 1830 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1817, partly read 13. Verified equal 1536, filled from text 10, text stricter 2, disputed 0, expired 0, text without rules 256, multi-part texts (not compared) 2.
+Run 2026-11-27. 1830 segments: 1830 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 1817, partly read 13. Verified equal 1538, filled from text 10, text stricter 0, disputed 0, expired 0, text without rules 256, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -18,12 +18,10 @@ Fully read 1817, partly read 13. Verified equal 1536, filled from text 10, text 
 | 1481 2011-00183 | Eklanda Äng | uncertain → permitted | filled from text |
 | 1481 2011-00184 | Eklanda Vall | uncertain → permitted | filled from text |
 | 1481 2011-00184 | Eklanda Vall | uncertain → permitted | filled from text |
-| 1481 2013-00070 | Knarrhögsgatan | {"f":[{"w":1,"a":420,"b":540}]} → {"f":[{"w":1,"a":420,"b":540},{"w":4,"a":420,"b":540}]} | text stricter: applied |
 | 1481 2013-00110 | Ranunkelgatan | uncertain → permitted (fee) | filled from text |
 | 1481 2014-00002 | Ekåsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
 | 1481 2014-00056 | Konditorivägen | uncertain → permitted | filled from text |
 | 1481 2015-00008 | Sågdalsgatan | uncertain → {"l":[{"a":0,"b":1440,"max":15}]} | filled from text |
 | 1481 2015-00092 | Bangårdsvägen | uncertain → permitted | filled from text |
 | 1481 2018-00169 | Residensgatan | uncertain → permitted (fee) | filled from text |
-| 1481 2022-60 | Göteborgsvägen | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":30},{"dt":["fore"],"a":0,"b":840,"max":30},{"dt":["fore"],"a":840,"b":1440,"max":30},{"dt":["helgdag"],"a":0,"b":1440,"max":30}]} → {"f":[{"dt":["fore"],"a":840,"b":1440},{"dt":["helgdag"],"a":0,"b":1440}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":30},{"dt":["fore"],"a":0,"b":840,"max":30}]} | text stricter: applied |
 | 1481 2024-123 | Matildebergsgatan | uncertain → permitted (fee) | filled from text |

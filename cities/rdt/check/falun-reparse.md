@@ -1,7 +1,7 @@
 # Falun: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-26. 562 segments: 562 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 548, partly read 14. Verified equal 456, filled from text 6, text stricter 3, disputed 0, expired 0, text without rules 78, multi-part texts (not compared) 0.
+Run 2026-11-27. 562 segments: 562 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 548, partly read 14. Verified equal 459, filled from text 6, text stricter 0, disputed 0, expired 0, text without rules 78, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -9,11 +9,8 @@ Fully read 548, partly read 14. Verified equal 456, filled from text 6, text str
 | 2080 2025-00071 | Knut Pederssons väg | uncertain → {"l":[{"a":0,"b":1440,"max":1440}]} | filled from text |
 | 2080 2025-00146 | Pelle Bergs backe | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
 | 2080 2025-00307 | Lövbergsvägen | uncertain → permitted | filled from text |
-| 2080 2025-00392 | Rostvändaregatan | {"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} → {"f":[{"w":2,"a":540,"b":900,"m":[[12,15],[4,30]]}],"l":[{"dt":["vardag"],"a":0,"b":1440,"max":1440}]} | text stricter: applied |
 | 2080 2025-00435 | Pelle Bergs backe | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
 | 2080 2025-00441 | Sturegatan | uncertain → {"f":[{"w":4,"a":540,"b":900,"m":[[12,15],[4,30]]}]} | filled from text |
-| 2080 2026-00024 | Hyttgatan | {"l":[{"a":0,"b":1440,"max":10080}]} → {"f":[{"a":0,"b":1440,"p":"even"}],"l":[{"a":0,"b":1440,"max":10080}]} | text stricter: applied |
-| 2080 2026-00025 | Hyttgatan | {"l":[{"a":0,"b":1440,"max":10080}]} → {"f":[{"a":0,"b":1440,"p":"odd"}],"l":[{"a":0,"b":1440,"max":10080}]} | text stricter: applied |
 | 2080 2026-00122 | Nybrogatan | uncertain → permitted (fee) | filled from text |
 | 2080 2026-00122 | Nybrogatan | uncertain → permitted (fee) | filled from text |
 | 2080 2026-00150 | Fisktorget | uncertain → {"l":[{"dt":["vardag","fore"],"a":480,"b":1080,"max":60},{"dt":["vardag"],"a":480,"b":1080,"max":60}]} | filled from text |

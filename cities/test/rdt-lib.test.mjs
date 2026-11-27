@@ -200,3 +200,33 @@ test('tableForTextRate: the rate the text states picks the register table with t
   assert.equal(tableForTextRate('Avgift enligt taxa 3.', taxa, 1496001), null); // no rate in the text
   assert.equal(tableForTextRate('Avgift enligt taxa 7 kr/timme.', taxa, 1496001), null); // no table with that rate
 });
+
+test('sweep findings batch 10: a ban on named weekdays and dates of the regulation\'s own year is a one-off', async () => {
+  const { oneOffEnd } = await import('../rdt-lib.mjs');
+  assert.equal(oneOffEnd('0126 2020-105', [{ w: 5, a: 0, b: 1440, m: [[12, 11], [12, 11]] }]), '2020-12-11'); // Friday 11 December 2020
+  assert.equal(oneOffEnd('0486 2025-180', [{ w: 4, a: 1140, b: 360, m: [[9, 18], [9, 19]] }, { w: 5, a: 1140, b: 360, m: [[9, 18], [9, 19]] }]), '2025-09-19');
+  assert.equal(oneOffEnd('0486 2024-1', [{ w: 3, a: 0, b: 1440, m: [[11, 1], [11, 7]] }]), null); // every Wednesday in a week-long season: not a one-off
+  assert.equal(oneOffEnd('0486 2025-1', [{ w: 5, a: 480, b: 720, m: [[11, 1], [5, 15]] }]), null); // a winter cleaning day
+  assert.equal(oneOffEnd('0486 2025-1', [{ w: 1, a: 0, b: 1440, m: [[9, 18], [9, 18]] }]), null); // 18 Sep 2025 and 2026 are no Mondays
+  assert.equal(oneOffEnd('0486 2025-1', [{ a: 0, b: 1440, m: [[9, 18], [9, 18]] }]), null); // no weekday named: read as that date every year
+});
+
+test('sweep findings batch 10: the text\'s hours and days replace a wider copy of the same limit, never a different one', async () => {
+  const { limitsFromText } = await import('../rdt-lib.mjs');
+  const text = [{ dt: ['vardag'], a: 480, b: 1080, max: 120 }, { dt: ['fore'], a: 480, b: 900, max: 120 }];
+  // an all-day twin beside the windows (Vellinge Stortorget)
+  assert.deepEqual(limitsFromText([{ a: 0, b: 1440, max: 120 }, ...text], text), text);
+  // a window without its day type (Sjöbo Gamla Torg)
+  assert.deepEqual(limitsFromText([{ a: 480, b: 1080, max: 120 }, { dt: ['fore'], a: 480, b: 900, max: 120 }], text), text);
+  // the days without the hours (Timrå Källvägen)
+  assert.deepEqual(limitsFromText([{ dt: ['vardag'], a: 0, b: 1440, max: 120 }], [{ dt: ['vardag'], a: 480, b: 1080, max: 120 }]), [{ dt: ['vardag'], a: 480, b: 1080, max: 120 }]);
+  // the same already, another length on the line, two lengths in the text, an all-day limit in the text, a text window the line does not cover, another season
+  assert.equal(limitsFromText(text, text), null);
+  assert.equal(limitsFromText([{ a: 0, b: 1440, max: 60 }, ...text], text), null);
+  assert.equal(limitsFromText([{ a: 0, b: 1440, max: 120 }], [...text, { a: 0, b: 1440, max: 1440 }]), null);
+  assert.equal(limitsFromText([{ a: 0, b: 1440, max: 120 }, ...text], [...text, { a: 0, b: 1440, max: 120 }]), null);
+  assert.equal(limitsFromText([{ dt: ['vardag'], a: 540, b: 1020, max: 120 }], [{ dt: ['vardag'], a: 480, b: 1080, max: 120 }]), null);
+  assert.equal(limitsFromText([{ a: 0, b: 1440, max: 120 }], [{ a: 480, b: 1080, max: 120, m: [[6, 1], [8, 31]] }]), null);
+  // the text's window twice is one window
+  assert.deepEqual(limitsFromText([{ a: 0, b: 1440, max: 60 }], [{ a: 360, b: 1320, max: 60 }, { a: 360, b: 1320, max: 60 }]), [{ a: 360, b: 1320, max: 60 }]);
+});

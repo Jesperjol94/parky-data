@@ -224,3 +224,41 @@ export function tableForTextRate(body, taxa, t) {
   const id = Object.keys(taxa).map(Number).find((k) => k < 1e7 && taxa[k].periods?.length && taxa[k].periods.every((p) => p.price === N) && (M == null ? !taxa[k].dayCap : taxa[k].dayCap === M));
   return id || null;
 }
+
+// A ban on named weekdays between two dates without a year, where the dates are those very weekdays in the regulation's own year ("Förbudet gäller fredag
+// 11 december - 11 december" in 0126 2020-105: 11 Dec 2020 was a Friday; "måndag - tisdag 15 september - 16 september" in 0486 2025-188): a one-off, not a
+// yearly season. Returns its last day (ISO), or null. Every ban of the text must be of this kind, the span at most a week, and each day of the span must be
+// one of the named weekdays (sweep findings batch 10: Huddinge Rådsvägen and Strängnäs ×2 came back every year).
+export function oneOffEnd(citation, bans) {
+  const y = +(String(citation).match(/^\d{4} (\d{4})-/) || [])[1]; if (!y || !bans || !bans.length) return null;
+  if (!bans.every((b) => b.w && b.m && !b.nw && !b.dt && !b.p && !b.wk && JSON.stringify(b.m) === JSON.stringify(bans[0].m))) return null;
+  const [[m1, d1], [m2, d2]] = bans[0].m; const ws = new Set(bans.map((b) => b.w));
+  for (const yy of [y, y + 1]) {
+    const from = new Date(Date.UTC(yy, m1 - 1, d1)), to = new Date(Date.UTC(yy, m2 - 1, d2)); const n = Math.round((to - from) / 864e5) + 1;
+    if (n < 1 || n > 7 || n !== ws.size) continue;
+    let ok = true; for (let i = 0; i < n; i++) { const d = new Date(from.getTime() + i * 864e5); if (!ws.has(d.getUTCDay() || 7)) ok = false; }
+    if (ok) return to.toISOString().slice(0, 10);
+  }
+  return null;
+}
+
+// The hours and days of a time limit, from the text, when the line holds the same limit more widely: an all-day twin beside the text's windows ("… under högst
+// 2 tim i följd. Tillåtelsen gäller vardag utom … 08.00 – 18.00 och vardag före … 08.00 – 15.00": Vellinge Stortorget, Norrtälje Minervavägen, Härnösand Storgatan
+// limited parking around the clock), a window without its day type (Sjöbo Gamla Torg ×4, Gällivare, Burlöv: Sundays too), or the days without the hours (Timrå
+// Källvägen, Degerfors Medborgargatan). Only when the text has ONE limit length, every limit of the line has that length, no limit of the text holds around the
+// clock, and every window of the text lies inside a window of the line (same season): the text's windows then replace the line's. Never wider than the line was,
+// so a text with several places (whose limits the parser merges) cannot make a line stricter. Returns the new list or null (sweep findings batch 10).
+export function limitsFromText(cur, text) {
+  if (!cur || !cur.length || !text || !text.length) return null;
+  const plain = (w) => !w.w && !w.nw && !w.dm && !w.dd && !w.p && !w.wk && !w.ov && w.max > 0;
+  if (![...cur, ...text].every(plain)) return null;
+  const max = text[0].max; if (!text.every((w) => w.max === max) || !cur.every((w) => w.max === max)) return null;
+  const ALL = ['vardag', 'fore', 'helgdag'], days = (w) => w.dt || ALL, mm = (w) => JSON.stringify(w.m || null);
+  const spans = (w) => (w.a < w.b ? [[w.a, w.b]] : [[w.a, 1440], [0, w.b]]);
+  if (text.some((w) => w.a === 0 && w.b === 1440 && days(w).length === 3 && !w.m)) return null;
+  const inside = (w, c) => mm(w) === mm(c) && days(w).every((d) => days(c).includes(d)) && spans(w).every(([a, b]) => spans(c).some(([x, y]) => x <= a && b <= y));
+  if (!text.every((w) => cur.some((c) => inside(w, c)))) return null;
+  const sig = (ws) => JSON.stringify([...new Set(ws.map((w) => JSON.stringify([days(w).slice().sort(), w.a, w.b, w.m || null])))].sort());
+  if (sig(cur) === sig(text)) return null;
+  const seen = new Set(); return text.filter((w) => { const k = JSON.stringify([days(w).slice().sort(), w.a, w.b, w.m || null]); if (seen.has(k)) return false; seen.add(k); return true; }).map((w) => ({ ...w }));
+}

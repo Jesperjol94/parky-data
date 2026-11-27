@@ -1,7 +1,7 @@
 # Strängnäs: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-26. 584 segments: 584 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 581, partly read 3. Verified equal 560, filled from text 8, text stricter 0, disputed 0, expired 0, text without rules 11, multi-part texts (not compared) 0.
+Run 2026-11-27. 584 segments: 584 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 574, partly read 3. Verified equal 553, filled from text 8, text stricter 0, disputed 0, expired 7, text without rules 11, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -14,3 +14,10 @@ Fully read 581, partly read 3. Verified equal 560, filled from text 8, text stri
 | 0486 2010-00115 | Rådhustorget | uncertain → {"l":[{"dt":["vardag"],"a":480,"b":1080,"max":120},{"dt":["fore"],"a":480,"b":900,"max":120}]} | filled from text |
 | 0486 2011-00012 | Sidövägen | uncertain → {"l":[{"a":480,"b":1080,"max":120}]} | filled from text |
 | 0486 2011-00075 | Sundbyvägen | uncertain → {"l":[{"a":0,"b":1440,"max":15}]} | filled from text |
+| 0486 2025-178 | Källgatan | expired 2025-09-05 | now uncertain |
+| 0486 2025-180 | Källgatan | expired 2025-09-19 | now uncertain |
+| 0486 2025-183 | Regementsgatan | expired 2025-09-03 | now uncertain |
+| 0486 2025-185 | Kung Göstas Väg | expired 2025-09-03 | now uncertain |
+| 0486 2025-186 | Kung Göstas väg | expired 2025-09-16 | now uncertain |
+| 0486 2025-187 | Kung Göstas Väg | expired 2025-09-03 | now uncertain |
+| 0486 2025-188 | Kung Göstas Väg | expired 2025-09-16 | now uncertain |
