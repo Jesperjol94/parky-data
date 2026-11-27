@@ -1,7 +1,7 @@
 # Mölndal: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-27. 1830 segments: 1830 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1817, partly read 13. Verified equal 1538, filled from text 10, text stricter 0, disputed 0, expired 0, text without rules 256, multi-part texts (not compared) 2.
+Fully read 1818, partly read 12. Verified equal 1538, filled from text 11, text stricter 0, disputed 0, expired 0, text without rules 256, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -18,6 +18,7 @@ Fully read 1817, partly read 13. Verified equal 1538, filled from text 10, text 
 | 1481 2011-00183 | Eklanda Äng | uncertain → permitted | filled from text |
 | 1481 2011-00184 | Eklanda Vall | uncertain → permitted | filled from text |
 | 1481 2011-00184 | Eklanda Vall | uncertain → permitted | filled from text |
+| 1481 2012-00024 | Tulebovägen | uncertain → {"f":[{"a":0,"b":1440,"m":[[11,1],[3,31]]}]} | filled from text |
 | 1481 2013-00110 | Ranunkelgatan | uncertain → permitted (fee) | filled from text |
 | 1481 2014-00002 | Ekåsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":240}]} | filled from text |
 | 1481 2014-00056 | Konditorivägen | uncertain → permitted | filled from text |

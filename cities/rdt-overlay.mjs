@@ -9,6 +9,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
+import { permitsWithTimedBans } from './rdt-lib.mjs';
 
 const [dir, flag] = process.argv.slice(2);
 const APPLY = flag === '--apply';
@@ -26,7 +27,12 @@ for (const row of idx.cities) {
   // inte parkeras … onsdag 10–12") lies on a curb where parking is allowed: the area ban doesn't apply there (QA 5 Nov: Karlstad
   // street-cleaning bans showed the town-centre ban all day; Varberg Västra hamnplan).
   const onPermit = new Set();
-  for (const l of raw.split('\n')) { if (!l) continue; const r = JSON.parse(l); const pm = (r.body || '').replace(/\s+/g, ' ').match(/med avvikelse från (?:[^.]|\.(?=\d))*?\bom (?:tillåten |avgiftsbelagd |avgiftspliktig )?parkering (?:på|vid|inom|i)\s/i); if (pm && !/förbud/i.test(pm[0])) onPermit.add(r.c); for (const w of (r.rubrik || '').match(/[A-ZÅÄÖ][\wåäöéü-]+(?:vägen|gatan|stigen|gränd|gränden|backen|leden|allén|torget|plan|väg|gata)\b/g) || []) named.add(w.toLowerCase()); const t = (r.body || '').replace(/\s+/g, ' '); const i = t.indexOf('följande'); const head = t.slice(i, i + 400); if (AREA.test(head) && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(head) && !/gäller (?:ej|inte) (?:på |för )?markerade|med undantag|undantaget|utom (?:på|där)/i.test(t)) area.add(r.c); }
+  // A street regulation that itself PERMITS parking and only bans it at stated times ("På markerad sträcka på Eriksvägens sydvästra sida får fordon parkeras. Parkering är
+  // dock förbjuden under tiden fredag klockan 08.00 - 12.00 under tiden 1 november - 15 maj", with or without "med avvikelse från … om förbud att parkera område") is the
+  // exception the area ban leaves room for, exactly like a curb with a limit or a fee: its cleaning-day ban is the only ban there. The all-day copy of the area ban made
+  // these curbs answer NO at all times (sweep findings batch 11: Sundbyberg ×10, Nacka ×5, Falkenberg ×4, Falun Magasinsgatan, Örebro Överstegatan, Sigtuna, Täby Helgavägen).
+  // Not when the text has an all-day ban of its own (a street ban with a permission for one side), and not a reserved bay.
+  for (const l of raw.split('\n')) { if (!l) continue; const r = JSON.parse(l); const pm = (r.body || '').replace(/\s+/g, ' ').match(/med avvikelse från (?:[^.]|\.(?=\d))*?\bom (?:tillåten |avgiftsbelagd |avgiftspliktig )?parkering (?:på|vid|inom|i)\s/i); if (pm && !/förbud/i.test(pm[0])) onPermit.add(r.c); for (const w of (r.rubrik || '').match(/[A-ZÅÄÖ][\wåäöéü-]+(?:vägen|gatan|stigen|gränd|gränden|backen|leden|allén|torget|plan|väg|gata)\b/g) || []) named.add(w.toLowerCase()); if (!onPermit.has(r.c) && permitsWithTimedBans(r.body || '')) onPermit.add(r.c); const t = (r.body || '').replace(/\s+/g, ' '); const i = t.indexOf('följande'); const head = t.slice(i, i + 400); if (AREA.test(head) && /(?:inte|ej) (?:stannas eller )?parkeras|förbjud/i.test(head) && !/gäller (?:ej|inte) (?:på |för )?markerade|med undantag|undantaget|utom (?:på|där)/i.test(t)) area.add(r.c); }
   // drop earlier overlay windows (idempotent)
   for (const s of c.segments) if (s.f) { s.f = s.f.filter((w) => !w.ov); if (!s.f.length) delete s.f; }
   const src = c.segments.filter((s) => area.has(s.c) && s.f && s.f.length && !s.v);

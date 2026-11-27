@@ -1,3 +1,4 @@
+import { parseRegulation } from '../engine/regulation.js';
 // Shared helpers for the RDT municipality pipeline.
 import { ruleText, STOPPING } from "../engine/regulation.js";
 export const ALL_DAYS = ['vardag', 'fore', 'helgdag'];
@@ -261,4 +262,15 @@ export function limitsFromText(cur, text) {
   const sig = (ws) => JSON.stringify([...new Set(ws.map((w) => JSON.stringify([days(w).slice().sort(), w.a, w.b, w.m || null])))].sort());
   if (sig(cur) === sig(text)) return null;
   const seen = new Set(); return text.filter((w) => { const k = JSON.stringify([days(w).slice().sort(), w.a, w.b, w.m || null]); if (seen.has(k)) return false; seen.add(k); return true; }).map((w) => ({ ...w }));
+}
+
+// A regulation that itself permits parking and bans it only at stated times ("På markerad sträcka … får fordon parkeras. Parkering är dock förbjuden under tiden fredag
+// klockan 08.00 - 12.00 under tiden 1 november - 15 maj"): the curb is the exception an area-wide ban leaves room for, so rdt-overlay lays no area ban on it (sweep findings
+// batch 11: Sundbyberg, Nacka, Falkenberg, Falun, Örebro, Sigtuna, Täby answered NO at all times). Fully read texts only; not a text with an all-day ban of its own (a
+// street ban with a permission for one side), not a bay for some vehicles, not a text about heavy vehicles.
+export function permitsWithTimedBans(body) {
+  if (!/får (?:fordon|personbil|endast)[^.]*?parkeras/i.test(body || '')) return false;
+  let p; try { p = parseRegulation(body); } catch { return false; }
+  const allDay = (w) => w.a === 0 && w.b === 1440 && !w.w && !w.dt && !w.m && !w.nw && !w.dm && !w.p && !w.wk && !w.dd;
+  return !!p.permitted && !p.reserved && !p.heavyOnly && p.bans.length > 0 && !p.bans.some(allDay) && !p.unread.length;
 }

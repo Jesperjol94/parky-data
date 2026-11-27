@@ -481,6 +481,43 @@ Log:
   and Värmdö Viks skolväg (garbled), Ljusdal "under skoltermin", Norrtälje's and Säter's texts for several places, area-ban overlays `ov: 1` (about 17: needs the area texts), Uppsala's
   "fee – see the sign" lines with the fee hours in the table (×17: check whether `fu` hides the table in the app), Nacka's fee only in the exception windows ×5, Haninge's overnight fee windows ×5.
   Still open: 64 loose, 278 strict and 292 unsure rows with unchanged lines; about 155 grey regulations with a clear text that are not tiny.
+- 2026-11-27 batch 11 · the 278 strict rows outside Stockholm whose lines had not changed since the sweep, grouped by meaning; the largest group not yet worked (area-wide bans laid on
+  streets with their own rule, 22 rows) and about 45 single wordings read by hand against their texts (text, parse and today's line side by side) · confirmed and fixed, each with a
+  test (55 lines of 47 regulations in 25 municipalities changed; the parser reads 113 of 61,211 texts differently, most of them only in the wording of an unread sentence, none of
+  Stockholm's 9,606; 29 strict rows now differ from the swept line):
+  (1) area-wide bans on streets that permit parking (24 lines of 24 regulations, `ov: 1` dropped): new rule `permitsWithTimedBans` in rdt-lib, used by rdt-overlay: a street regulation
+  that itself permits parking and bans it only at stated times ("På markerad sträcka på Eriksvägens sydvästra sida får fordon parkeras. Parkering är dock förbjuden under tiden fredag
+  klockan 08.00 - 12.00 under tiden 1 november - 15 maj", with or without "med avvikelse från … om förbud att parkera område") gets no copy of the area ban, exactly as curbs with a limit
+  or a fee already did: Sundbyberg ×10 (Eriksvägen, Björkhagsvägen, Villavägen, Oskarsvägen …), Falkenberg ×3 regulations / 6 lines, Nacka ×3, Sigtuna ×2, Falun Magasinsgatan, Örebro
+  Överstegatan, Täby Helgavägen answered NO at all hours. Fully read texts only, never a text with an all-day ban of its own. The timed STOPPING bans under an area ban (Linköping
+  Storgatan ×7, Nacka Kadettvägen, Norrköping Kungsgatan) are reader mistakes: both rules hold, the lines are right.
+  (2) permissions the register held as bans (9 lines): "Med avvikelse från (…) om stannande och parkering inom parkeringsförbudzon får fordon parkera på Pumpbacksgatan …" (Härnösand),
+  "På … Pärlgränd …, med avvikelse från (…), parkeras." with "får fordon" lost (Laholm; the same shape reads Kalmar Skeppsbrogatan 2022-45 and Storgatan 2022-88, open since batch 9:
+  24 h limit at all hours, Saturday 3 h without a fee), sentences that are no rule and kept texts unread ("Vid parkering skall personbilar uppställas …": Eskilstuna Bynäsvägen;
+  "Parkerat fordon får delvis stå utanför körbanan": Huddinge Yrkesvägen and Månvägen had the fee hours as a ban; "Tillåtelsen att parkera gäller.": Falun Köpmansgränd, the same;
+  "Parkeringstiden bevakas med en s.k P-skiva": Haparanda Torggatan ×2 were a ban and grey, now 2 h), and Kungsbacka Klockaregatan (fee Mon–Sat 08–22 instead of around the clock).
+  (3) bans for vehicles over 3.5 tonnes only ("får fordon över 3,5 ton inte parkeras": Burlöv Bernstorpsvägen, Österåker Skrakvägen ×2 lines: `hv`).
+  (4) ban hours, days and seasons hidden by slips or headings (7 lines): "måndagtorsdag klockan 17-21 … 23 april - 11 oktober" (Lidingö Marsvägen was banned every evening all year),
+  "får på onsdagar klockan 7-14 fordon inte stannas eller parkeras för annat ändamål än lastning" (Lidingö Fregattvägen), "får inte fordon stanna mellan 20:00 -- 02:00" (Dorotea),
+  a ban written as a heading with its season ("Förbud mot att stanna och parkera fordon på följande vägsträckor …: … Förbudet gäller 1 juni - 31 augusti": Ekerö Stockbybadet;
+  "Parkeringsförbud på Dalgatans östra sida … Att förbudet skall gälla fr om 15 oktober t om 15 april": Övertorneå; Osby's four "Förbud att parkera fordon på …" are now verified),
+  the season of the whole regulation ("Denna föreskrift gäller under perioden 1 maj - 31 augusti": Sigtuna Sjudargårdsvägen; "Föreskriften gäller under tiden 1 november - 31 mars":
+  Mölndal Tulebovägen, grey; "Föreskriften gäller årligen tiderna 1 maj - 30 september": Piteå Storgatan's motorcycle bay is open to all in winter). A plain permission with a limit and
+  such a season (Vänersborg Fisktorget) is left unread on purpose: the text says nothing about the rest of the year.
+  (5) limit hours: "Tidbegräsningen gäller under tiden 07-18 under högst 30 min i följd.Övrig tid 3 timmar" (Järfälla Fornvägen: 30 min by day, 3 h otherwise).
+  Stricter from the same rebuild: Karlskrona Norra Smedjegatan (1 h at all hours, Friday 08–10 ban, Saturday fee 10–14), Norrtälje's fee tables on three car parks (Saturday 09–13).
+  Independent check by a reviewer who saw only the texts and the old and new lines (every quote checked by machine against the text): all 53 distinct changes of the first build: 51
+  confirmed, 2 not: Håbo Simhallsparkeringen 0305 2025-00009 (places in three colours with a rule each: the line stays grey) and Hedemora Hökargatan 2083 2026-2 ("… under högst 12 tim
+  i följd. 2 § Tillåtelsen att parkera i paragraf gäller dock högst 12 tim i följd. Villkoret gäller … 07.00 - 22.00": the all-day limit stays). Both readings were taken out of the
+  parser (tests say so) and the data rebuilt from the last commit: those lines are as they were. Its remarks, kept: fee prices are not in the texts (only the periods were judged).
+  Read and left: disabled bays with "Parkering är dock tillåten under högst N tim" (about 45 rows: reserved, the rule of this project) and with hours in "Tillåtelsen gäller" (Arvika,
+  Bengtsfors, Helsingborg ×2, Varberg ×2, Vänersborg, Rättvik ×2: the text is silent on other hours), fee or free disc time and free first hours (Kungsbacka ×15, Ängelholm ×5,
+  Skellefteå ×3, Söderhamn ×3: app side), Uppsala's "fee – see the sign" lines ×17 (reader mistakes: the table holds Mon–Sat 08–24 and the engine answers free outside it), limits or
+  reservations the register holds and the text does not give (Växjö Arenastaden and Västra Esplanaden, Vellinge Falsterbovägen, Ystad Hamngatan, Täby Attundagränd, Åstorp, Kristinehamn
+  Nya Kyrkogatan's repeal: lifting them needs the replaced regulations read first), Säter Vasagatan (two sides with limits, line a ban), Eskilstuna Östergatan 2016-182 (a comma lost
+  before "parkeras"), Vimmerby Nybbleparkeringen ("Tidsbegräsningen gäller vardag före sön- och helgdag" alone: looks like a slip), Värmdö Viks skolväg and Heby Kyrkvägen (garbled),
+  overlaid roadworks bans whose `to` the engine ignores (harmless while rdt-temp runs daily), end dates with a clock time (by design the day after).
+  Still open: 62 loose, 249 strict and 284 unsure rows with unchanged lines; about 155 grey regulations with a clear text that are not tiny.
 
 ### 1. [ ] The app allows more than the sign: flagged lines
 The audit's "looser" leads, smallest and most harmful first. One batch per check, in this order:

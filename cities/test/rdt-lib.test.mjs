@@ -230,3 +230,17 @@ test('sweep findings batch 10: the text\'s hours and days replace a wider copy o
   // the text's window twice is one window
   assert.deepEqual(limitsFromText([{ a: 0, b: 1440, max: 60 }], [{ a: 360, b: 1320, max: 60 }, { a: 360, b: 1320, max: 60 }]), [{ a: 360, b: 1320, max: 60 }]);
 });
+
+import { permitsWithTimedBans } from '../rdt-lib.mjs';
+test('permitsWithTimedBans: a street permission with a cleaning-day ban takes no area-wide ban (sweep findings batch 11)', () => {
+  const w = (t) => `Kommunen föreskriver följande. ${t} Denna författning träder i kraft den 1 november 2025.`;
+  assert.equal(permitsWithTimedBans(w('På markerad sträcka på Eriksvägens sydvästra sida enligt kartbild får fordon parkeras. Parkering är dock förbjuden under tiden fredag klockan 08.00 - 12.00 under tiden 1 november - 15 maj.')), true);
+  assert.equal(permitsWithTimedBans(w('På markerade sträckor på Magasinsgatan enligt kartbild får fordon, med avvikelse från Falu kommuns lokala trafikföreskrifter 2080 2025:00418 om förbud att parkera område, parkeras. Parkering är dock förbjuden under tiden torsdag klockan 09.00 - 15.00 under tiden 15 december - 30 april.')), true);
+  // a timed stopping ban of its own is no permission: the area ban still holds beside it (Linköping Storgatan, Nacka Kadettvägen)
+  assert.equal(permitsWithTimedBans(w('På markerade sträckor på Storgatans norra sida enligt kartbild får fordon inte stannas eller parkeras. Förbudet gäller under tiden klockan 20.00 - 04.00.')), false);
+  // a plain ban, and a plain permission without a ban of its own (it has no ban line for the overlay to add to)
+  assert.equal(permitsWithTimedBans(w('På Helgavägen från vägens början i söder och ca 100 m norrut får fordon inte parkeras.')), false);
+  assert.equal(permitsWithTimedBans(w('På markerad sträcka på Helgavägen enligt kartbild får fordon parkeras.')), false);
+  // a street ban with a permission for one side keeps its all-day ban
+  assert.equal(permitsWithTimedBans(w('1 § På Grindtorpsvägen får fordon inte parkeras. 2 § Trots förbudet i 1 § får fordon parkeras på sidan med jämna adressnummer. Parkering är dock förbjuden onsdag klockan 08.00 - 12.00.')), false);
+});

@@ -1,7 +1,7 @@
 # Nacka: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-27. 2413 segments: 2413 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2403, partly read 7. Verified equal 2237, filled from text 61, text stricter 0, disputed 0, expired 3, text without rules 90, multi-part texts (not compared) 0.
+Run 2026-11-27. 2410 segments: 2410 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2403, partly read 7. Verified equal 2237, filled from text 61, text stricter 0, disputed 0, expired 0, text without rules 90, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -73,9 +73,6 @@ Fully read 2403, partly read 7. Verified equal 2237, filled from text 61, text s
 | 0182 2025-00485 | Tollarevägen | uncertain → {"f":[{"w":3,"a":480,"b":1020}],"l":[{"dt":["vardag"],"a":420,"b":1140,"max":240},{"dt":["fore"],"a":660,"b":1020,"max":240}]} | filled from text |
 | 0182 2025-00514 | Edinsvägen | uncertain → permitted (fee) | filled from text |
 | 0182 2025-00568 | Järlavägen | uncertain → permitted (fee) | filled from text |
-| 0182 2026-258 | Gillevägen | expired 2026-10-14 | now uncertain |
-| 0182 2026-258 | Gillevägen | expired 2026-10-14 | now uncertain |
-| 0182 2026-258 | Gillevägen | expired 2026-10-14 | now uncertain |
 | 0182 2026-00046 | Stadshusgatan | uncertain → {"f":[{"w":1,"a":480,"b":720}],"l":[{"dt":["vardag"],"a":420,"b":1260,"max":240},{"dt":["fore"],"a":420,"b":1260,"max":240},{"dt":["helgdag"],"a":420,"b":1260,"max":240}]} | filled from text |
 | 0182 2026-00051 | Augustendalsvägen | uncertain → {"v":"motorcykel"} | filled from text |
 | 0182 2026-00059 | Björkholmsvägen | uncertain → {"l":[{"a":0,"b":1440,"max":720}]} | filled from text |

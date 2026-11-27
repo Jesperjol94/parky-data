@@ -1,7 +1,7 @@
 # Karlskrona: published rules vs official regulation texts (re-read with the app's parser)
 
 Run 2026-11-27. 1542 segments: 1542 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 1522, partly read 19. Verified equal 1470, filled from text 12, text stricter 0, disputed 0, expired 1, text without rules 27, multi-part texts (not compared) 4.
+Fully read 1523, partly read 18. Verified equal 1470, filled from text 12, text stricter 1, disputed 0, expired 1, text without rules 27, multi-part texts (not compared) 4.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -16,5 +16,6 @@ Fully read 1522, partly read 19. Verified equal 1470, filled from text 12, text 
 | 1080 2024-49 | Drottninggatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1080 2024-73 | Östra Köpmansgatan | uncertain → {"f":[{"w":2,"a":480,"b":600}],"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1080 2024-73 | Östra Köpmansgatan | uncertain → {"f":[{"w":2,"a":480,"b":600}],"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
+| 1080 2025-15 | Norra Smedjegatan | {"l":[{"dt":["vardag"],"a":540,"b":960,"max":60},{"a":960,"b":540,"max":60}]} → {"f":[{"w":5,"a":480,"b":600}],"l":[{"dt":["vardag"],"a":540,"b":960,"max":60},{"dt":["fore"],"a":600,"b":840,"max":60},{"dt":["vardag"],"a":0,"b":540,"max":60},{"dt":["vardag"],"a":960,"b":1440,"max":60},{"dt":["fore"],"a":0,"b":600,"max":60},{"dt":["fore"],"a":840,"b":1440,"max":60},{"dt":["helgdag"],"a":0,"b":1440,"max":60}]} | text stricter: applied |
 | 1080 2025-276 | Holmgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
 | 1080 2025-276 | Holmgatan | uncertain → {"l":[{"a":0,"b":1440,"max":30}]} | filled from text |
