@@ -1,7 +1,7 @@
 // Shared pipeline helpers (cities/rdt-lib.mjs). Texts are shortened from real ones.
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { endDay, plainWholeRule } from '../rdt-lib.mjs';
+import { endDay, plainWholeRule, tableForTextRate } from '../rdt-lib.mjs';
 
 test('a regulation that ends at a clock time holds through that day: the line\'s end is the day after (sweep wave 1: Uppsala Geijersgatan)', () => {
   const body = 'På de delar av Geijersgatan som anges i kartan får fordon inte stannas eller\nparkeras.\n\nDessa föreskrifter träder i kraft den 5 oktober 2026 klockan 07:00 och upphör att gälla den 27\nnovember 2026 klockan 16:00.';
@@ -189,4 +189,14 @@ test('sweep findings batch 8: a text whose every part is a plain permission is a
   const r = parseB8(two); assert.equal(!!r.permitted, true); assert.deepEqual([r.bans, r.limits, r.allowOnly, r.unread], [[], [], [], []]); assert.equal(r.reserved, false);
   // one part with hours or a limit: not plain, stays grey
   assert.equal(plainPermit(w('På Vinbärsgatans norra sida får fordon parkeras. 2 § På Vinbärsgatans södra sida får fordon parkeras vardagar klockan 08.00 - 18.00.')), false);
+});
+
+test('tableForTextRate: the rate the text states picks the register table with that rate and day cap (QA 27 Nov: Skövde)', () => {
+  const taxa = { 1496001: { periods: [{ start: 0, end: 1440, price: 20 }] }, 1496002: { periods: [{ start: 480, end: 1080, price: 5 }], dayCap: 40 }, 1496005: { periods: [{ start: 480, end: 1080, price: 5 }] }, 149600101: { periods: [{ start: 480, end: 1080, price: 20 }] } };
+  const body = 'Avgift ska betalas för parkering enligt beslutad taxa 5kr/timme och 40kr/dygn. Avgiftsplikten gäller …';
+  assert.equal(tableForTextRate(body, taxa, 149600101), 1496002);
+  assert.equal(tableForTextRate('Avgift enligt taxa 5 kr/timme.', taxa, 1496001), 1496005);
+  assert.equal(tableForTextRate(body, taxa, 1496002), null); // already that rate
+  assert.equal(tableForTextRate('Avgift enligt taxa 3.', taxa, 1496001), null); // no rate in the text
+  assert.equal(tableForTextRate('Avgift enligt taxa 7 kr/timme.', taxa, 1496001), null); // no table with that rate
 });

@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit, stoppingBan, reservedBesideUnread, ownBans } from './rdt-lib.mjs';
+import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit, stoppingBan, reservedBesideUnread, ownBans, tableForTextRate } from './rdt-lib.mjs';
 const MONTH_NAME = /\b(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b/i;
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING, complement } from '../engine/regulation.js';
 
@@ -233,6 +233,9 @@ for (const row of idx.cities) {
     // Fee hours from the text ("Avgift enligt Taxa Zon 2 … vardagar … 09.00 - 18.00") narrow a fee table that charges all day:
     // a derived fee entry <taxa>*100+n (8 digits, never a register code) with the same price in those hours only
     // (QA 19 Oct: Växjö showed fees at night and on Sundays)
+    // The text states the rate ("Avgift ska betalas för parkering enligt beslutad taxa 5kr/timme och 40kr/dygn") and the line's table charges another one: the
+    // municipality's register table with exactly that rate (and day cap) is the line's table (QA 27 Nov: Skövde Vasagatan showed 20 kr/tim where the text says 5)
+    if (s.t && APPLY) { const id = tableForTextRate(rec.body, c.taxa, s.t); if (id) { s.t = id; changed++; st.feeRate = (st.feeRate || 0) + 1; } }
     if (r.feeWindows && s.t && APPLY) {
       const b0 = s.t >= 1e7 ? Math.floor(s.t / 100) : s.t, base = c.taxa?.[b0];
       // the text's hours replace the table's when the table has one price (all day, or hours the text narrows / gives a season to)

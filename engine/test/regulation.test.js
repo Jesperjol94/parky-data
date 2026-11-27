@@ -2060,3 +2060,15 @@ test('sweep findings batch 9: slips that hid a day or a ban (Sundsvall, Eslöv, 
   r = parseRegulation(wrap('Förbudet gäller inte Mölndals stads renhållningsfordon. På anvisad plats på södra sidan av Knarrhögsgatan väster om Göteborgsvägen (se kartbild) får fordon inte stannas eller parkeras. Förbudet gäller under tiden måndag klockan 07.00 - 09.00 och torsdag klockan 07.00 - 09.00.'));
   assert.deepEqual(r.bans, [{ w: 1, a: 420, b: 540 }, { w: 4, a: 420, b: 540 }]); assert.deepEqual(r.unread, []);
 });
+
+test('QA 27 Nov: a permission departing from a ban whose title ends in the town, and a longest stay for heavy vehicles only', () => {
+  // "…, med avvikelse från (0861 2018 : 120) om … förbud att parkera på norra sidan av Kyrkogårdsgatan, Mönsterås parkeras": a plain permission
+  let r = parseRegulation(wrap('1 § På nordvästra sidan av Kyrkogårdsgatan i Mönsterås mellan Storgatan och Parkgatan på markerade platser, får fordon, med avvikelse från (0861 2018 : 120) om Mönsterås kommuns lokala trafikföreskrifter om förbud att parkera på norra sidan av Kyrkogårdsgatan, Mönsterås parkeras.'));
+  assert.deepEqual(r.unread, []); assert.deepEqual(r.bans, []); assert.ok(r.permitted);
+  // "får buss, lastbil, motorredskap, släpfordon och traktor parkeras under högst 2 tim i följd …": no rule for cars
+  r = parseRegulation(wrap('I Kungsbacka stad får buss, lastbil, motorredskap, släpfordon och traktor parkeras under högst 2 tim i följd under tiden klockan 22.00 - 06.00. Föreskriften gäller ej på väg som är enskild. Föreskriften gäller ej på följande platser: 1) Parkeringsplats som är upplåten för sådant fordon. 2) Inom eller i omedelbar anslutning till område vari fordonet används i arbete.'));
+  assert.ok(r.heavyOnly); assert.deepEqual(r.limits, []); assert.deepEqual(r.unread, []);
+  // an ordinary vehicle keeps its limit
+  r = parseRegulation(wrap('På Storgatan får fordon parkeras under högst 2 tim i följd under tiden klockan 22.00 - 06.00.'));
+  assert.ok(!r.heavyOnly); assert.equal(r.limits.length, 1);
+});

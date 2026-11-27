@@ -210,3 +210,17 @@ export function reservedBesideUnread(r) {
 // A line's own bans: not those laid on it from an area regulation (ov: 1) or roadworks (ov: 2). Counting the laid-on bans made a one-place text "several rule sets" wherever
 // roadworks touched one of its lines, so the text was never applied (Västervik Skeppsbron kept its 10-day limit in the fee hours only).
 export const ownBans = (s) => (s.f || []).filter((w) => !w.ov);
+
+// The text states the rate ("Avgift ska betalas för parkering enligt beslutad taxa 5kr/timme och 40kr/dygn") and the line's table charges another one: the
+// municipality's register table with exactly that rate (and day cap, or none when the text gives none) is the line's table. Returns its id, or null.
+// (QA 27 Nov: Skövde Vasagatan and 30 more regulations showed 20 kr/tim where the text says 5)
+export function tableForTextRate(body, taxa, t) {
+  if (!t || !taxa) return null;
+  const pm = body.replace(/\s+/g, ' ').match(/\btaxa:?\s*(\d+)\s*(?:kr|kronor)\s*(?:\/|per)\s*tim(?:me|men)?\b(?:,?\s*(?:och\s*)?(?:högst\s*)?(\d+)\s*(?:kr|kronor)\s*(?:\/|per)\s*dygn(?:et)?\b)?/i);
+  if (!pm) return null;
+  const N = +pm[1], M = pm[2] ? +pm[2] : null;
+  const base = taxa[t >= 1e7 ? Math.floor(t / 100) : t];
+  if (!base?.periods?.length || base.periods.every((p) => p.price === N)) return null;
+  const id = Object.keys(taxa).map(Number).find((k) => k < 1e7 && taxa[k].periods?.length && taxa[k].periods.every((p) => p.price === N) && (M == null ? !taxa[k].dayCap : taxa[k].dayCap === M));
+  return id || null;
+}
