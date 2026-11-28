@@ -253,3 +253,21 @@ test('a longest stay for permit holders that deviates from the signed time is th
   assert.equal(permitHolderLimit('På Storgatan får fordon parkeras högst 2 timmar i följd.'), 0);
   assert.equal(permitHolderLimit('får endast fordon med tillstånd parkeras under högst 24 tim.'), 0);
 });
+
+test('a start date far in the future is a slip, not a regulation waiting to start (Gävle Valbovägen "3010-03-10")', async () => {
+  const { startDay } = await import('../rdt-lib.mjs');
+  assert.equal(startDay('3010-03-10', '2026-11-28'), null);
+  assert.equal(startDay('2026-12-15', '2026-11-28'), '2026-12-15'); // a real start next month stays
+  assert.equal(startDay('2027-06-01', '2026-11-28'), '2027-06-01');
+  assert.equal(startDay('2026-11-01', '2026-11-28'), null); // already in force
+  assert.equal(startDay(null, '2026-11-28'), null);
+});
+
+test('a fee table without periods is "fee – see the sign", not free (Kalmar Bjelkegatan)', async () => {
+  const { emptyFeeTable } = await import('../rdt-lib.mjs');
+  const taxa = { 880009: { periods: [], label: 'avgift eller 600 kr/månad' }, 1481001: { periods: [], label: 'avgift, övrig tid 1 kr/tim', otherTime: 1 }, 880001: { periods: [{ days: ['vardag'], start: 540, end: 1080, price: 10 }], label: '10 kr/tim' } };
+  assert.equal(emptyFeeTable(taxa, 880009), true);
+  assert.equal(emptyFeeTable(taxa, 1481001), false); // an "other time" rate is a fee at all hours
+  assert.equal(emptyFeeTable(taxa, 880001), false);
+  assert.equal(emptyFeeTable(taxa, 0), false); assert.equal(emptyFeeTable(taxa, null), false);
+});

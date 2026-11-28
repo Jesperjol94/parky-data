@@ -1,6 +1,6 @@
 # Orust: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-27. 392 segments: 392 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-28. 392 segments: 392 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 378, partly read 14. Verified equal 327, filled from text 2, text stricter 0, disputed 0, expired 0, text without rules 46, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |

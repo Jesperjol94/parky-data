@@ -1,7 +1,7 @@
 # Landskrona: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-28. 2824 segments: 2824 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2814, partly read 8. Verified equal 1590, filled from text 9, text stricter 0, disputed 0, expired 2, text without rules 15, multi-part texts (not compared) 0.
+Run 2026-11-28. 2822 segments: 2822 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2814, partly read 8. Verified equal 1590, filled from text 9, text stricter 0, disputed 0, expired 0, text without rules 15, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -14,5 +14,3 @@ Fully read 2814, partly read 8. Verified equal 1590, filled from text 9, text st
 | 1282 2024-00075 | Stora Norregatan | uncertain → {"f":[{"dt":["vardag"],"a":660,"b":360},{"dt":["fore"],"a":660,"b":360},{"dt":["helgdag"],"a":660,"b":360}]} | filled from text |
 | 1282 2024-00075 | Nygatan | uncertain → {"f":[{"dt":["vardag"],"a":660,"b":360},{"dt":["fore"],"a":660,"b":360},{"dt":["helgdag"],"a":660,"b":360}]} | filled from text |
 | 1282 2024-00075 | Rådhusgatan | uncertain → {"f":[{"dt":["vardag"],"a":660,"b":360},{"dt":["fore"],"a":660,"b":360},{"dt":["helgdag"],"a":660,"b":360}]} | filled from text |
-| 1282 2026-00185 | Karmelitergatan | expired 2026-11-27 | now uncertain |
-| 1282 2026-00215 | Mellangatan | expired 2026-11-27 | now uncertain |

@@ -1,7 +1,7 @@
 # Nybro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-27. 98 segments: 98 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 97, partly read 1. Verified equal 96, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
+Run 2026-11-28. 98 segments: 98 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 96, partly read 2. Verified equal 95, filled from text 1, text stricter 0, disputed 0, expired 0, text without rules 0, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|

@@ -287,3 +287,18 @@ export function permitHolderLimit(body) {
   if (!m) return 0;
   return +m[1] * ({ dygn: 1440, dagar: 1440, timmar: 60, timme: 60, tim: 60, minuter: 1, min: 1 }[m[2].toLowerCase()]);
 }
+
+// A start date far in the future is a slip of the pen in the register ("3010-03-10" in a regulation of 2010): the regulation is in force, it has no start
+// to wait for. The app shows a line with a future `fr` as free until then (sweep findings batch 12: Gävle Valbovägen 2180 2010-577, a parking ban shown free).
+export function startDay(from, today) {
+  if (!from || !/^\d{4}-\d{2}-\d{2}$/.test(from) || from <= today) return null;
+  return +from.slice(0, 4) - +today.slice(0, 4) > 5 ? null : from;
+}
+
+// A register fee table without a single period (the register named the tariff but no hours: "avgift eller 600 kr/månad") makes the app answer "free" at all hours.
+// Such a line is a fee line whose hours the table does not know: "fee – see the sign", with the text's fee hours when it gives them (rdt-reparse derives them).
+// Not a table that only holds an "other time" rate (sweep findings batch 12: Kalmar Bjelkegatan 0880 2022-433 was free in its fee hours).
+export function emptyFeeTable(taxa, t) {
+  const e = t && taxa ? taxa[t] : null;
+  return !!(e && Array.isArray(e.periods) && !e.periods.length && !e.otherTime);
+}

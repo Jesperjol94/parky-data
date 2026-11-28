@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit, stoppingBan, reservedBesideUnread, ownBans, tableForTextRate, oneOffEnd, limitsFromText, permitHolderLimit } from './rdt-lib.mjs';
+import { startDay, emptyFeeTable, endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit, stoppingBan, reservedBesideUnread, ownBans, tableForTextRate, oneOffEnd, limitsFromText, permitHolderLimit } from './rdt-lib.mjs';
 const MONTH_NAME = /\b(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b/i;
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING, complement } from '../engine/regulation.js';
 
@@ -143,7 +143,7 @@ for (const row of idx.cities) {
     if (APPLY) {
       const body = rec.body.replace(/\s+/g, ' ').replace(/med avvikelse från [^,.]*?trafikföreskrifter[^,.]*? om [^,.]*,/gi, ' ').replace(/(?:ger|ge) (?:inte|ej) rätt att[^.]*/gi, '').replace(/där det (?:enligt [^.]*?)?är förbjudet att stanna (?:eller|och) parkera[^.]*/gi, ''); // boilerplate about other bans
       // validity: a regulation not yet in force, or one that ends later, is dated on the segment (the app honours fr/to)
-      const fr = rec.from && /^\d{4}-\d{2}-\d{2}$/.test(rec.from) && rec.from > today ? rec.from : null;
+      const fr = startDay(rec.from, today); // not a start date far in the future: a slip (Gävle 2180 2010-577 "3010")
       const to = endDay(rec);
       if ((s.fr || null) !== fr) { if (fr) s.fr = fr; else delete s.fr; changed++; }
       if ((s.to || null) !== to) { if (to) s.to = to; else delete s.to; changed++; }
@@ -181,6 +181,7 @@ for (const row of idx.cities) {
     // "Avgift – se skylten" (fu: a fee, but the rate is in another regulation) charged around the clock in the app, although
     // the text gives the fee hours (owner 24 Oct: Norrköping Torggatan/Fleminggatan said "fee" on a Saturday night).
     // The hours become a fee entry with an unknown price (null = "see the sign"), free outside them: <kommun>999*100+n.
+    if (APPLY && emptyFeeTable(c.taxa, s.t)) { s.t = null; s.fu = 1; changed++; st.emptyFeeTable = (st.emptyFeeTable || 0) + 1; } // a fee table without hours: "fee – see the sign", in the text's fee hours when it gives them (next rule)
     if (r.feeWindows && (s.t == null || Math.floor(s.t / 100) === +c.kommunkod * 1000 + 999) && s.fu && APPLY && !r.unread.some((u) => /avgift|taxa/i.test(u)) && rec.body.split(/\.\s+/).filter((x) => /^\s*(?:\d+ §\s*)?avgift/i.test(x) && /(?:klockan|kl\.?)\s*\d/i.test(x)).length <= 1) { // one fee rule in the text, even for several stretches
       const fws2 = r.feeWindows.filter((w) => !w.w && !w.p && !w.dm && !w.nw && !w.dd && !w.wk).flatMap((w) => (w.a < w.b ? [w] : [{ ...w, b: 1440 }, { ...w, a: 0 }]));
       const periods = fws2.map((w) => clean({ days: w.dt || ['vardag', 'fore', 'helgdag'], start: w.a, end: w.b, price: 0, m: w.m })).map((p) => ({ ...p, price: null }));

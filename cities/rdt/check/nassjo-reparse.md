@@ -1,6 +1,6 @@
 # Nässjö: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-27. 1876 segments: 1876 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-28. 1876 segments: 1876 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1875, partly read 1. Verified equal 1856, filled from text 15, text stricter 0, disputed 0, expired 0, text without rules 2, multi-part texts (not compared) 2.
 
 | Citation | Street | Change | Note |

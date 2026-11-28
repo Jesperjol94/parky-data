@@ -1,6 +1,6 @@
 # Karlstad: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-27. 1656 segments: 1656 with a text, 0 without a cached text, 0 fetch errors.
+Run 2026-11-28. 1656 segments: 1656 with a text, 0 without a cached text, 0 fetch errors.
 Fully read 1646, partly read 10. Verified equal 1252, filled from text 10, text stricter 0, disputed 0, expired 0, text without rules 374, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |

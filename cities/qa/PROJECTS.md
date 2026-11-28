@@ -518,6 +518,49 @@ Log:
   before "parkeras"), Vimmerby Nybbleparkeringen ("Tidsbegräsningen gäller vardag före sön- och helgdag" alone: looks like a slip), Värmdö Viks skolväg and Heby Kyrkvägen (garbled),
   overlaid roadworks bans whose `to` the engine ignores (harmless while rdt-temp runs daily), end dates with a clock time (by design the day after).
   Still open: 62 loose, 249 strict and 284 unsure rows with unchanged lines; about 155 grey regulations with a clear text that are not tiny.
+- 2026-11-28 batch 12 · the 62 loose rows outside Stockholm whose lines had not changed since the sweep read again by hand (text, parse and today's line side by side),
+  and the 284 unsure rows grouped for the first time (100 of them "no text or garbled", 52 disabled bays, 24 fees, 19 seasons); 91 regulations read by hand · confirmed and
+  fixed, each with a test (43 lines of 23 regulations in 13 municipalities changed; the parser reads 64 of 61,211 texts differently; of Stockholm's 9,606 one, a flag only):
+  (1) old decision forms that had "no rule text" (the largest unsure group): 849 regulations / 1,350 lines have no text the parser can use; 46 of them are readable but
+  have no "föreskriver följande" (Nynäshamn ×14 "… trafikförordningen (1998:1276) På X får fordon inte parkeras. Dessa föreskrifter träder …", Kristinehamn ×16 "Lokal
+  trafikföreskrift 10 kap 1 § 2 st 13 TrF (1998:1276) Parkering På norra sidan av X …", Svedala ×5 "Föreskrift FÖRBUD ATT STANNA FORDON §1 Förbud att stanna eller parkera
+  på X. Förbudet gäller vardagar kl 7-9 samt kl 13-16", Storfors ×5 "… att från och med 2010-07-01 är parkering förbjuden längs X", Sigtuna "fOreskriver … fOljande:",
+  Lilla Edet, Lidingö, Karlskoga): `ruleText` now finds the rule in these forms; 71 lines are checked against their text for the first time. Changed: Svedala Pilgatan's
+  stopping ban gained 13–16 and Saturdays, Kristinehamn Byggmästaregatan's 1 h limit holds every day (was Saturdays), Trädgårdsgatan and Västerlånggatan are bans (the
+  register had taxi bays), Svedala Södergatan's car park is no longer grey.
+  (2) Sotenäs' summer fee and winter limit (4 regulations, 11 lines): "3 § 1 juni - 31 augusti mellan klockan 8 och 20 gäller tillåtelsen i 1 § mot avgift eller högst 1
+  timme … parkeringsskiva" (the season before the hours) was unread, so Kaptensgatan, Lahällevägen and Styrmansgatan charged Mon–Fri all year and had the winter's 24 h
+  limit in summer: now 24 h Mon–Fri 1 Sep–31 May and the fee every day 08–20 in summer. "6 § … villkoren i 2 § gäller 1 september - 31 maj. 7 § … villkoren i 3 § gäller
+  1 juni - 31 augusti" when the sentence list does not line up with the paragraphs: the named paragraph's own words say whether the season is its limit's or the fee's
+  (Delfingatan/Dammgatan: limit in winter, fee in summer). This closes the Sotenäs rows left since batch 4.
+  (3) the same day type twice with different hours in the limit's own sentence ("2 § Tidsbegränsningen gäller vardag före … 08.00 - 18.00 samt vardag före … 08.00 - 15.00",
+  "Villkoret gäller under tiden vardagar före … och vardag före …"): flagged as a slip like the same shape in the permission sentence, the line goes grey (7 lines: Vimmerby
+  Storgatan and Tullport ×4, Nybro Västra Magasinsgatan, Haninge Odinsvägen; two of them had the limit on Saturdays only). Not when the fee's hours run into the sentence
+  (Skövde Norrmalm ×49 lines: tested).
+  (4) fee hours and days (10 lines): "Avgiftsfri parkering i 20 minuter gäller mellan klockan 08:00-16:00" and "Föreskriften hänger samman med föreskriften på Bovik, …"
+  are no rule and kept texts half-read: Finspång's two school car parks charge on Saturdays too (plain "vardag"), Lysekil Östra kajen has its 4 h limit and fee every day
+  15 June–15 August (were Sundays only, the fee all year); new pipeline rule `emptyFeeTable`: a register fee table without a single period is "fee – see the sign" in the
+  text's fee hours (Kalmar Bjelkegatan was free in its fee hours Mon–Sat 09–18); a fee window stated twice is one.
+  (5) Växjö: the group after a comma ("… högst 2 timmar i följd, Gäller rörelsehindrade med tillstånd.", "… utan avgift, gäller bussar och tunga lastbilar alla dagar kl
+  00.00 - 24.00."): a disabled bay and a bus bay that were open to every car (2 lines).
+  (6) new pipeline rule `startDay`: a start date more than five years ahead is a slip (Gävle Valbovägen 2180 2010-577 "träder i kraft den 10 mars 3010": the parking ban
+  was shown as free until then; the lead of 21 Nov).
+  Independent check by a reviewer who saw only the texts and the old and new lines (every quote checked by machine against the text): all 21 distinct changes: 20 confirmed,
+  1 not: Kristinehamn 1781 2004-198, where the stopping flag was cleared ("får inte fordon parkeras" under the heading "Förbud att stanna eller parkera fordon"). Kept: it is
+  batch 8's rule (the flag is judged on the operative sentence, not the heading), the ban itself is unchanged and no car is let in. No line lost a ban, a limit or a
+  reservation without getting a stricter rule; Lysekil's fee lost its off-season Sundays (confirmed).
+  Read and left: Mölndal's "Avgiftsplikten gäller vardagar och sön- och helgdagar" ×9 (the Sunday hours are in no text: project 4), Kalmar's residents' places ×3 and
+  Proviantgatan, Sotenäs' and Tanum's seasonal permissions without an area ban in the text (2021-9, 2018-18/-20/-22/-28, 2019-26, Tanum 2024-100: what holds off season is
+  not in the text), Växjö "alla dagar utom måndagar och torsdagar 06.00-08.00" and "Gäller alla dagar utom vardagar kl 07.00 - 16.00 …" (the limit sits in the excepted
+  hours: needs the complement, 2 lines), Nässjö ×2 ("vardag utom dag före" where Saturday is meant: a slip with two different phrases), Lidköping Kylandersgatan, Kumla
+  Djupadalsparkeringen and Tanum Nestorsvägen (permission hours beside a limit), Uddevalla's "övrig tid 2 kr/tim" only in the table's label ×2, Borgholm "Endast 24 timmars
+  parkering", Tanum Sjövägen 2025-24, Burlöv Elisetorpsvägen, Strömstad Ångbåtskajen, Upplands-Bro Furuhällsplan (fee after a free first hour: the line shows no fee),
+  multi-part texts (Täby, Ekerö, Norrtälje, Svedala Finnebjersgatan), Jönköping "helgfria" ×3 and Umeå date parking (app side).
+  Cannot be settled from the text (about 100 unsure rows; do not read again): 803 regulations whose document has no text layer or a garbled one (Karlskoga 173, Lomma 150,
+  Tranås 116, Finspång 88, Umeå 85, Trosa 58, Torsby 35, Enköping 25, Tomelilla 25 …; their 1,279 lines follow the register only). They need the PDFs fetched again with OCR,
+  which a project run cannot do (no access to the register from here); Kristinehamn's "får inte fordon stanna eller parkeras" ×3 is still unread.
+  Still open: 50 loose, 246 strict and 280 unsure rows with unchanged lines (about 100 of the unsure ones are the documents without text); about 155 grey regulations with a
+  clear text that are not tiny.
 
 ### 1. [ ] The app allows more than the sign: flagged lines
 The audit's "looser" leads, smallest and most harmful first. One batch per check, in this order:

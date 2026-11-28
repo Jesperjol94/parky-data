@@ -10,4 +10,4 @@ Fully read 2565, partly read 21. Verified equal 2558, filled from text 5, text s
 | 1880 2025-00256 | Slottsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"even"}],"l":[{"dt":["vardag"],"a":360,"b":1320,"max":180},{"dt":["fore"],"a":360,"b":1320,"max":180},{"dt":["helgdag"],"a":360,"b":1320,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1880 2025-00675 | Honolulugatan | uncertain → {"f":[{"w":4,"a":0,"b":540}]} | filled from text |
 | 1880 2026-00769 | Rostagatan | uncertain → {"f":[{"w":2,"a":0,"b":540}]} | filled from text |
-| 1880 2026-01347 | Poesigatan | expired 2026-11-28 | now uncertain |
+| 1880 2026-01347 | Poesigatan | expired 2026-11-28 | already uncertain |

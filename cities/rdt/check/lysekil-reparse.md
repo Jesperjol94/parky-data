@@ -1,7 +1,7 @@
 # Lysekil: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-27. 449 segments: 449 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 431, partly read 18. Verified equal 413, filled from text 9, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 3.
+Run 2026-11-28. 449 segments: 449 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 432, partly read 17. Verified equal 414, filled from text 9, text stricter 0, disputed 0, expired 0, text without rules 6, multi-part texts (not compared) 3.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
