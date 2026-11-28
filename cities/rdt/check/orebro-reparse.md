@@ -1,7 +1,7 @@
 # Örebro: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-27. 2587 segments: 2587 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 2566, partly read 21. Verified equal 2559, filled from text 5, text stricter 0, disputed 0, expired 0, text without rules 1, multi-part texts (not compared) 0.
+Run 2026-11-28. 2587 segments: 2587 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 2565, partly read 21. Verified equal 2558, filled from text 5, text stricter 0, disputed 0, expired 1, text without rules 1, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -10,3 +10,4 @@ Fully read 2566, partly read 21. Verified equal 2559, filled from text 5, text s
 | 1880 2025-00256 | Slottsgatan | uncertain → {"f":[{"a":0,"b":360,"dd":"even"}],"l":[{"dt":["vardag"],"a":360,"b":1320,"max":180},{"dt":["fore"],"a":360,"b":1320,"max":180},{"dt":["helgdag"],"a":360,"b":1320,"max":180}],"v":"rörelsehindrade"} | filled from text |
 | 1880 2025-00675 | Honolulugatan | uncertain → {"f":[{"w":4,"a":0,"b":540}]} | filled from text |
 | 1880 2026-00769 | Rostagatan | uncertain → {"f":[{"w":2,"a":0,"b":540}]} | filled from text |
+| 1880 2026-01347 | Poesigatan | expired 2026-11-28 | now uncertain |

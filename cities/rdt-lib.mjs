@@ -274,3 +274,16 @@ export function permitsWithTimedBans(body) {
   const allDay = (w) => w.a === 0 && w.b === 1440 && !w.w && !w.dt && !w.m && !w.nw && !w.dm && !w.p && !w.wk && !w.dd;
   return !!p.permitted && !p.reserved && !p.heavyOnly && p.bans.length > 0 && !p.bans.some(allDay) && !p.unread.length;
 }
+
+// A longest stay granted to permit holders as an exception to the place's own signed time ("Ett fordon med för platsen gällande
+// boendeparkeringstillstånd får med avvikelse från gällande tidsangivelse på platsen parkeras högst 7 dygn i följd", "fordon med för platsen
+// gällande tillstånd får, med avvikelse från gällande tidsbegränsning på platsen …"): the text says the place has another time for everyone
+// else, which it does not give. The register's limit on such a line is the permit holders' and no rule for an ordinary car, so the line is
+// grey "check the sign" (QA 28 Nov: Landskrona's 1,188 resident-parking lines showed 7 days for every car; Kungsbacka 14 days).
+// Returns the permit holders' longest stay in minutes, or 0.
+export function permitHolderLimit(body) {
+  const b = String(body || '').replace(/\s+/g, ' ');
+  const m = b.match(/\b(?:fordon|personbil(?:ar)?)\s+med\s+(?:för platsen gällande\s+|giltigt\s+|särskilt\s+)?(?:boende)?(?:parkerings)?tillstånd\b[^.]{0,60}?\bfår,?\s+med avvikelse från gällande (?:tidsangivelse|tidsbegränsning|tidsbestämmelse)[^.]{0,160}?\bparkeras\s+(?:under\s+)?högst\s+(\d+)\s*(dygn|dagar|timm(?:ar|e)|tim|minuter|min)\b/i);
+  if (!m) return 0;
+  return +m[1] * ({ dygn: 1440, dagar: 1440, timmar: 60, timme: 60, tim: 60, minuter: 1, min: 1 }[m[2].toLowerCase()]);
+}

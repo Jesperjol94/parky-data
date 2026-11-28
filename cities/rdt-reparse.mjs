@@ -14,7 +14,7 @@ import path from 'node:path';
 import zlib from 'node:zlib';
 import crypto from 'node:crypto';
 const clean = (o) => { for (const k of Object.keys(o)) if (o[k] == null) delete o[k]; return o; };
-import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit, stoppingBan, reservedBesideUnread, ownBans, tableForTextRate, oneOffEnd, limitsFromText } from './rdt-lib.mjs';
+import { endDay, dropOtherTimeFree, limitSeasonFromBan, dayTypesFromText, limitSeasonNotInText, nthWeekdayFromText, carsPermitted, plainPermit, stoppingBan, reservedBesideUnread, ownBans, tableForTextRate, oneOffEnd, limitsFromText, permitHolderLimit } from './rdt-lib.mjs';
 const MONTH_NAME = /\b(?:januari|februari|mars|april|maj|juni|juli|augusti|september|oktober|november|december)\b/i;
 import { parseRegulation, weekdaysAsDayTypes, utomForeOnly, expired, ruleText, samePlaceExceptions, outsideHours, dropFreeFirstHours, dropGeneralRuleQuote, datedPeriodEnd, dropRepealSentences, STOPPING, complement } from '../engine/regulation.js';
 
@@ -198,6 +198,8 @@ for (const row of idx.cities) {
     // the hours and days of the limit, from the text, when the line holds the same limit more widely (limitsFromText). Not for bays (the limit is the permit holders'),
     // not for grey lines, and not when an unread sentence may be about a limit or other hours
     if (APPLY && !s.u && !s.v && s.l && r.limits.length && !r.textSlip && !r.unread.some((u) => /högst|\btim|\bmin|dygn|tidsbegr|övrig|^villkor|^tillåtelsen gäller/i.test(u))) { const nl = limitsFromText(s.l, r.limits); if (nl) { s.l = nl; s.rx = 1; changed++; st.limitHours = (st.limitHours || 0) + 1; } }
+    // the line's limit is the permit holders' exception to the place's own signed time, which the text does not give (permitHolderLimit): grey for an ordinary car (QA 28 Nov: Landskrona, Kungsbacka)
+    { const ph = permitHolderLimit(rec.body); if (ph && !s.v && (s.l || []).length && s.l.every((l) => l.max === ph)) { if (APPLY && !s.u) { s.u = 1; s.ux = 1; changed++; st.permitHolderLimitGrey = (st.permitHolderLimitGrey || 0) + 1; } if (s.u) st.uStill++; if (!full) st.partlyRead++; else st.fullyRead++; continue; } }
     if (r.textSlip && !s.v) { if (APPLY && !s.u) { s.u = 1; s.ux = 1; changed++; st.slipGrey = (st.slipGrey || 0) + 1; } if (s.u) st.uStill++; st.partlyRead++; continue; } // the same day type twice with overlapping hours: a slip in the text, the line can't be trusted either way (QA 16 Nov round 30: Hässleholm Tredje Avenyen, Helsingborg Gasverksgatan)
     if (r.seasonOnly && !s.v && !(s.f || []).some((f) => f.a === 0 && f.b === 1440 && f.m && !f.w && !f.dt)) { if (APPLY && !s.u) { s.u = 1; s.ux = 1; changed++; st.seasonOnlyGrey = (st.seasonOnlyGrey || 0) + 1; } if (s.u) st.uStill++; if (!full) st.partlyRead++; else st.fullyRead++; continue; }
     if (!full) { st.partlyRead++; for (const u of r.unread) { const p = pattern(u); const e = unread.get(p) || { n: 0, ex: u.slice(0, 200), c: s.c }; e.n++; unread.set(p, e); } if (s.u) st.uStill++; 

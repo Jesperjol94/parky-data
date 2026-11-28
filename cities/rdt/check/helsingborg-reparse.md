@@ -1,7 +1,7 @@
 # Helsingborg: published rules vs official regulation texts (re-read with the app's parser)
 
-Run 2026-11-27. 3471 segments: 3471 with a text, 0 without a cached text, 0 fetch errors.
-Fully read 3410, partly read 61. Verified equal 3111, filled from text 30, text stricter 0, disputed 0, expired 0, text without rules 237, multi-part texts (not compared) 0.
+Run 2026-11-28. 3471 segments: 3471 with a text, 0 without a cached text, 0 fetch errors.
+Fully read 3409, partly read 61. Verified equal 3110, filled from text 30, text stricter 0, disputed 0, expired 1, text without rules 237, multi-part texts (not compared) 0.
 
 | Citation | Street | Change | Note |
 |---|---|---|---|
@@ -48,4 +48,5 @@ Fully read 3410, partly read 61. Verified equal 3111, filled from text 30, text 
 | 1283 2014-00444 | Brunnbäcksgatan | uncertain → {"l":[{"a":0,"b":1440,"max":10080}]} | filled from text |
 | 1283 2014-00445 | Luggudegatan | uncertain → {"l":[{"dt":["vardag"],"a":540,"b":1080,"max":60},{"dt":["fore"],"a":540,"b":840,"max":60}]} | filled from text |
 | 1283 2016-289 | Övre Långvinkelsgatan | uncertain → {"f":[{"w":1,"nw":3,"a":480,"b":720}]} | filled from text |
+| 1283 2026-521 | Hantverkaregatan | expired 2026-11-27 | now uncertain |
 | 1283 2026-649 | Hantverkaregatan | uncertain → {"f":[{"w":4,"nw":2,"a":360,"b":540}],"l":[{"dt":["vardag"],"a":540,"b":1080,"max":120},{"dt":["fore"],"a":540,"b":900,"max":120}]} | filled from text |

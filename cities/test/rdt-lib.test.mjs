@@ -244,3 +244,12 @@ test('permitsWithTimedBans: a street permission with a cleaning-day ban takes no
   // a street ban with a permission for one side keeps its all-day ban
   assert.equal(permitsWithTimedBans(w('1 § På Grindtorpsvägen får fordon inte parkeras. 2 § Trots förbudet i 1 § får fordon parkeras på sidan med jämna adressnummer. Parkering är dock förbjuden onsdag klockan 08.00 - 12.00.')), false);
 });
+
+test('a longest stay for permit holders that deviates from the signed time is the permit holders\' (Landskrona, Kungsbacka)', async () => {
+  const { permitHolderLimit } = await import('../rdt-lib.mjs');
+  assert.equal(permitHolderLimit('Ett fordon med för platsen gällande boendeparkeringstillstånd får med avvikelse från gällande tidsangivelse på platsen parkeras högst 7 dygn i följd.'), 7 * 1440);
+  assert.equal(permitHolderLimit('Fordon med för platsen gällande tillstånd får, med avvikelse från gällande tidsbegränsning på platsen om denna har tillägget -L- efter boende, parkeras högst 14 dygn i följd.'), 14 * 1440);
+  // a plain limit for every car, or a bay reserved for permit holders, is not this shape
+  assert.equal(permitHolderLimit('På Storgatan får fordon parkeras högst 2 timmar i följd.'), 0);
+  assert.equal(permitHolderLimit('får endast fordon med tillstånd parkeras under högst 24 tim.'), 0);
+});
